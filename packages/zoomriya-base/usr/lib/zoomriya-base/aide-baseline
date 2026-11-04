@@ -1,0 +1,16 @@
+#!/bin/sh
+# Make AIDE's baseline of the OS's files, or refresh it after an update
+# (design §8), so the nightly check only reports what changed outside one.
+set -eu
+
+conf=/usr/share/zoomriya-base/aide.conf
+dir=/var/lib/zoomriya-aide
+mkdir -p "$dir"
+chmod 0700 "$dir"
+# One at a time (after an apt run and by hand, say): otherwise a slower, older
+# run could finish last and put back a baseline from before the newer one.
+exec 9>"$dir/baseline.lock"
+flock 9
+aide --config="$conf" --init >/dev/null
+mv "$dir/aide.db.new.gz" "$dir/aide.db.gz"
+echo "AIDE's baseline of the OS's files is up to date."

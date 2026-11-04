@@ -1,0 +1,25 @@
+#!/bin/sh
+# The setup code (design §5): whoever opens the setup page must type it, so
+# only someone holding the box can claim it. The factory writes it to the EFI
+# partition, matching the sticker; neither reset erases it there. A box with
+# none (a mini PC installed from the USB stick) makes one at its first start
+# and shows it on the screen and in the journal.
+set -eu
+
+dir=/efi/zoomriya
+code=$dir/setup-code
+[ -s "$code" ] && exit 0
+
+# Letters and digits that can't be misread: no 0/O, 1/I/L.
+alphabet=23456789ABCDEFGHJKMNPQRSTUVWXYZ
+made=$(od -An -N8 -tu1 /dev/urandom | awk -v a="$alphabet" '{
+    for (i = 1; i <= NF; i++) { printf "%s", substr(a, $i % length(a) + 1, 1); if (i == 4) printf "-" } }')
+
+mkdir -p "$dir"
+printf '%s\n' "$made" > "$code.new"
+mv "$code.new" "$code"
+sync
+
+message="This box's setup code is $made. Keep it: you need it to set the box up."
+echo "$message"
+printf '\n%s\n\n' "$message" > /dev/console 2>/dev/null || true

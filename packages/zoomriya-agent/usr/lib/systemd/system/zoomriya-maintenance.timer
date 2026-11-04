@@ -1,0 +1,13 @@
+# The maintenance hour (design §6.1): when an update or a restore waits for a
+# restart, the box restarts then. An admin moves the hour in Box Desktop, which
+# writes a drop-in over OnCalendar.
+[Unit]
+Description=ZOOMRIYA maintenance hour
+Documentation=https://github.com/zoomriya/zoomriya-os/blob/main/docs/design.md#61-debian-security-fixes
+
+[Timer]
+OnCalendar=*-*-* 03:30:00
+AccuracySec=1min
+
+[Install]
+WantedBy=timers.target

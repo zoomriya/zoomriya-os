@@ -1,0 +1,10 @@
+#!/bin/sh
+# Give Debian its os-release, login banners and message of the day back.
+set -e
+
+if [ "$1" = remove ] || [ "$1" = purge ] || [ "$1" = abort-install ]; then
+    rm -f /usr/lib/os-release /etc/issue /etc/issue.net /etc/motd
+    for f in /usr/lib/os-release /etc/issue /etc/issue.net /etc/motd /etc/update-motd.d/10-uname; do
+        dpkg-divert --package zoomriya-base --remove --rename --divert "$f.debian" "$f"
+    done
+fi

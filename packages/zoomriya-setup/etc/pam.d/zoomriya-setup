@@ -1,0 +1,6 @@
+# The first setup's session on the box's screen (zoomriya-setup.service): a
+# seat session, so it may use the screen, keyboard and mouse. No password:
+# nobody signs in to it.
+account  required  pam_unix.so
+session  required  pam_unix.so
+session  required  pam_systemd.so

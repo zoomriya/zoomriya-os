@@ -1,0 +1,17 @@
+# Erase everything (design §4): runs at the first start after an admin asked
+# for it, before /data and the other subvolumes are mounted.
+[Unit]
+Description=Erase everything, as asked for in Box Desktop
+Documentation=https://github.com/zoomriya/zoomriya-os/blob/main/docs/design.md#4-boot-recovery-and-factory-reset
+DefaultDependencies=no
+After=systemd-remount-fs.service
+Before=local-fs-pre.target
+Wants=local-fs-pre.target
+ConditionPathExists=/var/lib/zoomriya-base/erase-pending
+
+[Service]
+Type=oneshot
+ExecStart=/usr/lib/zoomriya-base/erase
+
+[Install]
+WantedBy=local-fs.target

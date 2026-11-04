@@ -1,0 +1,309 @@
+/* Box Desktop's look, as the mockup and the apps' themes: white windows and
+   cards with soft shadows over the wallpaper, a frosted top bar, Inter at
+   14 px. Two weights stand out: 700 for a page's title, 600 for everything
+   else. Two themes, Daylight (the default) and Midnight, chosen by each admin. */
+window {
+  --text: #1b2733;
+  --text-secondary: #3a4754;
+  --muted: #56636f;
+  --panel: #ffffff;
+  --sidebar: #f6f8fa;
+  --taskbar: rgba(247, 247, 249, 0.94);
+  --line: #e5eaf0;
+  --line-strong: #cdd5dd;
+  --hover: rgba(118, 118, 128, 0.12);
+  --pressed: rgba(118, 118, 128, 0.2);
+  --selected: #e3eefb;
+  /* The logo's letters (zoomriya_setup/brand.py): the brand navy, light on Midnight. */
+  --brand-text: #02239c;
+  /* Control Panel (settings.py): its page, the groups' cards, a pressed segment. */
+  --page: #f2f4f7;
+  --card: #ffffff;
+  --segment: #ffffff;
+  --accent: #1765c1;
+  --accent-hover: #0f4c95;
+  --on-accent: #ffffff;
+  --ok: #1f7a35;
+  --ok-bg: rgba(31, 122, 53, 0.12);
+  --warn: #c93400;
+  --warn-bg: rgba(201, 52, 0, 0.12);
+  --danger: #d70015;
+  --danger-bg: rgba(215, 0, 21, 0.1);
+  --button: #ffffff;
+  --button-hover: #f6f8fa;
+  --hairline: rgba(0, 0, 0, 0.08);
+  --glass: rgba(255, 255, 255, 0.95);
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.04), 0 4px 16px rgba(0, 0, 0, 0.06);
+  --shadow-soft: 0 2px 4px rgba(0, 0, 0, 0.04), 0 10px 28px rgba(0, 0, 0, 0.1);
+  --shadow-window: 0 4px 12px rgba(0, 0, 0, 0.08), 0 28px 70px rgba(0, 0, 0, 0.28);
+
+  color: var(--text);
+  background: #0a1c2e;
+  font-family: "Inter Variable", "Inter", sans-serif;
+  font-size: 14px;
+}
+window.midnight {
+  --text: #d6dbe5;
+  --brand-text: #eef1f8;
+  --page: #181d2b;
+  --card: #21283a;
+  --segment: #3a4257;
+  --text-secondary: #a9b1c3;
+  --muted: #838b9f;
+  --panel: #181d2b;
+  --sidebar: #131724;
+  --taskbar: rgba(19, 23, 36, 0.92);
+  --line: rgba(255, 255, 255, 0.08);
+  --line-strong: rgba(255, 255, 255, 0.14);
+  --hover: rgba(255, 255, 255, 0.08);
+  --pressed: rgba(255, 255, 255, 0.14);
+  --selected: rgba(123, 147, 255, 0.14);
+  --accent: #6f86e8;
+  --accent-hover: #8a9df0;
+  --on-accent: #0b0e1a;
+  --ok: #3ecf8e;
+  --ok-bg: rgba(62, 207, 142, 0.12);
+  --warn: #f2c14e;
+  --warn-bg: rgba(242, 193, 78, 0.12);
+  --danger: #f87171;
+  --danger-bg: rgba(248, 113, 113, 0.12);
+  --button: rgba(255, 255, 255, 0.04);
+  --button-hover: rgba(255, 255, 255, 0.09);
+  --hairline: rgba(255, 255, 255, 0.08);
+  --glass: rgba(24, 29, 43, 0.94);
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.3), 0 4px 16px rgba(0, 0, 0, 0.3);
+  --shadow-soft: 0 2px 4px rgba(0, 0, 0, 0.3), 0 10px 28px rgba(0, 0, 0, 0.4);
+  --shadow-window: 0 4px 12px rgba(0, 0, 0, 0.35), 0 28px 70px rgba(0, 0, 0, 0.55);
+}
+
+/* The top bar */
+.topbar { background: var(--taskbar); box-shadow: 0 1px 0 var(--hairline); padding: 0 10px; }
+/* A drop-down (menubutton) holds a button: the look goes on that button only. */
+menubutton.bar-button { padding: 0; min-width: 0; min-height: 0; background: none; border: none; }
+button.bar-button, menubutton.bar-button > button {
+  /* 40 x 38, as the mockup: in GTK the padding would come on top of the width. */
+  min-height: 38px;
+  min-width: 40px;
+  padding: 0;
+  border-radius: 10px;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+}
+/* Wider for the logo, so its rounded box keeps clear of the swoosh's ends. */
+menubutton.menu-button > button { min-width: 46px; }
+button.bar-button:hover, menubutton.bar-button > button:hover { background: var(--hover); }
+button.bar-button:checked, menubutton.bar-button > button:checked { background: var(--pressed); }
+.divider { background: var(--hairline); min-width: 1px; min-height: 22px; margin: 0 4px; }
+button.tab {
+  min-height: 38px;
+  padding: 0 14px 0 8px;
+  border-radius: 10px;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+}
+button.tab:hover { background: var(--hover); }
+button.tab.active { background: var(--panel); box-shadow: var(--shadow-card); border-bottom: 2px solid var(--accent); }
+button.pill {
+  min-height: 30px;
+  padding: 0 12px;
+  border-radius: 999px;
+  border: none;
+  background: var(--warn-bg);
+  color: var(--warn);
+  font-size: 12px;
+  font-weight: 600;
+}
+button.pill.busy { background: var(--selected); color: var(--accent); }
+.badge-count {
+  background: #d70015;
+  color: #ffffff;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 0 4px;
+  min-width: 8px;
+  margin: 4px 0 0 0;
+}
+.clock { padding: 0 8px; font-size: 13px; font-variant-numeric: tabular-nums; color: var(--text); }
+.avatar {
+  background: #0f766e;
+  color: #ffffff;
+  border-radius: 999px;
+  min-width: 28px;
+  min-height: 28px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* The main menu */
+.menu-body { padding: 16px; min-width: 520px; }
+button.menu-tool { background: transparent; border: none; box-shadow: none; padding: 12px 6px; border-radius: 12px; color: var(--text); }
+button.menu-tool:hover { background: var(--hover); }
+button.menu-tool label { font-weight: 500; font-size: 13px; }
+.menu-footer { color: var(--muted); font-size: 12px; padding-top: 12px; border-top: 1px solid var(--line); }
+
+/* The shortcuts down the left */
+.shortcuts { padding: 18px 0 0 14px; }
+button.shortcut { background: transparent; border: none; box-shadow: none; padding: 8px 6px; border-radius: 12px; min-width: 100px; }
+button.shortcut:hover { background: rgba(255, 255, 255, 0.12); }
+.shortcut-name { color: #ffffff; font-size: 13px; font-weight: 500; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6); }
+.tile-large { border-radius: 14px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25); }
+.tile-small { border-radius: 6px; }
+
+/* The widgets down the right */
+.widget-column { margin: 16px 16px 16px 0; background: transparent; }
+.widget {
+  background: var(--glass);
+  border-radius: 16px;
+  padding: 14px 16px 16px;
+  box-shadow: 0 0 0 1px var(--hairline), var(--shadow-soft);
+}
+.widget-title { color: var(--muted); font-size: 11px; font-weight: 600; letter-spacing: 0.06em; }
+.widget-aside { color: var(--muted); font-size: 12px; }
+.widget-big { font-size: 18px; font-weight: 600; }
+.widget-small { font-size: 12px; color: var(--text-secondary); }
+.widget-value { font-size: 12px; }
+.widget-value.ok { color: var(--ok); }
+.widget-value.warn { color: var(--warn); }
+.widget-figure { font-size: 22px; font-weight: 600; }
+.widget-figure-line { font-size: 16px; }
+.mark { background: var(--ok-bg); border-radius: 20px; }
+.mark.warn { background: var(--warn-bg); }
+levelbar trough { background: var(--line); border-radius: 999px; min-height: 8px; border: none; }
+levelbar block.filled { background: var(--accent); border-radius: 999px; }
+levelbar block.empty { background: transparent; border: none; }
+levelbar block { border: none; box-shadow: none; }
+levelbar trough { box-shadow: none; outline: none; }
+levelbar.bar-memory block.filled, levelbar.memory block.filled { background: #7c3aed; }
+levelbar.bar-space block.filled, levelbar.library block.filled { background: #0f766e; }
+levelbar.full block.filled { background: var(--danger); }
+levelbar.mic block.filled { background: var(--ok); }
+
+/* Windows */
+.window { background: var(--panel); border-radius: 14px; box-shadow: 0 0 0 1px var(--hairline), var(--shadow-soft); }
+.window.active { box-shadow: 0 0 0 1px var(--hairline), var(--shadow-window); }
+.window.maximised { border-radius: 0; }
+.window-bar {
+  min-height: 46px;
+  padding: 0 8px 0 14px;
+  border-bottom: 1px solid var(--line);
+  border-radius: 14px 14px 0 0;
+  background: var(--panel);
+}
+.window-title { font-size: 14px; font-weight: 600; color: var(--muted); }
+.window.active .window-title { color: var(--text); }
+button.window-button { min-width: 32px; min-height: 30px; padding: 0; border: none; background: transparent; box-shadow: none; border-radius: 8px; }
+button.window-button:hover { background: var(--hover); }
+.window-sidebar { background: var(--sidebar); padding: 10px 8px; border-right: 1px solid var(--line); border-radius: 0 0 0 14px; }
+.window-sidebar row { border-radius: 8px; padding: 8px 10px; margin-bottom: 2px; color: var(--text); }
+.window-sidebar row:hover { background: var(--hover); }
+.window-sidebar row:selected { background: var(--selected); }
+.window-sidebar row:selected .sidebar-item { color: var(--accent); font-weight: 600; }
+.sidebar-item.chosen { font-weight: 600; }
+.sidebar-item { font-size: 14px; }
+.page-body { padding: 20px 24px 24px; }
+.page-title { font-size: 20px; font-weight: 600; }
+scrolledwindow, viewport { background: transparent; }
+
+/* Cards and sign-in */
+.logo { color: var(--brand-text); }
+.card { background: var(--panel); border-radius: 20px; padding: 32px 34px 26px; box-shadow: var(--shadow-window); }
+.title { font-size: 24px; font-weight: 700; }
+/* GTK heads a menu's section (the admin's name) with a .title label too: a
+   menu's heading, not a page's title. */
+popover.menu label.title {
+  font-size: 14px; font-weight: 600;
+  /* A line under the name, between it and the menu's items. */
+  padding-bottom: 8px; margin-bottom: 4px; border-bottom: 1px solid var(--line-strong);
+}
+/* The menu's items: the theme's hover, not GTK's own (light even on Midnight). */
+popover.menu modelbutton { color: var(--text); border-radius: 8px; }
+popover.menu modelbutton:hover, popover.menu modelbutton:selected { background: var(--hover); color: var(--text); }
+.lead { color: var(--text-secondary); }
+.error { color: var(--danger); background: var(--danger-bg); padding: 10px 12px; border-radius: 10px; }
+.field-label { color: var(--text-secondary); font-size: 13px; font-weight: 600; }
+.section { font-weight: 600; font-size: 15px; margin-top: 6px; }
+.facts { background: var(--sidebar); border-radius: 12px; padding: 16px 18px; }
+.fact-name { color: var(--muted); }
+.fact { font-weight: 600; color: var(--text); }
+.small-fact { font-size: 13px; }
+.fact-name.err, .fact-name.error, .fact-name.crit { color: var(--danger); }
+.fact-name.warning { color: var(--warn); }
+.notice { background: var(--warn-bg); border-radius: 12px; padding: 12px 14px; }
+.panel-box { background: var(--sidebar); border-radius: 12px; padding: 14px 16px; }
+.danger-box { border: 1px solid var(--danger-bg); border-radius: 12px; padding: 14px 16px; }
+.notice-row { padding: 8px 0; border-bottom: 1px solid var(--line); }
+.notice-row.read .fact { font-weight: 400; color: var(--text-secondary); }
+.popover-body { padding: 10px; }
+.badge { border-radius: 999px; padding: 2px 10px; font-size: 12px; font-weight: 600; }
+.badge.healthy { background: var(--ok-bg); color: var(--ok); }
+.badge.warning { background: var(--warn-bg); color: var(--warn); }
+.badge.failing { background: var(--danger-bg); color: var(--danger); }
+.badge.unknown { background: var(--sidebar); color: var(--muted); }
+.drive-card { border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
+.list { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; }
+.list row { padding: 10px 12px; border-bottom: 1px solid var(--line); color: var(--text); }
+.log-line { font-family: monospace; font-size: 12.5px; }
+.shade { background: rgba(10, 28, 46, 0.45); }
+
+/* Controls */
+entry, passwordentry, searchentry, spinbutton {
+  min-height: 38px;
+  border-radius: 10px;
+  border: 1px solid var(--line-strong);
+  background: var(--button);
+  color: var(--text);
+  box-shadow: none;
+}
+entry:focus-within { border-color: var(--accent); outline: 2px solid var(--selected); }
+button {
+  min-height: 34px;
+  padding: 0 16px;
+  border-radius: 10px;
+  border: 1px solid var(--line-strong);
+  background: var(--button);
+  color: var(--text);
+  font-weight: 600;
+  box-shadow: none;
+}
+button:hover { background: var(--button-hover); }
+button.primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+button.primary:hover { background: var(--accent-hover); }
+button.danger { background: var(--danger); border-color: var(--danger); color: #ffffff; }
+button.flat-link { border: none; background: none; color: var(--accent); padding: 0 6px; min-height: 26px; }
+dropdown > button { color: var(--text); }
+checkbutton, radio, switch { color: var(--text); }
+scale trough { background: var(--line); border-radius: 999px; min-height: 6px; }
+scale highlight { background: var(--accent); border-radius: 999px; }
+popover > contents { border-radius: 16px; padding: 4px; background: var(--panel); color: var(--text); }
+popover > arrow { background: var(--panel); border-color: var(--line-strong); }
+
+/* Control Panel's settings (settings.py): groups of rows in rounded cards on a
+   quieter page, each row a title, its explanation and its control. */
+.settings { background: var(--page); }
+.group-title { font-weight: 600; font-size: 15px; color: var(--text); margin-left: 2px; }
+.group-note { color: var(--muted); font-size: 13px; margin: 0 2px; }
+list.rows { background: var(--card); border: 1px solid var(--line); border-radius: 12px; }
+list.rows > row { padding: 12px 16px; min-height: 30px; border-bottom: 1px solid var(--line); background: transparent; color: var(--text); }
+list.rows > row:first-child { border-radius: 12px 12px 0 0; }
+list.rows > row:last-child { border-bottom: none; border-radius: 0 0 12px 12px; }
+list.rows > row:only-child { border-radius: 12px; }
+.row-title { color: var(--text); }
+.row-sub { color: var(--muted); font-size: 12.5px; }
+.row-value { color: var(--muted); }
+list.rows dropdown > button { min-width: 200px; }
+list.rows entry { min-width: 220px; }
+.segmented { background: var(--hover); border-radius: 10px; padding: 3px; }
+.segmented > button { border: none; background: transparent; box-shadow: none; min-height: 30px; padding: 0 16px; border-radius: 8px; color: var(--text); }
+.segmented > button:checked { background: var(--segment); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.16); }
+.tile-card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 20px 16px 18px; }
+.ring { border-radius: 999px; background: var(--ok-bg); }
+.ring.warn { background: var(--warn-bg); }
+.ring.off { background: var(--hover); }
+.keep-bar { background: var(--selected); border-radius: 12px; padding: 12px 14px; }
+.about-name { font-size: 20px; font-weight: 700; color: var(--text); }

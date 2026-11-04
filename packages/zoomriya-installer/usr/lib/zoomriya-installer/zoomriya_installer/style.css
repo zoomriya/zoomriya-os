@@ -1,0 +1,119 @@
+/* Box Desktop's Daylight look, as the first setup's (zoomriya_setup/style.css),
+   with a blue side for the steps. Two weights stand out: 700 for a page's
+   title, 600 for everything else. */
+window, .installer {
+  background: #eef2f6;
+  color: #1b2733;
+  font-family: "Inter Variable", "Inter", sans-serif;
+  font-size: 15px;
+}
+
+/* The side: the mark, then the steps. */
+.sidebar {
+  background-image: linear-gradient(170deg, #1765c1 0%, #0f4c95 70%, #0b3a73 100%);
+  color: #ffffff;
+  padding: 28px 20px 22px;
+}
+.brand-row { margin: 0 6px 30px; }
+/* The logo's letters (brand.py): white on the blue. */
+.sidebar .logo { color: #ffffff; }
+.brand-sub { color: rgba(255, 255, 255, 0.72); font-size: 13px; }
+.step { padding: 10px 12px; border-radius: 12px; color: rgba(255, 255, 255, 0.72); }
+.step-marker {
+  min-width: 26px; min-height: 26px;
+  border-radius: 999px;
+  border: 2px solid rgba(255, 255, 255, 0.45);
+  font-size: 12px; font-weight: 600;
+}
+.step-name { font-weight: 600; }
+.step.done { color: #ffffff; }
+.step.done .step-marker { background: #7fe0a8; border-color: #7fe0a8; color: #0b3a73; }
+.step.current { background: rgba(255, 255, 255, 0.16); color: #ffffff; }
+.step.current .step-marker { background: #ffffff; border-color: #ffffff; color: #1765c1; }
+
+/* The page. */
+.content { padding: 44px 56px 24px; }
+.buttons { padding: 18px 56px 26px; border-top: 1px solid #dfe5ec; background: #f6f8fa; }
+.title { font-size: 28px; font-weight: 700; }
+.lead { color: #3a4754; font-size: 15px; }
+.field-label { color: #3a4754; font-size: 13px; font-weight: 600; }
+.hint { color: #56636f; font-size: 13px; }
+.error { color: #d70015; background: rgba(215, 0, 21, 0.08); padding: 10px 12px; border-radius: 10px; }
+
+/* Welcome. */
+.checks { background: #ffffff; border-radius: 14px; padding: 18px 20px; }
+.check-ok, .check-bad {
+  min-width: 24px; min-height: 24px; border-radius: 999px;
+  font-weight: 600; font-size: 13px; padding: 0;
+}
+.check-ok { background: #e2f5e9; color: #1f7a35; }
+.check-bad { background: #fde7e9; color: #d70015; }
+
+/* Drive. */
+.disks { background: transparent; }
+.disks row { background: #ffffff; border-radius: 14px; margin-bottom: 10px; border: 2px solid transparent; }
+.disks row:selected { border-color: #1765c1; background: #f5f9fe; color: #1b2733; }
+.disks row:disabled { opacity: 0.55; }
+.disk { padding: 14px 18px; }
+.disk-icon { color: #1765c1; }
+.disks row:disabled .disk-icon { color: #56636f; }
+.disk-name { font-weight: 600; font-size: 16px; }
+.disk-detail { color: #56636f; font-size: 13px; }
+.disk-reason { color: #b4531c; font-size: 13px; }
+.disk-size { font-weight: 600; font-size: 16px; color: #3a4754; }
+.bars { background: #ffffff; border-radius: 14px; padding: 18px 20px; }
+.legend-name { font-size: 13px; }
+.legend-size { font-size: 13px; color: #56636f; }
+
+/* Summary. */
+.facts { background: #ffffff; border-radius: 14px; padding: 18px 20px; }
+.fact-name { color: #56636f; }
+.fact { font-weight: 600; }
+.warning { background: #fff4e5; border: 1px solid #f5cf95; border-radius: 14px; padding: 14px 18px; color: #7a4510; }
+.warning checkbutton label { font-weight: 600; }
+
+/* Install. */
+.slide { margin: 0 44px; }
+.slide-icon { color: #ffffff; background: rgba(255, 255, 255, 0.16); border-radius: 28px; padding: 22px; }
+.slide-title { color: #ffffff; font-size: 24px; font-weight: 600; }
+.slide-text { color: rgba(255, 255, 255, 0.9); font-size: 16px; }
+.slide-dot { min-width: 8px; min-height: 8px; border-radius: 999px; background: #cdd5dd; }
+.slide-dot.current { background: #1765c1; min-width: 22px; }
+.stage { font-weight: 600; color: #3a4754; }
+progressbar trough { min-height: 12px; border-radius: 999px; background: #dfe5ec; }
+progressbar progress { min-height: 12px; border-radius: 999px; background: #1765c1; }
+
+/* Done. */
+.done-number {
+  min-width: 26px; min-height: 26px; border-radius: 999px;
+  background: #e3eefb; color: #1765c1; font-weight: 600; font-size: 13px;
+}
+
+/* A small screen: the side's numbers only, less space around the page. */
+.compact .sidebar { padding: 22px 12px; }
+.compact .brand-row { margin: 0 2px 24px; }
+.compact .step { padding: 8px 6px; }
+.compact .content { padding: 24px 20px 16px; }
+.compact .buttons { padding: 12px 20px 16px; }
+.compact .title { font-size: 22px; }
+
+/* Controls. */
+button {
+  min-height: 40px;
+  padding: 0 20px;
+  border-radius: 10px;
+  border: 1px solid #cdd5dd;
+  background: #ffffff;
+  color: #1b2733;
+  font-weight: 600;
+  box-shadow: none;
+}
+button:hover { background: #f6f8fa; }
+button.primary { background: #1765c1; border-color: #1765c1; color: #ffffff; }
+button.primary:hover { background: #0f4c95; }
+button.primary:disabled { background: #a9c3e4; border-color: #a9c3e4; color: #ffffff; }
+button.primary.danger { background: #c0392b; border-color: #c0392b; }
+button.primary.danger:hover { background: #9e2b20; }
+button.primary.danger:disabled { background: #e6b0aa; border-color: #e6b0aa; }
+checkbutton check { border-radius: 6px; min-width: 20px; min-height: 20px; }
+checkbutton check:checked { background: #c0392b; border-color: #c0392b; color: #ffffff; }

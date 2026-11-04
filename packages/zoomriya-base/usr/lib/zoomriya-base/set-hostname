@@ -1,0 +1,16 @@
+#!/bin/sh
+# Name the box zoomriya-<4 characters> (design §5): the router's device list
+# and mDNS show it. The characters come from the hardware serial number, so the
+# same box always gets the same name; a VM, which has none, uses its machine
+# ID. Runs once: after it, /etc/hostname exists.
+set -eu
+
+serial=$(cat /sys/class/dmi/id/product_serial 2>/dev/null || true)
+case "$serial" in
+    ""|0|"Default string"|"To Be Filled By O.E.M."|"System Serial Number"|"Not Specified")
+        serial=$(cat /etc/machine-id) ;;
+esac
+
+name="zoomriya-$(printf '%s' "$serial" | sha256sum | cut -c1-4)"
+printf '%s\n' "$name" > /etc/hostname
+printf '%s' "$name" > /proc/sys/kernel/hostname

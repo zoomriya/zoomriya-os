@@ -1,0 +1,37 @@
+#!/bin/sh
+set -e
+
+if [ "$1" = configure ]; then
+    # Our os-release, with Debian's codename taken from Debian's own file, and
+    # the factory image version (written by the image build) kept.
+    codename=$(. /usr/lib/os-release.debian && echo "$VERSION_CODENAME")
+    image_version=$(sed -n 's/^IMAGE_VERSION=//p' /usr/lib/os-release 2>/dev/null || true)
+    {
+        sed "s/@CODENAME@/$codename/" /usr/share/zoomriya-base/os-release.in
+        [ -z "$image_version" ] || echo "IMAGE_VERSION=$image_version"
+    } > /usr/lib/os-release.new
+    mv /usr/lib/os-release.new /usr/lib/os-release
+
+    # Our login banners and message of the day; Debian's are kept beside
+    # them as *.debian.
+    install -m 0644 /usr/share/zoomriya-base/issue /etc/issue
+    install -m 0644 /usr/share/zoomriya-base/issue.net /etc/issue.net
+    install -m 0644 /usr/share/zoomriya-base/motd /etc/motd
+
+    # snapper's list of configs: just root, ours (/etc/snapper/configs/root).
+    sed -i 's/^SNAPPER_CONFIGS=""$/SNAPPER_CONFIGS="root"/' /etc/default/snapper
+
+    deb-systemd-helper enable zoomriya-hostname.service zoomriya-dpkg-recover.service \
+        zoomriya-factory-snapshot.service zoomriya-restore-cleanup.service \
+        zoomriya-boot-check.service zoomriya-erase.service zoomriya-setup-code.service \
+        zoomriya-services-init.service \
+        zoomriya-aide-init.service zoomriya-aide-check.timer avahi-daemon.service \
+        nftables.service systemd-networkd.service systemd-resolved.service \
+        systemd-timesyncd.service >/dev/null || true
+    if [ -d /run/systemd/system ]; then
+        systemctl daemon-reload
+        systemctl restart systemd-journald.service || true
+        systemctl restart nftables.service || true
+        /usr/lib/systemd/systemd-sysctl /usr/lib/sysctl.d/60-zoomriya.conf || true
+    fi
+fi

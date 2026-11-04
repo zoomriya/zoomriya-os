@@ -1,0 +1,10 @@
+NAME="ZOOMRIYA OS"
+PRETTY_NAME="ZOOMRIYA OS 13"
+ID=zoomriya
+ID_LIKE=debian
+VERSION="13"
+VERSION_ID=13
+VERSION_CODENAME=@CODENAME@
+IMAGE_ID=zoomriya
+HOME_URL="https://zoomriya.com"
+SUPPORT_URL="https://zoomriya.com/support"

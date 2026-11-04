@@ -1,0 +1,12 @@
+#!/bin/sh
+set -e
+
+if [ "$1" = configure ]; then
+    systemd-sysusers box-desktop-app.conf
+    deb-systemd-helper enable box-desktop-app.service >/dev/null || true
+    # The sound server, in the desktop's own session.
+    systemctl --global enable pipewire.socket wireplumber.service >/dev/null 2>&1 || true
+    if [ -d /run/systemd/system ]; then
+        systemctl daemon-reload
+    fi
+fi

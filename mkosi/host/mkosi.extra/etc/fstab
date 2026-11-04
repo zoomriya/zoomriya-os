@@ -1,0 +1,11 @@
+# The subvolumes outside the OS snapshots (design §3). / is subvolume @,
+# mounted by the initrd (root= and rootflags= on the kernel command line).
+# /tmp is Debian's tmpfs. The EFI partition is mounted at /efi when first
+# used: kernel updates put their boot entries there.
+PARTLABEL=system  /var/lib/machines    btrfs  subvol=/@machines,noatime                0 0
+PARTLABEL=system  /var/lib/postgresql  btrfs  subvol=/@postgres,noatime,nodev,nosuid   0 0
+PARTLABEL=system  /var/lib/valkey      btrfs  subvol=/@valkey,noatime,nodev,nosuid     0 0
+PARTLABEL=system  /data                btrfs  subvol=/@data,noatime,nodev,nosuid       0 0
+PARTLABEL=system  /var/log             btrfs  subvol=/@log,noatime,nodev,nosuid,noexec 0 0
+PARTLABEL=system  /.snapshots          btrfs  subvol=/@snapshots,noatime,nodev,nosuid  0 0
+PARTLABEL=EFI     /efi                 vfat   umask=0077,noauto,x-systemd.automount,x-systemd.idle-timeout=60 0 2

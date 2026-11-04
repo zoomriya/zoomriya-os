@@ -1,0 +1,16 @@
+Package: zoomriya-base
+Version: 13.0.0
+Architecture: all
+Maintainer: ZOOMRIYA <os@zoomriya.com>
+Depends: aide, auditd, avahi-daemon, base-files, btrfs-progs, console-setup, initramfs-tools,
+ nftables, snapper, systemd, systemd-boot, systemd-resolved,
+ systemd-timesyncd, unattended-upgrades, zstd
+Section: admin
+Priority: optional
+Description: ZOOMRIYA OS settings
+ Makes a Debian 13 install into ZOOMRIYA OS: os-release, the firewall,
+ sysctl, journald, name lookups, the network,
+ the box's name, the login banner and the message of the day; security
+ fixes by themselves, restore points around every update, boot counting
+ for new kernels, and restoring the OS from a restore point; the box's
+ mDNS name and the setup code for first boot.

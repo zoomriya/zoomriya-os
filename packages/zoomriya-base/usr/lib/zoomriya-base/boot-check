@@ -1,0 +1,27 @@
+#!/bin/sh
+# Before a new kernel is marked good (design §4): did the box come up? Runs only
+# on a counted boot, as part of boot-complete.target. If something is missing,
+# restart: the kernel uses up one of its tries, and after the last systemd-boot
+# starts the previous kernel.
+set -u
+
+problems=""
+problem() { problems="$problems $1;"; }
+
+[ "$(findmnt -no FSROOT /)" = /@ ] || problem "/ isn't @"
+findmnt -no OPTIONS / | grep -q '\(^\|,\)rw\(,\|$\)' || problem "/ isn't writable"
+findmnt -n /data >/dev/null || problem "/data isn't mounted"
+for unit in nftables.service systemd-networkd.service zoomriya-agent.socket; do
+    if systemctl cat "$unit" >/dev/null 2>&1; then
+        systemctl is-active --quiet "$unit" || problem "$unit isn't running"
+    fi
+done
+
+if [ -z "$problems" ]; then
+    echo "The box came up: this kernel is good."
+    exit 0
+fi
+
+echo "The box didn't come up right:$problems restarting, so this kernel uses up a try."
+systemctl reboot --no-block
+exit 1

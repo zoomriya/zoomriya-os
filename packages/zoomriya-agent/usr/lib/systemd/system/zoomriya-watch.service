@@ -1,0 +1,11 @@
+# The watcher: what changed since it last looked (a drive's health, an update,
+# a planned restart, the library's check), into the journal as notifications
+# for Box Desktop's bell (box-desktop.md §3).
+[Unit]
+Description=ZOOMRIYA watcher: notifications for the box's admins
+Documentation=https://github.com/zoomriya/zoomriya-os/blob/main/docs/box-desktop.md#3-the-desktop
+
+[Service]
+Type=oneshot
+ExecStart=/usr/lib/zoomriya-agent/zoomriya-agent watch
+Nice=10

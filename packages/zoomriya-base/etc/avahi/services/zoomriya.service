@@ -1,0 +1,11 @@
+<?xml version="1.0" standalone='no'?>
+<!DOCTYPE service-group SYSTEM "avahi-service.dtd">
+<!-- The box announces itself on the home network (design §5): first boot
+     and the phone app find it as _zoomriya._tcp, at zoomriya-<4>.local. -->
+<service-group>
+  <name replace-wildcards="yes">ZOOMRIYA Box %h</name>
+  <service>
+    <type>_zoomriya._tcp</type>
+    <port>443</port>
+  </service>
+</service-group>

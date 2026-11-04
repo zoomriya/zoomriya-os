@@ -1,0 +1,12 @@
+#!/bin/sh
+set -e
+
+if [ "$1" = configure ]; then
+    systemd-sysusers zoomriya-agent.conf
+    deb-systemd-helper enable zoomriya-agent.socket zoomriya-maintenance.timer zoomriya-watch.timer >/dev/null || true
+    if [ -d /run/systemd/system ]; then
+        systemctl daemon-reload
+        systemctl restart zoomriya-agent.socket || true
+        systemctl start zoomriya-maintenance.timer zoomriya-watch.timer || true
+    fi
+fi

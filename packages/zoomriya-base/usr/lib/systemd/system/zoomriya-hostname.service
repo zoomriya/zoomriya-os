@@ -1,0 +1,15 @@
+[Unit]
+Description=Name the box zoomriya-<4 characters>
+Documentation=https://github.com/zoomriya/zoomriya-os/blob/main/docs/design.md#5-first-boot
+DefaultDependencies=no
+After=local-fs.target systemd-machine-id-commit.service
+Before=sysinit.target network-pre.target systemd-networkd.service
+Wants=network-pre.target
+ConditionPathExists=!/etc/hostname
+
+[Service]
+Type=oneshot
+ExecStart=/usr/lib/zoomriya-base/set-hostname
+
+[Install]
+WantedBy=sysinit.target

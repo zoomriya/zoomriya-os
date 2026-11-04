@@ -1,0 +1,35 @@
+#!/bin/sh
+# Build ZOOMRIYA ID into the package tree given as $1
+# (scripts/build-packages.sh), from its own repository: a checkout beside this
+# one, or ZOOMRIYA_ID_SRC. The code goes to /opt/zoomriya/id as its
+# deploy/install.sh puts it, with a venv of its pinned dependencies, so the
+# box installs it with no network. The venv is made with this machine's
+# python3, which must be Debian 13's, as on the box.
+set -eu
+
+here=$(cd "$(dirname "$0")" && pwd)
+src=$(cd "${ZOOMRIYA_ID_SRC:-$here/../../../zoomriya-id}" && pwd)
+[ -f "$src/backend/requirements.txt" ] || {
+    echo "ZOOMRIYA ID's repository isn't at $src (set ZOOMRIYA_ID_SRC)" >&2
+    exit 1
+}
+app=/opt/zoomriya/id
+tree="$1$app"
+
+mkdir -p "$tree/backend" "$tree/deploy"
+cp -a "$src/backend/app" "$src/backend/migrations" "$src/backend/alembic.ini" \
+    "$src/backend/requirements.txt" "$tree/backend/"
+cp -a "$src/deploy/setup.sh" "$src/deploy/id.env.example" "$src/deploy/backup.conf" "$tree/deploy/"
+cp -a "$src/LICENSE" "$tree/"
+find "$tree" -name __pycache__ -prune -exec rm -rf {} +
+
+python3 -m venv "$tree/venv"
+"$tree/venv/bin/pip" install -q --no-cache-dir -r "$tree/backend/requirements.txt"
+"$tree/venv/bin/pip" install -q --no-cache-dir --no-deps "$src/identity-py"
+rm -rf "$src/identity-py/build" "$src/identity-py"/*.egg-info
+# The venv was made at the build's path: its scripts point at the box's.
+grep -rlI --null "$1" "$tree/venv/bin" | xargs -0 -r sed -i "s|$1||g"
+find "$tree/venv" -name __pycache__ -prune -exec rm -rf {} +
+
+install -D -m 0644 "$src/systemd/zoomriya-id.service" "$1/usr/lib/systemd/system/zoomriya-id.service"
+install -D -m 0644 "$src/systemd/zoomriya-id.sysusers.conf" "$1/usr/lib/sysusers.d/zoomriya-id.conf"

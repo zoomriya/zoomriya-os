@@ -1,0 +1,12 @@
+[Unit]
+Description=Keep the OS as it left the factory
+Documentation=https://github.com/zoomriya/zoomriya-os/blob/main/docs/design.md#4-boot-recovery-and-factory-reset
+After=local-fs.target
+ConditionPathIsMountPoint=/.snapshots
+
+[Service]
+Type=oneshot
+ExecStart=/usr/lib/zoomriya-base/factory-snapshot
+
+[Install]
+WantedBy=multi-user.target

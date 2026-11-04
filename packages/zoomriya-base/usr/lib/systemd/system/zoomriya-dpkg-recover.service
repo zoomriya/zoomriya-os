@@ -1,0 +1,14 @@
+# If power was cut during an update, finish it before anything else updates
+# (design §6.1).
+[Unit]
+Description=Finish an interrupted update
+Documentation=https://github.com/zoomriya/zoomriya-os/blob/main/docs/design.md#61-debian-security-fixes
+After=local-fs.target
+Before=apt-daily.service apt-daily-upgrade.service unattended-upgrades.service
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh -c '[ -z "$(dpkg --audit)" ] || dpkg --configure -a'
+
+[Install]
+WantedBy=multi-user.target

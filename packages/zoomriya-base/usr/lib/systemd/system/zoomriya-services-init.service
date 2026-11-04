@@ -1,0 +1,15 @@
+# PostgreSQL's cluster on its own subvolume, when it isn't ready: a new box,
+# Erase everything, Reset the system (Valkey's folders: tmpfiles.d).
+[Unit]
+Description=Prepare the database subvolume
+Documentation=https://github.com/zoomriya/zoomriya-os/blob/main/docs/design.md#3-the-disk
+After=local-fs.target zoomriya-erase.service
+Before=postgresql.service valkey-server.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/lib/zoomriya-base/services-init
+
+[Install]
+WantedBy=multi-user.target

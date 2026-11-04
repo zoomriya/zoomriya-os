@@ -1,0 +1,10 @@
+# Nightly, after the maintenance hour.
+[Unit]
+Description=Nightly check of the OS's files (AIDE)
+
+[Timer]
+OnCalendar=*-*-* 05:00:00
+RandomizedDelaySec=30min
+
+[Install]
+WantedBy=timers.target

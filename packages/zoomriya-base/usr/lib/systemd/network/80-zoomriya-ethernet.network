@@ -1,0 +1,16 @@
+# Wired: an address by DHCP (design §5). Wi-Fi, when joined, gets a higher
+# metric so Ethernet carries everything (§5.1). Format: systemd.network(5).
+[Match]
+Type=ether
+Kind=!*
+
+[Network]
+DHCP=yes
+LinkLocalAddressing=ipv6
+IPv6AcceptRA=yes
+
+[DHCPv4]
+RouteMetric=100
+
+[IPv6AcceptRA]
+RouteMetric=100

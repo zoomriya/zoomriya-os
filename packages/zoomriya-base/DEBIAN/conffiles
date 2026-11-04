@@ -1,0 +1,7 @@
+/etc/apt/apt.conf.d/20zoomriya-auto-upgrades
+/etc/apt/apt.conf.d/52zoomriya-unattended
+/etc/kernel/tries
+/etc/snapper/configs/root
+/etc/avahi/services/zoomriya.service
+/etc/audit/rules.d/60-zoomriya.rules
+/etc/apt/apt.conf.d/80zoomriya-aide
