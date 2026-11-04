@@ -1,7 +1,8 @@
 """Drives and an install to try the installer on a development machine.
 
     ZOOMRIYA_INSTALLER_FAKE=1 python3 -m zoomriya_installer
-    ZOOMRIYA_INSTALLER_FAKE=fail python3 -m zoomriya_installer   # the copy fails
+    ZOOMRIYA_INSTALLER_FAKE=fail python3 -m zoomriya_installer     # the copy fails
+    ZOOMRIYA_INSTALLER_FAKE=offline python3 -m zoomriya_installer  # no internet
 
 Nothing is written anywhere.
 """
@@ -55,6 +56,11 @@ def install(disk: str, progress: Progress) -> None:
             time.sleep(0.5)
             if stage == 1 and step == steps // 2 and os.environ.get("ZOOMRIYA_INSTALLER_FAKE") == "fail":
                 raise InstallError("ZOOMRIYA OS couldn't be copied to the drive.")
+
+
+def online() -> bool:
+    time.sleep(1)
+    return os.environ.get("ZOOMRIYA_INSTALLER_FAKE") != "offline"
 
 
 def restart() -> None:

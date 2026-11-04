@@ -60,6 +60,7 @@ password, `rootroot`, when it boots. Each boot starts from the image as built.
 | Document | What's in it |
 | --- | --- |
 | [Design](docs/design.md) | The layers, the disk, boot and recovery, first boot, updates, the agent, hardening, names and versions, building, open decisions and the plan |
+| [Installing](docs/install.md) | Putting ZOOMRIYA OS on a computer of your own, from a USB stick: what you need, building the stick, installing, the first setup |
 | [Box Desktop](docs/box-desktop.md) | The admins' desktop on the box's screen: the desktop, its tools, how it's built and signs in |
 | [Licences](docs/licences.md) | Every component's licence and whether we may use it in a product we sell |
 

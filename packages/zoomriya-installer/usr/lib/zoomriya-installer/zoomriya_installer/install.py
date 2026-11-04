@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import json
 import os
+import socket
 import subprocess
 import tempfile
 import threading
@@ -139,6 +140,21 @@ def install(disk: str, progress: Progress) -> None:
 def overall(stage: int, fraction: float) -> float:
     """A stage's progress as a share of the whole install."""
     return sum(share for _, share in STAGES[:stage]) + STAGES[stage][1] * fraction
+
+
+#: Where the installer looks for the internet: where the box's security fixes
+#: come from.
+INTERNET_CHECK = ("deb.debian.org", 443)
+
+
+def online() -> bool:
+    """The internet reached, through the stick's own network (a cable to the
+    router). Installing doesn't need it: ZOOMRIYA OS is on the stick."""
+    try:
+        socket.create_connection(INTERNET_CHECK, timeout=5).close()
+        return True
+    except OSError:
+        return False
 
 
 def restart() -> None:

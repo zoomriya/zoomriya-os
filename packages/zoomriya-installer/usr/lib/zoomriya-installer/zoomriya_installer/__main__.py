@@ -17,9 +17,11 @@ def backend() -> SimpleNamespace:
         from . import disks, install
 
         chosen = SimpleNamespace(list_disks=disks.list_disks, install=install.install,
-                                 restart=install.restart, power_off=install.power_off)
+                                 online=install.online, restart=install.restart,
+                                 power_off=install.power_off)
     return SimpleNamespace(list_disks=chosen.list_disks, install=chosen.install,
-                           restart=chosen.restart, power_off=chosen.power_off)
+                           online=chosen.online, restart=chosen.restart,
+                           power_off=chosen.power_off)
 
 
 def main() -> int:

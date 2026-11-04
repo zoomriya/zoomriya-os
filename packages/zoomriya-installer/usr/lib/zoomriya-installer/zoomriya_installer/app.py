@@ -235,7 +235,10 @@ class InstallerWindow(Gtk.ApplicationWindow):
         buttons.append(self.next)
         main.append(buttons)
 
+        #: The internet: None while checking, then True or False.
+        self.online: bool | None = None
         self.look_for_disks()
+        self.check_internet()
         self.go(WELCOME)
 
     # --- the side and moving between steps -----------------------------------
@@ -392,18 +395,46 @@ class InstallerWindow(Gtk.ApplicationWindow):
             (f"A drive of {size_text(MIN_BYTES)} or more", any(d.usable for d in self.disks)),
         ]
 
+    def check_internet(self) -> None:
+        """Looks for the internet, again every few seconds until it's there (a
+        cable plugged in later). It never stops the install."""
+        def run() -> None:
+            found = self.backend.online()
+            GLib.idle_add(lambda: got(found) and False)
+
+        def got(found: bool) -> None:
+            self.online = found
+            self.show_checks()
+            if not found:
+                GLib.timeout_add_seconds(5, lambda: self.check_internet() and False)
+
+        threading.Thread(target=run, daemon=True).start()
+
     def show_checks(self) -> None:
         while child := self.checks.get_first_child():
             self.checks.remove(child)
-        for text, ok in self.requirements():
+
+        def add(mark_text: str, kind: str, text: str, wrap: bool = False) -> None:
             row = Gtk.Box(spacing=12)
-            mark = label("✓" if ok else "!", "check-ok" if ok else "check-bad", wrap=False, shorten=False)
+            mark = label(mark_text, kind, wrap=False, shorten=False)
             # Centred in its circle.
             mark.set_xalign(0.5)
             mark.set_valign(Gtk.Align.CENTER)
             row.append(mark)
-            row.append(label(text, "check-text", wrap=False))
+            row.append(label(text, "check-text", wrap=wrap))
             self.checks.append(row)
+
+        for text, ok in self.requirements():
+            add("✓" if ok else "!", "check-ok" if ok else "check-bad", text)
+        # The internet: good to have, not needed.
+        if self.online is None:
+            add("…", "check-wait", "Checking the internet…")
+        elif self.online:
+            add("✓", "check-ok", "Internet: connected")
+        else:
+            add("!", "check-warn", "No internet. Installing anyway: ZOOMRIYA OS is on this stick, "
+                "and its security fixes arrive once the box is online. Plug in a network "
+                "cable to connect.", wrap=True)
 
     def draw_hero(self, _area: Any, cr: Any, w: int, h: int) -> None:
         """The box on a soft blue field, its light on."""

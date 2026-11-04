@@ -3,6 +3,8 @@ set -e
 
 if [ "$1" = configure ]; then
     deb-systemd-helper enable zoomriya-installer.service >/dev/null || true
+    # Only to see whether the internet is there (80-zoomriya-installer.network).
+    deb-systemd-helper enable systemd-networkd.service systemd-resolved.service >/dev/null || true
     if [ -d /run/systemd/system ]; then
         systemctl daemon-reload
     fi

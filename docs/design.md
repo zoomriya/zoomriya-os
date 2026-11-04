@@ -721,7 +721,9 @@ contains, alongside the software bill of materials, both from the same build.
 bring-your-own computer and for reinstalling: a small read-only system on the
 stick that carries the disk image and shows one full-screen app, five steps
 down a side: Welcome checks the computer (UEFI, 4 GB of memory, a drive of 64
-GB or more); Drive lists every drive, the stick itself and drives too small
+GB or more) and looks for the internet, which it never needs: without it, a
+warning, and the install goes on, the image being on the stick (checking for
+security fixes while installing is still to design); Drive lists every drive, the stick itself and drives too small
 greyed out with the reason, and draws the chosen drive now and after
 installing; Summary asks once more, with a tick for "Erase everything on …";
 Install copies while a slideshow tells what the box does; Done offers Restart
