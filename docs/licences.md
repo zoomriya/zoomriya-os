@@ -29,8 +29,8 @@ Debian's licences were read from the packages' own `copyright` files on Debian
 | sway, wlroots (the box's own screen: the first setup and Box Desktop, [Design §5](design.md#5-first-boot)) | MIT | Yes | Keep the notices |
 | GTK 4, PyGObject, librsvg (the first setup's app, the installer and Box Desktop on the screen; librsvg draws their icons) | LGPL-2.1+ | Yes | Source |
 | PipeWire, WirePlumber (Box Desktop's sound) | MIT | Yes | Keep the notices |
-| Adwaita icon theme (the first setup's icons) | LGPL-3.0 or CC-BY-SA-3.0 | Yes | Source, or the attribution |
-| Box Desktop's line icons and tool tiles (`box_desktop/icons.py`), drawn for ZOOMRIYA OS, none taken from an icon set | MPL-2.0, with this repository | Yes, ours | Nothing more |
+| Adwaita icon theme (only the small icons GTK draws inside its own controls: a dropdown's arrow, a search field's magnifier, a password's eye; none of ours) | LGPL-3.0 or CC-BY-SA-3.0 | Yes | Source, or the attribution |
+| Our icons: Box Desktop's line icons and tool tiles (`box_desktop/icons.py`) and the installer's (`zoomriya_installer/icons.py`), drawn for ZOOMRIYA OS, none taken from an icon set | MPL-2.0, with this repository | Yes, ours | Nothing more |
 | efibootmgr (the installer's boot entry, on the USB stick only) | GPL-2.0+ | Yes | Source |
 | erofs-utils (builds the USB stick's read-only system; not shipped) | GPL-2.0+ | Yes; a build tool | Nothing |
 | locales (glibc's language data: the box's language, [Design §5](design.md#5-first-boot)) | LGPL-2.1+ | Yes | Source |

@@ -5,65 +5,65 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: ta\n"
 
-#: app.py:33
+#: app.py:34
 #, fuzzy
 msgid "Language"
 msgstr "மொழி"
 
-#: app.py:33
+#: app.py:34
 #, fuzzy
 msgid "Welcome"
 msgstr "வரவேற்பு"
 
-#: app.py:33 app.py:607
+#: app.py:34 app.py:600
 #, fuzzy
 msgid "Drive"
 msgstr "இயக்ககம்"
 
-#: app.py:33
+#: app.py:34
 #, fuzzy
 msgid "Summary"
 msgstr "சுருக்கம்"
 
-#: app.py:33
+#: app.py:34
 #, fuzzy
 msgid "Install"
 msgstr "நிறுவல்"
 
-#: app.py:33
+#: app.py:34
 #, fuzzy
 msgid "Done"
 msgstr "முடிந்தது"
 
-#: app.py:46
+#: app.py:47
 #, fuzzy
 msgid "Your files stay at home"
 msgstr "உங்கள் கோப்புகள் வீட்டிலேயே இருக்கும்"
 
-#: app.py:47
+#: app.py:48
 #, fuzzy
-msgid "Everything the box keeps lives on it, in your home, not in someone else's cloud."
-msgstr "பெட்டி வைத்திருக்கும் அனைத்தும் உங்கள் வீட்டில் அதிலேயே இருக்கும்; வேறொருவரின் மேகக்கணினியில் அல்ல."
+msgid "Everything stays on the box, at home, not in someone else's cloud."
+msgstr "அனைத்தும் பெட்டியிலேயே, வீட்டிலேயே இருக்கும்; வேறொருவரின் மேகக்கணினியில் அல்ல."
 
-#: app.py:49
+#: app.py:50
 #, fuzzy
 msgid "Security fixes install by themselves"
 msgstr "பாதுகாப்புத் திருத்தங்கள் தானாக நிறுவப்படும்"
 
-#: app.py:50
+#: app.py:51
 #, fuzzy
-msgid "Security fixes for the OS arrive on their own, in the box's quiet maintenance hour."
-msgstr "OS-க்கான பாதுகாப்புத் திருத்தங்கள் பெட்டியின் அமைதியான பராமரிப்பு நேரத்தில் தானாக வரும்."
+msgid "OS security updates install automatically."
+msgstr "OS பாதுகாப்புப் புதுப்பிப்புகள் தானாக நிறுவப்படும்."
 
-#: app.py:52
+#: app.py:53
 #, fuzzy
 msgid "Restore points"
 msgstr "மீட்புப் புள்ளிகள்"
 
-#: app.py:53
+#: app.py:54
 #, fuzzy
-msgid "The box keeps a restore point before every update. Going back is one click in Box Desktop, and your files stay as they are."
-msgstr "ஒவ்வொரு புதுப்பிப்புக்கும் முன் பெட்டி ஒரு மீட்புப் புள்ளியை வைக்கும். Box Desktop-இல் ஒரே கிளிக்கில் திரும்பலாம்; உங்கள் கோப்புகள் அப்படியே இருக்கும்."
+msgid "A restore point before every update. One click in Box Desktop goes back; your files stay."
+msgstr "ஒவ்வொரு புதுப்பிப்புக்கும் முன் ஒரு மீட்புப் புள்ளி. Box Desktop-இல் ஒரே கிளிக்கில் திரும்பலாம்; உங்கள் கோப்புகள் இருக்கும்."
 
 #: app.py:56
 #, fuzzy
@@ -72,8 +72,8 @@ msgstr "தொடங்காத கர்னல் பின்வாங்க�
 
 #: app.py:57
 #, fuzzy
-msgid "If a new kernel can't start, the box starts the one before it by itself and tells you."
-msgstr "புதிய கர்னல் தொடங்காவிட்டால், பெட்டி முந்தையதைத் தானாகத் தொடங்கி உங்களுக்குத் தெரிவிக்கும்."
+msgid "If a new kernel won't start, the box falls back to the previous one."
+msgstr "புதிய கர்னல் தொடங்காவிட்டால், பெட்டி முந்தையதற்குத் திரும்பும்."
 
 #: app.py:59
 #, fuzzy
@@ -82,245 +82,245 @@ msgstr "ஒரே கணக்கு: ZOOMRIYA ID"
 
 #: app.py:60
 #, fuzzy
-msgid "The admin you make at the first setup signs in to the box and to every ZOOMRIYA app you add to it."
-msgstr "முதல் அமைப்பில் நீங்கள் உருவாக்கும் நிர்வாகி, பெட்டியிலும் நீங்கள் சேர்க்கும் ஒவ்வொரு ZOOMRIYA செயலியிலும் உள்நுழைவார்."
+msgid "One sign-in for the box and every ZOOMRIYA app."
+msgstr "பெட்டிக்கும் ஒவ்வொரு ZOOMRIYA செயலிக்கும் ஒரே உள்நுழைவு."
 
-#: app.py:63
+#: app.py:62
 #, fuzzy
 msgid "Closed unless you open it"
 msgstr "நீங்கள் திறக்கும் வரை மூடியே இருக்கும்"
 
-#: app.py:64
+#: app.py:63
 #, fuzzy
-msgid "A firewall that lets nothing in uninvited, and remote access off until an admin turns it on."
-msgstr "அழைக்கப்படாத எதையும் உள்ளே விடாத ஃபயர்வால்; நிர்வாகி இயக்கும் வரை தொலைநிலை அணுகல் அணைந்திருக்கும்."
+msgid "A firewall blocks anything uninvited; remote access stays off until an admin enables it."
+msgstr "அழைக்கப்படாத எதையும் ஃபயர்வால் தடுக்கும்; நிர்வாகி இயக்கும் வரை தொலைநிலை அணுகல் அணைந்திருக்கும்."
 
-#: app.py:265
+#: app.py:263
 #, fuzzy
 msgid "OS Installer"
 msgstr "OS நிறுவி"
 
-#: app.py:321
+#: app.py:319
 #, fuzzy
 msgid "Try again"
 msgstr "மீண்டும் முயல்க"
 
-#: app.py:321
+#: app.py:319
 #, fuzzy
 msgid "Restart now"
 msgstr "மறுதொடக்கம்"
 
-#: app.py:522
+#: app.py:517
 #, fuzzy
 msgid "Now"
 msgstr "இப்போது"
 
-#: app.py:523
+#: app.py:518
 #, fuzzy
 msgid "After installing"
 msgstr "நிறுவிய பின்"
 
-#: app.py:587
+#: app.py:581
 #, fuzzy
 msgid "The drive after installing"
 msgstr "நிறுவிய பின் இயக்ககம்"
 
-#: app.py:606
+#: app.py:599
 #, fuzzy
 msgid "Nothing: the drive is empty"
 msgstr "எதுவும் இல்லை: இயக்ககம் காலியாக உள்ளது"
 
-#: app.py:189 app.py:407
+#: app.py:187 app.py:404
 #, fuzzy
 msgid "Install ZOOMRIYA OS"
 msgstr "ZOOMRIYA OS-ஐ நிறுவு"
 
-#: app.py:227
+#: app.py:225
 #, fuzzy
 msgid "Back"
 msgstr "பின்செல்"
 
-#: app.py:231
+#: app.py:229
 #, fuzzy
 msgid "Power off"
 msgstr "அணை"
 
-#: app.py:234 app.py:322
+#: app.py:232 app.py:320
 #, fuzzy
 msgid "Next"
 msgstr "அடுத்து"
 
-#: app.py:380
+#: app.py:378
 #, fuzzy
 msgid "Choose your language"
 msgstr "உங்கள் மொழியைத் தேர்ந்தெடுங்கள்"
 
-#: app.py:381
+#: app.py:379
 #, fuzzy
-msgid "The installer is shown in it. The box's own language is chosen at its first setup."
-msgstr "நிறுவி இந்த மொழியில் காட்டப்படும். பெட்டியின் சொந்த மொழி அதன் முதல் அமைப்பில் தேர்ந்தெடுக்கப்படும்."
+msgid "For the installer. The box's language is chosen at first setup."
+msgstr "நிறுவிக்கானது. பெட்டியின் மொழி முதல் அமைப்பில் தேர்ந்தெடுக்கப்படும்."
 
-#: app.py:408
+#: app.py:405
 #, fuzzy
-msgid "This turns this computer into a ZOOMRIYA Box. You choose the drive on the next page, and everything on that drive is erased. It takes about five minutes."
-msgstr "இது இந்தக் கணினியை ZOOMRIYA Box ஆக மாற்றும். அடுத்த பக்கத்தில் இயக்ககத்தைத் தேர்ந்தெடுப்பீர்கள்; அதிலுள்ள அனைத்தும் அழிக்கப்படும். சுமார் ஐந்து நிமிடங்கள் ஆகும்."
+msgid "Turns this computer into a ZOOMRIYA Box in about five minutes. The drive you choose next is erased."
+msgstr "சுமார் ஐந்து நிமிடங்களில் இந்தக் கணினியை ZOOMRIYA Box ஆக்கும். அடுத்து தேர்ந்தெடுக்கும் இயக்ககம் அழிக்கப்படும்."
 
-#: app.py:420
+#: app.py:416
 #, fuzzy
 msgid "Started in UEFI mode"
 msgstr "UEFI முறையில் தொடங்கப்பட்டது"
 
-#: app.py:459
+#: app.py:455
 #, fuzzy
 msgid "Checking the internet…"
 msgstr "இணையத்தைச் சரிபார்க்கிறது…"
 
-#: app.py:506
+#: app.py:501
 #, fuzzy
 msgid "Where should ZOOMRIYA OS go?"
 msgstr "ZOOMRIYA OS எங்கே நிறுவப்பட வேண்டும்?"
 
-#: app.py:508
+#: app.py:503
 #, fuzzy
 msgid "Look again"
 msgstr "மீண்டும் தேடு"
 
-#: app.py:512
+#: app.py:507
 #, fuzzy
-msgid "Choose the drive to install it on. Everything on that drive is erased; other drives aren't touched. Plugged one in? Press Look again."
-msgstr "நிறுவ வேண்டிய இயக்ககத்தைத் தேர்ந்தெடுங்கள். அதிலுள்ள அனைத்தும் அழிக்கப்படும்; மற்ற இயக்ககங்கள் தொடப்படாது. புதிதாக ஒன்றை இணைத்தீர்களா? மீண்டும் தேடு என்பதை அழுத்துங்கள்."
+msgid "The chosen drive is erased; others aren't touched. Plugged one in? Press Look again."
+msgstr "தேர்ந்தெடுத்த இயக்ககம் அழிக்கப்படும்; மற்றவை தொடப்படாது. புதிதாக இணைத்தீர்களா? மீண்டும் தேடு என்பதை அழுத்துங்கள்."
 
-#: app.py:582
+#: app.py:576
 #, fuzzy
 msgid "Ready to install"
 msgstr "நிறுவத் தயார்"
 
-#: app.py:583
+#: app.py:577
 #, fuzzy
-msgid "Check the drive once more. Nothing has been changed yet."
-msgstr "இயக்ககத்தை மீண்டும் ஒருமுறை சரிபாருங்கள். இதுவரை எதுவும் மாற்றப்படவில்லை."
+msgid "Check the drive. Nothing has changed yet."
+msgstr "இயக்ககத்தைச் சரிபாருங்கள். இதுவரை எதுவும் மாறவில்லை."
 
-#: app.py:608
+#: app.py:601
 #, fuzzy
 msgid "Size"
 msgstr "அளவு"
 
-#: app.py:609
+#: app.py:602
 #, fuzzy
 msgid "Erased"
 msgstr "அழிக்கப்படுவது"
 
-#: app.py:610
+#: app.py:603
 #, fuzzy
 msgid "Installed"
 msgstr "நிறுவப்படுவது"
 
-#: app.py:623
+#: app.py:616
 #, fuzzy
 msgid "Installing ZOOMRIYA OS"
 msgstr "ZOOMRIYA OS நிறுவப்படுகிறது"
 
-#: app.py:638
+#: app.py:631
 #, fuzzy
-msgid "Keep the computer on and the USB stick in until it's done."
+msgid "Keep the computer on and the USB stick in until done."
 msgstr "முடியும் வரை கணினியை இயக்கத்திலும் USB குச்சியை இணைப்பிலும் வைத்திருங்கள்."
 
-#: app.py:749
+#: app.py:741
 #, fuzzy
 msgid "The install didn't finish"
 msgstr "நிறுவல் முடியவில்லை"
 
-#: app.py:752
+#: app.py:744
 #, fuzzy
-msgid "Check the drive is plugged in firmly, or try another drive."
-msgstr "இயக்ககம் உறுதியாக இணைக்கப்பட்டுள்ளதா எனச் சரிபாருங்கள், அல்லது வேறொன்றை முயலுங்கள்."
+msgid "Check the drive's connection, or try another drive."
+msgstr "இயக்கக இணைப்பைச் சரிபாருங்கள், அல்லது வேறொன்றை முயலுங்கள்."
 
-#: app.py:753
+#: app.py:745
 #, fuzzy
 msgid "Press Try again."
 msgstr "மீண்டும் முயல்க என்பதை அழுத்துங்கள்."
 
-#: app.py:756
+#: app.py:748
 #, fuzzy
 msgid "ZOOMRIYA OS is installed"
 msgstr "ZOOMRIYA OS நிறுவப்பட்டது"
 
-#: app.py:757
+#: app.py:749
 #, fuzzy
-msgid "Your ZOOMRIYA Box is ready to start for the first time."
-msgstr "உங்கள் ZOOMRIYA Box முதல் முறையாகத் தொடங்கத் தயார்."
+msgid "Your ZOOMRIYA Box is ready for its first start."
+msgstr "உங்கள் ZOOMRIYA Box முதல் தொடக்கத்திற்குத் தயார்."
 
-#: app.py:758
+#: app.py:750
 #, fuzzy
 msgid "Take out the USB stick."
 msgstr "USB குச்சியை எடுத்துவிடுங்கள்."
 
-#: app.py:759
+#: app.py:751
 #, fuzzy
-msgid "Press Restart now to set the box up now, or Power off to leave that to its owner."
-msgstr "பெட்டியை இப்போதே அமைக்க மறுதொடக்கம் என்பதையும், அதன் உரிமையாளரிடம் விட அணை என்பதையும் அழுத்துங்கள்."
+msgid "Press Restart now to set it up, or Power off to leave it for its owner."
+msgstr "அமைக்க மறுதொடக்கம் என்பதையும், உரிமையாளரிடம் விட அணை என்பதையும் அழுத்துங்கள்."
 
-#: app.py:761
+#: app.py:752
 #, fuzzy
-msgid "At its next start, the box opens its first setup on this screen: the language, the keyboard, the network, the region, the time zone and the box's admin."
-msgstr "அடுத்த தொடக்கத்தில், பெட்டி இந்தத் திரையில் தன் முதல் அமைப்பைத் திறக்கும்: மொழி, விசைப்பலகை, வலையமைப்பு, பகுதி, நேர மண்டலம், பெட்டியின் நிர்வாகி."
+msgid "On its next start, the box opens its first setup on this screen."
+msgstr "அடுத்த தொடக்கத்தில், பெட்டி இந்தத் திரையில் தன் முதல் அமைப்பைத் திறக்கும்."
 
-#: app.py:91
+#: app.py:89
 #, fuzzy
 msgid "Free space"
 msgstr "காலி இடம்"
 
-#: app.py:91
+#: app.py:89
 #, fuzzy
 msgid "Empty"
 msgstr "காலி"
 
-#: app.py:461
+#: app.py:457
 #, fuzzy
 msgid "Internet: connected"
 msgstr "இணையம்: இணைக்கப்பட்டது"
 
-#: app.py:463
+#: app.py:459
 #, fuzzy
-msgid "No internet. Installing anyway: ZOOMRIYA OS is on this stick, and its security fixes arrive once the box is online. Plug in a network cable to connect."
-msgstr "இணையம் இல்லை. இருந்தாலும் நிறுவப்படும்: ZOOMRIYA OS இந்தக் குச்சியிலேயே உள்ளது; பெட்டி இணையத்தில் இணைந்ததும் பாதுகாப்புத் திருத்தங்கள் வரும். இணைக்க வலையமைப்புக் கம்பியைச் செருகுங்கள்."
+msgid "No internet. Installing anyway; updates arrive once the box is online. Plug in a network cable to connect."
+msgstr "இணையம் இல்லை. இருந்தாலும் நிறுவப்படும்; பெட்டி இணைந்ததும் புதுப்பிப்புகள் வரும். இணைக்க வலையமைப்புக் கம்பியைச் செருகுங்கள்."
 
-#: app.py:616
+#: app.py:609
 #, fuzzy
 msgid "Erase everything on {drive} ({size})"
 msgstr "{drive} இல் உள்ள அனைத்தையும் அழி ({size})"
 
-#: app.py:750
+#: app.py:742
 #, fuzzy
-msgid "The drive may not start now; installing again puts that right."
+msgid "The drive may not start now; installing again fixes it."
 msgstr "இயக்ககம் இப்போது தொடங்காமல் போகலாம்; மீண்டும் நிறுவினால் சரியாகும்."
 
-#: app.py:322
+#: app.py:320
 #, fuzzy
 msgid "Erase and install"
 msgstr "அழித்து நிறுவு"
 
-#: app.py:421
+#: app.py:417
 #, fuzzy
 msgid "Memory: {have} ({need} needed)"
 msgstr "நினைவகம்: {have} ({need} தேவை)"
 
-#: app.py:423
+#: app.py:419
 #, fuzzy
 msgid "A drive of {size} or more"
 msgstr "{size} அல்லது அதற்கு மேற்பட்ட இயக்ககம்"
 
-#: app.py:754
+#: app.py:746
 #, fuzzy
-msgid "If it fails again, the installer's notes for support are in {file}."
-msgstr "மீண்டும் தோல்வியடைந்தால், உதவிக்கான நிறுவியின் குறிப்புகள் {file} இல் உள்ளன."
+msgid "If it fails again, support notes are in {file}."
+msgstr "மீண்டும் தோல்வியடைந்தால், உதவிக் குறிப்புகள் {file} இல் உள்ளன."
 
-#: app.py:369
+#: app.py:367
 #, fuzzy
 msgid "Something went wrong."
 msgstr "ஏதோ தவறு நடந்தது."
 
-#: app.py:710
+#: app.py:702
 #, fuzzy
 msgid "The install stopped: {problem}"
 msgstr "நிறுவல் நின்றுவிட்டது: {problem}"

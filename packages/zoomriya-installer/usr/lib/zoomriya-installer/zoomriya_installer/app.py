@@ -27,6 +27,7 @@ from gi.repository import Gdk, Gio, GLib, Gtk, Pango  # noqa: E402
 from .brand import MARK, WORDMARK, logo  # noqa: E402
 from .disks import MIN_BYTES, Disk, layout_after, size_text  # noqa: E402
 from .i18n import LANGUAGES, N_, _  # noqa: E402
+from .icons import icon as line_icon  # noqa: E402
 from . import i18n  # noqa: E402
 from .install import LOG, STAGES, InstallError, overall  # noqa: E402
 
@@ -43,26 +44,23 @@ FREE_COLOUR = "#dfe5ec"
 AFTER_COLOURS = {"EFI": "#7fb2ea", "Recovery": "#f0a95b", "ZOOMRIYA OS": "#1765c1"}
 
 SLIDES = [
-    ("user-home-symbolic", N_("Your files stay at home"),
-     N_("Everything the box keeps lives on it, in your home, not in someone else's cloud."),
+    ("home", N_("Your files stay at home"),
+     N_("Everything stays on the box, at home, not in someone else's cloud."),
      ("#1765c1", "#3b8ce0")),
-    ("security-high-symbolic", N_("Security fixes install by themselves"),
-     N_("Security fixes for the OS arrive on their own, in the box's quiet maintenance hour."),
+    ("shield", N_("Security fixes install by themselves"),
+     N_("OS security updates install automatically."),
      ("#0f766e", "#14a597")),
-    ("document-revert-symbolic", N_("Restore points"),
-     N_("The box keeps a restore point before every update. Going back is one click in "
-        "Box Desktop, and your files stay as they are."),
+    ("restore", N_("Restore points"),
+     N_("A restore point before every update. One click in Box Desktop goes back; your files stay."),
      ("#5b3fb8", "#8462e0")),
-    ("view-refresh-symbolic", N_("A kernel that won't start falls back"),
-     N_("If a new kernel can't start, the box starts the one before it by itself and tells you."),
+    ("fallback", N_("A kernel that won't start falls back"),
+     N_("If a new kernel won't start, the box falls back to the previous one."),
      ("#b4531c", "#e07a3b")),
-    ("avatar-default-symbolic", N_("One account: ZOOMRIYA ID"),
-     N_("The admin you make at the first setup signs in to the box and to every ZOOMRIYA "
-        "app you add to it."),
+    ("account", N_("One account: ZOOMRIYA ID"),
+     N_("One sign-in for the box and every ZOOMRIYA app."),
      ("#1d6f42", "#2f9a5e")),
-    ("channel-secure-symbolic", N_("Closed unless you open it"),
-     N_("A firewall that lets nothing in uninvited, and remote access off until an admin "
-        "turns it on."),
+    ("lock", N_("Closed unless you open it"),
+     N_("A firewall blocks anything uninvited; remote access stays off until an admin enables it."),
      ("#24364b", "#3d5874")),
 ]
 
@@ -378,8 +376,7 @@ class InstallerWindow(Gtk.ApplicationWindow):
         installer in it at once."""
         box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=16)
         box.append(label(_("Choose your language"), "title"))
-        box.append(label(_("The installer is shown in it. The box's own language is chosen at its "
-                           "first setup."), "lead"))
+        box.append(label(_("For the installer. The box's language is chosen at first setup."), "lead"))
         choices = Gtk.ListBox(selection_mode=Gtk.SelectionMode.SINGLE)
         choices.add_css_class("disks")
         for code, name in LANGUAGES:
@@ -405,9 +402,8 @@ class InstallerWindow(Gtk.ApplicationWindow):
         hero.add_css_class("hero")
         box.append(hero)
         box.append(label(_("Install ZOOMRIYA OS"), "title"))
-        box.append(label(_("This turns this computer into a ZOOMRIYA Box. You choose the drive "
-                           "on the next page, and everything on that drive is erased. It takes "
-                           "about five minutes."), "lead"))
+        box.append(label(_("Turns this computer into a ZOOMRIYA Box in about five minutes. The drive "
+                           "you choose next is erased."), "lead"))
         self.checks = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
         self.checks.add_css_class("checks")
         box.append(self.checks)
@@ -460,9 +456,8 @@ class InstallerWindow(Gtk.ApplicationWindow):
         elif self.online:
             add("✓", "check-ok", _("Internet: connected"))
         else:
-            add("!", "check-warn", _("No internet. Installing anyway: ZOOMRIYA OS is on this stick, "
-                                     "and its security fixes arrive once the box is online. Plug in a "
-                                     "network cable to connect."), wrap=True)
+            add("!", "check-warn", _("No internet. Installing anyway; updates arrive once the box is "
+                                     "online. Plug in a network cable to connect."), wrap=True)
 
     def draw_hero(self, _area: Any, cr: Any, w: int, h: int) -> None:
         """The box on a soft blue field, its light on."""
@@ -509,8 +504,8 @@ class InstallerWindow(Gtk.ApplicationWindow):
         again.connect("clicked", lambda _b: self.look_for_disks())
         head.append(again)
         box.append(head)
-        box.append(label(_("Choose the drive to install it on. Everything on that drive is "
-                           "erased; other drives aren't touched. Plugged one in? Press Look again."),
+        box.append(label(_("The chosen drive is erased; others aren't touched. Plugged one in? Press "
+                           "Look again."),
                          "lead"))
         self.disk_list = Gtk.ListBox(selection_mode=Gtk.SelectionMode.SINGLE)
         self.disk_list.add_css_class("disks")
@@ -545,10 +540,9 @@ class InstallerWindow(Gtk.ApplicationWindow):
             row.disk = disk
             line = Gtk.Box(spacing=16)
             line.add_css_class("disk")
-            icon = {"USB": "drive-removable-media-symbolic", "SD card": "media-flash-symbolic"}.get(
-                disk.bus, "drive-harddisk-symbolic")
-            image = Gtk.Image.new_from_icon_name(icon)
-            image.set_pixel_size(32)
+            kind = {"USB": "usb", "SD card": "sd-card"}.get(disk.bus, "disk")
+            # Blue, or grey on a drive that can't be chosen.
+            image = line_icon(kind, 32, "#1765c1" if disk.usable else "#56636f")
             image.add_css_class("disk-icon")
             line.append(image)
             words = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=2, hexpand=True)
@@ -580,7 +574,7 @@ class InstallerWindow(Gtk.ApplicationWindow):
     def summary_page(self) -> Gtk.Widget:
         box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=16)
         box.append(label(_("Ready to install"), "title"))
-        box.append(label(_("Check the drive once more. Nothing has been changed yet."), "lead"))
+        box.append(label(_("Check the drive. Nothing has changed yet."), "lead"))
         self.facts = Gtk.Grid(column_spacing=28, row_spacing=10)
         self.facts.add_css_class("facts")
         box.append(self.facts)
@@ -588,8 +582,7 @@ class InstallerWindow(Gtk.ApplicationWindow):
         box.append(self.summary_bar)
         warning = Gtk.Box(spacing=14)
         warning.add_css_class("warning")
-        sign = Gtk.Image.new_from_icon_name("dialog-warning-symbolic")
-        sign.set_pixel_size(24)
+        sign = line_icon("alert", 24, "#7a4510")
         warning.append(sign)
         self.erase_ok = Gtk.CheckButton()
         self.erase_ok.connect("toggled", lambda _b: self.update_next())
@@ -635,7 +628,7 @@ class InstallerWindow(Gtk.ApplicationWindow):
         box.append(self.stage)
         self.progress = Gtk.ProgressBar()
         box.append(self.progress)
-        box.append(label(_("Keep the computer on and the USB stick in until it's done."), "hint"))
+        box.append(label(_("Keep the computer on and the USB stick in until done."), "hint"))
         return box
 
     def slide_card(self, icon: str, title: str, text: str, colours: tuple[str, str]) -> Gtk.Widget:
@@ -659,8 +652,7 @@ class InstallerWindow(Gtk.ApplicationWindow):
         overlay.set_child(art)
         words = Gtk.Box(spacing=28, valign=Gtk.Align.CENTER)
         words.add_css_class("slide")
-        image = Gtk.Image.new_from_icon_name(icon)
-        image.set_pixel_size(72)
+        image = line_icon(icon, 72, "#ffffff")
         image.add_css_class("slide-icon")
         words.append(image)
         text_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=8, valign=Gtk.Align.CENTER)
@@ -748,19 +740,16 @@ class InstallerWindow(Gtk.ApplicationWindow):
         if self.failed:
             self.done_title.set_text(_("The install didn't finish"))
             self.done_lead.set_text(self.failed + " " + _("The drive may not start now; installing "
-                                                          "again puts that right."))
-            steps = [_("Check the drive is plugged in firmly, or try another drive."),
+                                                          "again fixes it."))
+            steps = [_("Check the drive's connection, or try another drive."),
                      _("Press Try again."),
-                     _("If it fails again, the installer's notes for support are in {file}.").format(file=LOG)]
+                     _("If it fails again, support notes are in {file}.").format(file=LOG)]
         else:
             self.done_title.set_text(_("ZOOMRIYA OS is installed"))
-            self.done_lead.set_text(_("Your ZOOMRIYA Box is ready to start for the first time."))
+            self.done_lead.set_text(_("Your ZOOMRIYA Box is ready for its first start."))
             steps = [_("Take out the USB stick."),
-                     _("Press Restart now to set the box up now, or Power off to leave that "
-                       "to its owner."),
-                     _("At its next start, the box opens its first setup on this screen: the "
-                       "language, the keyboard, the network, the region, the time zone and "
-                       "the box's admin.")]
+                     _("Press Restart now to set it up, or Power off to leave it for its owner."),
+                     _("On its next start, the box opens its first setup on this screen.")]
         for i, text in enumerate(steps):
             row = Gtk.Box(spacing=12)
             number = label(str(i + 1), "done-number", wrap=False, shorten=False)

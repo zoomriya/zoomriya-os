@@ -5,65 +5,65 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: es\n"
 
-#: app.py:33
+#: app.py:34
 #, fuzzy
 msgid "Language"
 msgstr "Idioma"
 
-#: app.py:33
+#: app.py:34
 #, fuzzy
 msgid "Welcome"
 msgstr "Bienvenida"
 
-#: app.py:33 app.py:607
+#: app.py:34 app.py:600
 #, fuzzy
 msgid "Drive"
 msgstr "Disco"
 
-#: app.py:33
+#: app.py:34
 #, fuzzy
 msgid "Summary"
 msgstr "Resumen"
 
-#: app.py:33
+#: app.py:34
 #, fuzzy
 msgid "Install"
 msgstr "Instalación"
 
-#: app.py:33
+#: app.py:34
 #, fuzzy
 msgid "Done"
 msgstr "Listo"
 
-#: app.py:46
+#: app.py:47
 #, fuzzy
 msgid "Your files stay at home"
 msgstr "Tus archivos se quedan en casa"
 
-#: app.py:47
+#: app.py:48
 #, fuzzy
-msgid "Everything the box keeps lives on it, in your home, not in someone else's cloud."
-msgstr "Todo lo que guarda la Box está en ella, en tu casa, no en la nube de otros."
+msgid "Everything stays on the box, at home, not in someone else's cloud."
+msgstr "Todo se queda en la Box, en casa, no en la nube de otros."
 
-#: app.py:49
+#: app.py:50
 #, fuzzy
 msgid "Security fixes install by themselves"
 msgstr "Las correcciones de seguridad se instalan solas"
 
-#: app.py:50
+#: app.py:51
 #, fuzzy
-msgid "Security fixes for the OS arrive on their own, in the box's quiet maintenance hour."
-msgstr "Las correcciones de seguridad del sistema llegan solas, en la hora tranquila de mantenimiento de la Box."
+msgid "OS security updates install automatically."
+msgstr "Las actualizaciones de seguridad del sistema se instalan solas."
 
-#: app.py:52
+#: app.py:53
 #, fuzzy
 msgid "Restore points"
 msgstr "Puntos de restauración"
 
-#: app.py:53
+#: app.py:54
 #, fuzzy
-msgid "The box keeps a restore point before every update. Going back is one click in Box Desktop, and your files stay as they are."
-msgstr "La Box crea un punto de restauración antes de cada actualización. Volver atrás es un clic en Box Desktop, y tus archivos quedan como están."
+msgid "A restore point before every update. One click in Box Desktop goes back; your files stay."
+msgstr "Un punto de restauración antes de cada actualización. Un clic en Box Desktop para volver; tus archivos se quedan."
 
 #: app.py:56
 #, fuzzy
@@ -72,8 +72,8 @@ msgstr "Si un kernel no arranca, vuelve al anterior"
 
 #: app.py:57
 #, fuzzy
-msgid "If a new kernel can't start, the box starts the one before it by itself and tells you."
-msgstr "Si un kernel nuevo no arranca, la Box arranca sola el anterior y te avisa."
+msgid "If a new kernel won't start, the box falls back to the previous one."
+msgstr "Si un kernel nuevo no arranca, la Box vuelve al anterior."
 
 #: app.py:59
 #, fuzzy
@@ -82,245 +82,245 @@ msgstr "Una sola cuenta: ZOOMRIYA ID"
 
 #: app.py:60
 #, fuzzy
-msgid "The admin you make at the first setup signs in to the box and to every ZOOMRIYA app you add to it."
-msgstr "El administrador que creas en la primera configuración inicia sesión en la Box y en cada app de ZOOMRIYA que añadas."
+msgid "One sign-in for the box and every ZOOMRIYA app."
+msgstr "Un solo inicio de sesión para la Box y cada app de ZOOMRIYA."
 
-#: app.py:63
+#: app.py:62
 #, fuzzy
 msgid "Closed unless you open it"
 msgstr "Cerrado hasta que lo abras"
 
-#: app.py:64
+#: app.py:63
 #, fuzzy
-msgid "A firewall that lets nothing in uninvited, and remote access off until an admin turns it on."
-msgstr "Un cortafuegos que no deja entrar nada sin invitación, y el acceso remoto apagado hasta que un administrador lo active."
+msgid "A firewall blocks anything uninvited; remote access stays off until an admin enables it."
+msgstr "Un cortafuegos bloquea todo lo no invitado; el acceso remoto sigue apagado hasta que un administrador lo active."
 
-#: app.py:265
+#: app.py:263
 #, fuzzy
 msgid "OS Installer"
 msgstr "Instalador"
 
-#: app.py:321
+#: app.py:319
 #, fuzzy
 msgid "Try again"
 msgstr "Reintentar"
 
-#: app.py:321
+#: app.py:319
 #, fuzzy
 msgid "Restart now"
 msgstr "Reiniciar"
 
-#: app.py:522
+#: app.py:517
 #, fuzzy
 msgid "Now"
 msgstr "Ahora"
 
-#: app.py:523
+#: app.py:518
 #, fuzzy
 msgid "After installing"
 msgstr "Después de instalar"
 
-#: app.py:587
+#: app.py:581
 #, fuzzy
 msgid "The drive after installing"
 msgstr "El disco después de instalar"
 
-#: app.py:606
+#: app.py:599
 #, fuzzy
 msgid "Nothing: the drive is empty"
 msgstr "Nada: el disco está vacío"
 
-#: app.py:189 app.py:407
+#: app.py:187 app.py:404
 #, fuzzy
 msgid "Install ZOOMRIYA OS"
 msgstr "Instalar ZOOMRIYA OS"
 
-#: app.py:227
+#: app.py:225
 #, fuzzy
 msgid "Back"
 msgstr "Atrás"
 
-#: app.py:231
+#: app.py:229
 #, fuzzy
 msgid "Power off"
 msgstr "Apagar"
 
-#: app.py:234 app.py:322
+#: app.py:232 app.py:320
 #, fuzzy
 msgid "Next"
 msgstr "Siguiente"
 
-#: app.py:380
+#: app.py:378
 #, fuzzy
 msgid "Choose your language"
 msgstr "Elige tu idioma"
 
-#: app.py:381
+#: app.py:379
 #, fuzzy
-msgid "The installer is shown in it. The box's own language is chosen at its first setup."
-msgstr "El instalador se muestra en este idioma. El idioma de la Box se elige en su primera configuración."
+msgid "For the installer. The box's language is chosen at first setup."
+msgstr "Para el instalador. El idioma de la Box se elige en la primera configuración."
 
-#: app.py:408
+#: app.py:405
 #, fuzzy
-msgid "This turns this computer into a ZOOMRIYA Box. You choose the drive on the next page, and everything on that drive is erased. It takes about five minutes."
-msgstr "Este ordenador se convertirá en una ZOOMRIYA Box. Eliges el disco en la página siguiente, y todo lo que hay en él se borra. Tarda unos cinco minutos."
+msgid "Turns this computer into a ZOOMRIYA Box in about five minutes. The drive you choose next is erased."
+msgstr "Convierte este ordenador en una ZOOMRIYA Box en unos cinco minutos. El disco que elijas después se borra."
 
-#: app.py:420
+#: app.py:416
 #, fuzzy
 msgid "Started in UEFI mode"
 msgstr "Iniciado en modo UEFI"
 
-#: app.py:459
+#: app.py:455
 #, fuzzy
 msgid "Checking the internet…"
 msgstr "Comprobando internet…"
 
-#: app.py:506
+#: app.py:501
 #, fuzzy
 msgid "Where should ZOOMRIYA OS go?"
 msgstr "¿Dónde instalar ZOOMRIYA OS?"
 
-#: app.py:508
+#: app.py:503
 #, fuzzy
 msgid "Look again"
 msgstr "Actualizar"
 
-#: app.py:512
+#: app.py:507
 #, fuzzy
-msgid "Choose the drive to install it on. Everything on that drive is erased; other drives aren't touched. Plugged one in? Press Look again."
-msgstr "Elige el disco donde instalarlo. Todo lo que hay en él se borra; los demás discos no se tocan. ¿Acabas de conectar uno? Pulsa Actualizar."
+msgid "The chosen drive is erased; others aren't touched. Plugged one in? Press Look again."
+msgstr "El disco elegido se borra; los demás no se tocan. ¿Acabas de conectar uno? Pulsa Actualizar."
 
-#: app.py:582
+#: app.py:576
 #, fuzzy
 msgid "Ready to install"
 msgstr "Listo para instalar"
 
-#: app.py:583
+#: app.py:577
 #, fuzzy
-msgid "Check the drive once more. Nothing has been changed yet."
-msgstr "Revisa el disco una vez más. Aún no se ha cambiado nada."
+msgid "Check the drive. Nothing has changed yet."
+msgstr "Revisa el disco. Aún no ha cambiado nada."
 
-#: app.py:608
+#: app.py:601
 #, fuzzy
 msgid "Size"
 msgstr "Tamaño"
 
-#: app.py:609
+#: app.py:602
 #, fuzzy
 msgid "Erased"
 msgstr "Se borra"
 
-#: app.py:610
+#: app.py:603
 #, fuzzy
 msgid "Installed"
 msgstr "Se instala"
 
-#: app.py:623
+#: app.py:616
 #, fuzzy
 msgid "Installing ZOOMRIYA OS"
 msgstr "Instalando ZOOMRIYA OS"
 
-#: app.py:638
+#: app.py:631
 #, fuzzy
-msgid "Keep the computer on and the USB stick in until it's done."
-msgstr "Deja el ordenador encendido y la memoria USB conectada hasta que termine."
+msgid "Keep the computer on and the USB stick in until done."
+msgstr "Deja el ordenador encendido y la memoria USB conectada hasta terminar."
 
-#: app.py:749
+#: app.py:741
 #, fuzzy
 msgid "The install didn't finish"
 msgstr "La instalación no terminó"
 
-#: app.py:752
+#: app.py:744
 #, fuzzy
-msgid "Check the drive is plugged in firmly, or try another drive."
-msgstr "Comprueba que el disco esté bien conectado o prueba con otro."
+msgid "Check the drive's connection, or try another drive."
+msgstr "Comprueba la conexión del disco o prueba con otro."
 
-#: app.py:753
+#: app.py:745
 #, fuzzy
 msgid "Press Try again."
 msgstr "Pulsa Reintentar."
 
-#: app.py:756
+#: app.py:748
 #, fuzzy
 msgid "ZOOMRIYA OS is installed"
 msgstr "ZOOMRIYA OS está instalado"
 
-#: app.py:757
+#: app.py:749
 #, fuzzy
-msgid "Your ZOOMRIYA Box is ready to start for the first time."
-msgstr "Tu ZOOMRIYA Box está lista para arrancar por primera vez."
+msgid "Your ZOOMRIYA Box is ready for its first start."
+msgstr "Tu ZOOMRIYA Box está lista para su primer arranque."
 
-#: app.py:758
+#: app.py:750
 #, fuzzy
 msgid "Take out the USB stick."
 msgstr "Retira la memoria USB."
 
-#: app.py:759
+#: app.py:751
 #, fuzzy
-msgid "Press Restart now to set the box up now, or Power off to leave that to its owner."
-msgstr "Pulsa Reiniciar para configurar la Box ahora, o Apagar para dejárselo a su dueño."
+msgid "Press Restart now to set it up, or Power off to leave it for its owner."
+msgstr "Pulsa Reiniciar para configurarla, o Apagar para dejárselo a su dueño."
 
-#: app.py:761
+#: app.py:752
 #, fuzzy
-msgid "At its next start, the box opens its first setup on this screen: the language, the keyboard, the network, the region, the time zone and the box's admin."
-msgstr "En su próximo arranque, la Box abre su primera configuración en esta pantalla: el idioma, el teclado, la red, la región, la zona horaria y el administrador de la Box."
+msgid "On its next start, the box opens its first setup on this screen."
+msgstr "En su próximo arranque, la Box abre su primera configuración en esta pantalla."
 
-#: app.py:91
+#: app.py:89
 #, fuzzy
 msgid "Free space"
 msgstr "Espacio libre"
 
-#: app.py:91
+#: app.py:89
 #, fuzzy
 msgid "Empty"
 msgstr "Vacío"
 
-#: app.py:461
+#: app.py:457
 #, fuzzy
 msgid "Internet: connected"
 msgstr "Internet: conectado"
 
-#: app.py:463
+#: app.py:459
 #, fuzzy
-msgid "No internet. Installing anyway: ZOOMRIYA OS is on this stick, and its security fixes arrive once the box is online. Plug in a network cable to connect."
-msgstr "Sin internet. Se instala igualmente: ZOOMRIYA OS está en esta memoria, y sus correcciones de seguridad llegan cuando la Box esté en línea. Conecta un cable de red para conectarte."
+msgid "No internet. Installing anyway; updates arrive once the box is online. Plug in a network cable to connect."
+msgstr "Sin internet. Se instala igualmente; las actualizaciones llegan cuando la Box esté en línea. Conecta un cable de red para conectarte."
 
-#: app.py:616
+#: app.py:609
 #, fuzzy
 msgid "Erase everything on {drive} ({size})"
 msgstr "Borrar todo en {drive} ({size})"
 
-#: app.py:750
+#: app.py:742
 #, fuzzy
-msgid "The drive may not start now; installing again puts that right."
-msgstr "Puede que el disco no arranque ahora; volver a instalar lo arregla."
+msgid "The drive may not start now; installing again fixes it."
+msgstr "Puede que el disco no arranque ahora; reinstalar lo arregla."
 
-#: app.py:322
+#: app.py:320
 #, fuzzy
 msgid "Erase and install"
 msgstr "Borrar e instalar"
 
-#: app.py:421
+#: app.py:417
 #, fuzzy
 msgid "Memory: {have} ({need} needed)"
 msgstr "Memoria: {have} (se necesitan {need})"
 
-#: app.py:423
+#: app.py:419
 #, fuzzy
 msgid "A drive of {size} or more"
 msgstr "Un disco de {size} o más"
 
-#: app.py:754
+#: app.py:746
 #, fuzzy
-msgid "If it fails again, the installer's notes for support are in {file}."
-msgstr "Si vuelve a fallar, las notas del instalador para el soporte están en {file}."
+msgid "If it fails again, support notes are in {file}."
+msgstr "Si vuelve a fallar, las notas para el soporte están en {file}."
 
-#: app.py:369
+#: app.py:367
 #, fuzzy
 msgid "Something went wrong."
 msgstr "Algo salió mal."
 
-#: app.py:710
+#: app.py:702
 #, fuzzy
 msgid "The install stopped: {problem}"
 msgstr "La instalación se detuvo: {problem}"
