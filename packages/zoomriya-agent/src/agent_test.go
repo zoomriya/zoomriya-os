@@ -116,6 +116,21 @@ func TestStatus(t *testing.T) {
 	}
 }
 
+func TestAlwaysOn(t *testing.T) {
+	agent, box := newFakeBox(t)
+	box.answers = map[string]string{}
+	for _, target := range sleepTargets {
+		box.answers["systemctl is-enabled "+target] = "masked\n"
+	}
+	if resp, _ := agent.Handle(Request{Op: "status"}); resp["always_on"] != true {
+		t.Errorf("always_on = %v with every sleep target masked", resp["always_on"])
+	}
+	box.answers["systemctl is-enabled suspend.target"] = "static\n"
+	if resp, _ := agent.Handle(Request{Op: "status"}); resp["always_on"] != false {
+		t.Errorf("always_on = %v with suspend allowed", resp["always_on"])
+	}
+}
+
 func TestStatusNoRestartNeeded(t *testing.T) {
 	agent, _ := newFakeBox(t)
 	resp, err := agent.Handle(Request{Op: "status"})

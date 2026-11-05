@@ -1,5 +1,5 @@
 #!/bin/sh
-# Give Debian its os-release, login banners and message of the day back.
+# Give Debian its os-release, login banners, message of the day and sleep back.
 set -e
 
 if [ "$1" = remove ] || [ "$1" = purge ] || [ "$1" = abort-install ]; then
@@ -7,4 +7,7 @@ if [ "$1" = remove ] || [ "$1" = purge ] || [ "$1" = abort-install ]; then
     for f in /usr/lib/os-release /etc/issue /etc/issue.net /etc/motd /etc/update-motd.d/10-uname; do
         dpkg-divert --package zoomriya-base --remove --rename --divert "$f.debian" "$f"
     done
+    # Sleep allowed again, as Debian has it.
+    systemctl unmask --quiet sleep.target suspend.target hibernate.target hybrid-sleep.target \
+        suspend-then-hibernate.target 2>/dev/null || true
 fi

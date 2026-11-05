@@ -649,6 +649,12 @@ VM test)
   first setup is on the box's own screen and listens on no port. connectd's short-block set (ZOOMRIYA
   Connect) lives in the same table. Checked: the rules, and that nothing else
   listens.
+- **Always on.** The box never sleeps, hibernates or saves power by switching
+  itself off: `zoomriya-base` turns sleep off (`sleep.conf.d`), has sleep keys,
+  a lid and idleness do nothing (`logind.conf.d`), and masks the sleep targets
+  so nothing can start them. Only an admin's Shut down or the power button stop
+  it. Box Desktop shows it on Restarts › Power, on and greyed out (the agent's
+  `status` reports `always_on`).
 - **No opening ports by hand.** Box Desktop has no place to type a port. The
   OS opens what's above; later, each app declares the ports it needs, and the
   agent opens them, on the home network only, when the app is installed and

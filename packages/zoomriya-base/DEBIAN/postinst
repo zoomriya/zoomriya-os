@@ -21,6 +21,10 @@ if [ "$1" = configure ]; then
     # snapper's list of configs: just root, ours (/etc/snapper/configs/root).
     sed -i 's/^SNAPPER_CONFIGS=""$/SNAPPER_CONFIGS="root"/' /etc/default/snapper
 
+    # Always on: nothing can put the box to sleep (sleep.conf.d, logind.conf.d).
+    systemctl mask --quiet sleep.target suspend.target hibernate.target hybrid-sleep.target \
+        suspend-then-hibernate.target
+
     deb-systemd-helper enable zoomriya-hostname.service zoomriya-dpkg-recover.service \
         zoomriya-factory-snapshot.service zoomriya-restore-cleanup.service \
         zoomriya-boot-check.service zoomriya-erase.service zoomriya-setup-code.service \
@@ -31,6 +35,7 @@ if [ "$1" = configure ]; then
     if [ -d /run/systemd/system ]; then
         systemctl daemon-reload
         systemctl restart systemd-journald.service || true
+        systemctl kill --signal=HUP systemd-logind.service 2>/dev/null || true
         systemctl restart nftables.service || true
         /usr/lib/systemd/systemd-sysctl /usr/lib/sysctl.d/60-zoomriya.conf || true
     fi

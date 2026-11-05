@@ -100,6 +100,11 @@ check "only the chosen language built" "fr_CA.utf8" "$(locale -a 2>&1 | grep -v 
 check "the language kept when locales is updated" "fr_CA.UTF-8 UTF-8" "$(grep -x 'fr_CA.UTF-8 UTF-8' /etc/locale.gen 2>&1)"
 ask '{"op": "region-set", "by": "test", "region": "CA"}'
 check "region set" CA "$(cat /etc/zoomriya/region 2>&1)"
+# Always on (design §8): nothing can put the box to sleep.
+check "suspend is masked" masked "$(systemctl is-enabled suspend.target 2>&1)"
+check "hibernate is masked" masked "$(systemctl is-enabled hibernate.target 2>&1)"
+"$agent" ask '{"op": "status"}' | grep -q '"always_on":true' \
+    && pass "status says the box is always on" || fail "status says the box is always on" "$("$agent" ask '{"op": "status"}')"
 check "every script has a font" yes "$(fc-list :lang=ta | grep -q . && fc-list :lang=zh | grep -q . && echo yes)"
 ask '{"op": "time-zone-set", "by": "test", "zone": "America/Toronto"}'
 check "time zone set" America/Toronto "$(timedatectl show --property=Timezone --value)"

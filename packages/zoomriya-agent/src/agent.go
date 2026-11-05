@@ -282,7 +282,23 @@ func (a *Agent) status() (Response, error) {
 		"last_security_update": a.modified("var/log/unattended-upgrades/unattended-upgrades-dpkg.log"),
 		"last_update_check":    a.modified("var/lib/apt/periodic/unattended-upgrades-stamp"),
 		"restore_points":       points,
+		"always_on":            a.alwaysOn(),
 	}, nil
+}
+
+// sleepTargets are the ways a box could sleep; zoomriya-base masks them all.
+var sleepTargets = []string{"sleep.target", "suspend.target", "hibernate.target", "hybrid-sleep.target",
+	"suspend-then-hibernate.target"}
+
+// alwaysOn: nothing can put the box to sleep (design §8).
+func (a *Agent) alwaysOn() bool {
+	for _, target := range sleepTargets {
+		out, _ := a.Run("systemctl", "is-enabled", target)
+		if strings.TrimSpace(string(out)) != "masked" {
+			return false
+		}
+	}
+	return true
 }
 
 // RestorePoint is one snapper snapshot of @, newest first in lists. Kind tells
