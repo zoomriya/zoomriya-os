@@ -303,7 +303,7 @@ func (a *Agent) storageCheck(action *string) (Response, error) {
 	run := func(btrfs ...string) []string {
 		// When it's over, the watcher tells the admins (watch.go).
 		return append([]string{"--quiet", "--collect", "--unit=" + checkUnit,
-			"--description=Check that both copies of the library match",
+			"--description=Check the library for damage",
 			"--property=ExecStopPost=" + agentPath + " watch", "--", "btrfs"}, btrfs...)
 	}
 	var runErr error

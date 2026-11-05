@@ -478,10 +478,11 @@ check "erase everything in Box Desktop" ok \
 }
 
 fifth_boot() {
-check "/data erased" "" "$(ls -A /data | grep -v '^zoomriya-id$' | tr '\n' ' ')"
+# What comes back by itself: ZOOMRIYA ID, and Box Desktop's empty admin folder.
+check "/data erased" "" "$(ls -A /data | grep -vx 'zoomriya-id\|zoomriya' | tr '\n' ' ')$(ls -A /data/zoomriya | grep -vx admin | tr '\n' ' ')"
 id_checks
 setup_checks
-check "Box Desktop starts again, with no admin's desktop" "" "$(ls -A /var/lib/box-desktop-app/admins 2>/dev/null)"
+check "Box Desktop starts again, with no admin's desktop" "" "$(ls -A /data/zoomriya/admin 2>/dev/null)"
 journalctl -q -b -1 >/dev/null 2>&1 && fail "logs erased" "an earlier boot's journal is still there" || pass "logs erased"
 [ -d "/var/log/journal/$(cat /etc/machine-id)" ] && pass "journal is persistent after the erase" \
     || fail "journal is persistent after the erase" "$(ls -la /var/log/journal 2>&1 | head -3)"

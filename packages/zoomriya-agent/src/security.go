@@ -18,13 +18,14 @@ import (
 )
 
 // What each port the firewall opens is for (zoomriya-base's nftables.conf,
-// and the agent's own exceptions while they're on).
-var openPorts = map[string]string{
-	"tcp 443":  "The box's web address: Box Desktop, Family Hub and the apps",
-	"udp 5353": "Being found on the home network (mDNS)",
-	"udp 68":   "Getting an address from the router (DHCP)",
-	"udp 546":  "Getting an IPv6 address from the router (DHCPv6)",
-	"tcp 22":   "Advanced access or support mode (SSH)",
+// and the agent's own exceptions while they're on): Box Desktop's words, the
+// protocol's name and the icon Box Desktop shows.
+var openPorts = map[string]struct{ What, Detail, Icon string }{
+	"tcp 443":  {"Local Web Access (e.g., Family Hub, apps)", "Secure Web", "web"},
+	"udp 5353": {"Network Discovery (mDNS)", "Multicast DNS", "discovery"},
+	"udp 68":   {"Network Address Configuration (DHCP)", "Client DHCP", "address"},
+	"udp 546":  {"Network Address Configuration (DHCPv6)", "Client DHCPv6", "address"},
+	"tcp 22":   {"Advanced Access (SSH)", "Secure Shell", "terminal"},
 }
 
 var dportPattern = regexp.MustCompile(`\b(tcp|udp) (?:sport \d+ (?:tcp|udp) )?dport (\{[^}]*\}|\d+)[^\n]*\baccept\b`)
@@ -33,11 +34,61 @@ type OpenPort struct {
 	Port     int    `json:"port"`
 	Protocol string `json:"protocol"`
 	What     string `json:"what"`
+	Detail   string `json:"detail"`
+	Icon     string `json:"icon"`
+}
+
+// ourSource is our own apt repository's source (design §6.8), outside
+// sources.list.d: apt never reads it by itself, only for an admin's Update.
+const ourSource = "etc/apt/zoomriya-updates/zoomriya.sources"
+
+// sourceURIs are the URIs of a .sources file's sources that are on: one per
+// paragraph, and one with Enabled: no isn't used.
+func sourceURIs(file string) []string {
+	data, _ := os.ReadFile(file)
+	var all []string
+	for _, stanza := range strings.Split(string(data), "\n\n") {
+		var uris []string
+		on := true
+		for _, line := range strings.Split(stanza, "\n") {
+			key, value, _ := strings.Cut(strings.TrimSpace(line), ":")
+			switch key {
+			case "URIs":
+				uris = strings.Fields(value)
+			case "Enabled":
+				on = strings.TrimSpace(value) != "no"
+			}
+		}
+		if on {
+			all = append(all, uris...)
+		}
+	}
+	return all
 }
 
 type Connection struct {
-	Host string `json:"host"`
-	What string `json:"what"`
+	Host  string `json:"host"`
+	Title string `json:"title"`
+	What  string `json:"what"`
+	When  string `json:"when"`
+	Icon  string `json:"icon"`
+}
+
+// securityNow is the security fixes an admin starts with Check now.
+const securityNow = "zoomriya-security-now.service"
+
+// securityCheckNow starts the nightly security fixes now (design §6.1). It
+// returns at once; security's running says when they're done.
+func (a *Agent) securityCheckNow() (Response, error) {
+	for _, unit := range []string{securityNow, "apt-daily-upgrade.service"} {
+		if out, _ := a.Run("systemctl", "is-active", unit); strings.TrimSpace(string(out)) == "active" {
+			return nil, refuse("The box is already installing security fixes.")
+		}
+	}
+	if _, err := a.Run("systemctl", "start", "--no-block", securityNow); err != nil {
+		return nil, err
+	}
+	return Response{"started": true}, nil
 }
 
 // The EFI variable that says whether Secure Boot is on.
@@ -56,6 +107,7 @@ func (a *Agent) security() (Response, error) {
 	return Response{
 		"updates": Response{
 			"automatic":      enabled("apt-daily-upgrade.timer"),
+			"running":        active(securityNow) || active("apt-daily-upgrade.service"),
 			"last_installed": a.modified("var/log/unattended-upgrades/unattended-upgrades-dpkg.log"),
 			"last_check":     a.modified("var/lib/apt/periodic/unattended-upgrades-stamp"),
 		},
@@ -86,11 +138,11 @@ func (a *Agent) firewallOpen() []OpenPort {
 				continue
 			}
 			seen[key] = true
-			what := openPorts[key]
-			if what == "" {
-				what = "Opened by an app"
+			known, ok := openPorts[key]
+			if !ok {
+				known.What, known.Icon = "Opened by an app", "app"
 			}
-			open = append(open, OpenPort{Port: port, Protocol: m[1], What: what})
+			open = append(open, OpenPort{Port: port, Protocol: m[1], What: known.What, Detail: known.Detail, Icon: known.Icon})
 		}
 	}
 	sort.Slice(open, func(i, j int) bool { return open[i].Port < open[j].Port })
@@ -147,15 +199,35 @@ func (a *Agent) integrity() Response {
 }
 
 // apparmor: on, and how many profiles it enforces.
+// Profile is one program AppArmor knows: confined ("enforce") or only watched
+// ("complain").
+type Profile struct {
+	Name     string `json:"name"`
+	Enforced bool   `json:"enforced"`
+}
+
 func (a *Agent) apparmor() Response {
 	on := a.readTrimmed("sys/module/apparmor/parameters/enabled") == "Y"
 	enforced := 0
+	profiles := []Profile{}
 	for _, line := range strings.Split(a.readTrimmed("sys/kernel/security/apparmor/profiles"), "\n") {
-		if strings.HasSuffix(line, "(enforce)") {
+		i := strings.LastIndex(line, " (")
+		if i < 0 {
+			continue
+		}
+		p := Profile{Name: line[:i], Enforced: strings.HasSuffix(line, "(enforce)")}
+		if p.Enforced {
 			enforced++
 		}
+		profiles = append(profiles, p)
 	}
-	return Response{"on": on, "enforced": enforced}
+	sort.Slice(profiles, func(i, j int) bool {
+		if profiles[i].Enforced != profiles[j].Enforced {
+			return profiles[i].Enforced
+		}
+		return profiles[i].Name < profiles[j].Name
+	})
+	return Response{"on": on, "enforced": enforced, "profiles": profiles}
 }
 
 // secureBoot: "on", "off", or "unavailable" when the box didn't start by
@@ -176,28 +248,37 @@ func (a *Agent) secureBoot() string {
 }
 
 // connections are the places on the internet ZOOMRIYA OS itself connects to:
-// apt's sources and the time servers.
+// apt's sources and the time servers, each with Box Desktop's words for it,
+// when the box connects and its icon.
 func (a *Agent) connections() []Connection {
-	hosts := map[string]string{}
-	add := func(raw, what string) {
+	hosts := map[string]Connection{}
+	add := func(raw string, c Connection) {
 		if u, err := url.Parse(raw); err == nil && u.Hostname() != "" {
-			hosts[u.Hostname()] = what
+			c.Host = u.Hostname()
+			hosts[c.Host] = c
 		}
+	}
+	osSource := func(uri string) {
+		c := Connection{Title: "OS Package Server", What: "System updates & security fixes",
+			When: "Every night, and when an admin presses Check now", Icon: "package"}
+		if strings.Contains(uri, "security") {
+			c.Title, c.What = "OS Security Fix Server", "Security fixes"
+		}
+		add(uri, c)
 	}
 	files, _ := filepath.Glob(a.path("etc/apt/sources.list.d/*.sources"))
 	for _, f := range files {
-		data, _ := os.ReadFile(f)
-		for _, line := range strings.Split(string(data), "\n") {
-			if rest, found := strings.CutPrefix(strings.TrimSpace(line), "URIs:"); found {
-				for _, uri := range strings.Fields(rest) {
-					add(uri, "The OS's packages and their security fixes")
-				}
-			}
+		for _, uri := range sourceURIs(f) {
+			osSource(uri)
 		}
+	}
+	for _, uri := range sourceURIs(a.path(ourSource)) {
+		add(uri, Connection{Title: "ZOOMRIYA Updates", What: "The box's own software",
+			When: "Only when an admin presses Update", Icon: "package"})
 	}
 	for _, line := range strings.Split(a.readTrimmed("etc/apt/sources.list"), "\n") {
 		if f := strings.Fields(line); len(f) > 1 && f[0] == "deb" {
-			add(f[1], "The OS's packages and their security fixes")
+			osSource(f[1])
 		}
 	}
 
@@ -208,16 +289,17 @@ func (a *Agent) connections() []Connection {
 		servers = strings.Fields(string(out))
 	}
 	for _, s := range servers {
-		hosts[s] = "The time, which certificates and updates depend on"
+		hosts[s] = Connection{Host: s, Title: "Time Server", What: "The time, which certificates and updates depend on",
+			When: "Every so often, to keep the clock right", Icon: "clock"}
 	}
 
 	list := []Connection{}
-	for host, what := range hosts {
-		list = append(list, Connection{Host: host, What: what})
+	for _, c := range hosts {
+		list = append(list, c)
 	}
 	sort.Slice(list, func(i, j int) bool {
-		if list[i].What != list[j].What {
-			return list[i].What < list[j].What
+		if list[i].Title != list[j].Title {
+			return list[i].Title < list[j].Title
 		}
 		return list[i].Host < list[j].Host
 	})

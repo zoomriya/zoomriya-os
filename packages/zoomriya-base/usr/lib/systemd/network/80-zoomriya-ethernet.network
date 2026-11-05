@@ -1,5 +1,5 @@
-# Wired: an address by DHCP (design §5). Wi-Fi, when joined, gets a higher
-# metric so Ethernet carries everything (§5.1). Format: systemd.network(5).
+# Wired: an address by DHCP (design §5). Wi-Fi stays off: nothing here
+# matches it (§5.1). Format: systemd.network(5).
 [Match]
 Type=ether
 Kind=!*

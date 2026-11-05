@@ -18,7 +18,8 @@ func (a *Agent) factoryReset(level, setupCode *string) (Response, error) {
 	if level == nil {
 		return nil, refuse("Which reset? Reset the system, or erase everything.")
 	}
-	var args []string
+	// A reset holds nothing back: it installs the latest fixes after.
+	args := []string{"--reset"}
 	switch *level {
 	case "system":
 	case "everything":

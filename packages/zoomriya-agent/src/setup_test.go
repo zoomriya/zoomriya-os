@@ -52,6 +52,35 @@ func TestRegion(t *testing.T) {
 	}
 }
 
+func TestRegionWithAProvince(t *testing.T) {
+	agent, box := newFakeBox(t)
+	box.write("usr/share/zoneinfo/iso3166.tab", "CA\tCanada\nFR\tFrance\n")
+	box.write(subdivisionsFile, `{"3166-2": [
+  {"code": "CA-ON", "name": "Ontario", "type": "Province"},
+  {"code": "FR-ARA", "name": "Auvergne-Rhône-Alpes", "type": "Metropolitan region"},
+  {"code": "FR-01", "name": "Ain", "parent": "ARA", "type": "Metropolitan department"}
+]}`)
+	if _, err := agent.Handle(Request{Op: "region-set", Region: str("CA"), Subdivision: str("CA-ON")}); err != nil {
+		t.Fatal(err)
+	}
+	if resp, _ := agent.Handle(Request{Op: "setup-status"}); resp["region"] != "CA" || resp["subdivision"] != "CA-ON" {
+		t.Errorf("got %v %v", resp["region"], resp["subdivision"])
+	}
+	// Another country's, a department under a region, made up, or not a code.
+	for _, sub := range []string{"FR-ARA", "FR-01", "CA-XX", "ON", "CA-ON\n"} {
+		if _, err := agent.Handle(Request{Op: "region-set", Region: str("CA"), Subdivision: str(sub)}); err == nil {
+			t.Errorf("%q accepted for CA", sub)
+		}
+	}
+	// A new country without one clears the old country's.
+	if _, err := agent.Handle(Request{Op: "region-set", Region: str("FR")}); err != nil {
+		t.Fatal(err)
+	}
+	if resp, _ := agent.Handle(Request{Op: "setup-status"}); resp["region"] != "FR" || resp["subdivision"] != "" {
+		t.Errorf("got %v %v", resp["region"], resp["subdivision"])
+	}
+}
+
 func TestFirstAdmin(t *testing.T) {
 	agent, _ := newFakeBox(t)
 	var input string

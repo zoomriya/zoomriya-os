@@ -48,8 +48,10 @@ type Request struct {
 	Layout *string `json:"layout,omitempty"`
 	// language-set: one of Debian's locales, such as ta_LK or en_CA.UTF-8.
 	Locale *string `json:"locale,omitempty"`
-	// region-set: the box's country or region, a two-letter code such as CA.
-	Region *string `json:"region,omitempty"`
+	// region-set: the box's country or region, a two-letter code such as CA,
+	// and optionally its state or province, such as CA-ON.
+	Region      *string `json:"region,omitempty"`
+	Subdivision *string `json:"subdivision,omitempty"`
 	// time-zone-set: a zone from the time zone database, such as America/Toronto.
 	Zone *string `json:"zone,omitempty"`
 	// display-set: the box's screen (sway's output name), its resolution
@@ -64,6 +66,8 @@ type Request struct {
 	// passed on to ZOOMRIYA ID and never logged.
 	Username *string `json:"username,omitempty"`
 	Password *string `json:"password,omitempty"`
+	// held-release: one of the packages held lists.
+	Package *string `json:"package,omitempty"`
 }
 
 // Response is one line back: ok, and either the request's result or an error
@@ -99,7 +103,7 @@ var readOnly = map[string]bool{
 	"status": true, "restore-point-list": true, "disk-health": true,
 	"storage": true, "network": true, "resources": true, "logs": true,
 	"security": true, "notifications": true, "keyboard": true,
-	"setup-status": true,
+	"setup-status": true, "held": true,
 }
 
 func NewAgent() *Agent {
@@ -176,7 +180,7 @@ func (a *Agent) Handle(req Request) (Response, error) {
 	case "language-set":
 		return a.languageSet(req.Locale)
 	case "region-set":
-		return a.regionSet(req.Region)
+		return a.regionSet(req.Region, req.Subdivision)
 	case "time-zone-set":
 		return a.timeZoneSet(req.Zone)
 	case "display-set":
@@ -185,6 +189,12 @@ func (a *Agent) Handle(req Request) (Response, error) {
 		return a.firstAdmin(req.Username, req.Password)
 	case "setup-finish":
 		return a.setupFinish()
+	case "security-check-now":
+		return a.securityCheckNow()
+	case "held":
+		return a.held()
+	case "held-release":
+		return a.heldRelease(req.Package)
 	case "":
 		return nil, refuse("No request given.")
 	default:

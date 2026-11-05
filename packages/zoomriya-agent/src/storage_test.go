@@ -117,7 +117,7 @@ func TestMissingDrive(t *testing.T) {
 }
 
 func TestStorageCheck(t *testing.T) {
-	unit := "systemd-run --quiet --collect --unit=zoomriya-storage-check --description=Check that both copies of the library match --property=ExecStopPost=/usr/lib/zoomriya-agent/zoomriya-agent watch -- "
+	unit := "systemd-run --quiet --collect --unit=zoomriya-storage-check --description=Check the library for damage --property=ExecStopPost=/usr/lib/zoomriya-agent/zoomriya-agent watch -- "
 	for action, want := range map[string]string{
 		"start":  unit + "btrfs scrub start -B " + libraryPath,
 		"pause":  "btrfs scrub cancel " + libraryPath,

@@ -100,11 +100,17 @@ func (a *Agent) watch(n Notifier) error {
 		now.CheckStarted = last.CheckStarted
 		if (c.Finished || c.Paused) && c.Started != "" && c.Started != last.CheckStarted {
 			now.CheckStarted = c.Started
+			// With two drives the check repairs one copy from the other; with
+			// one (OS-4) it finds damage only.
 			switch {
-			case c.Errors > 0:
+			case c.Errors > 0 && lib.Mirror:
 				n.Notify("check", "error", fmt.Sprintf("The library's check found %d problem(s) between its two copies. Open Storage Manager.", c.Errors))
-			case c.Finished:
+			case c.Errors > 0:
+				n.Notify("check", "error", fmt.Sprintf("The library's check found %d damaged file(s). Open Storage Manager.", c.Errors))
+			case c.Finished && lib.Mirror:
 				n.Notify("check", "info", "The library's check finished: both copies match.")
+			case c.Finished:
+				n.Notify("check", "info", "The library's check finished: no damage found.")
 			}
 		}
 	}

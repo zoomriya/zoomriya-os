@@ -18,7 +18,7 @@ func TestResetTheSystem(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if lastRun(box) != restoreSnapshot+" 1" || resp["restart_needed"] != true {
+	if lastRun(box) != restoreSnapshot+" --reset 1" || resp["restart_needed"] != true {
 		t.Errorf("ran %q, got %v", lastRun(box), resp)
 	}
 	status, _ := agent.Handle(Request{Op: "status"})
@@ -47,7 +47,7 @@ func TestEraseEverythingNeedsTheSetupCode(t *testing.T) {
 	if _, err := agent.Handle(Request{Op: "factory-reset", Level: str("everything"), SetupCode: str(" mp68n8vd ")}); err != nil {
 		t.Fatal(err)
 	}
-	if lastRun(box) != restoreSnapshot+" --erase-everything 1" {
+	if lastRun(box) != restoreSnapshot+" --reset --erase-everything 1" {
 		t.Errorf("ran %q", lastRun(box))
 	}
 }

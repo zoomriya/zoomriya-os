@@ -15,7 +15,9 @@
 // for the VM tests and for support over SSH. `zoomriya-agent maintenance` is
 // the maintenance hour's job (restarts.go); `zoomriya-agent network-undo
 // <port>` puts back network settings that weren't kept (netconfig.go);
-// `zoomriya-agent watch` writes the notifications (watch.go).
+// `zoomriya-agent watch` writes the notifications (watch.go); `zoomriya-agent
+// release-holds` lets go of the holds a restore left once Debian has a newer
+// fix (holds.go).
 package main
 
 import (
@@ -56,6 +58,9 @@ func main() {
 			log.Fatal(err)
 		}
 		os.Exit(0)
+	}
+	if len(os.Args) == 2 && os.Args[1] == "release-holds" {
+		os.Exit(releaseHolds())
 	}
 	if len(os.Args) == 3 && os.Args[1] == "network-undo" {
 		os.Exit(networkUndo(os.Args[2]))
@@ -257,6 +262,8 @@ func detail(req Request) string {
 		return str(req.Hour) + str(req.Level) + str(req.Action) + str(req.Layout)
 	case "time-zone-set":
 		return str(req.Zone)
+	case "held-release":
+		return str(req.Package)
 	case "display-set":
 		if str(req.Action) == "forget" {
 			return str(req.Output) + " forget"
@@ -271,7 +278,7 @@ func detail(req Request) string {
 		return fmt.Sprintf("%s %s@%d scale %g %s", str(req.Output), str(req.Size), refresh, scale,
 			str(req.Transform))
 	case "region-set":
-		return str(req.Region)
+		return strings.TrimSpace(str(req.Region) + " " + str(req.Subdivision))
 	case "language-set":
 		return str(req.Locale)
 	case "first-admin":

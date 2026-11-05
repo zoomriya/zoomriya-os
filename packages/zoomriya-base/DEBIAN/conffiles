@@ -5,3 +5,4 @@
 /etc/avahi/services/zoomriya.service
 /etc/audit/rules.d/60-zoomriya.rules
 /etc/apt/apt.conf.d/80zoomriya-aide
+/etc/apt/zoomriya-updates/zoomriya.sources

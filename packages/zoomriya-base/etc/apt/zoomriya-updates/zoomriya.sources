@@ -1,0 +1,13 @@
+# ZOOMRIYA's own packages: zoomriya-base, zoomriya-agent, box-desktop-app
+# (design §6.8). Kept out of sources.list.d, so apt never reads it by itself:
+# the box contacts apt.zoomriya.com only when an admin presses Update, and the
+# agent adds this source for that update alone. Off until apt.zoomriya.com and
+# its signing key exist; then Enabled: yes, with the key at Signed-By. The
+# suite names the OS's version, never "stable", like Debian's sources (§6.1).
+# Format: sources.list(5).
+Types: deb
+URIs: https://apt.zoomriya.com/
+Suites: 13
+Components: main
+Signed-By: /usr/share/keyrings/zoomriya-archive-keyring.pgp
+Enabled: no

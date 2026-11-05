@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"strconv"
 	"strings"
 	"testing"
@@ -60,6 +61,10 @@ func TestSecurity(t *testing.T) {
 	if aa := resp["apparmor"].(Response); aa["on"] != true || aa["enforced"] != 2 {
 		t.Errorf("apparmor = %v", aa)
 	}
+	want := []Profile{{"box-desktop", true}, {"nvidia_modprobe", true}, {"lsb_release", false}}
+	if got := resp["apparmor"].(Response)["profiles"].([]Profile); fmt.Sprint(got) != fmt.Sprint(want) {
+		t.Errorf("profiles = %v", got)
+	}
 	if resp["secure_boot"] != "on" {
 		t.Errorf("secure boot = %v", resp["secure_boot"])
 	}
@@ -76,5 +81,56 @@ func TestSecureBootWithoutUEFI(t *testing.T) {
 	agent, _ := newFakeBox(t)
 	if got := agent.secureBoot(); got != "unavailable" {
 		t.Errorf("secure boot = %s", got)
+	}
+}
+
+func TestOurAptSource(t *testing.T) {
+	agent, box := newFakeBox(t)
+	ours := "Types: deb\nURIs: https://apt.zoomriya.com/\nSuites: 13\nComponents: main\n"
+	box.write(ourSource, "# Off until the repository exists.\n"+ours+"Enabled: no\n")
+	for _, c := range agent.connections() {
+		if c.Host == "apt.zoomriya.com" {
+			t.Errorf("listed while turned off: %v", c)
+		}
+	}
+
+	box.write(ourSource, ours+"Enabled: yes\n")
+	found := false
+	for _, c := range agent.connections() {
+		if c.Host == "apt.zoomriya.com" {
+			found = true
+			if c.When != "Only when an admin presses Update" {
+				t.Errorf("worded %q", c.What)
+			}
+		}
+	}
+	if !found {
+		t.Error("not listed when turned on")
+	}
+}
+
+func TestSecurityCheckNow(t *testing.T) {
+	agent, box := newFakeBox(t)
+	resp, err := agent.Handle(Request{Op: "security-check-now", By: "amma"})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if resp["started"] != true || lastRun(box) != "systemctl start --no-block "+securityNow {
+		t.Errorf("got %v, ran %q", resp, lastRun(box))
+	}
+
+	box.answers = map[string]string{"systemctl is-active apt-daily-upgrade.service": "active\n"}
+	before := len(box.ran)
+	if _, err := agent.Handle(Request{Op: "security-check-now"}); err == nil {
+		t.Error("started while the nightly fixes were installing")
+	}
+	for _, r := range box.ran[before:] {
+		if r[1] == "start" {
+			t.Errorf("ran %v", r)
+		}
+	}
+	resp, _ = agent.Handle(Request{Op: "security"})
+	if resp["updates"].(Response)["running"] != true {
+		t.Errorf("updates = %v", resp["updates"])
 	}
 }

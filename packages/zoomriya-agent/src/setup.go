@@ -5,6 +5,7 @@
 package main
 
 import (
+	"encoding/json"
 	"errors"
 	"os"
 	"os/exec"
@@ -23,6 +24,10 @@ const (
 	// box's choice: its two-letter code.
 	countriesFile = "usr/share/zoneinfo/iso3166.tab"
 	regionFile    = "etc/zoomriya/region"
+	// The state or province within it, when one was chosen (optional): its
+	// ISO 3166-2 code, such as CA-ON, from iso-codes' list.
+	subdivisionFile  = "etc/zoomriya/subdivision"
+	subdivisionsFile = "usr/share/iso-codes/json/iso_3166-2.json"
 	// ZOOMRIYA ID's own command for its first account (zoomriya-id package).
 	idPython = "/opt/zoomriya/id/venv/bin/python"
 	// first_admin's exit status when ZOOMRIYA ID already has accounts.
@@ -31,6 +36,8 @@ const (
 )
 
 var regionCode = regexp.MustCompile(`^[A-Z]{2}$`)
+
+var subdivisionCode = regexp.MustCompile(`^[A-Z]{2}-[A-Z0-9]{1,3}$`)
 
 var zoneName = regexp.MustCompile(`^[A-Za-z][A-Za-z0-9_+-]*(/[A-Za-z0-9_+-]+){0,2}$`)
 
@@ -59,6 +66,38 @@ func (a *Agent) region() string {
 		return ""
 	}
 	return strings.TrimSpace(string(data))
+}
+
+// subdivision is the box's state or province, such as CA-ON; empty when none
+// was chosen.
+func (a *Agent) subdivision() string {
+	data, err := os.ReadFile(a.path(subdivisionFile))
+	if err != nil {
+		return ""
+	}
+	return strings.TrimSpace(string(data))
+}
+
+// knownSubdivision: the code is one of iso-codes' top-level subdivisions (no
+// parent: Canada's provinces, France's regions, not its departments).
+func (a *Agent) knownSubdivision(code string) bool {
+	data, err := os.ReadFile(a.path(subdivisionsFile))
+	if err != nil {
+		return false
+	}
+	var list map[string][]struct {
+		Code   string `json:"code"`
+		Parent string `json:"parent"`
+	}
+	if json.Unmarshal(data, &list) != nil {
+		return false
+	}
+	for _, s := range list["3166-2"] {
+		if s.Code == code && s.Parent == "" {
+			return true
+		}
+	}
+	return false
 }
 
 // knownRegion: the code is one of tzdata's countries and regions.
@@ -91,13 +130,23 @@ func (a *Agent) setupStatus() (Response, error) {
 	}
 	return Response{
 		"finished": a.setupFinished(), "has_admin": a.hasAdmin(),
-		"language": a.language(), "region": a.region(), "zone": a.timeZone(), "clock_synced": synced,
+		"language": a.language(), "region": a.region(), "subdivision": a.subdivision(),
+		"zone": a.timeZone(), "clock_synced": synced,
 	}, nil
 }
 
-func (a *Agent) regionSet(code *string) (Response, error) {
+// regionSet sets the country or region, and its state or province when one is
+// given; a new country without one clears the old one's.
+func (a *Agent) regionSet(code, sub *string) (Response, error) {
 	if code == nil || !regionCode.MatchString(*code) || !a.knownRegion(*code) {
 		return nil, refuse("Which country or region? Choose one from the list.")
+	}
+	chosen := ""
+	if sub != nil && *sub != "" {
+		if !subdivisionCode.MatchString(*sub) || !strings.HasPrefix(*sub, *code+"-") || !a.knownSubdivision(*sub) {
+			return nil, refuse("Which state or province? Choose one from the list.")
+		}
+		chosen = *sub
 	}
 	file := a.path(regionFile)
 	if err := os.MkdirAll(filepath.Dir(file), 0o755); err != nil {
@@ -106,7 +155,14 @@ func (a *Agent) regionSet(code *string) (Response, error) {
 	if err := os.WriteFile(file, []byte(*code+"\n"), 0o644); err != nil {
 		return nil, err
 	}
-	return Response{"region": *code}, nil
+	if chosen == "" {
+		if err := os.Remove(a.path(subdivisionFile)); err != nil && !os.IsNotExist(err) {
+			return nil, err
+		}
+	} else if err := os.WriteFile(a.path(subdivisionFile), []byte(chosen+"\n"), 0o644); err != nil {
+		return nil, err
+	}
+	return Response{"region": *code, "subdivision": chosen}, nil
 }
 
 func (a *Agent) timeZoneSet(zone *string) (Response, error) {
