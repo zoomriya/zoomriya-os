@@ -1,0 +1,481 @@
+# zoomriya-installer: zh_CN. Made by scripts/i18n.py extract; translate the empty msgstr.
+# "fuzzy": a draft still to be checked by a native speaker.
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: zh_CN\n"
+
+#: app.py:33
+#, fuzzy
+msgid "Language"
+msgstr "语言"
+
+#: app.py:33
+#, fuzzy
+msgid "Welcome"
+msgstr "欢迎"
+
+#: app.py:33 app.py:607
+#, fuzzy
+msgid "Drive"
+msgstr "磁盘"
+
+#: app.py:33
+#, fuzzy
+msgid "Summary"
+msgstr "摘要"
+
+#: app.py:33
+#, fuzzy
+msgid "Install"
+msgstr "安装"
+
+#: app.py:33
+#, fuzzy
+msgid "Done"
+msgstr "完成"
+
+#: app.py:46
+#, fuzzy
+msgid "Your files stay at home"
+msgstr "文件留在家里"
+
+#: app.py:47
+#, fuzzy
+msgid "Everything the box keeps lives on it, in your home, not in someone else's cloud."
+msgstr "盒子保存的一切都在您家里的盒子上，而不在别人的云端。"
+
+#: app.py:49
+#, fuzzy
+msgid "Security fixes install by themselves"
+msgstr "安全修复自动安装"
+
+#: app.py:50
+#, fuzzy
+msgid "Security fixes for the OS arrive on their own, in the box's quiet maintenance hour."
+msgstr "系统的安全修复会在盒子安静的维护时段自动送达。"
+
+#: app.py:52
+#, fuzzy
+msgid "Restore points"
+msgstr "还原点"
+
+#: app.py:53
+#, fuzzy
+msgid "The box keeps a restore point before every update. Going back is one click in Box Desktop, and your files stay as they are."
+msgstr "每次更新前，盒子都会先创建还原点。在 Box Desktop 中一键即可还原，您的文件保持不变。"
+
+#: app.py:56
+#, fuzzy
+msgid "A kernel that won't start falls back"
+msgstr "无法启动的内核会自动回退"
+
+#: app.py:57
+#, fuzzy
+msgid "If a new kernel can't start, the box starts the one before it by itself and tells you."
+msgstr "如果新内核无法启动，盒子会自动启动之前的内核并通知您。"
+
+#: app.py:59
+#, fuzzy
+msgid "One account: ZOOMRIYA ID"
+msgstr "一个账户：ZOOMRIYA ID"
+
+#: app.py:60
+#, fuzzy
+msgid "The admin you make at the first setup signs in to the box and to every ZOOMRIYA app you add to it."
+msgstr "您在首次设置时创建的管理员，可以登录盒子以及您添加的每个 ZOOMRIYA 应用。"
+
+#: app.py:63
+#, fuzzy
+msgid "Closed unless you open it"
+msgstr "不打开就一直关着"
+
+#: app.py:64
+#, fuzzy
+msgid "A firewall that lets nothing in uninvited, and remote access off until an admin turns it on."
+msgstr "防火墙不放行任何未经允许的连接，远程访问在管理员开启前保持关闭。"
+
+#: app.py:265
+#, fuzzy
+msgid "OS Installer"
+msgstr "系统安装程序"
+
+#: app.py:321
+#, fuzzy
+msgid "Try again"
+msgstr "重试"
+
+#: app.py:321
+#, fuzzy
+msgid "Restart now"
+msgstr "重启"
+
+#: app.py:522
+#, fuzzy
+msgid "Now"
+msgstr "当前"
+
+#: app.py:523
+#, fuzzy
+msgid "After installing"
+msgstr "安装后"
+
+#: app.py:587
+#, fuzzy
+msgid "The drive after installing"
+msgstr "安装后的磁盘"
+
+#: app.py:606
+#, fuzzy
+msgid "Nothing: the drive is empty"
+msgstr "无：磁盘为空"
+
+#: app.py:189 app.py:407
+#, fuzzy
+msgid "Install ZOOMRIYA OS"
+msgstr "安装 ZOOMRIYA OS"
+
+#: app.py:227
+#, fuzzy
+msgid "Back"
+msgstr "返回"
+
+#: app.py:231
+#, fuzzy
+msgid "Power off"
+msgstr "关机"
+
+#: app.py:234 app.py:322
+#, fuzzy
+msgid "Next"
+msgstr "下一步"
+
+#: app.py:380
+#, fuzzy
+msgid "Choose your language"
+msgstr "选择语言"
+
+#: app.py:381
+#, fuzzy
+msgid "The installer is shown in it. The box's own language is chosen at its first setup."
+msgstr "安装程序将以此语言显示。盒子本身的语言在首次设置时选择。"
+
+#: app.py:408
+#, fuzzy
+msgid "This turns this computer into a ZOOMRIYA Box. You choose the drive on the next page, and everything on that drive is erased. It takes about five minutes."
+msgstr "这台电脑将成为 ZOOMRIYA Box。您将在下一页选择磁盘，该磁盘上的所有内容都会被清除。大约需要五分钟。"
+
+#: app.py:420
+#, fuzzy
+msgid "Started in UEFI mode"
+msgstr "已以 UEFI 模式启动"
+
+#: app.py:459
+#, fuzzy
+msgid "Checking the internet…"
+msgstr "正在检查网络连接…"
+
+#: app.py:506
+#, fuzzy
+msgid "Where should ZOOMRIYA OS go?"
+msgstr "将 ZOOMRIYA OS 安装到哪里？"
+
+#: app.py:508
+#, fuzzy
+msgid "Look again"
+msgstr "重新查找"
+
+#: app.py:512
+#, fuzzy
+msgid "Choose the drive to install it on. Everything on that drive is erased; other drives aren't touched. Plugged one in? Press Look again."
+msgstr "选择要安装到的磁盘。该磁盘上的所有内容都会被清除；其他磁盘不受影响。刚接上一个？请按“重新查找”。"
+
+#: app.py:582
+#, fuzzy
+msgid "Ready to install"
+msgstr "准备安装"
+
+#: app.py:583
+#, fuzzy
+msgid "Check the drive once more. Nothing has been changed yet."
+msgstr "请再检查一次磁盘。目前尚未做任何更改。"
+
+#: app.py:608
+#, fuzzy
+msgid "Size"
+msgstr "大小"
+
+#: app.py:609
+#, fuzzy
+msgid "Erased"
+msgstr "将清除"
+
+#: app.py:610
+#, fuzzy
+msgid "Installed"
+msgstr "将安装"
+
+#: app.py:623
+#, fuzzy
+msgid "Installing ZOOMRIYA OS"
+msgstr "正在安装 ZOOMRIYA OS"
+
+#: app.py:638
+#, fuzzy
+msgid "Keep the computer on and the USB stick in until it's done."
+msgstr "安装完成前，请保持电脑开机并插着 U 盘。"
+
+#: app.py:749
+#, fuzzy
+msgid "The install didn't finish"
+msgstr "安装未完成"
+
+#: app.py:752
+#, fuzzy
+msgid "Check the drive is plugged in firmly, or try another drive."
+msgstr "请检查磁盘是否插紧，或换一个磁盘试试。"
+
+#: app.py:753
+#, fuzzy
+msgid "Press Try again."
+msgstr "请按“重试”。"
+
+#: app.py:756
+#, fuzzy
+msgid "ZOOMRIYA OS is installed"
+msgstr "ZOOMRIYA OS 已安装"
+
+#: app.py:757
+#, fuzzy
+msgid "Your ZOOMRIYA Box is ready to start for the first time."
+msgstr "您的 ZOOMRIYA Box 已准备好首次启动。"
+
+#: app.py:758
+#, fuzzy
+msgid "Take out the USB stick."
+msgstr "拔下 U 盘。"
+
+#: app.py:759
+#, fuzzy
+msgid "Press Restart now to set the box up now, or Power off to leave that to its owner."
+msgstr "按“重启”立即设置盒子，或按“关机”留给它的主人设置。"
+
+#: app.py:761
+#, fuzzy
+msgid "At its next start, the box opens its first setup on this screen: the language, the keyboard, the network, the region, the time zone and the box's admin."
+msgstr "下次启动时，盒子会在此屏幕上打开首次设置：语言、键盘、网络、地区、时区和盒子的管理员。"
+
+#: app.py:91
+#, fuzzy
+msgid "Free space"
+msgstr "可用空间"
+
+#: app.py:91
+#, fuzzy
+msgid "Empty"
+msgstr "空"
+
+#: app.py:461
+#, fuzzy
+msgid "Internet: connected"
+msgstr "网络：已连接"
+
+#: app.py:463
+#, fuzzy
+msgid "No internet. Installing anyway: ZOOMRIYA OS is on this stick, and its security fixes arrive once the box is online. Plug in a network cable to connect."
+msgstr "未连接网络。仍将继续安装：ZOOMRIYA OS 就在这个 U 盘上，盒子联网后会收到安全修复。插上网线即可联网。"
+
+#: app.py:616
+#, fuzzy
+msgid "Erase everything on {drive} ({size})"
+msgstr "清除 {drive} 上的所有内容（{size}）"
+
+#: app.py:750
+#, fuzzy
+msgid "The drive may not start now; installing again puts that right."
+msgstr "磁盘现在可能无法启动；重新安装即可修复。"
+
+#: app.py:322
+#, fuzzy
+msgid "Erase and install"
+msgstr "清除并安装"
+
+#: app.py:421
+#, fuzzy
+msgid "Memory: {have} ({need} needed)"
+msgstr "内存：{have}（需要 {need}）"
+
+#: app.py:423
+#, fuzzy
+msgid "A drive of {size} or more"
+msgstr "{size} 或更大的磁盘"
+
+#: app.py:754
+#, fuzzy
+msgid "If it fails again, the installer's notes for support are in {file}."
+msgstr "如果再次失败，安装程序供技术支持使用的记录位于 {file}。"
+
+#: app.py:369
+#, fuzzy
+msgid "Something went wrong."
+msgstr "出了点问题。"
+
+#: app.py:710
+#, fuzzy
+msgid "The install stopped: {problem}"
+msgstr "安装已停止：{problem}"
+
+#: disks.py:22
+#, fuzzy
+msgid "Recovery"
+msgstr "恢复"
+
+#: disks.py:75
+#, fuzzy
+msgid "SD card"
+msgstr "SD 卡"
+
+#: disks.py:76
+#, fuzzy
+msgid "Virtual"
+msgstr "虚拟"
+
+#: disks.py:79
+#, fuzzy
+msgid "Removable"
+msgstr "可移动"
+
+#: disks.py:79
+#, fuzzy
+msgid "Internal"
+msgstr "内置"
+
+#: disks.py:91
+#, fuzzy
+msgid "Swap"
+msgstr "交换"
+
+#: disks.py:92
+#, fuzzy
+msgid "Encrypted"
+msgstr "已加密"
+
+#: disks.py:92
+#, fuzzy
+msgid "RAID member"
+msgstr "RAID 成员"
+
+#: disks.py:70
+#, fuzzy
+msgid "{size} bytes"
+msgstr "{size} 字节"
+
+#: disks.py:94
+#, fuzzy
+msgid "Unknown"
+msgstr "未知"
+
+#: disks.py:118
+#, fuzzy
+msgid "The installer is running from this drive."
+msgstr "安装程序正从此磁盘运行。"
+
+#: disks.py:120
+#, fuzzy
+msgid "This drive is read-only."
+msgstr "此磁盘为只读。"
+
+#: disks.py:55
+#, fuzzy
+msgid "Drive {name}"
+msgstr "磁盘 {name}"
+
+#: disks.py:61
+#, fuzzy
+msgid "Hard disk"
+msgstr "机械硬盘"
+
+#: disks.py:61
+#, fuzzy
+msgid "SSD"
+msgstr "SSD"
+
+#: disks.py:124
+#, fuzzy
+msgid "This drive is in use."
+msgstr "此磁盘正在使用中。"
+
+#: disks.py:122
+#, fuzzy
+msgid "Too small: ZOOMRIYA OS needs at least {size}."
+msgstr "太小：ZOOMRIYA OS 至少需要 {size}。"
+
+#: install.py:32
+#, fuzzy
+msgid "Getting the drive ready"
+msgstr "正在准备磁盘"
+
+#: install.py:33
+#, fuzzy
+msgid "Copying ZOOMRIYA OS"
+msgstr "正在复制 ZOOMRIYA OS"
+
+#: install.py:34
+#, fuzzy
+msgid "Making room for your files"
+msgstr "正在为您的文件腾出空间"
+
+#: install.py:35
+#, fuzzy
+msgid "Making the drive start"
+msgstr "正在设置启动"
+
+#: install.py:78
+#, fuzzy
+msgid "The new partitions can't be found on the drive."
+msgstr "在磁盘上找不到新分区。"
+
+#: install.py:90
+#, fuzzy
+msgid "The drive couldn't be cleared."
+msgstr "无法清空磁盘。"
+
+#: install.py:91 install.py:118
+#, fuzzy
+msgid "The drive didn't settle."
+msgstr "磁盘尚未就绪。"
+
+#: install.py:117 install.py:124
+#, fuzzy
+msgid "The system partition couldn't grow to fill the drive."
+msgstr "无法将系统分区扩展到整个磁盘。"
+
+#: install.py:138
+#, fuzzy
+msgid "The drive couldn't finish writing."
+msgstr "磁盘无法完成写入。"
+
+#: install.py:86
+#, fuzzy
+msgid "The drive went away."
+msgstr "磁盘已断开。"
+
+#: install.py:121
+#, fuzzy
+msgid "The new system partition couldn't be opened."
+msgstr "无法打开新的系统分区。"
+
+#: install.py:89
+#, fuzzy
+msgid "The drive's old partitions couldn't be cleared."
+msgstr "无法清除磁盘上的旧分区。"
+
+#: install.py:110
+#, fuzzy
+msgid "ZOOMRIYA OS couldn't be copied to the drive."
+msgstr "无法将 ZOOMRIYA OS 复制到磁盘。"
+
+#: install.py:126
+#, fuzzy
+msgid "The new system partition couldn't be closed."
+msgstr "无法关闭新的系统分区。"

@@ -1,0 +1,481 @@
+# zoomriya-installer: ja. Made by scripts/i18n.py extract; translate the empty msgstr.
+# "fuzzy": a draft still to be checked by a native speaker.
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: ja\n"
+
+#: app.py:33
+#, fuzzy
+msgid "Language"
+msgstr "言語"
+
+#: app.py:33
+#, fuzzy
+msgid "Welcome"
+msgstr "ようこそ"
+
+#: app.py:33 app.py:607
+#, fuzzy
+msgid "Drive"
+msgstr "ドライブ"
+
+#: app.py:33
+#, fuzzy
+msgid "Summary"
+msgstr "確認"
+
+#: app.py:33
+#, fuzzy
+msgid "Install"
+msgstr "インストール"
+
+#: app.py:33
+#, fuzzy
+msgid "Done"
+msgstr "完了"
+
+#: app.py:46
+#, fuzzy
+msgid "Your files stay at home"
+msgstr "ファイルは家に"
+
+#: app.py:47
+#, fuzzy
+msgid "Everything the box keeps lives on it, in your home, not in someone else's cloud."
+msgstr "ボックスが保存するものはすべて自宅のボックスの中にあり、他人のクラウドにはありません。"
+
+#: app.py:49
+#, fuzzy
+msgid "Security fixes install by themselves"
+msgstr "セキュリティ修正は自動でインストール"
+
+#: app.py:50
+#, fuzzy
+msgid "Security fixes for the OS arrive on their own, in the box's quiet maintenance hour."
+msgstr "OS のセキュリティ修正は、ボックスの静かなメンテナンス時間に自動で届きます。"
+
+#: app.py:52
+#, fuzzy
+msgid "Restore points"
+msgstr "復元ポイント"
+
+#: app.py:53
+#, fuzzy
+msgid "The box keeps a restore point before every update. Going back is one click in Box Desktop, and your files stay as they are."
+msgstr "更新のたびに、ボックスは事前に復元ポイントを作ります。Box Desktop でワンクリックで戻せ、ファイルはそのまま残ります。"
+
+#: app.py:56
+#, fuzzy
+msgid "A kernel that won't start falls back"
+msgstr "起動しないカーネルは元に戻る"
+
+#: app.py:57
+#, fuzzy
+msgid "If a new kernel can't start, the box starts the one before it by itself and tells you."
+msgstr "新しいカーネルが起動しないと、ボックスは自動で前のカーネルを起動し、お知らせします。"
+
+#: app.py:59
+#, fuzzy
+msgid "One account: ZOOMRIYA ID"
+msgstr "アカウントはひとつ: ZOOMRIYA ID"
+
+#: app.py:60
+#, fuzzy
+msgid "The admin you make at the first setup signs in to the box and to every ZOOMRIYA app you add to it."
+msgstr "初回設定で作る管理者は、ボックスにも、追加するすべての ZOOMRIYA アプリにもサインインできます。"
+
+#: app.py:63
+#, fuzzy
+msgid "Closed unless you open it"
+msgstr "開けるまで閉じたまま"
+
+#: app.py:64
+#, fuzzy
+msgid "A firewall that lets nothing in uninvited, and remote access off until an admin turns it on."
+msgstr "招かれないものは何も通さないファイアウォール。リモートアクセスは管理者がオンにするまでオフです。"
+
+#: app.py:265
+#, fuzzy
+msgid "OS Installer"
+msgstr "OS インストーラー"
+
+#: app.py:321
+#, fuzzy
+msgid "Try again"
+msgstr "再試行"
+
+#: app.py:321
+#, fuzzy
+msgid "Restart now"
+msgstr "再起動"
+
+#: app.py:522
+#, fuzzy
+msgid "Now"
+msgstr "現在"
+
+#: app.py:523
+#, fuzzy
+msgid "After installing"
+msgstr "インストール後"
+
+#: app.py:587
+#, fuzzy
+msgid "The drive after installing"
+msgstr "インストール後のドライブ"
+
+#: app.py:606
+#, fuzzy
+msgid "Nothing: the drive is empty"
+msgstr "なし: ドライブは空です"
+
+#: app.py:189 app.py:407
+#, fuzzy
+msgid "Install ZOOMRIYA OS"
+msgstr "ZOOMRIYA OS をインストール"
+
+#: app.py:227
+#, fuzzy
+msgid "Back"
+msgstr "戻る"
+
+#: app.py:231
+#, fuzzy
+msgid "Power off"
+msgstr "電源を切る"
+
+#: app.py:234 app.py:322
+#, fuzzy
+msgid "Next"
+msgstr "次へ"
+
+#: app.py:380
+#, fuzzy
+msgid "Choose your language"
+msgstr "言語を選択"
+
+#: app.py:381
+#, fuzzy
+msgid "The installer is shown in it. The box's own language is chosen at its first setup."
+msgstr "インストーラーはこの言語で表示されます。ボックス自体の言語は初回設定で選びます。"
+
+#: app.py:408
+#, fuzzy
+msgid "This turns this computer into a ZOOMRIYA Box. You choose the drive on the next page, and everything on that drive is erased. It takes about five minutes."
+msgstr "このコンピューターを ZOOMRIYA Box にします。次のページでドライブを選ぶと、そのドライブの内容はすべて消去されます。約5分かかります。"
+
+#: app.py:420
+#, fuzzy
+msgid "Started in UEFI mode"
+msgstr "UEFI モードで起動"
+
+#: app.py:459
+#, fuzzy
+msgid "Checking the internet…"
+msgstr "インターネットを確認中…"
+
+#: app.py:506
+#, fuzzy
+msgid "Where should ZOOMRIYA OS go?"
+msgstr "ZOOMRIYA OS をどこにインストールしますか?"
+
+#: app.py:508
+#, fuzzy
+msgid "Look again"
+msgstr "再検索"
+
+#: app.py:512
+#, fuzzy
+msgid "Choose the drive to install it on. Everything on that drive is erased; other drives aren't touched. Plugged one in? Press Look again."
+msgstr "インストール先のドライブを選んでください。そのドライブの内容はすべて消去され、他のドライブには触れません。接続したばかりなら「再検索」を押してください。"
+
+#: app.py:582
+#, fuzzy
+msgid "Ready to install"
+msgstr "インストールの準備完了"
+
+#: app.py:583
+#, fuzzy
+msgid "Check the drive once more. Nothing has been changed yet."
+msgstr "もう一度ドライブを確認してください。まだ何も変更されていません。"
+
+#: app.py:608
+#, fuzzy
+msgid "Size"
+msgstr "サイズ"
+
+#: app.py:609
+#, fuzzy
+msgid "Erased"
+msgstr "消去"
+
+#: app.py:610
+#, fuzzy
+msgid "Installed"
+msgstr "インストール"
+
+#: app.py:623
+#, fuzzy
+msgid "Installing ZOOMRIYA OS"
+msgstr "ZOOMRIYA OS をインストール中"
+
+#: app.py:638
+#, fuzzy
+msgid "Keep the computer on and the USB stick in until it's done."
+msgstr "完了するまで、コンピューターの電源を入れたまま、USB メモリを挿したままにしてください。"
+
+#: app.py:749
+#, fuzzy
+msgid "The install didn't finish"
+msgstr "インストールが完了しませんでした"
+
+#: app.py:752
+#, fuzzy
+msgid "Check the drive is plugged in firmly, or try another drive."
+msgstr "ドライブがしっかり接続されているか確認するか、別のドライブを試してください。"
+
+#: app.py:753
+#, fuzzy
+msgid "Press Try again."
+msgstr "「再試行」を押してください。"
+
+#: app.py:756
+#, fuzzy
+msgid "ZOOMRIYA OS is installed"
+msgstr "ZOOMRIYA OS をインストールしました"
+
+#: app.py:757
+#, fuzzy
+msgid "Your ZOOMRIYA Box is ready to start for the first time."
+msgstr "ZOOMRIYA Box を初めて起動する準備ができました。"
+
+#: app.py:758
+#, fuzzy
+msgid "Take out the USB stick."
+msgstr "USB メモリを取り外してください。"
+
+#: app.py:759
+#, fuzzy
+msgid "Press Restart now to set the box up now, or Power off to leave that to its owner."
+msgstr "今すぐボックスを設定するには「再起動」、持ち主に任せるには「電源を切る」を押してください。"
+
+#: app.py:761
+#, fuzzy
+msgid "At its next start, the box opens its first setup on this screen: the language, the keyboard, the network, the region, the time zone and the box's admin."
+msgstr "次回の起動時、ボックスはこの画面で初回設定を開きます: 言語、キーボード、ネットワーク、地域、タイムゾーン、ボックスの管理者。"
+
+#: app.py:91
+#, fuzzy
+msgid "Free space"
+msgstr "空き領域"
+
+#: app.py:91
+#, fuzzy
+msgid "Empty"
+msgstr "空"
+
+#: app.py:461
+#, fuzzy
+msgid "Internet: connected"
+msgstr "インターネット: 接続済み"
+
+#: app.py:463
+#, fuzzy
+msgid "No internet. Installing anyway: ZOOMRIYA OS is on this stick, and its security fixes arrive once the box is online. Plug in a network cable to connect."
+msgstr "インターネットに接続されていません。このままインストールします。ZOOMRIYA OS はこの USB メモリにあり、セキュリティ修正はボックスがオンラインになると届きます。接続するにはネットワークケーブルを挿してください。"
+
+#: app.py:616
+#, fuzzy
+msgid "Erase everything on {drive} ({size})"
+msgstr "{drive} のすべてを消去 ({size})"
+
+#: app.py:750
+#, fuzzy
+msgid "The drive may not start now; installing again puts that right."
+msgstr "このままではドライブが起動しない可能性があります。再インストールすれば直ります。"
+
+#: app.py:322
+#, fuzzy
+msgid "Erase and install"
+msgstr "消去してインストール"
+
+#: app.py:421
+#, fuzzy
+msgid "Memory: {have} ({need} needed)"
+msgstr "メモリ: {have} ({need} 必要)"
+
+#: app.py:423
+#, fuzzy
+msgid "A drive of {size} or more"
+msgstr "{size} 以上のドライブ"
+
+#: app.py:754
+#, fuzzy
+msgid "If it fails again, the installer's notes for support are in {file}."
+msgstr "再び失敗した場合、サポート用のインストーラーの記録は {file} にあります。"
+
+#: app.py:369
+#, fuzzy
+msgid "Something went wrong."
+msgstr "問題が発生しました。"
+
+#: app.py:710
+#, fuzzy
+msgid "The install stopped: {problem}"
+msgstr "インストールが中断されました: {problem}"
+
+#: disks.py:22
+#, fuzzy
+msgid "Recovery"
+msgstr "リカバリー"
+
+#: disks.py:75
+#, fuzzy
+msgid "SD card"
+msgstr "SD カード"
+
+#: disks.py:76
+#, fuzzy
+msgid "Virtual"
+msgstr "仮想"
+
+#: disks.py:79
+#, fuzzy
+msgid "Removable"
+msgstr "リムーバブル"
+
+#: disks.py:79
+#, fuzzy
+msgid "Internal"
+msgstr "内蔵"
+
+#: disks.py:91
+#, fuzzy
+msgid "Swap"
+msgstr "スワップ"
+
+#: disks.py:92
+#, fuzzy
+msgid "Encrypted"
+msgstr "暗号化"
+
+#: disks.py:92
+#, fuzzy
+msgid "RAID member"
+msgstr "RAID メンバー"
+
+#: disks.py:70
+#, fuzzy
+msgid "{size} bytes"
+msgstr "{size} バイト"
+
+#: disks.py:94
+#, fuzzy
+msgid "Unknown"
+msgstr "不明"
+
+#: disks.py:118
+#, fuzzy
+msgid "The installer is running from this drive."
+msgstr "インストーラーはこのドライブから実行されています。"
+
+#: disks.py:120
+#, fuzzy
+msgid "This drive is read-only."
+msgstr "このドライブは読み取り専用です。"
+
+#: disks.py:55
+#, fuzzy
+msgid "Drive {name}"
+msgstr "ドライブ {name}"
+
+#: disks.py:61
+#, fuzzy
+msgid "Hard disk"
+msgstr "ハードディスク"
+
+#: disks.py:61
+#, fuzzy
+msgid "SSD"
+msgstr "SSD"
+
+#: disks.py:124
+#, fuzzy
+msgid "This drive is in use."
+msgstr "このドライブは使用中です。"
+
+#: disks.py:122
+#, fuzzy
+msgid "Too small: ZOOMRIYA OS needs at least {size}."
+msgstr "小さすぎます: ZOOMRIYA OS には {size} 以上が必要です。"
+
+#: install.py:32
+#, fuzzy
+msgid "Getting the drive ready"
+msgstr "ドライブを準備中"
+
+#: install.py:33
+#, fuzzy
+msgid "Copying ZOOMRIYA OS"
+msgstr "ZOOMRIYA OS をコピー中"
+
+#: install.py:34
+#, fuzzy
+msgid "Making room for your files"
+msgstr "ファイル用の領域を確保中"
+
+#: install.py:35
+#, fuzzy
+msgid "Making the drive start"
+msgstr "起動を設定中"
+
+#: install.py:78
+#, fuzzy
+msgid "The new partitions can't be found on the drive."
+msgstr "ドライブに新しいパーティションが見つかりません。"
+
+#: install.py:90
+#, fuzzy
+msgid "The drive couldn't be cleared."
+msgstr "ドライブを消去できませんでした。"
+
+#: install.py:91 install.py:118
+#, fuzzy
+msgid "The drive didn't settle."
+msgstr "ドライブの準備ができていません。"
+
+#: install.py:117 install.py:124
+#, fuzzy
+msgid "The system partition couldn't grow to fill the drive."
+msgstr "システムパーティションをドライブ全体に拡張できませんでした。"
+
+#: install.py:138
+#, fuzzy
+msgid "The drive couldn't finish writing."
+msgstr "ドライブへの書き込みを完了できませんでした。"
+
+#: install.py:86
+#, fuzzy
+msgid "The drive went away."
+msgstr "ドライブが見つからなくなりました。"
+
+#: install.py:121
+#, fuzzy
+msgid "The new system partition couldn't be opened."
+msgstr "新しいシステムパーティションを開けませんでした。"
+
+#: install.py:89
+#, fuzzy
+msgid "The drive's old partitions couldn't be cleared."
+msgstr "ドライブの古いパーティションを消去できませんでした。"
+
+#: install.py:110
+#, fuzzy
+msgid "ZOOMRIYA OS couldn't be copied to the drive."
+msgstr "ZOOMRIYA OS をドライブにコピーできませんでした。"
+
+#: install.py:126
+#, fuzzy
+msgid "The new system partition couldn't be closed."
+msgstr "新しいシステムパーティションを閉じられませんでした。"

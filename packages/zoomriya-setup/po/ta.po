@@ -1,0 +1,366 @@
+# zoomriya-setup: ta. Made by scripts/i18n.py extract; translate the empty msgstr.
+# "fuzzy": a draft still to be checked by a native speaker.
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: ta\n"
+
+#: agent.py:35
+#, fuzzy
+msgid "The box isn't answering yet. Wait a moment and try again."
+msgstr "பெட்டி இன்னும் பதிலளிக்கவில்லை. சற்று காத்திருந்து மீண்டும் முயலுங்கள்."
+
+#: agent.py:39
+#, fuzzy
+msgid "The box gave an answer the setup can't read."
+msgstr "பெட்டி அளித்த பதிலைப் படிக்க முடியவில்லை."
+
+#: agent.py:41
+#, fuzzy
+msgid "The box couldn't do that."
+msgstr "பெட்டியால் அதைச் செய்ய முடியவில்லை."
+
+#: app.py:38 app.py:912
+#, fuzzy
+msgid "Language"
+msgstr "மொழி"
+
+#: app.py:38 app.py:567
+#, fuzzy
+msgid "Keyboard"
+msgstr "விசைப்பலகை"
+
+#: app.py:38
+#, fuzzy
+msgid "Network"
+msgstr "வலையமைப்பு"
+
+#: app.py:38 app.py:913
+#, fuzzy
+msgid "Region"
+msgstr "பகுதி"
+
+#: app.py:38 app.py:917
+#, fuzzy
+msgid "Time zone"
+msgstr "நேர மண்டலம்"
+
+#: app.py:38 app.py:919
+#, fuzzy
+msgid "Admin"
+msgstr "நிர்வாகி"
+
+#: app.py:39
+#, fuzzy
+msgid "Done"
+msgstr "முடிந்தது"
+
+#: app.py:206
+#, fuzzy
+msgid "Choose a username."
+msgstr "பயனர்பெயரைத் தேர்ந்தெடுங்கள்."
+
+#: app.py:208
+#, fuzzy
+msgid "Choose a password."
+msgstr "கடவுச்சொல்லைத் தேர்ந்தெடுங்கள்."
+
+#: app.py:210
+#, fuzzy
+msgid "The username can be at most 128 characters."
+msgstr "பயனர்பெயர் அதிகபட்சம் 128 எழுத்துகள் இருக்கலாம்."
+
+#: app.py:214
+#, fuzzy
+msgid "Type the password again."
+msgstr "கடவுச்சொல்லை மீண்டும் உள்ளிடுங்கள்."
+
+#: app.py:216
+#, fuzzy
+msgid "The two passwords aren't the same."
+msgstr "இரண்டு கடவுச்சொற்களும் ஒன்றாக இல்லை."
+
+#: app.py:333
+#, fuzzy
+msgid "Box setup"
+msgstr "பெட்டி அமைப்பு"
+
+#: app.py:539 app.py:733 app.py:839
+#, fuzzy
+msgid "Choose one to go on."
+msgstr "தொடர ஒன்றைத் தேர்ந்தெடுங்கள்."
+
+#: app.py:582
+#, fuzzy
+msgid "Checking the box's network port…"
+msgstr "பெட்டியின் வலையமைப்புத் துறையைச் சரிபார்க்கிறது…"
+
+#: app.py:738
+#, fuzzy
+msgid "State or province (optional)"
+msgstr "மாநிலம் அல்லது மாகாணம் (விருப்பத்தேர்வு)"
+
+#: app.py:924
+#, fuzzy
+msgid "Press Finish to close the setup. Sign in with the admin's username and password from now on; to set the box up again, use Erase everything."
+msgstr "அமைப்பை மூட முடி என்பதை அழுத்துங்கள். இனி நிர்வாகியின் பயனர்பெயர், கடவுச்சொல் கொண்டு உள்நுழையுங்கள்; பெட்டியை மீண்டும் அமைக்க, அனைத்தையும் அழி என்பதைப் பயன்படுத்துங்கள்."
+
+#: app.py:190
+#, fuzzy
+msgid "The subnet mask should look like 255.255.255.0."
+msgstr "சப்நெட் மாஸ்க் 255.255.255.0 போல இருக்க வேண்டும்."
+
+#: app.py:194
+#, fuzzy
+msgid "The box's address should look like 192.168.1.40."
+msgstr "பெட்டியின் முகவரி 192.168.1.40 போல இருக்க வேண்டும்."
+
+#: app.py:212
+#, fuzzy
+msgid "The password needs at least {count} characters."
+msgstr "கடவுச்சொல்லுக்குக் குறைந்தது {count} எழுத்துகள் தேவை."
+
+#: app.py:259
+#, fuzzy
+msgid "ZOOMRIYA Box setup"
+msgstr "ZOOMRIYA Box அமைப்பு"
+
+#: app.py:297
+#, fuzzy
+msgid "Back"
+msgstr "பின்செல்"
+
+#: app.py:299 app.py:403
+#, fuzzy
+msgid "Next"
+msgstr "அடுத்து"
+
+#: app.py:403
+#, fuzzy
+msgid "Finish"
+msgstr "முடி"
+
+#: app.py:524
+#, fuzzy
+msgid "Welcome to your ZOOMRIYA Box"
+msgstr "உங்கள் ZOOMRIYA Box-க்கு வரவேற்கிறோம்"
+
+#: app.py:525
+#, fuzzy
+msgid "Let's set it up. It takes a few minutes: the language, the keyboard, the network, the country or region, the time zone, and the box's admin. First, the box's language."
+msgstr "இதை அமைப்போம். சில நிமிடங்கள் ஆகும்: மொழி, விசைப்பலகை, வலையமைப்பு, நாடு அல்லது பகுதி, நேர மண்டலம், பெட்டியின் நிர்வாகி. முதலில், பெட்டியின் மொழி."
+
+#: app.py:562
+#, fuzzy
+msgid "Your keyboard"
+msgstr "உங்கள் விசைப்பலகை"
+
+#: app.py:563
+#, fuzzy
+msgid "The layout of the keyboard plugged into the box. It's used at once, so the admin's password is typed with it."
+msgstr "பெட்டியில் இணைக்கப்பட்ட விசைப்பலகையின் தளவமைப்பு. நிர்வாகியின் கடவுச்சொல்லை இதைக் கொண்டு தட்டச்சு செய்ய, இது உடனே பயன்படுத்தப்படும்."
+
+#: app.py:581
+#, fuzzy
+msgid "Connect the box"
+msgstr "பெட்டியை இணையுங்கள்"
+
+#: app.py:591
+#, fuzzy
+msgid "Use a static address instead of the router's"
+msgstr "திசைவியின் முகவரிக்குப் பதிலாக நிலையான முகவரியைப் பயன்படுத்து"
+
+#: app.py:606
+#, fuzzy
+msgid "Use these settings"
+msgstr "பயன்படுத்து"
+
+#: app.py:644
+#, fuzzy
+msgid "The box has no Ethernet port the setup can use."
+msgstr "அமைப்பு பயன்படுத்தக்கூடிய ஈதர்நெட் துறை பெட்டியில் இல்லை."
+
+#: app.py:714
+#, fuzzy
+msgid "Which country or region?"
+msgstr "எந்த நாடு அல்லது பகுதி?"
+
+#: app.py:715
+#, fuzzy
+msgid "Where the box is. It sets which time zones come first, and the rules the box follows there."
+msgstr "பெட்டி இருக்கும் இடம். எந்த நேர மண்டலங்கள் முதலில் வரும், அங்கு பெட்டி பின்பற்றும் விதிகள் இதைப் பொறுத்தது."
+
+#: app.py:717
+#, fuzzy
+msgid "Search, for example Canada"
+msgstr "தேடுக, எ.கா. கனடா"
+
+#: app.py:775
+#, fuzzy
+msgid "Which time zone?"
+msgstr "எந்த நேர மண்டலம்?"
+
+#: app.py:778
+#, fuzzy
+msgid "Search, for example Toronto"
+msgstr "தேடுக, எ.கா. Toronto"
+
+#: app.py:781
+#, fuzzy
+msgid "Show every time zone"
+msgstr "அனைத்து நேர மண்டலங்களையும் காட்டு"
+
+#: app.py:811
+#, fuzzy
+msgid "The box's clock, its maintenance hour and the apps go by it."
+msgstr "பெட்டியின் கடிகாரம், அதன் பராமரிப்பு நேரம், செயலிகள் இதன்படி இயங்கும்."
+
+#: app.py:853
+#, fuzzy
+msgid "The box's admin"
+msgstr "பெட்டியின் நிர்வாகி"
+
+#: app.py:854
+#, fuzzy
+msgid "Your account in ZOOMRIYA ID, on this box. The same username and password sign you in to the box and to every ZOOMRIYA app you add to it. There is no other way in, so keep the password safe."
+msgstr "இந்தப் பெட்டியில், ZOOMRIYA ID-இல் உங்கள் கணக்கு. அதே பயனர்பெயரும் கடவுச்சொல்லும் பெட்டியிலும் நீங்கள் சேர்க்கும் ஒவ்வொரு ZOOMRIYA செயலியிலும் உங்களை உள்நுழைய வைக்கும். வேறு வழி இல்லை; எனவே கடவுச்சொல்லைப் பத்திரமாக வைத்திருங்கள்."
+
+#: app.py:858
+#, fuzzy
+msgid "For example, amma"
+msgstr "எ.கா. amma"
+
+#: app.py:864
+#, fuzzy
+msgid "Username"
+msgstr "பயனர்பெயர்"
+
+#: app.py:866
+#, fuzzy
+msgid "The password again"
+msgstr "கடவுச்சொல் மீண்டும்"
+
+#: app.py:897
+#, fuzzy
+msgid "Your box is ready"
+msgstr "உங்கள் பெட்டி தயார்"
+
+#: app.py:598
+#, fuzzy
+msgid "Box's address"
+msgstr "பெட்டியின் முகவரி"
+
+#: app.py:599
+#, fuzzy
+msgid "Subnet mask"
+msgstr "சப்நெட் மாஸ்க்"
+
+#: app.py:600 app.py:658
+#, fuzzy
+msgid "Router"
+msgstr "திசைவி"
+
+#: app.py:601 app.py:659
+#, fuzzy
+msgid "Name servers"
+msgstr "பெயர் சேவையகங்கள்"
+
+#: app.py:647
+#, fuzzy
+msgid "Plug the box into your router with a network cable. The setup goes on by itself once the cable is in."
+msgstr "வலையமைப்புக் கம்பி மூலம் பெட்டியை உங்கள் திசைவியுடன் இணையுங்கள். கம்பி இணைந்ததும் அமைப்பு தானாகத் தொடரும்."
+
+#: app.py:649
+#, fuzzy
+msgid "Waiting for the cable…"
+msgstr "கம்பிக்காகக் காத்திருக்கிறது…"
+
+#: app.py:910
+#, fuzzy
+msgid "Box's name"
+msgstr "பெட்டியின் பெயர்"
+
+#: app.py:911 app.py:657
+#, fuzzy
+msgid "Address"
+msgstr "முகவரி"
+
+#: app.py:546 app.py:762
+#, fuzzy
+msgid "Chosen: {name}"
+msgstr "தேர்ந்தெடுத்தது: {name}"
+
+#: app.py:652
+#, fuzzy
+msgid "The cable is in. Getting an address from your router…"
+msgstr "கம்பி இணைந்தது. திசைவியிடமிருந்து முகவரியைப் பெறுகிறது…"
+
+#: app.py:655
+#, fuzzy
+msgid "The box is on your network."
+msgstr "பெட்டி உங்கள் வலையமைப்பில் உள்ளது."
+
+#: app.py:746
+#, fuzzy
+msgid "Not chosen"
+msgstr "தேர்ந்தெடுக்கவில்லை"
+
+#: app.py:809
+#, fuzzy
+msgid "The time zones in {region}. The box's clock, its maintenance hour and the apps go by it."
+msgstr "{region} இல் உள்ள நேர மண்டலங்கள். பெட்டியின் கடிகாரம், அதன் பராமரிப்பு நேரம், செயலிகள் இதன்படி இயங்கும்."
+
+#: app.py:844
+#, fuzzy
+msgid "The time there now: {time}"
+msgstr "அங்கு இப்போது நேரம்: {time}"
+
+#: app.py:865
+#, fuzzy
+msgid "Password (at least {count} characters)"
+msgstr "கடவுச்சொல் (குறைந்தது {count} எழுத்துகள்)"
+
+#: app.py:911
+#, fuzzy
+msgid "Not connected"
+msgstr "இணைக்கப்படவில்லை"
+
+#: app.py:660
+#, fuzzy
+msgid "Settings"
+msgstr "அமைப்புகள்"
+
+#: app.py:658 app.py:659
+#, fuzzy
+msgid "None"
+msgstr "இல்லை"
+
+#: app.py:660
+#, fuzzy
+msgid "Static address"
+msgstr "நிலையான முகவரி"
+
+#: app.py:661
+#, fuzzy
+msgid "From the router (DHCP)"
+msgstr "திசைவியிடமிருந்து (DHCP)"
+
+#: app.py:664
+#, fuzzy
+msgid "Speed"
+msgstr "வேகம்"
+
+#: app.py:669
+#, fuzzy
+msgid "Checking the internet…"
+msgstr "இணையத்தைச் சரிபார்க்கிறது…"
+
+#: app.py:670
+#, fuzzy
+msgid "Internet: connected."
+msgstr "இணையம்: இணைக்கப்பட்டது."
+
+#: app.py:671
+#, fuzzy
+msgid "Internet: not reached. You can carry on; the box catches up with updates and the clock once it's online."
+msgstr "இணையத்தை அடைய முடியவில்லை. தொடரலாம்; இணையத்தில் இணைந்ததும் பெட்டி புதுப்பிப்புகளையும் கடிகாரத்தையும் சரிசெய்துகொள்ளும்."

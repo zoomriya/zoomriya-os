@@ -68,12 +68,14 @@ class Regions(unittest.TestCase):
 
 
 class Languages(unittest.TestCase):
-    def test_named_in_themselves(self):
-        names = dict(app.languages())
-        self.assertEqual(names["en"], "English")
-        self.assertEqual(names["fr"], "Français · French")
-        self.assertEqual(names["ta"], "தமிழ் · Tamil")
-        self.assertEqual(names["es"], "Español · Spanish")
+    def test_only_ours_named_in_themselves(self):
+        self.assertEqual([name for _, name in app.languages()],
+                         ["English", "Français", "Deutsch", "Español", "தமிழ்", "日本語", "简体中文"])
+
+    def test_each_one_our_screens_come_in(self):
+        from zoomriya_setup import i18n
+
+        self.assertEqual([i18n.ours(code) for code, _ in app.languages()], list(i18n.OURS))
 
     def test_the_language_as_written_in_the_region(self):
         self.assertEqual(app.locale_for("ta", "LK"), "ta_LK")

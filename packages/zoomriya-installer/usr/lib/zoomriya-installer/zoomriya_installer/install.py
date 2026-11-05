@@ -19,6 +19,8 @@ import time
 from collections.abc import Callable
 from pathlib import Path
 
+from .i18n import N_, _
+
 HERE = Path(__file__).resolve().parent
 IMAGE = os.environ.get("ZOOMRIYA_INSTALLER_IMAGE", "/usr/share/zoomriya-installer/zoomriya-os.raw")
 DEFINITIONS = HERE.parent / "repart.d"
@@ -27,10 +29,10 @@ LOADER = r"\EFI\systemd\systemd-bootx64.efi"
 
 #: What the person sees, and each stage's share of the progress bar.
 STAGES = [
-    ("Getting the drive ready", 0.04),
-    ("Copying ZOOMRIYA OS", 0.86),
-    ("Making room for your files", 0.05),
-    ("Making the drive start", 0.05),
+    (N_("Getting the drive ready"), 0.04),
+    (N_("Copying ZOOMRIYA OS"), 0.86),
+    (N_("Making room for your files"), 0.05),
+    (N_("Making the drive start"), 0.05),
 ]
 
 Progress = Callable[[int, float], None]
@@ -65,7 +67,7 @@ SYSTEM_PARTITION = 3
 def partition(disk: str, number: int) -> str:
     """The drive's partition by its number, from the kernel's own list: udev
     may not have read the new partitions' labels yet."""
-    for _ in range(10):
+    for _try in range(10):
         for entry in (Path("/sys/class/block") / Path(disk).name).iterdir():
             try:
                 if (entry / "partition").read_text().strip() == str(number):
@@ -73,7 +75,7 @@ def partition(disk: str, number: int) -> str:
             except OSError:
                 continue
         time.sleep(1)
-    raise InstallError("The new partitions can't be found on the drive.")
+    raise InstallError(_("The new partitions can't be found on the drive."))
 
 
 def install(disk: str, progress: Progress) -> None:
@@ -81,12 +83,12 @@ def install(disk: str, progress: Progress) -> None:
 
     progress(0, 0.0)
     # Old filesystems' signatures, so nothing left over is found on the new partitions.
-    tree = json.loads(run("lsblk", "-J", "-o", "PATH,TYPE", disk, problem="The drive went away."))
+    tree = json.loads(run("lsblk", "-J", "-o", "PATH,TYPE", disk, problem=_("The drive went away.")))
     for dev in tree["blockdevices"]:
         for child in dev.get("children") or []:
-            run("wipefs", "--all", "--force", child["path"], problem="The drive's old partitions couldn't be cleared.")
-    run("wipefs", "--all", "--force", disk, problem="The drive couldn't be cleared.")
-    run("udevadm", "settle", problem="The drive didn't settle.")
+            run("wipefs", "--all", "--force", child["path"], problem=_("The drive's old partitions couldn't be cleared."))
+    run("wipefs", "--all", "--force", disk, problem=_("The drive couldn't be cleared."))
+    run("udevadm", "settle", problem=_("The drive didn't settle."))
     progress(0, 1.0)
 
     # The copy's progress, read from what the drive has written: every block
@@ -105,23 +107,23 @@ def install(disk: str, progress: Progress) -> None:
         with tempfile.TemporaryDirectory(prefix="zoomriya-none-") as none:
             run("systemd-repart", "--dry-run=no", "--empty=force", "--seed=random",
                 f"--definitions={none}", f"--copy-from={IMAGE}", disk,
-                problem="ZOOMRIYA OS couldn't be copied to the drive.")
+                problem=_("ZOOMRIYA OS couldn't be copied to the drive."))
     finally:
         copying.set()
     progress(1, 1.0)
 
     progress(2, 0.0)
     run("systemd-repart", "--dry-run=no", f"--definitions={DEFINITIONS}", disk,
-        problem="The system partition couldn't grow to fill the drive.")
-    run("udevadm", "settle", problem="The drive didn't settle.")
+        problem=_("The system partition couldn't grow to fill the drive."))
+    run("udevadm", "settle", problem=_("The drive didn't settle."))
     system = partition(disk, SYSTEM_PARTITION)
     with tempfile.TemporaryDirectory(prefix="zoomriya-system-") as mnt:
-        run("mount", "-t", "btrfs", system, mnt, problem="The new system partition couldn't be opened.")
+        run("mount", "-t", "btrfs", system, mnt, problem=_("The new system partition couldn't be opened."))
         try:
             run("btrfs", "filesystem", "resize", "max", mnt,
-                problem="The system partition couldn't grow to fill the drive.")
+                problem=_("The system partition couldn't grow to fill the drive."))
         finally:
-            run("umount", mnt, problem="The new system partition couldn't be closed.")
+            run("umount", mnt, problem=_("The new system partition couldn't be closed."))
     progress(2, 1.0)
 
     progress(3, 0.0)
@@ -133,7 +135,7 @@ def install(disk: str, progress: Progress) -> None:
                 "--label", "ZOOMRIYA OS", "--loader", LOADER, problem="")
         except InstallError:
             pass
-    run("sync", problem="The drive couldn't finish writing.")
+    run("sync", problem=_("The drive couldn't finish writing."))
     progress(3, 1.0)
 
 

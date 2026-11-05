@@ -49,7 +49,7 @@ def list_disks() -> list[Disk]:
 
 def install(disk: str, progress: Progress) -> None:
     """The install played out in about a minute."""
-    for stage, (_, share) in enumerate(STAGES):
+    for stage, (_name, share) in enumerate(STAGES):
         steps = max(int(share * 60), 3)
         for step in range(steps + 1):
             progress(stage, step / steps)

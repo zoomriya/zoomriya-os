@@ -1,6 +1,7 @@
 """The USB installer, full screen on the computer it's installing (design §10).
 
-Five steps down the side: Welcome checks the computer can take ZOOMRIYA OS,
+Six steps down the side: Language picks the installer's language, Welcome
+checks the computer can take ZOOMRIYA OS,
 Drive picks where it goes and shows the drive before and after, Summary asks
 once more before anything is erased, Install copies it while a slideshow tells
 what the box does, and Done restarts into the box's first setup.
@@ -25,10 +26,12 @@ from gi.repository import Gdk, Gio, GLib, Gtk, Pango  # noqa: E402
 
 from .brand import MARK, WORDMARK, logo  # noqa: E402
 from .disks import MIN_BYTES, Disk, layout_after, size_text  # noqa: E402
+from .i18n import LANGUAGES, N_, _  # noqa: E402
+from . import i18n  # noqa: E402
 from .install import LOG, STAGES, InstallError, overall  # noqa: E402
 
-STEPS = ["Welcome", "Drive", "Summary", "Install", "Done"]
-WELCOME, DRIVE, SUMMARY, INSTALL, DONE = range(len(STEPS))
+STEPS = [N_("Language"), N_("Welcome"), N_("Drive"), N_("Summary"), N_("Install"), N_("Done")]
+LANGUAGE, WELCOME, DRIVE, SUMMARY, INSTALL, DONE = range(len(STEPS))
 MIN_MEMORY = 4 * 1024**3
 #: Narrower than this, the side shows the steps' numbers only.
 COMPACT_WIDTH = 900
@@ -40,26 +43,26 @@ FREE_COLOUR = "#dfe5ec"
 AFTER_COLOURS = {"EFI": "#7fb2ea", "Recovery": "#f0a95b", "ZOOMRIYA OS": "#1765c1"}
 
 SLIDES = [
-    ("user-home-symbolic", "Your files stay at home",
-     "Everything the box keeps lives on it, in your home, not in someone else's cloud.",
+    ("user-home-symbolic", N_("Your files stay at home"),
+     N_("Everything the box keeps lives on it, in your home, not in someone else's cloud."),
      ("#1765c1", "#3b8ce0")),
-    ("security-high-symbolic", "Security fixes install by themselves",
-     "Security fixes for the OS arrive on their own, in the box's quiet maintenance hour.",
+    ("security-high-symbolic", N_("Security fixes install by themselves"),
+     N_("Security fixes for the OS arrive on their own, in the box's quiet maintenance hour."),
      ("#0f766e", "#14a597")),
-    ("document-revert-symbolic", "Restore points",
-     "The box keeps a restore point before every update. Going back is one click in "
-     "Box Desktop, and your files stay as they are.",
+    ("document-revert-symbolic", N_("Restore points"),
+     N_("The box keeps a restore point before every update. Going back is one click in "
+        "Box Desktop, and your files stay as they are."),
      ("#5b3fb8", "#8462e0")),
-    ("view-refresh-symbolic", "A kernel that won't start falls back",
-     "If a new kernel can't start, the box starts the one before it by itself and tells you.",
+    ("view-refresh-symbolic", N_("A kernel that won't start falls back"),
+     N_("If a new kernel can't start, the box starts the one before it by itself and tells you."),
      ("#b4531c", "#e07a3b")),
-    ("avatar-default-symbolic", "One account: ZOOMRIYA ID",
-     "The admin you make at the first setup signs in to the box and to every ZOOMRIYA "
-     "app you add to it.",
+    ("avatar-default-symbolic", N_("One account: ZOOMRIYA ID"),
+     N_("The admin you make at the first setup signs in to the box and to every ZOOMRIYA "
+        "app you add to it."),
      ("#1d6f42", "#2f9a5e")),
-    ("channel-secure-symbolic", "Closed unless you open it",
-     "A firewall that lets nothing in uninvited, and remote access off until an admin "
-     "turns it on.",
+    ("channel-secure-symbolic", N_("Closed unless you open it"),
+     N_("A firewall that lets nothing in uninvited, and remote access off until an admin "
+        "turns it on."),
      ("#24364b", "#3d5874")),
 ]
 
@@ -85,7 +88,7 @@ def bar_segments(disk: Disk) -> list[tuple[str, int, str]]:
                 for i, part in enumerate(disk.parts)]
     free = disk.size - sum(part.size for part in disk.parts)
     if free > disk.size * 0.01:
-        segments.append(("Free space" if disk.parts else "Empty", free, FREE_COLOUR))
+        segments.append((_("Free space") if disk.parts else _("Empty"), free, FREE_COLOUR))
     return segments
 
 
@@ -154,7 +157,7 @@ class Bar(Gtk.Box):
         for name, size, colour in segments:
             item = Gtk.Box(spacing=8)
             item.append(swatch(colour))
-            item.append(label(name, "legend-name", wrap=False))
+            item.append(label(_(name), "legend-name", wrap=False))
             item.append(label(size_text(size), "legend-size", wrap=False))
             self.legend.append(item)
 
@@ -170,7 +173,7 @@ class Bar(Gtk.Box):
         if widths:
             biggest = widths.index(max(widths))
             widths[biggest] -= sum(widths) - width
-        for (_, _, colour), w in zip(self.segments, widths):
+        for (_name, _size, colour), w in zip(self.segments, widths):
             cr.rectangle(x, 0, w, height)
             cr.set_source_rgb(*rgb(colour))
             cr.fill()
@@ -183,9 +186,9 @@ class Bar(Gtk.Box):
 
 class InstallerWindow(Gtk.ApplicationWindow):
     def __init__(self, app: Gtk.Application, backend: Any) -> None:
-        super().__init__(application=app, title="Install ZOOMRIYA OS")
+        super().__init__(application=app, title=_("Install ZOOMRIYA OS"))
         self.backend = backend
-        self.step = WELCOME
+        self.step = LANGUAGE
         self.disks: list[Disk] = []
         self.disk: Disk | None = None
         self.installing = False
@@ -203,8 +206,8 @@ class InstallerWindow(Gtk.ApplicationWindow):
 
         self.stack = Gtk.Stack(transition_type=Gtk.StackTransitionType.CROSSFADE,
                                vexpand=True, hhomogeneous=False, vhomogeneous=False)
-        for step, page in enumerate([self.welcome_page(), self.drive_page(), self.summary_page(),
-                                     self.install_page(), self.done_page()]):
+        for step, page in enumerate([self.language_page(), self.welcome_page(), self.drive_page(),
+                                     self.summary_page(), self.install_page(), self.done_page()]):
             scroll = Gtk.ScrolledWindow(hscrollbar_policy=Gtk.PolicyType.NEVER)
             page.add_css_class("content")
             scroll.set_child(page)
@@ -221,14 +224,14 @@ class InstallerWindow(Gtk.ApplicationWindow):
         buttons.append(spacer)
         self.busy = Gtk.Spinner()
         buttons.append(self.busy)
-        self.back = Gtk.Button(label="Back")
+        self.back = Gtk.Button(label=_("Back"))
         self.back.connect("clicked", lambda _b: self.go(self.step - 1))
         # Done: switched off instead of restarted, as at the factory, so the
         # box's first start is its owner's.
-        self.power = Gtk.Button(label="Power off")
+        self.power = Gtk.Button(label=_("Power off"))
         self.power.connect("clicked", lambda _b: self.backend.power_off())
         buttons.append(self.power)
-        self.next = Gtk.Button(label="Next")
+        self.next = Gtk.Button(label=_("Next"))
         self.next.add_css_class("primary")
         self.next.connect("clicked", lambda _b: self.confirm())
         buttons.append(self.back)
@@ -239,7 +242,7 @@ class InstallerWindow(Gtk.ApplicationWindow):
         self.online: bool | None = None
         self.look_for_disks()
         self.check_internet()
-        self.go(WELCOME)
+        self.go(LANGUAGE)
 
     # --- the side and moving between steps -----------------------------------
 
@@ -259,7 +262,7 @@ class InstallerWindow(Gtk.ApplicationWindow):
         self.side_mark = logo(MARK, 26)
         self.side_mark.set_visible(False)
         brand.append(self.side_mark)
-        sub = label("OS Installer", "brand-sub", wrap=False, shorten=False)
+        sub = label(_("OS Installer"), "brand-sub", wrap=False, shorten=False)
         brand.append(sub)
         self.side_words.append(sub)
         side.append(brand)
@@ -271,7 +274,7 @@ class InstallerWindow(Gtk.ApplicationWindow):
             marker = label(str(i + 1), "step-marker", wrap=False, shorten=False)
             marker.set_xalign(0.5)
             row.append(marker)
-            words = label(name, "step-name", wrap=False, shorten=False)
+            words = label(_(name), "step-name", wrap=False, shorten=False)
             row.append(words)
             self.side_words.append(words)
             side.append(row)
@@ -299,7 +302,7 @@ class InstallerWindow(Gtk.ApplicationWindow):
         return False
 
     def go(self, step: int) -> None:
-        self.step = max(WELCOME, min(step, DONE))
+        self.step = max(LANGUAGE, min(step, DONE))
         self.stack.set_visible_child_name(str(self.step))
         self.say("")
         for i, (row, marker) in enumerate(self.step_rows):
@@ -311,12 +314,12 @@ class InstallerWindow(Gtk.ApplicationWindow):
                 row.add_css_class("done")
             marker.set_text("✓" if i < self.step else str(i + 1))
             marker.set_yalign(0.5)
-        self.back.set_visible(self.step in (DRIVE, SUMMARY))
+        self.back.set_visible(self.step in (WELCOME, DRIVE, SUMMARY))
         self.power.set_visible(self.step == DONE and not self.failed)
         self.buttons.set_visible(self.step != INSTALL)
         self.next.remove_css_class("danger")
-        done_label = "Try again" if self.failed else "Restart now"
-        self.next.set_label({SUMMARY: "Erase and install", DONE: done_label}.get(self.step, "Next"))
+        done_label = _("Try again") if self.failed else _("Restart now")
+        self.next.set_label({SUMMARY: _("Erase and install"), DONE: done_label}.get(self.step, _("Next")))
         if self.step == SUMMARY:
             self.next.add_css_class("danger")
             self.show_summary()
@@ -363,10 +366,35 @@ class InstallerWindow(Gtk.ApplicationWindow):
             try:
                 result, problem = work(), None
             except Exception as exc:  # noqa: BLE001 - shown to the person
-                result, problem = None, str(exc) or "Something went wrong."
+                result, problem = None, str(exc) or _("Something went wrong.")
             GLib.idle_add(finish, result, problem)
 
         threading.Thread(target=run, daemon=True).start()
+
+    # --- Language -------------------------------------------------------------
+
+    def language_page(self) -> Gtk.Widget:
+        """The installer's languages, each in itself: choosing one shows the
+        installer in it at once."""
+        box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=16)
+        box.append(label(_("Choose your language"), "title"))
+        box.append(label(_("The installer is shown in it. The box's own language is chosen at its "
+                           "first setup."), "lead"))
+        choices = Gtk.ListBox(selection_mode=Gtk.SelectionMode.SINGLE)
+        choices.add_css_class("disks")
+        for code, name in LANGUAGES:
+            row = Gtk.ListBoxRow()
+            row.code = code
+            line = Gtk.Box(spacing=16)
+            line.add_css_class("disk")
+            line.append(label(name, "disk-name", wrap=False))
+            row.set_child(line)
+            choices.append(row)
+            if code == i18n.language:
+                choices.select_row(row)
+        choices.connect("row-activated", lambda _l, row: self.get_application().speak(row.code))
+        box.append(choices)
+        return box
 
     # --- Welcome --------------------------------------------------------------
 
@@ -376,10 +404,10 @@ class InstallerWindow(Gtk.ApplicationWindow):
         hero.set_draw_func(self.draw_hero)
         hero.add_css_class("hero")
         box.append(hero)
-        box.append(label("Install ZOOMRIYA OS", "title"))
-        box.append(label("This turns this computer into a ZOOMRIYA Box. You choose the drive "
-                         "on the next page, and everything on that drive is erased. It takes "
-                         "about five minutes.", "lead"))
+        box.append(label(_("Install ZOOMRIYA OS"), "title"))
+        box.append(label(_("This turns this computer into a ZOOMRIYA Box. You choose the drive "
+                           "on the next page, and everything on that drive is erased. It takes "
+                           "about five minutes."), "lead"))
         self.checks = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
         self.checks.add_css_class("checks")
         box.append(self.checks)
@@ -389,10 +417,10 @@ class InstallerWindow(Gtk.ApplicationWindow):
         fake = bool(os.environ.get("ZOOMRIYA_INSTALLER_FAKE"))
         ram = memory()
         return [
-            ("Started in UEFI mode", fake or Path("/sys/firmware/efi").is_dir()),
-            (f"Memory: {memory_text(ram)} ({memory_text(MIN_MEMORY)} needed)",
+            (_("Started in UEFI mode"), fake or Path("/sys/firmware/efi").is_dir()),
+            (_("Memory: {have} ({need} needed)").format(have=memory_text(ram), need=memory_text(MIN_MEMORY)),
              fake or ram >= MIN_MEMORY * 0.95),
-            (f"A drive of {size_text(MIN_BYTES)} or more", any(d.usable for d in self.disks)),
+            (_("A drive of {size} or more").format(size=size_text(MIN_BYTES)), any(d.usable for d in self.disks)),
         ]
 
     def check_internet(self) -> None:
@@ -428,13 +456,13 @@ class InstallerWindow(Gtk.ApplicationWindow):
             add("✓" if ok else "!", "check-ok" if ok else "check-bad", text)
         # The internet: good to have, not needed.
         if self.online is None:
-            add("…", "check-wait", "Checking the internet…")
+            add("…", "check-wait", _("Checking the internet…"))
         elif self.online:
-            add("✓", "check-ok", "Internet: connected")
+            add("✓", "check-ok", _("Internet: connected"))
         else:
-            add("!", "check-warn", "No internet. Installing anyway: ZOOMRIYA OS is on this stick, "
-                "and its security fixes arrive once the box is online. Plug in a network "
-                "cable to connect.", wrap=True)
+            add("!", "check-warn", _("No internet. Installing anyway: ZOOMRIYA OS is on this stick, "
+                                     "and its security fixes arrive once the box is online. Plug in a "
+                                     "network cable to connect."), wrap=True)
 
     def draw_hero(self, _area: Any, cr: Any, w: int, h: int) -> None:
         """The box on a soft blue field, its light on."""
@@ -475,14 +503,14 @@ class InstallerWindow(Gtk.ApplicationWindow):
     def drive_page(self) -> Gtk.Widget:
         box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=16)
         head = Gtk.Box(spacing=12)
-        head.append(label("Where should ZOOMRIYA OS go?", "title"))
+        head.append(label(_("Where should ZOOMRIYA OS go?"), "title"))
         head.append(Gtk.Box(hexpand=True))
-        again = Gtk.Button(label="Look again", valign=Gtk.Align.CENTER)
+        again = Gtk.Button(label=_("Look again"), valign=Gtk.Align.CENTER)
         again.connect("clicked", lambda _b: self.look_for_disks())
         head.append(again)
         box.append(head)
-        box.append(label("Choose the drive to install it on. Everything on that drive is "
-                         "erased; other drives aren't touched. Plugged one in? Press Look again.",
+        box.append(label(_("Choose the drive to install it on. Everything on that drive is "
+                           "erased; other drives aren't touched. Plugged one in? Press Look again."),
                          "lead"))
         self.disk_list = Gtk.ListBox(selection_mode=Gtk.SelectionMode.SINGLE)
         self.disk_list.add_css_class("disks")
@@ -491,8 +519,8 @@ class InstallerWindow(Gtk.ApplicationWindow):
 
         self.bars = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=18)
         self.bars.add_css_class("bars")
-        self.bar_now = Bar("Now")
-        self.bar_after = Bar("After installing")
+        self.bar_now = Bar(_("Now"))
+        self.bar_after = Bar(_("After installing"))
         self.bars.append(self.bar_now)
         self.bars.append(self.bar_after)
         box.append(self.bars)
@@ -551,12 +579,12 @@ class InstallerWindow(Gtk.ApplicationWindow):
 
     def summary_page(self) -> Gtk.Widget:
         box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=16)
-        box.append(label("Ready to install", "title"))
-        box.append(label("Check the drive once more. Nothing has been changed yet.", "lead"))
+        box.append(label(_("Ready to install"), "title"))
+        box.append(label(_("Check the drive once more. Nothing has been changed yet."), "lead"))
         self.facts = Gtk.Grid(column_spacing=28, row_spacing=10)
         self.facts.add_css_class("facts")
         box.append(self.facts)
-        self.summary_bar = Bar("The drive after installing")
+        self.summary_bar = Bar(_("The drive after installing"))
         box.append(self.summary_bar)
         warning = Gtk.Box(spacing=14)
         warning.add_css_class("warning")
@@ -575,30 +603,31 @@ class InstallerWindow(Gtk.ApplicationWindow):
             return
         while child := self.facts.get_first_child():
             self.facts.remove(child)
-        erased = ", ".join(part.what for part in disk.parts) or "Nothing: the drive is empty"
-        facts = [("Drive", f"{disk.title} ({disk.kind}, {disk.path})"),
-                 ("Size", size_text(disk.size)),
-                 ("Erased", erased),
-                 ("Installed", "ZOOMRIYA OS 13")]
+        erased = ", ".join(part.what for part in disk.parts) or _("Nothing: the drive is empty")
+        facts = [(_("Drive"), f"{disk.title} ({disk.kind}, {disk.path})"),
+                 (_("Size"), size_text(disk.size)),
+                 (_("Erased"), erased),
+                 (_("Installed"), "ZOOMRIYA OS 13")]
         for row, (name, value) in enumerate(facts):
             self.facts.attach(label(name, "fact-name", wrap=False), 0, row, 1, 1)
             self.facts.attach(label(value, "fact"), 1, row, 1, 1)
         self.summary_bar.show(after_segments(disk))
         self.erase_ok.set_active(False)
-        self.erase_ok.set_label(f"Erase everything on {disk.title} ({size_text(disk.size)})")
+        self.erase_ok.set_label(_("Erase everything on {drive} ({size})").format(
+            drive=disk.title, size=size_text(disk.size)))
 
     # --- Install --------------------------------------------------------------
 
     def install_page(self) -> Gtk.Widget:
         box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=18)
-        box.append(label("Installing ZOOMRIYA OS", "title"))
+        box.append(label(_("Installing ZOOMRIYA OS"), "title"))
         self.slides = Gtk.Stack(transition_type=Gtk.StackTransitionType.SLIDE_LEFT,
                                 transition_duration=600)
         for i, (icon, title, text, colours) in enumerate(SLIDES):
-            self.slides.add_named(self.slide_card(icon, title, text, colours), str(i))
+            self.slides.add_named(self.slide_card(icon, _(title), _(text), colours), str(i))
         box.append(self.slides)
         self.slide_dots = Gtk.Box(spacing=8, halign=Gtk.Align.CENTER)
-        for _ in SLIDES:
+        for _slide in SLIDES:
             self.slide_dots.append(label("", "slide-dot", wrap=False))
         box.append(self.slide_dots)
 
@@ -606,7 +635,7 @@ class InstallerWindow(Gtk.ApplicationWindow):
         box.append(self.stage)
         self.progress = Gtk.ProgressBar()
         box.append(self.progress)
-        box.append(label("Keep the computer on and the USB stick in until it's done.", "hint"))
+        box.append(label(_("Keep the computer on and the USB stick in until it's done."), "hint"))
         return box
 
     def slide_card(self, icon: str, title: str, text: str, colours: tuple[str, str]) -> Gtk.Widget:
@@ -678,7 +707,7 @@ class InstallerWindow(Gtk.ApplicationWindow):
             except InstallError as exc:
                 problem = str(exc)
             except Exception as exc:  # noqa: BLE001 - shown to the person
-                problem = f"The install stopped: {exc}"
+                problem = _("The install stopped: {problem}").format(problem=exc)
             GLib.idle_add(self.finished, problem)
 
         threading.Thread(target=run, daemon=True).start()
@@ -686,7 +715,7 @@ class InstallerWindow(Gtk.ApplicationWindow):
     def show_progress(self, stage: int, fraction: float) -> bool:
         done = overall(stage, fraction)
         self.progress.set_fraction(done)
-        self.stage.set_text(f"{STAGES[stage][0]}…  {done:.0%}")
+        self.stage.set_text(f"{_(STAGES[stage][0])}…  {done:.0%}")
         return False
 
     def finished(self, problem: str) -> bool:
@@ -717,21 +746,21 @@ class InstallerWindow(Gtk.ApplicationWindow):
         while child := self.done_steps.get_first_child():
             self.done_steps.remove(child)
         if self.failed:
-            self.done_title.set_text("The install didn't finish")
-            self.done_lead.set_text(f"{self.failed} The drive may not start now; installing "
-                                    "again puts that right.")
-            steps = ["Check the drive is plugged in firmly, or try another drive.",
-                     "Press Try again.",
-                     f"If it fails again, the installer's notes for support are in {LOG}."]
+            self.done_title.set_text(_("The install didn't finish"))
+            self.done_lead.set_text(self.failed + " " + _("The drive may not start now; installing "
+                                                          "again puts that right."))
+            steps = [_("Check the drive is plugged in firmly, or try another drive."),
+                     _("Press Try again."),
+                     _("If it fails again, the installer's notes for support are in {file}.").format(file=LOG)]
         else:
-            self.done_title.set_text("ZOOMRIYA OS is installed")
-            self.done_lead.set_text("Your ZOOMRIYA Box is ready to start for the first time.")
-            steps = ["Take out the USB stick.",
-                     "Press Restart now to set the box up now, or Power off to leave that "
-                     "to its owner.",
-                     "At its next start, the box opens its first setup on this screen: the "
-                     "language, the keyboard, the network, the region, the time zone and "
-                     "the box's admin."]
+            self.done_title.set_text(_("ZOOMRIYA OS is installed"))
+            self.done_lead.set_text(_("Your ZOOMRIYA Box is ready to start for the first time."))
+            steps = [_("Take out the USB stick."),
+                     _("Press Restart now to set the box up now, or Power off to leave that "
+                       "to its owner."),
+                     _("At its next start, the box opens its first setup on this screen: the "
+                       "language, the keyboard, the network, the region, the time zone and "
+                       "the box's admin.")]
         for i, text in enumerate(steps):
             row = Gtk.Box(spacing=12)
             number = label(str(i + 1), "done-number", wrap=False, shorten=False)
@@ -781,12 +810,25 @@ class InstallerApp(Gtk.Application):
                          flags=Gio.ApplicationFlags.NON_UNIQUE)
         self.backend = backend
 
+    def speak(self, code: str) -> None:
+        """The installer in another language: drawn again, still on Language."""
+        if code == i18n.language:
+            return
+        i18n.use(code)
+        old = self.get_active_window()
+        self.show_window()
+        if old is not None:
+            old.destroy()
+
     def do_activate(self) -> None:
         css = Gtk.CssProvider()
         css.load_from_path(str(Path(__file__).with_name("style.css")))
         Gtk.StyleContext.add_provider_for_display(
             Gdk.Display.get_default(), css, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
         )
+        self.show_window()
+
+    def show_window(self) -> None:
         window = InstallerWindow(self, self.backend)
         if os.environ.get("ZOOMRIYA_INSTALLER_WINDOWED"):
             window.set_default_size(1280, 800)

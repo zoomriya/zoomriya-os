@@ -18,7 +18,7 @@ def swaymsg(*command: str) -> bool:
 
 def set_keyboard(layout_id: str) -> bool:
     """A layout as the agent lists it: "fr", or "ch:fr" with its variant."""
-    layout, _, variant = layout_id.partition(":")
+    layout, _colon, variant = layout_id.partition(":")
     return (swaymsg("input", "type:keyboard", "xkb_layout", layout)
             and swaymsg("input", "type:keyboard", "xkb_variant", variant or '""'))
 

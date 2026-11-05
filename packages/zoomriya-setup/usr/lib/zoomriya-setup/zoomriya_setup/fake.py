@@ -27,6 +27,7 @@ class FakeAgent:
         self.layout = "us"
         self.zone = "Etc/UTC"
         self.region = ""
+        self.subdivision = ""
         self.locale = ""
         self.mode = "dhcp"
         self.fixed: dict[str, Any] | None = None
@@ -54,6 +55,7 @@ class FakeAgent:
                 "has_admin": self.admin is not None,
                 "language": self.locale,
                 "region": self.region,
+                "subdivision": self.subdivision,
                 "zone": self.zone,
                 "clock_synced": True,
             }
@@ -62,7 +64,8 @@ class FakeAgent:
             return {"language": self.locale}
         if op == "region-set":
             self.region = fields["region"]
-            return {"region": self.region}
+            self.subdivision = fields.get("subdivision") or ""
+            return {"region": self.region, "subdivision": self.subdivision}
         if op == "time-zone-set":
             self.zone = fields["zone"]
             return {"zone": self.zone}

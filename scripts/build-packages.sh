@@ -23,6 +23,16 @@ for dir in "$root"/packages/*/; do
         "$dir/build" "$work/$name"
         rm -rf "$work/$name/build" "$work/$name/src" "$work/$name/.gitignore"
     fi
+    # Translations of our screens (po/<lang>.po) go in compiled, where gettext
+    # looks; the .po files themselves don't.
+    if [ -d "$dir/po" ]; then
+        for po in "$dir"/po/*.po; do
+            lang=$(basename "$po" .po)
+            python3 -I "$root/scripts/i18n.py" compile "$po" \
+                "$work/$name/usr/share/locale/$lang/LC_MESSAGES/$name.mo"
+        done
+        rm -rf "$work/$name/po"
+    fi
     # Python's caches from running the code here aren't part of a package.
     find "$work/$name" -name __pycache__ -prune -exec rm -rf {} +
     chmod -R u+rwX,go+rX,go-w "$work/$name"

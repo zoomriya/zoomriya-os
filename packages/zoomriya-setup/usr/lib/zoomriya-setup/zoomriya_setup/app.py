@@ -13,7 +13,6 @@ import functools
 import ipaddress
 import json
 import math
-import re
 import os
 import socket
 import threading
@@ -31,20 +30,25 @@ gi.require_foreign("cairo")
 from gi.repository import Gdk, Gio, GLib, Gtk  # noqa: E402
 
 from .agent import Agent, AgentError  # noqa: E402
+from . import i18n  # noqa: E402
 from .brand import MARK, WORDMARK, logo  # noqa: E402
+from .i18n import N_, _  # noqa: E402
 from .screen import set_keyboard  # noqa: E402
 
-STEPS = ["Language", "Keyboard", "Network", "Region", "Time zone", "Admin", "Done"]
+STEPS = [N_("Language"), N_("Keyboard"), N_("Network"), N_("Region"), N_("Time zone"), N_("Admin"),
+         N_("Done")]
 LANGUAGE, KEYBOARD, NETWORK, REGION, ZONE, ADMIN, DONE = range(len(STEPS))
 #: Reached to say whether the box is online; the setup goes on without it.
 INTERNET_CHECK = ("deb.debian.org", 443)
 #: tzdata's countries and regions, and the zones in each.
 COUNTRIES = Path("/usr/share/zoneinfo/iso3166.tab")
+#: The same by their ISO names, which iso-codes translates (i18n.country), and
+#: their states and provinces.
+ISO_COUNTRIES = Path("/usr/share/iso-codes/json/iso_3166-1.json")
+ISO_SUBDIVISIONS = Path("/usr/share/iso-codes/json/iso_3166-2.json")
 COUNTRY_ZONES = Path("/usr/share/zoneinfo/zone.tab")
-#: Debian's locales (the locales package): those it can build, and each one's
-#: definition, with its language's name in that language.
+#: Debian's locales (the locales package): those it can build.
 SUPPORTED = Path("/usr/share/i18n/SUPPORTED")
-LOCALE_DEFINITIONS = Path("/usr/share/i18n/locales")
 #: Home locales of languages without an xx_XX one (fr_FR, de_DE), for a
 #: language whose region has no locale of its own.
 HOME_LOCALES = {
@@ -94,10 +98,44 @@ def tab_rows(path: Path) -> list[list[str]]:
     return [line.split("\t") for line in lines if line and not line.startswith("#")]
 
 
+@functools.cache
+def iso_names() -> dict[str, str]:
+    """Each country's ISO name by its code, as iso-codes' translations know it."""
+    try:
+        listed = json.loads(ISO_COUNTRIES.read_text()).get("3166-1", [])
+    except (OSError, ValueError):
+        return {}
+    return {c["alpha_2"]: c["name"] for c in listed if "alpha_2" in c and "name" in c}
+
+
 def regions() -> list[tuple[str, str]]:
-    """Countries and regions as (code, name), by name."""
-    return sorted(((row[0], row[1]) for row in tab_rows(COUNTRIES) if len(row) > 1),
-                  key=lambda region: region[1])
+    """Countries and regions as (code, name) in the language in use, by name;
+    tzdata's English name where iso-codes has none."""
+    names = iso_names()
+
+    def name(code: str, english: str) -> str:
+        iso = names.get(code)
+        return i18n.country(iso) if iso else english
+
+    return sorted(((row[0], name(row[0], row[1])) for row in tab_rows(COUNTRIES) if len(row) > 1),
+                  key=lambda region: region[1].casefold())
+
+
+@functools.cache
+def all_subdivisions() -> list[dict[str, str]]:
+    try:
+        return json.loads(ISO_SUBDIVISIONS.read_text()).get("3166-2", [])
+    except (OSError, ValueError):
+        return []
+
+
+def subdivisions(region: str) -> list[tuple[str, str]]:
+    """A country's states or provinces as (code, name) in the language in use,
+    by name: its top level only (France's regions, not its departments), as
+    the agent's region-set takes them."""
+    found = [(s["code"], i18n.subdivision(s["name"])) for s in all_subdivisions()
+             if s.get("code", "").startswith(region + "-") and not s.get("parent")]
+    return sorted(found, key=lambda sub: sub[1].casefold())
 
 
 def zones_in(region: str) -> list[str]:
@@ -106,43 +144,18 @@ def zones_in(region: str) -> list[str]:
 
 @functools.cache
 def utf8_locales() -> list[str]:
-    """The locales Debian can build in UTF-8, without variants (@...)."""
+    """The locales Debian can build in UTF-8, without variants (@...), nor
+    C.UTF-8, which is no language."""
     rows = [row[0].split() for row in tab_rows(SUPPORTED)]
-    return [row[0] for row in rows if len(row) == 2 and row[1] == "UTF-8" and "@" not in row[0]]
+    return [row[0] for row in rows if len(row) == 2 and row[1] == "UTF-8" and "@" not in row[0]
+            and not row[0].startswith("C.")]
 
 
-def definition_field(locale: str, name: str) -> str:
-    """A field of the locale's definition, its <Uxxxx> written out."""
-    try:
-        text = (LOCALE_DEFINITIONS / locale.replace(".UTF-8", "")).read_text(errors="replace")
-    except OSError:
-        return ""
-    found = re.search(rf'^{name}\s+"([^"]*)"', text, re.MULTILINE)
-    if not found:
-        return ""
-    return re.sub(r"<U([0-9A-Fa-f]{4,8})>", lambda m: chr(int(m.group(1), 16)), found.group(1))
-
-
-@functools.cache
 def languages() -> list[tuple[str, str]]:
-    """Languages as (code, name), named in themselves: English, Français,
-    தமிழ், with the English name beside when it's different."""
-    by_code: dict[str, list[str]] = {}
-    for locale in utf8_locales():
-        by_code.setdefault(locale.split("_")[0], []).append(locale)
-    found = []
-    for code, locales in by_code.items():
-        main = main_locale(code, locales)
-        native = definition_field(main, "lang_name") or code
-        # "Spanish locale for Spain": the language, without the country's
-        # flavour ("European Spanish").
-        title = re.match(r"(.+?) (language )?locale for", definition_field(main, "title"))
-        english = title.group(1) if title else definition_field(main, "language")
-        name = native[:1].upper() + native[1:]
-        if english and english.lower() != native.lower() and english.isascii():
-            name = f"{name} · {english}"
-        found.append((code, name))
-    return sorted(found, key=lambda language: language[1].casefold())
+    """The languages the box offers, as (Debian's code, name in itself): those
+    our screens are translated into (i18n.OURS)."""
+    return [("en", "English"), ("fr", "Français"), ("de", "Deutsch"), ("es", "Español"),
+            ("ta", "தமிழ்"), ("ja", "日本語"), ("zh", "简体中文")]
 
 
 def main_locale(code: str, locales: list[str]) -> str:
@@ -174,11 +187,11 @@ def fixed_settings(address: str, mask: str, router: str, dns: str) -> dict[str, 
     try:
         bits = ipaddress.IPv4Network(f"0.0.0.0/{mask.strip()}").prefixlen
     except ValueError:
-        raise ValueError("The subnet mask should look like 255.255.255.0.") from None
+        raise ValueError(_("The subnet mask should look like 255.255.255.0.")) from None
     try:
         ipaddress.IPv4Address(address.strip())
     except ValueError:
-        raise ValueError("The box's address should look like 192.168.1.40.") from None
+        raise ValueError(_("The box's address should look like 192.168.1.40.")) from None
     servers = [s for s in dns.replace(",", " ").split() if s]
     return {
         "mode": "fixed",
@@ -190,17 +203,17 @@ def fixed_settings(address: str, mask: str, router: str, dns: str) -> dict[str, 
 
 def password_problem(username: str, password: str, again: str) -> str | None:
     if not username.strip():
-        return "Choose a username."
+        return _("Choose a username.")
     if not password:
-        return "Choose a password."
+        return _("Choose a password.")
     if len(username.strip()) > 128:
-        return "The username can be at most 128 characters."
+        return _("The username can be at most 128 characters.")
     if len(password) < MIN_PASSWORD:
-        return f"The password needs at least {MIN_PASSWORD} characters."
+        return _("The password needs at least {count} characters.").format(count=MIN_PASSWORD)
     if not again:
-        return "Type the password again."
+        return _("Type the password again.")
     if password != again:
-        return "The two passwords aren't the same."
+        return _("The two passwords aren't the same.")
     return None
 
 
@@ -241,8 +254,10 @@ def field(caption: str, entry: Gtk.Widget) -> Gtk.Box:
 
 
 class SetupWindow(Gtk.ApplicationWindow):
-    def __init__(self, app: Gtk.Application, agent: Any) -> None:
-        super().__init__(application=app, title="ZOOMRIYA Box setup")
+    def __init__(self, app: Gtk.Application, agent: Any, chosen: str = "") -> None:
+        """chosen: the language just picked, when the setup is drawn again in it."""
+        super().__init__(application=app, title=_("ZOOMRIYA Box setup"))
+        self.chosen = chosen
         self.agent = agent
         self.step = 0
         self.network: dict[str, Any] = {}
@@ -279,9 +294,9 @@ class SetupWindow(Gtk.ApplicationWindow):
         self.error.set_visible(False)
         buttons.append(self.error)
         buttons.append(Gtk.Box(hexpand=True))
-        self.back = Gtk.Button(label="Back")
+        self.back = Gtk.Button(label=_("Back"))
         self.back.connect("clicked", lambda _b: self.go(self.step - 1))
-        self.next = Gtk.Button(label="Next")
+        self.next = Gtk.Button(label=_("Next"))
         self.next.add_css_class("primary")
         self.next.connect("clicked", lambda _b: self.confirm())
         self.busy = Gtk.Spinner()
@@ -290,7 +305,12 @@ class SetupWindow(Gtk.ApplicationWindow):
         buttons.append(self.next)
         main.append(buttons)
 
-        self.call(lambda: self.agent.ask("setup-status"), self.resume, lambda _e: self.go(LANGUAGE))
+        if chosen:
+            # Drawn again in a language just picked: still on Language, with it chosen.
+            self.select_language(chosen)
+            self.go(LANGUAGE)
+        else:
+            self.call(lambda: self.agent.ask("setup-status"), self.resume, lambda _e: self.go(LANGUAGE))
 
     # --- the side and moving between steps -----------------------------------
 
@@ -310,7 +330,7 @@ class SetupWindow(Gtk.ApplicationWindow):
         self.side_mark = logo(MARK, 26)
         self.side_mark.set_visible(False)
         brand.append(self.side_mark)
-        sub = label("Box setup", "brand-sub", wrap=False)
+        sub = label(_("Box setup"), "brand-sub", wrap=False)
         brand.append(sub)
         self.side_words.append(sub)
         side.append(brand)
@@ -322,7 +342,7 @@ class SetupWindow(Gtk.ApplicationWindow):
             marker = label(str(i + 1), "step-marker", wrap=False)
             marker.set_xalign(0.5)
             row.append(marker)
-            words = label(name, "step-name", wrap=False)
+            words = label(_(name), "step-name", wrap=False)
             row.append(words)
             self.side_words.append(words)
             side.append(row)
@@ -359,6 +379,7 @@ class SetupWindow(Gtk.ApplicationWindow):
             self.select_language(done["language"])
         if status.get("region"):
             self.select_region(status["region"])
+            self.show_subdivisions(status["region"], status.get("subdivision", ""))
         if done.get("zone") and status.get("zone"):
             self.zone_choice = status["zone"]
         if status.get("has_admin"):
@@ -379,12 +400,10 @@ class SetupWindow(Gtk.ApplicationWindow):
                 row.add_css_class("done")
             marker.set_text("✓" if i < self.step else str(i + 1))
         self.back.set_visible(LANGUAGE < self.step < DONE)
-        self.next.set_label({DONE: "Finish"}.get(self.step, "Next"))
+        self.next.set_label(_("Finish") if self.step == DONE else _("Next"))
         if self.poll is not None:
             GLib.source_remove(self.poll)
             self.poll = None
-        if self.step == LANGUAGE:
-            self.language_search.grab_focus()
         if self.step == KEYBOARD:
             self.call(lambda: self.agent.ask("keyboard"), self.show_layouts)
         if self.step == NETWORK:
@@ -423,13 +442,13 @@ class SetupWindow(Gtk.ApplicationWindow):
         elif self.step == NETWORK:
             self.call(self.keep_network, lambda _r: self.go(REGION))
         elif self.step == REGION:
-            region = self.region_choice
+            region, sub = self.region_choice, self.subdivision_choice()
             # The language as written there, if the region has its own: Tamil
             # in Sri Lanka is ta_LK, with Sri Lanka's dates and numbers.
             locale = locale_for(self.language_choice, region)
 
             def region_set() -> dict[str, Any]:
-                answer = self.agent.ask("region-set", region=region)
+                answer = self.agent.ask("region-set", region=region, subdivision=sub)
                 if locale:
                     self.agent.ask("language-set", locale=locale)
                 return answer
@@ -500,39 +519,41 @@ class SetupWindow(Gtk.ApplicationWindow):
 
     def language_page(self) -> Gtk.Widget:
         box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=14)
-        box.append(label("Welcome to your ZOOMRIYA Box", "title"))
-        box.append(label("Let's set it up. It takes a few minutes: the language, the keyboard, "
-                         "the network, the country or region, the time zone, and the box's "
-                         "admin. First, the box's language.", "lead"))
-        self.language_search = Gtk.SearchEntry(placeholder_text="Search, for example Français")
-        self.language_search.connect("search-changed", lambda _e: self.language_list.invalidate_filter())
-        box.append(self.language_search)
-        self.language_list = Gtk.ListBox(selection_mode=Gtk.SelectionMode.SINGLE)
+        box.append(label(_("Welcome to your ZOOMRIYA Box"), "title"))
+        box.append(label(_("Let's set it up. It takes a few minutes: the language, the keyboard, "
+                           "the network, the country or region, the time zone, and the box's "
+                           "admin. First, the box's language."), "lead"))
+        # Nothing selectable until a language is chosen (a click, or Enter): a
+        # list selects whichever row it's focused on, and none is assumed.
+        self.language_list = Gtk.ListBox(selection_mode=Gtk.SelectionMode.NONE)
         self.language_list.add_css_class("zones")
         for code, name in languages():
             row = Gtk.ListBoxRow()
             row.code, row.name = code, name
             row.set_child(label(name, "zone", wrap=False))
             self.language_list.append(row)
-        self.language_list.set_filter_func(
-            lambda row: self.language_search.get_text().casefold() in row.name.casefold())
         self.language_list.connect("row-selected", self.language_selected)
+        self.language_list.connect("row-activated", lambda _l, row: self.select_language(row.code))
         scroll = Gtk.ScrolledWindow(min_content_height=240, vexpand=True)
         scroll.set_child(self.language_list)
         box.append(scroll)
-        self.language_state = label("Choose one to go on.", "state")
+        self.language_state = label(_("Choose one to go on."), "state")
         box.append(self.language_state)
         return box
 
     def language_selected(self, _list: Gtk.ListBox, row: Gtk.ListBoxRow | None) -> None:
         if row is not None:
             self.language_choice = row.code
-            self.language_state.set_text(f"Chosen: {row.name}")
+            self.language_state.set_text(_("Chosen: {name}").format(name=row.name))
+            # The setup in that language at once, once this selection is done.
+            if i18n.ours(row.code) != i18n.language:
+                GLib.idle_add(lambda code=row.code: self.get_application().speak(code) and False)
         self.update_next()
 
     def select_language(self, code: str) -> None:
         for row in _rows(self.language_list):
             if row.code == code:
+                self.language_list.set_selection_mode(Gtk.SelectionMode.SINGLE)
                 self.language_list.select_row(row)
                 return
 
@@ -540,12 +561,12 @@ class SetupWindow(Gtk.ApplicationWindow):
 
     def keyboard_page(self) -> Gtk.Widget:
         box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=14)
-        box.append(label("Your keyboard", "title"))
-        box.append(label("The layout of the keyboard plugged into the box. It's used at once, "
-                         "so the admin's password is typed with it.", "lead"))
+        box.append(label(_("Your keyboard"), "title"))
+        box.append(label(_("The layout of the keyboard plugged into the box. It's used at once, "
+                           "so the admin's password is typed with it."), "lead"))
         self.layout_ids: list[str] = []
         self.layouts = Gtk.DropDown.new_from_strings([])
-        box.append(field("Keyboard", self.layouts))
+        box.append(field(_("Keyboard"), self.layouts))
         return box
 
     def show_layouts(self, answer: dict[str, Any]) -> None:
@@ -559,8 +580,8 @@ class SetupWindow(Gtk.ApplicationWindow):
 
     def network_page(self) -> Gtk.Widget:
         box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=14)
-        box.append(label("Connect the box", "title"))
-        self.net_lead = label("Checking the box's network port…", "lead")
+        box.append(label(_("Connect the box"), "title"))
+        self.net_lead = label(_("Checking the box's network port…"), "lead")
         box.append(self.net_lead)
 
         self.net_rows = Gtk.Grid(column_spacing=24, row_spacing=8)
@@ -569,22 +590,22 @@ class SetupWindow(Gtk.ApplicationWindow):
         self.net_state = label("", "state")
         box.append(self.net_state)
 
-        self.fixed_toggle = Gtk.CheckButton(label="Use a fixed address instead of the router's")
+        self.fixed_toggle = Gtk.CheckButton(label=_("Use a static address instead of the router's"))
         self.fixed_toggle.connect("toggled", lambda b: self.fixed_form.set_visible(b.get_active()))
         box.append(self.fixed_toggle)
 
         self.fixed_form = Gtk.Grid(column_spacing=12, row_spacing=12)
         self.fixed_entries: dict[str, Gtk.Entry] = {}
         for i, (key, caption, hint) in enumerate([
-            ("address", "Box's address", "192.168.1.40"),
-            ("mask", "Subnet mask", "255.255.255.0"),
-            ("router", "Router", "192.168.1.1"),
-            ("dns", "Name servers", "192.168.1.1"),
+            ("address", _("Box's address"), "192.168.1.40"),
+            ("mask", _("Subnet mask"), "255.255.255.0"),
+            ("router", _("Router"), "192.168.1.1"),
+            ("dns", _("Name servers"), "192.168.1.1"),
         ]):
             entry = Gtk.Entry(placeholder_text=hint, hexpand=True)
             self.fixed_entries[key] = entry
             self.fixed_form.attach(field(caption, entry), i % 2, i // 2, 1, 1)
-        apply = Gtk.Button(label="Use these settings")
+        apply = Gtk.Button(label=_("Use these settings"))
         apply.connect("clicked", lambda _b: self.apply_fixed())
         self.fixed_form.attach(apply, 0, 2, 1, 1)
         self.fixed_form.set_visible(False)
@@ -622,34 +643,35 @@ class SetupWindow(Gtk.ApplicationWindow):
         while child := self.net_rows.get_first_child():
             self.net_rows.remove(child)
         if link is None:
-            self.net_lead.set_text("The box has no Ethernet port the setup can use.")
+            self.net_lead.set_text(_("The box has no Ethernet port the setup can use."))
             self.net_state.set_text("")
         elif not link.get("connected"):
-            self.net_lead.set_text("Plug the box into your router with a network cable. "
-                                   "The setup goes on by itself once the cable is in.")
-            self.net_state.set_text("Waiting for the cable…")
+            self.net_lead.set_text(_("Plug the box into your router with a network cable. "
+                                     "The setup goes on by itself once the cable is in."))
+            self.net_state.set_text(_("Waiting for the cable…"))
             self.online = None
         elif not self.address():
-            self.net_lead.set_text("The cable is in. Getting an address from your router…")
+            self.net_lead.set_text(_("The cable is in. Getting an address from your router…"))
             self.net_state.set_text("")
         else:
-            self.net_lead.set_text("The box is on your network.")
+            self.net_lead.set_text(_("The box is on your network."))
             facts = [
-                ("Address", self.address().split("/")[0]),
-                ("Router", link.get("gateway") or "None"),
-                ("Name servers", ", ".join(self.network.get("dns") or []) or "None"),
-                ("Settings", "Fixed address" if link.get("mode") == "fixed" else "From the router (DHCP)"),
+                (_("Address"), self.address().split("/")[0]),
+                (_("Router"), link.get("gateway") or _("None")),
+                (_("Name servers"), ", ".join(self.network.get("dns") or []) or _("None")),
+                (_("Settings"), _("Static address") if link.get("mode") == "fixed"
+                 else _("From the router (DHCP)")),
             ]
             if link.get("speed_mbps"):
-                facts.append(("Speed", f"{link['speed_mbps']} Mbit/s"))
+                facts.append((_("Speed"), f"{link['speed_mbps']} Mbit/s"))
             for row, (name, value) in enumerate(facts):
                 self.net_rows.attach(label(name, "fact-name", wrap=False), 0, row, 1, 1)
                 self.net_rows.attach(label(value, "fact", wrap=False), 1, row, 1, 1)
             self.net_state.set_text({
-                None: "Checking the internet…",
-                True: "Internet: connected.",
-                False: "Internet: not reached. You can carry on; the box catches up "
-                       "with updates and the clock once it's online.",
+                None: _("Checking the internet…"),
+                True: _("Internet: connected."),
+                False: _("Internet: not reached. You can carry on; the box catches up "
+                         "with updates and the clock once it's online."),
             }[self.online])
         self.update_next()
 
@@ -691,10 +713,10 @@ class SetupWindow(Gtk.ApplicationWindow):
 
     def region_page(self) -> Gtk.Widget:
         box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=14)
-        box.append(label("Which country or region?", "title"))
-        box.append(label("Where the box is. It sets which time zones come first, and the "
-                         "rules the box follows there.", "lead"))
-        self.region_search = Gtk.SearchEntry(placeholder_text="Search, for example Canada")
+        box.append(label(_("Which country or region?"), "title"))
+        box.append(label(_("Where the box is. It sets which time zones come first, and the "
+                           "rules the box follows there."), "lead"))
+        self.region_search = Gtk.SearchEntry(placeholder_text=_("Search, for example Canada"))
         self.region_search.connect("search-changed", lambda _e: self.region_list.invalidate_filter())
         box.append(self.region_search)
         self.region_list = Gtk.ListBox(selection_mode=Gtk.SelectionMode.SINGLE)
@@ -710,17 +732,36 @@ class SetupWindow(Gtk.ApplicationWindow):
         scroll = Gtk.ScrolledWindow(min_content_height=260, vexpand=True)
         scroll.set_child(self.region_list)
         box.append(scroll)
-        self.region_state = label("Choose one to go on.", "state")
+        self.region_state = label(_("Choose one to go on."), "state")
         box.append(self.region_state)
+        # The state or province, for a country that has them; not needed to go on.
+        self.sub_codes: list[str] = []
+        self.sub_pick = Gtk.DropDown.new_from_strings([])
+        self.sub_field = field(_("State or province (optional)"), self.sub_pick)
+        self.sub_field.set_visible(False)
+        box.append(self.sub_field)
         return box
+
+    def show_subdivisions(self, region: str, chosen: str = "") -> None:
+        listed = subdivisions(region)
+        self.sub_codes = [""] + [code for code, _name in listed]
+        self.sub_pick.set_model(Gtk.StringList.new([_("Not chosen")] + [name for _code, name in listed]))
+        self.sub_pick.set_selected(self.sub_codes.index(chosen) if chosen in self.sub_codes else 0)
+        self.sub_field.set_visible(bool(listed))
+
+    def subdivision_choice(self) -> str:
+        picked = self.sub_pick.get_selected()
+        return self.sub_codes[picked] if 0 <= picked < len(self.sub_codes) else ""
 
     def region_selected(self, _list: Gtk.ListBox, row: Gtk.ListBoxRow | None) -> None:
         if row is not None:
             if row.code != self.region_choice:
                 # A new region: its time zone is chosen again.
                 self.zone_choice = ""
+            if row.code != self.region_choice:
+                self.show_subdivisions(row.code)
             self.region_choice = row.code
-            self.region_state.set_text(f"Chosen: {row.name}")
+            self.region_state.set_text(_("Chosen: {name}").format(name=row.name))
         self.update_next()
 
     def select_region(self, code: str) -> None:
@@ -733,13 +774,13 @@ class SetupWindow(Gtk.ApplicationWindow):
 
     def zone_page(self) -> Gtk.Widget:
         box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=14)
-        box.append(label("Which time zone?", "title"))
+        box.append(label(_("Which time zone?"), "title"))
         self.zone_lead = label("", "lead")
         box.append(self.zone_lead)
-        self.zone_search = Gtk.SearchEntry(placeholder_text="Search, for example Toronto")
+        self.zone_search = Gtk.SearchEntry(placeholder_text=_("Search, for example Toronto"))
         self.zone_search.connect("search-changed", lambda _e: self.zone_list.invalidate_filter())
         box.append(self.zone_search)
-        self.all_zones = Gtk.CheckButton(label="Show every time zone")
+        self.all_zones = Gtk.CheckButton(label=_("Show every time zone"))
         self.all_zones.connect("toggled", lambda _b: self.zone_list.invalidate_filter())
         box.append(self.all_zones)
 
@@ -767,9 +808,9 @@ class SetupWindow(Gtk.ApplicationWindow):
         self.region_zones = zones_in(self.region_choice)
         name = next((name for code, name in regions() if code == self.region_choice), "")
         self.zone_lead.set_text(
-            f"The time zones in {name}. The box's clock, its maintenance hour and the "
-            "apps go by it." if self.region_zones else
-            "The box's clock, its maintenance hour and the apps go by it.")
+            _("The time zones in {region}. The box's clock, its maintenance hour and the "
+              "apps go by it.").format(region=name) if self.region_zones else
+            _("The box's clock, its maintenance hour and the apps go by it."))
         self.all_zones.set_active(not self.region_zones)
         self.zone_list.invalidate_filter()
         self.zone_list.unselect_all()
@@ -797,11 +838,12 @@ class SetupWindow(Gtk.ApplicationWindow):
 
     def tick(self) -> bool:
         if not self.zone_choice:
-            self.clock.set_text("Choose one to go on.")
+            self.clock.set_text(_("Choose one to go on."))
             return True
         try:
             now = datetime.now(zoneinfo.ZoneInfo(self.zone_choice))
-            self.clock.set_text(f"The time there now: {now:%A %-d %B, %H:%M}")
+            # The time alone: the box's language isn't built yet to name the day.
+            self.clock.set_text(_("The time there now: {time}").format(time=f"{now:%H:%M}"))
         except zoneinfo.ZoneInfoNotFoundError:
             self.clock.set_text("")
         return True
@@ -810,20 +852,20 @@ class SetupWindow(Gtk.ApplicationWindow):
 
     def admin_page(self) -> Gtk.Widget:
         box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=14)
-        box.append(label("The box's admin", "title"))
-        box.append(label("Your account in ZOOMRIYA ID, on this box. The same username and "
-                         "password sign you in to the box and to every ZOOMRIYA app you "
-                         "add to it. There is no other way in, so keep the password safe.",
+        box.append(label(_("The box's admin"), "title"))
+        box.append(label(_("Your account in ZOOMRIYA ID, on this box. The same username and "
+                           "password sign you in to the box and to every ZOOMRIYA app you "
+                           "add to it. There is no other way in, so keep the password safe."),
                          "lead"))
-        self.username = Gtk.Entry(placeholder_text="For example, amma")
+        self.username = Gtk.Entry(placeholder_text=_("For example, amma"))
         self.password = Gtk.PasswordEntry(show_peek_icon=True)
         self.again = Gtk.PasswordEntry(show_peek_icon=True)
         for entry in (self.username, self.password, self.again):
             entry.connect("changed", lambda _e: self.update_next())
         self.again.connect("activate", lambda _e: self.next.get_sensitive() and self.confirm())
-        box.append(field("Username", self.username))
-        box.append(field(f"Password (at least {MIN_PASSWORD} characters)", self.password))
-        box.append(field("The password again", self.again))
+        box.append(field(_("Username"), self.username))
+        box.append(field(_("Password (at least {count} characters)").format(count=MIN_PASSWORD), self.password))
+        box.append(field(_("The password again"), self.again))
         self.admin_missing = label("", "state")
         box.append(self.admin_missing)
         return box
@@ -854,7 +896,7 @@ class SetupWindow(Gtk.ApplicationWindow):
         tick = Gtk.DrawingArea(content_width=96, content_height=96, halign=Gtk.Align.START)
         tick.set_draw_func(draw_done)
         box.append(tick)
-        box.append(label("Your box is ready", "title"))
+        box.append(label(_("Your box is ready"), "title"))
         self.done_lead = label("", "lead")
         box.append(self.done_lead)
         self.done_rows = Gtk.Grid(column_spacing=24, row_spacing=8)
@@ -867,20 +909,23 @@ class SetupWindow(Gtk.ApplicationWindow):
             self.network = answer
             while child := self.done_rows.get_first_child():
                 self.done_rows.remove(child)
-            facts = [("Box's name", answer.get("name", "")),
-                     ("Address", self.address().split("/")[0] or "Not connected"),
-                     ("Language", next((n for c, n in languages() if c == self.language_choice), "")),
-                     ("Region", next((n for c, n in regions() if c == self.region_choice), "")),
-                     ("Time zone", self.zone_choice.replace("_", " "))]
+            facts = [(_("Box's name"), answer.get("name", "")),
+                     (_("Address"), self.address().split("/")[0] or _("Not connected")),
+                     (_("Language"), next((n for c, n in languages() if c == self.language_choice), "")),
+                     (_("Region"), ", ".join(filter(None, [
+                         next((n for c, n in subdivisions(self.region_choice)
+                               if c == self.subdivision_choice()), ""),
+                         next((n for c, n in regions() if c == self.region_choice), "")]))),
+                     (_("Time zone"), self.zone_choice.replace("_", " "))]
             if self.admin:
-                facts.insert(0, ("Admin", self.admin))
+                facts.insert(0, (_("Admin"), self.admin))
             for row, (name, value) in enumerate(facts):
                 self.done_rows.attach(label(name, "fact-name", wrap=False), 0, row, 1, 1)
                 self.done_rows.attach(label(value, "fact", wrap=False), 1, row, 1, 1)
 
-        self.done_lead.set_text("Press Finish to close the setup. Sign in with the admin's "
-                                "username and password from now on; to set the box up again, "
-                                "use Erase everything.")
+        self.done_lead.set_text(_("Press Finish to close the setup. Sign in with the admin's "
+                                  "username and password from now on; to set the box up again, "
+                                  "use Erase everything."))
         self.call(lambda: self.agent.ask("network"), got, lambda _p: None)
 
 
@@ -905,7 +950,22 @@ class SetupApp(Gtk.Application):
         Gtk.StyleContext.add_provider_for_display(
             Gdk.Display.get_default(), css, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
         )
-        window = SetupWindow(self, self.agent)
+        # In the language already picked, when a power cut cut the setup short.
+        if progress().get("language"):
+            i18n.use(progress()["language"])
+        self.show_window()
+
+    def speak(self, code: str) -> None:
+        """The setup in the language just picked (English for one our screens
+        don't come in), drawn again with it chosen."""
+        i18n.use(code)
+        old = self.get_active_window()
+        self.show_window(code)
+        if old is not None:
+            old.destroy()
+
+    def show_window(self, chosen: str = "") -> None:
+        window = SetupWindow(self, self.agent, chosen)
         if os.environ.get("ZOOMRIYA_SETUP_WINDOWED"):
             window.set_default_size(1280, 800)
         else:

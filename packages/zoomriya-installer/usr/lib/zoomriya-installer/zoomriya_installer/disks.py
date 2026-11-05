@@ -12,12 +12,14 @@ import subprocess
 from dataclasses import dataclass, field
 from typing import Any
 
+from .i18n import N_, _
+
 GB = 1000**3
 #: The OS, the app images, every app's database, the models and the maps all
 #: sit on the system drive (design §3).
 MIN_BYTES = 64 * GB
 #: mkosi/host/mkosi.repart, in order; the system partition takes the rest.
-LAYOUT = [("EFI", 1 * 1024**3), ("Recovery", 4 * 1024**3)]
+LAYOUT = [("EFI", 1 * 1024**3), (N_("Recovery"), 4 * 1024**3)]
 #: The stick's own partition (mkosi/installer/mkosi.repart).
 INSTALLER_LABEL = "zoomriya-installer"
 LSBLK_COLUMNS = "NAME,PATH,TYPE,SIZE,MODEL,VENDOR,TRAN,RM,RO,ROTA,FSTYPE,LABEL,PARTLABEL,MOUNTPOINTS"
@@ -50,13 +52,13 @@ class Disk:
 
     @property
     def title(self) -> str:
-        return self.model or f"Drive {self.name}"
+        return self.model or _("Drive {name}").format(name=self.name)
 
     @property
     def kind(self) -> str:
         if self.bus in ("USB", "SD card"):
-            return self.bus
-        return f"{'Hard disk' if self.spinning else 'SSD'} · {self.bus}"
+            return _(self.bus)
+        return f"{_('Hard disk') if self.spinning else _('SSD')} · {_(self.bus)}"
 
 
 def size_text(size: int) -> str:
@@ -65,15 +67,16 @@ def size_text(size: int) -> str:
         if size >= scale:
             value = size / scale
             return f"{value:.1f} {unit}" if value < 10 and round(value, 1) != int(value) else f"{value:.0f} {unit}"
-    return f"{size} bytes"
+    return _("{size} bytes").format(size=size)
 
 
 def bus_name(tran: str | None, removable: bool) -> str:
-    names = {"nvme": "NVMe", "sata": "SATA", "ata": "SATA", "usb": "USB", "mmc": "SD card",
-             "virtio": "Virtual", "scsi": "SCSI", "sas": "SAS"}
+    # In English: Disk.kind translates it where it's shown (and "USB" picks an icon).
+    names = {"nvme": "NVMe", "sata": "SATA", "ata": "SATA", "usb": "USB", "mmc": N_("SD card"),
+             "virtio": N_("Virtual"), "scsi": "SCSI", "sas": "SAS"}
     if tran in names:
         return names[tran]
-    return "Removable" if removable else "Internal"
+    return N_("Removable") if removable else N_("Internal")
 
 
 def vendor(dev: dict[str, Any]) -> str:
@@ -85,10 +88,10 @@ def vendor(dev: dict[str, Any]) -> str:
 def part_what(part: dict[str, Any]) -> str:
     """A partition, as a person would know it: its label, else its kind."""
     kinds = {"vfat": "FAT", "ntfs": "Windows (NTFS)", "ext4": "Linux (ext4)",
-             "btrfs": "Linux (Btrfs)", "xfs": "Linux (XFS)", "swap": "Swap",
-             "exfat": "exFAT", "crypto_LUKS": "Encrypted", "linux_raid_member": "RAID member"}
+             "btrfs": "Linux (Btrfs)", "xfs": "Linux (XFS)", "swap": _("Swap"),
+             "exfat": "exFAT", "crypto_LUKS": _("Encrypted"), "linux_raid_member": _("RAID member")}
     name = part.get("label") or part.get("partlabel")
-    kind = kinds.get(part.get("fstype") or "", part.get("fstype") or "Unknown")
+    kind = kinds.get(part.get("fstype") or "", part.get("fstype") or _("Unknown"))
     return f"{name} · {kind}" if name else kind
 
 
@@ -112,13 +115,13 @@ def from_lsblk(tree: dict[str, Any]) -> list[Disk]:
         )
         mounted = any(m for c in [dev, *children] for m in (c.get("mountpoints") or []) if m)
         if any(c.get("partlabel") == INSTALLER_LABEL for c in children):
-            disk.reason = "The installer is running from this drive."
+            disk.reason = _("The installer is running from this drive.")
         elif dev.get("ro"):
-            disk.reason = "This drive is read-only."
+            disk.reason = _("This drive is read-only.")
         elif disk.size < MIN_BYTES:
-            disk.reason = f"Too small: ZOOMRIYA OS needs at least {size_text(MIN_BYTES)}."
+            disk.reason = _("Too small: ZOOMRIYA OS needs at least {size}.").format(size=size_text(MIN_BYTES))
         elif mounted:
-            disk.reason = "This drive is in use."
+            disk.reason = _("This drive is in use.")
         disks.append(disk)
     # The likely choice first: an internal SSD, the smallest one, since the
     # big hard disks are the library's.

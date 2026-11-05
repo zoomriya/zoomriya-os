@@ -1,0 +1,366 @@
+# zoomriya-setup: zh_CN. Made by scripts/i18n.py extract; translate the empty msgstr.
+# "fuzzy": a draft still to be checked by a native speaker.
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: zh_CN\n"
+
+#: agent.py:35
+#, fuzzy
+msgid "The box isn't answering yet. Wait a moment and try again."
+msgstr "盒子还没有响应。请稍等片刻再试。"
+
+#: agent.py:39
+#, fuzzy
+msgid "The box gave an answer the setup can't read."
+msgstr "盒子返回的答复无法读取。"
+
+#: agent.py:41
+#, fuzzy
+msgid "The box couldn't do that."
+msgstr "盒子无法完成此操作。"
+
+#: app.py:38 app.py:912
+#, fuzzy
+msgid "Language"
+msgstr "语言"
+
+#: app.py:38 app.py:567
+#, fuzzy
+msgid "Keyboard"
+msgstr "键盘"
+
+#: app.py:38
+#, fuzzy
+msgid "Network"
+msgstr "网络"
+
+#: app.py:38 app.py:913
+#, fuzzy
+msgid "Region"
+msgstr "地区"
+
+#: app.py:38 app.py:917
+#, fuzzy
+msgid "Time zone"
+msgstr "时区"
+
+#: app.py:38 app.py:919
+#, fuzzy
+msgid "Admin"
+msgstr "管理员"
+
+#: app.py:39
+#, fuzzy
+msgid "Done"
+msgstr "完成"
+
+#: app.py:206
+#, fuzzy
+msgid "Choose a username."
+msgstr "请设置用户名。"
+
+#: app.py:208
+#, fuzzy
+msgid "Choose a password."
+msgstr "请设置密码。"
+
+#: app.py:210
+#, fuzzy
+msgid "The username can be at most 128 characters."
+msgstr "用户名最多 128 个字符。"
+
+#: app.py:214
+#, fuzzy
+msgid "Type the password again."
+msgstr "请再次输入密码。"
+
+#: app.py:216
+#, fuzzy
+msgid "The two passwords aren't the same."
+msgstr "两次输入的密码不一致。"
+
+#: app.py:333
+#, fuzzy
+msgid "Box setup"
+msgstr "盒子设置"
+
+#: app.py:539 app.py:733 app.py:839
+#, fuzzy
+msgid "Choose one to go on."
+msgstr "请选择一项以继续。"
+
+#: app.py:582
+#, fuzzy
+msgid "Checking the box's network port…"
+msgstr "正在检查盒子的网络端口…"
+
+#: app.py:738
+#, fuzzy
+msgid "State or province (optional)"
+msgstr "州或省（可选）"
+
+#: app.py:924
+#, fuzzy
+msgid "Press Finish to close the setup. Sign in with the admin's username and password from now on; to set the box up again, use Erase everything."
+msgstr "按“完成”关闭设置。今后请用管理员的用户名和密码登录；如需重新设置盒子，请使用“清除全部”。"
+
+#: app.py:190
+#, fuzzy
+msgid "The subnet mask should look like 255.255.255.0."
+msgstr "子网掩码应类似 255.255.255.0。"
+
+#: app.py:194
+#, fuzzy
+msgid "The box's address should look like 192.168.1.40."
+msgstr "盒子的地址应类似 192.168.1.40。"
+
+#: app.py:212
+#, fuzzy
+msgid "The password needs at least {count} characters."
+msgstr "密码至少需要 {count} 个字符。"
+
+#: app.py:259
+#, fuzzy
+msgid "ZOOMRIYA Box setup"
+msgstr "ZOOMRIYA Box 设置"
+
+#: app.py:297
+#, fuzzy
+msgid "Back"
+msgstr "返回"
+
+#: app.py:299 app.py:403
+#, fuzzy
+msgid "Next"
+msgstr "下一步"
+
+#: app.py:403
+#, fuzzy
+msgid "Finish"
+msgstr "完成"
+
+#: app.py:524
+#, fuzzy
+msgid "Welcome to your ZOOMRIYA Box"
+msgstr "欢迎使用您的 ZOOMRIYA Box"
+
+#: app.py:525
+#, fuzzy
+msgid "Let's set it up. It takes a few minutes: the language, the keyboard, the network, the country or region, the time zone, and the box's admin. First, the box's language."
+msgstr "我们来设置它。只需几分钟：语言、键盘、网络、国家或地区、时区，以及盒子的管理员。首先，选择盒子的语言。"
+
+#: app.py:562
+#, fuzzy
+msgid "Your keyboard"
+msgstr "您的键盘"
+
+#: app.py:563
+#, fuzzy
+msgid "The layout of the keyboard plugged into the box. It's used at once, so the admin's password is typed with it."
+msgstr "接在盒子上的键盘布局。它会立即生效，方便您用它输入管理员密码。"
+
+#: app.py:581
+#, fuzzy
+msgid "Connect the box"
+msgstr "连接盒子"
+
+#: app.py:591
+#, fuzzy
+msgid "Use a static address instead of the router's"
+msgstr "使用静态地址，而不是路由器分配的地址"
+
+#: app.py:606
+#, fuzzy
+msgid "Use these settings"
+msgstr "应用"
+
+#: app.py:644
+#, fuzzy
+msgid "The box has no Ethernet port the setup can use."
+msgstr "盒子没有可供设置使用的以太网端口。"
+
+#: app.py:714
+#, fuzzy
+msgid "Which country or region?"
+msgstr "哪个国家或地区？"
+
+#: app.py:715
+#, fuzzy
+msgid "Where the box is. It sets which time zones come first, and the rules the box follows there."
+msgstr "盒子所在的地方。它决定先显示哪些时区，以及盒子在当地遵循的规则。"
+
+#: app.py:717
+#, fuzzy
+msgid "Search, for example Canada"
+msgstr "搜索，例如 加拿大"
+
+#: app.py:775
+#, fuzzy
+msgid "Which time zone?"
+msgstr "哪个时区？"
+
+#: app.py:778
+#, fuzzy
+msgid "Search, for example Toronto"
+msgstr "搜索，例如 Shanghai"
+
+#: app.py:781
+#, fuzzy
+msgid "Show every time zone"
+msgstr "显示所有时区"
+
+#: app.py:811
+#, fuzzy
+msgid "The box's clock, its maintenance hour and the apps go by it."
+msgstr "盒子的时钟、维护时段和应用都以它为准。"
+
+#: app.py:853
+#, fuzzy
+msgid "The box's admin"
+msgstr "盒子的管理员"
+
+#: app.py:854
+#, fuzzy
+msgid "Your account in ZOOMRIYA ID, on this box. The same username and password sign you in to the box and to every ZOOMRIYA app you add to it. There is no other way in, so keep the password safe."
+msgstr "您在这台盒子上的 ZOOMRIYA ID 账户。同一个用户名和密码可以登录盒子以及您添加的每个 ZOOMRIYA 应用。没有其他进入方式，请妥善保管密码。"
+
+#: app.py:858
+#, fuzzy
+msgid "For example, amma"
+msgstr "例如 amma"
+
+#: app.py:864
+#, fuzzy
+msgid "Username"
+msgstr "用户名"
+
+#: app.py:866
+#, fuzzy
+msgid "The password again"
+msgstr "再次输入密码"
+
+#: app.py:897
+#, fuzzy
+msgid "Your box is ready"
+msgstr "您的盒子已准备就绪"
+
+#: app.py:598
+#, fuzzy
+msgid "Box's address"
+msgstr "盒子的地址"
+
+#: app.py:599
+#, fuzzy
+msgid "Subnet mask"
+msgstr "子网掩码"
+
+#: app.py:600 app.py:658
+#, fuzzy
+msgid "Router"
+msgstr "路由器"
+
+#: app.py:601 app.py:659
+#, fuzzy
+msgid "Name servers"
+msgstr "域名服务器"
+
+#: app.py:647
+#, fuzzy
+msgid "Plug the box into your router with a network cable. The setup goes on by itself once the cable is in."
+msgstr "请用网线将盒子连接到路由器。插上网线后，设置会自动继续。"
+
+#: app.py:649
+#, fuzzy
+msgid "Waiting for the cable…"
+msgstr "正在等待网线…"
+
+#: app.py:910
+#, fuzzy
+msgid "Box's name"
+msgstr "盒子的名称"
+
+#: app.py:911 app.py:657
+#, fuzzy
+msgid "Address"
+msgstr "地址"
+
+#: app.py:546 app.py:762
+#, fuzzy
+msgid "Chosen: {name}"
+msgstr "已选择：{name}"
+
+#: app.py:652
+#, fuzzy
+msgid "The cable is in. Getting an address from your router…"
+msgstr "网线已接好。正在从路由器获取地址…"
+
+#: app.py:655
+#, fuzzy
+msgid "The box is on your network."
+msgstr "盒子已连接到您的网络。"
+
+#: app.py:746
+#, fuzzy
+msgid "Not chosen"
+msgstr "未选择"
+
+#: app.py:809
+#, fuzzy
+msgid "The time zones in {region}. The box's clock, its maintenance hour and the apps go by it."
+msgstr "{region}的时区。盒子的时钟、维护时段和应用都以它为准。"
+
+#: app.py:844
+#, fuzzy
+msgid "The time there now: {time}"
+msgstr "当地现在时间：{time}"
+
+#: app.py:865
+#, fuzzy
+msgid "Password (at least {count} characters)"
+msgstr "密码（至少 {count} 个字符）"
+
+#: app.py:911
+#, fuzzy
+msgid "Not connected"
+msgstr "未连接"
+
+#: app.py:660
+#, fuzzy
+msgid "Settings"
+msgstr "设置"
+
+#: app.py:658 app.py:659
+#, fuzzy
+msgid "None"
+msgstr "无"
+
+#: app.py:660
+#, fuzzy
+msgid "Static address"
+msgstr "静态地址"
+
+#: app.py:661
+#, fuzzy
+msgid "From the router (DHCP)"
+msgstr "来自路由器（DHCP）"
+
+#: app.py:664
+#, fuzzy
+msgid "Speed"
+msgstr "速度"
+
+#: app.py:669
+#, fuzzy
+msgid "Checking the internet…"
+msgstr "正在检查网络连接…"
+
+#: app.py:670
+#, fuzzy
+msgid "Internet: connected."
+msgstr "网络：已连接。"
+
+#: app.py:671
+#, fuzzy
+msgid "Internet: not reached. You can carry on; the box catches up with updates and the clock once it's online."
+msgstr "无法连接网络。您可以继续；盒子联网后会补上更新并校准时钟。"
