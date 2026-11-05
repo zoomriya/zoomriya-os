@@ -55,7 +55,7 @@ msgstr "ボックスを確認中…"
 msgid "CPU and memory"
 msgstr "CPU とメモリ"
 
-#: app.py:634 app.py:811 tools.py:647
+#: app.py:634 app.py:811 tools.py:661
 #, fuzzy
 msgid "Space"
 msgstr "容量"
@@ -115,12 +115,12 @@ msgstr "ツールを検索"
 msgid "Widgets"
 msgstr "ウィジェット"
 
-#: app.py:618 tools.py:688
+#: app.py:618 tools.py:702
 #, fuzzy
 msgid "CPU"
 msgstr "CPU"
 
-#: app.py:626 control.py:851 tools.py:443 tools.py:688
+#: app.py:626 control.py:851 tools.py:457 tools.py:702
 #, fuzzy
 msgid "Memory"
 msgstr "メモリ"
@@ -185,7 +185,7 @@ msgstr "確認が必要"
 msgid "Everything's fine"
 msgstr "問題ありません"
 
-#: app.py:678 app.py:810 tools.py:402
+#: app.py:678 app.py:810 tools.py:416
 #, fuzzy
 msgid "Drives"
 msgstr "ドライブ"
@@ -195,7 +195,7 @@ msgstr "ドライブ"
 msgid "Security fixes"
 msgstr "セキュリティ修正"
 
-#: app.py:711 tools.py:384
+#: app.py:711 tools.py:398
 #, fuzzy
 msgid "The box's own disk"
 msgstr "ボックス本体のディスク"
@@ -210,7 +210,7 @@ msgstr "すべて既読にする"
 msgid "Nothing new."
 msgstr "新着はありません。"
 
-#: app.py:796 control.py:41 tools.py:462
+#: app.py:796 control.py:41 tools.py:476
 #, fuzzy
 msgid "Network"
 msgstr "ネットワーク"
@@ -225,17 +225,17 @@ msgstr "ディスプレイ"
 msgid "Overview"
 msgstr "概要"
 
-#: app.py:814 tools.py:679
+#: app.py:814 tools.py:693
 #, fuzzy
 msgid "By app"
 msgstr "アプリ別"
 
-#: app.py:815 control.py:853 tools.py:711 tools.py:419
+#: app.py:815 control.py:853 tools.py:725 tools.py:433
 #, fuzzy
 msgid "Temperature"
 msgstr "温度"
 
-#: app.py:105 tools.py:421
+#: app.py:105 tools.py:435
 #, fuzzy
 msgid "{n} days"
 msgstr "{n} 日"
@@ -280,7 +280,7 @@ msgstr "<b>{used}</b> <small>/ {total} 使用中</small>"
 msgid "Library drives mirrored"
 msgstr "ライブラリのドライブはミラー済み"
 
-#: app.py:713 tools.py:381
+#: app.py:713 tools.py:395
 #, fuzzy
 msgid "Library"
 msgstr "ライブラリ"
@@ -660,7 +660,7 @@ msgstr "許可"
 msgid "Details"
 msgstr "詳細"
 
-#: control.py:757 control.py:767 tools.py:617
+#: control.py:757 control.py:767 tools.py:631
 #, fuzzy
 msgid "Check now"
 msgstr "今すぐ確認"
@@ -870,7 +870,7 @@ msgstr "シリアル番号"
 msgid "Operating System"
 msgstr "OS"
 
-#: control.py:850 tools.py:441
+#: control.py:850 tools.py:455
 #, fuzzy
 msgid "Processor"
 msgstr "プロセッサー"
@@ -1020,7 +1020,7 @@ msgstr "ボックス用 {size}"
 msgid "Unknown"
 msgstr "不明"
 
-#: control.py:853 tools.py:465
+#: control.py:853 tools.py:479
 #, fuzzy
 msgid "No sensor"
 msgstr "センサーなし"
@@ -1285,7 +1285,7 @@ msgstr "誰かが電源ボタンを押すまで、すべてのアプリが止ま
 msgid "Shut down"
 msgstr "シャットダウン"
 
-#: tools.py:261 tools.py:645
+#: tools.py:261 tools.py:659
 #, fuzzy
 msgid "Restore points"
 msgstr "復元ポイント"
@@ -1297,80 +1297,80 @@ msgstr "OS を以前の状態に戻します。家族のファイルとアプリ
 
 #: tools.py:284
 #, fuzzy
-msgid "Package Updates Held Back"
+msgid "Updates on Hold"
 msgstr "保留中のアップデート"
 
 #: tools.py:285
 #, fuzzy
-msgid "Held back by a restore; each updates when a newer fix is out."
-msgstr "復元で保留されています。新しい修正が出るとそれぞれアップデートされます。"
+msgid "A restore rolled back these updates. They will update automatically when a newer fix is released."
+msgstr "復元によってこれらのアップデートが取り消されました。新しい修正が公開されると自動でアップデートされます。"
 
-#: tools.py:302 tools.py:752
+#: tools.py:303 tools.py:766
 #, fuzzy
 msgid "Reset"
 msgstr "リセット"
 
-#: tools.py:310 tools.py:758
+#: tools.py:311 tools.py:772
 #, fuzzy
 msgid "Erase everything"
 msgstr "すべて消去"
 
-#: tools.py:331
+#: tools.py:332
 #, fuzzy
-msgid "Let it update?"
-msgstr "アップデートを許可しますか?"
+msgid "Update now?"
+msgstr "今すぐアップデートしますか?"
 
-#: tools.py:335 tools.py:291
+#: tools.py:336 tools.py:292
 #, fuzzy
-msgid "Let it update"
-msgstr "アップデートを許可"
+msgid "Update now"
+msgstr "今すぐアップデート"
 
-#: tools.py:339
+#: tools.py:353
 #, fuzzy
 msgid "Restore the OS?"
 msgstr "OS を復元しますか?"
 
-#: tools.py:342 tools.py:267 tools.py:273
+#: tools.py:356 tools.py:267 tools.py:273
 #, fuzzy
 msgid "Restore"
 msgstr "復元"
 
-#: tools.py:643
+#: tools.py:657
 #, fuzzy
 msgid "The apps' databases"
 msgstr "アプリのデータベース"
 
-#: tools.py:643
+#: tools.py:657
 #, fuzzy
 msgid "The apps themselves"
 msgstr "アプリ本体"
 
-#: tools.py:644
+#: tools.py:658
 #, fuzzy
 msgid "Myira's models and the maps"
 msgstr "Myira のモデルと地図"
 
-#: tools.py:644
+#: tools.py:658
 #, fuzzy
 msgid "Photos, files and the apps' data"
 msgstr "写真、ファイル、アプリのデータ"
 
-#: tools.py:750
+#: tools.py:764
 #, fuzzy
 msgid "Reset the system?"
 msgstr "システムをリセットしますか?"
 
-#: tools.py:751
+#: tools.py:765
 #, fuzzy
 msgid "The system returns to its factory state on restart. Family apps and data stay."
 msgstr "再起動時にシステムは出荷時の状態に戻ります。家族のアプリとデータは残ります。"
 
-#: tools.py:756
+#: tools.py:770
 #, fuzzy
 msgid "Erase everything?"
 msgstr "すべて消去しますか?"
 
-#: tools.py:757
+#: tools.py:771
 #, fuzzy
 msgid "Deletes every app, account, photo and message on restart. This can't be undone. Enter the setup code from the sticker and your password."
 msgstr "再起動時に、すべてのアプリ、アカウント、写真、メッセージを削除します。元に戻せません。ステッカーのセットアップコードとパスワードを入力してください。"
@@ -1445,77 +1445,77 @@ msgstr "出荷時"
 msgid "As it left the factory"
 msgstr "出荷時の状態"
 
-#: tools.py:303
+#: tools.py:304
 #, fuzzy
 msgid "Reset the system…"
 msgstr "システムをリセット…"
 
-#: tools.py:305
+#: tools.py:306
 #, fuzzy
 msgid "System Reset"
 msgstr "システムのリセット"
 
-#: tools.py:306
+#: tools.py:307
 #, fuzzy
 msgid "Returns the OS to factory state, then updates it. Your data stays. Use if restoring fails."
 msgstr "OS を出荷時の状態に戻し、更新します。データは残ります。復元で解決しないときに。"
 
-#: tools.py:318
+#: tools.py:319
 #, fuzzy
 msgid "Factory Reset"
 msgstr "出荷時リセット"
 
-#: tools.py:319
+#: tools.py:320
 #, fuzzy
 msgid "Erases everything, leaving the box as new. Needs the setup code from the sticker."
 msgstr "すべて消去し、新品の状態に戻します。ステッカーのセットアップコードが必要です。"
 
-#: tools.py:491
+#: tools.py:505
 #, fuzzy
 msgid "Search"
 msgstr "検索"
 
-#: tools.py:498
+#: tools.py:512
 #, fuzzy
 msgid "Show older"
 msgstr "以前のものを表示"
 
-#: tools.py:544
+#: tools.py:558
 #, fuzzy
 msgid "What the box reported in the last month. Choose what appears on the bell in Control Panel › Notifications."
 msgstr "過去 1 か月にボックスが知らせたこと。ベルに表示する内容は、コントロールパネル › 通知で選べます。"
 
-#: tools.py:585
+#: tools.py:599
 #, fuzzy
 msgid "Check that both copies match"
 msgstr "2 つのコピーが一致するか確認"
 
-#: tools.py:585
+#: tools.py:599
 #, fuzzy
 msgid "Checking that both copies match"
 msgstr "2 つのコピーが一致するか確認中"
 
-#: tools.py:586
+#: tools.py:600
 #, fuzzy
 msgid "Check the library for damage"
 msgstr "ライブラリの損傷を確認"
 
-#: tools.py:586
+#: tools.py:600
 #, fuzzy
 msgid "Checking the library for damage"
 msgstr "ライブラリの損傷を確認中"
 
-#: tools.py:648
+#: tools.py:662
 #, fuzzy
 msgid "What takes the space on the box's own disk."
 msgstr "ボックス本体のディスクで容量を使っているもの。"
 
-#: tools.py:680
+#: tools.py:694
 #, fuzzy
 msgid "Busiest first. CPU is a share of the whole box."
 msgstr "負荷の高い順。CPU はボックス全体に対する割合です。"
 
-#: tools.py:760
+#: tools.py:774
 #, fuzzy
 msgid "Setup code, like ABCD-EFGH"
 msgstr "セットアップコード (例: ABCD-EFGH)"
@@ -1570,47 +1570,47 @@ msgstr "アップデートを完了待ち"
 msgid "Security fixes are installed."
 msgstr "セキュリティ修正をインストールしました。"
 
-#: tools.py:314
+#: tools.py:315
 #, fuzzy
 msgid "Erase everything…"
 msgstr "すべて消去…"
 
-#: tools.py:332
+#: tools.py:333
 #, fuzzy
-msgid "{package} installs its latest fix tonight, even if that's {taken}, the version the restore removed."
-msgstr "{package} は今夜、最新の修正をインストールします。それが復元で外された {taken} であってもです。"
+msgid "{package} installs its latest fix now, even if that's {taken}, the version the restore removed."
+msgstr "{package} は今すぐ最新の修正をインストールします。それが復元で外された {taken} であってもです。"
 
-#: tools.py:340
+#: tools.py:354
 #, fuzzy
 msgid "The OS returns to {time} ({what}) on the next restart. Family files and app data stay."
 msgstr "次回の再起動で、OS は {time} ({what}) に戻ります。家族のファイルとアプリのデータは残ります。"
 
-#: tools.py:384
+#: tools.py:398
 #, fuzzy
 msgid "The OS, the apps and their data"
 msgstr "OS、アプリ、そのデータ"
 
-#: tools.py:463
+#: tools.py:477
 #, fuzzy
 msgid "Disks"
 msgstr "ディスク"
 
-#: tools.py:465
+#: tools.py:479
 #, fuzzy
 msgid "Hottest sensor"
 msgstr "最も高温のセンサー"
 
-#: tools.py:596
+#: tools.py:610
 #, fuzzy
 msgid "Pause"
 msgstr "一時停止"
 
-#: tools.py:692
+#: tools.py:706
 #, fuzzy
 msgid "An app"
 msgstr "アプリ"
 
-#: tools.py:692
+#: tools.py:706
 #, fuzzy
 msgid "Part of the box"
 msgstr "ボックスの一部"
@@ -1630,52 +1630,52 @@ msgstr "復元を完了待ち"
 msgid "The OS is restored."
 msgstr "OS を復元しました。"
 
-#: tools.py:416
+#: tools.py:430
 #, fuzzy
 msgid "Size"
 msgstr "サイズ"
 
-#: tools.py:417
+#: tools.py:431
 #, fuzzy
 msgid "Place"
 msgstr "位置"
 
-#: tools.py:453
+#: tools.py:467
 #, fuzzy
 msgid "Processor: {percent}%"
 msgstr "プロセッサー: {percent}%"
 
-#: tools.py:456
+#: tools.py:470
 #, fuzzy
 msgid "Memory: {used} of {total}"
 msgstr "メモリ: {used} / {total}"
 
-#: tools.py:511
+#: tools.py:525
 #, fuzzy
 msgid "Nothing here."
 msgstr "ここには何もありません。"
 
-#: tools.py:553
+#: tools.py:567
 #, fuzzy
 msgid "Nothing in the last month."
 msgstr "過去 1 か月は何もありません。"
 
-#: tools.py:601
+#: tools.py:615
 #, fuzzy
 msgid "Resume"
 msgstr "再開"
 
-#: tools.py:605
+#: tools.py:619
 #, fuzzy
 msgid "It hasn't been checked yet."
 msgstr "まだ確認されていません。"
 
-#: tools.py:658
+#: tools.py:672
 #, fuzzy
 msgid "Not counted yet; updated every few hours."
 msgstr "まだ集計されていません。数時間ごとに更新されます。"
 
-#: tools.py:722
+#: tools.py:736
 #, fuzzy
 msgid "This box reports no sensors."
 msgstr "このボックスにはセンサーがありません。"
@@ -1705,82 +1705,82 @@ msgstr "再起動を待っているものがあります。"
 msgid "The system will restart at {hour}, or you can restart manually now."
 msgstr "システムは {hour} に再起動します。今すぐ手動で再起動することもできます。"
 
-#: tools.py:293
+#: tools.py:294
 #, fuzzy
-msgid "Kept at {version}; {taken} was taken back."
-msgstr "{version} のまま保持。{taken} は取り消されました。"
+msgid "On {version}. Skipping {taken}."
+msgstr "{version} のまま。{taken} はスキップ。"
 
-#: tools.py:363
+#: tools.py:377
 #, fuzzy
 msgid "{size} used"
 msgstr "{size} 使用中"
 
-#: tools.py:364
+#: tools.py:378
 #, fuzzy
 msgid "{free} free of {total}"
 msgstr "{total} のうち {free} 空き"
 
-#: tools.py:379
+#: tools.py:393
 #, fuzzy
 msgid "{n} drives, each a copy of the other"
 msgstr "{n} 台のドライブ (互いにコピー)"
 
-#: tools.py:417
+#: tools.py:431
 #, fuzzy
 msgid "The box's own"
 msgstr "ボックス本体"
 
-#: tools.py:421
+#: tools.py:435
 #, fuzzy
 msgid "In use for"
 msgstr "使用時間"
 
-#: tools.py:462
+#: tools.py:476
 #, fuzzy
 msgid "in {received}, out {sent}"
 msgstr "受信 {received}、送信 {sent}"
 
-#: tools.py:463
+#: tools.py:477
 #, fuzzy
 msgid "reading {read}, writing {written}"
 msgstr "読み取り {read}、書き込み {written}"
 
-#: tools.py:600
+#: tools.py:614
 #, fuzzy
 msgid "It carries on from there when you resume it."
 msgstr "再開すると、そこから続きます。"
 
-#: tools.py:594
+#: tools.py:608
 #, fuzzy
 msgid "Started {time}."
 msgstr "開始: {time}。"
 
-#: tools.py:613
+#: tools.py:627
 #, fuzzy
 msgid "The last check found nothing needing repair."
 msgstr "前回の確認で、修復が必要なものはありませんでした。"
 
-#: tools.py:615
+#: tools.py:629
 #, fuzzy
 msgid "The box also checks once a month by itself."
 msgstr "ボックスは月に 1 回、自動でも確認します。"
 
-#: tools.py:732
+#: tools.py:746
 #, fuzzy
 msgid "Fan"
 msgstr "ファン"
 
-#: tools.py:599
+#: tools.py:613
 #, fuzzy
 msgid "The check is paused at {percent}%"
 msgstr "確認は {percent}% で一時停止中"
 
-#: tools.py:607
+#: tools.py:621
 #, fuzzy
 msgid "Last check found {n} problems and repaired what it could."
 msgstr "前回の確認: {n} 件の問題が見つかり、可能な範囲で修復しました。"
 
-#: tools.py:610
+#: tools.py:624
 #, fuzzy
 msgid "Last check found {n} damaged files. With one drive they can't be repaired: restore them from a backup."
 msgstr "前回の確認: {n} 個の破損ファイル。ドライブが 1 台のため修復できません。バックアップから復元してください。"

@@ -55,7 +55,7 @@ msgstr "Vérification de la box…"
 msgid "CPU and memory"
 msgstr "Processeur et mémoire"
 
-#: app.py:634 app.py:811 tools.py:647
+#: app.py:634 app.py:811 tools.py:661
 #, fuzzy
 msgid "Space"
 msgstr "Espace"
@@ -115,12 +115,12 @@ msgstr "Rechercher un outil"
 msgid "Widgets"
 msgstr "Widgets"
 
-#: app.py:618 tools.py:688
+#: app.py:618 tools.py:702
 #, fuzzy
 msgid "CPU"
 msgstr "Processeur"
 
-#: app.py:626 control.py:851 tools.py:443 tools.py:688
+#: app.py:626 control.py:851 tools.py:457 tools.py:702
 #, fuzzy
 msgid "Memory"
 msgstr "Mémoire"
@@ -185,7 +185,7 @@ msgstr "À vérifier"
 msgid "Everything's fine"
 msgstr "Tout va bien"
 
-#: app.py:678 app.py:810 tools.py:402
+#: app.py:678 app.py:810 tools.py:416
 #, fuzzy
 msgid "Drives"
 msgstr "Disques"
@@ -195,7 +195,7 @@ msgstr "Disques"
 msgid "Security fixes"
 msgstr "Correctifs de sécurité"
 
-#: app.py:711 tools.py:384
+#: app.py:711 tools.py:398
 #, fuzzy
 msgid "The box's own disk"
 msgstr "Le disque de la box"
@@ -210,7 +210,7 @@ msgstr "Tout marquer comme lu"
 msgid "Nothing new."
 msgstr "Rien de nouveau."
 
-#: app.py:796 control.py:41 tools.py:462
+#: app.py:796 control.py:41 tools.py:476
 #, fuzzy
 msgid "Network"
 msgstr "Réseau"
@@ -225,17 +225,17 @@ msgstr "Affichage"
 msgid "Overview"
 msgstr "Vue d'ensemble"
 
-#: app.py:814 tools.py:679
+#: app.py:814 tools.py:693
 #, fuzzy
 msgid "By app"
 msgstr "Par app"
 
-#: app.py:815 control.py:853 tools.py:711 tools.py:419
+#: app.py:815 control.py:853 tools.py:725 tools.py:433
 #, fuzzy
 msgid "Temperature"
 msgstr "Température"
 
-#: app.py:105 tools.py:421
+#: app.py:105 tools.py:435
 #, fuzzy
 msgid "{n} days"
 msgstr "{n} jours"
@@ -280,7 +280,7 @@ msgstr "<b>{used}</b> <small>sur {total} utilisés</small>"
 msgid "Library drives mirrored"
 msgstr "Disques de la bibliothèque en miroir"
 
-#: app.py:713 tools.py:381
+#: app.py:713 tools.py:395
 #, fuzzy
 msgid "Library"
 msgstr "Bibliothèque"
@@ -660,7 +660,7 @@ msgstr "Autorisé"
 msgid "Details"
 msgstr "Détails"
 
-#: control.py:757 control.py:767 tools.py:617
+#: control.py:757 control.py:767 tools.py:631
 #, fuzzy
 msgid "Check now"
 msgstr "Vérifier"
@@ -870,7 +870,7 @@ msgstr "Numéro de série"
 msgid "Operating System"
 msgstr "Système d'exploitation"
 
-#: control.py:850 tools.py:441
+#: control.py:850 tools.py:455
 #, fuzzy
 msgid "Processor"
 msgstr "Processeur"
@@ -1020,7 +1020,7 @@ msgstr "{size} pour la box"
 msgid "Unknown"
 msgstr "Inconnu"
 
-#: control.py:853 tools.py:465
+#: control.py:853 tools.py:479
 #, fuzzy
 msgid "No sensor"
 msgstr "Aucun capteur"
@@ -1285,7 +1285,7 @@ msgstr "Toutes les apps s'arrêtent et les sauvegardes sont suspendues jusqu'à 
 msgid "Shut down"
 msgstr "Éteindre"
 
-#: tools.py:261 tools.py:645
+#: tools.py:261 tools.py:659
 #, fuzzy
 msgid "Restore points"
 msgstr "Points de restauration"
@@ -1297,80 +1297,80 @@ msgstr "Ramène l'OS à un état antérieur. Fichiers de la famille et données 
 
 #: tools.py:284
 #, fuzzy
-msgid "Package Updates Held Back"
-msgstr "Mises à jour retenues"
+msgid "Updates on Hold"
+msgstr "Mises à jour en attente"
 
 #: tools.py:285
 #, fuzzy
-msgid "Held back by a restore; each updates when a newer fix is out."
-msgstr "Retenues par une restauration ; chacune se fait dès qu'un correctif plus récent sort."
+msgid "A restore rolled back these updates. They will update automatically when a newer fix is released."
+msgstr "Une restauration a annulé ces mises à jour. Elles se feront automatiquement à la sortie d'un correctif plus récent."
 
-#: tools.py:302 tools.py:752
+#: tools.py:303 tools.py:766
 #, fuzzy
 msgid "Reset"
 msgstr "Réinitialiser"
 
-#: tools.py:310 tools.py:758
+#: tools.py:311 tools.py:772
 #, fuzzy
 msgid "Erase everything"
 msgstr "Tout effacer"
 
-#: tools.py:331
+#: tools.py:332
 #, fuzzy
-msgid "Let it update?"
-msgstr "Autoriser la mise à jour ?"
+msgid "Update now?"
+msgstr "Mettre à jour maintenant ?"
 
-#: tools.py:335 tools.py:291
+#: tools.py:336 tools.py:292
 #, fuzzy
-msgid "Let it update"
-msgstr "Autoriser la mise à jour"
+msgid "Update now"
+msgstr "Mettre à jour"
 
-#: tools.py:339
+#: tools.py:353
 #, fuzzy
 msgid "Restore the OS?"
 msgstr "Restaurer l'OS ?"
 
-#: tools.py:342 tools.py:267 tools.py:273
+#: tools.py:356 tools.py:267 tools.py:273
 #, fuzzy
 msgid "Restore"
 msgstr "Restaurer"
 
-#: tools.py:643
+#: tools.py:657
 #, fuzzy
 msgid "The apps' databases"
 msgstr "Les bases de données des apps"
 
-#: tools.py:643
+#: tools.py:657
 #, fuzzy
 msgid "The apps themselves"
 msgstr "Les apps elles-mêmes"
 
-#: tools.py:644
+#: tools.py:658
 #, fuzzy
 msgid "Myira's models and the maps"
 msgstr "Les modèles de Myira et les cartes"
 
-#: tools.py:644
+#: tools.py:658
 #, fuzzy
 msgid "Photos, files and the apps' data"
 msgstr "Photos, fichiers et données des apps"
 
-#: tools.py:750
+#: tools.py:764
 #, fuzzy
 msgid "Reset the system?"
 msgstr "Réinitialiser le système ?"
 
-#: tools.py:751
+#: tools.py:765
 #, fuzzy
 msgid "The system returns to its factory state on restart. Family apps and data stay."
 msgstr "Le système revient à son état d'usine au redémarrage. Les apps et données de la famille restent."
 
-#: tools.py:756
+#: tools.py:770
 #, fuzzy
 msgid "Erase everything?"
 msgstr "Tout effacer ?"
 
-#: tools.py:757
+#: tools.py:771
 #, fuzzy
 msgid "Deletes every app, account, photo and message on restart. This can't be undone. Enter the setup code from the sticker and your password."
 msgstr "Supprime chaque app, compte, photo et message au redémarrage. Irréversible. Saisissez le code de configuration de l'étiquette et votre mot de passe."
@@ -1445,77 +1445,77 @@ msgstr "usine"
 msgid "As it left the factory"
 msgstr "Telle qu'à la sortie d'usine"
 
-#: tools.py:303
+#: tools.py:304
 #, fuzzy
 msgid "Reset the system…"
 msgstr "Réinitialiser le système…"
 
-#: tools.py:305
+#: tools.py:306
 #, fuzzy
 msgid "System Reset"
 msgstr "Réinitialisation du système"
 
-#: tools.py:306
+#: tools.py:307
 #, fuzzy
 msgid "Returns the OS to factory state, then updates it. Your data stays. Use if restoring fails."
 msgstr "Remet l'OS en état d'usine, puis le met à jour. Vos données restent. Si la restauration échoue."
 
-#: tools.py:318
+#: tools.py:319
 #, fuzzy
 msgid "Factory Reset"
 msgstr "Retour usine"
 
-#: tools.py:319
+#: tools.py:320
 #, fuzzy
 msgid "Erases everything, leaving the box as new. Needs the setup code from the sticker."
 msgstr "Efface tout : la box redevient comme neuve. Il faut le code de configuration de l'étiquette."
 
-#: tools.py:491
+#: tools.py:505
 #, fuzzy
 msgid "Search"
 msgstr "Rechercher"
 
-#: tools.py:498
+#: tools.py:512
 #, fuzzy
 msgid "Show older"
 msgstr "Plus anciens"
 
-#: tools.py:544
+#: tools.py:558
 #, fuzzy
 msgid "What the box reported in the last month. Choose what appears on the bell in Control Panel › Notifications."
 msgstr "Ce que la box a signalé le mois dernier. Choisissez ce qui s'affiche sur la cloche dans Panneau de configuration › Notifications."
 
-#: tools.py:585
+#: tools.py:599
 #, fuzzy
 msgid "Check that both copies match"
 msgstr "Vérifier que les deux copies sont identiques"
 
-#: tools.py:585
+#: tools.py:599
 #, fuzzy
 msgid "Checking that both copies match"
 msgstr "Vérification que les deux copies sont identiques"
 
-#: tools.py:586
+#: tools.py:600
 #, fuzzy
 msgid "Check the library for damage"
 msgstr "Vérifier la bibliothèque"
 
-#: tools.py:586
+#: tools.py:600
 #, fuzzy
 msgid "Checking the library for damage"
 msgstr "Vérification de la bibliothèque"
 
-#: tools.py:648
+#: tools.py:662
 #, fuzzy
 msgid "What takes the space on the box's own disk."
 msgstr "Ce qui occupe l'espace sur le disque de la box."
 
-#: tools.py:680
+#: tools.py:694
 #, fuzzy
 msgid "Busiest first. CPU is a share of the whole box."
 msgstr "Les plus actifs en premier. Le processeur est une part de toute la box."
 
-#: tools.py:760
+#: tools.py:774
 #, fuzzy
 msgid "Setup code, like ABCD-EFGH"
 msgstr "Code de configuration, comme ABCD-EFGH"
@@ -1570,47 +1570,47 @@ msgstr "Mise à jour en attente"
 msgid "Security fixes are installed."
 msgstr "Les correctifs de sécurité sont installés."
 
-#: tools.py:314
+#: tools.py:315
 #, fuzzy
 msgid "Erase everything…"
 msgstr "Tout effacer…"
 
-#: tools.py:332
+#: tools.py:333
 #, fuzzy
-msgid "{package} installs its latest fix tonight, even if that's {taken}, the version the restore removed."
-msgstr "{package} installe son dernier correctif cette nuit, même s'il s'agit de {taken}, la version retirée par la restauration."
+msgid "{package} installs its latest fix now, even if that's {taken}, the version the restore removed."
+msgstr "{package} installe maintenant son dernier correctif, même s'il s'agit de {taken}, la version retirée par la restauration."
 
-#: tools.py:340
+#: tools.py:354
 #, fuzzy
 msgid "The OS returns to {time} ({what}) on the next restart. Family files and app data stay."
 msgstr "L'OS revient au {time} ({what}) au prochain redémarrage. Fichiers de la famille et données des apps restent."
 
-#: tools.py:384
+#: tools.py:398
 #, fuzzy
 msgid "The OS, the apps and their data"
 msgstr "L'OS, les apps et leurs données"
 
-#: tools.py:463
+#: tools.py:477
 #, fuzzy
 msgid "Disks"
 msgstr "Disques"
 
-#: tools.py:465
+#: tools.py:479
 #, fuzzy
 msgid "Hottest sensor"
 msgstr "Capteur le plus chaud"
 
-#: tools.py:596
+#: tools.py:610
 #, fuzzy
 msgid "Pause"
 msgstr "Pause"
 
-#: tools.py:692
+#: tools.py:706
 #, fuzzy
 msgid "An app"
 msgstr "Une app"
 
-#: tools.py:692
+#: tools.py:706
 #, fuzzy
 msgid "Part of the box"
 msgstr "Partie de la box"
@@ -1630,52 +1630,52 @@ msgstr "Restauration en attente"
 msgid "The OS is restored."
 msgstr "L'OS est restauré."
 
-#: tools.py:416
+#: tools.py:430
 #, fuzzy
 msgid "Size"
 msgstr "Taille"
 
-#: tools.py:417
+#: tools.py:431
 #, fuzzy
 msgid "Place"
 msgstr "Emplacement"
 
-#: tools.py:453
+#: tools.py:467
 #, fuzzy
 msgid "Processor: {percent}%"
 msgstr "Processeur : {percent} %"
 
-#: tools.py:456
+#: tools.py:470
 #, fuzzy
 msgid "Memory: {used} of {total}"
 msgstr "Mémoire : {used} sur {total}"
 
-#: tools.py:511
+#: tools.py:525
 #, fuzzy
 msgid "Nothing here."
 msgstr "Rien ici."
 
-#: tools.py:553
+#: tools.py:567
 #, fuzzy
 msgid "Nothing in the last month."
 msgstr "Rien le mois dernier."
 
-#: tools.py:601
+#: tools.py:615
 #, fuzzy
 msgid "Resume"
 msgstr "Reprendre"
 
-#: tools.py:605
+#: tools.py:619
 #, fuzzy
 msgid "It hasn't been checked yet."
 msgstr "Elle n'a pas encore été vérifiée."
 
-#: tools.py:658
+#: tools.py:672
 #, fuzzy
 msgid "Not counted yet; updated every few hours."
 msgstr "Pas encore calculé ; mis à jour toutes les quelques heures."
 
-#: tools.py:722
+#: tools.py:736
 #, fuzzy
 msgid "This box reports no sensors."
 msgstr "Cette box n'indique aucun capteur."
@@ -1705,82 +1705,82 @@ msgstr "Quelque chose attend un redémarrage."
 msgid "The system will restart at {hour}, or you can restart manually now."
 msgstr "Le système redémarrera à {hour}, ou vous pouvez redémarrer maintenant."
 
-#: tools.py:293
+#: tools.py:294
 #, fuzzy
-msgid "Kept at {version}; {taken} was taken back."
-msgstr "Gardé en {version} ; {taken} a été retiré."
+msgid "On {version}. Skipping {taken}."
+msgstr "En {version}. {taken} ignorée."
 
-#: tools.py:363
+#: tools.py:377
 #, fuzzy
 msgid "{size} used"
 msgstr "{size} utilisés"
 
-#: tools.py:364
+#: tools.py:378
 #, fuzzy
 msgid "{free} free of {total}"
 msgstr "{free} libres sur {total}"
 
-#: tools.py:379
+#: tools.py:393
 #, fuzzy
 msgid "{n} drives, each a copy of the other"
 msgstr "{n} disques, chacun copie de l'autre"
 
-#: tools.py:417
+#: tools.py:431
 #, fuzzy
 msgid "The box's own"
 msgstr "Celui de la box"
 
-#: tools.py:421
+#: tools.py:435
 #, fuzzy
 msgid "In use for"
 msgstr "En service depuis"
 
-#: tools.py:462
+#: tools.py:476
 #, fuzzy
 msgid "in {received}, out {sent}"
 msgstr "reçu {received}, envoyé {sent}"
 
-#: tools.py:463
+#: tools.py:477
 #, fuzzy
 msgid "reading {read}, writing {written}"
 msgstr "lecture {read}, écriture {written}"
 
-#: tools.py:600
+#: tools.py:614
 #, fuzzy
 msgid "It carries on from there when you resume it."
 msgstr "Elle reprend là où elle s'est arrêtée."
 
-#: tools.py:594
+#: tools.py:608
 #, fuzzy
 msgid "Started {time}."
 msgstr "Commencée le {time}."
 
-#: tools.py:613
+#: tools.py:627
 #, fuzzy
 msgid "The last check found nothing needing repair."
 msgstr "La dernière vérification n'a rien trouvé à réparer."
 
-#: tools.py:615
+#: tools.py:629
 #, fuzzy
 msgid "The box also checks once a month by itself."
 msgstr "La box vérifie aussi d'elle-même une fois par mois."
 
-#: tools.py:732
+#: tools.py:746
 #, fuzzy
 msgid "Fan"
 msgstr "Ventilateur"
 
-#: tools.py:599
+#: tools.py:613
 #, fuzzy
 msgid "The check is paused at {percent}%"
 msgstr "La vérification est en pause à {percent} %"
 
-#: tools.py:607
+#: tools.py:621
 #, fuzzy
 msgid "Last check found {n} problems and repaired what it could."
 msgstr "Dernière vérification : {n} problèmes trouvés et réparés autant que possible."
 
-#: tools.py:610
+#: tools.py:624
 #, fuzzy
 msgid "Last check found {n} damaged files. With one drive they can't be repaired: restore them from a backup."
 msgstr "Dernière vérification : {n} fichiers endommagés. Avec un seul disque, impossible de les réparer : restaurez-les depuis une sauvegarde."

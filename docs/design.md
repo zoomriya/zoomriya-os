@@ -355,8 +355,9 @@ an address for the box.
   Debian's security archive has a newer version than the one that was taken
   back, so a corrected fix still installs by itself (`zoomriya-agent
   release-holds`, just before the security fixes install). Box Desktop shows
-  the held packages on Restore & Reset ("Held back after a restore") with
-  Let it update for each, and the admin action is in the audit log. Holds
+  the held packages on Restore & Reset ("Updates on Hold") with Update now
+  for each: it lifts the hold and installs the security fixes at once (Check
+  now's job). The admin action is in the audit log. Holds
   are kept on `@`, so restoring further back or Reset the system clears them;
   a reset holds nothing.
 - **An interrupted update fixes itself.** If power was cut during an update,

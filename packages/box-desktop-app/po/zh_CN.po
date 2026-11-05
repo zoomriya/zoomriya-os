@@ -55,7 +55,7 @@ msgstr "正在检查盒子…"
 msgid "CPU and memory"
 msgstr "CPU 和内存"
 
-#: app.py:634 app.py:811 tools.py:647
+#: app.py:634 app.py:811 tools.py:661
 #, fuzzy
 msgid "Space"
 msgstr "空间"
@@ -115,12 +115,12 @@ msgstr "搜索工具"
 msgid "Widgets"
 msgstr "小组件"
 
-#: app.py:618 tools.py:688
+#: app.py:618 tools.py:702
 #, fuzzy
 msgid "CPU"
 msgstr "CPU"
 
-#: app.py:626 control.py:851 tools.py:443 tools.py:688
+#: app.py:626 control.py:851 tools.py:457 tools.py:702
 #, fuzzy
 msgid "Memory"
 msgstr "内存"
@@ -185,7 +185,7 @@ msgstr "需要查看"
 msgid "Everything's fine"
 msgstr "一切正常"
 
-#: app.py:678 app.py:810 tools.py:402
+#: app.py:678 app.py:810 tools.py:416
 #, fuzzy
 msgid "Drives"
 msgstr "磁盘"
@@ -195,7 +195,7 @@ msgstr "磁盘"
 msgid "Security fixes"
 msgstr "安全修复"
 
-#: app.py:711 tools.py:384
+#: app.py:711 tools.py:398
 #, fuzzy
 msgid "The box's own disk"
 msgstr "盒子自身的磁盘"
@@ -210,7 +210,7 @@ msgstr "全部标为已读"
 msgid "Nothing new."
 msgstr "没有新消息。"
 
-#: app.py:796 control.py:41 tools.py:462
+#: app.py:796 control.py:41 tools.py:476
 #, fuzzy
 msgid "Network"
 msgstr "网络"
@@ -225,17 +225,17 @@ msgstr "显示"
 msgid "Overview"
 msgstr "概览"
 
-#: app.py:814 tools.py:679
+#: app.py:814 tools.py:693
 #, fuzzy
 msgid "By app"
 msgstr "按应用"
 
-#: app.py:815 control.py:853 tools.py:711 tools.py:419
+#: app.py:815 control.py:853 tools.py:725 tools.py:433
 #, fuzzy
 msgid "Temperature"
 msgstr "温度"
 
-#: app.py:105 tools.py:421
+#: app.py:105 tools.py:435
 #, fuzzy
 msgid "{n} days"
 msgstr "{n} 天"
@@ -280,7 +280,7 @@ msgstr "<b>{used}</b> <small>/ {total} 已用</small>"
 msgid "Library drives mirrored"
 msgstr "资料库磁盘已镜像"
 
-#: app.py:713 tools.py:381
+#: app.py:713 tools.py:395
 #, fuzzy
 msgid "Library"
 msgstr "资料库"
@@ -660,7 +660,7 @@ msgstr "已允许"
 msgid "Details"
 msgstr "详情"
 
-#: control.py:757 control.py:767 tools.py:617
+#: control.py:757 control.py:767 tools.py:631
 #, fuzzy
 msgid "Check now"
 msgstr "立即检查"
@@ -870,7 +870,7 @@ msgstr "序列号"
 msgid "Operating System"
 msgstr "操作系统"
 
-#: control.py:850 tools.py:441
+#: control.py:850 tools.py:455
 #, fuzzy
 msgid "Processor"
 msgstr "处理器"
@@ -1020,7 +1020,7 @@ msgstr "盒子 {size}"
 msgid "Unknown"
 msgstr "未知"
 
-#: control.py:853 tools.py:465
+#: control.py:853 tools.py:479
 #, fuzzy
 msgid "No sensor"
 msgstr "无传感器"
@@ -1285,7 +1285,7 @@ msgstr "所有应用都会停止，备份也会暂停，直到有人按下电源
 msgid "Shut down"
 msgstr "关机"
 
-#: tools.py:261 tools.py:645
+#: tools.py:261 tools.py:659
 #, fuzzy
 msgid "Restore points"
 msgstr "还原点"
@@ -1297,80 +1297,80 @@ msgstr "将系统还原到之前的状态。家人的文件和应用数据保持
 
 #: tools.py:284
 #, fuzzy
-msgid "Package Updates Held Back"
-msgstr "已暂缓的软件包更新"
+msgid "Updates on Hold"
+msgstr "暂缓的更新"
 
 #: tools.py:285
 #, fuzzy
-msgid "Held back by a restore; each updates when a newer fix is out."
-msgstr "因还原而暂缓；有更新的修复发布后会各自更新。"
+msgid "A restore rolled back these updates. They will update automatically when a newer fix is released."
+msgstr "一次还原回滚了这些更新。有更新的修复发布后，它们会自动更新。"
 
-#: tools.py:302 tools.py:752
+#: tools.py:303 tools.py:766
 #, fuzzy
 msgid "Reset"
 msgstr "重置"
 
-#: tools.py:310 tools.py:758
+#: tools.py:311 tools.py:772
 #, fuzzy
 msgid "Erase everything"
 msgstr "清除全部"
 
-#: tools.py:331
+#: tools.py:332
 #, fuzzy
-msgid "Let it update?"
-msgstr "允许更新吗？"
+msgid "Update now?"
+msgstr "立即更新吗？"
 
-#: tools.py:335 tools.py:291
+#: tools.py:336 tools.py:292
 #, fuzzy
-msgid "Let it update"
-msgstr "允许更新"
+msgid "Update now"
+msgstr "立即更新"
 
-#: tools.py:339
+#: tools.py:353
 #, fuzzy
 msgid "Restore the OS?"
 msgstr "还原系统吗？"
 
-#: tools.py:342 tools.py:267 tools.py:273
+#: tools.py:356 tools.py:267 tools.py:273
 #, fuzzy
 msgid "Restore"
 msgstr "还原"
 
-#: tools.py:643
+#: tools.py:657
 #, fuzzy
 msgid "The apps' databases"
 msgstr "应用的数据库"
 
-#: tools.py:643
+#: tools.py:657
 #, fuzzy
 msgid "The apps themselves"
 msgstr "应用本身"
 
-#: tools.py:644
+#: tools.py:658
 #, fuzzy
 msgid "Myira's models and the maps"
 msgstr "Myira 的模型和地图"
 
-#: tools.py:644
+#: tools.py:658
 #, fuzzy
 msgid "Photos, files and the apps' data"
 msgstr "照片、文件和应用的数据"
 
-#: tools.py:750
+#: tools.py:764
 #, fuzzy
 msgid "Reset the system?"
 msgstr "重置系统吗？"
 
-#: tools.py:751
+#: tools.py:765
 #, fuzzy
 msgid "The system returns to its factory state on restart. Family apps and data stay."
 msgstr "重启时系统会恢复到出厂状态。家人的应用和数据会保留。"
 
-#: tools.py:756
+#: tools.py:770
 #, fuzzy
 msgid "Erase everything?"
 msgstr "清除全部吗？"
 
-#: tools.py:757
+#: tools.py:771
 #, fuzzy
 msgid "Deletes every app, account, photo and message on restart. This can't be undone. Enter the setup code from the sticker and your password."
 msgstr "重启时会删除每个应用、账户、照片和消息。此操作无法撤销。请输入贴纸上的设置码和您的密码。"
@@ -1445,77 +1445,77 @@ msgstr "出厂"
 msgid "As it left the factory"
 msgstr "出厂状态"
 
-#: tools.py:303
+#: tools.py:304
 #, fuzzy
 msgid "Reset the system…"
 msgstr "重置系统…"
 
-#: tools.py:305
+#: tools.py:306
 #, fuzzy
 msgid "System Reset"
 msgstr "系统重置"
 
-#: tools.py:306
+#: tools.py:307
 #, fuzzy
 msgid "Returns the OS to factory state, then updates it. Your data stays. Use if restoring fails."
 msgstr "将系统恢复到出厂状态并更新。您的数据保留。还原无效时使用。"
 
-#: tools.py:318
+#: tools.py:319
 #, fuzzy
 msgid "Factory Reset"
 msgstr "恢复出厂设置"
 
-#: tools.py:319
+#: tools.py:320
 #, fuzzy
 msgid "Erases everything, leaving the box as new. Needs the setup code from the sticker."
 msgstr "清除一切，让盒子恢复如新。需要贴纸上的设置码。"
 
-#: tools.py:491
+#: tools.py:505
 #, fuzzy
 msgid "Search"
 msgstr "搜索"
 
-#: tools.py:498
+#: tools.py:512
 #, fuzzy
 msgid "Show older"
 msgstr "显示更早的"
 
-#: tools.py:544
+#: tools.py:558
 #, fuzzy
 msgid "What the box reported in the last month. Choose what appears on the bell in Control Panel › Notifications."
 msgstr "盒子在过去一个月报告的内容。可在控制面板 › 通知中选择铃铛上显示的内容。"
 
-#: tools.py:585
+#: tools.py:599
 #, fuzzy
 msgid "Check that both copies match"
 msgstr "检查两份副本是否一致"
 
-#: tools.py:585
+#: tools.py:599
 #, fuzzy
 msgid "Checking that both copies match"
 msgstr "正在检查两份副本是否一致"
 
-#: tools.py:586
+#: tools.py:600
 #, fuzzy
 msgid "Check the library for damage"
 msgstr "检查资料库是否损坏"
 
-#: tools.py:586
+#: tools.py:600
 #, fuzzy
 msgid "Checking the library for damage"
 msgstr "正在检查资料库是否损坏"
 
-#: tools.py:648
+#: tools.py:662
 #, fuzzy
 msgid "What takes the space on the box's own disk."
 msgstr "盒子自身磁盘上占用空间的内容。"
 
-#: tools.py:680
+#: tools.py:694
 #, fuzzy
 msgid "Busiest first. CPU is a share of the whole box."
 msgstr "最忙的排在前面。CPU 是占整个盒子的比例。"
 
-#: tools.py:760
+#: tools.py:774
 #, fuzzy
 msgid "Setup code, like ABCD-EFGH"
 msgstr "设置码，例如 ABCD-EFGH"
@@ -1570,47 +1570,47 @@ msgstr "等待完成更新"
 msgid "Security fixes are installed."
 msgstr "安全修复已安装。"
 
-#: tools.py:314
+#: tools.py:315
 #, fuzzy
 msgid "Erase everything…"
 msgstr "清除全部…"
 
-#: tools.py:332
+#: tools.py:333
 #, fuzzy
-msgid "{package} installs its latest fix tonight, even if that's {taken}, the version the restore removed."
-msgstr "{package} 今晚会安装其最新修复，即使那是 {taken}，也就是还原移除的版本。"
+msgid "{package} installs its latest fix now, even if that's {taken}, the version the restore removed."
+msgstr "{package} 现在会安装其最新修复，即使那是 {taken}，也就是还原移除的版本。"
 
-#: tools.py:340
+#: tools.py:354
 #, fuzzy
 msgid "The OS returns to {time} ({what}) on the next restart. Family files and app data stay."
 msgstr "下次重启时，系统会回到 {time}（{what}）。家人的文件和应用数据保持不变。"
 
-#: tools.py:384
+#: tools.py:398
 #, fuzzy
 msgid "The OS, the apps and their data"
 msgstr "系统、应用及其数据"
 
-#: tools.py:463
+#: tools.py:477
 #, fuzzy
 msgid "Disks"
 msgstr "磁盘"
 
-#: tools.py:465
+#: tools.py:479
 #, fuzzy
 msgid "Hottest sensor"
 msgstr "最热的传感器"
 
-#: tools.py:596
+#: tools.py:610
 #, fuzzy
 msgid "Pause"
 msgstr "暂停"
 
-#: tools.py:692
+#: tools.py:706
 #, fuzzy
 msgid "An app"
 msgstr "应用"
 
-#: tools.py:692
+#: tools.py:706
 #, fuzzy
 msgid "Part of the box"
 msgstr "盒子的一部分"
@@ -1630,52 +1630,52 @@ msgstr "等待完成还原"
 msgid "The OS is restored."
 msgstr "系统已还原。"
 
-#: tools.py:416
+#: tools.py:430
 #, fuzzy
 msgid "Size"
 msgstr "大小"
 
-#: tools.py:417
+#: tools.py:431
 #, fuzzy
 msgid "Place"
 msgstr "位置"
 
-#: tools.py:453
+#: tools.py:467
 #, fuzzy
 msgid "Processor: {percent}%"
 msgstr "处理器：{percent}%"
 
-#: tools.py:456
+#: tools.py:470
 #, fuzzy
 msgid "Memory: {used} of {total}"
 msgstr "内存：{used} / {total}"
 
-#: tools.py:511
+#: tools.py:525
 #, fuzzy
 msgid "Nothing here."
 msgstr "这里什么也没有。"
 
-#: tools.py:553
+#: tools.py:567
 #, fuzzy
 msgid "Nothing in the last month."
 msgstr "过去一个月没有内容。"
 
-#: tools.py:601
+#: tools.py:615
 #, fuzzy
 msgid "Resume"
 msgstr "继续"
 
-#: tools.py:605
+#: tools.py:619
 #, fuzzy
 msgid "It hasn't been checked yet."
 msgstr "尚未检查。"
 
-#: tools.py:658
+#: tools.py:672
 #, fuzzy
 msgid "Not counted yet; updated every few hours."
 msgstr "尚未统计；每隔几小时更新一次。"
 
-#: tools.py:722
+#: tools.py:736
 #, fuzzy
 msgid "This box reports no sensors."
 msgstr "这台盒子没有报告任何传感器。"
@@ -1705,82 +1705,82 @@ msgstr "有内容在等待重启。"
 msgid "The system will restart at {hour}, or you can restart manually now."
 msgstr "系统将在 {hour} 重启，您也可以现在手动重启。"
 
-#: tools.py:293
+#: tools.py:294
 #, fuzzy
-msgid "Kept at {version}; {taken} was taken back."
-msgstr "保留在 {version}；{taken} 已被撤销。"
+msgid "On {version}. Skipping {taken}."
+msgstr "当前为 {version}。跳过 {taken}。"
 
-#: tools.py:363
+#: tools.py:377
 #, fuzzy
 msgid "{size} used"
 msgstr "已用 {size}"
 
-#: tools.py:364
+#: tools.py:378
 #, fuzzy
 msgid "{free} free of {total}"
 msgstr "{total} 中可用 {free}"
 
-#: tools.py:379
+#: tools.py:393
 #, fuzzy
 msgid "{n} drives, each a copy of the other"
 msgstr "{n} 个磁盘，互为副本"
 
-#: tools.py:417
+#: tools.py:431
 #, fuzzy
 msgid "The box's own"
 msgstr "盒子自身"
 
-#: tools.py:421
+#: tools.py:435
 #, fuzzy
 msgid "In use for"
 msgstr "已使用"
 
-#: tools.py:462
+#: tools.py:476
 #, fuzzy
 msgid "in {received}, out {sent}"
 msgstr "接收 {received}，发送 {sent}"
 
-#: tools.py:463
+#: tools.py:477
 #, fuzzy
 msgid "reading {read}, writing {written}"
 msgstr "读取 {read}，写入 {written}"
 
-#: tools.py:600
+#: tools.py:614
 #, fuzzy
 msgid "It carries on from there when you resume it."
 msgstr "继续后会从那里接着进行。"
 
-#: tools.py:594
+#: tools.py:608
 #, fuzzy
 msgid "Started {time}."
 msgstr "开始于 {time}。"
 
-#: tools.py:613
+#: tools.py:627
 #, fuzzy
 msgid "The last check found nothing needing repair."
 msgstr "上次检查没有发现需要修复的内容。"
 
-#: tools.py:615
+#: tools.py:629
 #, fuzzy
 msgid "The box also checks once a month by itself."
 msgstr "盒子每月也会自动检查一次。"
 
-#: tools.py:732
+#: tools.py:746
 #, fuzzy
 msgid "Fan"
 msgstr "风扇"
 
-#: tools.py:599
+#: tools.py:613
 #, fuzzy
 msgid "The check is paused at {percent}%"
 msgstr "检查已暂停于 {percent}%"
 
-#: tools.py:607
+#: tools.py:621
 #, fuzzy
 msgid "Last check found {n} problems and repaired what it could."
 msgstr "上次检查：发现 {n} 个问题，并已尽可能修复。"
 
-#: tools.py:610
+#: tools.py:624
 #, fuzzy
 msgid "Last check found {n} damaged files. With one drive they can't be repaired: restore them from a backup."
 msgstr "上次检查：{n} 个损坏的文件。只有一个磁盘，无法修复：请从备份中恢复。"

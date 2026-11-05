@@ -281,16 +281,17 @@ class Tools:
                       lambda p: box.append(text(p, "error", wrap=True)))
 
         # What a restore took back stays back until Debian has a newer fix (design §6.1).
-        held_card, held_rows = group(_("Package Updates Held Back"),
-                                     _("Held back by a restore; each updates when a newer fix is out."), icon="held")
+        held_card, held_rows = group(_("Updates on Hold"),
+                                     _("A restore rolled back these updates. They will update "
+                                       "automatically when a newer fix is released."), icon="held")
         held_card.set_visible(False)
         box.append(held_card)
 
         def got_held(answer: dict[str, Any]) -> None:
             for held in answer.get("held") or []:
-                go = Gtk.Button(label=_("Let it update"))
+                go = Gtk.Button(label=_("Update now"))
                 shown = row(held.get("package", ""),
-                            _("Kept at {version}; {taken} was taken back.").format(
+                            _("On {version}. Skipping {taken}.").format(
                                 version=held.get("version", ""), taken=held.get("taken_back", "")),
                             go, **BIG, icon="package")
                 go.connect("clicked", lambda _b, h=held, r=shown: self.let_update(h, r, held_card))
@@ -328,11 +329,24 @@ class Tools:
             card.set_visible(rows.get_first_child() is not None)
 
         self.confirm(
-            _("Let it update?"),
-            _("{package} installs its latest fix tonight, even if that's {taken}, the version the "
-              "restore removed.").format(package=held.get("package", ""),
+            _("Update now?"),
+            _("{package} installs its latest fix now, even if that's {taken}, the version the restore "
+              "removed.").format(package=held.get("package", ""),
                                                        taken=held.get("taken_back", "")),
-            _("Let it update"), lambda: self.ask("held-release", package=held["package"]), done)
+            _("Update now"), lambda: self.update_held(held["package"]), done)
+
+    def update_held(self, package: str) -> dict[str, Any]:
+        """Lifts the hold, then installs the security fixes at once (Check now's
+        job), this package's included; a restart it needs waits for the
+        maintenance hour, as always."""
+        from zoomriya_setup.agent import AgentError
+
+        answer = self.ask("held-release", package=package)
+        try:
+            self.ask("security-check-now")
+        except AgentError:
+            pass  # Fixes are installing already: no longer held, it's in the next run.
+        return answer
 
     def restore(self, point: dict[str, Any]) -> None:
         self.confirm(
