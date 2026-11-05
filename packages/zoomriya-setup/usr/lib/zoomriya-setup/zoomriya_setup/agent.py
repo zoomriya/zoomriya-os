@@ -32,7 +32,7 @@ class Agent:
                 conn.sendall(json.dumps(request).encode() + b"\n")
                 line = conn.makefile("rb").readline()
         except OSError as exc:
-            raise AgentError(_("The box isn't answering yet. Wait a moment and try again.")) from exc
+            raise AgentError(_("The box isn't responding. Try again shortly.")) from exc
         try:
             answer = json.loads(line)
         except ValueError as exc:

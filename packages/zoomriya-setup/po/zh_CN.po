@@ -7,8 +7,8 @@ msgstr ""
 
 #: agent.py:35
 #, fuzzy
-msgid "The box isn't answering yet. Wait a moment and try again."
-msgstr "盒子还没有响应。请稍等片刻再试。"
+msgid "The box isn't responding. Try again shortly."
+msgstr "盒子没有响应。请稍后再试。"
 
 #: agent.py:39
 #, fuzzy
@@ -20,12 +20,12 @@ msgstr "盒子返回的答复无法读取。"
 msgid "The box couldn't do that."
 msgstr "盒子无法完成此操作。"
 
-#: app.py:38 app.py:912
+#: app.py:38 app.py:907
 #, fuzzy
 msgid "Language"
 msgstr "语言"
 
-#: app.py:38 app.py:567
+#: app.py:38 app.py:566
 #, fuzzy
 msgid "Keyboard"
 msgstr "键盘"
@@ -35,17 +35,17 @@ msgstr "键盘"
 msgid "Network"
 msgstr "网络"
 
-#: app.py:38 app.py:913
+#: app.py:38 app.py:908
 #, fuzzy
 msgid "Region"
 msgstr "地区"
 
-#: app.py:38 app.py:917
+#: app.py:38 app.py:912
 #, fuzzy
 msgid "Time zone"
 msgstr "时区"
 
-#: app.py:38 app.py:919
+#: app.py:38 app.py:914
 #, fuzzy
 msgid "Admin"
 msgstr "管理员"
@@ -85,25 +85,25 @@ msgstr "两次输入的密码不一致。"
 msgid "Box setup"
 msgstr "盒子设置"
 
-#: app.py:539 app.py:733 app.py:839
+#: app.py:538 app.py:730 app.py:835
 #, fuzzy
 msgid "Choose one to go on."
 msgstr "请选择一项以继续。"
 
-#: app.py:582
+#: app.py:581
 #, fuzzy
 msgid "Checking the box's network port…"
 msgstr "正在检查盒子的网络端口…"
 
-#: app.py:738
+#: app.py:735
 #, fuzzy
 msgid "State or province (optional)"
 msgstr "州或省（可选）"
 
-#: app.py:924
+#: app.py:919
 #, fuzzy
-msgid "Press Finish to close the setup. Sign in with the admin's username and password from now on; to set the box up again, use Erase everything."
-msgstr "按“完成”关闭设置。今后请用管理员的用户名和密码登录；如需重新设置盒子，请使用“清除全部”。"
+msgid "Press Finish. From now on, sign in with the admin's username and password. To start over, use Erase everything."
+msgstr "按“完成”。今后请用管理员的用户名和密码登录。如需重新开始，请使用“清除全部”。"
 
 #: app.py:190
 #, fuzzy
@@ -140,15 +140,15 @@ msgstr "下一步"
 msgid "Finish"
 msgstr "完成"
 
-#: app.py:524
+#: app.py:522
 #, fuzzy
 msgid "Welcome to your ZOOMRIYA Box"
 msgstr "欢迎使用您的 ZOOMRIYA Box"
 
-#: app.py:525
+#: app.py:523
 #, fuzzy
-msgid "Let's set it up. It takes a few minutes: the language, the keyboard, the network, the country or region, the time zone, and the box's admin. First, the box's language."
-msgstr "我们来设置它。只需几分钟：语言、键盘、网络、国家或地区、时区，以及盒子的管理员。首先，选择盒子的语言。"
+msgid "Setup takes a few minutes. First, choose a language."
+msgstr "设置只需几分钟。首先，选择一种语言。"
 
 #: app.py:562
 #, fuzzy
@@ -157,210 +157,210 @@ msgstr "您的键盘"
 
 #: app.py:563
 #, fuzzy
-msgid "The layout of the keyboard plugged into the box. It's used at once, so the admin's password is typed with it."
-msgstr "接在盒子上的键盘布局。它会立即生效，方便您用它输入管理员密码。"
+msgid "Used right away, including for the admin's password."
+msgstr "立即生效，也用于输入管理员密码。"
 
-#: app.py:581
+#: app.py:580
 #, fuzzy
 msgid "Connect the box"
 msgstr "连接盒子"
 
-#: app.py:591
+#: app.py:590
 #, fuzzy
 msgid "Use a static address instead of the router's"
 msgstr "使用静态地址，而不是路由器分配的地址"
 
-#: app.py:606
+#: app.py:605
 #, fuzzy
 msgid "Use these settings"
 msgstr "应用"
 
-#: app.py:644
+#: app.py:643
 #, fuzzy
-msgid "The box has no Ethernet port the setup can use."
-msgstr "盒子没有可供设置使用的以太网端口。"
+msgid "No usable Ethernet port found."
+msgstr "未找到可用的以太网端口。"
 
-#: app.py:714
+#: app.py:712
 #, fuzzy
 msgid "Which country or region?"
 msgstr "哪个国家或地区？"
 
-#: app.py:715
+#: app.py:713
 #, fuzzy
-msgid "Where the box is. It sets which time zones come first, and the rules the box follows there."
-msgstr "盒子所在的地方。它决定先显示哪些时区，以及盒子在当地遵循的规则。"
+msgid "Where the box is. Sets the time zones shown first."
+msgstr "盒子所在的地方。决定先显示哪些时区。"
 
-#: app.py:717
+#: app.py:714
 #, fuzzy
 msgid "Search, for example Canada"
 msgstr "搜索，例如 加拿大"
 
-#: app.py:775
+#: app.py:772
 #, fuzzy
 msgid "Which time zone?"
 msgstr "哪个时区？"
 
-#: app.py:778
+#: app.py:775
 #, fuzzy
 msgid "Search, for example Toronto"
 msgstr "搜索，例如 Shanghai"
 
-#: app.py:781
+#: app.py:778
 #, fuzzy
 msgid "Show every time zone"
 msgstr "显示所有时区"
 
-#: app.py:811
+#: app.py:807
 #, fuzzy
-msgid "The box's clock, its maintenance hour and the apps go by it."
+msgid "Used by the box's clock, maintenance hour and apps."
 msgstr "盒子的时钟、维护时段和应用都以它为准。"
 
-#: app.py:853
+#: app.py:849
 #, fuzzy
 msgid "The box's admin"
 msgstr "盒子的管理员"
 
-#: app.py:854
+#: app.py:850
 #, fuzzy
-msgid "Your account in ZOOMRIYA ID, on this box. The same username and password sign you in to the box and to every ZOOMRIYA app you add to it. There is no other way in, so keep the password safe."
-msgstr "您在这台盒子上的 ZOOMRIYA ID 账户。同一个用户名和密码可以登录盒子以及您添加的每个 ZOOMRIYA 应用。没有其他进入方式，请妥善保管密码。"
+msgid "Your ZOOMRIYA ID signs in to the box and every ZOOMRIYA app. There's no other way in, so keep the password safe."
+msgstr "您的 ZOOMRIYA ID 可登录盒子和每个 ZOOMRIYA 应用。没有其他进入方式，请妥善保管密码。"
 
-#: app.py:858
+#: app.py:853
 #, fuzzy
 msgid "For example, amma"
 msgstr "例如 amma"
 
-#: app.py:864
+#: app.py:859
 #, fuzzy
 msgid "Username"
 msgstr "用户名"
 
-#: app.py:866
+#: app.py:861
 #, fuzzy
 msgid "The password again"
 msgstr "再次输入密码"
 
-#: app.py:897
+#: app.py:892
 #, fuzzy
 msgid "Your box is ready"
 msgstr "您的盒子已准备就绪"
 
-#: app.py:598
+#: app.py:597
 #, fuzzy
 msgid "Box's address"
 msgstr "盒子的地址"
 
-#: app.py:599
+#: app.py:598
 #, fuzzy
 msgid "Subnet mask"
 msgstr "子网掩码"
 
-#: app.py:600 app.py:658
+#: app.py:599 app.py:657
 #, fuzzy
 msgid "Router"
 msgstr "路由器"
 
-#: app.py:601 app.py:659
+#: app.py:600 app.py:658
 #, fuzzy
 msgid "Name servers"
 msgstr "域名服务器"
 
-#: app.py:647
+#: app.py:646
 #, fuzzy
-msgid "Plug the box into your router with a network cable. The setup goes on by itself once the cable is in."
-msgstr "请用网线将盒子连接到路由器。插上网线后，设置会自动继续。"
+msgid "Connect the box to your router with a network cable. Setup continues once it's plugged in."
+msgstr "请用网线将盒子连接到路由器。接好后设置会继续。"
 
-#: app.py:649
+#: app.py:648
 #, fuzzy
 msgid "Waiting for the cable…"
 msgstr "正在等待网线…"
 
-#: app.py:910
+#: app.py:905
 #, fuzzy
 msgid "Box's name"
 msgstr "盒子的名称"
 
-#: app.py:911 app.py:657
+#: app.py:906 app.py:656
 #, fuzzy
 msgid "Address"
 msgstr "地址"
 
-#: app.py:546 app.py:762
+#: app.py:545 app.py:759
 #, fuzzy
 msgid "Chosen: {name}"
 msgstr "已选择：{name}"
 
-#: app.py:652
+#: app.py:651
 #, fuzzy
-msgid "The cable is in. Getting an address from your router…"
-msgstr "网线已接好。正在从路由器获取地址…"
+msgid "Cable connected. Getting an address…"
+msgstr "网线已接好。正在获取地址…"
 
-#: app.py:655
+#: app.py:654
 #, fuzzy
 msgid "The box is on your network."
 msgstr "盒子已连接到您的网络。"
 
-#: app.py:746
+#: app.py:743
 #, fuzzy
 msgid "Not chosen"
 msgstr "未选择"
 
-#: app.py:809
+#: app.py:806
 #, fuzzy
-msgid "The time zones in {region}. The box's clock, its maintenance hour and the apps go by it."
+msgid "Time zones in {region}. Used by the box's clock, maintenance hour and apps."
 msgstr "{region}的时区。盒子的时钟、维护时段和应用都以它为准。"
 
-#: app.py:844
+#: app.py:840
 #, fuzzy
 msgid "The time there now: {time}"
 msgstr "当地现在时间：{time}"
 
-#: app.py:865
+#: app.py:860
 #, fuzzy
 msgid "Password (at least {count} characters)"
 msgstr "密码（至少 {count} 个字符）"
 
-#: app.py:911
+#: app.py:906
 #, fuzzy
 msgid "Not connected"
 msgstr "未连接"
 
-#: app.py:660
+#: app.py:659
 #, fuzzy
 msgid "Settings"
 msgstr "设置"
 
-#: app.py:658 app.py:659
+#: app.py:657 app.py:658
 #, fuzzy
 msgid "None"
 msgstr "无"
 
-#: app.py:660
+#: app.py:659
 #, fuzzy
 msgid "Static address"
 msgstr "静态地址"
 
-#: app.py:661
+#: app.py:660
 #, fuzzy
 msgid "From the router (DHCP)"
 msgstr "来自路由器（DHCP）"
 
-#: app.py:664
+#: app.py:663
 #, fuzzy
 msgid "Speed"
 msgstr "速度"
 
-#: app.py:669
+#: app.py:668
 #, fuzzy
 msgid "Checking the internet…"
 msgstr "正在检查网络连接…"
 
-#: app.py:670
+#: app.py:669
 #, fuzzy
 msgid "Internet: connected."
 msgstr "网络：已连接。"
 
-#: app.py:671
+#: app.py:670
 #, fuzzy
-msgid "Internet: not reached. You can carry on; the box catches up with updates and the clock once it's online."
-msgstr "无法连接网络。您可以继续；盒子联网后会补上更新并校准时钟。"
+msgid "No internet. You can continue; updates and the clock catch up once online."
+msgstr "无法连接网络。您可以继续；联网后会补上更新并校准时钟。"

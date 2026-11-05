@@ -520,9 +520,7 @@ class SetupWindow(Gtk.ApplicationWindow):
     def language_page(self) -> Gtk.Widget:
         box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=14)
         box.append(label(_("Welcome to your ZOOMRIYA Box"), "title"))
-        box.append(label(_("Let's set it up. It takes a few minutes: the language, the keyboard, "
-                           "the network, the country or region, the time zone, and the box's "
-                           "admin. First, the box's language."), "lead"))
+        box.append(label(_("Setup takes a few minutes. First, choose a language."), "lead"))
         # Nothing selectable until a language is chosen (a click, or Enter): a
         # list selects whichever row it's focused on, and none is assumed.
         self.language_list = Gtk.ListBox(selection_mode=Gtk.SelectionMode.NONE)
@@ -562,8 +560,7 @@ class SetupWindow(Gtk.ApplicationWindow):
     def keyboard_page(self) -> Gtk.Widget:
         box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=14)
         box.append(label(_("Your keyboard"), "title"))
-        box.append(label(_("The layout of the keyboard plugged into the box. It's used at once, "
-                           "so the admin's password is typed with it."), "lead"))
+        box.append(label(_("Used right away, including for the admin's password."), "lead"))
         self.layout_ids: list[str] = []
         self.layouts = Gtk.DropDown.new_from_strings([])
         box.append(field(_("Keyboard"), self.layouts))
@@ -643,15 +640,15 @@ class SetupWindow(Gtk.ApplicationWindow):
         while child := self.net_rows.get_first_child():
             self.net_rows.remove(child)
         if link is None:
-            self.net_lead.set_text(_("The box has no Ethernet port the setup can use."))
+            self.net_lead.set_text(_("No usable Ethernet port found."))
             self.net_state.set_text("")
         elif not link.get("connected"):
-            self.net_lead.set_text(_("Plug the box into your router with a network cable. "
-                                     "The setup goes on by itself once the cable is in."))
+            self.net_lead.set_text(_("Connect the box to your router with a network cable. Setup "
+                                     "continues once it's plugged in."))
             self.net_state.set_text(_("Waiting for the cable…"))
             self.online = None
         elif not self.address():
-            self.net_lead.set_text(_("The cable is in. Getting an address from your router…"))
+            self.net_lead.set_text(_("Cable connected. Getting an address…"))
             self.net_state.set_text("")
         else:
             self.net_lead.set_text(_("The box is on your network."))
@@ -670,8 +667,7 @@ class SetupWindow(Gtk.ApplicationWindow):
             self.net_state.set_text({
                 None: _("Checking the internet…"),
                 True: _("Internet: connected."),
-                False: _("Internet: not reached. You can carry on; the box catches up "
-                         "with updates and the clock once it's online."),
+                False: _("No internet. You can continue; updates and the clock catch up once online."),
             }[self.online])
         self.update_next()
 
@@ -714,8 +710,7 @@ class SetupWindow(Gtk.ApplicationWindow):
     def region_page(self) -> Gtk.Widget:
         box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=14)
         box.append(label(_("Which country or region?"), "title"))
-        box.append(label(_("Where the box is. It sets which time zones come first, and the "
-                           "rules the box follows there."), "lead"))
+        box.append(label(_("Where the box is. Sets the time zones shown first."), "lead"))
         self.region_search = Gtk.SearchEntry(placeholder_text=_("Search, for example Canada"))
         self.region_search.connect("search-changed", lambda _e: self.region_list.invalidate_filter())
         box.append(self.region_search)
@@ -808,9 +803,8 @@ class SetupWindow(Gtk.ApplicationWindow):
         self.region_zones = zones_in(self.region_choice)
         name = next((name for code, name in regions() if code == self.region_choice), "")
         self.zone_lead.set_text(
-            _("The time zones in {region}. The box's clock, its maintenance hour and the "
-              "apps go by it.").format(region=name) if self.region_zones else
-            _("The box's clock, its maintenance hour and the apps go by it."))
+            _("Time zones in {region}. Used by the box's clock, maintenance hour and apps.").format(region=name) if self.region_zones else
+            _("Used by the box's clock, maintenance hour and apps."))
         self.all_zones.set_active(not self.region_zones)
         self.zone_list.invalidate_filter()
         self.zone_list.unselect_all()
@@ -853,9 +847,8 @@ class SetupWindow(Gtk.ApplicationWindow):
     def admin_page(self) -> Gtk.Widget:
         box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=14)
         box.append(label(_("The box's admin"), "title"))
-        box.append(label(_("Your account in ZOOMRIYA ID, on this box. The same username and "
-                           "password sign you in to the box and to every ZOOMRIYA app you "
-                           "add to it. There is no other way in, so keep the password safe."),
+        box.append(label(_("Your ZOOMRIYA ID signs in to the box and every ZOOMRIYA app. There's no "
+                           "other way in, so keep the password safe."),
                          "lead"))
         self.username = Gtk.Entry(placeholder_text=_("For example, amma"))
         self.password = Gtk.PasswordEntry(show_peek_icon=True)
@@ -923,9 +916,8 @@ class SetupWindow(Gtk.ApplicationWindow):
                 self.done_rows.attach(label(name, "fact-name", wrap=False), 0, row, 1, 1)
                 self.done_rows.attach(label(value, "fact", wrap=False), 1, row, 1, 1)
 
-        self.done_lead.set_text(_("Press Finish to close the setup. Sign in with the admin's "
-                                  "username and password from now on; to set the box up again, "
-                                  "use Erase everything."))
+        self.done_lead.set_text(_("Press Finish. From now on, sign in with the admin's username and "
+                                  "password. To start over, use Erase everything."))
         self.call(lambda: self.agent.ask("network"), got, lambda _p: None)
 
 

@@ -7,8 +7,8 @@ msgstr ""
 
 #: agent.py:35
 #, fuzzy
-msgid "The box isn't answering yet. Wait a moment and try again."
-msgstr "La Box aún no responde. Espera un momento y vuelve a intentarlo."
+msgid "The box isn't responding. Try again shortly."
+msgstr "La Box no responde. Inténtalo de nuevo en un momento."
 
 #: agent.py:39
 #, fuzzy
@@ -20,12 +20,12 @@ msgstr "La Box dio una respuesta que no se puede leer."
 msgid "The box couldn't do that."
 msgstr "La Box no pudo hacerlo."
 
-#: app.py:38 app.py:912
+#: app.py:38 app.py:907
 #, fuzzy
 msgid "Language"
 msgstr "Idioma"
 
-#: app.py:38 app.py:567
+#: app.py:38 app.py:566
 #, fuzzy
 msgid "Keyboard"
 msgstr "Teclado"
@@ -35,17 +35,17 @@ msgstr "Teclado"
 msgid "Network"
 msgstr "Red"
 
-#: app.py:38 app.py:913
+#: app.py:38 app.py:908
 #, fuzzy
 msgid "Region"
 msgstr "Región"
 
-#: app.py:38 app.py:917
+#: app.py:38 app.py:912
 #, fuzzy
 msgid "Time zone"
 msgstr "Zona horaria"
 
-#: app.py:38 app.py:919
+#: app.py:38 app.py:914
 #, fuzzy
 msgid "Admin"
 msgstr "Administrador"
@@ -85,25 +85,25 @@ msgstr "Las dos contraseñas no coinciden."
 msgid "Box setup"
 msgstr "Configuración"
 
-#: app.py:539 app.py:733 app.py:839
+#: app.py:538 app.py:730 app.py:835
 #, fuzzy
 msgid "Choose one to go on."
 msgstr "Elige uno para continuar."
 
-#: app.py:582
+#: app.py:581
 #, fuzzy
 msgid "Checking the box's network port…"
 msgstr "Comprobando el puerto de red de la Box…"
 
-#: app.py:738
+#: app.py:735
 #, fuzzy
 msgid "State or province (optional)"
 msgstr "Estado o provincia (opcional)"
 
-#: app.py:924
+#: app.py:919
 #, fuzzy
-msgid "Press Finish to close the setup. Sign in with the admin's username and password from now on; to set the box up again, use Erase everything."
-msgstr "Pulsa Finalizar para cerrar la configuración. A partir de ahora, inicia sesión con el usuario y la contraseña del administrador; para volver a configurar la Box, usa Borrar todo."
+msgid "Press Finish. From now on, sign in with the admin's username and password. To start over, use Erase everything."
+msgstr "Pulsa Finalizar. A partir de ahora, inicia sesión con el usuario y la contraseña del administrador. Para empezar de cero, usa Borrar todo."
 
 #: app.py:190
 #, fuzzy
@@ -140,15 +140,15 @@ msgstr "Siguiente"
 msgid "Finish"
 msgstr "Finalizar"
 
-#: app.py:524
+#: app.py:522
 #, fuzzy
 msgid "Welcome to your ZOOMRIYA Box"
 msgstr "Bienvenido a tu ZOOMRIYA Box"
 
-#: app.py:525
+#: app.py:523
 #, fuzzy
-msgid "Let's set it up. It takes a few minutes: the language, the keyboard, the network, the country or region, the time zone, and the box's admin. First, the box's language."
-msgstr "Vamos a configurarla. Tarda unos minutos: el idioma, el teclado, la red, el país o la región, la zona horaria y el administrador de la Box. Primero, el idioma de la Box."
+msgid "Setup takes a few minutes. First, choose a language."
+msgstr "La configuración tarda unos minutos. Primero, elige un idioma."
 
 #: app.py:562
 #, fuzzy
@@ -157,210 +157,210 @@ msgstr "Tu teclado"
 
 #: app.py:563
 #, fuzzy
-msgid "The layout of the keyboard plugged into the box. It's used at once, so the admin's password is typed with it."
-msgstr "La distribución del teclado conectado a la Box. Se usa al momento, para escribir con ella la contraseña del administrador."
+msgid "Used right away, including for the admin's password."
+msgstr "Se usa al momento, también para la contraseña del administrador."
 
-#: app.py:581
+#: app.py:580
 #, fuzzy
 msgid "Connect the box"
 msgstr "Conecta la Box"
 
-#: app.py:591
+#: app.py:590
 #, fuzzy
 msgid "Use a static address instead of the router's"
 msgstr "Usar una dirección estática en lugar de la del router"
 
-#: app.py:606
+#: app.py:605
 #, fuzzy
 msgid "Use these settings"
 msgstr "Aplicar"
 
-#: app.py:644
+#: app.py:643
 #, fuzzy
-msgid "The box has no Ethernet port the setup can use."
-msgstr "La Box no tiene ningún puerto Ethernet que la configuración pueda usar."
+msgid "No usable Ethernet port found."
+msgstr "No se encontró ningún puerto Ethernet utilizable."
 
-#: app.py:714
+#: app.py:712
 #, fuzzy
 msgid "Which country or region?"
 msgstr "¿Qué país o región?"
 
-#: app.py:715
+#: app.py:713
 #, fuzzy
-msgid "Where the box is. It sets which time zones come first, and the rules the box follows there."
-msgstr "Dónde está la Box. Define qué zonas horarias aparecen primero y las normas que la Box sigue allí."
+msgid "Where the box is. Sets the time zones shown first."
+msgstr "Dónde está la Box. Define qué zonas horarias se muestran primero."
 
-#: app.py:717
+#: app.py:714
 #, fuzzy
 msgid "Search, for example Canada"
 msgstr "Buscar, por ejemplo Canadá"
 
-#: app.py:775
+#: app.py:772
 #, fuzzy
 msgid "Which time zone?"
 msgstr "¿Qué zona horaria?"
 
-#: app.py:778
+#: app.py:775
 #, fuzzy
 msgid "Search, for example Toronto"
 msgstr "Buscar, por ejemplo Toronto"
 
-#: app.py:781
+#: app.py:778
 #, fuzzy
 msgid "Show every time zone"
 msgstr "Mostrar todas las zonas horarias"
 
-#: app.py:811
+#: app.py:807
 #, fuzzy
-msgid "The box's clock, its maintenance hour and the apps go by it."
-msgstr "El reloj de la Box, su hora de mantenimiento y las apps se rigen por ella."
+msgid "Used by the box's clock, maintenance hour and apps."
+msgstr "La usan el reloj de la Box, su hora de mantenimiento y las apps."
 
-#: app.py:853
+#: app.py:849
 #, fuzzy
 msgid "The box's admin"
 msgstr "El administrador de la Box"
 
-#: app.py:854
+#: app.py:850
 #, fuzzy
-msgid "Your account in ZOOMRIYA ID, on this box. The same username and password sign you in to the box and to every ZOOMRIYA app you add to it. There is no other way in, so keep the password safe."
-msgstr "Tu cuenta de ZOOMRIYA ID, en esta Box. El mismo usuario y contraseña te dan acceso a la Box y a cada app de ZOOMRIYA que añadas. No hay otra forma de entrar, así que guarda bien la contraseña."
+msgid "Your ZOOMRIYA ID signs in to the box and every ZOOMRIYA app. There's no other way in, so keep the password safe."
+msgstr "Tu ZOOMRIYA ID inicia sesión en la Box y en cada app de ZOOMRIYA. No hay otra forma de entrar, así que guarda bien la contraseña."
 
-#: app.py:858
+#: app.py:853
 #, fuzzy
 msgid "For example, amma"
 msgstr "Por ejemplo, amma"
 
-#: app.py:864
+#: app.py:859
 #, fuzzy
 msgid "Username"
 msgstr "Nombre de usuario"
 
-#: app.py:866
+#: app.py:861
 #, fuzzy
 msgid "The password again"
 msgstr "Repite la contraseña"
 
-#: app.py:897
+#: app.py:892
 #, fuzzy
 msgid "Your box is ready"
 msgstr "Tu Box está lista"
 
-#: app.py:598
+#: app.py:597
 #, fuzzy
 msgid "Box's address"
 msgstr "Dirección de la Box"
 
-#: app.py:599
+#: app.py:598
 #, fuzzy
 msgid "Subnet mask"
 msgstr "Máscara de subred"
 
-#: app.py:600 app.py:658
+#: app.py:599 app.py:657
 #, fuzzy
 msgid "Router"
 msgstr "Router"
 
-#: app.py:601 app.py:659
+#: app.py:600 app.py:658
 #, fuzzy
 msgid "Name servers"
 msgstr "Servidores de nombres"
 
-#: app.py:647
+#: app.py:646
 #, fuzzy
-msgid "Plug the box into your router with a network cable. The setup goes on by itself once the cable is in."
-msgstr "Conecta la Box a tu router con un cable de red. La configuración sigue sola cuando el cable esté conectado."
+msgid "Connect the box to your router with a network cable. Setup continues once it's plugged in."
+msgstr "Conecta la Box a tu router con un cable de red. La configuración sigue cuando esté conectada."
 
-#: app.py:649
+#: app.py:648
 #, fuzzy
 msgid "Waiting for the cable…"
 msgstr "Esperando el cable…"
 
-#: app.py:910
+#: app.py:905
 #, fuzzy
 msgid "Box's name"
 msgstr "Nombre de la Box"
 
-#: app.py:911 app.py:657
+#: app.py:906 app.py:656
 #, fuzzy
 msgid "Address"
 msgstr "Dirección"
 
-#: app.py:546 app.py:762
+#: app.py:545 app.py:759
 #, fuzzy
 msgid "Chosen: {name}"
 msgstr "Elegido: {name}"
 
-#: app.py:652
+#: app.py:651
 #, fuzzy
-msgid "The cable is in. Getting an address from your router…"
-msgstr "El cable está conectado. Obteniendo una dirección del router…"
+msgid "Cable connected. Getting an address…"
+msgstr "Cable conectado. Obteniendo una dirección…"
 
-#: app.py:655
+#: app.py:654
 #, fuzzy
 msgid "The box is on your network."
 msgstr "La Box está en tu red."
 
-#: app.py:746
+#: app.py:743
 #, fuzzy
 msgid "Not chosen"
 msgstr "Sin elegir"
 
-#: app.py:809
+#: app.py:806
 #, fuzzy
-msgid "The time zones in {region}. The box's clock, its maintenance hour and the apps go by it."
-msgstr "Las zonas horarias de {region}. El reloj de la Box, su hora de mantenimiento y las apps se rigen por ella."
+msgid "Time zones in {region}. Used by the box's clock, maintenance hour and apps."
+msgstr "Zonas horarias de {region}. Las usan el reloj de la Box, su hora de mantenimiento y las apps."
 
-#: app.py:844
+#: app.py:840
 #, fuzzy
 msgid "The time there now: {time}"
 msgstr "La hora allí: {time}"
 
-#: app.py:865
+#: app.py:860
 #, fuzzy
 msgid "Password (at least {count} characters)"
 msgstr "Contraseña (al menos {count} caracteres)"
 
-#: app.py:911
+#: app.py:906
 #, fuzzy
 msgid "Not connected"
 msgstr "Sin conexión"
 
-#: app.py:660
+#: app.py:659
 #, fuzzy
 msgid "Settings"
 msgstr "Ajustes"
 
-#: app.py:658 app.py:659
+#: app.py:657 app.py:658
 #, fuzzy
 msgid "None"
 msgstr "Ninguno"
 
-#: app.py:660
+#: app.py:659
 #, fuzzy
 msgid "Static address"
 msgstr "Dirección estática"
 
-#: app.py:661
+#: app.py:660
 #, fuzzy
 msgid "From the router (DHCP)"
 msgstr "Del router (DHCP)"
 
-#: app.py:664
+#: app.py:663
 #, fuzzy
 msgid "Speed"
 msgstr "Velocidad"
 
-#: app.py:669
+#: app.py:668
 #, fuzzy
 msgid "Checking the internet…"
 msgstr "Comprobando internet…"
 
-#: app.py:670
+#: app.py:669
 #, fuzzy
 msgid "Internet: connected."
 msgstr "Internet: conectado."
 
-#: app.py:671
+#: app.py:670
 #, fuzzy
-msgid "Internet: not reached. You can carry on; the box catches up with updates and the clock once it's online."
-msgstr "Sin acceso a internet. Puedes continuar; la Box se pondrá al día con las actualizaciones y la hora cuando esté en línea."
+msgid "No internet. You can continue; updates and the clock catch up once online."
+msgstr "Sin internet. Puedes continuar; las actualizaciones y la hora se pondrán al día al conectarse."
