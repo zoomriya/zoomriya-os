@@ -19,7 +19,9 @@ Please don't:
 
 If you build your own image from this repository, give it your own name,
 including in `os-release` (`NAME`, `PRETTY_NAME` and `ID`), the boot menu and
-the login banner.
+the login banner. Building an image for your own use is fine as it is; give it
+your own name before you share it with anyone else. The official ZOOMRIYA OS
+is the one downloaded from [zoomriya.com](https://zoomriya.com).
 
 Debian is a registered trademark of Software in the Public Interest, Inc., and
 belongs to it, not to ZOOMRIYA. The other software ZOOMRIYA OS is built from

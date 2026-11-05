@@ -46,10 +46,10 @@ what sits underneath them.
 | The box's system controls are [Box Desktop](box-desktop.md), a desktop for admins on the box's own screen, in this public repository; using the box from elsewhere is Family Hub's and the apps' | Decided |
 | Only components whose licences allow use in a product we sell; each is checked in [Licences](licences.md) before it goes into an image | Decided |
 | Valkey (BSD-3-Clause, [Licences](licences.md)) is the shared key-value store | Leaning |
-| Debian's security fixes for the OS install by themselves, so we don't release anything for them ([§6.1](#61-debian-security-fixes)) | Leaning (OS-2) |
-| The root filesystem stays writable (apt updates it) with Btrfs snapshots for rollback. A read-only A/B system is a later step, built from the same packages ([§6.7](#67-later-a-read-only-system)) | Leaning |
+| Debian's security fixes for the OS install by themselves, so we don't release anything for them ([§6.1](#61-debian-security-fixes)) | Decided (OS-2) |
+| The root filesystem stays writable (apt updates it) with Btrfs snapshots for rollback. A read-only A/B system is a later step, built from the same packages ([§6.7](#67-later-a-read-only-system)) | Decided (OS-1) |
 | The OS version follows Debian's (ZOOMRIYA OS 13); each app keeps its own version ([§9](#9-names-and-versions)) | Leaning |
-| The box is set up over Ethernet and may also join the home Wi-Fi; ZOOMRIYA Connect (reaching the box away from home, and guest links) needs Ethernet ([§5.1](#51-wi-fi)) | Decided ([ZOOMRIYA Connect](https://github.com/zoomriya/zoomriya-connect)) |
+| The box is set up and runs over Ethernet; Wi-Fi stays off, shown turned off in Box Desktop on a box that has it ([§5.1](#51-wi-fi)) | Decided (OS-14) |
 | One name per box, `<name>.zoomriya.app`, with a real certificate; `.local` names are for first boot only ([§5](#5-first-boot)) | Decided ([ZOOMRIYA Connect](https://github.com/zoomriya/zoomriya-connect/blob/main/docs/sharing-and-names.md)) |
 | Hardening is our own list in `zoomriya-base`, checked in CI, with every difference from common advice written down ([§8](#8-hardening)) | Decided |
 
@@ -104,8 +104,8 @@ the next Debian ([§6.6](#66-moving-to-debian-14)), which is when PostgreSQL's c
 
 ## 3. The disk
 
-The box has a fast system SSD and two drives for the library (Solutions
-Design, *Hardware and selling*).
+The box has a fast system SSD and a drive for the library; a later box may
+have two, mirrored (Solutions Design, *Hardware and selling*).
 
 **System SSD**
 
@@ -137,16 +137,17 @@ would roll back with the OS. Either they move under `/data`, or each gets its
 own subvolume. Moving them under `/data` is simpler and puts them in the
 backups' reach; that's the proposal.
 
-**Library drives.** Two mirrored drives, set up at the factory on the sold box.
-Whether the mirror is Btrfs RAID 1 or `mdadm` is open (OS-4); Btrfs is leaning,
-because its checksums find a bad copy and repair it from the good one during a
-scrub, which `mdadm` can't tell apart. Photos' `storaged` keeps mounting drives
+**Library drives.** One drive now, Btrfs, set up at the factory on the sold
+box. Its scrub finds a damaged file from Btrfs's checksums, but with one copy
+it can't repair it: the backups can. When a box has two library drives
+(later), they're a Btrfs RAID 1 mirror, not `mdadm` (OS-4): the scrub then
+repairs a bad copy from the good one, which `mdadm` can't tell apart. Photos' `storaged` keeps mounting drives
 as today; it never formats them.
 
-**Disk encryption** is open (OS-11). The
-layout allows LUKS under the system partition and the library drives, unlocked
-by the TPM with Secure Boot (`systemd-cryptenroll`), with the recovery key shown
-once at setup.
+**No disk encryption** (OS-11): not on the system SSD, not on the library
+drive. The box stays at home and starts by itself, and a family's photos stay
+readable from the drive in another computer if the box itself dies, with no
+recovery key to lose.
 
 ## 4. Boot, recovery and factory reset
 
@@ -268,34 +269,20 @@ announces the box as `zoomriya-<4 characters>.local` and `_zoomriya._tcp`.
 
 ### 5.1 Wi-Fi
 
-The box may also join the home Wi-Fi, after setup. ZOOMRIYA Connect needs
-the cable.
+The box uses the cable to the router, for setup and after it. **Wi-Fi stays
+off** (OS-14).
 
-- **Joined from Box Desktop,** in Control Panel › Network › Wi-Fi, by an admin,
-  after first boot. Wi-Fi is off until then. WPA2 and WPA3 personal networks
-  only; open networks aren't offered.
-- **On Wi-Fi alone, everything at home works:** Family Hub, the apps, Box
-  Desktop and phones backing up at home, all at the box's name, which then
-  points at its Wi-Fi address.
-- **ZOOMRIYA Connect needs Ethernet:** reaching the box away from home (the
-  phone app's and the desktop app's link) and guests' share links. Without
-  the cable, ZOOMRIYA Connect pauses, and Box Desktop and Family Hub say "Your
-  box can't be reached away from home until it's connected to the router by a
-  cable." It starts again by itself when the cable is back. The reasons are
-  ZOOMRIYA Connect's: a steady address for port forwards, reliable mappings,
-  and no Wi-Fi client isolation
+- **Nothing turns it on.** The OS carries no Wi-Fi software (no `iwd`) and no
+  Wi-Fi firmware, and its network settings match wired ports only, so a Wi-Fi
+  chip in the box is never used. Bluetooth stays off too.
+- **Box Desktop says so.** On a box with a Wi-Fi chip, Control Panel ›
+  Network shows a Wi-Fi card, turned off and greyed out: "The box connects to
+  the router by a cable." On a box without one, there's no Wi-Fi card at all.
+  The agent's `network` already tells Ethernet and Wi-Fi apart.
+- **Why the cable:** it's steadier for phones backing up at home and for the
+  library, and ZOOMRIYA Connect needs it anyway: a steady address for port
+  forwards, reliable mappings, and no Wi-Fi client isolation
   ([ZOOMRIYA Connect](https://github.com/zoomriya/zoomriya-connect/blob/main/docs/where-it-works.md)).
-- **With both connected, Ethernet carries everything** (a lower route metric),
-  and Wi-Fi stays joined so the box is still reachable at home if the cable is
-  pulled.
-- **When phones on the Wi-Fi can't reach the box** (some routers keep Wi-Fi
-  devices apart), Box Desktop says so and suggests the cable.
-- **What it adds to the OS:** `iwd` with systemd-networkd, and the firmware for
-  the box's own Wi-Fi chip only ([Licences](licences.md)). The Wi-Fi password is
-  kept readable by root only, and never in logs or the diagnostics bundle.
-  Bluetooth stays off.
-- **Setting up over Wi-Fi** from the start, with no cable, would need the box to
-  open its own setup hotspot; that's OS-14.
 
 ### 5.2 A fixed address
 
@@ -317,7 +304,6 @@ an address for the box.
   which comes before the default DHCP file; going back to DHCP removes it. It's
   on `@`, so a restore point from before the change, and Reset the system, go
   back to DHCP.
-- **Wi-Fi** keeps DHCP.
 
 ## 6. Updates
 
@@ -325,6 +311,7 @@ an address for the box.
 | --- | --- | --- | --- |
 | Debian security fixes (host) | unattended-upgrades | By themselves, every day | snapper snapshot of `@` |
 | Kernel | unattended-upgrades | Installed by itself; takes effect at the next restart, in the maintenance hour | Previous kernel, by boot counting |
+| ZOOMRIYA OS's own packages (`zoomriya-base`, `zoomriya-agent`, `box-desktop-app`) | zoomriya-agent | Only when an admin presses Update; never checked or installed by themselves ([§6.8](#68-our-apt-repository)) | snapper snapshot of `@` |
 | App release | zoomriya-agent | When an admin presses Update | The previous image, plus the database dump if the schema changed |
 | App image security rebuild (same app code, newer Debian packages) | zoomriya-agent | By itself, in the maintenance hour | The previous image |
 | Models, street maps | The apps, as today | When an admin asks | As today |
@@ -360,12 +347,30 @@ an address for the box.
   taken first, so a restore can be undone too. Boot entries for kernels the
   restored OS doesn't have are removed, so the box never starts a kernel
   without its modules.
+- **A restore holds the bad update back.** Restoring to a point before an
+  update would otherwise only last until the next run, which installs the
+  same fix again. So the agent compares the packages in the restored point
+  with the ones it replaces, and holds each package the restore took back at
+  its restored version (`apt-mark hold`). Each night it lets a hold go once
+  Debian's security archive has a newer version than the one that was taken
+  back, so a corrected fix still installs by itself (`zoomriya-agent
+  release-holds`, just before the security fixes install). Box Desktop shows
+  the held packages on Restore & Reset ("Held back after a restore") with
+  Let it update for each, and the admin action is in the audit log. Holds
+  are kept on `@`, so restoring further back or Reset the system clears them;
+  a reset holds nothing.
 - **An interrupted update fixes itself.** If power was cut during an update,
   `zoomriya-base` runs `dpkg --configure -a` at the next boot, before anything
   else updates.
 - **The apps aren't restarted for it.** `needrestart` would restart services
   that use an updated library; the app units are excluded, since their images
   don't use the host's libraries.
+- **Check now, never off.** An admin can start the same job at once with
+  Check now on Control Panel › Security, for news of a serious hole or a box
+  that was off overnight (`security-check-now`, `zoomriya-security-now.service`:
+  the package lists from Debian's sources, the holds let go, then
+  unattended-upgrades with the same settings and restore points). There's no
+  switch to turn the security fixes off; only strict offline mode stops them.
 - **Restarts happen in the maintenance hour.** When a kernel or `libc` fix needs
   one, Box Desktop says "The box will restart at 3:30 tonight to finish a
   security update", with Restart now and a different hour. The maintenance
@@ -499,6 +504,37 @@ back if it doesn't come up. Because everything we add to Debian is already a pac
 (`zoomriya-base`, `zoomriya-agent`), mkosi builds those images from the same
 packages, and nothing changes for families.
 
+### 6.8 Our apt repository
+
+Our own packages (`zoomriya-base`, `zoomriya-agent`, `box-desktop-app`) come
+from our signed apt repository at **`apt.zoomriya.com`** (OS-8). It's the one
+place the box contacts us, so it's held to rules that keep it from becoming a
+box calling home:
+
+- **Only when an admin starts it.** The box never checks for our updates or
+  installs them by itself: not at night, not with the security fixes. Its
+  source is kept outside `sources.list.d`
+  (`/etc/apt/zoomriya-updates/zoomriya.sources`), so apt and the nightly
+  security fixes never read it; when an admin presses Update in Box Desktop,
+  the agent checks and installs with that source added for that update
+  alone, after a restore point. It's turned off (`Enabled: no`) until the
+  repository and its signing key exist.
+
+- **A name of our own,** never a hosting company's address, so the hosting can
+  move (a CDN, another server) without changing a single box.
+- **Plain signed files over HTTPS,** fetched by apt like Debian's. The box
+  sends nothing that names it: no box id, serial, setup code, account or
+  custom header, and no cookies. Our server sees only that an address
+  downloaded the package list.
+- **No logs kept** on our side, or only counts without addresses, and we say so
+  on zoomriya.com.
+- **Shown in Box Desktop** on Control Panel › Outbound connections, as
+  "ZOOMRIYA updates: the box's own software, only when an admin presses
+  Update". Strict offline mode turns it off.
+- **Updates from a USB stick** for a box with it turned off: the same signed
+  packages, downloaded from zoomriya.com on another computer, checked against
+  the same key before they're installed.
+
 ## 7. zoomriya-agent
 
 The one root helper the OS adds, socket-activated like Photos' `storaged`, and
@@ -515,13 +551,16 @@ arguments, never a command line:
 | `disk-health` | SMART for every drive, as "Healthy", "Check soon" or "Replace now" with the reason |
 | `apps` | Each app's active and previous release |
 | `app-update`, `app-restore` | [§6.2](#62-app-releases) |
+| `os-update` | ZOOMRIYA OS's own packages from `apt.zoomriya.com`, only when an admin presses Update ([§6.8](#68-our-apt-repository)) |
 | `os-upgrade` | [§6.6](#66-moving-to-debian-14) |
 | `restart`, `maintenance-hour` | Restart now, or set the hour |
+| `security-check-now` | The nightly security fixes, now ([§6.1](#61-debian-security-fixes)) |
 | `restore-point-list`, `restore-point-restore` | snapper snapshots of `@` |
+| `held`, `held-release` | The packages a restore held back, and letting one update again ([§6.1](#61-debian-security-fixes)) |
 | `support-mode` | Turn on key-only SSH for support's key, for at most 24 hours, then off by itself |
 | `factory-reset` | [§4](#4-boot-recovery-and-factory-reset) |
 | `diagnostics` | One bundle: the journal, versions, disk health, each app's diagnostics; no family data |
-| `storage`, `storage-check` | The library's space by what uses it, the mirror's state, a scrub now (for Box Desktop) |
+| `storage`, `storage-check` | The library's space by what uses it, the mirror's state when there are two drives, a scrub now (for Box Desktop) |
 | `resources` | CPU, memory, network, drive activity and temperatures, for the box and per app from its units' cgroups |
 | `network`, `security`, `time` | The box's network, its outbound connections, the firewall and security checks (read only), the clock |
 | `network-set`, `network-keep` | A port's fixed address or DHCP, undone after two minutes unless kept ([§5.2](#52-a-fixed-address)) |
@@ -529,7 +568,6 @@ arguments, never a command line:
 | `keyboard`, `keyboard-set` | The layout of a keyboard plugged into the box, in Debian's `/etc/default/keyboard`, from a fixed list |
 | `logs` | Box events, the audit log and admins' sign-ins, filtered, with no family content, a hundred entries at a time, newest first |
 | `shutdown` | Shut the box down |
-| `wifi` | List the networks in reach, join one, forget it ([§5.1](#51-wi-fi)); the password is passed once and never logged |
 | `advanced-access` | Turn advanced access on or off; list, add and remove its keys ([§7.1](#71-advanced-access)) |
 
 - Its socket is `0660`, group `zoomriya-box`.
@@ -551,7 +589,7 @@ running ZOOMRIYA OS on their own mini PC. Off by default.
 - **Keys only.** No password logins and no root login. You sign in as `admin`,
   which has `sudo`.
 - **From the home network only:** port 22 opens on the home interfaces
-  (Ethernet, and Wi-Fi when joined) while it's on, and never through ZOOMRIYA
+  (Ethernet) while it's on, and never through ZOOMRIYA
   Connect or from the internet.
 - **Adding a key, from a USB stick:** put the public key in a folder
   `zoomriya/ssh/` on any stick (`zoomriya/ssh/anna-laptop.pub`) and plug it into
@@ -606,11 +644,17 @@ are written down (the last table).
 VM test)
 
 - **Firewall:** nftables, inbound denied except 443 (connectd); on the home
-  network (Ethernet, and Wi-Fi when joined) mDNS, and SSH on 22 while advanced
+  network (Ethernet) mDNS, and SSH on 22 while advanced
   access or support mode is on ([§7.1](#71-advanced-access)); and DHCP. The
   first setup is on the box's own screen and listens on no port. connectd's short-block set (ZOOMRIYA
   Connect) lives in the same table. Checked: the rules, and that nothing else
   listens.
+- **No opening ports by hand.** Box Desktop has no place to type a port. The
+  OS opens what's above; later, each app declares the ports it needs, and the
+  agent opens them, on the home network only, when the app is installed and
+  closes them when it's removed. Box Desktop shows what's open in plain words
+  (Security › Allowed Network Connections), read only. Someone who wants
+  more uses advanced access ([§7.1](#71-advanced-access)), on their own.
 - **sysctl:** no forwarding, `rp_filter`, no ICMP redirects, full ASLR, no
   setuid core dumps.
 - **auditd:** changes to accounts, time and sudo, kernel modules loaded, and
@@ -637,7 +681,7 @@ VM test)
 | Common advice | Why not | Instead |
 | --- | --- | --- |
 | No mDNS (Avahi) | First boot and the phone app find the box with it | Allowed on the home network interfaces only |
-| Wireless interfaces off | A family may put the box where only Wi-Fi reaches ([§5.1](#51-wi-fi)) | Off until an admin joins a network; WPA2 or WPA3 only; firmware for the box's chip only; the same firewall rules as Ethernet; Bluetooth off |
+| Wireless interfaces off | None: the box uses the cable ([§5.1](#51-wi-fi)) | No Wi-Fi software or firmware, no Wi-Fi network settings; Bluetooth off |
 | A boot loader password | Nobody would ever type it | Secure Boot; the boot menu's editor off |
 | PAM password rules, lockout, password ageing | Families never log into Linux | ZOOMRIYA ID's rules: Argon2id, growing delays per account |
 | USB storage off | Backups and the reinstall stick use it | Plugged-in drives mounted `nosuid,nodev,noexec` by `storaged` |
@@ -714,7 +758,7 @@ contains, alongside the software bill of materials, both from the same build.
 | Disk image | Written to the system SSD at the factory |
 | Installer (USB) | Bring-your-own mini PC, and reinstalling |
 | Recovery image | The recovery partition |
-| `zoomriya-base`, `zoomriya-agent`, `box-desktop-app` (`.deb`) | Our own signed apt repository |
+| `zoomriya-base`, `zoomriya-agent`, `box-desktop-app` (`.deb`) | Our own signed apt repository, `apt.zoomriya.com` ([§6.8](#68-our-apt-repository)) |
 | App images | Built in zoomriya-apps, as Photos' are today |
 
 **The USB installer** (`mkosi/installer`, `zoomriya-installer`), for a
@@ -783,20 +827,20 @@ tests/             VM tests: first boot, updates, rollback, fallback
 
 | # | Decision | Options | State |
 | --- | --- | --- | --- |
-| OS-1 | Writable root now, read-only A/B later ([§6.7](#67-later-a-read-only-system)) | (a) writable with snapshots, (b) A/B from the first box | Leaning (a) |
-| OS-2 | Debian updates on the host | (a) all install by themselves, (b) all wait for the admin, (c) security fixes by themselves, the rest wait | Leaning (c) |
-| OS-3 | App image rebuilds for Debian security fixes | (a) wait for the admin's Update like any release, (b) install by themselves like the host's, (c) by themselves only when the app's code is unchanged | Leaning (c), [§6.3](#63-security-fixes-inside-app-images) |
-| OS-4 | The library mirror | (a) Btrfs RAID 1, (b) `mdadm` RAID 1 with ext4 | Leaning (a) |
+| OS-1 | Writable root now, read-only A/B later ([§6.7](#67-later-a-read-only-system)) | (a) writable with snapshots, (b) A/B from the first box | Decided (a) |
+| OS-2 | Debian updates on the host | (a) all install by themselves, (b) all wait for the admin, (c) security fixes by themselves, the rest wait | Decided (c), with a restore holding the bad update back ([§6.1](#61-debian-security-fixes)) |
+| OS-3 | App image rebuilds for Debian security fixes | (a) wait for the admin's Update like any release, (b) install by themselves like the host's, (c) by themselves only when the app's code is unchanged | Decided (c), [§6.3](#63-security-fixes-inside-app-images) |
+| OS-4 | The library mirror, when a box has two library drives (later; one for now) | (a) Btrfs RAID 1, (b) `mdadm` RAID 1 with ext4 | Decided (a) |
 | OS-5 | Boot loader | (a) systemd-boot with boot counting, if Debian 13's signed build works with shim on the box, (b) GRUB with a fallback entry | Leaning (a); to test on the box |
 | OS-6 | Reaching factory reset without signing in | (a) a USB stick with a reset file, (b) the recovery partition, chosen by holding a key at power-on, which needs a keyboard, (c) both | Leaning (c) |
-| OS-7 | Our own mirror of Debian's security archive ([§6.1](#61-debian-security-fixes)) | (a) not at first, (b) from the first box | Leaning (a) |
-| OS-8 | Where releases and our apt repository are hosted | `zoomriya.net` (control plane and guest page today) or a new name | Open |
+| OS-7 | Our own mirror of Debian's security archive ([§6.1](#61-debian-security-fixes)) | (a) not at first, (b) from the first box | Decided (a) |
+| OS-8 | Where releases and our apt repository are hosted | `zoomriya.net` (control plane and guest page today), `zoomriya.com` or GitHub | Decided for releases: the installer is downloaded from `zoomriya.com`, and GitHub gets only a tag with the source and release notes linking there. Our apt repository is `apt.zoomriya.com`, under the rules in [§6.8](#68-our-apt-repository) |
 | OS-9 | This repository's licence | MPL-2.0 like ZOOMRIYA Connect, with `TRADEMARKS.md` | Decided |
 | OS-10 | Box and maps state moving from `/var/lib` to `/data` ([§3](#3-the-disk)) | Move, or a subvolume each | Leaning move |
-| OS-11 | Disk encryption ([§3](#3-the-disk)) | (a) LUKS by default, unlocked by the TPM with Secure Boot, a recovery key shown once at setup, (b) optional, (c) LUKS with a passphrase at every boot | Open |
+| OS-11 | Disk encryption ([§3](#3-the-disk)) | (a) LUKS by default, unlocked by the TPM with Secure Boot, a recovery key shown once at setup, (b) optional, (c) LUKS with a passphrase at every boot, (d) none | Decided (d): no encryption |
 | OS-12 | Scheduling app updates ([§6.2](#62-app-releases)) | (a) only when an admin presses Update, (b) also on a schedule the admin chooses | Open |
 | OS-13 | Box Desktop's own decisions: Family Hub's Update button, notifications, where each admin's settings live | [Box Desktop §10](box-desktop.md#10-open-decisions) | Open |
-| OS-14 | Setting up over Wi-Fi, with no cable ([§5.1](#51-wi-fi)) | (a) not at first: setup needs the cable, (b) the box opens a setup hotspot named on the sticker, protected by the setup code | Leaning (a) |
+| OS-14 | Wi-Fi ([§5.1](#51-wi-fi)) | (a) the cable only: Wi-Fi stays off, (b) joined in Box Desktop after setup, (c) also a setup hotspot | Decided (a): Wi-Fi shown turned off on a box that has it, not shown on one that doesn't |
 
 ## 13. Plan
 
@@ -808,13 +852,15 @@ tests/             VM tests: first boot, updates, rollback, fallback
 3. **zoomriya-agent** with `status`, `restore-point-list`,
    `restore-point-restore`, `restart`, `maintenance-hour`, `disk-health`,
    `factory-reset`, `storage`, `storage-check`, `network` and `resources`,
-   and the maintenance hour's restart (done, and tested in a VM), then `apps`,
+   and the maintenance hour's restart (done, and tested in a VM), then `os-update`, `apps`,
    `app-update`, `app-restore`, and Box Desktop's first tools
    ([Box Desktop §11](box-desktop.md#11-plan)).
 4. **Security updates:** unattended-upgrades, snapper, restoring, boot
    counting, the health check that marks a new kernel good, and the
    maintenance hour (done, and tested in a VM across a kernel update, a
-   restore and a kernel that can't start); the CI job that rebuilds app
+   restore and a kernel that can't start); a restore holding back the
+   update it undid (done, [§6.1](#61-debian-security-fixes); a VM test of a
+   real hold still to come); the CI job that rebuilds app
    images when Debian fixes a package in them
    ([§6.3](#63-security-fixes-inside-app-images)).
 5. **First boot:** mDNS name and setup code (done); the first setup on the

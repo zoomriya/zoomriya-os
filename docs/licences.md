@@ -17,13 +17,12 @@ Debian's licences were read from the packages' own `copyright` files on Debian
 | Component | Licence | Commercial use | What it asks of us |
 | --- | --- | --- | --- |
 | Debian 13, `main` | Many free licences, all meeting the Debian Free Software Guidelines | Yes | GPL and LGPL: offer the source of what we ship (below). Don't call the product Debian or use its logo |
-| Debian `non-free-firmware` (CPU microcode, Ethernet and Wi-Fi firmware) | Each vendor's own; redistribution allowed | Yes | Ship only what the box's hardware needs, with each licence file: Wi-Fi firmware for the box's own chip only |
+| Debian `non-free-firmware` (CPU microcode, Ethernet firmware) | Each vendor's own; redistribution allowed | Yes | Ship only what the box's hardware needs, with each licence file; no Wi-Fi firmware ([Design §5.1](design.md#51-wi-fi)) |
 | Linux kernel, Btrfs | GPL-2.0 | Yes | Source |
 | systemd, systemd-nspawn, machinectl, systemd-boot | LGPL-2.1+, some GPL-2.0 | Yes | Source |
 | apt, unattended-upgrades, needrestart, snapper | GPL-2.0 | Yes | Source |
 | smartmontools (drives' health, [Design §7](design.md#7-zoomriya-agent)) | GPL-2.0+ | Yes | Source |
 | console-setup and keyboard-configuration (the keyboard layout on the box's own screen) | GPL-2.0+ | Yes | Source |
-| iwd (Wi-Fi, [Design §5.1](design.md#51-wi-fi)) | LGPL-2.1+ | Yes | Source |
 | OpenSSH server (support mode and advanced access, [Design §7.1](design.md#71-advanced-access)) | BSD-style (OpenSSH's own licence) | Yes | Keep the notices |
 | nftables, auditd, AppArmor, AIDE, Avahi | GPL-2.0 or LGPL-2.1+ | Yes | Source |
 | PostgreSQL 17 | PostgreSQL Licence (BSD-like) | Yes | Keep the notice |
@@ -31,6 +30,7 @@ Debian's licences were read from the packages' own `copyright` files on Debian
 | GTK 4, PyGObject, librsvg (the first setup's app, the installer and Box Desktop on the screen; librsvg draws their icons) | LGPL-2.1+ | Yes | Source |
 | PipeWire, WirePlumber (Box Desktop's sound) | MIT | Yes | Keep the notices |
 | Adwaita icon theme (the first setup's icons) | LGPL-3.0 or CC-BY-SA-3.0 | Yes | Source, or the attribution |
+| Box Desktop's line icons and tool tiles (`box_desktop/icons.py`), drawn for ZOOMRIYA OS, none taken from an icon set | MPL-2.0, with this repository | Yes, ours | Nothing more |
 | efibootmgr (the installer's boot entry, on the USB stick only) | GPL-2.0+ | Yes | Source |
 | erofs-utils (builds the USB stick's read-only system; not shipped) | GPL-2.0+ | Yes; a build tool | Nothing |
 | locales (glibc's language data: the box's language, [Design §5](design.md#5-first-boot)) | LGPL-2.1+ | Yes | Source |

@@ -134,13 +134,13 @@ plain words.
 | | Date and time | The date and time now, the time zone, whether the clock is set from the internet | `setup-status`, `time-zone-set` |
 | | Restarts | The maintenance hour, a planned restart, Restart now, Shut down | `maintenance-hour`, `restart`, `shutdown` *new* |
 | Updates | Update and restore | Debian's security fixes (installed by themselves, with the last one's date), ZOOMRIYA OS 14 when it's offered ([Design §6.6](design.md#66-moving-to-debian-14)), the update history | `status`, `os-upgrade` |
-| | Restore & Reset | From the mildest fix to the most drastic: the restore points (the OS's snapshots by date, and Restore to this point); Reset the system; and apart at the bottom, Erase everything ([Design §4](design.md#4-boot-recovery-and-factory-reset)). Each asks for the admin's password again; Erase everything also for the setup code | `restore-point-list`, `restore-point-restore`, `factory-reset` |
+| | Restore & Reset | From the mildest fix to the most drastic: the restore points (the OS's snapshots by date, and Restore to this point); the updates a restore held back, with Let it update ([Design §6.1](design.md#61-debian-security-fixes)); Reset the system; and apart at the bottom, Erase everything ([Design §4](design.md#4-boot-recovery-and-factory-reset)). Each asks for the admin's password again; Erase everything also for the setup code | `restore-point-list`, `restore-point-restore`, `held`, `held-release`, `factory-reset` |
 | Family | Family members | A link to Family Hub's Manage Family: accounts belong to ZOOMRIYA ID, not to the OS | none |
 | Network | This box on the network | The box's name, each port's address, the router, the cable's speed, and whether ZOOMRIYA Connect is on (it needs the cable); each Ethernet port by DHCP or a fixed address, with Keep these settings ([Design §5.2](design.md#52-a-fixed-address)) | `network`, `network-set`, `network-keep` |
-| | Wi-Fi | Join the home Wi-Fi, its signal, Forget; says that reaching the box away from home still needs the cable ([Design §5.1](design.md#51-wi-fi)) | `wifi` *new* |
+| | Wi-Fi | Only on a box with a Wi-Fi chip: Wi-Fi turned off and greyed out, "The box connects to the router by a cable" ([Design §5.1](design.md#51-wi-fi), OS-14) | `network` |
 | | Remote access | A link to Family Hub's Remote access page, where ZOOMRIYA Connect's settings are | none |
 | | Outbound connections | What the box connects to and why, with the switches ([Design §6.1](design.md#61-debian-security-fixes)) | `network` *new* |
-| Security | Security & Privacy | Security updates (automatic, the last installed); the firewall, what it lets in and why, read only; the last file integrity check and what changed, AppArmor, Secure Boot; Privacy: that the box reports nothing about the family, and every host on the internet it connects to and why | `security` |
+| Security | Security & Privacy | Security updates (automatic, the last installed, Check now to install them at once; never off); the firewall, what it lets in and why in plain words, read only (no opening ports by hand, [Design §8](design.md#8-hardening)); the last file integrity check and what changed, AppArmor, Secure Boot; Privacy: that the box reports nothing about the family, and every host on the internet it connects to and why | `security`, `security-check-now` |
 | | Notifications | Each kind of notification on or off, for this admin, and See past notifications (Log Center) | none (Box Desktop's own) |
 | | Advanced access | SSH for admins: on or off, the keys (added from a USB stick or pasted), the box's host key fingerprint ([Design §7.1](design.md#71-advanced-access)) | `advanced-access` *new* |
 | | Support mode | Turn on for 1 to 24 hours, the time left, Turn off now | `support-mode` |
@@ -150,11 +150,11 @@ plain words.
 
 | Section | What's in it | From |
 | --- | --- | --- |
-| Overview | The library's space used and free, the mirror's state, each drive's health in one line | `storage` *new*, `disk-health` |
+| Overview | The library's space used and free, the mirror's state when there are two drives, each drive's health in one line | `storage` *new*, `disk-health` |
 | Drives | Each drive: its place, model, size, hours on, temperature, health ("Healthy", "Check soon", "Replace now" with the reason), and its SMART details under Details | `disk-health` |
 | Space | What takes the space: photos and videos, each app's data, the databases, models and maps, restore points | `storage` *new* |
-| Checks | The mirror's last and next check (a Btrfs scrub, OS-4), Check now, what it repaired | `storage` *new*, `storage-check` *new* |
-| Replace a drive | Step by step, with pictures of the box: which drive, when it's safe to pull it, and the rebuild's progress | `storage` *new* |
+| Checks | The library's last and next check (a Btrfs scrub, OS-4), Check now, what it found, and what it repaired when there are two drives | `storage` *new*, `storage-check` *new* |
+| Replace a drive | With two drives (later): step by step, with pictures of the box: which drive, when it's safe to pull it, and the rebuild's progress | `storage` *new* |
 
 Box Desktop never formats, mounts or unmounts a drive itself; that stays with
 Photos' `storaged`, and the Replace a drive steps call it through the agent.
@@ -235,13 +235,14 @@ the box's screen (tty1)
   its own screen and session: the keyboard's layout and the mouse while it
   runs, the screen's resolution while an admin tries it (kept for the box by
   the agent's `display-set`), and the sound's volume.
-- **Each admin's own settings:** one record per admin in Box Desktop's state
-  folder (`/var/lib/box-desktop-app/admins`), named by a hash of their member
+- **Each admin's own settings:** one record per admin in
+  `/data/zoomriya/admin`, named by a hash of their member
   id, readable by its account only: the theme, the keyboard layout and the
   mouse, the notifications they've turned off or read, and their desktop
   (windows, where they were). Written whole (a new file, then renamed), and
-  checked when read, so a damaged one is the defaults. Where these should
-  live so an OS restore doesn't take them back is BD-4.
+  checked when read, so a damaged one is the defaults. On `@data`, so an OS
+  restore or Reset the system doesn't take them back; Erase everything does
+  (BD-4).
 - **Packaged with the OS**, as a `.deb` from our apt repository like
   `zoomriya-base` and `zoomriya-agent`; it updates with ZOOMRIYA OS's own
   releases, not with the apps.
@@ -298,7 +299,7 @@ agent; Erase everything also needs the setup code from the sticker.
 | BD-1 | Its name | Box Desktop: the package `box-desktop-app` | Decided |
 | BD-2 | Family Hub's own Update button | (a) keep a short Update / Restore on Family Hub's box card, (b) only the box's health there, with updates on the box's screen | Open |
 | BD-3 | Notifications reaching an admin's phone | (a) Family Hub's notifications show the important ones, (b) Box Desktop only | Leaning (a) |
-| BD-4 | Where each admin's settings live | (a) Box Desktop's state folder on `@`, as now, which an OS restore takes back to the restore point's, (b) under `/data`, which a restore doesn't touch ([Design §3](design.md#3-the-disk), OS-10) | Open |
+| BD-4 | Where each admin's settings live | (a) Box Desktop's state folder on `@`, which an OS restore takes back to the restore point's, (b) under `/data`, which a restore doesn't touch ([Design §3](design.md#3-the-disk), OS-10) | Decided (b): `/data/zoomriya/admin` |
 
 ## 11. Plan
 
@@ -310,7 +311,7 @@ agent; Erase everything also needs the setup code from the sticker.
 2. **Control Panel.** Done: Network (each port, DHCP or a fixed address with
    Keep these settings), Display, Sound, Keyboard & Mouse, Language & Region,
    Date and time, Notifications, Security, Restarts, Restore & Reset,
-   System Info. Next: Wi-Fi, Outbound connections, Advanced access,
+   System Info, and Wi-Fi shown turned off. Next: Outbound connections, Advanced access,
    Support mode, Update and restore.
 3. **Storage Manager, Resource Monitor and Log Center.** Done: Storage
    Manager's Overview, Drives and Space; Resource Monitor's Overview, By app
