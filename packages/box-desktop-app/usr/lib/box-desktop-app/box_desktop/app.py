@@ -120,7 +120,7 @@ def alive(widget: Gtk.Widget) -> bool:
 
 
 def wallpaper() -> Gtk.Widget:
-    picture = Gtk.Picture.new_for_filename(str(HERE / "assets" / "wallpaper.svg"))
+    picture = Gtk.Picture.new_for_filename(str(HERE / "assets" / "wallpaper.jpg"))
     picture.set_content_fit(Gtk.ContentFit.COVER)
     picture.set_can_shrink(True)
     picture.set_hexpand(True)

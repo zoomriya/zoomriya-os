@@ -10,7 +10,7 @@ window {
   --muted: #56636f;
   --panel: #ffffff;
   --sidebar: #f6f8fa;
-  --taskbar: rgba(255, 255, 255, 0.66);
+  --taskbar: rgba(255, 255, 255, 0.92);
   --line: #e5eaf0;
   --line-strong: #cdd5dd;
   --hover: rgba(118, 118, 128, 0.12);
@@ -34,7 +34,8 @@ window {
   --button: #ffffff;
   --button-hover: #f6f8fa;
   --hairline: rgba(0, 0, 0, 0.08);
-  --glass: rgba(255, 255, 255, 0.72);
+  /* Solid enough to read over a photo, with a hint of it showing. */
+  --glass: rgba(255, 255, 255, 0.94);
   /* The launcher: a little see-through, its icons not (they're drawn on it). */
   --glass-over: rgba(255, 255, 255, 0.8);
   /* Glass's light inner edge. */
@@ -58,7 +59,7 @@ window.midnight {
   --muted: #838b9f;
   --panel: #181d2b;
   --sidebar: #131724;
-  --taskbar: rgba(17, 21, 33, 0.62);
+  --taskbar: rgba(17, 21, 33, 0.92);
   --line: rgba(255, 255, 255, 0.08);
   --line-strong: rgba(255, 255, 255, 0.14);
   --hover: rgba(255, 255, 255, 0.08);
@@ -76,7 +77,7 @@ window.midnight {
   --button: rgba(255, 255, 255, 0.04);
   --button-hover: rgba(255, 255, 255, 0.09);
   --hairline: rgba(255, 255, 255, 0.08);
-  --glass: rgba(24, 29, 43, 0.7);
+  --glass: rgba(24, 29, 43, 0.94);
   --glass-over: rgba(24, 29, 43, 0.8);
   --glass-edge: rgba(255, 255, 255, 0.1);
   --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.3), 0 4px 16px rgba(0, 0, 0, 0.3);

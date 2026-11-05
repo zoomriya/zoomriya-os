@@ -31,6 +31,7 @@ Debian's licences were read from the packages' own `copyright` files on Debian
 | PipeWire, WirePlumber (Box Desktop's sound) | MIT | Yes | Keep the notices |
 | Adwaita icon theme (only the small icons GTK draws inside its own controls: a dropdown's arrow, a search field's magnifier, a password's eye; none of ours) | LGPL-3.0 or CC-BY-SA-3.0 | Yes | Source, or the attribution |
 | Our icons: Box Desktop's line icons and tool tiles (`box_desktop/icons.py`) and the installer's (`zoomriya_installer/icons.py`), drawn for ZOOMRIYA OS, none taken from an icon set | MPL-2.0, with this repository | Yes, ours | Nothing more |
+| Box Desktop's wallpaper (`box_desktop/assets/wallpaper.jpg`), made for ZOOMRIYA with Adobe Firefly | Adobe's terms: Firefly images may be used commercially | Yes | Nothing |
 | efibootmgr (the installer's boot entry, on the USB stick only) | GPL-2.0+ | Yes | Source |
 | erofs-utils (builds the USB stick's read-only system; not shipped) | GPL-2.0+ | Yes; a build tool | Nothing |
 | locales (glibc's language data: the box's language, [Design §5](design.md#5-first-boot)) | LGPL-2.1+ | Yes | Source |
