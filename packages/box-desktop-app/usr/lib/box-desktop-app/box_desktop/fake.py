@@ -32,7 +32,7 @@ class FakeBoxAgent(FakeAgent):
         if op == "status":
             return {"os": "ZOOMRIYA OS 13", "image_version": "2026.11.4",
                     "uptime_seconds": 3 * 86400 + 4 * 3600 + 120, "restart_needed": True,
-                    "restart_reasons": ["update: linux-image-6.12.116+deb13.1-amd64"], "maintenance_hour": "03:30",
+                    "restart_reasons": ["update: linux-image-6.12.116+deb13.1-amd64"], "maintenance_hour": "03:30", "always_on": True,
                     "last_security_update": "2026-11-03T03:31:00Z",
                     "last_update_check": "2026-11-03T03:30:00Z", "model": "ASUS NUC 14 Pro",
                     "serial": "G6RVH40712", "debian": "13.2", "base": "13.0.0",

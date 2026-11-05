@@ -1,0 +1,1786 @@
+# box-desktop-app: zh_CN. Made by scripts/i18n.py extract; translate the empty msgstr.
+# "fuzzy": a draft still to be checked by a native speaker.
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: zh_CN\n"
+
+#: app.py:54
+#, fuzzy
+msgid "Control Panel"
+msgstr "控制面板"
+
+#: app.py:55
+#, fuzzy
+msgid "Storage Manager"
+msgstr "存储管理器"
+
+#: app.py:56
+#, fuzzy
+msgid "Resource Monitor"
+msgstr "资源监视器"
+
+#: app.py:57
+#, fuzzy
+msgid "Log Center"
+msgstr "日志中心"
+
+#: app.py:194
+#, fuzzy
+msgid "Sign in with your ZOOMRIYA ID"
+msgstr "使用您的 ZOOMRIYA ID 登录"
+
+#: app.py:495
+#, fuzzy
+msgid "Restart the box"
+msgstr "重启盒子"
+
+#: app.py:496
+#, fuzzy
+msgid "Sign out"
+msgstr "退出登录"
+
+#: app.py:593
+#, fuzzy
+msgid "Box health"
+msgstr "盒子状态"
+
+#: app.py:604
+#, fuzzy
+msgid "Checking the box…"
+msgstr "正在检查盒子…"
+
+#: app.py:613
+#, fuzzy
+msgid "CPU and memory"
+msgstr "CPU 和内存"
+
+#: app.py:634 app.py:811 tools.py:647
+#, fuzzy
+msgid "Space"
+msgstr "空间"
+
+#: app.py:105
+#, fuzzy
+msgid "1 day"
+msgstr "1 天"
+
+#: app.py:106
+#, fuzzy
+msgid "1 hour"
+msgstr "1 小时"
+
+#: app.py:196
+#, fuzzy
+msgid "Username"
+msgstr "用户名"
+
+#: app.py:197
+#, fuzzy
+msgid "Password"
+msgstr "密码"
+
+#: app.py:207
+#, fuzzy
+msgid "Sign in"
+msgstr "登录"
+
+#: app.py:291
+#, fuzzy
+msgid "Daylight"
+msgstr "浅色"
+
+#: app.py:291 app.py:453
+#, fuzzy
+msgid "Midnight"
+msgstr "深色"
+
+#: app.py:383
+#, fuzzy
+msgid "Main menu"
+msgstr "主菜单"
+
+#: app.py:406 app.py:737 app.py:817 app.py:803
+#, fuzzy
+msgid "Notifications"
+msgstr "通知"
+
+#: app.py:447 app.py:506
+#, fuzzy
+msgid "Search tools"
+msgstr "搜索工具"
+
+#: app.py:461
+#, fuzzy
+msgid "Widgets"
+msgstr "小组件"
+
+#: app.py:618 tools.py:688
+#, fuzzy
+msgid "CPU"
+msgstr "CPU"
+
+#: app.py:626 control.py:851 tools.py:443 tools.py:688
+#, fuzzy
+msgid "Memory"
+msgstr "内存"
+
+#: app.py:753
+#, fuzzy
+msgid "See all in Log Center"
+msgstr "在日志中心查看全部"
+
+#: app.py:816
+#, fuzzy
+msgid "Box events"
+msgstr "盒子事件"
+
+#: app.py:818
+#, fuzzy
+msgid "Admin actions"
+msgstr "管理员操作"
+
+#: app.py:819
+#, fuzzy
+msgid "Sign-ins"
+msgstr "登录记录"
+
+#: app.py:820
+#, fuzzy
+msgid "System log"
+msgstr "系统日志"
+
+#: app.py:107
+#, fuzzy
+msgid "{n} minutes"
+msgstr "{n} 分钟"
+
+#: app.py:348
+#, fuzzy
+msgid "{box}: sign in with your ZOOMRIYA ID"
+msgstr "{box}：使用您的 ZOOMRIYA ID 登录"
+
+#: app.py:427 app.py:799
+#, fuzzy
+msgid "Sound"
+msgstr "声音"
+
+#: app.py:433
+#, fuzzy
+msgid "Speakers"
+msgstr "扬声器"
+
+#: app.py:439
+#, fuzzy
+msgid "Sound settings"
+msgstr "声音设置"
+
+#: app.py:670 control.py:639
+#, fuzzy
+msgid "Needs a look"
+msgstr "需要查看"
+
+#: app.py:670
+#, fuzzy
+msgid "Everything's fine"
+msgstr "一切正常"
+
+#: app.py:678 app.py:810 tools.py:402
+#, fuzzy
+msgid "Drives"
+msgstr "磁盘"
+
+#: app.py:679
+#, fuzzy
+msgid "Security fixes"
+msgstr "安全修复"
+
+#: app.py:711 tools.py:384
+#, fuzzy
+msgid "The box's own disk"
+msgstr "盒子自身的磁盘"
+
+#: app.py:739
+#, fuzzy
+msgid "Mark all read"
+msgstr "全部标为已读"
+
+#: app.py:745
+#, fuzzy
+msgid "Nothing new."
+msgstr "没有新消息。"
+
+#: app.py:796 control.py:41 tools.py:462
+#, fuzzy
+msgid "Network"
+msgstr "网络"
+
+#: app.py:797 control.py:245
+#, fuzzy
+msgid "Display"
+msgstr "显示"
+
+#: app.py:809 app.py:813
+#, fuzzy
+msgid "Overview"
+msgstr "概览"
+
+#: app.py:814 tools.py:679
+#, fuzzy
+msgid "By app"
+msgstr "按应用"
+
+#: app.py:815 control.py:853 tools.py:711 tools.py:419
+#, fuzzy
+msgid "Temperature"
+msgstr "温度"
+
+#: app.py:105 tools.py:421
+#, fuzzy
+msgid "{n} days"
+msgstr "{n} 天"
+
+#: app.py:106
+#, fuzzy
+msgid "{n} hours"
+msgstr "{n} 小时"
+
+#: app.py:672
+#, fuzzy
+msgid "ZOOMRIYA OS 13 · up {time}"
+msgstr "ZOOMRIYA OS 13 · 已运行 {time}"
+
+#: app.py:678
+#, fuzzy
+msgid "All healthy"
+msgstr "全部正常"
+
+#: app.py:682 tools.py:160
+#, fuzzy
+msgid "Restart"
+msgstr "重启"
+
+#: app.py:682
+#, fuzzy
+msgid "Needed"
+msgstr "需要"
+
+#: app.py:699
+#, fuzzy
+msgid "Restart needed"
+msgstr "需要重启"
+
+#: app.py:707
+#, fuzzy
+msgid "<b>{used}</b> <small>of {total} used</small>"
+msgstr "<b>{used}</b> <small>/ {total} 已用</small>"
+
+#: app.py:712
+#, fuzzy
+msgid "Library drives mirrored"
+msgstr "资料库磁盘已镜像"
+
+#: app.py:713 tools.py:381
+#, fuzzy
+msgid "Library"
+msgstr "资料库"
+
+#: app.py:785
+#, fuzzy
+msgid "{used} of {total}"
+msgstr "{used} / {total}"
+
+#: app.py:800
+#, fuzzy
+msgid "Keyboard & Mouse"
+msgstr "键盘和鼠标"
+
+#: app.py:801 control.py:509
+#, fuzzy
+msgid "Language & Region"
+msgstr "语言和地区"
+
+#: app.py:802
+#, fuzzy
+msgid "Date and time"
+msgstr "日期和时间"
+
+#: app.py:804
+#, fuzzy
+msgid "Security"
+msgstr "安全"
+
+#: app.py:805 control.py:38
+#, fuzzy
+msgid "Restarts"
+msgstr "重启"
+
+#: app.py:806
+#, fuzzy
+msgid "Restore & Reset"
+msgstr "还原与重置"
+
+#: app.py:807
+#, fuzzy
+msgid "System Info"
+msgstr "系统信息"
+
+#: app.py:691
+#, fuzzy
+msgid "Checking the library · {percent}%"
+msgstr "正在检查资料库 · {percent}%"
+
+#: app.py:678
+#, fuzzy
+msgid "{n} need checking"
+msgstr "{n} 个需要检查"
+
+#: control.py:35
+#, fuzzy
+msgid "Drive Health"
+msgstr "磁盘健康"
+
+#: control.py:35
+#, fuzzy
+msgid "When to check or replace, and when healthy."
+msgstr "何时需要检查或更换，以及何时恢复正常。"
+
+#: control.py:37
+#, fuzzy
+msgid "Updates"
+msgstr "更新"
+
+#: control.py:37
+#, fuzzy
+msgid "When security fixes are installed."
+msgstr "安装了安全修复时。"
+
+#: control.py:38
+#, fuzzy
+msgid "Auto-restart schedule for updates and restores."
+msgstr "更新和还原的自动重启时间。"
+
+#: control.py:40
+#, fuzzy
+msgid "Library Check"
+msgstr "资料库检查"
+
+#: control.py:40
+#, fuzzy
+msgid "Library scan completion time and results."
+msgstr "资料库扫描的完成时间和结果。"
+
+#: control.py:41
+#, fuzzy
+msgid "Network settings weren't kept and were rolled back."
+msgstr "网络设置未保留，已撤销。"
+
+#: control.py:92 control.py:136
+#, fuzzy
+msgid "Configuration Details"
+msgstr "配置详情"
+
+#: control.py:92
+#, fuzzy
+msgid "New settings are tried for a few minutes and revert unless kept."
+msgstr "新设置会先试用几分钟，如未保留则自动恢复。"
+
+#: control.py:417
+#, fuzzy
+msgid "Output"
+msgstr "输出"
+
+#: control.py:428
+#, fuzzy
+msgid "Input"
+msgstr "输入"
+
+#: control.py:445
+#, fuzzy
+msgid "Keyboard"
+msgstr "键盘"
+
+#: control.py:463
+#, fuzzy
+msgid "Mouse"
+msgstr "鼠标"
+
+#: control.py:475
+#, fuzzy
+msgid "Scroll direction"
+msgstr "滚动方向"
+
+#: control.py:523
+#, fuzzy
+msgid "State or Province"
+msgstr "州或省"
+
+#: control.py:523
+#, fuzzy
+msgid "Optional."
+msgstr "可选。"
+
+#: control.py:584
+#, fuzzy
+msgid "Date & Time"
+msgstr "日期和时间"
+
+#: control.py:594
+#, fuzzy
+msgid "Time Sync"
+msgstr "时间同步"
+
+#: control.py:712
+#, fuzzy
+msgid "No identifying data is sent."
+msgstr "不会发送任何身份识别数据。"
+
+#: control.py:730
+#, fuzzy
+msgid "AppArmor"
+msgstr "AppArmor"
+
+#: control.py:758
+#, fuzzy
+msgid "Security Updates"
+msgstr "安全更新"
+
+#: control.py:802
+#, fuzzy
+msgid "Show Notifications For"
+msgstr "显示以下通知"
+
+#: control.py:105
+#, fuzzy
+msgid "IP Address Assignment Method"
+msgstr "IP 地址分配方式"
+
+#: control.py:105
+#, fuzzy
+msgid "From the router (DHCP), or a fixed static address."
+msgstr "由路由器分配（DHCP），或固定的静态地址。"
+
+#: control.py:110
+#, fuzzy
+msgid "Box's address"
+msgstr "盒子的地址"
+
+#: control.py:111
+#, fuzzy
+msgid "Subnet mask"
+msgstr "子网掩码"
+
+#: control.py:112
+#, fuzzy
+msgid "Router"
+msgstr "路由器"
+
+#: control.py:112
+#, fuzzy
+msgid "Name servers"
+msgstr "域名服务器"
+
+#: control.py:122
+#, fuzzy
+msgid "Use these settings"
+msgstr "应用"
+
+#: control.py:124
+#, fuzzy
+msgid "Keep them"
+msgstr "保留"
+
+#: control.py:254
+#, fuzzy
+msgid "Go back"
+msgstr "恢复"
+
+#: control.py:255
+#, fuzzy
+msgid "Keep"
+msgstr "保留"
+
+#: control.py:418
+#, fuzzy
+msgid "Play a test sound"
+msgstr "播放测试声音"
+
+#: control.py:424
+#, fuzzy
+msgid "Output Device"
+msgstr "输出设备"
+
+#: control.py:425
+#, fuzzy
+msgid "Output Volume"
+msgstr "输出音量"
+
+#: control.py:429
+#, fuzzy
+msgid "Input Device"
+msgstr "输入设备"
+
+#: control.py:430
+#, fuzzy
+msgid "Input Volume"
+msgstr "输入音量"
+
+#: control.py:434
+#, fuzzy
+msgid "Input Level"
+msgstr "输入电平"
+
+#: control.py:434
+#, fuzzy
+msgid "Speak to see it move."
+msgstr "说话即可看到变化。"
+
+#: control.py:447
+#, fuzzy
+msgid "Input Layout"
+msgstr "输入布局"
+
+#: control.py:465
+#, fuzzy
+msgid "Primary click side"
+msgstr "主按键"
+
+#: control.py:465
+#, fuzzy
+msgid "The other button opens menus."
+msgstr "另一个按键用于打开菜单。"
+
+#: control.py:467
+#, fuzzy
+msgid "Cursor Speed"
+msgstr "指针速度"
+
+#: control.py:472
+#, fuzzy
+msgid "Dynamic Cursor Acceleration"
+msgstr "指针加速"
+
+#: control.py:472
+#, fuzzy
+msgid "Moves further when the mouse moves fast."
+msgstr "鼠标移动越快，指针移得越远。"
+
+#: control.py:479
+#, fuzzy
+msgid "Screen moves (view)"
+msgstr "画面移动（视图）"
+
+#: control.py:479
+#, fuzzy
+msgid "Scrolling moves the visible part of the page."
+msgstr "滚动时移动页面的可见部分。"
+
+#: control.py:481
+#, fuzzy
+msgid "Content moves (finger)"
+msgstr "内容移动（手指）"
+
+#: control.py:481
+#, fuzzy
+msgid "Content follows your finger, like on a phone."
+msgstr "内容跟随您的手指，就像在手机上一样。"
+
+#: control.py:516
+#, fuzzy
+msgid "Language"
+msgstr "语言"
+
+#: control.py:516
+#, fuzzy
+msgid "For the box's screens and messages."
+msgstr "用于盒子的屏幕和消息。"
+
+#: control.py:518
+#, fuzzy
+msgid "Country or Region"
+msgstr "国家或地区"
+
+#: control.py:518
+#, fuzzy
+msgid "Sets date, time and number formats."
+msgstr "设置日期、时间和数字格式。"
+
+#: control.py:590
+#, fuzzy
+msgid "Current Time"
+msgstr "当前时间"
+
+#: control.py:590
+#, fuzzy
+msgid "On the box's clock."
+msgstr "以盒子的时钟为准。"
+
+#: control.py:591
+#, fuzzy
+msgid "Time Zone"
+msgstr "时区"
+
+#: control.py:591
+#, fuzzy
+msgid "The box's dates and times follow it."
+msgstr "盒子的日期和时间以它为准。"
+
+#: control.py:652
+#, fuzzy
+msgid "Protection"
+msgstr "保护"
+
+#: control.py:661
+#, fuzzy
+msgid "Not yet: files are checked nightly."
+msgstr "尚未检查：每晚检查一次文件。"
+
+#: control.py:673
+#, fuzzy
+msgid "Allowed Inbound Connections"
+msgstr "允许的传入连接"
+
+#: control.py:673
+#, fuzzy
+msgid "Everything else is blocked."
+msgstr "其他所有连接均被阻止。"
+
+#: control.py:684
+#, fuzzy
+msgid "Outbound Internet Connections"
+msgstr "传出的互联网连接"
+
+#: control.py:697 control.py:677
+#, fuzzy
+msgid "Allowed"
+msgstr "已允许"
+
+#: control.py:700 control.py:861
+#, fuzzy
+msgid "Details"
+msgstr "详情"
+
+#: control.py:757 control.py:767 tools.py:617
+#, fuzzy
+msgid "Check now"
+msgstr "立即检查"
+
+#: control.py:769
+#, fuzzy
+msgid "Auto updates every night."
+msgstr "每晚自动更新。"
+
+#: control.py:769
+#, fuzzy
+msgid "Auto updates are off."
+msgstr "自动更新已关闭。"
+
+#: control.py:799
+#, fuzzy
+msgid "See past notifications"
+msgstr "查看以往通知"
+
+#: control.py:104
+#, fuzzy
+msgid "DHCP"
+msgstr "DHCP"
+
+#: control.py:104 control.py:168
+#, fuzzy
+msgid "Static"
+msgstr "静态"
+
+#: control.py:166
+#, fuzzy
+msgid "Connection: Connected"
+msgstr "连接：已连接"
+
+#: control.py:194
+#, fuzzy
+msgid "Ethernet"
+msgstr "以太网"
+
+#: control.py:198
+#, fuzzy
+msgid "Wi-Fi (Wireless Network)"
+msgstr "Wi-Fi（无线网络）"
+
+#: control.py:246
+#, fuzzy
+msgid "No screen to set here"
+msgstr "没有可设置的屏幕"
+
+#: control.py:246
+#, fuzzy
+msgid "For a screen plugged into the box."
+msgstr "用于接在盒子上的屏幕。"
+
+#: control.py:272
+#, fuzzy
+msgid "Orientation"
+msgstr "方向"
+
+#: control.py:272
+#, fuzzy
+msgid "Landscape or portrait."
+msgstr "横向或纵向。"
+
+#: control.py:274
+#, fuzzy
+msgid "Resolution"
+msgstr "分辨率"
+
+#: control.py:274
+#, fuzzy
+msgid "Higher is sharper, with smaller items."
+msgstr "越高越清晰，内容也越小。"
+
+#: control.py:276
+#, fuzzy
+msgid "Screen Update Rate"
+msgstr "刷新率"
+
+#: control.py:276
+#, fuzzy
+msgid "How smoothly things move on the screen."
+msgstr "屏幕上运动的流畅程度。"
+
+#: control.py:278
+#, fuzzy
+msgid "Text & UI Scaling"
+msgstr "文字和界面缩放"
+
+#: control.py:278
+#, fuzzy
+msgid "Size of text and everything on screen."
+msgstr "文字及屏幕上所有内容的大小。"
+
+#: control.py:388
+#, fuzzy
+msgid "None found"
+msgstr "未找到"
+
+#: control.py:397
+#, fuzzy
+msgid "Mute"
+msgstr "静音"
+
+#: control.py:421
+#, fuzzy
+msgid "Test"
+msgstr "测试"
+
+#: control.py:467
+#, fuzzy
+msgid "Slow"
+msgstr "慢"
+
+#: control.py:467
+#, fuzzy
+msgid "Fast"
+msgstr "快"
+
+#: control.py:607
+#, fuzzy
+msgid "Set by itself from the internet."
+msgstr "已通过互联网自动设置。"
+
+#: control.py:608
+#, fuzzy
+msgid "Syncs once the box is online."
+msgstr "盒子联网后即会同步。"
+
+#: control.py:611
+#, fuzzy
+msgid "In sync"
+msgstr "已同步"
+
+#: control.py:611
+#, fuzzy
+msgid "Not yet in sync"
+msgstr "尚未同步"
+
+#: control.py:654
+#, fuzzy
+msgid "Firewall"
+msgstr "防火墙"
+
+#: control.py:656
+#, fuzzy
+msgid "Secure Boot"
+msgstr "安全启动"
+
+#: control.py:658
+#, fuzzy
+msgid "OS Update"
+msgstr "系统更新"
+
+#: control.py:668
+#, fuzzy
+msgid "Last System Scan"
+msgstr "上次系统扫描"
+
+#: control.py:674
+#, fuzzy
+msgid "What devices on your network can reach on this box."
+msgstr "您网络中的设备可以访问这台盒子上的哪些服务。"
+
+#: control.py:685
+#, fuzzy
+msgid "For updates and the time. No identifying data is sent."
+msgstr "用于更新和校准时间。不会发送任何身份识别数据。"
+
+#: control.py:710
+#, fuzzy
+msgid "Address: {host}"
+msgstr "地址：{host}"
+
+#: control.py:767
+#, fuzzy
+msgid "Checking…"
+msgstr "正在检查…"
+
+#: control.py:771
+#, fuzzy
+msgid "No update yet."
+msgstr "暂无更新。"
+
+#: control.py:772
+#, fuzzy
+msgid "Installing security updates now."
+msgstr "正在安装安全更新。"
+
+#: control.py:846
+#, fuzzy
+msgid "Name"
+msgstr "名称"
+
+#: control.py:847
+#, fuzzy
+msgid "Model"
+msgstr "型号"
+
+#: control.py:848
+#, fuzzy
+msgid "Serial Number"
+msgstr "序列号"
+
+#: control.py:849
+#, fuzzy
+msgid "Operating System"
+msgstr "操作系统"
+
+#: control.py:850 tools.py:441
+#, fuzzy
+msgid "Processor"
+msgstr "处理器"
+
+#: control.py:852
+#, fuzzy
+msgid "Disk Capacity"
+msgstr "磁盘容量"
+
+#: control.py:854
+#, fuzzy
+msgid "Running For"
+msgstr "已运行"
+
+#: control.py:862
+#, fuzzy
+msgid "System Release"
+msgstr "系统版本"
+
+#: control.py:863
+#, fuzzy
+msgid "Base Package"
+msgstr "基础软件包"
+
+#: control.py:864
+#, fuzzy
+msgid "Factory Image"
+msgstr "出厂镜像"
+
+#: control.py:865
+#, fuzzy
+msgid "Kernel"
+msgstr "内核"
+
+#: control.py:167
+#, fuzzy
+msgid "none yet"
+msgstr "暂无"
+
+#: control.py:168
+#, fuzzy
+msgid "Assigned by Router"
+msgstr "由路由器分配"
+
+#: control.py:171
+#, fuzzy
+msgid "Connection: Cable unplugged"
+msgstr "连接：网线已拔出"
+
+#: control.py:195
+#, fuzzy
+msgid "No network port found"
+msgstr "未找到网络端口"
+
+#: control.py:195
+#, fuzzy
+msgid "The box needs a cable to the router."
+msgstr "盒子需要一根连到路由器的网线。"
+
+#: control.py:199
+#, fuzzy
+msgid "Status: Off"
+msgstr "状态：关闭"
+
+#: control.py:199
+#, fuzzy
+msgid "The box connects to the router by a cable."
+msgstr "盒子通过网线连接路由器。"
+
+#: control.py:367 control.py:341
+#, fuzzy
+msgid "Keep these settings? Reverting in {n} s."
+msgstr "保留这些设置吗？{n} 秒后恢复。"
+
+#: control.py:550 control.py:614
+#, fuzzy
+msgid "Saved."
+msgstr "已保存。"
+
+#: control.py:641
+#, fuzzy
+msgid "Protected"
+msgstr "已受保护"
+
+#: control.py:641
+#, fuzzy
+msgid "Security updates install automatically, and the firewall is always enabled."
+msgstr "安全更新会自动安装，防火墙始终开启。"
+
+#: control.py:644
+#, fuzzy
+msgid "Secure Boot is on"
+msgstr "安全启动已开启"
+
+#: control.py:644
+#, fuzzy
+msgid "Only authenticated software can boot the system."
+msgstr "只有经过验证的软件才能启动系统。"
+
+#: control.py:647
+#, fuzzy
+msgid "Enable it in the firmware settings, if available."
+msgstr "如有此选项，请在固件设置中开启。"
+
+#: control.py:682
+#, fuzzy
+msgid "Nothing"
+msgstr "无"
+
+#: control.py:682
+#, fuzzy
+msgid "No other device can reach the box."
+msgstr "其他设备无法访问盒子。"
+
+#: control.py:711
+#, fuzzy
+msgid "When: {when}"
+msgstr "时间：{when}"
+
+#: control.py:730
+#, fuzzy
+msgid "{n} programs confined"
+msgstr "已限制 {n} 个程序"
+
+#: control.py:744
+#, fuzzy
+msgid "Confined"
+msgstr "已限制"
+
+#: control.py:744
+#, fuzzy
+msgid "Watched only"
+msgstr "仅监视"
+
+#: control.py:746
+#, fuzzy
+msgid "The programs ({n})"
+msgstr "程序（{n}）"
+
+#: control.py:840
+#, fuzzy
+msgid "{size} for the box"
+msgstr "盒子 {size}"
+
+#: control.py:846 control.py:851 tools.py:80
+#, fuzzy
+msgid "Unknown"
+msgstr "未知"
+
+#: control.py:853 tools.py:465
+#, fuzzy
+msgid "No sensor"
+msgstr "无传感器"
+
+#: control.py:135 control.py:185
+#, fuzzy
+msgid "Configuration Details ({port})"
+msgstr "配置详情（{port}）"
+
+#: control.py:152
+#, fuzzy
+msgid "Current Address: {address}."
+msgstr "当前地址：{address}。"
+
+#: control.py:162
+#, fuzzy
+msgid "Ethernet Status ({port})"
+msgstr "以太网状态（{port}）"
+
+#: control.py:169
+#, fuzzy
+msgid "IPv4 Address: {address} ({how})"
+msgstr "IPv4 地址：{address}（{how}）"
+
+#: control.py:180
+#, fuzzy
+msgid "Connected"
+msgstr "已连接"
+
+#: control.py:180
+#, fuzzy
+msgid "Not connected"
+msgstr "未连接"
+
+#: control.py:364
+#, fuzzy
+msgid "Saved. The screen starts this way from now on."
+msgstr "已保存。今后屏幕将以此设置启动。"
+
+#: control.py:466
+#, fuzzy
+msgid "Left"
+msgstr "左"
+
+#: control.py:466
+#, fuzzy
+msgid "Right"
+msgstr "右"
+
+#: control.py:531
+#, fuzzy
+msgid "Not chosen"
+msgstr "未选择"
+
+#: control.py:633
+#, fuzzy
+msgid "security fixes are off"
+msgstr "安全修复已关闭"
+
+#: control.py:634
+#, fuzzy
+msgid "the firewall is off"
+msgstr "防火墙已关闭"
+
+#: control.py:635
+#, fuzzy
+msgid "the OS's files changed"
+msgstr "系统文件已被更改"
+
+#: control.py:636
+#, fuzzy
+msgid "AppArmor is off"
+msgstr "AppArmor 已关闭"
+
+#: control.py:646
+#, fuzzy
+msgid "Secure Boot is off"
+msgstr "安全启动已关闭"
+
+#: control.py:646
+#, fuzzy
+msgid "Secure Boot is unavailable"
+msgstr "安全启动不可用"
+
+#: control.py:658
+#, fuzzy
+msgid "None yet"
+msgstr "暂无"
+
+#: control.py:663
+#, fuzzy
+msgid "Completed {time}: OS files match the latest update."
+msgstr "于 {time} 完成：系统文件与最新更新一致。"
+
+#: control.py:666
+#, fuzzy
+msgid "Completed {time}: files changed outside an update: {files}"
+msgstr "于 {time} 完成：更新之外被更改的文件：{files}"
+
+#: control.py:770
+#, fuzzy
+msgid "Last update was {date}."
+msgstr "上次更新：{date}。"
+
+#: control.py:843
+#, fuzzy
+msgid "{size} library"
+msgstr "资料库 {size}"
+
+#: control.py:171
+#, fuzzy
+msgid "MAC address: {mac}"
+msgstr "MAC 地址：{mac}"
+
+#: control.py:679
+#, fuzzy
+msgid "Port {port} ({how})"
+msgstr "端口 {port}（{how}）"
+
+#: control.py:851
+#, fuzzy
+msgid "{used} of {total} in use"
+msgstr "已用 {used} / {total}"
+
+#: control.py:152
+#, fuzzy
+msgid "Reverts at {time} unless kept."
+msgstr "如未保留，将在 {time} 恢复。"
+
+#: display.py:20
+#, fuzzy
+msgid "Landscape"
+msgstr "横向"
+
+#: display.py:20
+#, fuzzy
+msgid "Portrait, turned right"
+msgstr "纵向（向右旋转）"
+
+#: display.py:21
+#, fuzzy
+msgid "Portrait, turned left"
+msgstr "纵向（向左旋转）"
+
+#: display.py:21
+#, fuzzy
+msgid "Landscape, upside down"
+msgstr "横向（上下颠倒）"
+
+#: settings.py:113
+#, fuzzy
+msgid "Always on"
+msgstr "始终开启"
+
+#: settings.py:113
+#, fuzzy
+msgid "Off"
+msgstr "关闭"
+
+#: signin.py:50
+#, fuzzy
+msgid "ZOOMRIYA ID couldn't sign you in just now."
+msgstr "ZOOMRIYA ID 暂时无法让您登录。"
+
+#: signin.py:52
+#, fuzzy
+msgid "ZOOMRIYA ID isn't responding. Try again shortly."
+msgstr "ZOOMRIYA ID 没有响应。请稍后再试。"
+
+#: signin.py:60
+#, fuzzy
+msgid "Box Desktop is for the box's admins."
+msgstr "Box Desktop 仅供盒子的管理员使用。"
+
+#: signin.py:47
+#, fuzzy
+msgid "That username and password don't match."
+msgstr "用户名和密码不匹配。"
+
+#: signin.py:49
+#, fuzzy
+msgid "Too many tries. Try again in a minute."
+msgstr "尝试次数过多。请一分钟后再试。"
+
+#: tools.py:21
+#, fuzzy
+msgid "Healthy"
+msgstr "正常"
+
+#: tools.py:21
+#, fuzzy
+msgid "Needs checking"
+msgstr "需要检查"
+
+#: tools.py:21
+#, fuzzy
+msgid "Failing"
+msgstr "故障"
+
+#: tools.py:20
+#, fuzzy
+msgid "Errors"
+msgstr "错误"
+
+#: tools.py:20
+#, fuzzy
+msgid "Warnings and errors"
+msgstr "警告和错误"
+
+#: tools.py:20
+#, fuzzy
+msgid "Everything"
+msgstr "全部"
+
+#: tools.py:25
+#, fuzzy
+msgid "KB"
+msgstr "KB"
+
+#: tools.py:25
+#, fuzzy
+msgid "MB"
+msgstr "MB"
+
+#: tools.py:25
+#, fuzzy
+msgid "GB"
+msgstr "GB"
+
+#: tools.py:25
+#, fuzzy
+msgid "TB"
+msgstr "TB"
+
+#: tools.py:39
+#, fuzzy
+msgid "Never"
+msgstr "从未"
+
+#: tools.py:159
+#, fuzzy
+msgid "Restart the box?"
+msgstr "重启盒子吗？"
+
+#: tools.py:160
+#, fuzzy
+msgid "Everything stops for a minute or two, then starts again."
+msgstr "一切会停止一两分钟，然后重新启动。"
+
+#: tools.py:246
+#, fuzzy
+msgid "Shut the box down?"
+msgstr "关闭盒子吗？"
+
+#: tools.py:247
+#, fuzzy
+msgid "All apps stop and backups pause until someone presses the power button."
+msgstr "所有应用都会停止，备份也会暂停，直到有人按下电源按钮。"
+
+#: tools.py:248
+#, fuzzy
+msgid "Shut down"
+msgstr "关机"
+
+#: tools.py:261 tools.py:645
+#, fuzzy
+msgid "Restore points"
+msgstr "还原点"
+
+#: tools.py:261
+#, fuzzy
+msgid "Reverts the OS to an earlier state. Family files and app data stay. Try this first."
+msgstr "将系统还原到之前的状态。家人的文件和应用数据保持不变。请先试试这个。"
+
+#: tools.py:284
+#, fuzzy
+msgid "Package Updates Held Back"
+msgstr "已暂缓的软件包更新"
+
+#: tools.py:285
+#, fuzzy
+msgid "Held back by a restore; each updates when a newer fix is out."
+msgstr "因还原而暂缓；有更新的修复发布后会各自更新。"
+
+#: tools.py:302 tools.py:752
+#, fuzzy
+msgid "Reset"
+msgstr "重置"
+
+#: tools.py:310 tools.py:758
+#, fuzzy
+msgid "Erase everything"
+msgstr "清除全部"
+
+#: tools.py:331
+#, fuzzy
+msgid "Let it update?"
+msgstr "允许更新吗？"
+
+#: tools.py:335 tools.py:291
+#, fuzzy
+msgid "Let it update"
+msgstr "允许更新"
+
+#: tools.py:339
+#, fuzzy
+msgid "Restore the OS?"
+msgstr "还原系统吗？"
+
+#: tools.py:342 tools.py:267 tools.py:273
+#, fuzzy
+msgid "Restore"
+msgstr "还原"
+
+#: tools.py:643
+#, fuzzy
+msgid "The apps' databases"
+msgstr "应用的数据库"
+
+#: tools.py:643
+#, fuzzy
+msgid "The apps themselves"
+msgstr "应用本身"
+
+#: tools.py:644
+#, fuzzy
+msgid "Myira's models and the maps"
+msgstr "Myira 的模型和地图"
+
+#: tools.py:644
+#, fuzzy
+msgid "Photos, files and the apps' data"
+msgstr "照片、文件和应用的数据"
+
+#: tools.py:750
+#, fuzzy
+msgid "Reset the system?"
+msgstr "重置系统吗？"
+
+#: tools.py:751
+#, fuzzy
+msgid "The system returns to its factory state on restart. Family apps and data stay."
+msgstr "重启时系统会恢复到出厂状态。家人的应用和数据会保留。"
+
+#: tools.py:756
+#, fuzzy
+msgid "Erase everything?"
+msgstr "清除全部吗？"
+
+#: tools.py:757
+#, fuzzy
+msgid "Deletes every app, account, photo and message on restart. This can't be undone. Enter the setup code from the sticker and your password."
+msgstr "重启时会删除每个应用、账户、照片和消息。此操作无法撤销。请输入贴纸上的设置码和您的密码。"
+
+#: tools.py:54
+#, fuzzy
+msgid "{date} at {time}"
+msgstr "{date} {time}"
+
+#: tools.py:110
+#, fuzzy
+msgid "Your password"
+msgstr "您的密码"
+
+#: tools.py:116
+#, fuzzy
+msgid "Cancel"
+msgstr "取消"
+
+#: tools.py:190
+#, fuzzy
+msgid "Maintenance"
+msgstr "维护"
+
+#: tools.py:203
+#, fuzzy
+msgid "Power"
+msgstr "电源"
+
+#: tools.py:226
+#, fuzzy
+msgid "Awaiting Kernel Update Completion"
+msgstr "等待完成内核更新"
+
+#: tools.py:226
+#, fuzzy
+msgid "A new kernel is ready."
+msgstr "新内核已就绪。"
+
+#: tools.py:238
+#, fuzzy
+msgid "Finish & Restart"
+msgstr "完成并重启"
+
+#: tools.py:266
+#, fuzzy
+msgid "before update"
+msgstr "更新前"
+
+#: tools.py:266 tools.py:266
+#, fuzzy
+msgid "Update"
+msgstr "更新"
+
+#: tools.py:266
+#, fuzzy
+msgid "after update"
+msgstr "更新后"
+
+#: tools.py:267
+#, fuzzy
+msgid "before restore"
+msgstr "还原前"
+
+#: tools.py:267
+#, fuzzy
+msgid "factory"
+msgstr "出厂"
+
+#: tools.py:267
+#, fuzzy
+msgid "As it left the factory"
+msgstr "出厂状态"
+
+#: tools.py:303
+#, fuzzy
+msgid "Reset the system…"
+msgstr "重置系统…"
+
+#: tools.py:305
+#, fuzzy
+msgid "System Reset"
+msgstr "系统重置"
+
+#: tools.py:306
+#, fuzzy
+msgid "Returns the OS to factory state, then updates it. Your data stays. Use if restoring fails."
+msgstr "将系统恢复到出厂状态并更新。您的数据保留。还原无效时使用。"
+
+#: tools.py:318
+#, fuzzy
+msgid "Factory Reset"
+msgstr "恢复出厂设置"
+
+#: tools.py:319
+#, fuzzy
+msgid "Erases everything, leaving the box as new. Needs the setup code from the sticker."
+msgstr "清除一切，让盒子恢复如新。需要贴纸上的设置码。"
+
+#: tools.py:491
+#, fuzzy
+msgid "Search"
+msgstr "搜索"
+
+#: tools.py:498
+#, fuzzy
+msgid "Show older"
+msgstr "显示更早的"
+
+#: tools.py:544
+#, fuzzy
+msgid "What the box reported in the last month. Choose what appears on the bell in Control Panel › Notifications."
+msgstr "盒子在过去一个月报告的内容。可在控制面板 › 通知中选择铃铛上显示的内容。"
+
+#: tools.py:585
+#, fuzzy
+msgid "Check that both copies match"
+msgstr "检查两份副本是否一致"
+
+#: tools.py:585
+#, fuzzy
+msgid "Checking that both copies match"
+msgstr "正在检查两份副本是否一致"
+
+#: tools.py:586
+#, fuzzy
+msgid "Check the library for damage"
+msgstr "检查资料库是否损坏"
+
+#: tools.py:586
+#, fuzzy
+msgid "Checking the library for damage"
+msgstr "正在检查资料库是否损坏"
+
+#: tools.py:648
+#, fuzzy
+msgid "What takes the space on the box's own disk."
+msgstr "盒子自身磁盘上占用空间的内容。"
+
+#: tools.py:680
+#, fuzzy
+msgid "Busiest first. CPU is a share of the whole box."
+msgstr "最忙的排在前面。CPU 是占整个盒子的比例。"
+
+#: tools.py:760
+#, fuzzy
+msgid "Setup code, like ABCD-EFGH"
+msgstr "设置码，例如 ABCD-EFGH"
+
+#: tools.py:196
+#, fuzzy
+msgid "Adjust Time"
+msgstr "调整时间"
+
+#: tools.py:200
+#, fuzzy
+msgid "Maintenance Hour"
+msgstr "维护时段"
+
+#: tools.py:200
+#, fuzzy
+msgid "If an update needs a restart, the box restarts this hour."
+msgstr "如果更新需要重启，盒子会在这个时段重启。"
+
+#: tools.py:205
+#, fuzzy
+msgid "Always On"
+msgstr "始终开启"
+
+#: tools.py:205
+#, fuzzy
+msgid "The box runs 24/7 with power-saving mode disabled."
+msgstr "盒子 24/7 运行，已关闭省电模式。"
+
+#: tools.py:207
+#, fuzzy
+msgid "Shutdown"
+msgstr "关机"
+
+#: tools.py:207
+#, fuzzy
+msgid "If powered off, it must be turned back on in person."
+msgstr "如果关机，需要到现场重新开机。"
+
+#: tools.py:208
+#, fuzzy
+msgid "Shut down system…"
+msgstr "关机…"
+
+#: tools.py:228
+#, fuzzy
+msgid "Awaiting Update Completion"
+msgstr "等待完成更新"
+
+#: tools.py:228
+#, fuzzy
+msgid "Security fixes are installed."
+msgstr "安全修复已安装。"
+
+#: tools.py:314
+#, fuzzy
+msgid "Erase everything…"
+msgstr "清除全部…"
+
+#: tools.py:332
+#, fuzzy
+msgid "{package} installs its latest fix tonight, even if that's {taken}, the version the restore removed."
+msgstr "{package} 今晚会安装其最新修复，即使那是 {taken}，也就是还原移除的版本。"
+
+#: tools.py:340
+#, fuzzy
+msgid "The OS returns to {time} ({what}) on the next restart. Family files and app data stay."
+msgstr "下次重启时，系统会回到 {time}（{what}）。家人的文件和应用数据保持不变。"
+
+#: tools.py:384
+#, fuzzy
+msgid "The OS, the apps and their data"
+msgstr "系统、应用及其数据"
+
+#: tools.py:463
+#, fuzzy
+msgid "Disks"
+msgstr "磁盘"
+
+#: tools.py:465
+#, fuzzy
+msgid "Hottest sensor"
+msgstr "最热的传感器"
+
+#: tools.py:596
+#, fuzzy
+msgid "Pause"
+msgstr "暂停"
+
+#: tools.py:692
+#, fuzzy
+msgid "An app"
+msgstr "应用"
+
+#: tools.py:692
+#, fuzzy
+msgid "Part of the box"
+msgstr "盒子的一部分"
+
+#: tools.py:137
+#, fuzzy
+msgid "That isn't your password."
+msgstr "密码不正确。"
+
+#: tools.py:230
+#, fuzzy
+msgid "Awaiting Restore Completion"
+msgstr "等待完成还原"
+
+#: tools.py:230
+#, fuzzy
+msgid "The OS is restored."
+msgstr "系统已还原。"
+
+#: tools.py:416
+#, fuzzy
+msgid "Size"
+msgstr "大小"
+
+#: tools.py:417
+#, fuzzy
+msgid "Place"
+msgstr "位置"
+
+#: tools.py:453
+#, fuzzy
+msgid "Processor: {percent}%"
+msgstr "处理器：{percent}%"
+
+#: tools.py:456
+#, fuzzy
+msgid "Memory: {used} of {total}"
+msgstr "内存：{used} / {total}"
+
+#: tools.py:511
+#, fuzzy
+msgid "Nothing here."
+msgstr "这里什么也没有。"
+
+#: tools.py:553
+#, fuzzy
+msgid "Nothing in the last month."
+msgstr "过去一个月没有内容。"
+
+#: tools.py:601
+#, fuzzy
+msgid "Resume"
+msgstr "继续"
+
+#: tools.py:605
+#, fuzzy
+msgid "It hasn't been checked yet."
+msgstr "尚未检查。"
+
+#: tools.py:658
+#, fuzzy
+msgid "Not counted yet; updated every few hours."
+msgstr "尚未统计；每隔几小时更新一次。"
+
+#: tools.py:722
+#, fuzzy
+msgid "This box reports no sensors."
+msgstr "这台盒子没有报告任何传感器。"
+
+#: tools.py:232
+#, fuzzy
+msgid "Awaiting Reset"
+msgstr "等待完成重置"
+
+#: tools.py:232
+#, fuzzy
+msgid "The reset is ready."
+msgstr "重置已就绪。"
+
+#: tools.py:234
+#, fuzzy
+msgid "Restart Needed"
+msgstr "需要重启"
+
+#: tools.py:234
+#, fuzzy
+msgid "Something waits for a restart."
+msgstr "有内容在等待重启。"
+
+#: tools.py:241
+#, fuzzy
+msgid "The system will restart at {hour}, or you can restart manually now."
+msgstr "系统将在 {hour} 重启，您也可以现在手动重启。"
+
+#: tools.py:293
+#, fuzzy
+msgid "Kept at {version}; {taken} was taken back."
+msgstr "保留在 {version}；{taken} 已被撤销。"
+
+#: tools.py:363
+#, fuzzy
+msgid "{size} used"
+msgstr "已用 {size}"
+
+#: tools.py:364
+#, fuzzy
+msgid "{free} free of {total}"
+msgstr "{total} 中可用 {free}"
+
+#: tools.py:379
+#, fuzzy
+msgid "{n} drives, each a copy of the other"
+msgstr "{n} 个磁盘，互为副本"
+
+#: tools.py:417
+#, fuzzy
+msgid "The box's own"
+msgstr "盒子自身"
+
+#: tools.py:421
+#, fuzzy
+msgid "In use for"
+msgstr "已使用"
+
+#: tools.py:462
+#, fuzzy
+msgid "in {received}, out {sent}"
+msgstr "接收 {received}，发送 {sent}"
+
+#: tools.py:463
+#, fuzzy
+msgid "reading {read}, writing {written}"
+msgstr "读取 {read}，写入 {written}"
+
+#: tools.py:600
+#, fuzzy
+msgid "It carries on from there when you resume it."
+msgstr "继续后会从那里接着进行。"
+
+#: tools.py:594
+#, fuzzy
+msgid "Started {time}."
+msgstr "开始于 {time}。"
+
+#: tools.py:613
+#, fuzzy
+msgid "The last check found nothing needing repair."
+msgstr "上次检查没有发现需要修复的内容。"
+
+#: tools.py:615
+#, fuzzy
+msgid "The box also checks once a month by itself."
+msgstr "盒子每月也会自动检查一次。"
+
+#: tools.py:732
+#, fuzzy
+msgid "Fan"
+msgstr "风扇"
+
+#: tools.py:599
+#, fuzzy
+msgid "The check is paused at {percent}%"
+msgstr "检查已暂停于 {percent}%"
+
+#: tools.py:607
+#, fuzzy
+msgid "Last check found {n} problems and repaired what it could."
+msgstr "上次检查：发现 {n} 个问题，并已尽可能修复。"
+
+#: tools.py:610
+#, fuzzy
+msgid "Last check found {n} damaged files. With one drive they can't be repaired: restore them from a backup."
+msgstr "上次检查：{n} 个损坏的文件。只有一个磁盘，无法修复：请从备份中恢复。"

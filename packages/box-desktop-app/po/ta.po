@@ -1,0 +1,1786 @@
+# box-desktop-app: ta. Made by scripts/i18n.py extract; translate the empty msgstr.
+# "fuzzy": a draft still to be checked by a native speaker.
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: ta\n"
+
+#: app.py:54
+#, fuzzy
+msgid "Control Panel"
+msgstr "கட்டுப்பாட்டுப் பலகம்"
+
+#: app.py:55
+#, fuzzy
+msgid "Storage Manager"
+msgstr "சேமிப்பக மேலாளர்"
+
+#: app.py:56
+#, fuzzy
+msgid "Resource Monitor"
+msgstr "வளக் கண்காணிப்பு"
+
+#: app.py:57
+#, fuzzy
+msgid "Log Center"
+msgstr "பதிவு மையம்"
+
+#: app.py:194
+#, fuzzy
+msgid "Sign in with your ZOOMRIYA ID"
+msgstr "உங்கள் ZOOMRIYA ID கொண்டு உள்நுழையுங்கள்"
+
+#: app.py:495
+#, fuzzy
+msgid "Restart the box"
+msgstr "பெட்டியை மறுதொடக்கு"
+
+#: app.py:496
+#, fuzzy
+msgid "Sign out"
+msgstr "வெளியேறு"
+
+#: app.py:593
+#, fuzzy
+msgid "Box health"
+msgstr "பெட்டியின் நிலை"
+
+#: app.py:604
+#, fuzzy
+msgid "Checking the box…"
+msgstr "பெட்டியைச் சரிபார்க்கிறது…"
+
+#: app.py:613
+#, fuzzy
+msgid "CPU and memory"
+msgstr "CPU மற்றும் நினைவகம்"
+
+#: app.py:634 app.py:811 tools.py:647
+#, fuzzy
+msgid "Space"
+msgstr "இடம்"
+
+#: app.py:105
+#, fuzzy
+msgid "1 day"
+msgstr "1 நாள்"
+
+#: app.py:106
+#, fuzzy
+msgid "1 hour"
+msgstr "1 மணிநேரம்"
+
+#: app.py:196
+#, fuzzy
+msgid "Username"
+msgstr "பயனர்பெயர்"
+
+#: app.py:197
+#, fuzzy
+msgid "Password"
+msgstr "கடவுச்சொல்"
+
+#: app.py:207
+#, fuzzy
+msgid "Sign in"
+msgstr "உள்நுழை"
+
+#: app.py:291
+#, fuzzy
+msgid "Daylight"
+msgstr "பகல்"
+
+#: app.py:291 app.py:453
+#, fuzzy
+msgid "Midnight"
+msgstr "இரவு"
+
+#: app.py:383
+#, fuzzy
+msgid "Main menu"
+msgstr "முதன்மை மெனு"
+
+#: app.py:406 app.py:737 app.py:817 app.py:803
+#, fuzzy
+msgid "Notifications"
+msgstr "அறிவிப்புகள்"
+
+#: app.py:447 app.py:506
+#, fuzzy
+msgid "Search tools"
+msgstr "கருவிகளைத் தேடு"
+
+#: app.py:461
+#, fuzzy
+msgid "Widgets"
+msgstr "விட்ஜெட்டுகள்"
+
+#: app.py:618 tools.py:688
+#, fuzzy
+msgid "CPU"
+msgstr "CPU"
+
+#: app.py:626 control.py:851 tools.py:443 tools.py:688
+#, fuzzy
+msgid "Memory"
+msgstr "நினைவகம்"
+
+#: app.py:753
+#, fuzzy
+msgid "See all in Log Center"
+msgstr "அனைத்தையும் பதிவு மையத்தில் பார்"
+
+#: app.py:816
+#, fuzzy
+msgid "Box events"
+msgstr "பெட்டி நிகழ்வுகள்"
+
+#: app.py:818
+#, fuzzy
+msgid "Admin actions"
+msgstr "நிர்வாகி செயல்கள்"
+
+#: app.py:819
+#, fuzzy
+msgid "Sign-ins"
+msgstr "உள்நுழைவுகள்"
+
+#: app.py:820
+#, fuzzy
+msgid "System log"
+msgstr "கணினிப் பதிவு"
+
+#: app.py:107
+#, fuzzy
+msgid "{n} minutes"
+msgstr "{n} நிமிடங்கள்"
+
+#: app.py:348
+#, fuzzy
+msgid "{box}: sign in with your ZOOMRIYA ID"
+msgstr "{box}: உங்கள் ZOOMRIYA ID கொண்டு உள்நுழையுங்கள்"
+
+#: app.py:427 app.py:799
+#, fuzzy
+msgid "Sound"
+msgstr "ஒலி"
+
+#: app.py:433
+#, fuzzy
+msgid "Speakers"
+msgstr "ஒலிபெருக்கிகள்"
+
+#: app.py:439
+#, fuzzy
+msgid "Sound settings"
+msgstr "ஒலி அமைப்புகள்"
+
+#: app.py:670 control.py:639
+#, fuzzy
+msgid "Needs a look"
+msgstr "கவனிக்க வேண்டும்"
+
+#: app.py:670
+#, fuzzy
+msgid "Everything's fine"
+msgstr "அனைத்தும் சரி"
+
+#: app.py:678 app.py:810 tools.py:402
+#, fuzzy
+msgid "Drives"
+msgstr "இயக்ககங்கள்"
+
+#: app.py:679
+#, fuzzy
+msgid "Security fixes"
+msgstr "பாதுகாப்புத் திருத்தங்கள்"
+
+#: app.py:711 tools.py:384
+#, fuzzy
+msgid "The box's own disk"
+msgstr "பெட்டியின் சொந்த வட்டு"
+
+#: app.py:739
+#, fuzzy
+msgid "Mark all read"
+msgstr "அனைத்தையும் படித்ததாகக் குறி"
+
+#: app.py:745
+#, fuzzy
+msgid "Nothing new."
+msgstr "புதிதாக எதுவும் இல்லை."
+
+#: app.py:796 control.py:41 tools.py:462
+#, fuzzy
+msgid "Network"
+msgstr "வலையமைப்பு"
+
+#: app.py:797 control.py:245
+#, fuzzy
+msgid "Display"
+msgstr "திரை"
+
+#: app.py:809 app.py:813
+#, fuzzy
+msgid "Overview"
+msgstr "மேலோட்டம்"
+
+#: app.py:814 tools.py:679
+#, fuzzy
+msgid "By app"
+msgstr "செயலி வாரியாக"
+
+#: app.py:815 control.py:853 tools.py:711 tools.py:419
+#, fuzzy
+msgid "Temperature"
+msgstr "வெப்பநிலை"
+
+#: app.py:105 tools.py:421
+#, fuzzy
+msgid "{n} days"
+msgstr "{n} நாட்கள்"
+
+#: app.py:106
+#, fuzzy
+msgid "{n} hours"
+msgstr "{n} மணிநேரம்"
+
+#: app.py:672
+#, fuzzy
+msgid "ZOOMRIYA OS 13 · up {time}"
+msgstr "ZOOMRIYA OS 13 · {time} ஆக இயங்குகிறது"
+
+#: app.py:678
+#, fuzzy
+msgid "All healthy"
+msgstr "அனைத்தும் நலம்"
+
+#: app.py:682 tools.py:160
+#, fuzzy
+msgid "Restart"
+msgstr "மறுதொடக்கம்"
+
+#: app.py:682
+#, fuzzy
+msgid "Needed"
+msgstr "தேவை"
+
+#: app.py:699
+#, fuzzy
+msgid "Restart needed"
+msgstr "மறுதொடக்கம் தேவை"
+
+#: app.py:707
+#, fuzzy
+msgid "<b>{used}</b> <small>of {total} used</small>"
+msgstr "<b>{used}</b> <small>/ {total} பயன்பாட்டில்</small>"
+
+#: app.py:712
+#, fuzzy
+msgid "Library drives mirrored"
+msgstr "நூலக இயக்ககங்கள் பிரதியாக்கப்பட்டவை"
+
+#: app.py:713 tools.py:381
+#, fuzzy
+msgid "Library"
+msgstr "நூலகம்"
+
+#: app.py:785
+#, fuzzy
+msgid "{used} of {total}"
+msgstr "{used} / {total}"
+
+#: app.py:800
+#, fuzzy
+msgid "Keyboard & Mouse"
+msgstr "விசைப்பலகை & சுட்டி"
+
+#: app.py:801 control.py:509
+#, fuzzy
+msgid "Language & Region"
+msgstr "மொழி & பகுதி"
+
+#: app.py:802
+#, fuzzy
+msgid "Date and time"
+msgstr "தேதி மற்றும் நேரம்"
+
+#: app.py:804
+#, fuzzy
+msgid "Security"
+msgstr "பாதுகாப்பு"
+
+#: app.py:805 control.py:38
+#, fuzzy
+msgid "Restarts"
+msgstr "மறுதொடக்கங்கள்"
+
+#: app.py:806
+#, fuzzy
+msgid "Restore & Reset"
+msgstr "மீட்டமை & மீளமை"
+
+#: app.py:807
+#, fuzzy
+msgid "System Info"
+msgstr "கணினித் தகவல்"
+
+#: app.py:691
+#, fuzzy
+msgid "Checking the library · {percent}%"
+msgstr "நூலகத்தைச் சரிபார்க்கிறது · {percent}%"
+
+#: app.py:678
+#, fuzzy
+msgid "{n} need checking"
+msgstr "{n} சரிபார்க்க வேண்டும்"
+
+#: control.py:35
+#, fuzzy
+msgid "Drive Health"
+msgstr "இயக்கக நலம்"
+
+#: control.py:35
+#, fuzzy
+msgid "When to check or replace, and when healthy."
+msgstr "எப்போது சரிபார்க்க அல்லது மாற்ற வேண்டும், எப்போது நலம்."
+
+#: control.py:37
+#, fuzzy
+msgid "Updates"
+msgstr "புதுப்பிப்புகள்"
+
+#: control.py:37
+#, fuzzy
+msgid "When security fixes are installed."
+msgstr "பாதுகாப்புத் திருத்தங்கள் நிறுவப்படும்போது."
+
+#: control.py:38
+#, fuzzy
+msgid "Auto-restart schedule for updates and restores."
+msgstr "புதுப்பிப்புகள், மீட்டமைப்புகளுக்கான தானியங்கி மறுதொடக்க நேரம்."
+
+#: control.py:40
+#, fuzzy
+msgid "Library Check"
+msgstr "நூலகச் சரிபார்ப்பு"
+
+#: control.py:40
+#, fuzzy
+msgid "Library scan completion time and results."
+msgstr "நூலக ஸ்கேன் முடிந்த நேரமும் முடிவுகளும்."
+
+#: control.py:41
+#, fuzzy
+msgid "Network settings weren't kept and were rolled back."
+msgstr "வலையமைப்பு அமைப்புகள் வைக்கப்படாமல் திரும்பப்பெறப்பட்டன."
+
+#: control.py:92 control.py:136
+#, fuzzy
+msgid "Configuration Details"
+msgstr "அமைவு விவரங்கள்"
+
+#: control.py:92
+#, fuzzy
+msgid "New settings are tried for a few minutes and revert unless kept."
+msgstr "புதிய அமைப்புகள் சில நிமிடங்கள் சோதிக்கப்பட்டு, வைக்காவிட்டால் திரும்பும்."
+
+#: control.py:417
+#, fuzzy
+msgid "Output"
+msgstr "வெளியீடு"
+
+#: control.py:428
+#, fuzzy
+msgid "Input"
+msgstr "உள்ளீடு"
+
+#: control.py:445
+#, fuzzy
+msgid "Keyboard"
+msgstr "விசைப்பலகை"
+
+#: control.py:463
+#, fuzzy
+msgid "Mouse"
+msgstr "சுட்டி"
+
+#: control.py:475
+#, fuzzy
+msgid "Scroll direction"
+msgstr "உருட்டும் திசை"
+
+#: control.py:523
+#, fuzzy
+msgid "State or Province"
+msgstr "மாநிலம் அல்லது மாகாணம்"
+
+#: control.py:523
+#, fuzzy
+msgid "Optional."
+msgstr "விருப்பத்தேர்வு."
+
+#: control.py:584
+#, fuzzy
+msgid "Date & Time"
+msgstr "தேதி & நேரம்"
+
+#: control.py:594
+#, fuzzy
+msgid "Time Sync"
+msgstr "நேர ஒத்திசைவு"
+
+#: control.py:712
+#, fuzzy
+msgid "No identifying data is sent."
+msgstr "அடையாளம் காட்டும் தரவு எதுவும் அனுப்பப்படாது."
+
+#: control.py:730
+#, fuzzy
+msgid "AppArmor"
+msgstr "AppArmor"
+
+#: control.py:758
+#, fuzzy
+msgid "Security Updates"
+msgstr "பாதுகாப்புப் புதுப்பிப்புகள்"
+
+#: control.py:802
+#, fuzzy
+msgid "Show Notifications For"
+msgstr "அறிவிப்புகளைக் காட்டு"
+
+#: control.py:105
+#, fuzzy
+msgid "IP Address Assignment Method"
+msgstr "IP முகவரி ஒதுக்கும் முறை"
+
+#: control.py:105
+#, fuzzy
+msgid "From the router (DHCP), or a fixed static address."
+msgstr "திசைவியிடமிருந்து (DHCP), அல்லது நிலையான முகவரி."
+
+#: control.py:110
+#, fuzzy
+msgid "Box's address"
+msgstr "பெட்டியின் முகவரி"
+
+#: control.py:111
+#, fuzzy
+msgid "Subnet mask"
+msgstr "சப்நெட் மாஸ்க்"
+
+#: control.py:112
+#, fuzzy
+msgid "Router"
+msgstr "திசைவி"
+
+#: control.py:112
+#, fuzzy
+msgid "Name servers"
+msgstr "பெயர் சேவையகங்கள்"
+
+#: control.py:122
+#, fuzzy
+msgid "Use these settings"
+msgstr "பயன்படுத்து"
+
+#: control.py:124
+#, fuzzy
+msgid "Keep them"
+msgstr "வைத்துக்கொள்"
+
+#: control.py:254
+#, fuzzy
+msgid "Go back"
+msgstr "திரும்பு"
+
+#: control.py:255
+#, fuzzy
+msgid "Keep"
+msgstr "வை"
+
+#: control.py:418
+#, fuzzy
+msgid "Play a test sound"
+msgstr "சோதனை ஒலியை இயக்கு"
+
+#: control.py:424
+#, fuzzy
+msgid "Output Device"
+msgstr "வெளியீட்டுச் சாதனம்"
+
+#: control.py:425
+#, fuzzy
+msgid "Output Volume"
+msgstr "வெளியீட்டு ஒலியளவு"
+
+#: control.py:429
+#, fuzzy
+msgid "Input Device"
+msgstr "உள்ளீட்டுச் சாதனம்"
+
+#: control.py:430
+#, fuzzy
+msgid "Input Volume"
+msgstr "உள்ளீட்டு ஒலியளவு"
+
+#: control.py:434
+#, fuzzy
+msgid "Input Level"
+msgstr "உள்ளீட்டு நிலை"
+
+#: control.py:434
+#, fuzzy
+msgid "Speak to see it move."
+msgstr "அசைவதைக் காணப் பேசுங்கள்."
+
+#: control.py:447
+#, fuzzy
+msgid "Input Layout"
+msgstr "விசைப்பலகைத் தளவமைப்பு"
+
+#: control.py:465
+#, fuzzy
+msgid "Primary click side"
+msgstr "முதன்மைப் பொத்தான்"
+
+#: control.py:465
+#, fuzzy
+msgid "The other button opens menus."
+msgstr "மற்ற பொத்தான் மெனுக்களைத் திறக்கும்."
+
+#: control.py:467
+#, fuzzy
+msgid "Cursor Speed"
+msgstr "சுட்டியின் வேகம்"
+
+#: control.py:472
+#, fuzzy
+msgid "Dynamic Cursor Acceleration"
+msgstr "சுட்டியின் முடுக்கம்"
+
+#: control.py:472
+#, fuzzy
+msgid "Moves further when the mouse moves fast."
+msgstr "சுட்டியை வேகமாக நகர்த்தினால் அதிக தூரம் செல்லும்."
+
+#: control.py:479
+#, fuzzy
+msgid "Screen moves (view)"
+msgstr "திரை நகரும் (காட்சி)"
+
+#: control.py:479
+#, fuzzy
+msgid "Scrolling moves the visible part of the page."
+msgstr "உருட்டினால் பக்கத்தின் தெரியும் பகுதி நகரும்."
+
+#: control.py:481
+#, fuzzy
+msgid "Content moves (finger)"
+msgstr "உள்ளடக்கம் நகரும் (விரல்)"
+
+#: control.py:481
+#, fuzzy
+msgid "Content follows your finger, like on a phone."
+msgstr "தொலைபேசியில் போல, உள்ளடக்கம் உங்கள் விரலைப் பின்தொடரும்."
+
+#: control.py:516
+#, fuzzy
+msgid "Language"
+msgstr "மொழி"
+
+#: control.py:516
+#, fuzzy
+msgid "For the box's screens and messages."
+msgstr "பெட்டியின் திரைகளுக்கும் செய்திகளுக்கும்."
+
+#: control.py:518
+#, fuzzy
+msgid "Country or Region"
+msgstr "நாடு அல்லது பகுதி"
+
+#: control.py:518
+#, fuzzy
+msgid "Sets date, time and number formats."
+msgstr "தேதி, நேரம், எண் வடிவங்களை அமைக்கும்."
+
+#: control.py:590
+#, fuzzy
+msgid "Current Time"
+msgstr "தற்போதைய நேரம்"
+
+#: control.py:590
+#, fuzzy
+msgid "On the box's clock."
+msgstr "பெட்டியின் கடிகாரப்படி."
+
+#: control.py:591
+#, fuzzy
+msgid "Time Zone"
+msgstr "நேர மண்டலம்"
+
+#: control.py:591
+#, fuzzy
+msgid "The box's dates and times follow it."
+msgstr "பெட்டியின் தேதிகளும் நேரங்களும் இதைப் பின்பற்றும்."
+
+#: control.py:652
+#, fuzzy
+msgid "Protection"
+msgstr "பாதுகாப்பு"
+
+#: control.py:661
+#, fuzzy
+msgid "Not yet: files are checked nightly."
+msgstr "இன்னும் இல்லை: கோப்புகள் ஒவ்வொரு இரவும் சரிபார்க்கப்படும்."
+
+#: control.py:673
+#, fuzzy
+msgid "Allowed Inbound Connections"
+msgstr "அனுமதிக்கப்பட்ட உள்வரும் இணைப்புகள்"
+
+#: control.py:673
+#, fuzzy
+msgid "Everything else is blocked."
+msgstr "மற்ற அனைத்தும் தடுக்கப்படும்."
+
+#: control.py:684
+#, fuzzy
+msgid "Outbound Internet Connections"
+msgstr "வெளிச்செல்லும் இணைய இணைப்புகள்"
+
+#: control.py:697 control.py:677
+#, fuzzy
+msgid "Allowed"
+msgstr "அனுமதிக்கப்பட்டது"
+
+#: control.py:700 control.py:861
+#, fuzzy
+msgid "Details"
+msgstr "விவரங்கள்"
+
+#: control.py:757 control.py:767 tools.py:617
+#, fuzzy
+msgid "Check now"
+msgstr "இப்போது சரிபார்"
+
+#: control.py:769
+#, fuzzy
+msgid "Auto updates every night."
+msgstr "ஒவ்வொரு இரவும் தானியங்கிப் புதுப்பிப்பு."
+
+#: control.py:769
+#, fuzzy
+msgid "Auto updates are off."
+msgstr "தானியங்கிப் புதுப்பிப்புகள் அணைந்துள்ளன."
+
+#: control.py:799
+#, fuzzy
+msgid "See past notifications"
+msgstr "முந்தைய அறிவிப்புகளைப் பார்"
+
+#: control.py:104
+#, fuzzy
+msgid "DHCP"
+msgstr "DHCP"
+
+#: control.py:104 control.py:168
+#, fuzzy
+msgid "Static"
+msgstr "நிலையானது"
+
+#: control.py:166
+#, fuzzy
+msgid "Connection: Connected"
+msgstr "இணைப்பு: இணைக்கப்பட்டது"
+
+#: control.py:194
+#, fuzzy
+msgid "Ethernet"
+msgstr "ஈதர்நெட்"
+
+#: control.py:198
+#, fuzzy
+msgid "Wi-Fi (Wireless Network)"
+msgstr "Wi-Fi (கம்பியில்லா வலையமைப்பு)"
+
+#: control.py:246
+#, fuzzy
+msgid "No screen to set here"
+msgstr "இங்கு அமைக்கத் திரை இல்லை"
+
+#: control.py:246
+#, fuzzy
+msgid "For a screen plugged into the box."
+msgstr "பெட்டியுடன் இணைக்கப்பட்ட திரைக்கு."
+
+#: control.py:272
+#, fuzzy
+msgid "Orientation"
+msgstr "திசையமைவு"
+
+#: control.py:272
+#, fuzzy
+msgid "Landscape or portrait."
+msgstr "கிடைமட்டம் அல்லது செங்குத்து."
+
+#: control.py:274
+#, fuzzy
+msgid "Resolution"
+msgstr "தெளிவுத்திறன்"
+
+#: control.py:274
+#, fuzzy
+msgid "Higher is sharper, with smaller items."
+msgstr "அதிகமானால் கூர்மை, சிறிய உருப்படிகள்."
+
+#: control.py:276
+#, fuzzy
+msgid "Screen Update Rate"
+msgstr "திரைப் புதுப்பிப்பு வீதம்"
+
+#: control.py:276
+#, fuzzy
+msgid "How smoothly things move on the screen."
+msgstr "திரையில் இயக்கம் எவ்வளவு சீராகத் தெரிகிறது."
+
+#: control.py:278
+#, fuzzy
+msgid "Text & UI Scaling"
+msgstr "உரை & இடைமுக அளவு"
+
+#: control.py:278
+#, fuzzy
+msgid "Size of text and everything on screen."
+msgstr "திரையில் உரை மற்றும் அனைத்தின் அளவு."
+
+#: control.py:388
+#, fuzzy
+msgid "None found"
+msgstr "எதுவும் கிடைக்கவில்லை"
+
+#: control.py:397
+#, fuzzy
+msgid "Mute"
+msgstr "ஒலியடக்கு"
+
+#: control.py:421
+#, fuzzy
+msgid "Test"
+msgstr "சோதி"
+
+#: control.py:467
+#, fuzzy
+msgid "Slow"
+msgstr "மெதுவாக"
+
+#: control.py:467
+#, fuzzy
+msgid "Fast"
+msgstr "வேகமாக"
+
+#: control.py:607
+#, fuzzy
+msgid "Set by itself from the internet."
+msgstr "இணையத்திலிருந்து தானாக அமைக்கப்பட்டது."
+
+#: control.py:608
+#, fuzzy
+msgid "Syncs once the box is online."
+msgstr "பெட்டி இணையத்தில் இணைந்ததும் ஒத்திசையும்."
+
+#: control.py:611
+#, fuzzy
+msgid "In sync"
+msgstr "ஒத்திசைவில் உள்ளது"
+
+#: control.py:611
+#, fuzzy
+msgid "Not yet in sync"
+msgstr "இன்னும் ஒத்திசைவில் இல்லை"
+
+#: control.py:654
+#, fuzzy
+msgid "Firewall"
+msgstr "ஃபயர்வால்"
+
+#: control.py:656
+#, fuzzy
+msgid "Secure Boot"
+msgstr "Secure Boot"
+
+#: control.py:658
+#, fuzzy
+msgid "OS Update"
+msgstr "OS புதுப்பிப்பு"
+
+#: control.py:668
+#, fuzzy
+msgid "Last System Scan"
+msgstr "கடைசி கணினி ஸ்கேன்"
+
+#: control.py:674
+#, fuzzy
+msgid "What devices on your network can reach on this box."
+msgstr "உங்கள் வலையமைப்பில் உள்ள சாதனங்கள் இந்தப் பெட்டியில் அணுகக்கூடியவை."
+
+#: control.py:685
+#, fuzzy
+msgid "For updates and the time. No identifying data is sent."
+msgstr "புதுப்பிப்புகளுக்கும் நேரத்திற்கும். அடையாளம் காட்டும் தரவு எதுவும் அனுப்பப்படாது."
+
+#: control.py:710
+#, fuzzy
+msgid "Address: {host}"
+msgstr "முகவரி: {host}"
+
+#: control.py:767
+#, fuzzy
+msgid "Checking…"
+msgstr "சரிபார்க்கிறது…"
+
+#: control.py:771
+#, fuzzy
+msgid "No update yet."
+msgstr "இன்னும் புதுப்பிப்பு இல்லை."
+
+#: control.py:772
+#, fuzzy
+msgid "Installing security updates now."
+msgstr "பாதுகாப்புப் புதுப்பிப்புகள் நிறுவப்படுகின்றன."
+
+#: control.py:846
+#, fuzzy
+msgid "Name"
+msgstr "பெயர்"
+
+#: control.py:847
+#, fuzzy
+msgid "Model"
+msgstr "மாடல்"
+
+#: control.py:848
+#, fuzzy
+msgid "Serial Number"
+msgstr "வரிசை எண்"
+
+#: control.py:849
+#, fuzzy
+msgid "Operating System"
+msgstr "இயக்க முறைமை"
+
+#: control.py:850 tools.py:441
+#, fuzzy
+msgid "Processor"
+msgstr "செயலி"
+
+#: control.py:852
+#, fuzzy
+msgid "Disk Capacity"
+msgstr "வட்டுக் கொள்ளளவு"
+
+#: control.py:854
+#, fuzzy
+msgid "Running For"
+msgstr "இயங்கும் நேரம்"
+
+#: control.py:862
+#, fuzzy
+msgid "System Release"
+msgstr "கணினி வெளியீடு"
+
+#: control.py:863
+#, fuzzy
+msgid "Base Package"
+msgstr "அடிப்படைத் தொகுப்பு"
+
+#: control.py:864
+#, fuzzy
+msgid "Factory Image"
+msgstr "தொழிற்சாலை இமேஜ்"
+
+#: control.py:865
+#, fuzzy
+msgid "Kernel"
+msgstr "கர்னல்"
+
+#: control.py:167
+#, fuzzy
+msgid "none yet"
+msgstr "இன்னும் இல்லை"
+
+#: control.py:168
+#, fuzzy
+msgid "Assigned by Router"
+msgstr "திசைவி ஒதுக்கியது"
+
+#: control.py:171
+#, fuzzy
+msgid "Connection: Cable unplugged"
+msgstr "இணைப்பு: கம்பி துண்டிக்கப்பட்டது"
+
+#: control.py:195
+#, fuzzy
+msgid "No network port found"
+msgstr "வலையமைப்புத் துறை இல்லை"
+
+#: control.py:195
+#, fuzzy
+msgid "The box needs a cable to the router."
+msgstr "பெட்டிக்குத் திசைவிக்கு ஒரு கம்பி தேவை."
+
+#: control.py:199
+#, fuzzy
+msgid "Status: Off"
+msgstr "நிலை: அணைந்துள்ளது"
+
+#: control.py:199
+#, fuzzy
+msgid "The box connects to the router by a cable."
+msgstr "பெட்டி திசைவியுடன் கம்பி மூலம் இணைகிறது."
+
+#: control.py:367 control.py:341
+#, fuzzy
+msgid "Keep these settings? Reverting in {n} s."
+msgstr "இந்த அமைப்புகளை வைக்கவா? {n} வி. இல் திரும்பும்."
+
+#: control.py:550 control.py:614
+#, fuzzy
+msgid "Saved."
+msgstr "சேமிக்கப்பட்டது."
+
+#: control.py:641
+#, fuzzy
+msgid "Protected"
+msgstr "பாதுகாக்கப்பட்டது"
+
+#: control.py:641
+#, fuzzy
+msgid "Security updates install automatically, and the firewall is always enabled."
+msgstr "பாதுகாப்புப் புதுப்பிப்புகள் தானாக நிறுவப்படும், ஃபயர்வால் எப்போதும் இயங்கும்."
+
+#: control.py:644
+#, fuzzy
+msgid "Secure Boot is on"
+msgstr "Secure Boot இயங்குகிறது"
+
+#: control.py:644
+#, fuzzy
+msgid "Only authenticated software can boot the system."
+msgstr "அங்கீகரிக்கப்பட்ட மென்பொருள் மட்டுமே கணினியைத் தொடங்க முடியும்."
+
+#: control.py:647
+#, fuzzy
+msgid "Enable it in the firmware settings, if available."
+msgstr "இருந்தால், ஃபர்ம்வேர் அமைப்புகளில் இயக்குங்கள்."
+
+#: control.py:682
+#, fuzzy
+msgid "Nothing"
+msgstr "எதுவும் இல்லை"
+
+#: control.py:682
+#, fuzzy
+msgid "No other device can reach the box."
+msgstr "வேறு எந்தச் சாதனமும் பெட்டியை அணுக முடியாது."
+
+#: control.py:711
+#, fuzzy
+msgid "When: {when}"
+msgstr "எப்போது: {when}"
+
+#: control.py:730
+#, fuzzy
+msgid "{n} programs confined"
+msgstr "{n} நிரல்கள் கட்டுப்படுத்தப்பட்டுள்ளன"
+
+#: control.py:744
+#, fuzzy
+msgid "Confined"
+msgstr "கட்டுப்படுத்தப்பட்டது"
+
+#: control.py:744
+#, fuzzy
+msgid "Watched only"
+msgstr "கண்காணிப்பில் மட்டும்"
+
+#: control.py:746
+#, fuzzy
+msgid "The programs ({n})"
+msgstr "நிரல்கள் ({n})"
+
+#: control.py:840
+#, fuzzy
+msgid "{size} for the box"
+msgstr "பெட்டிக்கு {size}"
+
+#: control.py:846 control.py:851 tools.py:80
+#, fuzzy
+msgid "Unknown"
+msgstr "தெரியாதது"
+
+#: control.py:853 tools.py:465
+#, fuzzy
+msgid "No sensor"
+msgstr "உணரி இல்லை"
+
+#: control.py:135 control.py:185
+#, fuzzy
+msgid "Configuration Details ({port})"
+msgstr "அமைவு விவரங்கள் ({port})"
+
+#: control.py:152
+#, fuzzy
+msgid "Current Address: {address}."
+msgstr "தற்போதைய முகவரி: {address}."
+
+#: control.py:162
+#, fuzzy
+msgid "Ethernet Status ({port})"
+msgstr "ஈதர்நெட் நிலை ({port})"
+
+#: control.py:169
+#, fuzzy
+msgid "IPv4 Address: {address} ({how})"
+msgstr "IPv4 முகவரி: {address} ({how})"
+
+#: control.py:180
+#, fuzzy
+msgid "Connected"
+msgstr "இணைக்கப்பட்டது"
+
+#: control.py:180
+#, fuzzy
+msgid "Not connected"
+msgstr "இணைக்கப்படவில்லை"
+
+#: control.py:364
+#, fuzzy
+msgid "Saved. The screen starts this way from now on."
+msgstr "சேமிக்கப்பட்டது. இனி திரை இப்படியே தொடங்கும்."
+
+#: control.py:466
+#, fuzzy
+msgid "Left"
+msgstr "இடது"
+
+#: control.py:466
+#, fuzzy
+msgid "Right"
+msgstr "வலது"
+
+#: control.py:531
+#, fuzzy
+msgid "Not chosen"
+msgstr "தேர்ந்தெடுக்கவில்லை"
+
+#: control.py:633
+#, fuzzy
+msgid "security fixes are off"
+msgstr "பாதுகாப்புத் திருத்தங்கள் அணைந்துள்ளன"
+
+#: control.py:634
+#, fuzzy
+msgid "the firewall is off"
+msgstr "ஃபயர்வால் அணைந்துள்ளது"
+
+#: control.py:635
+#, fuzzy
+msgid "the OS's files changed"
+msgstr "OS கோப்புகள் மாறியுள்ளன"
+
+#: control.py:636
+#, fuzzy
+msgid "AppArmor is off"
+msgstr "AppArmor அணைந்துள்ளது"
+
+#: control.py:646
+#, fuzzy
+msgid "Secure Boot is off"
+msgstr "Secure Boot அணைந்துள்ளது"
+
+#: control.py:646
+#, fuzzy
+msgid "Secure Boot is unavailable"
+msgstr "Secure Boot கிடைக்கவில்லை"
+
+#: control.py:658
+#, fuzzy
+msgid "None yet"
+msgstr "இன்னும் இல்லை"
+
+#: control.py:663
+#, fuzzy
+msgid "Completed {time}: OS files match the latest update."
+msgstr "{time} அன்று முடிந்தது: OS கோப்புகள் கடைசி புதுப்பிப்புடன் பொருந்துகின்றன."
+
+#: control.py:666
+#, fuzzy
+msgid "Completed {time}: files changed outside an update: {files}"
+msgstr "{time} அன்று முடிந்தது: புதுப்பிப்புக்கு வெளியே மாறிய கோப்புகள்: {files}"
+
+#: control.py:770
+#, fuzzy
+msgid "Last update was {date}."
+msgstr "கடைசி புதுப்பிப்பு {date}."
+
+#: control.py:843
+#, fuzzy
+msgid "{size} library"
+msgstr "நூலகம் {size}"
+
+#: control.py:171
+#, fuzzy
+msgid "MAC address: {mac}"
+msgstr "MAC முகவரி: {mac}"
+
+#: control.py:679
+#, fuzzy
+msgid "Port {port} ({how})"
+msgstr "துறை {port} ({how})"
+
+#: control.py:851
+#, fuzzy
+msgid "{used} of {total} in use"
+msgstr "{used} / {total} பயன்பாட்டில்"
+
+#: control.py:152
+#, fuzzy
+msgid "Reverts at {time} unless kept."
+msgstr "வைக்காவிட்டால் {time} க்குத் திரும்பும்."
+
+#: display.py:20
+#, fuzzy
+msgid "Landscape"
+msgstr "கிடைமட்டம்"
+
+#: display.py:20
+#, fuzzy
+msgid "Portrait, turned right"
+msgstr "செங்குத்து, வலப்புறம் திருப்பியது"
+
+#: display.py:21
+#, fuzzy
+msgid "Portrait, turned left"
+msgstr "செங்குத்து, இடப்புறம் திருப்பியது"
+
+#: display.py:21
+#, fuzzy
+msgid "Landscape, upside down"
+msgstr "கிடைமட்டம், தலைகீழாக"
+
+#: settings.py:113
+#, fuzzy
+msgid "Always on"
+msgstr "எப்போதும் இயங்கும்"
+
+#: settings.py:113
+#, fuzzy
+msgid "Off"
+msgstr "அணைந்துள்ளது"
+
+#: signin.py:50
+#, fuzzy
+msgid "ZOOMRIYA ID couldn't sign you in just now."
+msgstr "ZOOMRIYA ID இப்போது உங்களை உள்நுழைய வைக்க முடியவில்லை."
+
+#: signin.py:52
+#, fuzzy
+msgid "ZOOMRIYA ID isn't responding. Try again shortly."
+msgstr "ZOOMRIYA ID பதிலளிக்கவில்லை. சற்று நேரத்தில் மீண்டும் முயலுங்கள்."
+
+#: signin.py:60
+#, fuzzy
+msgid "Box Desktop is for the box's admins."
+msgstr "Box Desktop பெட்டியின் நிர்வாகிகளுக்கானது."
+
+#: signin.py:47
+#, fuzzy
+msgid "That username and password don't match."
+msgstr "அந்தப் பயனர்பெயரும் கடவுச்சொல்லும் பொருந்தவில்லை."
+
+#: signin.py:49
+#, fuzzy
+msgid "Too many tries. Try again in a minute."
+msgstr "அதிக முயற்சிகள். ஒரு நிமிடத்தில் மீண்டும் முயலுங்கள்."
+
+#: tools.py:21
+#, fuzzy
+msgid "Healthy"
+msgstr "நலம்"
+
+#: tools.py:21
+#, fuzzy
+msgid "Needs checking"
+msgstr "சரிபார்க்க வேண்டும்"
+
+#: tools.py:21
+#, fuzzy
+msgid "Failing"
+msgstr "பழுதடைகிறது"
+
+#: tools.py:20
+#, fuzzy
+msgid "Errors"
+msgstr "பிழைகள்"
+
+#: tools.py:20
+#, fuzzy
+msgid "Warnings and errors"
+msgstr "எச்சரிக்கைகள் மற்றும் பிழைகள்"
+
+#: tools.py:20
+#, fuzzy
+msgid "Everything"
+msgstr "அனைத்தும்"
+
+#: tools.py:25
+#, fuzzy
+msgid "KB"
+msgstr "KB"
+
+#: tools.py:25
+#, fuzzy
+msgid "MB"
+msgstr "MB"
+
+#: tools.py:25
+#, fuzzy
+msgid "GB"
+msgstr "GB"
+
+#: tools.py:25
+#, fuzzy
+msgid "TB"
+msgstr "TB"
+
+#: tools.py:39
+#, fuzzy
+msgid "Never"
+msgstr "ஒருபோதும் இல்லை"
+
+#: tools.py:159
+#, fuzzy
+msgid "Restart the box?"
+msgstr "பெட்டியை மறுதொடக்கம் செய்யவா?"
+
+#: tools.py:160
+#, fuzzy
+msgid "Everything stops for a minute or two, then starts again."
+msgstr "அனைத்தும் ஓரிரு நிமிடங்கள் நின்று, பின் மீண்டும் தொடங்கும்."
+
+#: tools.py:246
+#, fuzzy
+msgid "Shut the box down?"
+msgstr "பெட்டியை அணைக்கவா?"
+
+#: tools.py:247
+#, fuzzy
+msgid "All apps stop and backups pause until someone presses the power button."
+msgstr "யாராவது ஆற்றல் பொத்தானை அழுத்தும் வரை அனைத்துச் செயலிகளும் நிற்கும், காப்புப்பிரதிகள் இடைநிறுத்தப்படும்."
+
+#: tools.py:248
+#, fuzzy
+msgid "Shut down"
+msgstr "அணை"
+
+#: tools.py:261 tools.py:645
+#, fuzzy
+msgid "Restore points"
+msgstr "மீட்புப் புள்ளிகள்"
+
+#: tools.py:261
+#, fuzzy
+msgid "Reverts the OS to an earlier state. Family files and app data stay. Try this first."
+msgstr "OS-ஐ முந்தைய நிலைக்குத் திருப்பும். குடும்பக் கோப்புகளும் செயலித் தரவும் இருக்கும். முதலில் இதை முயலுங்கள்."
+
+#: tools.py:284
+#, fuzzy
+msgid "Package Updates Held Back"
+msgstr "நிறுத்தி வைக்கப்பட்ட புதுப்பிப்புகள்"
+
+#: tools.py:285
+#, fuzzy
+msgid "Held back by a restore; each updates when a newer fix is out."
+msgstr "மீட்டமைப்பால் நிறுத்தப்பட்டவை; புதிய திருத்தம் வந்ததும் ஒவ்வொன்றும் புதுப்பிக்கும்."
+
+#: tools.py:302 tools.py:752
+#, fuzzy
+msgid "Reset"
+msgstr "மீளமை"
+
+#: tools.py:310 tools.py:758
+#, fuzzy
+msgid "Erase everything"
+msgstr "அனைத்தையும் அழி"
+
+#: tools.py:331
+#, fuzzy
+msgid "Let it update?"
+msgstr "புதுப்பிக்க விடவா?"
+
+#: tools.py:335 tools.py:291
+#, fuzzy
+msgid "Let it update"
+msgstr "புதுப்பிக்க விடு"
+
+#: tools.py:339
+#, fuzzy
+msgid "Restore the OS?"
+msgstr "OS-ஐ மீட்டமைக்கவா?"
+
+#: tools.py:342 tools.py:267 tools.py:273
+#, fuzzy
+msgid "Restore"
+msgstr "மீட்டமை"
+
+#: tools.py:643
+#, fuzzy
+msgid "The apps' databases"
+msgstr "செயலிகளின் தரவுத்தளங்கள்"
+
+#: tools.py:643
+#, fuzzy
+msgid "The apps themselves"
+msgstr "செயலிகள்"
+
+#: tools.py:644
+#, fuzzy
+msgid "Myira's models and the maps"
+msgstr "Myira-வின் மாதிரிகளும் வரைபடங்களும்"
+
+#: tools.py:644
+#, fuzzy
+msgid "Photos, files and the apps' data"
+msgstr "படங்கள், கோப்புகள், செயலிகளின் தரவு"
+
+#: tools.py:750
+#, fuzzy
+msgid "Reset the system?"
+msgstr "கணினியை மீளமைக்கவா?"
+
+#: tools.py:751
+#, fuzzy
+msgid "The system returns to its factory state on restart. Family apps and data stay."
+msgstr "மறுதொடக்கத்தில் கணினி தொழிற்சாலை நிலைக்குத் திரும்பும். குடும்பச் செயலிகளும் தரவும் இருக்கும்."
+
+#: tools.py:756
+#, fuzzy
+msgid "Erase everything?"
+msgstr "அனைத்தையும் அழிக்கவா?"
+
+#: tools.py:757
+#, fuzzy
+msgid "Deletes every app, account, photo and message on restart. This can't be undone. Enter the setup code from the sticker and your password."
+msgstr "மறுதொடக்கத்தில் ஒவ்வொரு செயலி, கணக்கு, படம், செய்தியும் அழிக்கப்படும். திரும்பப் பெற முடியாது. ஸ்டிக்கரில் உள்ள அமைப்புக் குறியீட்டையும் கடவுச்சொல்லையும் உள்ளிடுங்கள்."
+
+#: tools.py:54
+#, fuzzy
+msgid "{date} at {time}"
+msgstr "{date} {time} மணிக்கு"
+
+#: tools.py:110
+#, fuzzy
+msgid "Your password"
+msgstr "உங்கள் கடவுச்சொல்"
+
+#: tools.py:116
+#, fuzzy
+msgid "Cancel"
+msgstr "ரத்துசெய்"
+
+#: tools.py:190
+#, fuzzy
+msgid "Maintenance"
+msgstr "பராமரிப்பு"
+
+#: tools.py:203
+#, fuzzy
+msgid "Power"
+msgstr "ஆற்றல்"
+
+#: tools.py:226
+#, fuzzy
+msgid "Awaiting Kernel Update Completion"
+msgstr "கர்னல் புதுப்பிப்பு முடிவுக்குக் காத்திருக்கிறது"
+
+#: tools.py:226
+#, fuzzy
+msgid "A new kernel is ready."
+msgstr "புதிய கர்னல் தயார்."
+
+#: tools.py:238
+#, fuzzy
+msgid "Finish & Restart"
+msgstr "முடித்து மறுதொடக்கு"
+
+#: tools.py:266
+#, fuzzy
+msgid "before update"
+msgstr "புதுப்பிப்புக்கு முன்"
+
+#: tools.py:266 tools.py:266
+#, fuzzy
+msgid "Update"
+msgstr "புதுப்பிப்பு"
+
+#: tools.py:266
+#, fuzzy
+msgid "after update"
+msgstr "புதுப்பிப்புக்குப் பின்"
+
+#: tools.py:267
+#, fuzzy
+msgid "before restore"
+msgstr "மீட்டமைப்புக்கு முன்"
+
+#: tools.py:267
+#, fuzzy
+msgid "factory"
+msgstr "தொழிற்சாலை"
+
+#: tools.py:267
+#, fuzzy
+msgid "As it left the factory"
+msgstr "தொழிற்சாலையிலிருந்து வந்தபடி"
+
+#: tools.py:303
+#, fuzzy
+msgid "Reset the system…"
+msgstr "கணினியை மீளமை…"
+
+#: tools.py:305
+#, fuzzy
+msgid "System Reset"
+msgstr "கணினி மீளமைப்பு"
+
+#: tools.py:306
+#, fuzzy
+msgid "Returns the OS to factory state, then updates it. Your data stays. Use if restoring fails."
+msgstr "OS-ஐ தொழிற்சாலை நிலைக்குத் திருப்பிப் புதுப்பிக்கும். உங்கள் தரவு இருக்கும். மீட்டமைத்தல் தோல்வியுற்றால்."
+
+#: tools.py:318
+#, fuzzy
+msgid "Factory Reset"
+msgstr "தொழிற்சாலை மீளமைப்பு"
+
+#: tools.py:319
+#, fuzzy
+msgid "Erases everything, leaving the box as new. Needs the setup code from the sticker."
+msgstr "அனைத்தையும் அழித்து, பெட்டியைப் புதியதாக்கும். ஸ்டிக்கரில் உள்ள அமைப்புக் குறியீடு தேவை."
+
+#: tools.py:491
+#, fuzzy
+msgid "Search"
+msgstr "தேடு"
+
+#: tools.py:498
+#, fuzzy
+msgid "Show older"
+msgstr "பழையவற்றைக் காட்டு"
+
+#: tools.py:544
+#, fuzzy
+msgid "What the box reported in the last month. Choose what appears on the bell in Control Panel › Notifications."
+msgstr "கடந்த மாதம் பெட்டி தெரிவித்தவை. மணியில் தெரிவதைக் கட்டுப்பாட்டுப் பலகம் › அறிவிப்புகளில் தேர்ந்தெடுங்கள்."
+
+#: tools.py:585
+#, fuzzy
+msgid "Check that both copies match"
+msgstr "இரண்டு நகல்களும் ஒத்துள்ளனவா எனச் சரிபார்"
+
+#: tools.py:585
+#, fuzzy
+msgid "Checking that both copies match"
+msgstr "இரண்டு நகல்களும் ஒத்துள்ளனவா எனச் சரிபார்க்கிறது"
+
+#: tools.py:586
+#, fuzzy
+msgid "Check the library for damage"
+msgstr "நூலகத்தில் சேதம் உள்ளதா எனச் சரிபார்"
+
+#: tools.py:586
+#, fuzzy
+msgid "Checking the library for damage"
+msgstr "நூலகத்தில் சேதம் உள்ளதா எனச் சரிபார்க்கிறது"
+
+#: tools.py:648
+#, fuzzy
+msgid "What takes the space on the box's own disk."
+msgstr "பெட்டியின் சொந்த வட்டில் இடத்தை எடுப்பவை."
+
+#: tools.py:680
+#, fuzzy
+msgid "Busiest first. CPU is a share of the whole box."
+msgstr "அதிகம் இயங்குபவை முதலில். CPU என்பது முழுப் பெட்டியின் பங்கு."
+
+#: tools.py:760
+#, fuzzy
+msgid "Setup code, like ABCD-EFGH"
+msgstr "அமைப்புக் குறியீடு, எ.கா. ABCD-EFGH"
+
+#: tools.py:196
+#, fuzzy
+msgid "Adjust Time"
+msgstr "நேரத்தை மாற்று"
+
+#: tools.py:200
+#, fuzzy
+msgid "Maintenance Hour"
+msgstr "பராமரிப்பு நேரம்"
+
+#: tools.py:200
+#, fuzzy
+msgid "If an update needs a restart, the box restarts this hour."
+msgstr "புதுப்பிப்புக்கு மறுதொடக்கம் தேவைப்பட்டால், பெட்டி இந்த நேரத்தில் மறுதொடக்கம் செய்யும்."
+
+#: tools.py:205
+#, fuzzy
+msgid "Always On"
+msgstr "எப்போதும் இயக்கத்தில்"
+
+#: tools.py:205
+#, fuzzy
+msgid "The box runs 24/7 with power-saving mode disabled."
+msgstr "ஆற்றல் சேமிப்பு முறை இல்லாமல் பெட்டி 24/7 இயங்கும்."
+
+#: tools.py:207
+#, fuzzy
+msgid "Shutdown"
+msgstr "அணைத்தல்"
+
+#: tools.py:207
+#, fuzzy
+msgid "If powered off, it must be turned back on in person."
+msgstr "அணைந்தால், நேரில் சென்று மீண்டும் இயக்க வேண்டும்."
+
+#: tools.py:208
+#, fuzzy
+msgid "Shut down system…"
+msgstr "அணை…"
+
+#: tools.py:228
+#, fuzzy
+msgid "Awaiting Update Completion"
+msgstr "புதுப்பிப்பு முடிவுக்குக் காத்திருக்கிறது"
+
+#: tools.py:228
+#, fuzzy
+msgid "Security fixes are installed."
+msgstr "பாதுகாப்புத் திருத்தங்கள் நிறுவப்பட்டன."
+
+#: tools.py:314
+#, fuzzy
+msgid "Erase everything…"
+msgstr "அனைத்தையும் அழி…"
+
+#: tools.py:332
+#, fuzzy
+msgid "{package} installs its latest fix tonight, even if that's {taken}, the version the restore removed."
+msgstr "{package} இன்றிரவு தன் சமீபத்திய திருத்தத்தை நிறுவும், அது மீட்டமைப்பு நீக்கிய {taken} பதிப்பாக இருந்தாலும்."
+
+#: tools.py:340
+#, fuzzy
+msgid "The OS returns to {time} ({what}) on the next restart. Family files and app data stay."
+msgstr "அடுத்த மறுதொடக்கத்தில் OS {time} ({what}) நிலைக்குத் திரும்பும். குடும்பக் கோப்புகளும் செயலித் தரவும் இருக்கும்."
+
+#: tools.py:384
+#, fuzzy
+msgid "The OS, the apps and their data"
+msgstr "OS, செயலிகள், அவற்றின் தரவு"
+
+#: tools.py:463
+#, fuzzy
+msgid "Disks"
+msgstr "வட்டுகள்"
+
+#: tools.py:465
+#, fuzzy
+msgid "Hottest sensor"
+msgstr "அதிக வெப்ப உணரி"
+
+#: tools.py:596
+#, fuzzy
+msgid "Pause"
+msgstr "இடைநிறுத்து"
+
+#: tools.py:692
+#, fuzzy
+msgid "An app"
+msgstr "ஒரு செயலி"
+
+#: tools.py:692
+#, fuzzy
+msgid "Part of the box"
+msgstr "பெட்டியின் பகுதி"
+
+#: tools.py:137
+#, fuzzy
+msgid "That isn't your password."
+msgstr "அது உங்கள் கடவுச்சொல் அல்ல."
+
+#: tools.py:230
+#, fuzzy
+msgid "Awaiting Restore Completion"
+msgstr "மீட்டமைப்பு முடிவுக்குக் காத்திருக்கிறது"
+
+#: tools.py:230
+#, fuzzy
+msgid "The OS is restored."
+msgstr "OS மீட்டமைக்கப்பட்டது."
+
+#: tools.py:416
+#, fuzzy
+msgid "Size"
+msgstr "அளவு"
+
+#: tools.py:417
+#, fuzzy
+msgid "Place"
+msgstr "இடம்"
+
+#: tools.py:453
+#, fuzzy
+msgid "Processor: {percent}%"
+msgstr "செயலி: {percent}%"
+
+#: tools.py:456
+#, fuzzy
+msgid "Memory: {used} of {total}"
+msgstr "நினைவகம்: {used} / {total}"
+
+#: tools.py:511
+#, fuzzy
+msgid "Nothing here."
+msgstr "இங்கு எதுவும் இல்லை."
+
+#: tools.py:553
+#, fuzzy
+msgid "Nothing in the last month."
+msgstr "கடந்த மாதம் எதுவும் இல்லை."
+
+#: tools.py:601
+#, fuzzy
+msgid "Resume"
+msgstr "தொடர்"
+
+#: tools.py:605
+#, fuzzy
+msgid "It hasn't been checked yet."
+msgstr "இன்னும் சரிபார்க்கப்படவில்லை."
+
+#: tools.py:658
+#, fuzzy
+msgid "Not counted yet; updated every few hours."
+msgstr "இன்னும் கணக்கிடப்படவில்லை; சில மணிநேரங்களுக்கு ஒருமுறை புதுப்பிக்கப்படும்."
+
+#: tools.py:722
+#, fuzzy
+msgid "This box reports no sensors."
+msgstr "இந்தப் பெட்டியில் உணரிகள் இல்லை."
+
+#: tools.py:232
+#, fuzzy
+msgid "Awaiting Reset"
+msgstr "மீளமைப்பு காத்திருக்கிறது"
+
+#: tools.py:232
+#, fuzzy
+msgid "The reset is ready."
+msgstr "மீளமைப்பு தயார்."
+
+#: tools.py:234
+#, fuzzy
+msgid "Restart Needed"
+msgstr "மறுதொடக்கம் தேவை"
+
+#: tools.py:234
+#, fuzzy
+msgid "Something waits for a restart."
+msgstr "ஏதோ ஒன்று மறுதொடக்கத்திற்குக் காத்திருக்கிறது."
+
+#: tools.py:241
+#, fuzzy
+msgid "The system will restart at {hour}, or you can restart manually now."
+msgstr "கணினி {hour} மணிக்கு மறுதொடக்கம் செய்யும், அல்லது இப்போதே மறுதொடக்கலாம்."
+
+#: tools.py:293
+#, fuzzy
+msgid "Kept at {version}; {taken} was taken back."
+msgstr "{version} இல் வைக்கப்பட்டது; {taken} திரும்பப் பெறப்பட்டது."
+
+#: tools.py:363
+#, fuzzy
+msgid "{size} used"
+msgstr "{size} பயன்பாட்டில்"
+
+#: tools.py:364
+#, fuzzy
+msgid "{free} free of {total}"
+msgstr "{total} இல் {free} காலி"
+
+#: tools.py:379
+#, fuzzy
+msgid "{n} drives, each a copy of the other"
+msgstr "{n} இயக்ககங்கள், ஒன்று மற்றதன் நகல்"
+
+#: tools.py:417
+#, fuzzy
+msgid "The box's own"
+msgstr "பெட்டியினுடையது"
+
+#: tools.py:421
+#, fuzzy
+msgid "In use for"
+msgstr "பயன்பாட்டு நேரம்"
+
+#: tools.py:462
+#, fuzzy
+msgid "in {received}, out {sent}"
+msgstr "உள்ளே {received}, வெளியே {sent}"
+
+#: tools.py:463
+#, fuzzy
+msgid "reading {read}, writing {written}"
+msgstr "படித்தல் {read}, எழுதுதல் {written}"
+
+#: tools.py:600
+#, fuzzy
+msgid "It carries on from there when you resume it."
+msgstr "தொடர்ந்தால், அங்கிருந்தே தொடரும்."
+
+#: tools.py:594
+#, fuzzy
+msgid "Started {time}."
+msgstr "{time} அன்று தொடங்கியது."
+
+#: tools.py:613
+#, fuzzy
+msgid "The last check found nothing needing repair."
+msgstr "கடைசிச் சரிபார்ப்பில் சரிசெய்ய எதுவும் இல்லை."
+
+#: tools.py:615
+#, fuzzy
+msgid "The box also checks once a month by itself."
+msgstr "பெட்டி மாதம் ஒருமுறை தானாகவும் சரிபார்க்கும்."
+
+#: tools.py:732
+#, fuzzy
+msgid "Fan"
+msgstr "விசிறி"
+
+#: tools.py:599
+#, fuzzy
+msgid "The check is paused at {percent}%"
+msgstr "சரிபார்ப்பு {percent}% இல் இடைநிறுத்தப்பட்டுள்ளது"
+
+#: tools.py:607
+#, fuzzy
+msgid "Last check found {n} problems and repaired what it could."
+msgstr "கடைசிச் சரிபார்ப்பு: {n} சிக்கல்கள் கண்டறிந்து, இயன்றவரை சரிசெய்தது."
+
+#: tools.py:610
+#, fuzzy
+msgid "Last check found {n} damaged files. With one drive they can't be repaired: restore them from a backup."
+msgstr "கடைசிச் சரிபார்ப்பு: {n} சேதமான கோப்புகள். ஒரே இயக்ககத்தில் சரிசெய்ய முடியாது: காப்புப்பிரதியிலிருந்து மீட்டமையுங்கள்."

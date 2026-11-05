@@ -8,6 +8,8 @@ import urllib.error
 import urllib.request
 from dataclasses import dataclass
 
+from .i18n import _
+
 ID_API = "http://127.0.0.1:8050/id/api/v1"
 
 
@@ -42,12 +44,12 @@ def _send(request: urllib.request.Request) -> dict:
             return json.load(response)
     except urllib.error.HTTPError as exc:
         if exc.code == 401:
-            raise SignInError("That username and password don't match.") from exc
+            raise SignInError(_("That username and password don't match.")) from exc
         if exc.code == 429:
-            raise SignInError("Too many tries. Wait a minute, then try again.") from exc
-        raise SignInError("ZOOMRIYA ID couldn't sign you in just now.") from exc
+            raise SignInError(_("Too many tries. Try again in a minute.")) from exc
+        raise SignInError(_("ZOOMRIYA ID couldn't sign you in just now.")) from exc
     except OSError as exc:
-        raise SignInError("ZOOMRIYA ID isn't answering yet. Wait a moment and try again.") from exc
+        raise SignInError(_("ZOOMRIYA ID isn't responding. Try again shortly.")) from exc
 
 
 class ZoomriyaID:
@@ -55,7 +57,7 @@ class ZoomriyaID:
         token = _post("/auth/login", {"username": username.strip(), "password": password})["access_token"]
         me = _get("/auth/me", token)
         if me.get("role") != "admin":
-            raise SignInError("Box Desktop is for the box's admins.")
+            raise SignInError(_("Box Desktop is for the box's admins."))
         return Member(me["id"], me["username"], me.get("display_name") or me["username"], token)
 
     def sign_out(self, member: Member) -> None:

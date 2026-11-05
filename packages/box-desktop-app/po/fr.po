@@ -1,0 +1,1786 @@
+# box-desktop-app: fr. Made by scripts/i18n.py extract; translate the empty msgstr.
+# "fuzzy": a draft still to be checked by a native speaker.
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: fr\n"
+
+#: app.py:54
+#, fuzzy
+msgid "Control Panel"
+msgstr "Panneau de configuration"
+
+#: app.py:55
+#, fuzzy
+msgid "Storage Manager"
+msgstr "Gestionnaire de stockage"
+
+#: app.py:56
+#, fuzzy
+msgid "Resource Monitor"
+msgstr "Moniteur de ressources"
+
+#: app.py:57
+#, fuzzy
+msgid "Log Center"
+msgstr "Journaux"
+
+#: app.py:194
+#, fuzzy
+msgid "Sign in with your ZOOMRIYA ID"
+msgstr "Connectez-vous avec votre ZOOMRIYA ID"
+
+#: app.py:495
+#, fuzzy
+msgid "Restart the box"
+msgstr "Redémarrer la box"
+
+#: app.py:496
+#, fuzzy
+msgid "Sign out"
+msgstr "Se déconnecter"
+
+#: app.py:593
+#, fuzzy
+msgid "Box health"
+msgstr "État de la box"
+
+#: app.py:604
+#, fuzzy
+msgid "Checking the box…"
+msgstr "Vérification de la box…"
+
+#: app.py:613
+#, fuzzy
+msgid "CPU and memory"
+msgstr "Processeur et mémoire"
+
+#: app.py:634 app.py:811 tools.py:647
+#, fuzzy
+msgid "Space"
+msgstr "Espace"
+
+#: app.py:105
+#, fuzzy
+msgid "1 day"
+msgstr "1 jour"
+
+#: app.py:106
+#, fuzzy
+msgid "1 hour"
+msgstr "1 heure"
+
+#: app.py:196
+#, fuzzy
+msgid "Username"
+msgstr "Nom d'utilisateur"
+
+#: app.py:197
+#, fuzzy
+msgid "Password"
+msgstr "Mot de passe"
+
+#: app.py:207
+#, fuzzy
+msgid "Sign in"
+msgstr "Se connecter"
+
+#: app.py:291
+#, fuzzy
+msgid "Daylight"
+msgstr "Jour"
+
+#: app.py:291 app.py:453
+#, fuzzy
+msgid "Midnight"
+msgstr "Nuit"
+
+#: app.py:383
+#, fuzzy
+msgid "Main menu"
+msgstr "Menu principal"
+
+#: app.py:406 app.py:737 app.py:817 app.py:803
+#, fuzzy
+msgid "Notifications"
+msgstr "Notifications"
+
+#: app.py:447 app.py:506
+#, fuzzy
+msgid "Search tools"
+msgstr "Rechercher un outil"
+
+#: app.py:461
+#, fuzzy
+msgid "Widgets"
+msgstr "Widgets"
+
+#: app.py:618 tools.py:688
+#, fuzzy
+msgid "CPU"
+msgstr "Processeur"
+
+#: app.py:626 control.py:851 tools.py:443 tools.py:688
+#, fuzzy
+msgid "Memory"
+msgstr "Mémoire"
+
+#: app.py:753
+#, fuzzy
+msgid "See all in Log Center"
+msgstr "Tout voir dans Journaux"
+
+#: app.py:816
+#, fuzzy
+msgid "Box events"
+msgstr "Événements de la box"
+
+#: app.py:818
+#, fuzzy
+msgid "Admin actions"
+msgstr "Actions des administrateurs"
+
+#: app.py:819
+#, fuzzy
+msgid "Sign-ins"
+msgstr "Connexions"
+
+#: app.py:820
+#, fuzzy
+msgid "System log"
+msgstr "Journal système"
+
+#: app.py:107
+#, fuzzy
+msgid "{n} minutes"
+msgstr "{n} minutes"
+
+#: app.py:348
+#, fuzzy
+msgid "{box}: sign in with your ZOOMRIYA ID"
+msgstr "{box} : connectez-vous avec votre ZOOMRIYA ID"
+
+#: app.py:427 app.py:799
+#, fuzzy
+msgid "Sound"
+msgstr "Son"
+
+#: app.py:433
+#, fuzzy
+msgid "Speakers"
+msgstr "Haut-parleurs"
+
+#: app.py:439
+#, fuzzy
+msgid "Sound settings"
+msgstr "Réglages du son"
+
+#: app.py:670 control.py:639
+#, fuzzy
+msgid "Needs a look"
+msgstr "À vérifier"
+
+#: app.py:670
+#, fuzzy
+msgid "Everything's fine"
+msgstr "Tout va bien"
+
+#: app.py:678 app.py:810 tools.py:402
+#, fuzzy
+msgid "Drives"
+msgstr "Disques"
+
+#: app.py:679
+#, fuzzy
+msgid "Security fixes"
+msgstr "Correctifs de sécurité"
+
+#: app.py:711 tools.py:384
+#, fuzzy
+msgid "The box's own disk"
+msgstr "Le disque de la box"
+
+#: app.py:739
+#, fuzzy
+msgid "Mark all read"
+msgstr "Tout marquer comme lu"
+
+#: app.py:745
+#, fuzzy
+msgid "Nothing new."
+msgstr "Rien de nouveau."
+
+#: app.py:796 control.py:41 tools.py:462
+#, fuzzy
+msgid "Network"
+msgstr "Réseau"
+
+#: app.py:797 control.py:245
+#, fuzzy
+msgid "Display"
+msgstr "Affichage"
+
+#: app.py:809 app.py:813
+#, fuzzy
+msgid "Overview"
+msgstr "Vue d'ensemble"
+
+#: app.py:814 tools.py:679
+#, fuzzy
+msgid "By app"
+msgstr "Par app"
+
+#: app.py:815 control.py:853 tools.py:711 tools.py:419
+#, fuzzy
+msgid "Temperature"
+msgstr "Température"
+
+#: app.py:105 tools.py:421
+#, fuzzy
+msgid "{n} days"
+msgstr "{n} jours"
+
+#: app.py:106
+#, fuzzy
+msgid "{n} hours"
+msgstr "{n} heures"
+
+#: app.py:672
+#, fuzzy
+msgid "ZOOMRIYA OS 13 · up {time}"
+msgstr "ZOOMRIYA OS 13 · allumée depuis {time}"
+
+#: app.py:678
+#, fuzzy
+msgid "All healthy"
+msgstr "Tous en bon état"
+
+#: app.py:682 tools.py:160
+#, fuzzy
+msgid "Restart"
+msgstr "Redémarrage"
+
+#: app.py:682
+#, fuzzy
+msgid "Needed"
+msgstr "Nécessaire"
+
+#: app.py:699
+#, fuzzy
+msgid "Restart needed"
+msgstr "Redémarrage nécessaire"
+
+#: app.py:707
+#, fuzzy
+msgid "<b>{used}</b> <small>of {total} used</small>"
+msgstr "<b>{used}</b> <small>sur {total} utilisés</small>"
+
+#: app.py:712
+#, fuzzy
+msgid "Library drives mirrored"
+msgstr "Disques de la bibliothèque en miroir"
+
+#: app.py:713 tools.py:381
+#, fuzzy
+msgid "Library"
+msgstr "Bibliothèque"
+
+#: app.py:785
+#, fuzzy
+msgid "{used} of {total}"
+msgstr "{used} sur {total}"
+
+#: app.py:800
+#, fuzzy
+msgid "Keyboard & Mouse"
+msgstr "Clavier et souris"
+
+#: app.py:801 control.py:509
+#, fuzzy
+msgid "Language & Region"
+msgstr "Langue et région"
+
+#: app.py:802
+#, fuzzy
+msgid "Date and time"
+msgstr "Date et heure"
+
+#: app.py:804
+#, fuzzy
+msgid "Security"
+msgstr "Sécurité"
+
+#: app.py:805 control.py:38
+#, fuzzy
+msgid "Restarts"
+msgstr "Redémarrages"
+
+#: app.py:806
+#, fuzzy
+msgid "Restore & Reset"
+msgstr "Restauration"
+
+#: app.py:807
+#, fuzzy
+msgid "System Info"
+msgstr "Infos système"
+
+#: app.py:691
+#, fuzzy
+msgid "Checking the library · {percent}%"
+msgstr "Vérification de la bibliothèque · {percent} %"
+
+#: app.py:678
+#, fuzzy
+msgid "{n} need checking"
+msgstr "{n} à vérifier"
+
+#: control.py:35
+#, fuzzy
+msgid "Drive Health"
+msgstr "État des disques"
+
+#: control.py:35
+#, fuzzy
+msgid "When to check or replace, and when healthy."
+msgstr "Quand vérifier ou remplacer, et quand tout va bien."
+
+#: control.py:37
+#, fuzzy
+msgid "Updates"
+msgstr "Mises à jour"
+
+#: control.py:37
+#, fuzzy
+msgid "When security fixes are installed."
+msgstr "Quand des correctifs de sécurité sont installés."
+
+#: control.py:38
+#, fuzzy
+msgid "Auto-restart schedule for updates and restores."
+msgstr "Redémarrages automatiques prévus pour les mises à jour et restaurations."
+
+#: control.py:40
+#, fuzzy
+msgid "Library Check"
+msgstr "Vérification de la bibliothèque"
+
+#: control.py:40
+#, fuzzy
+msgid "Library scan completion time and results."
+msgstr "Fin de l'analyse de la bibliothèque et résultats."
+
+#: control.py:41
+#, fuzzy
+msgid "Network settings weren't kept and were rolled back."
+msgstr "Réglages réseau non gardés et annulés."
+
+#: control.py:92 control.py:136
+#, fuzzy
+msgid "Configuration Details"
+msgstr "Détails de configuration"
+
+#: control.py:92
+#, fuzzy
+msgid "New settings are tried for a few minutes and revert unless kept."
+msgstr "Les nouveaux réglages sont essayés quelques minutes et reviennent s'ils ne sont pas gardés."
+
+#: control.py:417
+#, fuzzy
+msgid "Output"
+msgstr "Sortie"
+
+#: control.py:428
+#, fuzzy
+msgid "Input"
+msgstr "Entrée"
+
+#: control.py:445
+#, fuzzy
+msgid "Keyboard"
+msgstr "Clavier"
+
+#: control.py:463
+#, fuzzy
+msgid "Mouse"
+msgstr "Souris"
+
+#: control.py:475
+#, fuzzy
+msgid "Scroll direction"
+msgstr "Sens du défilement"
+
+#: control.py:523
+#, fuzzy
+msgid "State or Province"
+msgstr "État ou province"
+
+#: control.py:523
+#, fuzzy
+msgid "Optional."
+msgstr "Facultatif."
+
+#: control.py:584
+#, fuzzy
+msgid "Date & Time"
+msgstr "Date et heure"
+
+#: control.py:594
+#, fuzzy
+msgid "Time Sync"
+msgstr "Synchronisation de l'heure"
+
+#: control.py:712
+#, fuzzy
+msgid "No identifying data is sent."
+msgstr "Aucune donnée identifiante n'est envoyée."
+
+#: control.py:730
+#, fuzzy
+msgid "AppArmor"
+msgstr "AppArmor"
+
+#: control.py:758
+#, fuzzy
+msgid "Security Updates"
+msgstr "Mises à jour de sécurité"
+
+#: control.py:802
+#, fuzzy
+msgid "Show Notifications For"
+msgstr "Afficher les notifications pour"
+
+#: control.py:105
+#, fuzzy
+msgid "IP Address Assignment Method"
+msgstr "Attribution de l'adresse IP"
+
+#: control.py:105
+#, fuzzy
+msgid "From the router (DHCP), or a fixed static address."
+msgstr "Par le routeur (DHCP), ou une adresse statique fixe."
+
+#: control.py:110
+#, fuzzy
+msgid "Box's address"
+msgstr "Adresse de la box"
+
+#: control.py:111
+#, fuzzy
+msgid "Subnet mask"
+msgstr "Masque de sous-réseau"
+
+#: control.py:112
+#, fuzzy
+msgid "Router"
+msgstr "Routeur"
+
+#: control.py:112
+#, fuzzy
+msgid "Name servers"
+msgstr "Serveurs de noms"
+
+#: control.py:122
+#, fuzzy
+msgid "Use these settings"
+msgstr "Appliquer"
+
+#: control.py:124
+#, fuzzy
+msgid "Keep them"
+msgstr "Les garder"
+
+#: control.py:254
+#, fuzzy
+msgid "Go back"
+msgstr "Revenir"
+
+#: control.py:255
+#, fuzzy
+msgid "Keep"
+msgstr "Garder"
+
+#: control.py:418
+#, fuzzy
+msgid "Play a test sound"
+msgstr "Jouer un son de test"
+
+#: control.py:424
+#, fuzzy
+msgid "Output Device"
+msgstr "Sortie audio"
+
+#: control.py:425
+#, fuzzy
+msgid "Output Volume"
+msgstr "Volume de sortie"
+
+#: control.py:429
+#, fuzzy
+msgid "Input Device"
+msgstr "Entrée audio"
+
+#: control.py:430
+#, fuzzy
+msgid "Input Volume"
+msgstr "Volume d'entrée"
+
+#: control.py:434
+#, fuzzy
+msgid "Input Level"
+msgstr "Niveau d'entrée"
+
+#: control.py:434
+#, fuzzy
+msgid "Speak to see it move."
+msgstr "Parlez pour le voir bouger."
+
+#: control.py:447
+#, fuzzy
+msgid "Input Layout"
+msgstr "Disposition du clavier"
+
+#: control.py:465
+#, fuzzy
+msgid "Primary click side"
+msgstr "Bouton principal"
+
+#: control.py:465
+#, fuzzy
+msgid "The other button opens menus."
+msgstr "L'autre bouton ouvre les menus."
+
+#: control.py:467
+#, fuzzy
+msgid "Cursor Speed"
+msgstr "Vitesse du curseur"
+
+#: control.py:472
+#, fuzzy
+msgid "Dynamic Cursor Acceleration"
+msgstr "Accélération du curseur"
+
+#: control.py:472
+#, fuzzy
+msgid "Moves further when the mouse moves fast."
+msgstr "Va plus loin quand la souris bouge vite."
+
+#: control.py:479
+#, fuzzy
+msgid "Screen moves (view)"
+msgstr "L'écran défile (vue)"
+
+#: control.py:479
+#, fuzzy
+msgid "Scrolling moves the visible part of the page."
+msgstr "Faire défiler déplace la partie visible de la page."
+
+#: control.py:481
+#, fuzzy
+msgid "Content moves (finger)"
+msgstr "Le contenu défile (doigt)"
+
+#: control.py:481
+#, fuzzy
+msgid "Content follows your finger, like on a phone."
+msgstr "Le contenu suit votre doigt, comme sur un téléphone."
+
+#: control.py:516
+#, fuzzy
+msgid "Language"
+msgstr "Langue"
+
+#: control.py:516
+#, fuzzy
+msgid "For the box's screens and messages."
+msgstr "Pour les écrans et messages de la box."
+
+#: control.py:518
+#, fuzzy
+msgid "Country or Region"
+msgstr "Pays ou région"
+
+#: control.py:518
+#, fuzzy
+msgid "Sets date, time and number formats."
+msgstr "Définit le format des dates, heures et nombres."
+
+#: control.py:590
+#, fuzzy
+msgid "Current Time"
+msgstr "Heure actuelle"
+
+#: control.py:590
+#, fuzzy
+msgid "On the box's clock."
+msgstr "Selon l'horloge de la box."
+
+#: control.py:591
+#, fuzzy
+msgid "Time Zone"
+msgstr "Fuseau horaire"
+
+#: control.py:591
+#, fuzzy
+msgid "The box's dates and times follow it."
+msgstr "Les dates et heures de la box le suivent."
+
+#: control.py:652
+#, fuzzy
+msgid "Protection"
+msgstr "Protection"
+
+#: control.py:661
+#, fuzzy
+msgid "Not yet: files are checked nightly."
+msgstr "Pas encore : les fichiers sont vérifiés chaque nuit."
+
+#: control.py:673
+#, fuzzy
+msgid "Allowed Inbound Connections"
+msgstr "Connexions entrantes autorisées"
+
+#: control.py:673
+#, fuzzy
+msgid "Everything else is blocked."
+msgstr "Tout le reste est bloqué."
+
+#: control.py:684
+#, fuzzy
+msgid "Outbound Internet Connections"
+msgstr "Connexions sortantes vers internet"
+
+#: control.py:697 control.py:677
+#, fuzzy
+msgid "Allowed"
+msgstr "Autorisé"
+
+#: control.py:700 control.py:861
+#, fuzzy
+msgid "Details"
+msgstr "Détails"
+
+#: control.py:757 control.py:767 tools.py:617
+#, fuzzy
+msgid "Check now"
+msgstr "Vérifier"
+
+#: control.py:769
+#, fuzzy
+msgid "Auto updates every night."
+msgstr "Mises à jour automatiques chaque nuit."
+
+#: control.py:769
+#, fuzzy
+msgid "Auto updates are off."
+msgstr "Mises à jour automatiques désactivées."
+
+#: control.py:799
+#, fuzzy
+msgid "See past notifications"
+msgstr "Voir les anciennes notifications"
+
+#: control.py:104
+#, fuzzy
+msgid "DHCP"
+msgstr "DHCP"
+
+#: control.py:104 control.py:168
+#, fuzzy
+msgid "Static"
+msgstr "Statique"
+
+#: control.py:166
+#, fuzzy
+msgid "Connection: Connected"
+msgstr "Connexion : connecté"
+
+#: control.py:194
+#, fuzzy
+msgid "Ethernet"
+msgstr "Ethernet"
+
+#: control.py:198
+#, fuzzy
+msgid "Wi-Fi (Wireless Network)"
+msgstr "Wi-Fi (réseau sans fil)"
+
+#: control.py:246
+#, fuzzy
+msgid "No screen to set here"
+msgstr "Aucun écran à régler ici"
+
+#: control.py:246
+#, fuzzy
+msgid "For a screen plugged into the box."
+msgstr "Pour un écran branché sur la box."
+
+#: control.py:272
+#, fuzzy
+msgid "Orientation"
+msgstr "Orientation"
+
+#: control.py:272
+#, fuzzy
+msgid "Landscape or portrait."
+msgstr "Paysage ou portrait."
+
+#: control.py:274
+#, fuzzy
+msgid "Resolution"
+msgstr "Résolution"
+
+#: control.py:274
+#, fuzzy
+msgid "Higher is sharper, with smaller items."
+msgstr "Plus élevé, plus net, avec des éléments plus petits."
+
+#: control.py:276
+#, fuzzy
+msgid "Screen Update Rate"
+msgstr "Fréquence d'affichage"
+
+#: control.py:276
+#, fuzzy
+msgid "How smoothly things move on the screen."
+msgstr "La fluidité des mouvements à l'écran."
+
+#: control.py:278
+#, fuzzy
+msgid "Text & UI Scaling"
+msgstr "Mise à l'échelle"
+
+#: control.py:278
+#, fuzzy
+msgid "Size of text and everything on screen."
+msgstr "Taille du texte et de tout l'écran."
+
+#: control.py:388
+#, fuzzy
+msgid "None found"
+msgstr "Aucun trouvé"
+
+#: control.py:397
+#, fuzzy
+msgid "Mute"
+msgstr "Couper le son"
+
+#: control.py:421
+#, fuzzy
+msgid "Test"
+msgstr "Tester"
+
+#: control.py:467
+#, fuzzy
+msgid "Slow"
+msgstr "Lent"
+
+#: control.py:467
+#, fuzzy
+msgid "Fast"
+msgstr "Rapide"
+
+#: control.py:607
+#, fuzzy
+msgid "Set by itself from the internet."
+msgstr "Réglée automatiquement par internet."
+
+#: control.py:608
+#, fuzzy
+msgid "Syncs once the box is online."
+msgstr "Se synchronise dès que la box est en ligne."
+
+#: control.py:611
+#, fuzzy
+msgid "In sync"
+msgstr "Synchronisée"
+
+#: control.py:611
+#, fuzzy
+msgid "Not yet in sync"
+msgstr "Pas encore synchronisée"
+
+#: control.py:654
+#, fuzzy
+msgid "Firewall"
+msgstr "Pare-feu"
+
+#: control.py:656
+#, fuzzy
+msgid "Secure Boot"
+msgstr "Démarrage sécurisé"
+
+#: control.py:658
+#, fuzzy
+msgid "OS Update"
+msgstr "Mise à jour de l'OS"
+
+#: control.py:668
+#, fuzzy
+msgid "Last System Scan"
+msgstr "Dernière analyse du système"
+
+#: control.py:674
+#, fuzzy
+msgid "What devices on your network can reach on this box."
+msgstr "Ce que les appareils de votre réseau peuvent atteindre sur cette box."
+
+#: control.py:685
+#, fuzzy
+msgid "For updates and the time. No identifying data is sent."
+msgstr "Pour les mises à jour et l'heure. Aucune donnée identifiante n'est envoyée."
+
+#: control.py:710
+#, fuzzy
+msgid "Address: {host}"
+msgstr "Adresse : {host}"
+
+#: control.py:767
+#, fuzzy
+msgid "Checking…"
+msgstr "Vérification…"
+
+#: control.py:771
+#, fuzzy
+msgid "No update yet."
+msgstr "Aucune mise à jour pour l'instant."
+
+#: control.py:772
+#, fuzzy
+msgid "Installing security updates now."
+msgstr "Installation des mises à jour de sécurité."
+
+#: control.py:846
+#, fuzzy
+msgid "Name"
+msgstr "Nom"
+
+#: control.py:847
+#, fuzzy
+msgid "Model"
+msgstr "Modèle"
+
+#: control.py:848
+#, fuzzy
+msgid "Serial Number"
+msgstr "Numéro de série"
+
+#: control.py:849
+#, fuzzy
+msgid "Operating System"
+msgstr "Système d'exploitation"
+
+#: control.py:850 tools.py:441
+#, fuzzy
+msgid "Processor"
+msgstr "Processeur"
+
+#: control.py:852
+#, fuzzy
+msgid "Disk Capacity"
+msgstr "Capacité des disques"
+
+#: control.py:854
+#, fuzzy
+msgid "Running For"
+msgstr "Allumée depuis"
+
+#: control.py:862
+#, fuzzy
+msgid "System Release"
+msgstr "Version du système"
+
+#: control.py:863
+#, fuzzy
+msgid "Base Package"
+msgstr "Paquet de base"
+
+#: control.py:864
+#, fuzzy
+msgid "Factory Image"
+msgstr "Image d'usine"
+
+#: control.py:865
+#, fuzzy
+msgid "Kernel"
+msgstr "Noyau"
+
+#: control.py:167
+#, fuzzy
+msgid "none yet"
+msgstr "aucune pour l'instant"
+
+#: control.py:168
+#, fuzzy
+msgid "Assigned by Router"
+msgstr "Attribuée par le routeur"
+
+#: control.py:171
+#, fuzzy
+msgid "Connection: Cable unplugged"
+msgstr "Connexion : câble débranché"
+
+#: control.py:195
+#, fuzzy
+msgid "No network port found"
+msgstr "Aucun port réseau trouvé"
+
+#: control.py:195
+#, fuzzy
+msgid "The box needs a cable to the router."
+msgstr "La box a besoin d'un câble vers le routeur."
+
+#: control.py:199
+#, fuzzy
+msgid "Status: Off"
+msgstr "État : désactivé"
+
+#: control.py:199
+#, fuzzy
+msgid "The box connects to the router by a cable."
+msgstr "La box se connecte au routeur par un câble."
+
+#: control.py:367 control.py:341
+#, fuzzy
+msgid "Keep these settings? Reverting in {n} s."
+msgstr "Garder ces réglages ? Retour dans {n} s."
+
+#: control.py:550 control.py:614
+#, fuzzy
+msgid "Saved."
+msgstr "Enregistré."
+
+#: control.py:641
+#, fuzzy
+msgid "Protected"
+msgstr "Protégée"
+
+#: control.py:641
+#, fuzzy
+msgid "Security updates install automatically, and the firewall is always enabled."
+msgstr "Les mises à jour de sécurité s'installent automatiquement et le pare-feu est toujours actif."
+
+#: control.py:644
+#, fuzzy
+msgid "Secure Boot is on"
+msgstr "Démarrage sécurisé actif"
+
+#: control.py:644
+#, fuzzy
+msgid "Only authenticated software can boot the system."
+msgstr "Seuls des logiciels authentifiés peuvent démarrer le système."
+
+#: control.py:647
+#, fuzzy
+msgid "Enable it in the firmware settings, if available."
+msgstr "Activez-le dans les réglages du micrologiciel, si possible."
+
+#: control.py:682
+#, fuzzy
+msgid "Nothing"
+msgstr "Rien"
+
+#: control.py:682
+#, fuzzy
+msgid "No other device can reach the box."
+msgstr "Aucun autre appareil ne peut atteindre la box."
+
+#: control.py:711
+#, fuzzy
+msgid "When: {when}"
+msgstr "Quand : {when}"
+
+#: control.py:730
+#, fuzzy
+msgid "{n} programs confined"
+msgstr "{n} programmes confinés"
+
+#: control.py:744
+#, fuzzy
+msgid "Confined"
+msgstr "Confiné"
+
+#: control.py:744
+#, fuzzy
+msgid "Watched only"
+msgstr "Surveillé seulement"
+
+#: control.py:746
+#, fuzzy
+msgid "The programs ({n})"
+msgstr "Les programmes ({n})"
+
+#: control.py:840
+#, fuzzy
+msgid "{size} for the box"
+msgstr "{size} pour la box"
+
+#: control.py:846 control.py:851 tools.py:80
+#, fuzzy
+msgid "Unknown"
+msgstr "Inconnu"
+
+#: control.py:853 tools.py:465
+#, fuzzy
+msgid "No sensor"
+msgstr "Aucun capteur"
+
+#: control.py:135 control.py:185
+#, fuzzy
+msgid "Configuration Details ({port})"
+msgstr "Détails de configuration ({port})"
+
+#: control.py:152
+#, fuzzy
+msgid "Current Address: {address}."
+msgstr "Adresse actuelle : {address}."
+
+#: control.py:162
+#, fuzzy
+msgid "Ethernet Status ({port})"
+msgstr "État Ethernet ({port})"
+
+#: control.py:169
+#, fuzzy
+msgid "IPv4 Address: {address} ({how})"
+msgstr "Adresse IPv4 : {address} ({how})"
+
+#: control.py:180
+#, fuzzy
+msgid "Connected"
+msgstr "Connecté"
+
+#: control.py:180
+#, fuzzy
+msgid "Not connected"
+msgstr "Non connecté"
+
+#: control.py:364
+#, fuzzy
+msgid "Saved. The screen starts this way from now on."
+msgstr "Enregistré. L'écran démarrera ainsi désormais."
+
+#: control.py:466
+#, fuzzy
+msgid "Left"
+msgstr "Gauche"
+
+#: control.py:466
+#, fuzzy
+msgid "Right"
+msgstr "Droite"
+
+#: control.py:531
+#, fuzzy
+msgid "Not chosen"
+msgstr "Non choisi"
+
+#: control.py:633
+#, fuzzy
+msgid "security fixes are off"
+msgstr "les correctifs de sécurité sont désactivés"
+
+#: control.py:634
+#, fuzzy
+msgid "the firewall is off"
+msgstr "le pare-feu est désactivé"
+
+#: control.py:635
+#, fuzzy
+msgid "the OS's files changed"
+msgstr "les fichiers de l'OS ont changé"
+
+#: control.py:636
+#, fuzzy
+msgid "AppArmor is off"
+msgstr "AppArmor est désactivé"
+
+#: control.py:646
+#, fuzzy
+msgid "Secure Boot is off"
+msgstr "Démarrage sécurisé désactivé"
+
+#: control.py:646
+#, fuzzy
+msgid "Secure Boot is unavailable"
+msgstr "Démarrage sécurisé indisponible"
+
+#: control.py:658
+#, fuzzy
+msgid "None yet"
+msgstr "Aucune pour l'instant"
+
+#: control.py:663
+#, fuzzy
+msgid "Completed {time}: OS files match the latest update."
+msgstr "Terminée le {time} : les fichiers de l'OS correspondent à la dernière mise à jour."
+
+#: control.py:666
+#, fuzzy
+msgid "Completed {time}: files changed outside an update: {files}"
+msgstr "Terminée le {time} : fichiers modifiés hors mise à jour : {files}"
+
+#: control.py:770
+#, fuzzy
+msgid "Last update was {date}."
+msgstr "Dernière mise à jour le {date}."
+
+#: control.py:843
+#, fuzzy
+msgid "{size} library"
+msgstr "{size} de bibliothèque"
+
+#: control.py:171
+#, fuzzy
+msgid "MAC address: {mac}"
+msgstr "Adresse MAC : {mac}"
+
+#: control.py:679
+#, fuzzy
+msgid "Port {port} ({how})"
+msgstr "Port {port} ({how})"
+
+#: control.py:851
+#, fuzzy
+msgid "{used} of {total} in use"
+msgstr "{used} sur {total} utilisés"
+
+#: control.py:152
+#, fuzzy
+msgid "Reverts at {time} unless kept."
+msgstr "Retour à {time} sauf si gardés."
+
+#: display.py:20
+#, fuzzy
+msgid "Landscape"
+msgstr "Paysage"
+
+#: display.py:20
+#, fuzzy
+msgid "Portrait, turned right"
+msgstr "Portrait, tourné à droite"
+
+#: display.py:21
+#, fuzzy
+msgid "Portrait, turned left"
+msgstr "Portrait, tourné à gauche"
+
+#: display.py:21
+#, fuzzy
+msgid "Landscape, upside down"
+msgstr "Paysage, à l'envers"
+
+#: settings.py:113
+#, fuzzy
+msgid "Always on"
+msgstr "Toujours actif"
+
+#: settings.py:113
+#, fuzzy
+msgid "Off"
+msgstr "Désactivé"
+
+#: signin.py:50
+#, fuzzy
+msgid "ZOOMRIYA ID couldn't sign you in just now."
+msgstr "ZOOMRIYA ID n'a pas pu vous connecter pour l'instant."
+
+#: signin.py:52
+#, fuzzy
+msgid "ZOOMRIYA ID isn't responding. Try again shortly."
+msgstr "ZOOMRIYA ID ne répond pas. Réessayez dans un instant."
+
+#: signin.py:60
+#, fuzzy
+msgid "Box Desktop is for the box's admins."
+msgstr "Box Desktop est réservé aux administrateurs de la box."
+
+#: signin.py:47
+#, fuzzy
+msgid "That username and password don't match."
+msgstr "Ce nom d'utilisateur et ce mot de passe ne correspondent pas."
+
+#: signin.py:49
+#, fuzzy
+msgid "Too many tries. Try again in a minute."
+msgstr "Trop d'essais. Réessayez dans une minute."
+
+#: tools.py:21
+#, fuzzy
+msgid "Healthy"
+msgstr "En bon état"
+
+#: tools.py:21
+#, fuzzy
+msgid "Needs checking"
+msgstr "À vérifier"
+
+#: tools.py:21
+#, fuzzy
+msgid "Failing"
+msgstr "Défaillant"
+
+#: tools.py:20
+#, fuzzy
+msgid "Errors"
+msgstr "Erreurs"
+
+#: tools.py:20
+#, fuzzy
+msgid "Warnings and errors"
+msgstr "Avertissements et erreurs"
+
+#: tools.py:20
+#, fuzzy
+msgid "Everything"
+msgstr "Tout"
+
+#: tools.py:25
+#, fuzzy
+msgid "KB"
+msgstr "Ko"
+
+#: tools.py:25
+#, fuzzy
+msgid "MB"
+msgstr "Mo"
+
+#: tools.py:25
+#, fuzzy
+msgid "GB"
+msgstr "Go"
+
+#: tools.py:25
+#, fuzzy
+msgid "TB"
+msgstr "To"
+
+#: tools.py:39
+#, fuzzy
+msgid "Never"
+msgstr "Jamais"
+
+#: tools.py:159
+#, fuzzy
+msgid "Restart the box?"
+msgstr "Redémarrer la box ?"
+
+#: tools.py:160
+#, fuzzy
+msgid "Everything stops for a minute or two, then starts again."
+msgstr "Tout s'arrête une minute ou deux, puis redémarre."
+
+#: tools.py:246
+#, fuzzy
+msgid "Shut the box down?"
+msgstr "Éteindre la box ?"
+
+#: tools.py:247
+#, fuzzy
+msgid "All apps stop and backups pause until someone presses the power button."
+msgstr "Toutes les apps s'arrêtent et les sauvegardes sont suspendues jusqu'à ce que quelqu'un appuie sur le bouton d'alimentation."
+
+#: tools.py:248
+#, fuzzy
+msgid "Shut down"
+msgstr "Éteindre"
+
+#: tools.py:261 tools.py:645
+#, fuzzy
+msgid "Restore points"
+msgstr "Points de restauration"
+
+#: tools.py:261
+#, fuzzy
+msgid "Reverts the OS to an earlier state. Family files and app data stay. Try this first."
+msgstr "Ramène l'OS à un état antérieur. Fichiers de la famille et données des apps restent. À essayer en premier."
+
+#: tools.py:284
+#, fuzzy
+msgid "Package Updates Held Back"
+msgstr "Mises à jour retenues"
+
+#: tools.py:285
+#, fuzzy
+msgid "Held back by a restore; each updates when a newer fix is out."
+msgstr "Retenues par une restauration ; chacune se fait dès qu'un correctif plus récent sort."
+
+#: tools.py:302 tools.py:752
+#, fuzzy
+msgid "Reset"
+msgstr "Réinitialiser"
+
+#: tools.py:310 tools.py:758
+#, fuzzy
+msgid "Erase everything"
+msgstr "Tout effacer"
+
+#: tools.py:331
+#, fuzzy
+msgid "Let it update?"
+msgstr "Autoriser la mise à jour ?"
+
+#: tools.py:335 tools.py:291
+#, fuzzy
+msgid "Let it update"
+msgstr "Autoriser la mise à jour"
+
+#: tools.py:339
+#, fuzzy
+msgid "Restore the OS?"
+msgstr "Restaurer l'OS ?"
+
+#: tools.py:342 tools.py:267 tools.py:273
+#, fuzzy
+msgid "Restore"
+msgstr "Restaurer"
+
+#: tools.py:643
+#, fuzzy
+msgid "The apps' databases"
+msgstr "Les bases de données des apps"
+
+#: tools.py:643
+#, fuzzy
+msgid "The apps themselves"
+msgstr "Les apps elles-mêmes"
+
+#: tools.py:644
+#, fuzzy
+msgid "Myira's models and the maps"
+msgstr "Les modèles de Myira et les cartes"
+
+#: tools.py:644
+#, fuzzy
+msgid "Photos, files and the apps' data"
+msgstr "Photos, fichiers et données des apps"
+
+#: tools.py:750
+#, fuzzy
+msgid "Reset the system?"
+msgstr "Réinitialiser le système ?"
+
+#: tools.py:751
+#, fuzzy
+msgid "The system returns to its factory state on restart. Family apps and data stay."
+msgstr "Le système revient à son état d'usine au redémarrage. Les apps et données de la famille restent."
+
+#: tools.py:756
+#, fuzzy
+msgid "Erase everything?"
+msgstr "Tout effacer ?"
+
+#: tools.py:757
+#, fuzzy
+msgid "Deletes every app, account, photo and message on restart. This can't be undone. Enter the setup code from the sticker and your password."
+msgstr "Supprime chaque app, compte, photo et message au redémarrage. Irréversible. Saisissez le code de configuration de l'étiquette et votre mot de passe."
+
+#: tools.py:54
+#, fuzzy
+msgid "{date} at {time}"
+msgstr "{date} à {time}"
+
+#: tools.py:110
+#, fuzzy
+msgid "Your password"
+msgstr "Votre mot de passe"
+
+#: tools.py:116
+#, fuzzy
+msgid "Cancel"
+msgstr "Annuler"
+
+#: tools.py:190
+#, fuzzy
+msgid "Maintenance"
+msgstr "Maintenance"
+
+#: tools.py:203
+#, fuzzy
+msgid "Power"
+msgstr "Alimentation"
+
+#: tools.py:226
+#, fuzzy
+msgid "Awaiting Kernel Update Completion"
+msgstr "Mise à jour du noyau en attente"
+
+#: tools.py:226
+#, fuzzy
+msgid "A new kernel is ready."
+msgstr "Un nouveau noyau est prêt."
+
+#: tools.py:238
+#, fuzzy
+msgid "Finish & Restart"
+msgstr "Terminer et redémarrer"
+
+#: tools.py:266
+#, fuzzy
+msgid "before update"
+msgstr "avant mise à jour"
+
+#: tools.py:266 tools.py:266
+#, fuzzy
+msgid "Update"
+msgstr "Mise à jour"
+
+#: tools.py:266
+#, fuzzy
+msgid "after update"
+msgstr "après mise à jour"
+
+#: tools.py:267
+#, fuzzy
+msgid "before restore"
+msgstr "avant restauration"
+
+#: tools.py:267
+#, fuzzy
+msgid "factory"
+msgstr "usine"
+
+#: tools.py:267
+#, fuzzy
+msgid "As it left the factory"
+msgstr "Telle qu'à la sortie d'usine"
+
+#: tools.py:303
+#, fuzzy
+msgid "Reset the system…"
+msgstr "Réinitialiser le système…"
+
+#: tools.py:305
+#, fuzzy
+msgid "System Reset"
+msgstr "Réinitialisation du système"
+
+#: tools.py:306
+#, fuzzy
+msgid "Returns the OS to factory state, then updates it. Your data stays. Use if restoring fails."
+msgstr "Remet l'OS en état d'usine, puis le met à jour. Vos données restent. Si la restauration échoue."
+
+#: tools.py:318
+#, fuzzy
+msgid "Factory Reset"
+msgstr "Retour usine"
+
+#: tools.py:319
+#, fuzzy
+msgid "Erases everything, leaving the box as new. Needs the setup code from the sticker."
+msgstr "Efface tout : la box redevient comme neuve. Il faut le code de configuration de l'étiquette."
+
+#: tools.py:491
+#, fuzzy
+msgid "Search"
+msgstr "Rechercher"
+
+#: tools.py:498
+#, fuzzy
+msgid "Show older"
+msgstr "Plus anciens"
+
+#: tools.py:544
+#, fuzzy
+msgid "What the box reported in the last month. Choose what appears on the bell in Control Panel › Notifications."
+msgstr "Ce que la box a signalé le mois dernier. Choisissez ce qui s'affiche sur la cloche dans Panneau de configuration › Notifications."
+
+#: tools.py:585
+#, fuzzy
+msgid "Check that both copies match"
+msgstr "Vérifier que les deux copies sont identiques"
+
+#: tools.py:585
+#, fuzzy
+msgid "Checking that both copies match"
+msgstr "Vérification que les deux copies sont identiques"
+
+#: tools.py:586
+#, fuzzy
+msgid "Check the library for damage"
+msgstr "Vérifier la bibliothèque"
+
+#: tools.py:586
+#, fuzzy
+msgid "Checking the library for damage"
+msgstr "Vérification de la bibliothèque"
+
+#: tools.py:648
+#, fuzzy
+msgid "What takes the space on the box's own disk."
+msgstr "Ce qui occupe l'espace sur le disque de la box."
+
+#: tools.py:680
+#, fuzzy
+msgid "Busiest first. CPU is a share of the whole box."
+msgstr "Les plus actifs en premier. Le processeur est une part de toute la box."
+
+#: tools.py:760
+#, fuzzy
+msgid "Setup code, like ABCD-EFGH"
+msgstr "Code de configuration, comme ABCD-EFGH"
+
+#: tools.py:196
+#, fuzzy
+msgid "Adjust Time"
+msgstr "Modifier l'heure"
+
+#: tools.py:200
+#, fuzzy
+msgid "Maintenance Hour"
+msgstr "Heure de maintenance"
+
+#: tools.py:200
+#, fuzzy
+msgid "If an update needs a restart, the box restarts this hour."
+msgstr "Si une mise à jour demande un redémarrage, la box redémarre à cette heure."
+
+#: tools.py:205
+#, fuzzy
+msgid "Always On"
+msgstr "Toujours allumée"
+
+#: tools.py:205
+#, fuzzy
+msgid "The box runs 24/7 with power-saving mode disabled."
+msgstr "La box tourne 24 h/24, 7 j/7, sans mode économie d'énergie."
+
+#: tools.py:207
+#, fuzzy
+msgid "Shutdown"
+msgstr "Arrêt"
+
+#: tools.py:207
+#, fuzzy
+msgid "If powered off, it must be turned back on in person."
+msgstr "S'il est éteint, il faut le rallumer sur place."
+
+#: tools.py:208
+#, fuzzy
+msgid "Shut down system…"
+msgstr "Éteindre…"
+
+#: tools.py:228
+#, fuzzy
+msgid "Awaiting Update Completion"
+msgstr "Mise à jour en attente"
+
+#: tools.py:228
+#, fuzzy
+msgid "Security fixes are installed."
+msgstr "Les correctifs de sécurité sont installés."
+
+#: tools.py:314
+#, fuzzy
+msgid "Erase everything…"
+msgstr "Tout effacer…"
+
+#: tools.py:332
+#, fuzzy
+msgid "{package} installs its latest fix tonight, even if that's {taken}, the version the restore removed."
+msgstr "{package} installe son dernier correctif cette nuit, même s'il s'agit de {taken}, la version retirée par la restauration."
+
+#: tools.py:340
+#, fuzzy
+msgid "The OS returns to {time} ({what}) on the next restart. Family files and app data stay."
+msgstr "L'OS revient au {time} ({what}) au prochain redémarrage. Fichiers de la famille et données des apps restent."
+
+#: tools.py:384
+#, fuzzy
+msgid "The OS, the apps and their data"
+msgstr "L'OS, les apps et leurs données"
+
+#: tools.py:463
+#, fuzzy
+msgid "Disks"
+msgstr "Disques"
+
+#: tools.py:465
+#, fuzzy
+msgid "Hottest sensor"
+msgstr "Capteur le plus chaud"
+
+#: tools.py:596
+#, fuzzy
+msgid "Pause"
+msgstr "Pause"
+
+#: tools.py:692
+#, fuzzy
+msgid "An app"
+msgstr "Une app"
+
+#: tools.py:692
+#, fuzzy
+msgid "Part of the box"
+msgstr "Partie de la box"
+
+#: tools.py:137
+#, fuzzy
+msgid "That isn't your password."
+msgstr "Ce n'est pas votre mot de passe."
+
+#: tools.py:230
+#, fuzzy
+msgid "Awaiting Restore Completion"
+msgstr "Restauration en attente"
+
+#: tools.py:230
+#, fuzzy
+msgid "The OS is restored."
+msgstr "L'OS est restauré."
+
+#: tools.py:416
+#, fuzzy
+msgid "Size"
+msgstr "Taille"
+
+#: tools.py:417
+#, fuzzy
+msgid "Place"
+msgstr "Emplacement"
+
+#: tools.py:453
+#, fuzzy
+msgid "Processor: {percent}%"
+msgstr "Processeur : {percent} %"
+
+#: tools.py:456
+#, fuzzy
+msgid "Memory: {used} of {total}"
+msgstr "Mémoire : {used} sur {total}"
+
+#: tools.py:511
+#, fuzzy
+msgid "Nothing here."
+msgstr "Rien ici."
+
+#: tools.py:553
+#, fuzzy
+msgid "Nothing in the last month."
+msgstr "Rien le mois dernier."
+
+#: tools.py:601
+#, fuzzy
+msgid "Resume"
+msgstr "Reprendre"
+
+#: tools.py:605
+#, fuzzy
+msgid "It hasn't been checked yet."
+msgstr "Elle n'a pas encore été vérifiée."
+
+#: tools.py:658
+#, fuzzy
+msgid "Not counted yet; updated every few hours."
+msgstr "Pas encore calculé ; mis à jour toutes les quelques heures."
+
+#: tools.py:722
+#, fuzzy
+msgid "This box reports no sensors."
+msgstr "Cette box n'indique aucun capteur."
+
+#: tools.py:232
+#, fuzzy
+msgid "Awaiting Reset"
+msgstr "Réinitialisation en attente"
+
+#: tools.py:232
+#, fuzzy
+msgid "The reset is ready."
+msgstr "La réinitialisation est prête."
+
+#: tools.py:234
+#, fuzzy
+msgid "Restart Needed"
+msgstr "Redémarrage nécessaire"
+
+#: tools.py:234
+#, fuzzy
+msgid "Something waits for a restart."
+msgstr "Quelque chose attend un redémarrage."
+
+#: tools.py:241
+#, fuzzy
+msgid "The system will restart at {hour}, or you can restart manually now."
+msgstr "Le système redémarrera à {hour}, ou vous pouvez redémarrer maintenant."
+
+#: tools.py:293
+#, fuzzy
+msgid "Kept at {version}; {taken} was taken back."
+msgstr "Gardé en {version} ; {taken} a été retiré."
+
+#: tools.py:363
+#, fuzzy
+msgid "{size} used"
+msgstr "{size} utilisés"
+
+#: tools.py:364
+#, fuzzy
+msgid "{free} free of {total}"
+msgstr "{free} libres sur {total}"
+
+#: tools.py:379
+#, fuzzy
+msgid "{n} drives, each a copy of the other"
+msgstr "{n} disques, chacun copie de l'autre"
+
+#: tools.py:417
+#, fuzzy
+msgid "The box's own"
+msgstr "Celui de la box"
+
+#: tools.py:421
+#, fuzzy
+msgid "In use for"
+msgstr "En service depuis"
+
+#: tools.py:462
+#, fuzzy
+msgid "in {received}, out {sent}"
+msgstr "reçu {received}, envoyé {sent}"
+
+#: tools.py:463
+#, fuzzy
+msgid "reading {read}, writing {written}"
+msgstr "lecture {read}, écriture {written}"
+
+#: tools.py:600
+#, fuzzy
+msgid "It carries on from there when you resume it."
+msgstr "Elle reprend là où elle s'est arrêtée."
+
+#: tools.py:594
+#, fuzzy
+msgid "Started {time}."
+msgstr "Commencée le {time}."
+
+#: tools.py:613
+#, fuzzy
+msgid "The last check found nothing needing repair."
+msgstr "La dernière vérification n'a rien trouvé à réparer."
+
+#: tools.py:615
+#, fuzzy
+msgid "The box also checks once a month by itself."
+msgstr "La box vérifie aussi d'elle-même une fois par mois."
+
+#: tools.py:732
+#, fuzzy
+msgid "Fan"
+msgstr "Ventilateur"
+
+#: tools.py:599
+#, fuzzy
+msgid "The check is paused at {percent}%"
+msgstr "La vérification est en pause à {percent} %"
+
+#: tools.py:607
+#, fuzzy
+msgid "Last check found {n} problems and repaired what it could."
+msgstr "Dernière vérification : {n} problèmes trouvés et réparés autant que possible."
+
+#: tools.py:610
+#, fuzzy
+msgid "Last check found {n} damaged files. With one drive they can't be repaired: restore them from a backup."
+msgstr "Dernière vérification : {n} fichiers endommagés. Avec un seul disque, impossible de les réparer : restaurez-les depuis une sauvegarde."

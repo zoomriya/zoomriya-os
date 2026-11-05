@@ -1,14 +1,16 @@
 /* Box Desktop's look, as the mockup and the apps' themes: white windows and
-   cards with soft shadows over the wallpaper, a frosted top bar, Inter at
-   14 px. Two weights stand out: 700 for a page's title, 600 for everything
-   else. Two themes, Daylight (the default) and Midnight, chosen by each admin. */
+   cards with soft, deep shadows over the wallpaper; the top bar, the widgets
+   and the launcher of translucent glass with a light inner edge; Inter at
+   14 px, weights kept low (600 for titles, 500 for buttons). Windows open,
+   minimise and close with a short grow or shrink, and are never see-through. Two themes, Daylight (the default)
+   and Midnight, chosen by each admin. */
 window {
   --text: #1b2733;
   --text-secondary: #3a4754;
   --muted: #56636f;
   --panel: #ffffff;
   --sidebar: #f6f8fa;
-  --taskbar: rgba(247, 247, 249, 0.94);
+  --taskbar: rgba(255, 255, 255, 0.66);
   --line: #e5eaf0;
   --line-strong: #cdd5dd;
   --hover: rgba(118, 118, 128, 0.12);
@@ -32,10 +34,14 @@ window {
   --button: #ffffff;
   --button-hover: #f6f8fa;
   --hairline: rgba(0, 0, 0, 0.08);
-  --glass: rgba(255, 255, 255, 0.95);
-  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.04), 0 4px 16px rgba(0, 0, 0, 0.06);
-  --shadow-soft: 0 2px 4px rgba(0, 0, 0, 0.04), 0 10px 28px rgba(0, 0, 0, 0.1);
-  --shadow-window: 0 4px 12px rgba(0, 0, 0, 0.08), 0 28px 70px rgba(0, 0, 0, 0.28);
+  --glass: rgba(255, 255, 255, 0.72);
+  /* The launcher: a little see-through, its icons not (they're drawn on it). */
+  --glass-over: rgba(255, 255, 255, 0.8);
+  /* Glass's light inner edge. */
+  --glass-edge: rgba(255, 255, 255, 0.6);
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.04), 0 4px 16px rgba(0, 0, 0, 0.05);
+  --shadow-soft: 0 1px 3px rgba(0, 0, 0, 0.05), 0 12px 32px rgba(0, 0, 0, 0.12);
+  --shadow-window: 0 1px 3px rgba(0, 0, 0, 0.08), 0 14px 36px rgba(0, 0, 0, 0.16), 0 42px 96px rgba(0, 0, 0, 0.26);
 
   color: var(--text);
   background: #0a1c2e;
@@ -52,7 +58,7 @@ window.midnight {
   --muted: #838b9f;
   --panel: #181d2b;
   --sidebar: #131724;
-  --taskbar: rgba(19, 23, 36, 0.92);
+  --taskbar: rgba(17, 21, 33, 0.62);
   --line: rgba(255, 255, 255, 0.08);
   --line-strong: rgba(255, 255, 255, 0.14);
   --hover: rgba(255, 255, 255, 0.08);
@@ -70,14 +76,16 @@ window.midnight {
   --button: rgba(255, 255, 255, 0.04);
   --button-hover: rgba(255, 255, 255, 0.09);
   --hairline: rgba(255, 255, 255, 0.08);
-  --glass: rgba(24, 29, 43, 0.94);
+  --glass: rgba(24, 29, 43, 0.7);
+  --glass-over: rgba(24, 29, 43, 0.8);
+  --glass-edge: rgba(255, 255, 255, 0.1);
   --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.3), 0 4px 16px rgba(0, 0, 0, 0.3);
-  --shadow-soft: 0 2px 4px rgba(0, 0, 0, 0.3), 0 10px 28px rgba(0, 0, 0, 0.4);
-  --shadow-window: 0 4px 12px rgba(0, 0, 0, 0.35), 0 28px 70px rgba(0, 0, 0, 0.55);
+  --shadow-soft: 0 1px 3px rgba(0, 0, 0, 0.3), 0 12px 32px rgba(0, 0, 0, 0.4);
+  --shadow-window: 0 1px 3px rgba(0, 0, 0, 0.4), 0 14px 36px rgba(0, 0, 0, 0.4), 0 42px 96px rgba(0, 0, 0, 0.55);
 }
 
 /* The top bar */
-.topbar { background: var(--taskbar); box-shadow: 0 1px 0 var(--hairline); padding: 0 10px; }
+.topbar { background: var(--taskbar); box-shadow: inset 0 -1px 0 var(--hairline); padding: 0 10px; }
 /* A drop-down (menubutton) holds a button: the look goes on that button only. */
 menubutton.bar-button { padding: 0; min-width: 0; min-height: 0; background: none; border: none; }
 button.bar-button, menubutton.bar-button > button {
@@ -147,11 +155,21 @@ button.menu-tool:hover { background: var(--hover); }
 button.menu-tool label { font-weight: 500; font-size: 13px; }
 .menu-footer { color: var(--muted); font-size: 12px; padding-top: 12px; border-top: 1px solid var(--line); }
 
-/* The shortcuts down the left */
-.shortcuts { padding: 18px 0 0 14px; }
-button.shortcut { background: transparent; border: none; box-shadow: none; padding: 8px 6px; border-radius: 12px; min-width: 100px; }
-button.shortcut:hover { background: rgba(255, 255, 255, 0.12); }
-.shortcut-name { color: #ffffff; font-size: 13px; font-weight: 500; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6); }
+/* The launcher along the bottom: the tools, a dot under each one open. */
+.dock {
+  background: var(--glass-over);
+  border-radius: 22px;
+  padding: 8px 10px 5px;
+  box-shadow: inset 0 0 0 1px var(--glass-edge), 0 0 0 1px var(--hairline), var(--shadow-soft);
+}
+button.dock-item {
+  background: transparent; border: none; box-shadow: none;
+  padding: 2px 6px 0; min-height: 0; border-radius: 14px;
+  transition: transform 160ms ease-out;
+}
+button.dock-item:hover { transform: translateY(-3px); }
+.dock-dot { background: var(--text); opacity: 0; border-radius: 999px; min-width: 4px; min-height: 4px; }
+.dock-dot.open { opacity: 0.6; }
 .tile-large { border-radius: 14px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25); }
 .tile-small { border-radius: 6px; }
 
@@ -159,18 +177,18 @@ button.shortcut:hover { background: rgba(255, 255, 255, 0.12); }
 .widget-column { margin: 16px 16px 16px 0; background: transparent; }
 .widget {
   background: var(--glass);
-  border-radius: 16px;
+  border-radius: 18px;
   padding: 14px 16px 16px;
-  box-shadow: 0 0 0 1px var(--hairline), var(--shadow-soft);
+  box-shadow: inset 0 0 0 1px var(--glass-edge), 0 0 0 1px var(--hairline), var(--shadow-soft);
 }
 .widget-title { color: var(--muted); font-size: 11px; font-weight: 600; letter-spacing: 0.06em; }
 .widget-aside { color: var(--muted); font-size: 12px; }
-.widget-big { font-size: 18px; font-weight: 600; }
+.widget-big { font-size: 18px; font-weight: 600; letter-spacing: -0.01em; }
 .widget-small { font-size: 12px; color: var(--text-secondary); }
 .widget-value { font-size: 12px; }
 .widget-value.ok { color: var(--ok); }
 .widget-value.warn { color: var(--warn); }
-.widget-figure { font-size: 22px; font-weight: 600; }
+.widget-figure { font-size: 22px; font-weight: 600; letter-spacing: -0.02em; }
 .widget-figure-line { font-size: 16px; }
 .mark { background: var(--ok-bg); border-radius: 20px; }
 .mark.warn { background: var(--warn-bg); }
@@ -184,22 +202,36 @@ levelbar.bar-space block.filled, levelbar.library block.filled { background: #0f
 levelbar.full block.filled { background: var(--danger); }
 levelbar.mic block.filled { background: var(--ok); }
 
-/* Windows */
-.window { background: var(--panel); border-radius: 14px; box-shadow: 0 0 0 1px var(--hairline), var(--shadow-soft); }
+/* Windows: the active one deep, the others quieter; opening, minimising and
+   closing grow or shrink a little (app.py adds .opening and .closing). Never
+   see-through: no window shows what's behind it, even while it moves. */
+.window {
+  background: var(--panel); border-radius: 16px;
+  box-shadow: 0 0 0 1px var(--hairline), var(--shadow-soft);
+  transition: transform 180ms ease-out, box-shadow 200ms ease-out;
+}
 .window.active { box-shadow: 0 0 0 1px var(--hairline), var(--shadow-window); }
+.window.opening, .window.closing { transform: scale(0.96); }
 .window.maximised { border-radius: 0; }
 .window-bar {
-  min-height: 46px;
-  padding: 0 8px 0 14px;
+  min-height: 44px;
+  padding: 0 10px 0 14px;
   border-bottom: 1px solid var(--line);
-  border-radius: 14px 14px 0 0;
+  border-radius: 16px 16px 0 0;
   background: var(--panel);
 }
-.window-title { font-size: 14px; font-weight: 600; color: var(--muted); }
+.window:not(.active) .window-bar { background: var(--sidebar); }
+.window-title { font-size: 13px; font-weight: 600; color: var(--muted); }
 .window.active .window-title { color: var(--text); }
-button.window-button { min-width: 32px; min-height: 30px; padding: 0; border: none; background: transparent; box-shadow: none; border-radius: 8px; }
-button.window-button:hover { background: var(--hover); }
-.window-sidebar { background: var(--sidebar); padding: 10px 8px; border-right: 1px solid var(--line); border-radius: 0 0 0 14px; }
+/* Small, round and quiet; coloured only under the pointer. */
+button.window-button {
+  min-width: 22px; min-height: 22px; padding: 0; margin: 0 3px;
+  border: none; border-radius: 999px; background: var(--hover); box-shadow: none;
+  transition: background 120ms ease-out;
+}
+button.window-button:hover { background: var(--selected); }
+button.window-button.close:hover { background: var(--danger-bg); }
+.window-sidebar { background: var(--sidebar); padding: 10px 8px; border-right: 1px solid var(--line); border-radius: 0 0 0 16px; }
 .window-sidebar row { border-radius: 8px; padding: 8px 10px; margin-bottom: 2px; color: var(--text); }
 .window-sidebar row:hover { background: var(--hover); }
 .window-sidebar row:selected { background: var(--selected); }
@@ -207,13 +239,13 @@ button.window-button:hover { background: var(--hover); }
 .sidebar-item.chosen { font-weight: 600; }
 .sidebar-item { font-size: 14px; }
 .page-body { padding: 20px 24px 24px; }
-.page-title { font-size: 20px; font-weight: 600; }
+.page-title { font-size: 20px; font-weight: 600; letter-spacing: -0.01em; }
 scrolledwindow, viewport { background: transparent; }
 
 /* Cards and sign-in */
 .logo { color: var(--brand-text); }
-.card { background: var(--panel); border-radius: 20px; padding: 32px 34px 26px; box-shadow: var(--shadow-window); }
-.title { font-size: 24px; font-weight: 700; }
+.card { background: var(--panel); border-radius: 22px; padding: 32px 34px 26px; box-shadow: 0 0 0 1px var(--hairline), var(--shadow-window); }
+.title { font-size: 24px; font-weight: 700; letter-spacing: -0.02em; }
 /* GTK heads a menu's section (the admin's name) with a .title label too: a
    menu's heading, not a page's title. */
 popover.menu label.title {
@@ -268,8 +300,9 @@ button {
   border: 1px solid var(--line-strong);
   background: var(--button);
   color: var(--text);
-  font-weight: 600;
+  font-weight: 500;
   box-shadow: none;
+  transition: background 120ms ease-out;
 }
 button:hover { background: var(--button-hover); }
 button.primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
@@ -293,19 +326,19 @@ list.rows.attention { border: 1.5px solid var(--warn); }
 .off-dot { background: var(--line-strong); border-radius: 999px; min-width: 12px; min-height: 12px; }
 scale trough { background: var(--line); border-radius: 999px; min-height: 6px; }
 scale highlight { background: var(--accent); border-radius: 999px; }
-popover > contents { border-radius: 16px; padding: 4px; background: var(--panel); color: var(--text); }
+popover > contents { border-radius: 16px; padding: 4px; background: var(--panel); color: var(--text); box-shadow: 0 0 0 1px var(--hairline), var(--shadow-soft); }
 popover > arrow { background: var(--panel); border-color: var(--line-strong); }
 
 /* Control Panel's settings (settings.py): groups of rows in rounded cards on a
    quieter page, each row a title, its explanation and its control. */
 .settings { background: var(--page); }
-.group-title { font-weight: 600; font-size: 15px; color: var(--text); margin-left: 2px; }
+.group-title { font-weight: 600; font-size: 14px; letter-spacing: -0.005em; color: var(--text); margin-left: 2px; }
 .group-note { color: var(--muted); font-size: 13px; margin: 0 2px; }
-list.rows { background: var(--card); border: 1px solid var(--line); border-radius: 12px; }
-list.rows > row { padding: 12px 16px; min-height: 30px; border-bottom: 1px solid var(--line); background: transparent; color: var(--text); }
-list.rows > row:first-child { border-radius: 12px 12px 0 0; }
-list.rows > row:last-child { border-bottom: none; border-radius: 0 0 12px 12px; }
-list.rows > row:only-child { border-radius: 12px; }
+list.rows { background: var(--card); border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow-card); }
+list.rows > row { padding: 13px 16px; min-height: 30px; border-bottom: 1px solid var(--line); background: transparent; color: var(--text); }
+list.rows > row:first-child { border-radius: 14px 14px 0 0; }
+list.rows > row:last-child { border-bottom: none; border-radius: 0 0 14px 14px; }
+list.rows > row:only-child { border-radius: 14px; }
 .row-title { color: var(--text); }
 .row-sub { color: var(--muted); font-size: 12.5px; }
 .row-value { color: var(--muted); }
@@ -313,7 +346,7 @@ list.rows entry { min-width: 220px; }
 .segmented { background: var(--hover); border-radius: 10px; padding: 3px; }
 .segmented > button { border: none; background: transparent; box-shadow: none; min-height: 30px; padding: 0 16px; border-radius: 8px; color: var(--text); }
 .segmented > button:checked { background: var(--segment); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.16); }
-.tile-card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 20px 16px 18px; }
+.tile-card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 20px 16px 18px; box-shadow: var(--shadow-card); }
 .ring { border-radius: 999px; background: var(--ok-bg); }
 .ring.warn { background: var(--warn-bg); }
 .ring.off { background: var(--hover); }

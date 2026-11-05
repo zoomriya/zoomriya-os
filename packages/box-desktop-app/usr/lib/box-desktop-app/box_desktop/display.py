@@ -14,9 +14,11 @@ from dataclasses import dataclass, field
 
 from zoomriya_setup.screen import swaymsg
 
+from .i18n import N_
+
 #: sway's transforms, as the person reads them.
-ORIENTATIONS = [("normal", "Landscape"), ("90", "Portrait, turned right"),
-                ("270", "Portrait, turned left"), ("180", "Landscape, upside down")]
+ORIENTATIONS = [("normal", N_("Landscape")), ("90", N_("Portrait, turned right")),
+                ("270", N_("Portrait, turned left")), ("180", N_("Landscape, upside down"))]
 SCALES = [1.0, 1.25, 1.5, 1.75, 2.0]
 
 

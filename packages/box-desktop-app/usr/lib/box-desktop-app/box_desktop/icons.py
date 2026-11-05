@@ -98,6 +98,7 @@ GLYPHS = {
     "scan": '<rect x="3.5" y="5" width="15" height="14" rx="2"/><path d="M3.5 9.5h15M7.5 3v4M14.5 3v4"/>'
             '<circle cx="18" cy="18" r="3.5"/><path d="M16.5 18l1 1 2-2"/>',
     "power": '<path d="M12 3v8M7 6.3a7.5 7.5 0 1 0 10 0"/>',
+    "bolt": '<path d="M13 2.5L5 13.5h6l-1 8 8-11h-6z"/>',
     # Restore & Reset.
     "calendar-clock": '<rect x="3.5" y="5" width="13" height="13" rx="2"/><path d="M3.5 9.5h13M7 3v4M13 3v4"/>'
                       '<circle cx="17" cy="17" r="4"/><path d="M17 15v2l1.3 1"/>',

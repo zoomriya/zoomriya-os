@@ -15,13 +15,14 @@ gi.require_version("Gtk", "4.0")
 from gi.repository import GLib, Gtk  # noqa: E402
 
 from .icons import glyph  # noqa: E402
+from .i18n import N_, _  # noqa: E402
 
-LOG_LEVELS = [("errors", "Errors"), ("warnings", "Warnings and errors"), ("everything", "Everything")]
-HEALTH = {"healthy": "Healthy", "warning": "Needs checking", "failing": "Failing"}
+LOG_LEVELS = [("errors", N_("Errors")), ("warnings", N_("Warnings and errors")), ("everything", N_("Everything"))]
+HEALTH = {"healthy": N_("Healthy"), "warning": N_("Needs checking"), "failing": N_("Failing")}
 
 
 def size(n: float) -> str:
-    for unit in ("bytes", "KB", "MB", "GB", "TB"):
+    for unit in ("bytes", _("KB"), _("MB"), _("GB"), _("TB")):
         if abs(n) < 1000 or unit == "TB":
             return f"{n:.0f} {unit}" if unit == "bytes" else f"{n:.1f} {unit}"
         n /= 1000
@@ -35,7 +36,7 @@ def rate(bps: float) -> str:
 def when(stamp: str) -> str:
     """An ISO time as the box's people read it, or "Never"."""
     if not stamp:
-        return "Never"
+        return _("Never")
     try:
         moment = datetime.fromisoformat(stamp.replace("Z", "+00:00")).astimezone()
     except ValueError:
@@ -50,7 +51,7 @@ def day(stamp: str, at: bool = False) -> str:
     except ValueError:
         return stamp
     words = f"{moment:%B} {moment.day}, {moment.year}"
-    return words + f" at {moment:%H:%M}" if at else words
+    return _("{date} at {time}").format(date=words, time=f"{moment:%H:%M}") if at else words
 
 
 def meter(fraction: float, *classes: str) -> Gtk.LevelBar:
@@ -76,7 +77,7 @@ def heading(title: str, aside: str = "") -> Gtk.Widget:
 def badge(state: str) -> Gtk.Widget:
     from .app import label
 
-    shown = label(HEALTH.get(state, "Unknown"), "badge", state if state in HEALTH else "unknown")
+    shown = label(_(HEALTH.get(state, N_("Unknown"))), "badge", state if state in HEALTH else "unknown")
     shown.set_valign(Gtk.Align.CENTER)
     return shown
 
@@ -106,13 +107,13 @@ class Tools:
         if extra:
             more = Gtk.Entry(placeholder_text=extra)
             sheet.append(more)
-        password = Gtk.PasswordEntry(show_peek_icon=True, placeholder_text="Your password")
+        password = Gtk.PasswordEntry(show_peek_icon=True, placeholder_text=_("Your password"))
         sheet.append(password)
         problem = label("", "error", wrap=True)
         problem.set_visible(False)
         sheet.append(problem)
         row = Gtk.Box(spacing=10, halign=Gtk.Align.END)
-        cancel = Gtk.Button(label="Cancel")
+        cancel = Gtk.Button(label=_("Cancel"))
         go = Gtk.Button(label=button)
         go.add_css_class("danger")
         row.append(cancel)
@@ -133,7 +134,7 @@ class Tools:
                 # Only a check: the session it made isn't needed.
                 self.zid.sign_out(again)
                 if again.id != self.member.id:
-                    raise PermissionError("That isn't your password.")
+                    raise PermissionError(_("That isn't your password."))
                 return action(also) if more is not None else action()
 
             def finished(answer: dict[str, Any]) -> None:
@@ -155,9 +156,8 @@ class Tools:
         (more or password).grab_focus()
 
     def restart(self) -> None:
-        self.confirm("Restart the box?",
-                     "Everything on the box stops for a minute or two, the apps included, "
-                     "then starts again by itself.", "Restart",
+        self.confirm(_("Restart the box?"),
+                     _("Everything stops for a minute or two, then starts again."), _("Restart"),
                      lambda: self.ask("restart"), lambda _a: None)
 
     def restart_now(self) -> None:
@@ -174,7 +174,7 @@ class Tools:
         shutting down. Security fixes and the nightly scan are on Security."""
         from .app import in_background
         from .control import BIG
-        from .settings import group, page, row, text, wide
+        from .settings import fixed_switch, group, page, row, text, wide
 
         box = page()
         holder = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=22)
@@ -187,24 +187,25 @@ class Tools:
             if status.get("restart_needed"):
                 holder.append(self.restart_banner(status.get("restart_reasons") or [], hour))
 
-            card, rows = group("Maintenance", icon="maintenance")
+            card, rows = group(_("Maintenance"), icon="maintenance")
             hours = [f"{h:02d}:30" for h in range(24)]
             pick = Gtk.DropDown.new_from_strings(hours)
             pick.set_size_request(140, -1)
             if hour in hours:
                 pick.set_selected(hours.index(hour))
-            save = Gtk.Button(label="Adjust Time")
+            save = Gtk.Button(label=_("Adjust Time"))
             save.connect("clicked", lambda _b: in_background(
                 lambda: self.ask("maintenance-hour", hour=hours[pick.get_selected()]),
                 lambda _a: load()))
-            rows.append(row("Maintenance Hour", "When an update or a restore needs a restart, the box "
-                            "restarts in this hour.", pick, save, **BIG, icon="maintenance"))
+            rows.append(row(_("Maintenance Hour"), _("If an update needs a restart, the box restarts this hour."), pick, save, **BIG, icon="maintenance"))
             holder.append(card)
 
-            card, rows = group("Power", icon="power")
-            rows.append(row("Shutdown", "The box is meant to stay on. Once it's off, it can only be started "
-                            "again by pressing its power button, on site.", **BIG, icon="power"))
-            shut = Gtk.Button(label="Shut down system…", halign=Gtk.Align.END)
+            card, rows = group(_("Power"), icon="power")
+            # Always on (design §8): shown, not changed here.
+            rows.append(row(_("Always On"), _("The box runs 24/7 with power-saving mode disabled."),
+                            fixed_switch(status.get("always_on", True) is not False), **BIG, icon="bolt"))
+            rows.append(row(_("Shutdown"), _("If powered off, it must be turned back on in person."), **BIG, icon="power"))
+            shut = Gtk.Button(label=_("Shut down system…"), halign=Gtk.Align.END)
             shut.connect("clicked", lambda _b: self.shut_down())
             rows.append(wide(shut))
             holder.append(card)
@@ -222,30 +223,29 @@ class Tools:
         from .settings import group, row
 
         if any(r.startswith("update: linux-image") for r in reasons):
-            title, what = "Awaiting Kernel Update Completion", "A new kernel is ready."
+            title, what = _("Awaiting Kernel Update Completion"), _("A new kernel is ready.")
         elif any(r.startswith("update:") for r in reasons):
-            title, what = "Awaiting Update Completion", "Security fixes are installed."
+            title, what = _("Awaiting Update Completion"), _("Security fixes are installed.")
         elif any(r.startswith("restore point") for r in reasons):
-            title, what = "Awaiting Restore Completion", "The OS is restored."
+            title, what = _("Awaiting Restore Completion"), _("The OS is restored.")
         elif any(r in ("reset the system", "erase everything") for r in reasons):
-            title, what = "Awaiting Reset", "The reset is ready."
+            title, what = _("Awaiting Reset"), _("The reset is ready.")
         else:
-            title, what = "Restart Needed", "Something waits for a restart."
+            title, what = _("Restart Needed"), _("Something waits for a restart.")
         card, rows = group()
         rows.add_css_class("attention")
         rows.append(row(title, "", icon="alert-gear", icon_role="warn", icon_px=30))
-        now = Gtk.Button(label="Finish & Restart")
+        now = Gtk.Button(label=_("Finish & Restart"))
         now.add_css_class("primary")
         now.connect("clicked", lambda _b: self.restart())
-        rows.append(row(f"{what} A restart finishes it: the box restarts by itself in the maintenance "
-                        f"hour ({hour}), or you can restart now.", "", now, **BIG, icon="info"))
+        rows.append(row(what + " " + _("The system will restart at {hour}, or you can restart manually now.").format(hour=hour),
+                        "", now, **BIG, icon="info"))
         return card
 
     def shut_down(self) -> None:
-        self.confirm("Shut the box down?",
-                     "Every app on the box stops, Family Hub and the apps can't be reached, and "
-                     "backups don't run until someone presses the box's power button.",
-                     "Shut down", lambda: self.ask("shutdown"), lambda _a: None)
+        self.confirm(_("Shut the box down?"),
+                     _("All apps stop and backups pause until someone presses the power button."),
+                     _("Shut down"), lambda: self.ask("shutdown"), lambda _a: None)
 
     # --- Restore points (Control Panel) -----------------------------------------------
 
@@ -258,19 +258,19 @@ class Tools:
         from .settings import group, page, row, text
 
         box = page()
-        card, points = group("Restore points", "Restoring brings the OS back as it was then; the family's "
-                             "files and the apps' data stay as they are. Try this first.", icon="calendar-clock")
+        card, points = group(_("Restore points"), _("Reverts the OS to an earlier state. Family files "
+                                                    "and app data stay. Try this first."), icon="calendar-clock")
         box.append(card)
 
         # How each kind of restore point is worded: its tag and what it's from.
-        kinds = {"before-update": ("before update", "Update"), "after-update": ("after update", "Update"),
-                 "before-restore": ("before restore", "Restore"), "factory": ("factory", "As it left the factory")}
+        kinds = {"before-update": (_("before update"), _("Update")), "after-update": (_("after update"), _("Update")),
+                 "before-restore": (_("before restore"), _("Restore")), "factory": (_("factory"), _("As it left the factory"))}
 
         def got(listed: dict[str, Any]) -> None:
             for point in reversed(listed.get("restore_points") or []):
                 ends = []
                 if point.get("kind") != "current":
-                    back = Gtk.Button(label="Restore")
+                    back = Gtk.Button(label=_("Restore"))
                     back.connect("clicked", lambda _b, p=point: self.restore(p))
                     ends.append(back)
                 tag, made = kinds.get(point.get("kind", ""), ("", point.get("description") or ""))
@@ -281,17 +281,17 @@ class Tools:
                       lambda p: box.append(text(p, "error", wrap=True)))
 
         # What a restore took back stays back until Debian has a newer fix (design §6.1).
-        held_card, held_rows = group("Package Updates Held Back",
-                                     "Updates a restore took back. Each one updates by itself once a "
-                                     "newer fix comes out.", icon="held")
+        held_card, held_rows = group(_("Package Updates Held Back"),
+                                     _("Held back by a restore; each updates when a newer fix is out."), icon="held")
         held_card.set_visible(False)
         box.append(held_card)
 
         def got_held(answer: dict[str, Any]) -> None:
             for held in answer.get("held") or []:
-                go = Gtk.Button(label="Let it update")
+                go = Gtk.Button(label=_("Let it update"))
                 shown = row(held.get("package", ""),
-                            f"Kept at {held.get('version', '')}; {held.get('taken_back', '')} was taken back.",
+                            _("Kept at {version}; {taken} was taken back.").format(
+                                version=held.get("version", ""), taken=held.get("taken_back", "")),
                             go, **BIG, icon="package")
                 go.connect("clicked", lambda _b, h=held, r=shown: self.let_update(h, r, held_card))
                 held_rows.append(shown)
@@ -299,27 +299,25 @@ class Tools:
 
         in_background(lambda: self.ask("held"), got_held, lambda _p: None)
 
-        card, rows = group("Reset", icon="reset")
-        go = Gtk.Button(label="Reset the system…")
+        card, rows = group(_("Reset"), icon="reset")
+        go = Gtk.Button(label=_("Reset the system…"))
         go.connect("clicked", lambda _b: self.reset_system())
-        rows.append(row("System Reset",
-                        "The system goes back to how it left the factory when the box restarts, then "
-                        "installs the latest security fixes. Every account, app and file stays. For when "
-                        "something is wrong and a restore point doesn't help.", go, **BIG, icon="reset"))
+        rows.append(row(_("System Reset"),
+                        _("Returns the OS to factory state, then updates it. Your data stays. Use if "
+                          "restoring fails."), go, **BIG, icon="reset"))
         box.append(card)
 
-        card, rows = group("Erase everything", icon="erase")
+        card, rows = group(_("Erase everything"), icon="erase")
         erase = Gtk.Button()
         face = Gtk.Box(spacing=8)
         face.append(glyph("trash", 18, "white"))
-        face.append(Gtk.Label(label="Erase everything…"))
+        face.append(Gtk.Label(label=_("Erase everything…")))
         erase.set_child(face)
         erase.add_css_class("danger")
         erase.connect("clicked", lambda _b: self.erase_everything())
-        rows.append(row("Full System Erase (Factory Reset)",
-                        "Every account, app, photo and message is deleted, and the box's history. Only the "
-                        "system as it left the factory stays, ready to be set up again, as when it was new. "
-                        "It needs the setup code from the sticker.", erase, **BIG, icon="erase"))
+        rows.append(row(_("Factory Reset"),
+                        _("Erases everything, leaving the box as new. Needs the setup code from the "
+                          "sticker."), erase, **BIG, icon="erase"))
         box.append(card)
         return box
 
@@ -330,17 +328,18 @@ class Tools:
             card.set_visible(rows.get_first_child() is not None)
 
         self.confirm(
-            "Let it update?",
-            f"{held.get('package', '')} installs its latest security fix again tonight, even if it's "
-            f"{held.get('taken_back', '')}, the version the restore took back.",
-            "Let it update", lambda: self.ask("held-release", package=held["package"]), done)
+            _("Let it update?"),
+            _("{package} installs its latest fix tonight, even if that's {taken}, the version the "
+              "restore removed.").format(package=held.get("package", ""),
+                                                       taken=held.get("taken_back", "")),
+            _("Let it update"), lambda: self.ask("held-release", package=held["package"]), done)
 
     def restore(self, point: dict[str, Any]) -> None:
         self.confirm(
-            "Restore the OS?",
-            f"The OS goes back to {when(point.get('date', ''))} ({point.get('description', '')}) "
-            "when the box next restarts. The family's files and the apps' data stay as they are.",
-            "Restore", lambda: self.ask("restore-point-restore", number=point["number"]),
+            _("Restore the OS?"),
+            _("The OS returns to {time} ({what}) on the next restart. Family files and app data stay.").format(time=when(point.get("date", "")),
+                                                         what=point.get("description", "")),
+            _("Restore"), lambda: self.ask("restore-point-restore", number=point["number"]),
             lambda _a: self.restart_now())
 
     # --- Storage Manager --------------------------------------------------------------
@@ -361,8 +360,9 @@ class Tools:
             group.append(head)
             total, used = part.get("size_bytes") or 0, part.get("used_bytes") or 0
             line = Gtk.Box()
-            line.append(label(f"{size(used)} used", "fact", hexpand=True))
-            line.append(label(f"{size(part.get('free_bytes', 0))} free of {size(total)}", "fact-name"))
+            line.append(label(_("{size} used").format(size=size(used)), "fact", hexpand=True))
+            line.append(label(_("{free} free of {total}").format(free=size(part.get("free_bytes", 0)),
+                                                                total=size(total)), "fact-name"))
             group.append(line)
             group.append(meter(used / total if total else 0, kind))
             return group
@@ -376,12 +376,12 @@ class Tools:
                 states = [d.get("health") for d in drives if not d.get("system")]
                 state = "healthy" if states and all(s == "healthy" for s in states) else \
                     ("warning" if states else "unknown")
-                sub = (f"{len(names)} drives, each a copy of the other" if library.get("mirror")
+                sub = (_("{n} drives, each a copy of the other").format(n=len(names)) if library.get("mirror")
                        else ", ".join(names))
-                box.append(space("Library", sub, library, state, "library"))
+                box.append(space(_("Library"), sub, library, state, "library"))
                 box.append(self.library_check(library.get("check") or {}, bool(library.get("mirror"))))
             system_state = next((d.get("health") for d in drives if d.get("system")), "unknown")
-            box.append(space("The box's own disk", "The OS, the apps and their data",
+            box.append(space(_("The box's own disk"), _("The OS, the apps and their data"),
                              storage.get("system") or {}, system_state, "system"))
             parts = storage.get("system_parts") or []
             if parts:
@@ -399,7 +399,7 @@ class Tools:
         from .app import in_background, label
 
         box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=12)
-        box.append(heading("Drives"))
+        box.append(heading(_("Drives")))
         cards = Gtk.FlowBox(selection_mode=Gtk.SelectionMode.NONE, max_children_per_line=2,
                             min_children_per_line=1, column_spacing=12, row_spacing=12,
                             homogeneous=True)
@@ -413,12 +413,12 @@ class Tools:
                 head.append(label(drive.get("model") or drive.get("name", ""), "fact", hexpand=True))
                 head.append(badge(drive.get("health", "unknown")))
                 card.append(head)
-                rows = [("Size", size(drive.get("size_bytes", 0))),
-                        ("Place", "The box's own" if drive.get("system") else drive.get("name", ""))]
+                rows = [(_("Size"), size(drive.get("size_bytes", 0))),
+                        (_("Place"), _("The box's own") if drive.get("system") else drive.get("name", ""))]
                 if drive.get("temperature_c") is not None:
-                    rows.append(("Temperature", f"{drive['temperature_c']} °C"))
+                    rows.append((_("Temperature"), f"{drive['temperature_c']} °C"))
                 if drive.get("power_on_hours") is not None:
-                    rows.append(("In use for", f"{drive['power_on_hours'] // 24} days"))
+                    rows.append((_("In use for"), _("{n} days").format(n=drive["power_on_hours"] // 24)))
                 grid = Gtk.Grid(column_spacing=16, row_spacing=4)
                 for i, (name, value) in enumerate(rows):
                     grid.attach(label(name, "fact-name"), 0, i, 1, 1)
@@ -438,9 +438,9 @@ class Tools:
         from .app import alive, facts, in_background, label
 
         box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=12)
-        cpu_label = label("Processor", "field-label")
+        cpu_label = label(_("Processor"), "field-label")
         cpu = meter(0)
-        mem_label = label("Memory", "field-label")
+        mem_label = label(_("Memory"), "field-label")
         mem = meter(0, "memory")
         for widget in (cpu_label, cpu, mem_label, mem):
             box.append(widget)
@@ -450,18 +450,19 @@ class Tools:
         def got(answer: dict[str, Any]) -> None:
             nonlocal holder
             percent = answer.get("cpu_percent", 0)
-            cpu_label.set_text(f"Processor: {percent:.0f}%")
+            cpu_label.set_text(_("Processor: {percent}%").format(percent=f"{percent:.0f}"))
             cpu.set_value(percent / 100)
             total, used = answer.get("memory_total_bytes", 0), answer.get("memory_used_bytes", 0)
-            mem_label.set_text(f"Memory: {size(used)} of {size(total)}")
+            mem_label.set_text(_("Memory: {used} of {total}").format(used=size(used), total=size(total)))
             mem.set_value(used / total if total else 0)
             net = answer.get("network") or {}
             disks = answer.get("disks") or {}
             temps = [t.get("celsius") for t in answer.get("temperatures") or [] if t.get("celsius")]
             rows = [
-                ("Network", f"in {rate(net.get('in_bps', 0))}, out {rate(net.get('out_bps', 0))}"),
-                ("Disks", f"reading {rate(disks.get('read_bps', 0))}, writing {rate(disks.get('write_bps', 0))}"),
-                ("Hottest sensor", f"{max(temps):.0f} °C" if temps else "No sensor"),
+                (_("Network"), _("in {received}, out {sent}").format(received=rate(net.get("in_bps", 0)), sent=rate(net.get("out_bps", 0)))),
+                (_("Disks"), _("reading {read}, writing {written}").format(read=rate(disks.get("read_bps", 0)),
+                                                             written=rate(disks.get("write_bps", 0)))),
+                (_("Hottest sensor"), f"{max(temps):.0f} °C" if temps else _("No sensor")),
             ]
             box.remove(holder)
             holder = facts(rows)
@@ -484,17 +485,17 @@ class Tools:
 
         box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
         bar = Gtk.Box(spacing=8)
-        levels = Gtk.DropDown.new_from_strings([name for _k, name in LOG_LEVELS])
+        levels = Gtk.DropDown.new_from_strings([_(name) for _k, name in LOG_LEVELS])
         levels.set_selected(1)
         levels.set_visible(kind == "system")
-        search = Gtk.SearchEntry(placeholder_text="Search", hexpand=True)
+        search = Gtk.SearchEntry(placeholder_text=_("Search"), hexpand=True)
         bar.append(levels)
         bar.append(search)
         box.append(bar)
         entries = Gtk.ListBox(selection_mode=Gtk.SelectionMode.NONE)
         entries.add_css_class("list")
         box.append(entries)
-        older = Gtk.Button(label="Show older", halign=Gtk.Align.CENTER)
+        older = Gtk.Button(label=_("Show older"), halign=Gtk.Align.CENTER)
         older.set_visible(False)
         box.append(older)
         page = {"next": "", "more": False}
@@ -507,7 +508,7 @@ class Tools:
             page["next"] = answer.get("next", "") if answer.get("more") else ""
             older.set_visible(bool(page["next"]))
             if not shown and not more:
-                entries.append(label("Nothing here.", "lead"))
+                entries.append(label(_("Nothing here."), "lead"))
             for entry in shown:
                 row = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=2)
                 head = f"{when(entry.get('time', ''))}  ·  {entry.get('source', '')}"
@@ -540,8 +541,8 @@ class Tools:
         from .control import KINDS
 
         box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
-        box.append(label("What the box told its admins in the last month. Which kinds show on "
-                         "the bell is in Control Panel › Notifications.", "lead", wrap=True))
+        box.append(label(_("What the box reported in the last month. Choose what appears on the bell "
+                           "in Control Panel › Notifications."), "lead", wrap=True))
         entries = Gtk.ListBox(selection_mode=Gtk.SelectionMode.NONE)
         entries.add_css_class("list")
         box.append(entries)
@@ -549,11 +550,11 @@ class Tools:
         def got(answer: dict[str, Any]) -> None:
             listed = answer.get("notifications") or []
             if not listed:
-                entries.append(label("Nothing in the last month.", "lead"))
+                entries.append(label(_("Nothing in the last month."), "lead"))
             for n in reversed(sorted(listed, key=lambda n: n.get("time", ""))):
                 row = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=2)
                 kind = n.get("kind", "")
-                row.append(label(f"{when(n.get('time', ''))}  ·  {KINDS.get(kind, (kind.capitalize(),))[0]}",
+                row.append(label(f"{when(n.get('time', ''))}  ·  {_(KINDS.get(kind, (kind.capitalize(),))[0])}",
                                  "fact-name", n.get("level", "")))
                 row.append(label(n.get("message", ""), "fact", wrap=True))
                 entries.append(row)
@@ -581,8 +582,8 @@ class MoreTools:
         button = Gtk.Button(valign=Gtk.Align.CENTER)
         box.append(button)
         action = {"name": ""}
-        do, doing = (("Check that both copies match", "Checking that both copies match") if mirror
-                     else ("Check the library for damage", "Checking the library for damage"))
+        do, doing = ((_("Check that both copies match"), _("Checking that both copies match")) if mirror
+                     else (_("Check the library for damage"), _("Checking the library for damage")))
 
         def show(state: dict[str, Any]) -> None:
             while child := words.get_first_child():
@@ -590,29 +591,30 @@ class MoreTools:
             percent = state.get("percent", 0)
             if state.get("running") and not state.get("paused"):
                 words.append(label(f"{doing} · {percent:.0f}%", "fact"))
-                words.append(label(f"Started {when(state.get('started', ''))}.", "fact-name"))
+                words.append(label(_("Started {time}.").format(time=when(state.get("started", ""))), "fact-name"))
                 words.append(meter(percent / 100, "library"))
-                button.set_label("Pause")
+                button.set_label(_("Pause"))
                 action["name"] = "pause"
             elif state.get("paused"):
-                words.append(label(f"The check is paused at {percent:.0f}%", "fact"))
-                words.append(label("It carries on from there when you resume it.", "fact-name"))
-                button.set_label("Resume")
+                words.append(label(_("The check is paused at {percent}%").format(percent=f"{percent:.0f}"), "fact"))
+                words.append(label(_("It carries on from there when you resume it."), "fact-name"))
+                button.set_label(_("Resume"))
                 action["name"] = "resume"
             else:
                 if state.get("never_run"):
-                    last = "It hasn't been checked yet."
+                    last = _("It hasn't been checked yet.")
                 elif state.get("errors") and mirror:
-                    last = f"The last check found {state['errors']} problems and repaired what it could."
+                    last = _("Last check found {n} problems and repaired what it could.").format(
+                        n=state["errors"])
                 elif state.get("errors"):
-                    last = (f"The last check found {state['errors']} damaged files. With one drive there's "
-                            "no second copy to repair them from: restore them from a backup.")
+                    last = _("Last check found {n} damaged files. With one drive they can't be "
+                             "repaired: restore them from a backup.").format(n=state["errors"])
                 else:
-                    last = "The last check found nothing needing repair."
+                    last = _("The last check found nothing needing repair.")
                 words.append(label(do, "fact"))
-                words.append(label(last + " The box also checks once a month by itself.", "fact-name",
+                words.append(label(last + " " + _("The box also checks once a month by itself."), "fact-name",
                                    wrap=True, max_width_chars=50))
-                button.set_label("Check now")
+                button.set_label(_("Check now"))
                 action["name"] = "start"
 
         def act() -> None:
@@ -638,12 +640,12 @@ class MoreTools:
     def storage_space(self) -> Gtk.Widget:
         from .app import in_background, label
 
-        names = {"databases": "The apps' databases", "app-images": "The apps themselves",
-                 "models-and-maps": "Myira's models and the maps", "app-data": "Photos, files and the apps' data",
-                 "restore-points": "Restore points", "os": "ZOOMRIYA OS"}
+        names = {"databases": _("The apps' databases"), "app-images": _("The apps themselves"),
+                 "models-and-maps": _("Myira's models and the maps"), "app-data": _("Photos, files and the apps' data"),
+                 "restore-points": _("Restore points"), "os": "ZOOMRIYA OS"}
         box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=12)
-        box.append(heading("Space"))
-        box.append(label("What takes the space on the box's own disk.", "lead", wrap=True))
+        box.append(heading(_("Space")))
+        box.append(label(_("What takes the space on the box's own disk."), "lead", wrap=True))
         grid = Gtk.Grid(column_spacing=18, row_spacing=10)
         grid.add_css_class("facts")
         box.append(grid)
@@ -653,7 +655,7 @@ class MoreTools:
             total = system.get("used_bytes") or 0
             parts = sorted(storage.get("system_parts") or [], key=lambda p: -(p.get("bytes") or 0))
             if not parts:
-                grid.attach(label("Not counted yet: it's counted every few hours.", "lead"), 0, 0, 1, 1)
+                grid.attach(label(_("Not counted yet; updated every few hours."), "lead"), 0, 0, 1, 1)
             for row, part in enumerate(parts):
                 share = (part.get("bytes") or 0) / total if total else 0
                 grid.attach(label(names.get(part.get("kind", ""), part.get("kind", "")), "fact-name"),
@@ -674,9 +676,8 @@ class MoreTools:
         from .app import alive, in_background, label
 
         box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
-        box.append(heading("By app"))
-        box.append(label("The apps and the box's own services, busiest first. CPU is a share of the "
-                         "whole box.", "lead", wrap=True))
+        box.append(heading(_("By app")))
+        box.append(label(_("Busiest first. CPU is a share of the whole box."), "lead", wrap=True))
         grid = Gtk.Grid(column_spacing=18, row_spacing=8)
         grid.add_css_class("facts")
         box.append(grid)
@@ -684,11 +685,11 @@ class MoreTools:
         def got(answer: dict[str, Any]) -> None:
             while child := grid.get_first_child():
                 grid.remove(child)
-            for col, title in enumerate(("", "CPU", "Memory")):
+            for col, title in enumerate(("", _("CPU"), _("Memory"))):
                 grid.attach(label(title, "field-label"), col, 0, 1, 1)
             for row, use in enumerate(answer.get("services") or [], start=1):
                 name = use.get("name") or use.get("unit", "")
-                kind = "an app" if use.get("kind") == "app" else "the box"
+                kind = _("An app") if use.get("kind") == "app" else _("Part of the box")
                 grid.attach(label(f"{name}", "fact", hexpand=True, tooltip_text=kind), 0, row, 1, 1)
                 grid.attach(label(f"{use.get('cpu_percent', 0):.1f}%", "small-fact"), 1, row, 1, 1)
                 grid.attach(label(size(use.get("memory_bytes", 0)), "small-fact"), 2, row, 1, 1)
@@ -707,7 +708,7 @@ class MoreTools:
         from .app import alive, in_background, label
 
         box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
-        box.append(heading("Temperature"))
+        box.append(heading(_("Temperature")))
         grid = Gtk.Grid(column_spacing=18, row_spacing=8)
         grid.add_css_class("facts")
         box.append(grid)
@@ -718,7 +719,7 @@ class MoreTools:
             temps = answer.get("temperatures") or []
             fans = answer.get("fans") or []
             if not temps and not fans:
-                grid.attach(label("This box reports no sensors.", "lead"), 0, 0, 1, 1)
+                grid.attach(label(_("This box reports no sensors."), "lead"), 0, 0, 1, 1)
             row = 0
             for sensor in temps:
                 name = sensor.get("label") or sensor.get("sensor", "")
@@ -728,7 +729,7 @@ class MoreTools:
                 grid.attach(value, 1, row, 1, 1)
                 row += 1
             for fan in fans:
-                grid.attach(label(fan.get("label") or fan.get("sensor", "Fan"), "fact-name", hexpand=True),
+                grid.attach(label(fan.get("label") or fan.get("sensor", _("Fan")), "fact-name", hexpand=True),
                             0, row, 1, 1)
                 grid.attach(label(f"{fan.get('rpm', 0)} rpm", "fact"), 1, row, 1, 1)
                 row += 1
@@ -746,15 +747,14 @@ class MoreTools:
     # --- Reset (Control Panel) ------------------------------------------------------------
 
     def reset_system(self) -> None:
-        self.confirm("Reset the system?",
-                     "The system goes back to how it left the factory when the box restarts. The family's "
-                     "apps and data stay.", "Reset",
+        self.confirm(_("Reset the system?"),
+                     _("The system returns to its factory state on restart. Family apps and data "
+                       "stay."), _("Reset"),
                      lambda: self.ask("factory-reset", level="system"), lambda _a: self.restart_now())
 
     def erase_everything(self) -> None:
-        self.confirm("Erase everything?",
-                     "Everything on the box is deleted when it restarts: every app, account, photo and "
-                     "message. This can't be undone. Type the setup code from the sticker and your "
-                     "password.", "Erase everything",
+        self.confirm(_("Erase everything?"),
+                     _("Deletes every app, account, photo and message on restart. This can't be "
+                       "undone. Enter the setup code from the sticker and your password."), _("Erase everything"),
                      lambda code: self.ask("factory-reset", level="everything", setup_code=code),
-                     lambda _a: self.restart_now(), extra="Setup code, like ABCD-EFGH")
+                     lambda _a: self.restart_now(), extra=_("Setup code, like ABCD-EFGH"))

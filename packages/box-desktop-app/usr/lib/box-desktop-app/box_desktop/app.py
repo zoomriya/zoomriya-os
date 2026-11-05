@@ -28,6 +28,8 @@ from zoomriya_setup.agent import AgentError  # noqa: E402
 from zoomriya_setup.brand import MARK, WORDMARK, logo  # noqa: E402
 
 from .control import ControlPanel  # noqa: E402
+from . import i18n  # noqa: E402
+from .i18n import N_, _  # noqa: E402
 from .icons import glyph, set_glyph, set_theme, tile, tile_css  # noqa: E402
 from .journal import note_sign_in  # noqa: E402
 from .prefs import DEFAULTS, Prefs  # noqa: E402
@@ -40,14 +42,19 @@ TOP_BAR = 52
 #: The room kept between an opened window and the top bar, and the screen's
 #: bottom edge (a maximised window fills it all).
 GAP = 24
+#: The launcher along the bottom, and the room above the screen's edge it
+#: keeps clear of windows.
+DOCK_ROOM = 92
+#: How long a window takes to grow in or shrink away (style.css's .window transition).
+FADE_MS = 180
 
 #: The tools, in the menu's order: name, and the window's first size (no taller
 #: than fits between the top bar and the screen's bottom edge).
 TOOLS = {
-    "control": ("Control Panel", 780, 900),
-    "storage": ("Storage Manager", 780, 560),
-    "resources": ("Resource Monitor", 720, 480),
-    "logs": ("Log Center", 820, 580),
+    "control": (N_("Control Panel"), 780, 900),
+    "storage": (N_("Storage Manager"), 780, 560),
+    "resources": (N_("Resource Monitor"), 720, 480),
+    "logs": (N_("Log Center"), 820, 580),
 }
 
 
@@ -95,8 +102,9 @@ def duration(seconds: int) -> str:
     days, rest = divmod(int(seconds), 86400)
     hours, rest = divmod(rest, 3600)
     minutes = rest // 60
-    parts = [f"{days} day{'s' * (days != 1)}"] if days else []
-    parts.append(f"{hours} hour{'s' * (hours != 1)}" if hours or days else f"{minutes} minutes")
+    parts = [_("1 day") if days == 1 else _("{n} days").format(n=days)] if days else []
+    parts.append((_("1 hour") if hours == 1 else _("{n} hours").format(n=hours)) if hours or days
+                 else _("{n} minutes").format(n=minutes))
     return ", ".join(parts)
 
 
@@ -183,10 +191,10 @@ class BoxDesktop(Tools, MoreTools, ControlPanel, Gtk.ApplicationWindow):
         card.add_css_class("card")
         card.set_size_request(400, -1)
         card.append(logo(WORDMARK, 28))
-        self.signin_name = label("Sign in with your ZOOMRIYA ID", "lead")
+        self.signin_name = label(_("Sign in with your ZOOMRIYA ID"), "lead")
         card.append(self.signin_name)
-        self.username = Gtk.Entry(placeholder_text="Username")
-        self.password = Gtk.PasswordEntry(show_peek_icon=True, placeholder_text="Password")
+        self.username = Gtk.Entry(placeholder_text=_("Username"))
+        self.password = Gtk.PasswordEntry(show_peek_icon=True, placeholder_text=_("Password"))
         self.username.connect("activate", lambda _e: self.password.grab_focus())
         self.password.connect("activate", lambda _e: self.sign_in())
         card.append(self.username)
@@ -196,7 +204,7 @@ class BoxDesktop(Tools, MoreTools, ControlPanel, Gtk.ApplicationWindow):
         card.append(self.signin_error)
         row = Gtk.Box(spacing=10, halign=Gtk.Align.END)
         self.signin_busy = Gtk.Spinner()
-        self.signin_button = Gtk.Button(label="Sign in")
+        self.signin_button = Gtk.Button(label=_("Sign in"))
         self.signin_button.add_css_class("primary")
         self.signin_button.connect("clicked", lambda _b: self.sign_in())
         row.append(self.signin_busy)
@@ -218,25 +226,7 @@ class BoxDesktop(Tools, MoreTools, ControlPanel, Gtk.ApplicationWindow):
 
         def signed_in(member: Member) -> None:
             note_sign_in(member.username, True)
-            self.member = member
-            self.password.set_text("")
-            self.signin_error.set_visible(False)
-            self.avatar_letters.set_text(initials(member.name))
-            self.avatar.set_tooltip_text(member.name)
-            self.avatar.set_menu_model(self.account_menu(member.name))
-            self.prefs = self.prefs_store.load(member.id)
-            self.apply_theme(self.prefs["theme"], save=False)
-            # This admin's keyboard and mouse on the box's screen.
-            if self.prefs.get("keyboard"):
-                set_keyboard(self.prefs["keyboard"])
-            set_left_handed(self.prefs.get("handed") == "left")
-            mouse = self.prefs.get("mouse") or {}
-            self.display.pointer(mouse.get("speed", 0.0), mouse.get("accel", True),
-                                 mouse.get("natural", False))
-            self.pages.set_visible_child_name("desktop")
-            self.restore_layout(self.prefs.get("windows") or [])
-            self.refresh_widgets()
-            self.refresh_cpu()
+            self.enter(member)
             settle()
 
         def refused(problem: str) -> None:
@@ -248,6 +238,29 @@ class BoxDesktop(Tools, MoreTools, ControlPanel, Gtk.ApplicationWindow):
             settle()
 
         in_background(lambda: self.zid.sign_in(username, password), signed_in, refused)
+
+    def enter(self, member: Member) -> None:
+        """This admin's desktop: theirs as they left it (also when the desktop is
+        drawn again in another language)."""
+        self.member = member
+        self.password.set_text("")
+        self.signin_error.set_visible(False)
+        self.avatar_letters.set_text(initials(member.name))
+        self.avatar.set_tooltip_text(member.name)
+        self.avatar.set_menu_model(self.account_menu(member.name))
+        self.prefs = self.prefs_store.load(member.id)
+        self.apply_theme(self.prefs["theme"], save=False)
+        # This admin's keyboard and mouse on the box's screen.
+        if self.prefs.get("keyboard"):
+            set_keyboard(self.prefs["keyboard"])
+        set_left_handed(self.prefs.get("handed") == "left")
+        mouse = self.prefs.get("mouse") or {}
+        self.display.pointer(mouse.get("speed", 0.0), mouse.get("accel", True),
+                             mouse.get("natural", False))
+        self.pages.set_visible_child_name("desktop")
+        self.restore_layout(self.prefs.get("windows") or [])
+        self.refresh_widgets()
+        self.refresh_cpu()
 
     def sign_out(self) -> None:
         if self.member is not None:
@@ -275,7 +288,7 @@ class BoxDesktop(Tools, MoreTools, ControlPanel, Gtk.ApplicationWindow):
         (self.add_css_class if theme == "midnight" else self.remove_css_class)("midnight")
         set_theme(theme)
         set_glyph(self.theme_icon, "sun" if theme == "midnight" else "moon")
-        self.theme_button.set_tooltip_text("Daylight" if theme == "midnight" else "Midnight")
+        self.theme_button.set_tooltip_text(_("Daylight") if theme == "midnight" else _("Midnight"))
         self.sparkline.queue_draw()
         if save and self.member is not None:
             self.prefs["theme"] = theme
@@ -332,7 +345,7 @@ class BoxDesktop(Tools, MoreTools, ControlPanel, Gtk.ApplicationWindow):
 
     def got_name(self, answer: dict[str, Any]) -> None:
         self.box_name = answer.get("name", "")
-        self.signin_name.set_text(f"{self.box_name}: sign in with your ZOOMRIYA ID")
+        self.signin_name.set_text(_("{box}: sign in with your ZOOMRIYA ID").format(box=self.box_name))
         self.menu_footer.set_text(f"{self.box_name} · ZOOMRIYA OS 13")
 
     # --- the desktop --------------------------------------------------------------
@@ -346,7 +359,6 @@ class BoxDesktop(Tools, MoreTools, ControlPanel, Gtk.ApplicationWindow):
         below = Gtk.Overlay(vexpand=True)
         # Shortcuts and widgets underneath; the windows' layer over them.
         under = Gtk.Box(hexpand=True, vexpand=True)
-        under.append(self.shortcuts())
         spacer = Gtk.Box(hexpand=True)
         under.append(spacer)
         self.widget_column = self.widgets()
@@ -355,6 +367,10 @@ class BoxDesktop(Tools, MoreTools, ControlPanel, Gtk.ApplicationWindow):
         self.layer = Layer(hexpand=True, vexpand=True)
         below.add_overlay(self.layer)
         below.set_measure_overlay(self.layer, False)
+        # The launcher over the windows, as the top bar is.
+        launcher = self.dock()
+        below.add_overlay(launcher)
+        below.set_measure_overlay(launcher, False)
         column.append(below)
         self.overlay.add_overlay(column)
         return self.overlay
@@ -364,7 +380,7 @@ class BoxDesktop(Tools, MoreTools, ControlPanel, Gtk.ApplicationWindow):
         bar.add_css_class("topbar")
         bar.set_size_request(-1, TOP_BAR)
 
-        self.menu_button = Gtk.MenuButton(tooltip_text="Main menu")
+        self.menu_button = Gtk.MenuButton(tooltip_text=_("Main menu"))
         mark = logo(MARK, 16)
         mark.set_halign(Gtk.Align.FILL)  # brand.py centres it in the button
         self.menu_button.set_child(mark)
@@ -387,7 +403,7 @@ class BoxDesktop(Tools, MoreTools, ControlPanel, Gtk.ApplicationWindow):
         self.pill.connect("clicked", lambda _b: self.open_tool(*self.pill_target))
         bar.append(self.pill)
 
-        self.bell = bell = Gtk.MenuButton(tooltip_text="Notifications")
+        self.bell = bell = Gtk.MenuButton(tooltip_text=_("Notifications"))
         bell.add_css_class("bar-button")
         bell_face = Gtk.Overlay()
         bell_face.set_child(glyph("bell", 22))
@@ -408,19 +424,19 @@ class BoxDesktop(Tools, MoreTools, ControlPanel, Gtk.ApplicationWindow):
         if self.with_sound:
             from .sound import OUTPUT
 
-            volume = Gtk.MenuButton(tooltip_text="Sound")
+            volume = Gtk.MenuButton(tooltip_text=_("Sound"))
             volume.add_css_class("bar-button")
             volume.set_child(glyph("volume", 22))
             pop = Gtk.Popover()
             box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=8)
             box.add_css_class("popover-body")
-            box.append(label("Speakers", "field-label"))
+            box.append(label(_("Speakers"), "field-label"))
             scale = Gtk.Scale.new_with_range(Gtk.Orientation.HORIZONTAL, 0, 100, 1)
             scale.set_size_request(220, -1)
             scale.set_draw_value(False)
             scale.connect("value-changed", lambda s: self.sound.set_volume(OUTPUT, s.get_value() / 100))
             box.append(scale)
-            more = Gtk.Button(label="Sound settings")
+            more = Gtk.Button(label=_("Sound settings"))
             more.connect("clicked", lambda _b: (pop.popdown(), self.open_tool("control", "sound")))
             box.append(more)
             pop.set_child(box)
@@ -428,13 +444,13 @@ class BoxDesktop(Tools, MoreTools, ControlPanel, Gtk.ApplicationWindow):
             volume.set_popover(pop)
             bar.append(volume)
 
-        search = Gtk.Button(tooltip_text="Search tools")
+        search = Gtk.Button(tooltip_text=_("Search tools"))
         search.add_css_class("bar-button")
         search.set_child(glyph("search", 22))
         search.connect("clicked", lambda _b: (self.menu_button.popup(), self.menu_search.grab_focus()))
         bar.append(search)
 
-        self.theme_button = Gtk.Button(tooltip_text="Midnight")
+        self.theme_button = Gtk.Button(tooltip_text=_("Midnight"))
         self.theme_button.add_css_class("bar-button")
         self.theme_icon = glyph("moon", 21)
         self.theme_button.set_child(self.theme_icon)
@@ -442,7 +458,7 @@ class BoxDesktop(Tools, MoreTools, ControlPanel, Gtk.ApplicationWindow):
             "daylight" if self.has_css_class("midnight") else "midnight"))
         bar.append(self.theme_button)
 
-        self.widgets_toggle = Gtk.ToggleButton(active=True, tooltip_text="Widgets")
+        self.widgets_toggle = Gtk.ToggleButton(active=True, tooltip_text=_("Widgets"))
         self.widgets_toggle.add_css_class("bar-button")
         self.widgets_toggle.set_child(glyph("widgets", 22))
         self.widgets_toggle.connect("toggled", lambda b: self.widget_column.set_visible(b.get_active()))
@@ -476,8 +492,8 @@ class BoxDesktop(Tools, MoreTools, ControlPanel, Gtk.ApplicationWindow):
     def account_menu(self, name: str) -> Gio.Menu:
         """The admin's menu, headed by their name."""
         items = Gio.Menu()
-        items.append("Restart the box", "win.restart")
-        items.append("Sign out", "win.sign-out")
+        items.append(_("Restart the box"), "win.restart")
+        items.append(_("Sign out"), "win.sign-out")
         menu = Gio.Menu()
         menu.append_section(name or None, items)
         return menu
@@ -487,13 +503,14 @@ class BoxDesktop(Tools, MoreTools, ControlPanel, Gtk.ApplicationWindow):
         pop.set_position(Gtk.PositionType.BOTTOM)
         body = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=14)
         body.add_css_class("menu-body")
-        self.menu_search = Gtk.SearchEntry(placeholder_text="Search tools")
+        self.menu_search = Gtk.SearchEntry(placeholder_text=_("Search tools"))
         body.append(self.menu_search)
         grid = Gtk.FlowBox(max_children_per_line=4, min_children_per_line=4,
                            selection_mode=Gtk.SelectionMode.NONE, homogeneous=True,
                            column_spacing=8, row_spacing=8)
         names: dict[Gtk.Widget, str] = {}
-        for kind, (name, _w, _h) in TOOLS.items():
+        for kind, (english, _w, _h) in TOOLS.items():
+            name = _(english)
             button = Gtk.Button()
             button.add_css_class("menu-tool")
             inner = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=8)
@@ -513,21 +530,36 @@ class BoxDesktop(Tools, MoreTools, ControlPanel, Gtk.ApplicationWindow):
         pop.connect("closed", lambda _p: self.menu_search.set_text(""))
         return pop
 
-    def shortcuts(self) -> Gtk.Widget:
-        column = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10,
-                         halign=Gtk.Align.START, valign=Gtk.Align.START)
-        column.add_css_class("shortcuts")
-        for kind, (name, _w, _h) in TOOLS.items():
-            button = Gtk.Button()
-            button.add_css_class("shortcut")
-            inner = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=8)
-            inner.append(tile(kind, 52))
-            inner.append(Gtk.Label(label=name, wrap=True, justify=Gtk.Justification.CENTER,
-                                   max_width_chars=11, css_classes=["shortcut-name"]))
+    def dock(self) -> Gtk.Widget:
+        """The launcher along the bottom: each tool's icon, its name when the
+        pointer is on it, and a dot under each one open. A tool open and in
+        front is minimised by it, as its tab does."""
+        bar = Gtk.Box(spacing=4, halign=Gtk.Align.CENTER, valign=Gtk.Align.END, margin_bottom=14)
+        bar.add_css_class("dock")
+        self.dock_dots: dict[str, Gtk.Widget] = {}
+        for kind, (english, _w, _h) in TOOLS.items():
+            button = Gtk.Button(tooltip_text=_(english))
+            button.add_css_class("dock-item")
+            inner = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=4)
+            inner.append(tile(kind, 48))
+            dot = Gtk.Box(halign=Gtk.Align.CENTER)
+            dot.add_css_class("dock-dot")
+            inner.append(dot)
+            self.dock_dots[kind] = dot
             button.set_child(inner)
-            button.connect("clicked", lambda _b, k=kind: self.open_tool(k))
-            column.append(button)
-        return column
+            button.connect("clicked", lambda _b, k=kind: self.dock_clicked(k))
+            bar.append(button)
+        return bar
+
+    def dock_clicked(self, kind: str) -> None:
+        if kind in self.windows:
+            self.tab_clicked(kind)
+        else:
+            self.open_tool(kind)
+
+    def update_dock(self) -> None:
+        for kind, dot in self.dock_dots.items():
+            (dot.add_css_class if kind in self.windows else dot.remove_css_class)("open")
 
     def tick(self) -> bool:
         self.clock.set_text(datetime.now().strftime("%a %-d %b  %H:%M"))
@@ -558,7 +590,7 @@ class BoxDesktop(Tools, MoreTools, ControlPanel, Gtk.ApplicationWindow):
             column.append(box)
             return box, aside
 
-        health, self.health_name = card("Box health")
+        health, self.health_name = card(_("Box health"))
         row = Gtk.Box(spacing=12)
         self.health_mark = Gtk.Box(halign=Gtk.Align.CENTER, valign=Gtk.Align.CENTER)
         self.health_mark.add_css_class("mark")
@@ -569,7 +601,7 @@ class BoxDesktop(Tools, MoreTools, ControlPanel, Gtk.ApplicationWindow):
         self.health_mark.append(check)
         row.append(self.health_mark)
         text = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, valign=Gtk.Align.CENTER)
-        self.health_title = label("Checking the box…", "widget-big")
+        self.health_title = label(_("Checking the box…"), "widget-big")
         self.health_sub = label("", "widget-small")
         text.append(self.health_title)
         text.append(self.health_sub)
@@ -578,12 +610,12 @@ class BoxDesktop(Tools, MoreTools, ControlPanel, Gtk.ApplicationWindow):
         self.health_rows = Gtk.Grid(column_spacing=10, row_spacing=4)
         health.append(self.health_rows)
 
-        cpu, _rows = card("CPU and memory")
+        cpu, _rows = card(_("CPU and memory"))
         top = Gtk.Box(spacing=10)
         figures = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
         self.cpu_figure = label("–", "widget-figure")
         figures.append(self.cpu_figure)
-        figures.append(label("CPU", "widget-small"))
+        figures.append(label(_("CPU"), "widget-small"))
         top.append(figures)
         self.sparkline = Gtk.DrawingArea(hexpand=True)
         self.sparkline.set_size_request(-1, 44)
@@ -591,7 +623,7 @@ class BoxDesktop(Tools, MoreTools, ControlPanel, Gtk.ApplicationWindow):
         top.append(self.sparkline)
         cpu.append(top)
         mem_row = Gtk.Box()
-        mem_row.append(label("Memory", "widget-small", hexpand=True))
+        mem_row.append(label(_("Memory"), "widget-small", hexpand=True))
         self.mem_figure = label("", "widget-small")
         mem_row.append(self.mem_figure)
         cpu.append(mem_row)
@@ -599,7 +631,7 @@ class BoxDesktop(Tools, MoreTools, ControlPanel, Gtk.ApplicationWindow):
         self.mem_bar.add_css_class("bar-memory")
         cpu.append(self.mem_bar)
 
-        space, self.space_percent = card("Space")
+        space, self.space_percent = card(_("Space"))
         self.space_figure = label("–", "widget-figure-line")
         space.append(self.space_figure)
         self.space_bar = Gtk.LevelBar(min_value=0, max_value=1)
@@ -635,18 +667,19 @@ class BoxDesktop(Tools, MoreTools, ControlPanel, Gtk.ApplicationWindow):
             drives = health.get("drives") or []
             sick = [d for d in drives if d.get("health") not in ("healthy", None)]
             needs = bool(sick) or bool(status.get("restart_needed"))
-            self.health_title.set_text("Needs a look" if needs else "Everything's fine")
+            self.health_title.set_text(_("Needs a look") if needs else _("Everything's fine"))
             (self.health_mark.add_css_class if needs else self.health_mark.remove_css_class)("warn")
-            self.health_sub.set_text(f"ZOOMRIYA OS 13 · up {duration(status.get('uptime_seconds', 0))}")
+            self.health_sub.set_text(_("ZOOMRIYA OS 13 · up {time}").format(
+                time=duration(status.get("uptime_seconds", 0))))
             self.health_name.set_text(self.box_name.removesuffix(".local"))
             while child := self.health_rows.get_first_child():
                 self.health_rows.remove(child)
             rows = [
-                ("Drives", f"{len(sick)} need checking" if sick else "All healthy", bool(sick)),
-                ("Security fixes", when(status.get("last_security_update", "")), False),
+                (_("Drives"), _("{n} need checking").format(n=len(sick)) if sick else _("All healthy"), bool(sick)),
+                (_("Security fixes"), when(status.get("last_security_update", "")), False),
             ]
             if status.get("restart_needed"):
-                rows.append(("Restart", "Needed", True))
+                rows.append((_("Restart"), _("Needed"), True))
             for i, (name, value, warn) in enumerate(rows):
                 self.health_rows.attach(label(name, "widget-small", hexpand=True), 0, i, 1, 1)
                 shown = label(value, "widget-value", "warn" if warn else "ok")
@@ -655,14 +688,15 @@ class BoxDesktop(Tools, MoreTools, ControlPanel, Gtk.ApplicationWindow):
             check = (storage.get("library") or {}).get("check") or {}
             self.pill.remove_css_class("busy")
             if check.get("running") and not check.get("paused"):
-                self.pill.set_label(f"Checking the library drives · {check.get('percent', 0):.0f}%")
+                self.pill.set_label(_("Checking the library · {percent}%").format(
+                    percent=f"{check.get('percent', 0):.0f}"))
                 self.pill.add_css_class("busy")
                 self.pill_target = ("storage", "overview")
                 # One follow-up at a time while the check runs, for its progress.
                 if self.check_poll is None:
                     self.check_poll = GLib.timeout_add_seconds(10, self.poll_check)
             elif status.get("restart_needed"):
-                self.pill.set_label("Restart needed")
+                self.pill.set_label(_("Restart needed"))
                 self.pill_target = ("control", "restarts")
             self.pill.set_visible(bool(check.get("running") and not check.get("paused"))
                                   or bool(status.get("restart_needed")))
@@ -670,12 +704,13 @@ class BoxDesktop(Tools, MoreTools, ControlPanel, Gtk.ApplicationWindow):
             library = storage.get("library") or {}
             disk = library if library.get("path") else (storage.get("system") or {})
             total, used = disk.get("size_bytes") or 0, disk.get("used_bytes") or 0
-            self.space_figure.set_markup(f"<b>{size(used)}</b> <small>of {size(total)} used</small>")
+            self.space_figure.set_markup(_("<b>{used}</b> <small>of {total} used</small>").format(
+                used=size(used), total=size(total)))
             self.space_percent.set_text(f"{used / total * 100:.0f}%" if total else "")
             self.space_bar.set_value(used / total if total else 0)
-            self.space_note.set_text("The box's own disk" if not library.get("path")
-                                     else "Library drives mirrored" if library.get("mirror")
-                                     else "Library")
+            self.space_note.set_text(_("The box's own disk") if not library.get("path")
+                                     else _("Library drives mirrored") if library.get("mirror")
+                                     else _("Library"))
             self.show_notifications(notes.get("notifications") or [])
 
         in_background(lambda: (self.ask("status"), self.ask("storage"), self.ask("disk-health"),
@@ -699,15 +734,15 @@ class BoxDesktop(Tools, MoreTools, ControlPanel, Gtk.ApplicationWindow):
         while child := self.bell_list.get_first_child():
             self.bell_list.remove(child)
         head = Gtk.Box()
-        head.append(label("Notifications", "section", hexpand=True))
+        head.append(label(_("Notifications"), "section", hexpand=True))
         if unread:
-            mark = Gtk.Button(label="Mark all read")
+            mark = Gtk.Button(label=_("Mark all read"))
             mark.add_css_class("flat-link")
             mark.connect("clicked", lambda _b: self.mark_read())
             head.append(mark)
         self.bell_list.append(head)
         if not shown:
-            self.bell_list.append(label("Nothing new.", "lead"))
+            self.bell_list.append(label(_("Nothing new."), "lead"))
         for n in shown[:8]:
             row = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=2)
             row.add_css_class("notice-row")
@@ -715,7 +750,7 @@ class BoxDesktop(Tools, MoreTools, ControlPanel, Gtk.ApplicationWindow):
             row.append(label(when(n.get("time", "")), "fact-name", n.get("level", "")))
             row.append(label(n.get("message", ""), "fact", wrap=True, max_width_chars=40))
             self.bell_list.append(row)
-        everything = Gtk.Button(label="See all in Log Center", halign=Gtk.Align.START)
+        everything = Gtk.Button(label=_("See all in Log Center"), halign=Gtk.Align.START)
         everything.add_css_class("flat-link")
         everything.connect("clicked", lambda _b: (self.bell.popdown(),
                                                   self.open_tool("logs", "notifications")))
@@ -747,7 +782,7 @@ class BoxDesktop(Tools, MoreTools, ControlPanel, Gtk.ApplicationWindow):
             del self.cpu_history[:-60]
             self.cpu_figure.set_text(f"{percent:.0f}%")
             total, used = answer.get("memory_total_bytes", 0), answer.get("memory_used_bytes", 0)
-            self.mem_figure.set_text(f"{size(used)} of {size(total)}")
+            self.mem_figure.set_text(_("{used} of {total}").format(used=size(used), total=size(total)))
             self.mem_bar.set_value(used / total if total else 0)
             self.sparkline.queue_draw()
 
@@ -758,36 +793,39 @@ class BoxDesktop(Tools, MoreTools, ControlPanel, Gtk.ApplicationWindow):
 
     def sections(self, kind: str) -> list[tuple[str, str, Callable[[], Gtk.Widget]]]:
         if kind == "control":
-            listed = [("network", "Network", self.cp_network),
-                      ("display", "Display", self.cp_display)]
+            listed = [("network", _("Network"), self.cp_network),
+                      ("display", _("Display"), self.cp_display)]
             if self.with_sound:
-                listed.append(("sound", "Sound", self.cp_sound))
-            return listed + [("keyboard", "Keyboard & Mouse", self.cp_keyboard),
-                             ("language", "Language & Region", self.cp_language),
-                             ("time", "Date and time", self.cp_time),
-                             ("notifications", "Notifications", self.cp_notifications),
-                             ("security", "Security", self.cp_security),
-                             ("restarts", "Restarts", self.restarts),
-                             ("restore", "Restore & Reset", self.restore_points),
-                             ("about", "System Info", self.cp_about)]
+                listed.append(("sound", _("Sound"), self.cp_sound))
+            return listed + [("keyboard", _("Keyboard & Mouse"), self.cp_keyboard),
+                             ("language", _("Language & Region"), self.cp_language),
+                             ("time", _("Date and time"), self.cp_time),
+                             ("notifications", _("Notifications"), self.cp_notifications),
+                             ("security", _("Security"), self.cp_security),
+                             ("restarts", _("Restarts"), self.restarts),
+                             ("restore", _("Restore & Reset"), self.restore_points),
+                             ("about", _("System Info"), self.cp_about)]
         if kind == "storage":
-            return [("overview", "Overview", self.storage_overview),
-                    ("drives", "Drives", self.storage_drives),
-                    ("space", "Space", self.storage_space)]
+            return [("overview", _("Overview"), self.storage_overview),
+                    ("drives", _("Drives"), self.storage_drives),
+                    ("space", _("Space"), self.storage_space)]
         if kind == "resources":
-            return [("overview", "Overview", self.resources),
-                    ("apps", "By app", self.resources_by_app),
-                    ("temperature", "Temperature", self.temperatures)]
-        return [("events", "Box events", lambda: self.logs("events")),
-                ("notifications", "Notifications", self.log_notifications),
-                ("audit", "Admin actions", lambda: self.logs("audit")),
-                ("signins", "Sign-ins", lambda: self.logs("signins")),
-                ("system", "System log", lambda: self.logs("system"))]
+            return [("overview", _("Overview"), self.resources),
+                    ("apps", _("By app"), self.resources_by_app),
+                    ("temperature", _("Temperature"), self.temperatures)]
+        return [("events", _("Box events"), lambda: self.logs("events")),
+                ("notifications", _("Notifications"), self.log_notifications),
+                ("audit", _("Admin actions"), lambda: self.logs("audit")),
+                ("signins", _("Sign-ins"), lambda: self.logs("signins")),
+                ("system", _("System log"), lambda: self.logs("system"))]
 
     def open_tool(self, kind: str, section: str | None = None) -> None:
         if kind not in self.windows:
             self.windows[kind] = self.make_window(kind)
+            self.update_dock()
         win = self.windows[kind]
+        if not win.frame.get_visible() or win.frame.has_css_class("opening"):
+            self.fade_in(win.frame)
         win.frame.set_visible(True)
         # Reset is part of Restore & Reset now (a layout kept before may name it).
         section = "restore" if section == "reset" else section
@@ -796,11 +834,15 @@ class BoxDesktop(Tools, MoreTools, ControlPanel, Gtk.ApplicationWindow):
         self.raise_window(kind)
 
     def make_window(self, kind: str) -> DeskWindow:
-        name, width, height = TOOLS[kind]
+        english, width, height = TOOLS[kind]
+        name = _(english)
         n = len(self.windows)
-        x, y = 150 + 28 * n, GAP + 28 * n
+        x, y = 80 + 28 * n, GAP + 28 * n
         frame = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
         frame.add_css_class("window")
+        # Faded in once shown (open_tool); a layout restored at sign-in isn't.
+        if not self.restoring:
+            frame.add_css_class("opening")
         frame.set_size_request(width, height)
         # Its pages' backgrounds stay inside its rounded corners.
         frame.set_overflow(Gtk.Overflow.HIDDEN)
@@ -813,7 +855,8 @@ class BoxDesktop(Tools, MoreTools, ControlPanel, Gtk.ApplicationWindow):
                           ("close", self.close_window)):
             button = Gtk.Button(valign=Gtk.Align.CENTER)
             button.add_css_class("window-button")
-            button.set_child(glyph(icon, 16, "muted"))
+            button.add_css_class(icon)
+            button.set_child(glyph(icon, 12, "muted"))
             button.connect("clicked", lambda _b, a=act: a(kind))
             bar.append(button)
         frame.append(bar)
@@ -898,7 +941,7 @@ class BoxDesktop(Tools, MoreTools, ControlPanel, Gtk.ApplicationWindow):
     def desk_size(self) -> tuple[int, int]:
         """The desktop below the top bar. From Box Desktop's own window, not the
         windows' layer, which isn't laid out yet when a sign-in restores them."""
-        return self.get_width(), self.get_height() - TOP_BAR
+        return self.get_width(), self.get_height() - TOP_BAR - DOCK_ROOM
 
     def fit_window(self, win: DeskWindow) -> None:
         """A maximised window fills the desktop. Others are no wider than the
@@ -960,16 +1003,37 @@ class BoxDesktop(Tools, MoreTools, ControlPanel, Gtk.ApplicationWindow):
         if win.frame.get_visible() and self.active == kind:
             self.minimise_window(kind)
         else:
+            if not win.frame.get_visible():
+                self.fade_in(win.frame)
             win.frame.set_visible(True)
             self.raise_window(kind)
 
     def minimise_window(self, kind: str) -> None:
-        self.windows[kind].frame.set_visible(False)
-        self.windows[kind].tab.remove_css_class("active")
+        win = self.windows[kind]
+        win.tab.remove_css_class("active")
         self.active = ""
         self.listen_if_sound()
-        self.remember_layout()
+        self.fade_out(win.frame, lambda: win.frame.set_visible(False) or self.remember_layout())
 
+    def fade_in(self, frame: Gtk.Widget) -> None:
+        """From a little smaller to itself, once it's drawn (style.css)."""
+        frame.remove_css_class("closing")
+        frame.add_css_class("opening")
+        GLib.timeout_add(30, lambda: frame.remove_css_class("opening") or False)
+
+    def fade_out(self, frame: Gtk.Widget, then: Callable[[], Any]) -> None:
+        """A little smaller, then done; at once while a layout is restored."""
+        if self.restoring:
+            then()
+            return
+        frame.add_css_class("closing")
+
+        def done() -> bool:
+            frame.remove_css_class("closing")
+            then()
+            return False
+
+        GLib.timeout_add(FADE_MS, done)
     def maximise_window(self, kind: str) -> None:
         win = self.windows[kind]
         win.maximised = not win.maximised
@@ -981,12 +1045,13 @@ class BoxDesktop(Tools, MoreTools, ControlPanel, Gtk.ApplicationWindow):
         win = self.windows.pop(kind, None)
         if win is None:
             return
-        self.layer.remove(win.frame)
         self.tabs.remove(win.tab)
         if self.active == kind:
             self.active = ""
+        self.update_dock()
         self.listen_if_sound()
         self.remember_layout()
+        self.fade_out(win.frame, lambda: self.layer.remove(win.frame))
 
     def listen_if_sound(self) -> None:
         """The microphone's level only while the Sound section is in front."""
@@ -1014,12 +1079,38 @@ class BoxDesktopApp(Gtk.Application):
         Gtk.StyleContext.add_provider_for_display(
             Gdk.Display.get_default(), css, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
         )
-        window = BoxDesktop(self, *self.parts)
-        GLib.timeout_add_seconds(3, window.refresh_cpu)
-        GLib.timeout_add_seconds(60, lambda: window.refresh_widgets() or True)
+        self.window: BoxDesktop | None = None
+        self.timers: list[int] = []
+        self.show_window()
+
+    def show_window(self, member: Member | None = None) -> None:
+        window = self.window = BoxDesktop(self, *self.parts)
+        self.timers = [GLib.timeout_add_seconds(3, window.refresh_cpu),
+                       GLib.timeout_add_seconds(60, lambda: window.refresh_widgets() or True)]
         if os.environ.get("BOX_DESKTOP_WINDOWED"):
             window.set_default_size(1440, 900)
         else:
             window.fullscreen()
         window.present()
-        window.username.grab_focus()
+        if member is None:
+            window.username.grab_focus()
+        else:
+            window.enter(member)
+
+    def speak(self, code: str) -> None:
+        """The desktop in another language (a locale, such as fr_CA.UTF-8): drawn
+        again, the admin still signed in, their windows where they were."""
+        old = self.window
+        i18n.use(code)
+        if old is None:
+            return
+        member = old.member
+        if member is not None:
+            old.remember_layout()
+            old.save_prefs_now()
+        for timer in self.timers:
+            GLib.source_remove(timer)
+        if old.stop_listening is not None:
+            old.stop_listening()
+        self.show_window(member)
+        old.destroy()

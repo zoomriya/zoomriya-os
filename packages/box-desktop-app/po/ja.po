@@ -1,0 +1,1786 @@
+# box-desktop-app: ja. Made by scripts/i18n.py extract; translate the empty msgstr.
+# "fuzzy": a draft still to be checked by a native speaker.
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: ja\n"
+
+#: app.py:54
+#, fuzzy
+msgid "Control Panel"
+msgstr "コントロールパネル"
+
+#: app.py:55
+#, fuzzy
+msgid "Storage Manager"
+msgstr "ストレージ マネージャー"
+
+#: app.py:56
+#, fuzzy
+msgid "Resource Monitor"
+msgstr "リソースモニター"
+
+#: app.py:57
+#, fuzzy
+msgid "Log Center"
+msgstr "ログセンター"
+
+#: app.py:194
+#, fuzzy
+msgid "Sign in with your ZOOMRIYA ID"
+msgstr "ZOOMRIYA ID でサインイン"
+
+#: app.py:495
+#, fuzzy
+msgid "Restart the box"
+msgstr "ボックスを再起動"
+
+#: app.py:496
+#, fuzzy
+msgid "Sign out"
+msgstr "サインアウト"
+
+#: app.py:593
+#, fuzzy
+msgid "Box health"
+msgstr "ボックスの状態"
+
+#: app.py:604
+#, fuzzy
+msgid "Checking the box…"
+msgstr "ボックスを確認中…"
+
+#: app.py:613
+#, fuzzy
+msgid "CPU and memory"
+msgstr "CPU とメモリ"
+
+#: app.py:634 app.py:811 tools.py:647
+#, fuzzy
+msgid "Space"
+msgstr "容量"
+
+#: app.py:105
+#, fuzzy
+msgid "1 day"
+msgstr "1 日"
+
+#: app.py:106
+#, fuzzy
+msgid "1 hour"
+msgstr "1 時間"
+
+#: app.py:196
+#, fuzzy
+msgid "Username"
+msgstr "ユーザー名"
+
+#: app.py:197
+#, fuzzy
+msgid "Password"
+msgstr "パスワード"
+
+#: app.py:207
+#, fuzzy
+msgid "Sign in"
+msgstr "サインイン"
+
+#: app.py:291
+#, fuzzy
+msgid "Daylight"
+msgstr "ライト"
+
+#: app.py:291 app.py:453
+#, fuzzy
+msgid "Midnight"
+msgstr "ダーク"
+
+#: app.py:383
+#, fuzzy
+msgid "Main menu"
+msgstr "メインメニュー"
+
+#: app.py:406 app.py:737 app.py:817 app.py:803
+#, fuzzy
+msgid "Notifications"
+msgstr "通知"
+
+#: app.py:447 app.py:506
+#, fuzzy
+msgid "Search tools"
+msgstr "ツールを検索"
+
+#: app.py:461
+#, fuzzy
+msgid "Widgets"
+msgstr "ウィジェット"
+
+#: app.py:618 tools.py:688
+#, fuzzy
+msgid "CPU"
+msgstr "CPU"
+
+#: app.py:626 control.py:851 tools.py:443 tools.py:688
+#, fuzzy
+msgid "Memory"
+msgstr "メモリ"
+
+#: app.py:753
+#, fuzzy
+msgid "See all in Log Center"
+msgstr "ログセンターですべて表示"
+
+#: app.py:816
+#, fuzzy
+msgid "Box events"
+msgstr "ボックスのイベント"
+
+#: app.py:818
+#, fuzzy
+msgid "Admin actions"
+msgstr "管理者の操作"
+
+#: app.py:819
+#, fuzzy
+msgid "Sign-ins"
+msgstr "サインイン"
+
+#: app.py:820
+#, fuzzy
+msgid "System log"
+msgstr "システムログ"
+
+#: app.py:107
+#, fuzzy
+msgid "{n} minutes"
+msgstr "{n} 分"
+
+#: app.py:348
+#, fuzzy
+msgid "{box}: sign in with your ZOOMRIYA ID"
+msgstr "{box}: ZOOMRIYA ID でサインイン"
+
+#: app.py:427 app.py:799
+#, fuzzy
+msgid "Sound"
+msgstr "サウンド"
+
+#: app.py:433
+#, fuzzy
+msgid "Speakers"
+msgstr "スピーカー"
+
+#: app.py:439
+#, fuzzy
+msgid "Sound settings"
+msgstr "サウンドの設定"
+
+#: app.py:670 control.py:639
+#, fuzzy
+msgid "Needs a look"
+msgstr "確認が必要"
+
+#: app.py:670
+#, fuzzy
+msgid "Everything's fine"
+msgstr "問題ありません"
+
+#: app.py:678 app.py:810 tools.py:402
+#, fuzzy
+msgid "Drives"
+msgstr "ドライブ"
+
+#: app.py:679
+#, fuzzy
+msgid "Security fixes"
+msgstr "セキュリティ修正"
+
+#: app.py:711 tools.py:384
+#, fuzzy
+msgid "The box's own disk"
+msgstr "ボックス本体のディスク"
+
+#: app.py:739
+#, fuzzy
+msgid "Mark all read"
+msgstr "すべて既読にする"
+
+#: app.py:745
+#, fuzzy
+msgid "Nothing new."
+msgstr "新着はありません。"
+
+#: app.py:796 control.py:41 tools.py:462
+#, fuzzy
+msgid "Network"
+msgstr "ネットワーク"
+
+#: app.py:797 control.py:245
+#, fuzzy
+msgid "Display"
+msgstr "ディスプレイ"
+
+#: app.py:809 app.py:813
+#, fuzzy
+msgid "Overview"
+msgstr "概要"
+
+#: app.py:814 tools.py:679
+#, fuzzy
+msgid "By app"
+msgstr "アプリ別"
+
+#: app.py:815 control.py:853 tools.py:711 tools.py:419
+#, fuzzy
+msgid "Temperature"
+msgstr "温度"
+
+#: app.py:105 tools.py:421
+#, fuzzy
+msgid "{n} days"
+msgstr "{n} 日"
+
+#: app.py:106
+#, fuzzy
+msgid "{n} hours"
+msgstr "{n} 時間"
+
+#: app.py:672
+#, fuzzy
+msgid "ZOOMRIYA OS 13 · up {time}"
+msgstr "ZOOMRIYA OS 13 · 稼働 {time}"
+
+#: app.py:678
+#, fuzzy
+msgid "All healthy"
+msgstr "すべて正常"
+
+#: app.py:682 tools.py:160
+#, fuzzy
+msgid "Restart"
+msgstr "再起動"
+
+#: app.py:682
+#, fuzzy
+msgid "Needed"
+msgstr "必要"
+
+#: app.py:699
+#, fuzzy
+msgid "Restart needed"
+msgstr "再起動が必要"
+
+#: app.py:707
+#, fuzzy
+msgid "<b>{used}</b> <small>of {total} used</small>"
+msgstr "<b>{used}</b> <small>/ {total} 使用中</small>"
+
+#: app.py:712
+#, fuzzy
+msgid "Library drives mirrored"
+msgstr "ライブラリのドライブはミラー済み"
+
+#: app.py:713 tools.py:381
+#, fuzzy
+msgid "Library"
+msgstr "ライブラリ"
+
+#: app.py:785
+#, fuzzy
+msgid "{used} of {total}"
+msgstr "{used} / {total}"
+
+#: app.py:800
+#, fuzzy
+msgid "Keyboard & Mouse"
+msgstr "キーボードとマウス"
+
+#: app.py:801 control.py:509
+#, fuzzy
+msgid "Language & Region"
+msgstr "言語と地域"
+
+#: app.py:802
+#, fuzzy
+msgid "Date and time"
+msgstr "日付と時刻"
+
+#: app.py:804
+#, fuzzy
+msgid "Security"
+msgstr "セキュリティ"
+
+#: app.py:805 control.py:38
+#, fuzzy
+msgid "Restarts"
+msgstr "再起動"
+
+#: app.py:806
+#, fuzzy
+msgid "Restore & Reset"
+msgstr "復元とリセット"
+
+#: app.py:807
+#, fuzzy
+msgid "System Info"
+msgstr "システム情報"
+
+#: app.py:691
+#, fuzzy
+msgid "Checking the library · {percent}%"
+msgstr "ライブラリを確認中 · {percent}%"
+
+#: app.py:678
+#, fuzzy
+msgid "{n} need checking"
+msgstr "{n} 台が要確認"
+
+#: control.py:35
+#, fuzzy
+msgid "Drive Health"
+msgstr "ドライブの状態"
+
+#: control.py:35
+#, fuzzy
+msgid "When to check or replace, and when healthy."
+msgstr "確認や交換が必要なとき、正常に戻ったとき。"
+
+#: control.py:37
+#, fuzzy
+msgid "Updates"
+msgstr "アップデート"
+
+#: control.py:37
+#, fuzzy
+msgid "When security fixes are installed."
+msgstr "セキュリティ修正がインストールされたとき。"
+
+#: control.py:38
+#, fuzzy
+msgid "Auto-restart schedule for updates and restores."
+msgstr "アップデートと復元のための自動再起動の予定。"
+
+#: control.py:40
+#, fuzzy
+msgid "Library Check"
+msgstr "ライブラリの確認"
+
+#: control.py:40
+#, fuzzy
+msgid "Library scan completion time and results."
+msgstr "ライブラリのスキャン完了時刻と結果。"
+
+#: control.py:41
+#, fuzzy
+msgid "Network settings weren't kept and were rolled back."
+msgstr "ネットワーク設定は保持されず、元に戻されました。"
+
+#: control.py:92 control.py:136
+#, fuzzy
+msgid "Configuration Details"
+msgstr "設定の詳細"
+
+#: control.py:92
+#, fuzzy
+msgid "New settings are tried for a few minutes and revert unless kept."
+msgstr "新しい設定は数分間試され、保持しなければ元に戻ります。"
+
+#: control.py:417
+#, fuzzy
+msgid "Output"
+msgstr "出力"
+
+#: control.py:428
+#, fuzzy
+msgid "Input"
+msgstr "入力"
+
+#: control.py:445
+#, fuzzy
+msgid "Keyboard"
+msgstr "キーボード"
+
+#: control.py:463
+#, fuzzy
+msgid "Mouse"
+msgstr "マウス"
+
+#: control.py:475
+#, fuzzy
+msgid "Scroll direction"
+msgstr "スクロールの方向"
+
+#: control.py:523
+#, fuzzy
+msgid "State or Province"
+msgstr "州・都道府県"
+
+#: control.py:523
+#, fuzzy
+msgid "Optional."
+msgstr "任意。"
+
+#: control.py:584
+#, fuzzy
+msgid "Date & Time"
+msgstr "日付と時刻"
+
+#: control.py:594
+#, fuzzy
+msgid "Time Sync"
+msgstr "時刻の同期"
+
+#: control.py:712
+#, fuzzy
+msgid "No identifying data is sent."
+msgstr "個人を特定するデータは送信しません。"
+
+#: control.py:730
+#, fuzzy
+msgid "AppArmor"
+msgstr "AppArmor"
+
+#: control.py:758
+#, fuzzy
+msgid "Security Updates"
+msgstr "セキュリティアップデート"
+
+#: control.py:802
+#, fuzzy
+msgid "Show Notifications For"
+msgstr "通知を表示する項目"
+
+#: control.py:105
+#, fuzzy
+msgid "IP Address Assignment Method"
+msgstr "IP アドレスの割り当て"
+
+#: control.py:105
+#, fuzzy
+msgid "From the router (DHCP), or a fixed static address."
+msgstr "ルーターから (DHCP)、または固定アドレス。"
+
+#: control.py:110
+#, fuzzy
+msgid "Box's address"
+msgstr "ボックスのアドレス"
+
+#: control.py:111
+#, fuzzy
+msgid "Subnet mask"
+msgstr "サブネットマスク"
+
+#: control.py:112
+#, fuzzy
+msgid "Router"
+msgstr "ルーター"
+
+#: control.py:112
+#, fuzzy
+msgid "Name servers"
+msgstr "ネームサーバー"
+
+#: control.py:122
+#, fuzzy
+msgid "Use these settings"
+msgstr "適用"
+
+#: control.py:124
+#, fuzzy
+msgid "Keep them"
+msgstr "保持する"
+
+#: control.py:254
+#, fuzzy
+msgid "Go back"
+msgstr "元に戻す"
+
+#: control.py:255
+#, fuzzy
+msgid "Keep"
+msgstr "保持"
+
+#: control.py:418
+#, fuzzy
+msgid "Play a test sound"
+msgstr "テスト音を再生"
+
+#: control.py:424
+#, fuzzy
+msgid "Output Device"
+msgstr "出力デバイス"
+
+#: control.py:425
+#, fuzzy
+msgid "Output Volume"
+msgstr "出力音量"
+
+#: control.py:429
+#, fuzzy
+msgid "Input Device"
+msgstr "入力デバイス"
+
+#: control.py:430
+#, fuzzy
+msgid "Input Volume"
+msgstr "入力音量"
+
+#: control.py:434
+#, fuzzy
+msgid "Input Level"
+msgstr "入力レベル"
+
+#: control.py:434
+#, fuzzy
+msgid "Speak to see it move."
+msgstr "話すと動きます。"
+
+#: control.py:447
+#, fuzzy
+msgid "Input Layout"
+msgstr "入力レイアウト"
+
+#: control.py:465
+#, fuzzy
+msgid "Primary click side"
+msgstr "主ボタン"
+
+#: control.py:465
+#, fuzzy
+msgid "The other button opens menus."
+msgstr "もう一方のボタンはメニューを開きます。"
+
+#: control.py:467
+#, fuzzy
+msgid "Cursor Speed"
+msgstr "カーソルの速度"
+
+#: control.py:472
+#, fuzzy
+msgid "Dynamic Cursor Acceleration"
+msgstr "カーソルの加速"
+
+#: control.py:472
+#, fuzzy
+msgid "Moves further when the mouse moves fast."
+msgstr "マウスを速く動かすと遠くまで動きます。"
+
+#: control.py:479
+#, fuzzy
+msgid "Screen moves (view)"
+msgstr "画面が動く (ビュー)"
+
+#: control.py:479
+#, fuzzy
+msgid "Scrolling moves the visible part of the page."
+msgstr "スクロールすると、ページの表示部分が動きます。"
+
+#: control.py:481
+#, fuzzy
+msgid "Content moves (finger)"
+msgstr "内容が動く (指)"
+
+#: control.py:481
+#, fuzzy
+msgid "Content follows your finger, like on a phone."
+msgstr "スマートフォンのように、内容が指に合わせて動きます。"
+
+#: control.py:516
+#, fuzzy
+msgid "Language"
+msgstr "言語"
+
+#: control.py:516
+#, fuzzy
+msgid "For the box's screens and messages."
+msgstr "ボックスの画面とメッセージ用。"
+
+#: control.py:518
+#, fuzzy
+msgid "Country or Region"
+msgstr "国または地域"
+
+#: control.py:518
+#, fuzzy
+msgid "Sets date, time and number formats."
+msgstr "日付、時刻、数値の表示形式を決めます。"
+
+#: control.py:590
+#, fuzzy
+msgid "Current Time"
+msgstr "現在時刻"
+
+#: control.py:590
+#, fuzzy
+msgid "On the box's clock."
+msgstr "ボックスの時計の時刻。"
+
+#: control.py:591
+#, fuzzy
+msgid "Time Zone"
+msgstr "タイムゾーン"
+
+#: control.py:591
+#, fuzzy
+msgid "The box's dates and times follow it."
+msgstr "ボックスの日付と時刻はこれに従います。"
+
+#: control.py:652
+#, fuzzy
+msgid "Protection"
+msgstr "保護"
+
+#: control.py:661
+#, fuzzy
+msgid "Not yet: files are checked nightly."
+msgstr "まだです: ファイルは毎晩確認されます。"
+
+#: control.py:673
+#, fuzzy
+msgid "Allowed Inbound Connections"
+msgstr "許可されている受信接続"
+
+#: control.py:673
+#, fuzzy
+msgid "Everything else is blocked."
+msgstr "それ以外はすべてブロックされます。"
+
+#: control.py:684
+#, fuzzy
+msgid "Outbound Internet Connections"
+msgstr "インターネットへの送信接続"
+
+#: control.py:697 control.py:677
+#, fuzzy
+msgid "Allowed"
+msgstr "許可"
+
+#: control.py:700 control.py:861
+#, fuzzy
+msgid "Details"
+msgstr "詳細"
+
+#: control.py:757 control.py:767 tools.py:617
+#, fuzzy
+msgid "Check now"
+msgstr "今すぐ確認"
+
+#: control.py:769
+#, fuzzy
+msgid "Auto updates every night."
+msgstr "毎晩自動でアップデート。"
+
+#: control.py:769
+#, fuzzy
+msgid "Auto updates are off."
+msgstr "自動アップデートはオフです。"
+
+#: control.py:799
+#, fuzzy
+msgid "See past notifications"
+msgstr "過去の通知を表示"
+
+#: control.py:104
+#, fuzzy
+msgid "DHCP"
+msgstr "DHCP"
+
+#: control.py:104 control.py:168
+#, fuzzy
+msgid "Static"
+msgstr "固定"
+
+#: control.py:166
+#, fuzzy
+msgid "Connection: Connected"
+msgstr "接続: 接続済み"
+
+#: control.py:194
+#, fuzzy
+msgid "Ethernet"
+msgstr "イーサネット"
+
+#: control.py:198
+#, fuzzy
+msgid "Wi-Fi (Wireless Network)"
+msgstr "Wi-Fi (無線ネットワーク)"
+
+#: control.py:246
+#, fuzzy
+msgid "No screen to set here"
+msgstr "設定できる画面がありません"
+
+#: control.py:246
+#, fuzzy
+msgid "For a screen plugged into the box."
+msgstr "ボックスに接続した画面用。"
+
+#: control.py:272
+#, fuzzy
+msgid "Orientation"
+msgstr "向き"
+
+#: control.py:272
+#, fuzzy
+msgid "Landscape or portrait."
+msgstr "横向きまたは縦向き。"
+
+#: control.py:274
+#, fuzzy
+msgid "Resolution"
+msgstr "解像度"
+
+#: control.py:274
+#, fuzzy
+msgid "Higher is sharper, with smaller items."
+msgstr "高いほど鮮明で、表示は小さくなります。"
+
+#: control.py:276
+#, fuzzy
+msgid "Screen Update Rate"
+msgstr "リフレッシュレート"
+
+#: control.py:276
+#, fuzzy
+msgid "How smoothly things move on the screen."
+msgstr "画面上の動きの滑らかさ。"
+
+#: control.py:278
+#, fuzzy
+msgid "Text & UI Scaling"
+msgstr "テキストと UI のサイズ"
+
+#: control.py:278
+#, fuzzy
+msgid "Size of text and everything on screen."
+msgstr "文字と画面全体の大きさ。"
+
+#: control.py:388
+#, fuzzy
+msgid "None found"
+msgstr "見つかりません"
+
+#: control.py:397
+#, fuzzy
+msgid "Mute"
+msgstr "ミュート"
+
+#: control.py:421
+#, fuzzy
+msgid "Test"
+msgstr "テスト"
+
+#: control.py:467
+#, fuzzy
+msgid "Slow"
+msgstr "遅く"
+
+#: control.py:467
+#, fuzzy
+msgid "Fast"
+msgstr "速く"
+
+#: control.py:607
+#, fuzzy
+msgid "Set by itself from the internet."
+msgstr "インターネットから自動で設定されています。"
+
+#: control.py:608
+#, fuzzy
+msgid "Syncs once the box is online."
+msgstr "ボックスがオンラインになると同期します。"
+
+#: control.py:611
+#, fuzzy
+msgid "In sync"
+msgstr "同期済み"
+
+#: control.py:611
+#, fuzzy
+msgid "Not yet in sync"
+msgstr "まだ同期されていません"
+
+#: control.py:654
+#, fuzzy
+msgid "Firewall"
+msgstr "ファイアウォール"
+
+#: control.py:656
+#, fuzzy
+msgid "Secure Boot"
+msgstr "セキュアブート"
+
+#: control.py:658
+#, fuzzy
+msgid "OS Update"
+msgstr "OS のアップデート"
+
+#: control.py:668
+#, fuzzy
+msgid "Last System Scan"
+msgstr "最後のシステムスキャン"
+
+#: control.py:674
+#, fuzzy
+msgid "What devices on your network can reach on this box."
+msgstr "ネットワーク上の機器がこのボックスで利用できるもの。"
+
+#: control.py:685
+#, fuzzy
+msgid "For updates and the time. No identifying data is sent."
+msgstr "アップデートと時刻のため。個人を特定するデータは送信しません。"
+
+#: control.py:710
+#, fuzzy
+msgid "Address: {host}"
+msgstr "アドレス: {host}"
+
+#: control.py:767
+#, fuzzy
+msgid "Checking…"
+msgstr "確認中…"
+
+#: control.py:771
+#, fuzzy
+msgid "No update yet."
+msgstr "まだアップデートはありません。"
+
+#: control.py:772
+#, fuzzy
+msgid "Installing security updates now."
+msgstr "セキュリティアップデートをインストール中。"
+
+#: control.py:846
+#, fuzzy
+msgid "Name"
+msgstr "名前"
+
+#: control.py:847
+#, fuzzy
+msgid "Model"
+msgstr "モデル"
+
+#: control.py:848
+#, fuzzy
+msgid "Serial Number"
+msgstr "シリアル番号"
+
+#: control.py:849
+#, fuzzy
+msgid "Operating System"
+msgstr "OS"
+
+#: control.py:850 tools.py:441
+#, fuzzy
+msgid "Processor"
+msgstr "プロセッサー"
+
+#: control.py:852
+#, fuzzy
+msgid "Disk Capacity"
+msgstr "ディスク容量"
+
+#: control.py:854
+#, fuzzy
+msgid "Running For"
+msgstr "稼働時間"
+
+#: control.py:862
+#, fuzzy
+msgid "System Release"
+msgstr "システムのリリース"
+
+#: control.py:863
+#, fuzzy
+msgid "Base Package"
+msgstr "基本パッケージ"
+
+#: control.py:864
+#, fuzzy
+msgid "Factory Image"
+msgstr "出荷時イメージ"
+
+#: control.py:865
+#, fuzzy
+msgid "Kernel"
+msgstr "カーネル"
+
+#: control.py:167
+#, fuzzy
+msgid "none yet"
+msgstr "まだありません"
+
+#: control.py:168
+#, fuzzy
+msgid "Assigned by Router"
+msgstr "ルーターが割り当て"
+
+#: control.py:171
+#, fuzzy
+msgid "Connection: Cable unplugged"
+msgstr "接続: ケーブルが抜けています"
+
+#: control.py:195
+#, fuzzy
+msgid "No network port found"
+msgstr "ネットワークポートが見つかりません"
+
+#: control.py:195
+#, fuzzy
+msgid "The box needs a cable to the router."
+msgstr "ボックスにはルーターへのケーブルが必要です。"
+
+#: control.py:199
+#, fuzzy
+msgid "Status: Off"
+msgstr "状態: オフ"
+
+#: control.py:199
+#, fuzzy
+msgid "The box connects to the router by a cable."
+msgstr "ボックスはケーブルでルーターに接続します。"
+
+#: control.py:367 control.py:341
+#, fuzzy
+msgid "Keep these settings? Reverting in {n} s."
+msgstr "この設定を保持しますか? {n} 秒で元に戻ります。"
+
+#: control.py:550 control.py:614
+#, fuzzy
+msgid "Saved."
+msgstr "保存しました。"
+
+#: control.py:641
+#, fuzzy
+msgid "Protected"
+msgstr "保護されています"
+
+#: control.py:641
+#, fuzzy
+msgid "Security updates install automatically, and the firewall is always enabled."
+msgstr "セキュリティアップデートは自動でインストールされ、ファイアウォールは常に有効です。"
+
+#: control.py:644
+#, fuzzy
+msgid "Secure Boot is on"
+msgstr "セキュアブートはオン"
+
+#: control.py:644
+#, fuzzy
+msgid "Only authenticated software can boot the system."
+msgstr "認証されたソフトウェアだけがシステムを起動できます。"
+
+#: control.py:647
+#, fuzzy
+msgid "Enable it in the firmware settings, if available."
+msgstr "可能なら、ファームウェアの設定で有効にしてください。"
+
+#: control.py:682
+#, fuzzy
+msgid "Nothing"
+msgstr "なし"
+
+#: control.py:682
+#, fuzzy
+msgid "No other device can reach the box."
+msgstr "ほかの機器はボックスに接続できません。"
+
+#: control.py:711
+#, fuzzy
+msgid "When: {when}"
+msgstr "タイミング: {when}"
+
+#: control.py:730
+#, fuzzy
+msgid "{n} programs confined"
+msgstr "{n} 個のプログラムを制限中"
+
+#: control.py:744
+#, fuzzy
+msgid "Confined"
+msgstr "制限"
+
+#: control.py:744
+#, fuzzy
+msgid "Watched only"
+msgstr "監視のみ"
+
+#: control.py:746
+#, fuzzy
+msgid "The programs ({n})"
+msgstr "プログラム ({n})"
+
+#: control.py:840
+#, fuzzy
+msgid "{size} for the box"
+msgstr "ボックス用 {size}"
+
+#: control.py:846 control.py:851 tools.py:80
+#, fuzzy
+msgid "Unknown"
+msgstr "不明"
+
+#: control.py:853 tools.py:465
+#, fuzzy
+msgid "No sensor"
+msgstr "センサーなし"
+
+#: control.py:135 control.py:185
+#, fuzzy
+msgid "Configuration Details ({port})"
+msgstr "設定の詳細 ({port})"
+
+#: control.py:152
+#, fuzzy
+msgid "Current Address: {address}."
+msgstr "現在のアドレス: {address}。"
+
+#: control.py:162
+#, fuzzy
+msgid "Ethernet Status ({port})"
+msgstr "イーサネットの状態 ({port})"
+
+#: control.py:169
+#, fuzzy
+msgid "IPv4 Address: {address} ({how})"
+msgstr "IPv4 アドレス: {address} ({how})"
+
+#: control.py:180
+#, fuzzy
+msgid "Connected"
+msgstr "接続済み"
+
+#: control.py:180
+#, fuzzy
+msgid "Not connected"
+msgstr "未接続"
+
+#: control.py:364
+#, fuzzy
+msgid "Saved. The screen starts this way from now on."
+msgstr "保存しました。今後、画面はこの設定で起動します。"
+
+#: control.py:466
+#, fuzzy
+msgid "Left"
+msgstr "左"
+
+#: control.py:466
+#, fuzzy
+msgid "Right"
+msgstr "右"
+
+#: control.py:531
+#, fuzzy
+msgid "Not chosen"
+msgstr "未選択"
+
+#: control.py:633
+#, fuzzy
+msgid "security fixes are off"
+msgstr "セキュリティ修正がオフです"
+
+#: control.py:634
+#, fuzzy
+msgid "the firewall is off"
+msgstr "ファイアウォールがオフです"
+
+#: control.py:635
+#, fuzzy
+msgid "the OS's files changed"
+msgstr "OS のファイルが変更されました"
+
+#: control.py:636
+#, fuzzy
+msgid "AppArmor is off"
+msgstr "AppArmor がオフです"
+
+#: control.py:646
+#, fuzzy
+msgid "Secure Boot is off"
+msgstr "セキュアブートはオフ"
+
+#: control.py:646
+#, fuzzy
+msgid "Secure Boot is unavailable"
+msgstr "セキュアブートは利用できません"
+
+#: control.py:658
+#, fuzzy
+msgid "None yet"
+msgstr "まだありません"
+
+#: control.py:663
+#, fuzzy
+msgid "Completed {time}: OS files match the latest update."
+msgstr "{time} に完了: OS のファイルは最新のアップデートと一致しています。"
+
+#: control.py:666
+#, fuzzy
+msgid "Completed {time}: files changed outside an update: {files}"
+msgstr "{time} に完了: アップデート以外で変更されたファイル: {files}"
+
+#: control.py:770
+#, fuzzy
+msgid "Last update was {date}."
+msgstr "最後のアップデート: {date}。"
+
+#: control.py:843
+#, fuzzy
+msgid "{size} library"
+msgstr "ライブラリ {size}"
+
+#: control.py:171
+#, fuzzy
+msgid "MAC address: {mac}"
+msgstr "MAC アドレス: {mac}"
+
+#: control.py:679
+#, fuzzy
+msgid "Port {port} ({how})"
+msgstr "ポート {port} ({how})"
+
+#: control.py:851
+#, fuzzy
+msgid "{used} of {total} in use"
+msgstr "{used} / {total} 使用中"
+
+#: control.py:152
+#, fuzzy
+msgid "Reverts at {time} unless kept."
+msgstr "保持しないと {time} に元に戻ります。"
+
+#: display.py:20
+#, fuzzy
+msgid "Landscape"
+msgstr "横向き"
+
+#: display.py:20
+#, fuzzy
+msgid "Portrait, turned right"
+msgstr "縦向き (右に回転)"
+
+#: display.py:21
+#, fuzzy
+msgid "Portrait, turned left"
+msgstr "縦向き (左に回転)"
+
+#: display.py:21
+#, fuzzy
+msgid "Landscape, upside down"
+msgstr "横向き (上下反転)"
+
+#: settings.py:113
+#, fuzzy
+msgid "Always on"
+msgstr "常にオン"
+
+#: settings.py:113
+#, fuzzy
+msgid "Off"
+msgstr "オフ"
+
+#: signin.py:50
+#, fuzzy
+msgid "ZOOMRIYA ID couldn't sign you in just now."
+msgstr "ZOOMRIYA ID で今はサインインできませんでした。"
+
+#: signin.py:52
+#, fuzzy
+msgid "ZOOMRIYA ID isn't responding. Try again shortly."
+msgstr "ZOOMRIYA ID が応答しません。しばらくしてからお試しください。"
+
+#: signin.py:60
+#, fuzzy
+msgid "Box Desktop is for the box's admins."
+msgstr "Box Desktop はボックスの管理者専用です。"
+
+#: signin.py:47
+#, fuzzy
+msgid "That username and password don't match."
+msgstr "ユーザー名とパスワードが一致しません。"
+
+#: signin.py:49
+#, fuzzy
+msgid "Too many tries. Try again in a minute."
+msgstr "試行回数が多すぎます。1 分後にお試しください。"
+
+#: tools.py:21
+#, fuzzy
+msgid "Healthy"
+msgstr "正常"
+
+#: tools.py:21
+#, fuzzy
+msgid "Needs checking"
+msgstr "要確認"
+
+#: tools.py:21
+#, fuzzy
+msgid "Failing"
+msgstr "異常"
+
+#: tools.py:20
+#, fuzzy
+msgid "Errors"
+msgstr "エラー"
+
+#: tools.py:20
+#, fuzzy
+msgid "Warnings and errors"
+msgstr "警告とエラー"
+
+#: tools.py:20
+#, fuzzy
+msgid "Everything"
+msgstr "すべて"
+
+#: tools.py:25
+#, fuzzy
+msgid "KB"
+msgstr "KB"
+
+#: tools.py:25
+#, fuzzy
+msgid "MB"
+msgstr "MB"
+
+#: tools.py:25
+#, fuzzy
+msgid "GB"
+msgstr "GB"
+
+#: tools.py:25
+#, fuzzy
+msgid "TB"
+msgstr "TB"
+
+#: tools.py:39
+#, fuzzy
+msgid "Never"
+msgstr "なし"
+
+#: tools.py:159
+#, fuzzy
+msgid "Restart the box?"
+msgstr "ボックスを再起動しますか?"
+
+#: tools.py:160
+#, fuzzy
+msgid "Everything stops for a minute or two, then starts again."
+msgstr "すべてが 1〜2 分止まり、その後再び起動します。"
+
+#: tools.py:246
+#, fuzzy
+msgid "Shut the box down?"
+msgstr "ボックスをシャットダウンしますか?"
+
+#: tools.py:247
+#, fuzzy
+msgid "All apps stop and backups pause until someone presses the power button."
+msgstr "誰かが電源ボタンを押すまで、すべてのアプリが止まり、バックアップも一時停止します。"
+
+#: tools.py:248
+#, fuzzy
+msgid "Shut down"
+msgstr "シャットダウン"
+
+#: tools.py:261 tools.py:645
+#, fuzzy
+msgid "Restore points"
+msgstr "復元ポイント"
+
+#: tools.py:261
+#, fuzzy
+msgid "Reverts the OS to an earlier state. Family files and app data stay. Try this first."
+msgstr "OS を以前の状態に戻します。家族のファイルとアプリのデータは残ります。まずこれを試してください。"
+
+#: tools.py:284
+#, fuzzy
+msgid "Package Updates Held Back"
+msgstr "保留中のアップデート"
+
+#: tools.py:285
+#, fuzzy
+msgid "Held back by a restore; each updates when a newer fix is out."
+msgstr "復元で保留されています。新しい修正が出るとそれぞれアップデートされます。"
+
+#: tools.py:302 tools.py:752
+#, fuzzy
+msgid "Reset"
+msgstr "リセット"
+
+#: tools.py:310 tools.py:758
+#, fuzzy
+msgid "Erase everything"
+msgstr "すべて消去"
+
+#: tools.py:331
+#, fuzzy
+msgid "Let it update?"
+msgstr "アップデートを許可しますか?"
+
+#: tools.py:335 tools.py:291
+#, fuzzy
+msgid "Let it update"
+msgstr "アップデートを許可"
+
+#: tools.py:339
+#, fuzzy
+msgid "Restore the OS?"
+msgstr "OS を復元しますか?"
+
+#: tools.py:342 tools.py:267 tools.py:273
+#, fuzzy
+msgid "Restore"
+msgstr "復元"
+
+#: tools.py:643
+#, fuzzy
+msgid "The apps' databases"
+msgstr "アプリのデータベース"
+
+#: tools.py:643
+#, fuzzy
+msgid "The apps themselves"
+msgstr "アプリ本体"
+
+#: tools.py:644
+#, fuzzy
+msgid "Myira's models and the maps"
+msgstr "Myira のモデルと地図"
+
+#: tools.py:644
+#, fuzzy
+msgid "Photos, files and the apps' data"
+msgstr "写真、ファイル、アプリのデータ"
+
+#: tools.py:750
+#, fuzzy
+msgid "Reset the system?"
+msgstr "システムをリセットしますか?"
+
+#: tools.py:751
+#, fuzzy
+msgid "The system returns to its factory state on restart. Family apps and data stay."
+msgstr "再起動時にシステムは出荷時の状態に戻ります。家族のアプリとデータは残ります。"
+
+#: tools.py:756
+#, fuzzy
+msgid "Erase everything?"
+msgstr "すべて消去しますか?"
+
+#: tools.py:757
+#, fuzzy
+msgid "Deletes every app, account, photo and message on restart. This can't be undone. Enter the setup code from the sticker and your password."
+msgstr "再起動時に、すべてのアプリ、アカウント、写真、メッセージを削除します。元に戻せません。ステッカーのセットアップコードとパスワードを入力してください。"
+
+#: tools.py:54
+#, fuzzy
+msgid "{date} at {time}"
+msgstr "{date} {time}"
+
+#: tools.py:110
+#, fuzzy
+msgid "Your password"
+msgstr "パスワード"
+
+#: tools.py:116
+#, fuzzy
+msgid "Cancel"
+msgstr "キャンセル"
+
+#: tools.py:190
+#, fuzzy
+msgid "Maintenance"
+msgstr "メンテナンス"
+
+#: tools.py:203
+#, fuzzy
+msgid "Power"
+msgstr "電源"
+
+#: tools.py:226
+#, fuzzy
+msgid "Awaiting Kernel Update Completion"
+msgstr "カーネルのアップデートを完了待ち"
+
+#: tools.py:226
+#, fuzzy
+msgid "A new kernel is ready."
+msgstr "新しいカーネルの準備ができました。"
+
+#: tools.py:238
+#, fuzzy
+msgid "Finish & Restart"
+msgstr "完了して再起動"
+
+#: tools.py:266
+#, fuzzy
+msgid "before update"
+msgstr "アップデート前"
+
+#: tools.py:266 tools.py:266
+#, fuzzy
+msgid "Update"
+msgstr "アップデート"
+
+#: tools.py:266
+#, fuzzy
+msgid "after update"
+msgstr "アップデート後"
+
+#: tools.py:267
+#, fuzzy
+msgid "before restore"
+msgstr "復元前"
+
+#: tools.py:267
+#, fuzzy
+msgid "factory"
+msgstr "出荷時"
+
+#: tools.py:267
+#, fuzzy
+msgid "As it left the factory"
+msgstr "出荷時の状態"
+
+#: tools.py:303
+#, fuzzy
+msgid "Reset the system…"
+msgstr "システムをリセット…"
+
+#: tools.py:305
+#, fuzzy
+msgid "System Reset"
+msgstr "システムのリセット"
+
+#: tools.py:306
+#, fuzzy
+msgid "Returns the OS to factory state, then updates it. Your data stays. Use if restoring fails."
+msgstr "OS を出荷時の状態に戻し、更新します。データは残ります。復元で解決しないときに。"
+
+#: tools.py:318
+#, fuzzy
+msgid "Factory Reset"
+msgstr "出荷時リセット"
+
+#: tools.py:319
+#, fuzzy
+msgid "Erases everything, leaving the box as new. Needs the setup code from the sticker."
+msgstr "すべて消去し、新品の状態に戻します。ステッカーのセットアップコードが必要です。"
+
+#: tools.py:491
+#, fuzzy
+msgid "Search"
+msgstr "検索"
+
+#: tools.py:498
+#, fuzzy
+msgid "Show older"
+msgstr "以前のものを表示"
+
+#: tools.py:544
+#, fuzzy
+msgid "What the box reported in the last month. Choose what appears on the bell in Control Panel › Notifications."
+msgstr "過去 1 か月にボックスが知らせたこと。ベルに表示する内容は、コントロールパネル › 通知で選べます。"
+
+#: tools.py:585
+#, fuzzy
+msgid "Check that both copies match"
+msgstr "2 つのコピーが一致するか確認"
+
+#: tools.py:585
+#, fuzzy
+msgid "Checking that both copies match"
+msgstr "2 つのコピーが一致するか確認中"
+
+#: tools.py:586
+#, fuzzy
+msgid "Check the library for damage"
+msgstr "ライブラリの損傷を確認"
+
+#: tools.py:586
+#, fuzzy
+msgid "Checking the library for damage"
+msgstr "ライブラリの損傷を確認中"
+
+#: tools.py:648
+#, fuzzy
+msgid "What takes the space on the box's own disk."
+msgstr "ボックス本体のディスクで容量を使っているもの。"
+
+#: tools.py:680
+#, fuzzy
+msgid "Busiest first. CPU is a share of the whole box."
+msgstr "負荷の高い順。CPU はボックス全体に対する割合です。"
+
+#: tools.py:760
+#, fuzzy
+msgid "Setup code, like ABCD-EFGH"
+msgstr "セットアップコード (例: ABCD-EFGH)"
+
+#: tools.py:196
+#, fuzzy
+msgid "Adjust Time"
+msgstr "時刻を変更"
+
+#: tools.py:200
+#, fuzzy
+msgid "Maintenance Hour"
+msgstr "メンテナンス時間"
+
+#: tools.py:200
+#, fuzzy
+msgid "If an update needs a restart, the box restarts this hour."
+msgstr "アップデートで再起動が必要な場合、ボックスはこの時間に再起動します。"
+
+#: tools.py:205
+#, fuzzy
+msgid "Always On"
+msgstr "常にオン"
+
+#: tools.py:205
+#, fuzzy
+msgid "The box runs 24/7 with power-saving mode disabled."
+msgstr "ボックスは省電力モードなしで 24 時間 365 日動作します。"
+
+#: tools.py:207
+#, fuzzy
+msgid "Shutdown"
+msgstr "シャットダウン"
+
+#: tools.py:207
+#, fuzzy
+msgid "If powered off, it must be turned back on in person."
+msgstr "電源が切れた場合は、その場で入れ直す必要があります。"
+
+#: tools.py:208
+#, fuzzy
+msgid "Shut down system…"
+msgstr "シャットダウン…"
+
+#: tools.py:228
+#, fuzzy
+msgid "Awaiting Update Completion"
+msgstr "アップデートを完了待ち"
+
+#: tools.py:228
+#, fuzzy
+msgid "Security fixes are installed."
+msgstr "セキュリティ修正をインストールしました。"
+
+#: tools.py:314
+#, fuzzy
+msgid "Erase everything…"
+msgstr "すべて消去…"
+
+#: tools.py:332
+#, fuzzy
+msgid "{package} installs its latest fix tonight, even if that's {taken}, the version the restore removed."
+msgstr "{package} は今夜、最新の修正をインストールします。それが復元で外された {taken} であってもです。"
+
+#: tools.py:340
+#, fuzzy
+msgid "The OS returns to {time} ({what}) on the next restart. Family files and app data stay."
+msgstr "次回の再起動で、OS は {time} ({what}) に戻ります。家族のファイルとアプリのデータは残ります。"
+
+#: tools.py:384
+#, fuzzy
+msgid "The OS, the apps and their data"
+msgstr "OS、アプリ、そのデータ"
+
+#: tools.py:463
+#, fuzzy
+msgid "Disks"
+msgstr "ディスク"
+
+#: tools.py:465
+#, fuzzy
+msgid "Hottest sensor"
+msgstr "最も高温のセンサー"
+
+#: tools.py:596
+#, fuzzy
+msgid "Pause"
+msgstr "一時停止"
+
+#: tools.py:692
+#, fuzzy
+msgid "An app"
+msgstr "アプリ"
+
+#: tools.py:692
+#, fuzzy
+msgid "Part of the box"
+msgstr "ボックスの一部"
+
+#: tools.py:137
+#, fuzzy
+msgid "That isn't your password."
+msgstr "パスワードが違います。"
+
+#: tools.py:230
+#, fuzzy
+msgid "Awaiting Restore Completion"
+msgstr "復元を完了待ち"
+
+#: tools.py:230
+#, fuzzy
+msgid "The OS is restored."
+msgstr "OS を復元しました。"
+
+#: tools.py:416
+#, fuzzy
+msgid "Size"
+msgstr "サイズ"
+
+#: tools.py:417
+#, fuzzy
+msgid "Place"
+msgstr "位置"
+
+#: tools.py:453
+#, fuzzy
+msgid "Processor: {percent}%"
+msgstr "プロセッサー: {percent}%"
+
+#: tools.py:456
+#, fuzzy
+msgid "Memory: {used} of {total}"
+msgstr "メモリ: {used} / {total}"
+
+#: tools.py:511
+#, fuzzy
+msgid "Nothing here."
+msgstr "ここには何もありません。"
+
+#: tools.py:553
+#, fuzzy
+msgid "Nothing in the last month."
+msgstr "過去 1 か月は何もありません。"
+
+#: tools.py:601
+#, fuzzy
+msgid "Resume"
+msgstr "再開"
+
+#: tools.py:605
+#, fuzzy
+msgid "It hasn't been checked yet."
+msgstr "まだ確認されていません。"
+
+#: tools.py:658
+#, fuzzy
+msgid "Not counted yet; updated every few hours."
+msgstr "まだ集計されていません。数時間ごとに更新されます。"
+
+#: tools.py:722
+#, fuzzy
+msgid "This box reports no sensors."
+msgstr "このボックスにはセンサーがありません。"
+
+#: tools.py:232
+#, fuzzy
+msgid "Awaiting Reset"
+msgstr "リセットを完了待ち"
+
+#: tools.py:232
+#, fuzzy
+msgid "The reset is ready."
+msgstr "リセットの準備ができました。"
+
+#: tools.py:234
+#, fuzzy
+msgid "Restart Needed"
+msgstr "再起動が必要"
+
+#: tools.py:234
+#, fuzzy
+msgid "Something waits for a restart."
+msgstr "再起動を待っているものがあります。"
+
+#: tools.py:241
+#, fuzzy
+msgid "The system will restart at {hour}, or you can restart manually now."
+msgstr "システムは {hour} に再起動します。今すぐ手動で再起動することもできます。"
+
+#: tools.py:293
+#, fuzzy
+msgid "Kept at {version}; {taken} was taken back."
+msgstr "{version} のまま保持。{taken} は取り消されました。"
+
+#: tools.py:363
+#, fuzzy
+msgid "{size} used"
+msgstr "{size} 使用中"
+
+#: tools.py:364
+#, fuzzy
+msgid "{free} free of {total}"
+msgstr "{total} のうち {free} 空き"
+
+#: tools.py:379
+#, fuzzy
+msgid "{n} drives, each a copy of the other"
+msgstr "{n} 台のドライブ (互いにコピー)"
+
+#: tools.py:417
+#, fuzzy
+msgid "The box's own"
+msgstr "ボックス本体"
+
+#: tools.py:421
+#, fuzzy
+msgid "In use for"
+msgstr "使用時間"
+
+#: tools.py:462
+#, fuzzy
+msgid "in {received}, out {sent}"
+msgstr "受信 {received}、送信 {sent}"
+
+#: tools.py:463
+#, fuzzy
+msgid "reading {read}, writing {written}"
+msgstr "読み取り {read}、書き込み {written}"
+
+#: tools.py:600
+#, fuzzy
+msgid "It carries on from there when you resume it."
+msgstr "再開すると、そこから続きます。"
+
+#: tools.py:594
+#, fuzzy
+msgid "Started {time}."
+msgstr "開始: {time}。"
+
+#: tools.py:613
+#, fuzzy
+msgid "The last check found nothing needing repair."
+msgstr "前回の確認で、修復が必要なものはありませんでした。"
+
+#: tools.py:615
+#, fuzzy
+msgid "The box also checks once a month by itself."
+msgstr "ボックスは月に 1 回、自動でも確認します。"
+
+#: tools.py:732
+#, fuzzy
+msgid "Fan"
+msgstr "ファン"
+
+#: tools.py:599
+#, fuzzy
+msgid "The check is paused at {percent}%"
+msgstr "確認は {percent}% で一時停止中"
+
+#: tools.py:607
+#, fuzzy
+msgid "Last check found {n} problems and repaired what it could."
+msgstr "前回の確認: {n} 件の問題が見つかり、可能な範囲で修復しました。"
+
+#: tools.py:610
+#, fuzzy
+msgid "Last check found {n} damaged files. With one drive they can't be repaired: restore them from a backup."
+msgstr "前回の確認: {n} 個の破損ファイル。ドライブが 1 台のため修復できません。バックアップから復元してください。"

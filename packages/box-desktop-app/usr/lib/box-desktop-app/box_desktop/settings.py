@@ -13,6 +13,7 @@ gi.require_version("Gtk", "4.0")
 from gi.repository import Gtk  # noqa: E402
 
 from .icons import glyph  # noqa: E402
+from .i18n import _  # noqa: E402
 
 
 def text(words: str, *classes: str, wrap: bool = False, **props: Any) -> Gtk.Label:
@@ -109,7 +110,7 @@ def value(words: str) -> Gtk.Label:
 def fixed_switch(on: bool) -> Gtk.Switch:
     """A switch that only shows a state: greyed out, since it isn't changed here."""
     switch = Gtk.Switch(active=on, sensitive=False, valign=Gtk.Align.CENTER,
-                        tooltip_text="Always on" if on else "Off")
+                        tooltip_text=_("Always on") if on else _("Off"))
     switch.add_css_class("fixed")
     return switch
 

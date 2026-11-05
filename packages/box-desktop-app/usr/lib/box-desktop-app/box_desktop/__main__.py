@@ -2,11 +2,28 @@
 
 import os
 import sys
+from pathlib import Path
 
+from . import i18n
 from .app import BoxDesktopApp
 
 
+def box_language() -> str:
+    """The box's language, as Debian keeps it (LANG in /etc/default/locale);
+    BOX_DESKTOP_LANGUAGE for a preview."""
+    if os.environ.get("BOX_DESKTOP_LANGUAGE"):
+        return os.environ["BOX_DESKTOP_LANGUAGE"]
+    try:
+        for line in Path("/etc/default/locale").read_text().splitlines():
+            if line.startswith("LANG="):
+                return line.split("=", 1)[1].strip().strip('"')
+    except OSError:
+        pass
+    return os.environ.get("LANG", "en")
+
+
 def main() -> int:
+    i18n.use(box_language())
     if os.environ.get("BOX_DESKTOP_FAKE"):
         from .fake import FakeBoxAgent, FakeDisplay, FakeID, FakeSound
 
