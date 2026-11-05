@@ -2,7 +2,7 @@
 # screen on tty1 once the box is set up; admins sign in with ZOOMRIYA ID.
 [Unit]
 Description=Box Desktop, on the box's screen
-After=systemd-user-sessions.service zoomriya-agent.socket zoomriya-id.service zoomriya-setup.service
+After=systemd-user-sessions.service systemd-tmpfiles-setup.service zoomriya-agent.socket zoomriya-id.service zoomriya-setup.service
 Wants=zoomriya-id.service
 ConditionPathExists=/var/lib/zoomriya-os/setup-done
 
@@ -22,6 +22,8 @@ StateDirectory=box-desktop-app
 WorkingDirectory=/usr/lib/box-desktop-app
 # Drawn in software: any screen works, with or without a graphics driver.
 Environment=WLR_RENDERER=pixman GSK_RENDERER=cairo PYTHONPATH=/usr/lib/box-desktop-app:/usr/lib/zoomriya-setup
+# Each admin's own settings, outside the OS snapshots (BD-4).
+Environment=BOX_DESKTOP_ADMIN_DIR=/data/zoomriya/admin
 ExecStart=/usr/lib/zoomriya-setup/screen-session /usr/bin/python3 -m box_desktop
 Restart=always
 RestartSec=3

@@ -14,6 +14,8 @@ import gi
 gi.require_version("Gtk", "4.0")
 from gi.repository import GLib, Gtk  # noqa: E402
 
+from .icons import glyph  # noqa: E402
+
 LOG_LEVELS = [("errors", "Errors"), ("warnings", "Warnings and errors"), ("everything", "Everything")]
 HEALTH = {"healthy": "Healthy", "warning": "Needs checking", "failing": "Failing"}
 
@@ -39,6 +41,16 @@ def when(stamp: str) -> str:
     except ValueError:
         return stamp
     return moment.strftime("%a %-d %b %Y, %H:%M")
+
+
+def day(stamp: str, at: bool = False) -> str:
+    """An ISO time as a date in words, November 2, 2026, and with at, its time too."""
+    try:
+        moment = datetime.fromisoformat(stamp.replace("Z", "+00:00")).astimezone()
+    except ValueError:
+        return stamp
+    words = f"{moment:%B} {moment.day}, {moment.year}"
+    return words + f" at {moment:%H:%M}" if at else words
 
 
 def meter(fraction: float, *classes: str) -> Gtk.LevelBar:
@@ -158,8 +170,11 @@ class Tools:
     # --- Restarts (Control Panel) -----------------------------------------------------
 
     def restarts(self) -> Gtk.Widget:
+        """Restarts: a banner while a restart waits, then the maintenance hour, then
+        shutting down. Security fixes and the nightly scan are on Security."""
         from .app import in_background
-        from .settings import group, page, row, text, value
+        from .control import BIG
+        from .settings import group, page, row, text, wide
 
         box = page()
         holder = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=22)
@@ -168,37 +183,30 @@ class Tools:
         def got(status: dict[str, Any]) -> None:
             while child := holder.get_first_child():
                 holder.remove(child)
+            hour = status.get("maintenance_hour", "03:30")
             if status.get("restart_needed"):
-                reasons = ", ".join(status.get("restart_reasons") or []) or "an update"
-                now = Gtk.Button(label="Restart now")
-                now.add_css_class("primary")
-                now.connect("clicked", lambda _b: self.restart())
-                card, rows = group("Restart needed")
-                rows.append(row(f"A restart finishes {reasons}",
-                                "The box does it in the maintenance hour, or now.", now))
-                holder.append(card)
+                holder.append(self.restart_banner(status.get("restart_reasons") or [], hour))
 
-            card, rows = group("Updates and restarts")
-            rows.append(row("Security fixes", "", value(
-                f"By themselves; the last on {when(status.get('last_security_update', ''))}")))
-            rows.append(row("Last checked", "", value(when(status.get("last_update_check", "")))))
+            card, rows = group("Maintenance", icon="maintenance")
             hours = [f"{h:02d}:30" for h in range(24)]
             pick = Gtk.DropDown.new_from_strings(hours)
-            current = status.get("maintenance_hour", "03:30")
-            if current in hours:
-                pick.set_selected(hours.index(current))
-            save = Gtk.Button(label="Move")
+            pick.set_size_request(140, -1)
+            if hour in hours:
+                pick.set_selected(hours.index(hour))
+            save = Gtk.Button(label="Adjust Time")
             save.connect("clicked", lambda _b: in_background(
                 lambda: self.ask("maintenance-hour", hour=hours[pick.get_selected()]),
                 lambda _a: load()))
-            rows.append(row("Maintenance hour", "When restarts and updates happen", pick, save))
+            rows.append(row("Maintenance Hour", "When an update or a restore needs a restart, the box "
+                            "restarts in this hour.", pick, save, **BIG, icon="maintenance"))
             holder.append(card)
 
-            card, rows = group("Power")
-            shut = Gtk.Button(label="Shut down…")
+            card, rows = group("Power", icon="power")
+            rows.append(row("Shutdown", "The box is meant to stay on. Once it's off, it can only be started "
+                            "again by pressing its power button, on site.", **BIG, icon="power"))
+            shut = Gtk.Button(label="Shut down system…", halign=Gtk.Align.END)
             shut.connect("clicked", lambda _b: self.shut_down())
-            rows.append(row("Shut down", "The box is meant to stay on. Once it's off, nobody can turn "
-                            "it on from far away: someone has to press its power button.", shut))
+            rows.append(wide(shut))
             holder.append(card)
 
         def load() -> None:
@@ -207,6 +215,31 @@ class Tools:
 
         load()
         return box
+
+    def restart_banner(self, reasons: list[str], hour: str) -> Gtk.Widget:
+        """What a waiting restart finishes, worded for what it is, with Finish now."""
+        from .control import BIG
+        from .settings import group, row
+
+        if any(r.startswith("update: linux-image") for r in reasons):
+            title, what = "Awaiting Kernel Update Completion", "A new kernel is ready."
+        elif any(r.startswith("update:") for r in reasons):
+            title, what = "Awaiting Update Completion", "Security fixes are installed."
+        elif any(r.startswith("restore point") for r in reasons):
+            title, what = "Awaiting Restore Completion", "The OS is restored."
+        elif any(r in ("reset the system", "erase everything") for r in reasons):
+            title, what = "Awaiting Reset", "The reset is ready."
+        else:
+            title, what = "Restart Needed", "Something waits for a restart."
+        card, rows = group()
+        rows.add_css_class("attention")
+        rows.append(row(title, "", icon="alert-gear", icon_role="warn", icon_px=30))
+        now = Gtk.Button(label="Finish & Restart")
+        now.add_css_class("primary")
+        now.connect("clicked", lambda _b: self.restart())
+        rows.append(row(f"{what} A restart finishes it: the box restarts by itself in the maintenance "
+                        f"hour ({hour}), or you can restart now.", "", now, **BIG, icon="info"))
+        return card
 
     def shut_down(self) -> None:
         self.confirm("Shut the box down?",
@@ -221,13 +254,17 @@ class Tools:
         it was before an update, the system as it left the factory, then
         erasing everything, apart at the bottom."""
         from .app import in_background
+        from .control import BIG
         from .settings import group, page, row, text
 
         box = page()
-        card, points = group("Restore points", "The OS as it was before and after each update. "
-                             "Restoring brings the OS back; the family's files and the apps' data "
-                             "stay as they are. Try this first.")
+        card, points = group("Restore points", "Restoring brings the OS back as it was then; the family's "
+                             "files and the apps' data stay as they are. Try this first.", icon="calendar-clock")
         box.append(card)
+
+        # How each kind of restore point is worded: its tag and what it's from.
+        kinds = {"before-update": ("before update", "Update"), "after-update": ("after update", "Update"),
+                 "before-restore": ("before restore", "Restore"), "factory": ("factory", "As it left the factory")}
 
         def got(listed: dict[str, Any]) -> None:
             for point in reversed(listed.get("restore_points") or []):
@@ -236,32 +273,67 @@ class Tools:
                     back = Gtk.Button(label="Restore")
                     back.connect("clicked", lambda _b, p=point: self.restore(p))
                     ends.append(back)
-                points.append(row(when(point.get("date", "")),
-                                  point.get("description") or point.get("kind", ""), *ends))
+                tag, made = kinds.get(point.get("kind", ""), ("", point.get("description") or ""))
+                points.append(row(when(point.get("date", "")), made, *ends, **BIG, tag=tag,
+                                  icon="factory" if point.get("kind") == "factory" else "restore-point"))
 
         in_background(lambda: self.ask("restore-point-list"), got,
                       lambda p: box.append(text(p, "error", wrap=True)))
 
-        card, rows = group("Reset")
+        # What a restore took back stays back until Debian has a newer fix (design §6.1).
+        held_card, held_rows = group("Package Updates Held Back",
+                                     "Updates a restore took back. Each one updates by itself once a "
+                                     "newer fix comes out.", icon="held")
+        held_card.set_visible(False)
+        box.append(held_card)
+
+        def got_held(answer: dict[str, Any]) -> None:
+            for held in answer.get("held") or []:
+                go = Gtk.Button(label="Let it update")
+                shown = row(held.get("package", ""),
+                            f"Kept at {held.get('version', '')}; {held.get('taken_back', '')} was taken back.",
+                            go, **BIG, icon="package")
+                go.connect("clicked", lambda _b, h=held, r=shown: self.let_update(h, r, held_card))
+                held_rows.append(shown)
+                held_card.set_visible(True)
+
+        in_background(lambda: self.ask("held"), got_held, lambda _p: None)
+
+        card, rows = group("Reset", icon="reset")
         go = Gtk.Button(label="Reset the system…")
         go.connect("clicked", lambda _b: self.reset_system())
-        rows.append(row("Reset the system",
+        rows.append(row("System Reset",
                         "The system goes back to how it left the factory when the box restarts, then "
-                        "installs the latest security fixes. The family's apps, accounts, photos and "
-                        "messages stay. For when something is wrong and a restore point doesn't help.",
-                        go))
+                        "installs the latest security fixes. Every account, app and file stays. For when "
+                        "something is wrong and a restore point doesn't help.", go, **BIG, icon="reset"))
         box.append(card)
 
-        card, rows = group("Erase everything")
-        erase = Gtk.Button(label="Erase everything…")
+        card, rows = group("Erase everything", icon="erase")
+        erase = Gtk.Button()
+        face = Gtk.Box(spacing=8)
+        face.append(glyph("trash", 18, "white"))
+        face.append(Gtk.Label(label="Erase everything…"))
+        erase.set_child(face)
         erase.add_css_class("danger")
         erase.connect("clicked", lambda _b: self.erase_everything())
-        rows.append(row("Erase everything",
-                        "Every app, account, photo and message is deleted, and the box's history. Only "
-                        "the system as it left the factory stays, ready to be set up again, as when it "
-                        "was new. It needs the setup code from the sticker.", erase))
+        rows.append(row("Full System Erase (Factory Reset)",
+                        "Every account, app, photo and message is deleted, and the box's history. Only the "
+                        "system as it left the factory stays, ready to be set up again, as when it was new. "
+                        "It needs the setup code from the sticker.", erase, **BIG, icon="erase"))
         box.append(card)
         return box
+
+    def let_update(self, held: dict[str, Any], shown: Gtk.Widget, card: Gtk.Widget) -> None:
+        def done(_answer: dict[str, Any]) -> None:
+            rows = shown.get_parent()
+            rows.remove(shown)
+            card.set_visible(rows.get_first_child() is not None)
+
+        self.confirm(
+            "Let it update?",
+            f"{held.get('package', '')} installs its latest security fix again tonight, even if it's "
+            f"{held.get('taken_back', '')}, the version the restore took back.",
+            "Let it update", lambda: self.ask("held-release", package=held["package"]), done)
 
     def restore(self, point: dict[str, Any]) -> None:
         self.confirm(
@@ -307,7 +379,7 @@ class Tools:
                 sub = (f"{len(names)} drives, each a copy of the other" if library.get("mirror")
                        else ", ".join(names))
                 box.append(space("Library", sub, library, state, "library"))
-                box.append(self.library_check(library.get("check") or {}))
+                box.append(self.library_check(library.get("check") or {}, bool(library.get("mirror"))))
             system_state = next((d.get("health") for d in drives if d.get("system")), "unknown")
             box.append(space("The box's own disk", "The OS, the apps and their data",
                              storage.get("system") or {}, system_state, "system"))
@@ -481,7 +553,7 @@ class Tools:
             for n in reversed(sorted(listed, key=lambda n: n.get("time", ""))):
                 row = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=2)
                 kind = n.get("kind", "")
-                row.append(label(f"{when(n.get('time', ''))}  ·  {KINDS.get(kind, kind.capitalize())}",
+                row.append(label(f"{when(n.get('time', ''))}  ·  {KINDS.get(kind, (kind.capitalize(),))[0]}",
                                  "fact-name", n.get("level", "")))
                 row.append(label(n.get("message", ""), "fact", wrap=True))
                 entries.append(row)
@@ -497,8 +569,9 @@ class MoreTools:
 
     # --- the library check (Storage Manager) -------------------------------------------
 
-    def library_check(self, check: dict[str, Any]) -> Gtk.Widget:
-        """That both drives of the library hold the same: start, pause, resume."""
+    def library_check(self, check: dict[str, Any], mirror: bool) -> Gtk.Widget:
+        """The library's check (a Btrfs scrub, OS-4): start, pause, resume. With two
+        drives it repairs one copy from the other; with one it finds damage only."""
         from .app import alive, in_background, label
 
         box = Gtk.Box(spacing=12)
@@ -508,13 +581,15 @@ class MoreTools:
         button = Gtk.Button(valign=Gtk.Align.CENTER)
         box.append(button)
         action = {"name": ""}
+        do, doing = (("Check that both copies match", "Checking that both copies match") if mirror
+                     else ("Check the library for damage", "Checking the library for damage"))
 
         def show(state: dict[str, Any]) -> None:
             while child := words.get_first_child():
                 words.remove(child)
             percent = state.get("percent", 0)
             if state.get("running") and not state.get("paused"):
-                words.append(label(f"Checking that both copies match · {percent:.0f}%", "fact"))
+                words.append(label(f"{doing} · {percent:.0f}%", "fact"))
                 words.append(label(f"Started {when(state.get('started', ''))}.", "fact-name"))
                 words.append(meter(percent / 100, "library"))
                 button.set_label("Pause")
@@ -527,11 +602,14 @@ class MoreTools:
             else:
                 if state.get("never_run"):
                     last = "It hasn't been checked yet."
-                elif state.get("errors"):
+                elif state.get("errors") and mirror:
                     last = f"The last check found {state['errors']} problems and repaired what it could."
+                elif state.get("errors"):
+                    last = (f"The last check found {state['errors']} damaged files. With one drive there's "
+                            "no second copy to repair them from: restore them from a backup.")
                 else:
                     last = "The last check found nothing needing repair."
-                words.append(label("Check that both copies match", "fact"))
+                words.append(label(do, "fact"))
                 words.append(label(last + " The box also checks once a month by itself.", "fact-name",
                                    wrap=True, max_width_chars=50))
                 button.set_label("Check now")

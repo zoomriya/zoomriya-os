@@ -30,13 +30,28 @@ def page() -> Gtk.Box:
     return box
 
 
-def group(title: str = "", note: str = "", aside: Gtk.Widget | None = None) -> tuple[Gtk.Box, Gtk.ListBox]:
-    """A titled group and its rows (the ListBox to append rows to)."""
+def group(title: str = "", note: str = "", aside: Gtk.Widget | None = None,
+          lead: str = "", icon: str = "") -> tuple[Gtk.Box, Gtk.ListBox]:
+    """A titled group and its rows (the ListBox to append rows to): lead says what
+    it is under the title, note adds to it under the rows, and icon goes before
+    the title. The title's label is the box's title_label (Network renames its own)."""
     box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=8)
     box.add_css_class("group")
     if title or aside:
         head = Gtk.Box(spacing=12)
-        head.append(text(title, "group-title", hexpand=True))
+        named = text(title, "group-title", hexpand=True)
+        box.title_label = named
+        if icon:
+            line = Gtk.Box(spacing=8, hexpand=True)
+            line.append(glyph(icon, 20, "accent"))
+            line.append(named)
+            head.append(line)
+        else:
+            head.append(named)
+        if lead:
+            head.set_orientation(Gtk.Orientation.VERTICAL)
+            head.set_spacing(2)
+            head.append(text(lead, "group-note", wrap=True))
         if aside:
             head.append(aside)
         box.append(head)
@@ -48,14 +63,23 @@ def group(title: str = "", note: str = "", aside: Gtk.Widget | None = None) -> t
     return box, rows
 
 
-def row(title: str, subtitle: str = "", *ends: Gtk.Widget, icon: str = "") -> Gtk.ListBoxRow:
-    """A row: an icon maybe, the title and its explanation, then the controls."""
+def row(title: str, subtitle: str = "", *ends: Gtk.Widget, icon: str = "", icon_role: str = "accent",
+        icon_px: int = 20, tag: str = "") -> Gtk.ListBoxRow:
+    """A row: an icon maybe (in the accent, like every row's), the title (and a tag
+    beside it) and its explanation, then the controls."""
     line = Gtk.Box(spacing=14)
     if icon:
-        line.append(glyph(icon, 20))
+        line.append(glyph(icon, icon_px, icon_role))
     words = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=2, hexpand=True,
                     valign=Gtk.Align.CENTER)
-    words.append(text(title, "row-title", wrap=True))
+    if tag:
+        named = Gtk.Box(spacing=8)
+        named.append(text(title, "row-title", wrap=True))
+        chip = text(tag, "tag", valign=Gtk.Align.CENTER)
+        named.append(chip)
+        words.append(named)
+    elif title:
+        words.append(text(title, "row-title", wrap=True))
     if subtitle:
         words.append(text(subtitle, "row-sub", wrap=True))
     line.append(words)
@@ -82,14 +106,30 @@ def value(words: str) -> Gtk.Label:
     return text(words, "row-value", wrap=True, xalign=1, max_width_chars=36)
 
 
-def segmented(choices: list[tuple[str, str]], chosen: str,
+def fixed_switch(on: bool) -> Gtk.Switch:
+    """A switch that only shows a state: greyed out, since it isn't changed here."""
+    switch = Gtk.Switch(active=on, sensitive=False, valign=Gtk.Align.CENTER,
+                        tooltip_text="Always on" if on else "Off")
+    switch.add_css_class("fixed")
+    return switch
+
+
+def segmented(choices: list[tuple[str, ...]], chosen: str,
               changed: Callable[[str], None]) -> Gtk.Box:
-    """Two or three buttons joined into one, one of them pressed (Left | Right)."""
+    """Two or three buttons joined into one, one of them pressed (Left | Right);
+    each choice is (key, name) or (key, name, icon)."""
     box = Gtk.Box()
     box.add_css_class("segmented")
     first: Gtk.ToggleButton | None = None
-    for key, name in choices:
-        button = Gtk.ToggleButton(label=name, active=key == chosen)
+    for key, name, *icon in choices:
+        button = Gtk.ToggleButton(active=key == chosen)
+        if icon:
+            face = Gtk.Box(spacing=6)
+            face.append(glyph(icon[0], 16))
+            face.append(Gtk.Label(label=name))
+            button.set_child(face)
+        else:
+            button.set_label(name)
         if first is None:
             first = button
         else:

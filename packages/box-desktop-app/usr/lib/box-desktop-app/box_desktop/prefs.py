@@ -1,8 +1,9 @@
 """Each admin's own Box Desktop, kept between sign-ins: the theme, the keyboard
 and the mouse, the open windows and where they were, and which notifications
 are read or turned off.
-One file per admin, named by a hash of their ZOOMRIYA ID member id, in Box
-Desktop's own state folder, readable by its account only."""
+One file per admin, named by a hash of their ZOOMRIYA ID member id, in
+/data/zoomriya/admin on the box (BD-4), readable by Box Desktop's account only:
+an OS restore doesn't take them back, Erase everything does."""
 
 from __future__ import annotations
 
@@ -26,16 +27,16 @@ DEFAULTS: dict[str, Any] = {
 }
 
 
-def state_dir() -> Path:
-    """systemd's StateDirectory on the box; a folder of one's own elsewhere."""
-    if os.environ.get("STATE_DIRECTORY"):
-        return Path(os.environ["STATE_DIRECTORY"].split(":")[0])
-    return Path(os.environ.get("XDG_STATE_HOME", Path.home() / ".local/state")) / "box-desktop-app"
+def admin_dir() -> Path:
+    """The service's BOX_DESKTOP_ADMIN_DIR on the box; a folder of one's own elsewhere."""
+    if os.environ.get("BOX_DESKTOP_ADMIN_DIR"):
+        return Path(os.environ["BOX_DESKTOP_ADMIN_DIR"])
+    return Path(os.environ.get("XDG_STATE_HOME", Path.home() / ".local/state")) / "box-desktop-app/admin"
 
 
 class Prefs:
     def __init__(self, folder: Path | None = None) -> None:
-        self.folder = (folder or state_dir()) / "admins"
+        self.folder = folder or admin_dir()
 
     def path(self, member_id: int | str) -> Path:
         return self.folder / (hashlib.sha256(str(member_id).encode()).hexdigest() + ".json")

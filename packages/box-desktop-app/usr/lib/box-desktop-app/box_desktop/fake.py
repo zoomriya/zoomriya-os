@@ -26,12 +26,13 @@ class FakeBoxAgent(FakeAgent):
         self.started -= 10  # the cable is in
         self.locale, self.region = "en_CA.UTF-8", "CA"  # as the first setup left it
         self.check: dict[str, Any] = {"never_run": False, "errors": 0}
+        self.fixes_until = 0.0  # Check now's security fixes, for a few seconds
 
     def ask(self, op: str, **fields: Any) -> dict[str, Any]:
         if op == "status":
             return {"os": "ZOOMRIYA OS 13", "image_version": "2026.11.4",
                     "uptime_seconds": 3 * 86400 + 4 * 3600 + 120, "restart_needed": True,
-                    "restart_reasons": ["a new kernel"], "maintenance_hour": "03:30",
+                    "restart_reasons": ["update: linux-image-6.12.116+deb13.1-amd64"], "maintenance_hour": "03:30",
                     "last_security_update": "2026-11-03T03:31:00Z",
                     "last_update_check": "2026-11-03T03:30:00Z", "model": "ASUS NUC 14 Pro",
                     "serial": "G6RVH40712", "debian": "13.2", "base": "13.0.0",
@@ -49,19 +50,34 @@ class FakeBoxAgent(FakeAgent):
                     "fans": [{"sensor": "nct6775", "label": "CPU fan", "rpm": 1150}],
                     "disks": {"read_bps": 1_200_000, "write_bps": 340_000},
                     "temperatures": [{"sensor": "coretemp", "label": "Package id 0", "celsius": 47.0}]}
+        if op == "network":
+            # The box's Wi-Fi chip, which stays off (OS-14).
+            answer = super().ask(op, **fields)
+            answer["links"].append({"name": "wlp2s0", "kind": "wifi", "connected": False,
+                                    "mac": "f4:4d:30:6e:21:0b", "ipv4": []})
+            return answer
+        if op == "security-check-now":
+            self.fixes_until = time.time() + 12
+            return {"started": True}
+        if op == "held":
+            return {"held": [{"package": "openssl", "version": "3.5.1-1",
+                              "taken_back": "3.5.1-1+deb13u1"}]}
+        if op == "held-release":
+            return {"released": fields.get("package")}
         if op == "restore-point-list":
             return {"restore_points": [
                 {"number": 1, "date": "2026-11-01T09:00:00Z", "description": "factory", "kind": "factory"},
-                {"number": 7, "date": "2026-11-03T03:31:00Z", "description": "before apt", "kind": "pre"},
-                {"number": 8, "date": "2026-11-03T03:33:00Z", "description": "after apt", "kind": "post"}]}
+                {"number": 7, "date": "2026-11-03T03:31:00Z", "description": "apt", "kind": "before-update"},
+                {"number": 8, "date": "2026-11-03T03:33:00Z", "description": "apt", "kind": "after-update"}]}
         if op == "storage":
             return {"system": {"size_bytes": 250e9, "used_bytes": 41e9, "free_bytes": 209e9},
                     "system_parts": [{"kind": "app-data", "bytes": 18e9}, {"kind": "app-images", "bytes": 9e9},
                                      {"kind": "models-and-maps", "bytes": 7e9},
                                      {"kind": "databases", "bytes": 2e9}],
-                    "library": {"path": "/srv/library", "mirror": True, "size_bytes": 4e12,
+                    # One library drive, as on today's box (OS-4: a mirror when there are two).
+                    "library": {"path": "/srv/library", "mirror": False, "size_bytes": 4e12,
                                 "used_bytes": 1.3e12, "free_bytes": 2.7e12,
-                                "drives": [{"name": "ZLIB0001"}, {"name": "ZLIB0002"}],
+                                "drives": [{"name": "ZLIB0001"}],
                                 "check": self.check}}
         if op == "storage-check":
             action = fields.get("action")
@@ -82,10 +98,29 @@ class FakeBoxAgent(FakeAgent):
                 {"time": "2026-11-03T02:10:00Z", "level": "warning", "source": "Drives",
                  "message": "sda moved 12 sectors aside."}], "more": False}
         if op == "security":
-            return {"updates": {"automatic": True}, "firewall": {"on": True, "open": []},
+            return {"updates": {"automatic": True, "running": time.time() < self.fixes_until,
+                                "last_installed": "2026-11-03T03:31:00Z"},
+                    "firewall": {"on": True, "open": [
+                        {"port": 443, "protocol": "tcp", "what": "Local Web Access (e.g., Family Hub, apps)",
+                         "detail": "Secure Web", "icon": "web"},
+                        {"port": 5353, "protocol": "udp", "what": "Network Discovery (mDNS)",
+                         "detail": "Multicast DNS", "icon": "discovery"},
+                        {"port": 68, "protocol": "udp", "what": "Network Address Configuration (DHCP)",
+                         "detail": "Client DHCP", "icon": "address"}]},
                     "integrity": {"checked": "2026-11-03T04:00:00Z", "clean": True, "changes": []},
-                    "apparmor": {"on": True, "enforced": 12}, "secure_boot": "on",
-                    "connections": [{"host": "deb.debian.org", "what": "Security fixes"}]}
+                    "apparmor": {"on": True, "enforced": 4, "profiles": [
+                        {"name": "box-desktop", "enforced": True}, {"name": "zoomriya-id", "enforced": True},
+                        {"name": "avahi-daemon", "enforced": True}, {"name": "nvidia_modprobe", "enforced": True},
+                        {"name": "lsb_release", "enforced": False}]}, "secure_boot": "on",
+                    "connections": [
+                        {"host": "deb.debian.org", "title": "OS Package Server",
+                         "what": "System updates & security fixes", "icon": "package",
+                         "when": "Every night, and when an admin presses Check now"},
+                        {"host": "security.debian.org", "title": "OS Security Fix Server", "what": "Security fixes",
+                         "icon": "package", "when": "Every night, and when an admin presses Check now"},
+                        {"host": "0.debian.pool.ntp.org", "title": "Time Server",
+                         "what": "The time, which certificates and updates depend on", "icon": "clock",
+                         "when": "Every so often, to keep the clock right"}]}
         if op == "notifications":
             return {"notifications": [
                 {"time": "2026-11-03T02:10:00Z", "level": "warning", "kind": "drive",
@@ -116,9 +151,11 @@ class FakeID:
 class FakeSound:
     def __init__(self) -> None:
         self.levels = {"@DEFAULT_AUDIO_SINK@": [0.6, False], "@DEFAULT_AUDIO_SOURCE@": [0.8, False]}
-        self.listed = {"@DEFAULT_AUDIO_SINK@": [[41, "HDMI / DisplayPort, built-in audio", True],
+        self.listed = {"@DEFAULT_AUDIO_SINK@": [[41, "HDMI/DP, built-in audio", True],
                                                 [42, "Headphones, built-in audio", False]],
-                       "@DEFAULT_AUDIO_SOURCE@": [[51, "Internal microphone, built-in audio", True]]}
+                       # A mini PC rarely has a microphone of its own: these are plugged in.
+                       "@DEFAULT_AUDIO_SOURCE@": [[51, "USB Microphone", True],
+                                                  [52, "Headset microphone, built-in audio", False]]}
 
     def devices(self, device: str) -> list[tuple[int, str, bool]]:
         return [tuple(d) for d in self.listed[device]]

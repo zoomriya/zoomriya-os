@@ -95,7 +95,7 @@ class AdminsOwnDesktop(unittest.TestCase):
     def setUp(self):
         import tempfile
 
-        self.folder = Path(tempfile.mkdtemp())
+        self.folder = Path(tempfile.mkdtemp()) / "admin"
         self.prefs = Prefs(self.folder)
 
     def test_kept_between_sign_ins(self):
@@ -111,7 +111,7 @@ class AdminsOwnDesktop(unittest.TestCase):
     def test_only_its_own_account_reads_it(self):
         self.prefs.save(7, self.prefs.load(7))
         self.assertEqual(self.prefs.path(7).stat().st_mode & 0o777, 0o600)
-        self.assertEqual((self.folder / "admins").stat().st_mode & 0o777, 0o700)
+        self.assertEqual(self.folder.stat().st_mode & 0o777, 0o700)
         # Named by a hash of the member id, not the id itself.
         import hashlib
 

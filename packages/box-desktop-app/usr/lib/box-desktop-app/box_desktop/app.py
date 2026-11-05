@@ -163,7 +163,7 @@ class BoxDesktop(Tools, MoreTools, ControlPanel, Gtk.ApplicationWindow):
         self.pages.add_named(self.sign_in_page(), "sign-in")
         self.pages.add_named(self.desktop_page(), "desktop")
         self.set_child(self.pages)
-        self.fitted_for = 0
+        self.fitted_for = (0, 0)
         GLib.timeout_add_seconds(1, self.tick)
         self.tick()
         in_background(lambda: self.agent.ask("network"), self.got_name, lambda _p: None)
@@ -578,7 +578,7 @@ class BoxDesktop(Tools, MoreTools, ControlPanel, Gtk.ApplicationWindow):
         self.health_rows = Gtk.Grid(column_spacing=10, row_spacing=4)
         health.append(self.health_rows)
 
-        cpu, _ = card("CPU and memory")
+        cpu, _rows = card("CPU and memory")
         top = Gtk.Box(spacing=10)
         figures = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
         self.cpu_figure = label("–", "widget-figure")
@@ -673,8 +673,9 @@ class BoxDesktop(Tools, MoreTools, ControlPanel, Gtk.ApplicationWindow):
             self.space_figure.set_markup(f"<b>{size(used)}</b> <small>of {size(total)} used</small>")
             self.space_percent.set_text(f"{used / total * 100:.0f}%" if total else "")
             self.space_bar.set_value(used / total if total else 0)
-            self.space_note.set_text("Library drives mirrored" if library.get("mirror")
-                                     else "The box's own disk")
+            self.space_note.set_text("The box's own disk" if not library.get("path")
+                                     else "Library drives mirrored" if library.get("mirror")
+                                     else "Library")
             self.show_notifications(notes.get("notifications") or [])
 
         in_background(lambda: (self.ask("status"), self.ask("storage"), self.ask("disk-health"),
@@ -894,24 +895,36 @@ class BoxDesktop(Tools, MoreTools, ControlPanel, Gtk.ApplicationWindow):
         win.start = (win.x, win.y)
         self.raise_window(kind)
 
+    def desk_size(self) -> tuple[int, int]:
+        """The desktop below the top bar. From Box Desktop's own window, not the
+        windows' layer, which isn't laid out yet when a sign-in restores them."""
+        return self.get_width(), self.get_height() - TOP_BAR
+
     def fit_window(self, win: DeskWindow) -> None:
-        """No taller than the screen below the top bar with GAP free above and
-        below it, and moved up if it would reach past the bottom one."""
-        if not win.maximised:
-            room = self.get_height() - TOP_BAR - GAP
-            if room > 300:
-                win.height = min(TOOLS[win.kind][2], room - GAP)
-                win.y = max(GAP, min(win.y, room - win.height))
-                win.frame.set_size_request(win.width, win.height)
-            self.layer.move(win.frame, win.x, win.y)
+        """A maximised window fills the desktop. Others are no wider than the
+        screen with GAP free at each side, no taller than the desktop with GAP
+        free above and below, and moved up if they'd reach past the bottom."""
+        width, height = self.desk_size()
+        if win.maximised:
+            win.frame.set_size_request(width, height)
+            self.layer.move(win.frame, 0, 0)
+            return
+        if width > 400:
+            win.width = min(TOOLS[win.kind][1], width - 2 * GAP)
+        room = height - GAP
+        if room > 300:
+            win.height = min(TOOLS[win.kind][2], room - GAP)
+            win.y = max(GAP, min(win.y, room - win.height))
+        win.frame.set_size_request(win.width, win.height)
+        self.layer.move(win.frame, win.x, win.y)
 
     def do_size_allocate(self, width: int, height: int, baseline: int) -> None:
         Gtk.ApplicationWindow.do_size_allocate(self, width, height, baseline)
-        # A window that no longer fits the screen (another monitor, or Box
-        # Desktop's own window resized away from the box) is fitted again,
-        # once this layout is done.
-        if height != self.fitted_for:
-            self.fitted_for = height
+        # A window that no longer fits the screen (another monitor, a new
+        # resolution, or Box Desktop's own window resized away from the box) is
+        # fitted again, once this layout is done; a maximised one fills it.
+        if (width, height) != self.fitted_for:
+            self.fitted_for = (width, height)
             GLib.idle_add(self.fit_windows)
 
     def fit_windows(self) -> bool:
@@ -960,14 +973,8 @@ class BoxDesktop(Tools, MoreTools, ControlPanel, Gtk.ApplicationWindow):
     def maximise_window(self, kind: str) -> None:
         win = self.windows[kind]
         win.maximised = not win.maximised
-        if win.maximised:
-            win.frame.set_size_request(self.layer.get_width(), self.layer.get_height())
-            self.layer.move(win.frame, 0, 0)
-            win.frame.add_css_class("maximised")
-        else:
-            win.frame.set_size_request(win.width, win.height)
-            self.layer.move(win.frame, win.x, win.y)
-            win.frame.remove_css_class("maximised")
+        (win.frame.add_css_class if win.maximised else win.frame.remove_css_class)("maximised")
+        self.fit_window(win)
         self.remember_layout()
 
     def close_window(self, kind: str) -> None:

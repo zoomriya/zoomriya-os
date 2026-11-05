@@ -28,6 +28,12 @@ def has_hardware() -> bool:
         return False
 
 
+def short_name(name: str) -> str:
+    """A device's name as the sound system gives it, shorter: HDMI/DP for
+    "HDMI / DisplayPort"."""
+    return name.replace("HDMI / DisplayPort", "HDMI/DP")
+
+
 class Sound:
     def devices(self, device: str) -> list[tuple[int, str, bool]]:
         """The speakers (OUTPUT) or microphones (INPUT) as (id, name, in use)."""
@@ -49,7 +55,7 @@ class Sound:
         for o in objects:
             props = (o.get("info") or {}).get("props") or {}
             if o.get("type") == "PipeWire:Interface:Node" and props.get("media.class") == wanted:
-                found.append((o["id"], props.get("node.description") or props.get("node.name", ""),
+                found.append((o["id"], short_name(props.get("node.description") or props.get("node.name", "")),
                               props.get("node.name") == chosen))
         return found
 

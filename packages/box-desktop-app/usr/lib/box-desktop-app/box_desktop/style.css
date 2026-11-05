@@ -278,6 +278,19 @@ button.danger { background: var(--danger); border-color: var(--danger); color: #
 button.flat-link { border: none; background: none; color: var(--accent); padding: 0 6px; min-height: 26px; }
 dropdown > button { color: var(--text); }
 checkbutton, radio, switch { color: var(--text); }
+/* A switch that only shows a state (settings.py's fixed_switch): on reads as
+   on, in the theme's accent, though it can't be changed here. */
+switch.fixed:disabled:checked { background: var(--accent); opacity: 1; }
+switch.fixed:disabled:checked slider { background: #ffffff; }
+switch.fixed:disabled:not(:checked) { background: var(--line-strong); border-color: transparent; opacity: 1; }
+switch.fixed:disabled:not(:checked) slider { background: var(--panel); }
+/* Security's Allowed Network Connections: each one allowed. */
+.allowed-dot { background: var(--ok); border-radius: 999px; min-width: 12px; min-height: 12px; }
+/* A word beside a row's title (Restore & Reset's "after update"). */
+.tag { background: var(--hover); color: var(--muted); border-radius: 6px; padding: 1px 8px; font-size: 12px; }
+/* Restarts' banner when a restart waits: an edge in the warning colour. */
+list.rows.attention { border: 1.5px solid var(--warn); }
+.off-dot { background: var(--line-strong); border-radius: 999px; min-width: 12px; min-height: 12px; }
 scale trough { background: var(--line); border-radius: 999px; min-height: 6px; }
 scale highlight { background: var(--accent); border-radius: 999px; }
 popover > contents { border-radius: 16px; padding: 4px; background: var(--panel); color: var(--text); }
@@ -296,7 +309,6 @@ list.rows > row:only-child { border-radius: 12px; }
 .row-title { color: var(--text); }
 .row-sub { color: var(--muted); font-size: 12.5px; }
 .row-value { color: var(--muted); }
-list.rows dropdown > button { min-width: 200px; }
 list.rows entry { min-width: 220px; }
 .segmented { background: var(--hover); border-radius: 10px; padding: 3px; }
 .segmented > button { border: none; background: transparent; box-shadow: none; min-height: 30px; padding: 0 16px; border-radius: 8px; color: var(--text); }
