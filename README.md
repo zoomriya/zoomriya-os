@@ -131,9 +131,9 @@ own licence; see [Licences](docs/licences.md).
 ## The ZOOMRIYA platform
 
 - **ZOOMRIYA OS** — the operating system for the ZOOMRIYA Box.
-- **ZOOMRIYA ID** — identity and sign-in.
+- **[ZOOMRIYA ID](https://github.com/zoomriya/zoomriya-id)** — identity and sign-in.
 - **ZOOMRIYA Apps** — the applications running on the box.
-- **ZOOMRIYA Connect** — remote connectivity.
+- **[ZOOMRIYA Connect](https://github.com/zoomriya/zoomriya-connect)** — remote connectivity.
 
 ZOOMRIYA OS stays in the background so families can focus on using their
 applications, not maintaining a server.
