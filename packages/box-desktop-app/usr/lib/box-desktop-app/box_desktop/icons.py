@@ -160,7 +160,7 @@ THEMES = {
     "midnight": {"text": "#d6dbe5", "muted": "#838b9f", "ok": "#3ecf8e", "warn": "#f2c14e", "accent": "#6f86e8",
                  "orange": "#fb923c", "white": "#ffffff"},
 }
-_theme = "daylight"
+_theme = "midnight"
 # Held here, not weakly: Python's handle on a GTK image can go while the image
 # stays on screen, and the theme switch must still reach it.
 _shown: list[tuple[Gtk.Image, str, int, str]] = []

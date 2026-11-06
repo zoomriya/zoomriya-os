@@ -32,7 +32,7 @@ from . import i18n  # noqa: E402
 from .i18n import N_, _  # noqa: E402
 from .icons import glyph, set_glyph, set_theme, tile, tile_css  # noqa: E402
 from .journal import note_sign_in  # noqa: E402
-from .prefs import DEFAULTS, Prefs  # noqa: E402
+from .prefs import DEFAULT_THEME, DEFAULTS, Prefs  # noqa: E402
 from zoomriya_setup.screen import set_keyboard, set_left_handed  # noqa: E402
 from .signin import Member, SignInError  # noqa: E402
 from .tools import MoreTools, Tools, size, when  # noqa: E402
@@ -171,6 +171,8 @@ class BoxDesktop(Tools, MoreTools, ControlPanel, Gtk.ApplicationWindow):
         self.pages.add_named(self.sign_in_page(), "sign-in")
         self.pages.add_named(self.desktop_page(), "desktop")
         self.set_child(self.pages)
+        # The sign-in screen in the default theme, before anyone's own.
+        self.apply_theme(DEFAULT_THEME, save=False)
         self.fitted_for = (0, 0)
         GLib.timeout_add_seconds(1, self.tick)
         self.tick()
@@ -271,7 +273,7 @@ class BoxDesktop(Tools, MoreTools, ControlPanel, Gtk.ApplicationWindow):
         for kind in list(self.windows):
             self.close_window(kind)
         self.restoring = False
-        self.apply_theme("daylight", save=False)
+        self.apply_theme(DEFAULT_THEME, save=False)
         # The box's own keyboard and a right-handed mouse for the next one.
         set_left_handed(False)
         in_background(lambda: self.agent.ask("keyboard"),

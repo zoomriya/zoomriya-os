@@ -14,9 +14,12 @@ import tempfile
 from pathlib import Path
 from typing import Any
 
+#: The theme the box's screen starts in, and a new admin's: Midnight.
+DEFAULT_THEME = "midnight"
+
 DEFAULTS: dict[str, Any] = {
     "version": 1,
-    "theme": "daylight",
+    "theme": DEFAULT_THEME,
     # The keyboard's layout on the box's screen ("" for the box's own) and the mouse.
     "keyboard": "",
     "handed": "right",
@@ -50,7 +53,7 @@ class Prefs:
         if isinstance(saved, dict):
             prefs.update({k: v for k, v in saved.items() if k in DEFAULTS})
         if prefs["theme"] not in ("daylight", "midnight"):
-            prefs["theme"] = "daylight"
+            prefs["theme"] = DEFAULT_THEME
         if prefs["handed"] not in ("right", "left"):
             prefs["handed"] = "right"
         mouse = prefs["mouse"] if isinstance(prefs["mouse"], dict) else {}

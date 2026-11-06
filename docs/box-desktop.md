@@ -247,8 +247,8 @@ the box's screen (tty1)
   `zoomriya-base` and `zoomriya-agent`; it updates with ZOOMRIYA OS's own
   releases, not with the apps.
 - **The look is ours:** our own icons, colours, artwork and names, and the
-  ZOOMRIYA logo. Its two themes are the apps' own: Daylight, the default, and
-  Midnight, chosen by each admin in the top bar and kept with their settings.
+  ZOOMRIYA logo. Its two themes are the apps' own: Midnight, the default, and
+  Daylight, chosen by each admin in the top bar and kept with their settings.
   Every library, font and icon goes through [Licences](licences.md) first.
 - **Seen without a box:** `scripts/preview-desktop.sh` runs it in a window
   with sample data.

@@ -100,13 +100,13 @@ class AdminsOwnDesktop(unittest.TestCase):
 
     def test_kept_between_sign_ins(self):
         saved = self.prefs.load(7)
-        self.assertEqual(saved["theme"], "daylight")
-        saved["theme"] = "midnight"
+        self.assertEqual(saved["theme"], "midnight")
+        saved["theme"] = "daylight"
         saved["windows"] = [{"kind": "storage", "x": 150, "y": 14, "section": "drives"}]
         self.prefs.save(7, saved)
         again = self.prefs.load(7)
-        self.assertEqual((again["theme"], again["windows"][0]["section"]), ("midnight", "drives"))
-        self.assertEqual(self.prefs.load(8)["theme"], "daylight")
+        self.assertEqual((again["theme"], again["windows"][0]["section"]), ("daylight", "drives"))
+        self.assertEqual(self.prefs.load(8)["theme"], "midnight")
 
     def test_only_its_own_account_reads_it(self):
         self.prefs.save(7, self.prefs.load(7))
@@ -129,7 +129,7 @@ class AdminsOwnDesktop(unittest.TestCase):
         self.prefs.path(7).write_text("{not json")
         self.assertEqual(self.prefs.load(7)["windows"], [])
         self.prefs.path(7).write_text('{"theme": "neon", "windows": []}')
-        self.assertEqual(self.prefs.load(7)["theme"], "daylight")
+        self.assertEqual(self.prefs.load(7)["theme"], "midnight")
 
 
 class Screen(unittest.TestCase):

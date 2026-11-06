@@ -2,8 +2,8 @@
    cards with soft, deep shadows over the wallpaper; the top bar, the widgets
    and the launcher of translucent glass with a light inner edge; Inter at
    14 px, weights kept low (600 for titles, 500 for buttons). Windows open,
-   minimise and close with a short grow or shrink, and are never see-through. Two themes, Daylight (the default)
-   and Midnight, chosen by each admin. */
+   minimise and close with a short grow or shrink, and are never see-through. Two themes, Midnight (the default)
+   and Daylight, chosen by each admin. */
 window {
   --text: #1b2733;
   --text-secondary: #3a4754;
