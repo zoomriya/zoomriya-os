@@ -1,20 +1,22 @@
 # ZOOMRIYA OS: design
 
-November 2, 2026 · design only, nothing built yet
+Design and implementation status · November 2, 2026
 
-ZOOMRIYA OS is the system under the ZOOMRIYA Box: Debian 13, set up
-so that a family never sees it. The family sees Family Hub. The box's admins
-also get [Box Desktop](box-desktop.md), ZOOMRIYA OS's own desktop on the
-box's screen, for storage, updates, restore points and reset, with an **Update** button and a
-**Restore previous version** button, and nothing that needs a terminal.
+ZOOMRIYA OS is the system that runs the ZOOMRIYA Box. It is based on Debian 13
+and is designed to stay out of the family's way: family members use Family
+Hub, while administrators manage the box through [Box Desktop](box-desktop.md).
+Box Desktop runs on the box's own screen and provides tools for storage,
+updates, restore points and resets, without requiring a terminal for routine
+administration.
 
-It is not a new distribution and not a fork of Debian. It is Debian 13
-installed a fixed way, plus one package of our own settings (`zoomriya-base`),
-one small root helper (`zoomriya-agent`) and an image build. The apps and the
-box service live in zoomriya-apps (private); sign-in is
-[ZOOMRIYA ID](https://github.com/zoomriya/zoomriya-id), which the box sets up; remote access lives in
-[zoomriya-connect](https://github.com/zoomriya/zoomriya-connect). This document covers
-what sits underneath them.
+ZOOMRIYA OS is not a separate Linux distribution or a fork of Debian. It is a
+carefully configured Debian 13 system, with our settings package
+(`zoomriya-base`), a small privileged helper (`zoomriya-agent`) and an image
+build. The apps and box service are developed in the private `zoomriya-apps`
+repository. The box sets up [ZOOMRIYA ID](https://github.com/zoomriya/zoomriya-id)
+for sign-in, while [ZOOMRIYA Connect](https://github.com/zoomriya/zoomriya-connect)
+provides remote access. This document describes the system beneath those
+services.
 
 **Contents**
 
@@ -55,16 +57,16 @@ what sits underneath them.
 
 ## 2. The layers
 
-Four layers, each with its own owner, its own update and its own rollback.
-None of them updates or rolls back another.
+The system has four layers. Each has its own owner, update process and
+rollback path, so changing one layer does not change or roll back another.
 
 ![The four layers: apps, shared services, OS and data, each with its owner, its update and its rollback](images/layers.svg)
 
-**The rule: each app's image carries everything the app runs.** Its Python
-and venv, `ffmpeg`, the libraries its wheels need, and any program of its own,
-such as Photos' Qdrant or the Myira model service's llama.cpp. From the host an
-app needs only the kernel, systemd, the network and the shared services'
-ports. Nothing is installed on the host for an app, so:
+Each app image contains everything that app needs to run: its Python
+environment, `ffmpeg`, required libraries and any bundled programs, such as
+Photos' Qdrant or the Myira model service's llama.cpp. From the host, an app
+uses only the kernel, systemd, the network and the shared services' ports.
+Keeping app dependencies out of the host means:
 
 - **An OS update or upgrade can't change an app.** When the host takes a
   security fix, or moves from Debian 13 to 14, the images stay as they were.
@@ -81,8 +83,8 @@ service, the Myira model service, backups, maps): each is an image. Backups'
 image carries `restic` and `pg_dump`, the latter matching the host's PostgreSQL
 major version.
 
-**Where this isn't true yet.** Today only Photos' API runs in an image, and the
-host has packages that belong to the apps:
+**Current state.** Photos' API is the only app component currently running in
+an image. The host still has some packages that will move into app images:
 
 | Today on the host | Moves to |
 | --- | --- |
@@ -92,20 +94,22 @@ host has packages that belong to the apps:
 | ZOOMRIYA ID, the box service, the Myira model service, Vault, Chat, Tracker, Planner, Myira, in venvs under `/opt/zoomriya/<app>/venv` | One image each |
 | `restic` and the maps tools | The backup and maps images |
 
-Each app is to follow Photos' image pattern; this design depends on finishing
-that.
+Each app will follow the pattern used for Photos. Completing that migration is
+necessary for this design.
 
-**Shared services.** PostgreSQL, Valkey and Caddy stay on the host as Debian
-packages. They are servers every app talks to over a port, never something an
-app links against, so the rule above isn't broken: an app's image is the same
-whichever PostgreSQL 17 security fix the host has. They get Debian's security
-fixes with the OS. Their major versions only change when the whole box moves to
-the next Debian ([§6.6](#66-moving-to-debian-14)), which is when PostgreSQL's cluster is upgraded too.
+**Shared services.** PostgreSQL, Valkey and Caddy remain on the host as Debian
+packages. Apps connect to them over the network rather than linking against
+them, so an update to a shared service does not change an app image. Debian's
+security updates cover these services along with the OS. Their major versions
+change only when the box moves to a new Debian release
+([§6.6](#66-moving-to-debian-14)); PostgreSQL's database cluster is upgraded
+as part of that move.
 
 ## 3. The disk
 
-The box has a fast system SSD and a drive for the library; a later box may
-have two, mirrored (Solutions Design, *Hardware and selling*).
+The box uses a fast SSD for the system and a separate drive for the family's
+library. A future model may use two mirrored library drives (Solutions
+Design, *Hardware and selling*).
 
 **System SSD**
 
@@ -117,9 +121,9 @@ have two, mirrored (Solutions Design, *Hardware and selling*).
 
 **Subvolumes on the system partition**
 
-The rule: **an OS snapshot holds only the OS**. Everything an app or a family
-writes sits in its own subvolume, so rolling the OS back never rolls back a
-photo, a message or a database row.
+**OS snapshots contain only the operating system.** App and family data live
+in separate subvolumes, so restoring the OS does not roll back a photo,
+message or database row.
 
 | Subvolume | Mounted at | In OS snapshots | Notes |
 | --- | --- | --- | --- |
@@ -131,11 +135,12 @@ photo, a message or a database row.
 | `@log` | `/var/log` | No | Kept across rollbacks, so the reason for a rollback is still there |
 | `@snapshots` | `/.snapshots` | No | snapper's snapshots of `@` |
 
-**Change needed in the apps:** the box service and the maps service keep state
-in `/var/lib/zoomriya-box` and `/var/lib/zoomriya-maps`, which are on `@` and
-would roll back with the OS. Either they move under `/data`, or each gets its
-own subvolume. Moving them under `/data` is simpler and puts them in the
-backups' reach; that's the proposal.
+**A change still needed in the apps:** the box and maps services currently
+store state in `/var/lib/zoomriya-box` and `/var/lib/zoomriya-maps`. Those
+paths are on `@`, so an OS rollback would also roll back that state. The
+services could move their data under `/data` or get separate subvolumes.
+Moving it under `/data` is the simpler proposal and makes it available to
+backups.
 
 **Library drives.** One drive now, Btrfs, set up at the factory on the sold
 box. Its scrub finds a damaged file from Btrfs's checksums, but with one copy
@@ -144,10 +149,11 @@ it can't repair it: the backups can. When a box has two library drives
 repairs a bad copy from the good one, which `mdadm` can't tell apart. Photos' `storaged` keeps mounting drives
 as today; it never formats them.
 
-**No disk encryption** (OS-11): not on the system SSD, not on the library
-drive. The box stays at home and starts by itself, and a family's photos stay
-readable from the drive in another computer if the box itself dies, with no
-recovery key to lose.
+**Disk encryption is not planned** (OS-11), either on the system SSD or the
+library drive. The box stays at home and starts without someone present.
+Leaving the library drive unencrypted also means the family can still read
+its photos on another computer if the box fails, without needing a recovery
+key.
 
 ## 4. Boot, recovery and factory reset
 
@@ -155,8 +161,8 @@ recovery key to lose.
 Boot works without our own keys. Custom signed images (UKIs) wait for the A/B
 step ([§6.7](#67-later-a-read-only-system)).
 
-**A kernel that doesn't boot falls back by itself.** Debian keeps the previous
-kernel installed. With systemd-boot's boot counting, a new kernel gets three
+**If a kernel fails to boot, the box falls back automatically.** Debian keeps
+the previous kernel installed. With systemd-boot's boot counting, a new kernel gets three
 tries; if it fails all three, the boot loader starts the previous one, and the
 agent reports it in Box Desktop. `systemd-bless-boot` marks the new kernel good
 once the box's health check passes (`zoomriya-boot-check`: `/` is `@` and
@@ -166,10 +172,11 @@ try. `panic=10` on the kernel command line makes a kernel that can't even find
 its root restart too. Whether Debian 13's signed systemd-boot is usable here or
 GRUB has to stay is OS-5.
 
-**Recovery partition.** A small ZOOMRIYA OS image, never updated in place. It
-starts when the main system fails to boot after its tries run out, or when the
-reset is asked for (below). It can roll the system back to a snapshot, or
-reinstall it from the factory snapshot or a USB stick, and it never touches
+**Recovery partition.** This partition holds a small ZOOMRIYA OS image that
+is not updated in place. It starts if the main system still cannot boot after
+using its available tries, or when someone requests a reset (below). It can
+restore the system from a snapshot or reinstall it from the factory snapshot or
+a USB stick. It does not touch
 `@data`, `@postgres` or the library drives unless a full reset was asked for.
 
 **Factory reset.** Two levels, both in Box Desktop's Control Panel for an
@@ -192,11 +199,11 @@ none spare. How to reach the reset without signing in is OS-6.
 
 ## 5. First boot
 
-The first setup happens in front of the box, on a screen and keyboard plugged
-into it. Being there is what proves the box is yours, so nothing of the setup
-goes over the network, and it needs neither the apps nor ZOOMRIYA Connect.
+Setup takes place at the box, using a screen and keyboard plugged into it.
+Being there is how the owner confirms the box is theirs, so setup does not
+happen over the network and does not depend on the apps or ZOOMRIYA Connect.
 
-Before the setup shows, the box gets its sign-in ready by itself.
+Before showing the setup screen, the box prepares sign-in automatically.
 `zoomriya-services-init` makes PostgreSQL's cluster on `@postgres` (the image
 carries none, so no two boxes share one), and tmpfiles.d gives Valkey its folders; then
 `zoomriya-id-setup` runs ZOOMRIYA ID's `deploy/setup.sh`: its database role
@@ -206,9 +213,10 @@ everything or Reset the system, so the box comes back the same way. ZOOMRIYA
 ID is in the image as the package `zoomriya-id`, built from its own
 repository; it starts with no accounts.
 
-Then `zoomriya-setup` shows the setup app full screen on tty1 (sway, locked to
-one app with no keys or bars of its own, and a GTK 4 app in Python, drawn in
-software so any screen works), until the box is set up:
+Once those services are ready, `zoomriya-setup` runs the full-screen setup
+app on tty1. It uses sway locked to a single GTK 4 app, with no sway keys or
+bars, and renders in software so it can work without a graphics driver. The
+setup continues until the box is configured:
 
 1. **Welcome, and the language**, from Debian's languages (the `locales`
    package's list), each named in itself (Français, தமிழ்), with Noto fonts
@@ -247,10 +255,10 @@ The language, the region and the time zone are always asked: nothing is
 chosen for the person, and no step's Next works until its fields are filled
 in (the admin page says what's still missing).
 
-Each step is done on the box as soon as it's confirmed, and the setup asks the
-agent where things stand when it starts (`setup-status`), so a power cut loses
-nothing: an admin made before it takes the setup straight to Done. Setting the
-box up again takes Erase everything.
+Each confirmed step is saved as it happens. When setup starts, it asks the
+agent for the current state (`setup-status`), so a power cut does not undo
+completed steps. If an admin was already created, setup resumes at Done.
+Setting up the box again requires Erase everything.
 
 The setup app runs as its own account, `zoomriya-setup`, in `zoomriya-box`
 (the agent's group), with a seat session for the screen, keyboard and mouse;
@@ -391,8 +399,8 @@ so; Debian's security fixes on the host are the exception.
 
 ### 6.2 App releases
 
-What happens when an admin presses **Update** (whether updates can also be
-scheduled is OS-12):
+When an administrator presses **Update**, the agent follows these steps.
+Whether updates can also be scheduled is still an open decision (OS-12):
 
 1. **Download** the release: one image per app and a signed manifest listing
    each image's digest. **Check the signature** against the public key in
@@ -414,11 +422,12 @@ scheduled is OS-12):
 
 ### 6.3 Security fixes inside app images
 
-An image is frozen at the Debian packages it was built with, so the host's
-security fixes ([§6.1](#61-debian-security-fixes)) never reach it. Photos' image carries `ffmpeg`, which
-parses every video and photo a family uploads, so its fixes matter most. Four
-parts handle it: keep images small, notice fixes, rebuild without anyone's
-hands, and install them like the host's.
+An app image keeps the Debian packages it was built with, so it does not
+receive the host's security fixes ([§6.1](#61-debian-security-fixes)). This is
+particularly important for Photos' `ffmpeg`, which reads every video and
+photo a family uploads. The plan has four parts: keep images small, track
+available fixes, rebuild affected images, and install those rebuilds like
+host security updates.
 
 **1. Keep images small.** Every Debian package in an image is one more reason
 to rebuild it. Images list only what their native code needs, as Photos'
@@ -436,7 +445,7 @@ job runs `pip-audit` over each image's Python wheels (Pillow, onnxruntime,
 OpenCV), since those carry their own copies of libraries Debian doesn't patch
 for us.
 
-**3. Rebuild without anyone's hands.** CI rebuilds the marked image from the
+**3. Rebuild automatically.** CI rebuilds the marked image from the
 same git tag as the release it replaces: same app code, newer Debian packages.
 It runs the app's tests and the image checks (`verify_image.sh`), signs it and
 publishes it as a **security rebuild** of the same release, with a revision
@@ -452,9 +461,9 @@ the code is the same. The admin sees it afterwards in the update history, not
 as a question. A release with new app code still waits for the Update button.
 This is OS-3, option (c): the same exception as the host's security fixes in [§6.1](#61-debian-security-fixes).
 
-**What a hole in `ffmpeg` can reach until then.** Fixes take a day or two to
-reach a box, so the code that parses uploads runs as if it were already broken
-into: inside the image, as its own user, with `ProtectSystem=strict` and only
+**Limit the impact while a fix is on its way.** Fixes may take a day or two to
+reach a box, so upload processing runs with limited access: inside the image,
+as its own user, with `ProtectSystem=strict` and only
 `/data/zoomriya` writable (Photos' units today). Running each `ffmpeg` call in a
 transient unit with no network (`IPAddressDeny=any`), a system call filter and
 a time and memory limit narrows it further; that's for zoomriya-apps to add.
@@ -467,8 +476,8 @@ reconnect to PostgreSQL and Valkey by themselves.
 
 ### 6.5 Models and maps
 
-Unchanged: the models under `/data/models` and the street maps under
-`/data/maps` update when an admin asks, apart from any release.
+Models under `/data/models` and street maps under `/data/maps` continue to
+update when an administrator asks, independently of app releases.
 
 ### 6.6 Moving to Debian 14
 
@@ -493,10 +502,10 @@ until about mid 2030. Nothing moves by itself, because the sources name Debian
 
 ### 6.7 Later: a read-only system
 
-A writable root is the price of letting Debian patch the box by itself. The
-units' `ProtectSystem=strict` already makes `/usr`, `/etc` and `/boot` read-only
-to every service, and nobody can log in, so only apt and the agent can change
-the system.
+The root filesystem stays writable so Debian can install security fixes
+automatically. In practice, `ProtectSystem=strict` already makes `/usr`,
+`/etc` and `/boot` read-only to services. Since interactive logins are
+disabled, only apt and the agent can change the system.
 
 Once CI can rebuild, test and publish a whole system image whenever Debian
 publishes a fix, the box can move to two read-only system partitions, A and B,
@@ -507,10 +516,10 @@ packages, and nothing changes for families.
 
 ### 6.8 Our apt repository
 
-Our own packages (`zoomriya-base`, `zoomriya-agent`, `box-desktop-app`) come
-from our signed apt repository at **`apt.zoomriya.com`** (OS-8). It's the one
-place the box contacts us, so it's held to rules that keep it from becoming a
-box calling home:
+Our packages (`zoomriya-base`, `zoomriya-agent` and `box-desktop-app`) will
+come from our signed apt repository at **`apt.zoomriya.com`** (OS-8). The box
+will contact this repository only under the following conditions, so updates
+do not become a way for the box to report home:
 
 - **Only when an admin starts it.** The box never checks for our updates or
   installs them by itself: not at night, not with the security fixes. Its
@@ -538,13 +547,14 @@ box calling home:
 
 ## 7. zoomriya-agent
 
-The one root helper the OS adds, socket-activated like Photos' `storaged`, and
-written in Go: one static binary, standard library only. Its clients are the
-box's own screen: the first setup, and Box Desktop once an admin has signed
-in ([Box Desktop §6](box-desktop.md#6-how-its-built)); it lets in only root
-and the group `zoomriya-box`. Family Hub and the apps never ask it. The agent
-accepts only these requests, with fixed
-arguments, never a command line:
+`zoomriya-agent` is the only helper the OS adds that runs as root. It is a
+socket-activated Go service, like Photos' `storaged`, built as a static binary
+using only the standard library. Its clients are the first-boot setup and Box
+Desktop after an administrator signs in
+([Box Desktop §6](box-desktop.md#6-how-it-works)). Only root and members of
+the `zoomriya-box` group can access it; Family Hub and the apps do not call
+it. The agent accepts a fixed set of requests with defined arguments, not
+arbitrary commands:
 
 | Request | What it does |
 | --- | --- |
@@ -625,10 +635,9 @@ running ZOOMRIYA OS on their own mini PC. Off by default.
 
 ## 8. Hardening
 
-**Our own list.** The hardening below is our own, written as settings files in
-`zoomriya-base`, and checked by our own tests on every build. Where we choose
-not to follow common hardening advice, the reason and what stands in for it
-are written down (the last table).
+The hardening settings below live in `zoomriya-base` and are checked by our
+tests on every build. When the design differs from common hardening advice,
+the reason and the alternative measure are recorded in the final table.
 
 **Already done by this design**
 
@@ -693,13 +702,13 @@ VM test)
 | PAM password rules, lockout, password ageing | Families never log into Linux | ZOOMRIYA ID's rules: Argon2id, growing delays per account |
 | USB storage off | Backups and the reinstall stick use it | Plugged-in drives mounted `nosuid,nodev,noexec` by `storaged` |
 
-**Checked in CI** on every image build, booted in a VM: one check per item in
-this section, in `tests/hardening/`, checking both the settings and what is
-actually running, fails the build if any item is missing; Lynis catches
-general hardening drift beyond our list. The list and its differences above
-are what we hand to anyone who asks.
+**CI checks** run in a VM for every image build. Each item in this section has
+a check under `tests/hardening/` that verifies both the configuration and the
+running system; a missing check or setting fails the build. Lynis is also used
+to catch hardening issues outside our own checklist. We will share the
+checklist and its documented exceptions with anyone who asks.
 
-**The law.** The EU Cyber Resilience Act (vulnerability reporting from
+**Regulatory requirements.** The EU Cyber Resilience Act (vulnerability reporting from
 September 2026, the rest from December 2027) and the UK's PSTI Act ask for no
 default passwords ([§5](#5-first-boot)), security updates for a stated support period ([§6](#6-updates)), a
 way to report vulnerabilities, and, for the CRA, a software bill of materials
@@ -758,7 +767,7 @@ contains, alongside the software bill of materials, both from the same build.
 
 ## 10. Building and testing
 
-**What we build**, all with mkosi, Debian 13:
+The following images and packages are built with mkosi on Debian 13:
 
 | Output | For |
 | --- | --- |
@@ -768,17 +777,19 @@ contains, alongside the software bill of materials, both from the same build.
 | `zoomriya-base`, `zoomriya-agent`, `box-desktop-app` (`.deb`) | Our own signed apt repository, `apt.zoomriya.com` ([§6.8](#68-our-apt-repository)) |
 | App images | Built in zoomriya-apps, as Photos' are today |
 
-**The USB installer** (`mkosi/installer`, `zoomriya-installer`), for a
-bring-your-own computer and for reinstalling: a small read-only system on the
-stick that carries the disk image and shows one full-screen app, five steps
-down a side: Welcome checks the computer (UEFI, 4 GB of memory, a drive of 64
-GB or more) and looks for the internet, which it never needs: without it, a
-warning, and the install goes on, the image being on the stick (checking for
-security fixes while installing is still to design); Drive lists every drive, the stick itself and drives too small
-greyed out with the reason, and draws the chosen drive now and after
-installing; Summary asks once more, with a tick for "Erase everything on …";
-Install copies while a slideshow tells what the box does; Done offers Restart
-now, or Power off for a box set up later by its owner (the factory's case).
+**The USB installer** (`mkosi/installer`, `zoomriya-installer`) is for
+installing on a personal computer or reinstalling the system. The USB stick
+contains a small read-only system and the disk image, and presents a
+full-screen installer with five steps. Welcome checks for UEFI, at least 4 GB
+of memory and a drive of 64 GB or more. It also checks for internet access,
+but installation can continue without it because the image is on the stick;
+checking for security fixes during installation still needs to be designed.
+Drive lists the available disks and explains why the installer cannot use
+the stick itself or a disk that is too small. Summary asks the user to
+confirm which disk will be erased. Install copies the image while a slideshow
+introduces the box. Done offers a restart or shutdown, so the owner can set
+up the box later.
+
 The install is two passes of `systemd-repart`: the image's partitions copied
 as they are (`--copy-from`), then the system partition grown to the end of the
 drive with the same definitions as the factory's, then its Btrfs grown to
@@ -786,12 +797,13 @@ fill it and a boot entry added (`efibootmgr`; the firmware's fallback path
 works without it). The first setup then runs at the box's next start. Tested
 in a VM: `scripts/run-installer-vm.sh`.
 
-**Security rebuilds of app images** ([§6.3](#63-security-fixes-inside-app-images)): a CI job every 6 hours compares
-each published image's package manifest with Debian 13's security archive and
-runs `pip-audit` over its wheels, then rebuilds, tests, signs and publishes any image
-with a fix waiting.
+**Security rebuilds of app images** ([§6.3](#63-security-fixes-inside-app-images)):
+Every six hours, a CI job compares each published image's package manifest
+with Debian 13's security archive and runs `pip-audit` on its Python wheels.
+If it finds a fix waiting, CI rebuilds, tests, signs and publishes the image.
 
-**CI, for every change and whenever Debian publishes a security update:**
+**Continuous integration** runs for every change and whenever Debian
+publishes a security update:
 
 ```
 build ─► boot in a VM ─► first boot ─► app update and rollback ─► security
@@ -799,18 +811,18 @@ update and rollback ─► kernel that doesn't boot falls back ─► hardening 
 sign ─► publish
 ```
 
-The same app images are also tested on Debian 14 and on testing as soon as they
-exist, so a problem with the next Debian shows up a year before families would
-see it.
+As soon as Debian 14 and Debian testing are available, CI will also test the
+same app images on those releases. This should reveal compatibility problems
+well before families need to upgrade.
 
 Every build records its software bill of materials and the source packages it
 used.
 
 ## 11. Layout
 
-`mkosi/host/`, `zoomriya-base`, `zoomriya-agent`, `box-desktop-app`,
-`scripts/` and `tests/vm/` exist (plan steps 1, 4 and the start of 3); the
-rest is planned.
+The host image, `zoomriya-base`, `zoomriya-agent`, `box-desktop-app`,
+`scripts/` and `tests/vm/` are in place as part of plan steps 1 and 4 and the
+start of step 3. The other parts shown below are still planned.
 
 ```
 docs/              this design
@@ -851,33 +863,35 @@ tests/             VM tests: first boot, updates, rollback, fallback
 
 ## 13. Plan
 
-1. **The host image:** mkosi disk image with the partitions and subvolumes,
-   `zoomriya-base` with os-release, sources, firewall, sysctl and journald;
-   boots in a VM and on the box.
-2. **Every app in an image:** finish moving the apps and Photos' workers into
-   nspawn images (zoomriya-apps); move box and maps state under `/data`.
-3. **zoomriya-agent** with `status`, `restore-point-list`,
-   `restore-point-restore`, `restart`, `maintenance-hour`, `disk-health`,
-   `factory-reset`, `storage`, `storage-check`, `network` and `resources`,
-   and the maintenance hour's restart (done, and tested in a VM), then `os-update`, `apps`,
-   `app-update`, `app-restore`, and Box Desktop's first tools
-   ([Box Desktop §11](box-desktop.md#11-plan)).
-4. **Security updates:** unattended-upgrades, snapper, restoring, boot
-   counting, the health check that marks a new kernel good, and the
-   maintenance hour (done, and tested in a VM across a kernel update, a
-   restore and a kernel that can't start); a restore holding back the
-   update it undid (done, [§6.1](#61-debian-security-fixes); a VM test of a
-   real hold still to come); the CI job that rebuilds app
-   images when Debian fixes a package in them
+1. **Build the host image.** Create the mkosi disk image with its partitions
+   and subvolumes, and configure `zoomriya-base` with the OS name, package
+   sources, firewall, sysctl and journald settings. Boot it in a VM and on
+   the box.
+2. **Move every app into an image.** Finish moving the apps and Photos'
+   workers into `systemd-nspawn` images in `zoomriya-apps`, and move the box
+   and maps services' state under `/data`.
+3. **Build out `zoomriya-agent`.** Add its status, restore-point, restart,
+   maintenance-hour, disk-health, reset, storage, network and resource
+   requests. The maintenance-hour restart is implemented and tested in a VM.
+   Then add OS updates, app listing and app updates and restores, and finish
+   Box Desktop's first tools ([Box Desktop §11](box-desktop.md#11-plan)).
+4. **Complete security updates.** Automatic updates, snapper, restore points,
+   boot counting, kernel health checks and the maintenance-hour restart have
+   been tested in a VM, including a failed kernel boot. Restores now hold
+   back the update they undo ([§6.1](#61-debian-security-fixes)); a VM test
+   with an actual held package is still needed. The CI job to rebuild app
+   images for Debian security fixes is also still to come
    ([§6.3](#63-security-fixes-inside-app-images)).
-5. **First boot:** mDNS name and setup code (done); the first setup on the
-   box's screen with the admin in ZOOMRIYA ID (done, `zoomriya-setup`); then
-   ZOOMRIYA Connect's name and certificate, when it's added.
-6. **Recovery and reset:** the reset levels (done, from Box Desktop, and
-   tested in a VM); the recovery partition's image, and the USB reset.
-7. **Hardening:** done but for the profiles that come with the gateway,
-   connectd and the apps; one check per item in `tests/hardening/`,
-   and Lynis's hardening index reported on each run (67 at first).
-8. **Proven on the box itself:** a clean install, a restore drill, and an
-   update and rollback.
-9. **Later:** our own security mirror, the read-only A/B system, Debian 14.
+5. **Finish first boot.** The mDNS name, setup code and on-screen setup with
+   ZOOMRIYA ID are in place. Add the ZOOMRIYA Connect name and certificate
+   when that service is integrated.
+6. **Complete recovery and reset.** The reset options are available from Box
+   Desktop and have been tested in a VM. The recovery partition image and USB
+   reset path remain to be built.
+7. **Finish hardening.** Most settings and checks are in place. Add the
+   AppArmor profiles for the gateway, connectd and app services, then report
+   the Lynis hardening index for each run (67 on the first run).
+8. **Test on the box itself.** Complete a clean install, a restore drill, and
+   an update-and-rollback test.
+9. **Later work.** Add our own security mirror and the read-only A/B system,
+   then move to Debian 14.

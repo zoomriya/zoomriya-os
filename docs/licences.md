@@ -1,20 +1,21 @@
-# Licences: what ZOOMRIYA OS may use
+# Licences for ZOOMRIYA OS
 
 Part of [ZOOMRIYA OS](../README.md). November 2, 2026.
 
-**The rule: ZOOMRIYA OS uses only what we may use in a product we sell.** Every
-component the [design](design.md) names is below, with its licence, whether it
-allows commercial use, and what it asks of us. A new component is added here,
-checked, before it goes into an image.
+ZOOMRIYA OS uses components whose licences allow them to be included in a
+commercial product. This page lists the components named in the
+[design](design.md), their licences, whether commercial use is allowed and
+any obligations we need to meet. We review each new component before adding
+it to an image.
 
-This is our own reading of each licence, not legal advice.
+This is our understanding of the licences, not legal advice.
 
 ## On the box
 
-Debian's licences were read from the packages' own `copyright` files on Debian
-13.
+For Debian 13 packages, the licence information below was checked against
+each package's `copyright` file.
 
-| Component | Licence | Commercial use | What it asks of us |
+| Component | Licence | Commercial use | What we need to do |
 | --- | --- | --- | --- |
 | Debian 13, `main` | Many free licences, all meeting the Debian Free Software Guidelines | Yes | GPL and LGPL: offer the source of what we ship (below). Don't call the product Debian or use its logo |
 | Debian `non-free-firmware` (CPU microcode, Ethernet firmware) | Each vendor's own; redistribution allowed | Yes | Ship only what the box's hardware needs, with each licence file; no Wi-Fi firmware ([Design §5.1](design.md#51-wi-fi)) |
@@ -61,21 +62,25 @@ Debian's licences were read from the packages' own `copyright` files on Debian
 
 ## Source we must offer
 
-GPL and LGPL components shipped on the box, in the OS and in the app images,
-need their source offered to anyone who gets a box. Each release publishes the
-Debian source packages of everything in it, next to its software bill of
-materials, both from the same build ([design §10](design.md#10-building-and-testing)). The installer for
-bring-your-own mini PCs is distribution too, so it gets the same.
+For GPL and LGPL components shipped on the box, in the operating system or
+app images, we must offer the corresponding source to everyone who receives a
+box. Each release will publish the Debian source packages for everything it
+contains, alongside a software bill of materials, and both will come from the
+same build ([design §10](design.md#10-building-and-testing)). The USB
+installer for personal computers also distributes these components and will
+include the same source information.
 
-**The owner must be able to install their own changes.** Debian ships GPLv3
-software (bash, coreutils, grep, tar), and the box is a consumer device, so
-GPLv3 requires that its owner can install a modified version. Secure Boot
-therefore stays under the owner's control: the mini PC's firmware must let them
-turn it off or enroll their own keys, and the box must never be locked to our
-keys alone. The same holds for the later read-only A/B system ([design §6.7](design.md#67-later-a-read-only-system)).
+**Owners must be able to install their own changes.** Debian includes
+GPLv3-licensed software such as bash, coreutils, grep and tar. Because the box
+is a consumer device, GPLv3 requires that its owner can install a modified
+version. Secure Boot must therefore remain under the owner's control: the
+computer's firmware must allow them to disable it or enroll their own keys.
+The box must never be locked to our keys alone. This requirement also applies
+to the planned read-only A/B system
+([design §6.7](design.md#67-later-a-read-only-system)).
 
 ## Models
 
-| Model | Licence | Commercial use | What it asks of us |
+| Model | Licence | Commercial use | What we need to do |
 | --- | --- | --- | --- |
 | Gemma 4 E2B and E4B (the Myira model service; E2B by default), as GGUF files from `lmstudio-community` | Apache-2.0, Google's and the GGUF repackage's | Yes | Keep the licence and notice with the files |

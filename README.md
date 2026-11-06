@@ -12,8 +12,8 @@ Box Desktop; ZOOMRIYA OS looks after the system underneath.
 ## Why ZOOMRIYA OS?
 
 ZOOMRIYA OS is designed to feel less like managing a server and more like
-using an appliance. There is no Docker dependency, and normal administration
-does not require command-line work.
+using an appliance, and normal administration does not require command-line
+work.
 
 Applications run in their own versioned `systemd-nspawn` images, separate
 from the operating system. This lets applications be updated independently

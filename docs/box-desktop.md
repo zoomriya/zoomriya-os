@@ -1,19 +1,20 @@
 # Box Desktop: design
 
-November 4, 2026 · built in part; this says what's built and what's planned
+Design and implementation status · November 4, 2026
 
-Box Desktop is ZOOMRIYA OS's own desktop for the box's admins, on the box's
-own screen: storage, updates, restore points, resources, logs, the box's
-settings and reset, in windows on a desktop, with a top bar, a main menu,
-widgets, and tools that open as windows. It plays and records sound through
-the box's speakers and microphone.
+Box Desktop is the administrator's desktop environment on the ZOOMRIYA Box.
+It brings together tools for storage, updates, restore points, system
+resources, logs and settings, including reset options. Tools open in windows
+from a main menu, with widgets and a top bar for common actions. Box Desktop
+also plays and records sound through the box's speakers and microphone.
 
-It is part of ZOOMRIYA OS and lives in this public repository
-(`box-desktop-app`). Family Hub, the family's front door, lives in
-zoomriya-apps and stays private; using the box from elsewhere is Family Hub's
-and the apps'. Box Desktop talks to `zoomriya-agent`
-([Design §7](design.md#7-zoomriya-agent)) and to ZOOMRIYA ID's sign-in
-([§7](#7-signing-in)), and contains no code from zoomriya-apps.
+The `box-desktop-app` package is part of ZOOMRIYA OS and lives in this public
+repository. Family Hub, the family's main entry point, is developed in the
+private `zoomriya-apps` repository. People use Family Hub and the apps when
+accessing the box from elsewhere. Box Desktop communicates with
+`zoomriya-agent` ([Design §7](design.md#7-zoomriya-agent)) and uses ZOOMRIYA
+ID for sign-in ([§7](#7-signing-in)). It contains no code from
+`zoomriya-apps`.
 
 **Contents**
 
@@ -22,7 +23,7 @@ and the apps'. Box Desktop talks to `zoomriya-agent`
 3. [The desktop](#3-the-desktop)
 4. [The tools](#4-the-tools)
 5. [Words](#5-words)
-6. [How it's built](#6-how-its-built)
+6. [How it works](#6-how-it-works)
 7. [Signing in](#7-signing-in)
 8. [Security](#8-security)
 9. [What it doesn't do](#9-what-it-doesnt-do)
@@ -37,14 +38,14 @@ and the apps'. Box Desktop talks to `zoomriya-agent`
 | On the box's own screen, a native app (GTK 4 in Python under sway, like the first setup) | Decided |
 | A desktop with windows, top bar, main menu and widgets, with our own look, icons and names | Decided |
 | Admins only; other members never see it | Decided |
-| `zoomriya-agent` stays the only part that runs as root; Box Desktop runs as its own user and asks the agent ([§6](#6-how-its-built)) | Decided |
+| `zoomriya-agent` stays the only part that runs as root; Box Desktop runs as its own user and asks the agent ([§6](#6-how-it-works)) | Decided |
 | Plain words first, the technical details one click away ([§5](#5-words)) | Decided |
 
 ## 2. Who sees it and where
 
-- **On the box's screen,** once the box is set up: tty1 shows Box Desktop's
+- **On the box's screen:** Once setup is complete, tty1 shows Box Desktop's
   sign-in, with a keyboard, a mouse and a monitor plugged into the box.
-- **Admins only.** An admin signs in with their ZOOMRIYA ID; anyone else is
+- **For admins only.** An admin signs in with their ZOOMRIYA ID. Anyone else is
   told Box Desktop is for the box's admins ([§7](#7-signing-in)).
 - **From elsewhere, it's Family Hub and the apps.** Box Desktop listens on no
   network port.
@@ -58,40 +59,40 @@ and the apps'. Box Desktop talks to `zoomriya-agent`
 
 *From the mockup; the names, sizes and times are examples.*
 
-**The taskbar**, along the top:
+The taskbar runs along the top of the screen:
 
 | Left | Middle | Right |
 | --- | --- | --- |
 | The main menu button, the ZOOMRIYA mark | One button per open window; click to bring it forward or minimise it | A restart that's needed; notifications; the sound's volume; search; Daylight or Midnight; the widgets; the clock; the admin's menu (Restart the box, Sign out) |
 
-**The main menu** shows every tool as a large icon, with a search box. Any
+The main menu shows each tool as a large icon, with a search box. Any
 tool can be dragged to the desktop as a shortcut. The desktop starts with
 Control Panel, Storage Manager, App Center, Resource Monitor and Log Center.
 
 ![The main menu open over the desktop: a search box and every tool as an icon, with Family Hub last](images/box-desktop-menu.png)
 
-**Windows** open, move, resize, minimise, maximise and close like a
-computer's. Several can be open at once, and the same tool opens once (a
-second click brings it forward). Each window has its sections down the left
-side. Box Desktop remembers, per admin, which windows were open, where they
-were, the desktop shortcuts and the widgets, so their next sign-in looks the
-same.
+Windows can be moved, resized, minimised, maximised and closed. Several can
+stay open at once, but each tool opens only once; selecting it again brings
+its window forward. Sections appear down the left side of each window. Box
+Desktop remembers each admin's open windows and their positions, desktop
+shortcuts and widgets, so their layout is ready at their next sign-in.
 
-**Widgets**, in a panel on the right that can be hidden: Box health, CPU and
-memory, Space, Network, Backups, Updates. The admin picks which and in what
-order. Each opens its tool when clicked. The box's events aren't a widget:
-they're in Notifications (and in full in Log Center).
+Widgets appear in a panel on the right, which can be hidden. They show box
+health, CPU and memory, storage space, network, backups and updates. Admins
+choose which widgets to show and in what order. Each widget opens its related
+tool when clicked. Box events appear in Notifications and in full in Log
+Center.
 
-**Notifications** come from the agent's watcher (`zoomriya-agent watch`), which
-runs every quarter of an hour, after each security update and after each
-check of the library, and writes what changed into the journal: a drive's
-health changed, security fixes installed, a restart planned, the library's
-check finished or found a problem, network settings not kept and undone; later
-support mode and backups. The bell in the top bar lists the latest, newest
+The agent's watcher (`zoomriya-agent watch`) supplies notifications. It runs
+every 15 minutes, after security updates and after each library check, then
+records events in the journal. These include changes in drive health,
+installed security fixes, planned restarts, library check results and network
+settings that were not kept and were undone. Support mode and backups may be
+added later. The bell in the top bar lists the latest notifications, newest
 first, with a count of the ones since the admin last read them, and links to
 Log Center › Notifications, which keeps the last month's. Each
 admin turns kinds on or off in Control Panel › Notifications; their choices
-are kept with their own settings ([§6](#6-how-its-built)). Family Hub's box
+are kept with their own settings ([§6](#6-how-it-works)). Family Hub's box
 card shows the same few that matter to a family.
 
 **Keyboard and screen readers.** Every window, menu and widget can be reached
@@ -101,7 +102,7 @@ background jobs and notifications are announced.
 
 **Daylight and Midnight**, the apps' two themes: Daylight unless the admin
 switches, with the switch in the taskbar. Each admin's choice is kept in their
-settings ([§6](#6-how-its-built)), like their mouse and keyboard.
+settings ([§6](#6-how-it-works)), like their mouse and keyboard.
 
 **The wallpaper** is our own: dusk over the hills, with one house's window
 lit ([`images/box-desktop-wallpaper.svg`](images/box-desktop-wallpaper.svg)).
@@ -112,18 +113,19 @@ pick another image or a plain colour from their menu.
 
 ## 4. The tools
 
-Each tool is a window with sections down its left side. Where its data comes
-from is in the last column; requests marked *new* are added to the agent
+Each tool opens in a window, with its sections listed down the left side. The
+last column shows where its data comes from. Requests marked *new* still need
+to be added to the agent
 ([Design §7](design.md#7-zoomriya-agent)).
 
 ### Control Panel
 
-The box's settings, each section in the list down the window's left. A
-section shows its settings in rounded groups of rows on a quieter page: each
-row a title with a line of explanation under it and its control on the right
-(a switch, a list, Left | Right, a slider), and status at the top where it
-helps (Security's Protected and Secure Boot). Every row says what it does in
-plain words.
+Control Panel contains the box's settings, grouped into sections listed down
+the left side of the window. Within each section, related settings appear in
+groups of rows. Each row has a title, a short explanation and a control on
+the right, such as a switch, list or slider. Status appears at the top where
+it is useful, such as the Protected and Secure Boot indicators in Security.
+Each row explains its purpose in plain language.
 
 | Group | Section | What's in it | From |
 | --- | --- | --- | --- |
@@ -195,14 +197,15 @@ under Details, for support. No family content is ever in them.
 
 ### Support Center
 
-What support mode is, turning it on (the same switch as Control Panel's), the
-diagnostics bundle, and how to reach us. The help pages for every tool open
-here too.
+Support Center explains support mode, provides the same control for turning it
+on as Control Panel, and links to the diagnostics bundle and our contact
+information. Help pages for the other tools open here too.
 
 ## 5. Words
 
-Storage tools are usually written for people who know what a volume and a RAID
-group are. Box Desktop is for a parent who is the family's admin, so:
+Storage tools often assume that people know terms such as "volume" and "RAID
+group." Box Desktop is intended for whoever manages the family's box, so it
+uses these principles:
 
 - **Plain words first.** "Library drives", "Healthy", "Check soon", "Restore
   to this point", "The box will restart at 3:30 tonight". The technical names
@@ -213,7 +216,7 @@ group are. Box Desktop is for a parent who is the family's admin, so:
 - **Every risky button says what it changes and what it keeps**, as the
   factory reset table in [Design §4](design.md#4-boot-recovery-and-factory-reset) does.
 
-## 6. How it's built
+## 6. How it works
 
 ```
 the box's screen (tty1)
@@ -225,28 +228,29 @@ the box's screen (tty1)
                                      root, fixed requests only
 ```
 
-- **`box-desktop-app`,** a package in this repository: GTK 4 in Python, run by
+- **`box-desktop-app`** is a GTK 4 app written in Python and packaged in this
+  repository. It runs through
   `box-desktop-app.service` on tty1 once the box is set up, under sway, which
   shows it full screen with nothing else (no keys, bars or menus of sway's
   own). Drawn in software, so any screen works, with or without a graphics
   driver.
-- **The agent does everything that changes the box,** in the signed-in
-  admin's name, for its audit log. Box Desktop changes only what belongs to
-  its own screen and session: the keyboard's layout and the mouse while it
-  runs, the screen's resolution while an admin tries it (kept for the box by
-  the agent's `display-set`), and the sound's volume.
-- **Each admin's own settings:** one record per admin in
+- **The agent handles changes to the box** in the signed-in admin's name, so
+  each action can be audited. Box Desktop changes only what belongs to its
+  own screen and session: the keyboard layout and mouse settings while it
+  runs, the screen resolution while an admin tries it (saved for the box by
+  the agent's `display-set`), and the sound volume.
+- **Each admin has their own settings**, stored in a record under
   `/data/zoomriya/admin`, named by a hash of their member
-  id, readable by its account only: the theme, the keyboard layout and the
-  mouse, the notifications they've turned off or read, and their desktop
-  (windows, where they were). Written whole (a new file, then renamed), and
-  checked when read, so a damaged one is the defaults. On `@data`, so an OS
-  restore or Reset the system doesn't take them back; Erase everything does
-  (BD-4).
-- **Packaged with the OS**, as a `.deb` from our apt repository like
-  `zoomriya-base` and `zoomriya-agent`; it updates with ZOOMRIYA OS's own
+  id and readable only by that admin's account. It stores their theme,
+  keyboard and mouse settings, notification preferences and desktop layout.
+  Settings are written to a new file and renamed into place, then checked
+  when read; if a file is damaged, Box Desktop uses the defaults. The data
+  lives on `@data`, so an OS restore or Reset the system does not roll it
+  back. Erase everything does (BD-4).
+- **Box Desktop is packaged with the OS** as a `.deb` from our apt repository,
+  alongside `zoomriya-base` and `zoomriya-agent`. It updates with ZOOMRIYA OS's own
   releases, not with the apps.
-- **The look is ours:** our own icons, colours, artwork and names, and the
+- **The visual design is ours:** the icons, colours, artwork and names, and the
   ZOOMRIYA logo. Its two themes are the apps' own: Midnight, the default, and
   Daylight, chosen by each admin in the top bar and kept with their settings.
   Every library, font and icon goes through [Licences](licences.md) first.
@@ -255,11 +259,12 @@ the box's screen (tty1)
 
 ## 7. Signing in
 
-Box Desktop has no accounts of its own. [ZOOMRIYA ID](https://github.com/zoomriya/zoomriya-id)
-signs people in, as it does for every app: Box Desktop sends the username and
-password to ZOOMRIYA ID on the box (`/id/api/v1/auth/login`), asks who that is
-(`/auth/me`), and lets in only an admin. Signing out ends the session in
-ZOOMRIYA ID too. Each sign-in, and each refusal, goes into the journal for Log
+Box Desktop does not keep its own accounts. Like the other apps,
+[ZOOMRIYA ID](https://github.com/zoomriya/zoomriya-id) handles sign-in. Box
+Desktop sends the username and password to the local ZOOMRIYA ID service
+(`/id/api/v1/auth/login`), checks the account (`/auth/me`) and allows access
+only to an administrator. Signing out also ends the ZOOMRIYA ID session.
+Successful sign-ins and refusals are recorded in the journal and shown in Log
 Center's Sign-ins.
 
 **Risky actions ask for the password again**: Erase everything, Reset the
@@ -301,7 +306,7 @@ agent; Erase everything also needs the setup code from the sticker.
 | BD-3 | Notifications reaching an admin's phone | (a) Family Hub's notifications show the important ones, (b) Box Desktop only | Leaning (a) |
 | BD-4 | Where each admin's settings live | (a) Box Desktop's state folder on `@`, which an OS restore takes back to the restore point's, (b) under `/data`, which a restore doesn't touch ([Design §3](design.md#3-the-disk), OS-10) | Decided (b): `/data/zoomriya/admin` |
 
-## 11. Plan
+## 11. Development plan
 
 1. **The desktop on the box's screen.** Done: the sign-in with ZOOMRIYA ID,
    the top bar (the main menu, the open windows, notifications, the volume,
