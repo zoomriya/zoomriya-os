@@ -1,6 +1,6 @@
 # Box Desktop: design
 
-Design and implementation status · November 12, 2026
+Design and implementation status · November 13, 2026
 
 Box Desktop is the administrator's desktop environment on the ZOOMRIYA Box.
 It brings together tools for storage, updates, restore points, system
@@ -47,6 +47,8 @@ ID for sign-in ([§7](#7-signing-in)). It contains no code from
 | Admins only; other members never see it | Decided |
 | `zoomriya-agent` stays the only part that runs as root; Box Desktop runs as its own user and asks the agent ([§6](#6-how-it-works)) | Decided |
 | Plain words first, the technical details one click away ([§5](#5-words)) | Decided |
+| Myira in a panel, admins only: the OS's own Myira for the box, or the Myira app's answering in the same panel when it is installed; never a link from one to the other ([§4](#myira)) | Decided (13 November 2026), not built |
+| The box's one model service is part of ZOOMRIYA OS (`zoomriya-model`), with the API the apps already use ([§4](#myira)) | Decided (13 November 2026), not built |
 | Admins manage the family's accounts on the box as well (Control Panel › People), so a box with no Family Hub can still add someone. ZOOMRIYA ID keeps the accounts and checks every change, whichever screen asks ([§4](#control-panel)) | Decided |
 
 ## 2. Who sees it and where
@@ -392,6 +394,49 @@ ZOOMRIYA support never signs in to the box; the bundle is how it finds what's
 wrong. While advanced access is on, the top bar's pill says so when nothing
 more urgent is shown, and Box health shows it.
 
+### Myira
+
+Planned 13 November 2026, not built. Myira, the box's assistant, in a panel of
+Box Desktop, for admins only. **One panel, whichever Myira is on the box:** the
+OS has its own Myira for the box, and when the Myira app (one of the ZOOMRIYA
+apps) is installed, that Myira answers in the same panel instead. The admin
+never sees two assistants, and the panel never sends them somewhere else.
+
+```
+Box Desktop: the Myira panel (this repository)
+      │  the assistant contract: ask, stream, chats, cards
+      ├─▶ the Myira app installed and on for this admin ──▶ the Myira app answers
+      │                                                       everything it answers on /myira,
+      │                                                       plus the box, through the OS's tools
+      └─▶ otherwise ──────────────────────────────────────▶ the OS's own Myira: the box only
+```
+
+| Piece | Plan |
+| --- | --- |
+| Where | A **Myira** button on the top bar, left of notifications; a panel slides in from the right, in frosted glass, above the windows. Help's **?** in each tool opens it too, with that tool named |
+| Who answers | The Myira app, when it is installed and on for this admin (the app's own switch: Myira's skills follow the apps). Otherwise the OS's own Myira. `box-desktopd` decides for each question, so installing or removing the app changes the panel straight away |
+| The OS's own Myira | Answers questions about the box: storage, drives, backups, restore points, updates, people, network, ZOOMRIYA Connect, sound and the screen. How-tos come word for word from Support Center's Help, each with a button to the tool and section; the box's state from the OS's tools (below). Written for this repository; it holds no other Myira's code or words |
+| A question that isn't about the box | Without the Myira app, one fixed reply: "For now I can help with the box. With the ZOOMRIYA apps installed, I can answer much more." No link, no other app named. With the app, the question is simply answered |
+| The OS's tools (its skill) | Served by `box-desktopd` in the apps' tool shape (name, description, input schema, whether it changes something): reading the box's health, storage, backups, updates, network and ZOOMRIYA Connect; changing what the tools change without the password again (an update's time, a backup now, the volume), each on a card the admin confirms. Always on for an admin |
+| Never through Myira | What asks for the password again (§7): Erase everything, Reset the system, Restore to this point, Shut down, advanced access, SSH keys, making or removing an admin, turning an account off. Myira opens that tool's section instead |
+| Tools are called by the panel | Whichever Myira answers, it can only pick one of the OS's tools; the panel calls it through `box-desktopd` as the admin and sends back what came of it. The Myira app never reaches into the OS, and the OS's tools are never offered anywhere but this panel (not on `/myira`, not to AI apps through `/mcp`) |
+| Chats | The OS's own Myira keeps none: the panel's chat is gone when it is closed. With the Myira app, the panel shows the admin's own Myira chats, the same as on `/myira`, kept by the app |
+| The model | The box's one model service, part of ZOOMRIYA OS (`zoomriya-model`): llama.cpp's `llama-server` (MIT) and a small Go front for sign-in and choosing the model, on `127.0.0.1:8070`, loopback only, with the API the apps already use (`/myira/api/v1/complete`, `/complete/stream`, `/describe`, `/model`). It replaces the apps' own model service, so the box still loads one model, shared. The model files (Gemma 4, Apache-2.0, [Licences](licences.md)) are in `/data/models` |
+| No model yet | The panel says "Myira needs her model to answer (3.2 GB)." with **Download**, through the model's declared connection ([Design §8.2](design.md#82-internet-access)), or from a USB stick |
+| Words | Every reply and button in `po/<lang>.po`, in every language the box has, changed on the fly like the rest of Box Desktop |
+
+**The assistant contract.** Published in this repository so the Myira app can
+answer in the panel without sharing any of its code with the OS:
+
+| Request | What it does |
+| --- | --- |
+| `POST /assistant/ask` | A question (and the open chat's id) with the OS's tools offered; answers as a stream, one JSON object per line: `text`, `choices` (buttons), `source` (a page's name and date), `tool` (a tool picked, with its input), `card` (a change to confirm), `done` or `error` |
+| `POST /assistant/ask/tool` | What came of a tool, so the answer goes on |
+| `GET /assistant/chats`, `GET /assistant/chats/{id}`, `DELETE /assistant/chats/{id}` | The admin's chats, for a provider that keeps them |
+
+`box-desktopd` asks it on loopback as the signed-in admin, with their ZOOMRIYA
+ID token; the OS's own Myira answers the same contract inside `box-desktopd`.
+
 ## 5. Words
 
 Storage tools often assume that people know terms such as "volume" and "RAID
@@ -575,6 +620,8 @@ needs the setup code from the sticker.
 | BD-13 | Screenshots for support | Save the screen to a USB stick, or add it to a diagnostics bundle | Open |
 | BD-14 | The web window's address bar (§3) | (a) links only: it opens from a link, nothing to type, (b) also an address to type, making the box's screen a browser | Leaning (a): a general browser is a large target on the screen where an admin is signed in |
 | BD-16 | Files from the computer | In a browser on a computer, choose a picture, an app (`.zapp`) or an SSH key from that computer, as well as from a USB stick in the box | Open |
+| BD-17 | Myira's model on a new box ([§4](#myira)) | (a) the first setup offers it, (b) the first time the panel is opened, (c) in the OS image (3.2 GB more to download and flash) | Leaning (b): the OS works without it, and a box that never uses Myira never downloads it |
+| BD-18 | An emergency in the OS's own Myira ([§4](#myira)) | Someone types they're hurt or in danger into the box-only Myira: (a) the fixed reply as for any other question, (b) a fixed line of its own with the emergency number of where the family lives | Open |
 | BD-15 | The web window's blocklist (§3) | A tracker and ad list turned into WebKit's content-blocker rules. The well-known lists are GPL-3.0 or CC BY-SA, so their terms are checked first; or a list of our own | Open |
 
 ## 11. Development plan
@@ -606,3 +653,7 @@ the native desktop ([§6.3](#63-the-same-as-the-native-desktop)).
    shows it with the sample box; the page's own tests (`npm test`) and
    `box-desktopd`'s run with every build.
 8. **Away from home** with ZOOMRIYA Connect's apps.
+9. **Myira** ([§4](#myira)): the model service (`zoomriya-model`) in the OS
+   with the apps' API, then the panel and the OS's own Myira with Help's words
+   and the OS's tools, then the assistant contract, which the Myira app
+   answers.
