@@ -49,6 +49,7 @@ ID for sign-in ([§7](#7-signing-in)). It contains no code from
 | Plain words first, the technical details one click away ([§5](#5-words)) | Decided |
 | Myira in a panel, admins only: the OS's own Myira for the box, or the Myira app's answering in the same panel when it is installed; never a link from one to the other ([§4](#myira)) | Decided (13 November 2026), not built |
 | The box's one model service is part of ZOOMRIYA OS (`zoomriya-model`), with the API the apps already use ([§4](#myira)) | Decided (13 November 2026), not built |
+| English and French only for now (13 November 2026): German, Spanish, Tamil, Japanese and Simplified Chinese stay translated but hidden until a native speaker has checked each ([§5](#5-words)) | Decided, code not changed yet |
 | Admins manage the family's accounts on the box as well (Control Panel › People), so a box with no Family Hub can still add someone. ZOOMRIYA ID keeps the accounts and checks every change, whichever screen asks ([§4](#control-panel)) | Decided |
 
 ## 2. Who sees it and where
@@ -451,6 +452,26 @@ uses these principles:
   photos are safe on drive 1. Order a 4 TB or larger drive", with a link.
 - **Every risky button says what it changes and what it keeps**, as the
   factory reset table in [Design §4](design.md#4-boot-recovery-and-factory-reset) does.
+
+**Languages: English and French for now** (decided 13 November 2026). The
+installer, the wizard and Box Desktop offer only English and French. **There
+is no way to choose the other five:** they aren't listed in any language
+picker, not greyed out, not "coming soon", and no setting, address
+(`?lang=`) or box locale reaches them. The other five
+(German, Spanish, Tamil, Japanese, Simplified Chinese) are translated, but no
+native speaker has checked them, and a clumsy word on a screen that erases
+drives can mislead. They stay in `po/` and keep being updated, hidden, and are
+switched on one at a time after a native speaker's check, together with the
+apps and Myira. French gets a native speaker's check before launch too
+(Canadian French). A box already set to a hidden language shows English.
+
+| Code to change (not done yet) | Change |
+| --- | --- |
+| `packages/box-desktop/src/places.go` | `Languages` offers English and French only; `Ours` gives English for a hidden language. A list of released languages, so switching one on is one line. `places_test.go`'s `Ours` cases follow |
+| `packages/box-desktop/web/src/lib/i18n.svelte.ts` | `use()` accepts the released languages only; `OURS` stays the translated ones |
+| `packages/box-desktop/web/src/installer/Installer.svelte` | The installer's `LANGUAGES`: English and French |
+| `packages/zoomriya-installer/.../zoomriya_installer/i18n.py` | `LANGUAGES`: English and French (`server.py` refuses the others) |
+| `scripts/i18n.py` | Unchanged: all six translations still built |
 
 ## 6. How it works
 
