@@ -1,0 +1,13 @@
+#!/bin/sh
+# Build the installer's page into the package tree given as $1
+# (scripts/build-packages.sh): it lives with Box Desktop's, sharing its parts
+# (packages/box-desktop/web, installer.html), and its words are the
+# installer's own po/.
+set -eu
+
+here=$(cd "$(dirname "$0")" && pwd)
+web="$here/../box-desktop/web"
+(cd "$web" && npm ci --no-audit --no-fund && npm run check && npm run build:installer)
+mkdir -p "$1/usr/share/zoomriya-installer"
+rm -rf "$1/usr/share/zoomriya-installer/web"
+cp -a "$web/dist-installer" "$1/usr/share/zoomriya-installer/web"

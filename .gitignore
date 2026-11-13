@@ -1,0 +1,3 @@
+/build/
+/mkosi/*/mkosi.local.conf
+__pycache__/

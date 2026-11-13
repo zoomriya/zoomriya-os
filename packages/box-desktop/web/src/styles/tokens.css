@@ -1,0 +1,42 @@
+/* Generated from zoomriya-apps' packages/ui/src/styles/tokens.css by
+   packages/ui/scripts/export-tokens.mjs: don't edit here, change the apps'
+   tokens and run it again. The apps' Daylight and Midnight colours, for
+   desktop.css to use by name (var(--zr-primary)). */
+:root {
+  --zr-background: #f2f2f7;
+  --zr-surface: #f7f7f9;
+  --zr-surface-chrome: #efeff4;
+  --zr-surface-raised: #ffffff;
+  --zr-surface-nested: #f2f2f7;
+  --zr-text-primary: #1b2733;
+  --zr-text-secondary: #3a4754;
+  --zr-text-muted: #56636f;
+  --zr-border: #c6c6c8;
+  --zr-border-strong: #8e8e93;
+  --zr-primary: #1765c1;
+  --zr-primary-hover: #0f4c95;
+  --zr-text-on-accent: #ffffff;
+  --zr-success: #1f7a35;
+  --zr-warning: #c93400;
+  --zr-danger: #d70015;
+  --zr-ai: #8944ab;
+}
+:root.midnight {
+  --zr-background: #080a10;
+  --zr-surface: #0e1119;
+  --zr-surface-chrome: #131724;
+  --zr-surface-raised: #181d2b;
+  --zr-surface-nested: #202637;
+  --zr-text-primary: #d6dbe5;
+  --zr-text-secondary: #a9b1c3;
+  --zr-text-muted: #838b9f;
+  --zr-border: #ffffff14;
+  --zr-border-strong: #ffffff24;
+  --zr-primary: #7b93ff;
+  --zr-primary-hover: #9aabff;
+  --zr-text-on-accent: #0b0e1a;
+  --zr-success: #3ecf8e;
+  --zr-warning: #f2c14e;
+  --zr-danger: #f87171;
+  --zr-ai: #a98bfa;
+}

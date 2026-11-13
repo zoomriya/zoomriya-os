@@ -1,0 +1,30 @@
+# The USB installer on the computer's screen (design §10): sway shows
+# installer-screen full screen on tty1, the page from zoomriya-installer.service.
+# As its own account: only the server writes the drive.
+[Unit]
+Description=ZOOMRIYA OS installer, on the screen
+Documentation=https://github.com/zoomriya/zoomriya-os/blob/main/docs/design.md#10-building-and-testing
+After=systemd-user-sessions.service zoomriya-installer.service
+Wants=zoomriya-installer.service
+
+[Service]
+User=zoomriya-installer
+PAMName=zoomriya-installer
+TTYPath=/dev/tty1
+TTYReset=yes
+TTYVHangup=yes
+TTYVTDisallocate=yes
+StandardInput=tty-fail
+StandardOutput=journal
+StandardError=journal
+UtmpIdentifier=tty1
+UtmpMode=user
+WorkingDirectory=/usr/lib/zoomriya-installer
+# Drawn in software: any screen works, with or without a graphics driver.
+Environment=WLR_RENDERER=pixman GSK_RENDERER=cairo
+ExecStart=/usr/lib/zoomriya-installer/screen-session /usr/bin/python3 /usr/lib/zoomriya-installer/installer-screen
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target

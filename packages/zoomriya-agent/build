@@ -1,0 +1,11 @@
+#!/bin/sh
+# Build the agent into the package tree given as $1 (scripts/build-packages.sh).
+# A static binary: it needs nothing from the box but the kernel.
+set -eu
+
+here=$(cd "$(dirname "$0")" && pwd)
+mkdir -p "$1/usr/lib/zoomriya-agent"
+cd "$here/src"
+CGO_ENABLED=0 GOFLAGS=-mod=mod GOPROXY=off go test ./...
+CGO_ENABLED=0 GOFLAGS=-mod=mod GOPROXY=off \
+    go build -trimpath -ldflags='-s -w' -o "$1/usr/lib/zoomriya-agent/zoomriya-agent" .

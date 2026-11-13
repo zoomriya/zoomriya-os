@@ -1,0 +1,6 @@
+# Box Desktop's session on the box's screen (box-desktop-screen.service): a seat
+# session, for the screen, keyboard, mouse and sound, and its own PipeWire. No
+# password here: admins sign in to Box Desktop with ZOOMRIYA ID.
+account  required  pam_unix.so
+session  required  pam_unix.so
+session  required  pam_systemd.so

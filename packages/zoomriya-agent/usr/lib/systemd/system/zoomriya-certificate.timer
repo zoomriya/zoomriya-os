@@ -1,0 +1,10 @@
+# The box's certificates, looked at every five minutes.
+[Unit]
+Description=ZOOMRIYA certificates, every five minutes
+
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=5min
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,109 @@
+"""The sample box's agent for the first setup (carried over from the native
+setup's fake.py), under sample.py's for Box Desktop.
+
+The cable is plugged in a few seconds after the network page opens; the
+password "taken" plays an admin that already exists. On the phone step, the
+code is 123456; the setup code is shown at the end, as on a box with no sticker.
+"""
+
+from __future__ import annotations
+
+import time
+from typing import Any
+
+
+
+class AgentError(Exception):
+    """The agent's refusal, worded for the person at the box."""
+
+LAYOUTS = [
+    {"id": "us", "name": "English (US)"},
+    {"id": "gb", "name": "English (UK)"},
+    {"id": "ca", "name": "French (Canada)"},
+    {"id": "fr", "name": "French"},
+]
+
+
+class FakeAgent:
+    def __init__(self) -> None:
+        self.started = time.monotonic()
+        self.layout = "us"
+        self.zone = "Etc/UTC"
+        self.region = ""
+        self.subdivision = ""
+        self.locale = ""
+        self.mode = "dhcp"
+        self.fixed: dict[str, Any] | None = None
+        self.admin: str | None = None
+        self.finished = False
+
+    def ask(self, op: str, **fields: Any) -> dict[str, Any]:
+        time.sleep(0.2)
+        if op == "keyboard":
+            return {"layout": self.layout, "layouts": LAYOUTS}
+        if op == "keyboard-set":
+            self.layout = fields["layout"]
+            return {}
+        if op == "network":
+            return self._network()
+        if op == "network-set":
+            self.mode = fields["mode"]
+            self.fixed = fields if self.mode == "fixed" else None
+            return {"link": "enp1s0", "mode": self.mode}
+        if op == "network-keep":
+            return {"kept": ["enp1s0"]}
+        if op == "setup-status":
+            return {
+                "finished": self.finished,
+                "has_admin": self.admin is not None,
+                "language": self.locale,
+                "region": self.region,
+                "subdivision": self.subdivision,
+                "zone": self.zone,
+                "clock_synced": True,
+                "setup_code": None if self.finished else "K7QM-4XRT",
+            }
+        if op == "language-set":
+            self.locale = fields["locale"]
+            return {"language": self.locale}
+        if op == "region-set":
+            self.region = fields["region"]
+            self.subdivision = fields.get("subdivision") or ""
+            return {"region": self.region, "subdivision": self.subdivision}
+        if op == "time-zone-set":
+            self.zone = fields["zone"]
+            return {"zone": self.zone}
+        if op == "first-admin":
+            if fields["password"] == "taken":
+                raise AgentError("ZOOMRIYA ID already has an admin on this box.")
+            self.admin = fields["username"].strip()
+            return {"username": self.admin}
+        if op == "setup-finish":
+            self.finished = True
+            return {"finished": True}
+        raise AgentError(f"Unknown request: {op!r}.")
+
+    def _network(self) -> dict[str, Any]:
+        plugged = time.monotonic() - self.started > 4
+        address = "192.168.1.57/24"
+        if self.fixed:
+            address = self.fixed["address"]
+        link = {
+            "name": "enp1s0",
+            "kind": "ethernet",
+            "connected": plugged,
+            "mac": "52:54:00:12:34:56",
+            "speed_mbps": 1000 if plugged else 0,
+            "ipv4": [address] if plugged else [],
+            "ipv6": [],
+            "default": plugged,
+            "gateway": "192.168.1.1" if plugged else "",
+            "mode": self.mode,
+        }
+        return {
+            "name": "zoomriya-7k2q.local",
+            "online": plugged,
+            "via": "ethernet" if plugged else "",
+            "links": [link],
+            "dns": ["192.168.1.1"] if plugged else [],
+        }

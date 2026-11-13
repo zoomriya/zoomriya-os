@@ -1,0 +1,4306 @@
+# box-desktop: ja. Made by scripts/i18n.py extract; translate the empty msgstr.
+# "fuzzy": a draft still to be checked by a native speaker.
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: ja\n"
+
+#: components/Confirm.svelte:55
+#, fuzzy
+msgid "Your password"
+msgstr "パスワード"
+
+#: components/Confirm.svelte:58
+#, fuzzy
+msgid "Cancel"
+msgstr "キャンセル"
+
+#: components/Password.svelte:19
+#, fuzzy
+msgid "Hide password"
+msgstr "パスワードを隠す"
+
+#: components/Password.svelte:19
+#, fuzzy
+msgid "Show password"
+msgstr "パスワードを表示"
+
+#: components/Sheet.svelte:13 pages/Window.svelte:63
+#, fuzzy
+msgid "Close"
+msgstr "閉じる"
+
+#: components/Switch.svelte:8
+#, fuzzy
+msgid "Always on"
+msgstr "常にオン"
+
+#: components/Switch.svelte:8 tools/Access.svelte:73 tools/People.svelte:31
+#, fuzzy
+msgid "Off"
+msgstr "オフ"
+
+#: lib/api.ts:44
+#, fuzzy
+msgid "That username and password don't match."
+msgstr "ユーザー名とパスワードが一致しません。"
+
+#: lib/api.ts:45
+#, fuzzy
+msgid "Choose your own password to finish signing in."
+msgstr "サインインするには自分のパスワードを決めてください。"
+
+#: lib/api.ts:46
+#, fuzzy
+msgid "Enter the code from your authenticator app."
+msgstr "認証アプリのコードを入力してください。"
+
+#: lib/api.ts:47
+#, fuzzy
+msgid "Set up a second sign-in step first."
+msgstr "先に2段階目のサインインを設定してください。"
+
+#: lib/api.ts:48
+#, fuzzy
+msgid "That code isn't right. Check the time on your phone, or use a backup code."
+msgstr "コードが違います。スマホの時刻を確認するか、バックアップコードを使ってください。"
+
+#: lib/api.ts:49
+#, fuzzy
+msgid "Signing in took too long. Start again with your password."
+msgstr "時間がかかりすぎました。パスワードからやり直してください。"
+
+#: lib/api.ts:50
+#, fuzzy
+msgid "Choose a password you aren't using now."
+msgstr "今と違うパスワードにしてください。"
+
+#: lib/api.ts:51
+#, fuzzy
+msgid "Too many wrong passwords. Try again in 15 minutes, or use Can't sign in?"
+msgstr "パスワードの誤りが多すぎます。15 分後にお試しいただくか、「サインインできませんか？」を使ってください。"
+
+#: lib/api.ts:52
+#, fuzzy
+msgid "Too many tries. Try again in a minute."
+msgstr "試行回数が多すぎます。1 分後にお試しください。"
+
+#: lib/api.ts:53
+#, fuzzy
+msgid "ZOOMRIYA ID couldn't sign you in just now."
+msgstr "ZOOMRIYA ID で今はサインインできませんでした。"
+
+#: lib/api.ts:54
+#, fuzzy
+msgid "ZOOMRIYA ID isn't responding. Try again shortly."
+msgstr "ZOOMRIYA ID が応答しません。しばらくしてからお試しください。"
+
+#: lib/api.ts:55
+#, fuzzy
+msgid "Box Desktop is for the box's admins."
+msgstr "Box Desktop はボックスの管理者専用です。"
+
+#: lib/api.ts:56
+#, fuzzy
+msgid "ZOOMRIYA ID couldn't check your password just now."
+msgstr "ZOOMRIYA ID がいまパスワードを確認できませんでした。"
+
+#: lib/api.ts:57
+#, fuzzy
+msgid "That password isn't right."
+msgstr "パスワードが違います。"
+
+#: lib/api.ts:59
+#, fuzzy
+msgid "That isn't your password."
+msgstr "パスワードが違います。"
+
+#: lib/api.ts:60
+#, fuzzy
+msgid "Sign in again to make changes."
+msgstr "変更するにはもう一度サインインしてください。"
+
+#: lib/api.ts:61
+#, fuzzy
+msgid "Only the box's admins can do that."
+msgstr "ボックスの管理者だけができます。"
+
+#: lib/api.ts:62
+#, fuzzy
+msgid "That username is taken. Try another."
+msgstr "そのユーザー名は使われています。別の名前にしてください。"
+
+#: lib/api.ts:63
+#, fuzzy
+msgid "ZOOMRIYA ID didn't accept that."
+msgstr "ZOOMRIYA ID が受け付けませんでした。"
+
+#: lib/api.ts:64
+#, fuzzy
+msgid "ZOOMRIYA ID couldn't make that change just now."
+msgstr "ZOOMRIYA ID で今は変更できませんでした。"
+
+#: lib/api.ts:65
+#, fuzzy
+msgid "The box isn't responding. Try again shortly."
+msgstr "ボックスが応答しません。しばらくしてからお試しください。"
+
+#: lib/api.ts:66
+#, fuzzy
+msgid "The box gave an answer the setup can't read."
+msgstr "ボックスの応答を読み取れませんでした。"
+
+#: lib/api.ts:67 lib/api.ts:75
+#, fuzzy
+msgid "The box couldn't do that."
+msgstr "ボックスはそれを実行できませんでした。"
+
+#: lib/api.ts:68 pages/SignIn.svelte:216
+#, fuzzy
+msgid "This works at the box's own screen only."
+msgstr "ボックスの画面でのみ使えます。"
+
+#: lib/api.ts:69
+#, fuzzy
+msgid "The box couldn't keep that picture."
+msgstr "ボックスに画像を保存できませんでした。"
+
+#: lib/api.ts:70
+#, fuzzy
+msgid "ZOOMRIYA ID isn't responding. Try again, or do this later."
+msgstr "ZOOMRIYA ID が応答しません。もう一度試すか、あとで行ってください。"
+
+#: lib/api.ts:71
+#, fuzzy
+msgid "ZOOMRIYA ID couldn't start this just now. Try again, or do this later."
+msgstr "ZOOMRIYA ID が開始できませんでした。もう一度試すか、あとで行ってください。"
+
+#: lib/api.ts:72
+#, fuzzy
+msgid "ZOOMRIYA ID couldn't finish this just now. Try again, or do this later."
+msgstr "ZOOMRIYA ID が完了できませんでした。もう一度試すか、あとで行ってください。"
+
+#: lib/api.ts:73
+#, fuzzy
+msgid "That code isn't right. Enter the code the app shows now."
+msgstr "コードが違います。いま表示されているコードを入力してください。"
+
+#: lib/api.ts:74
+#, fuzzy
+msgid "That took too long. Press Try again for a new code."
+msgstr "時間がかかりすぎました。「もう一度」で新しいコードを表示します。"
+
+#: lib/desk.svelte.ts:16
+#, fuzzy
+msgid "Control Panel"
+msgstr "コントロールパネル"
+
+#: lib/desk.svelte.ts:17
+#, fuzzy
+msgid "Storage Manager"
+msgstr "ストレージ マネージャー"
+
+#: lib/desk.svelte.ts:18
+#, fuzzy
+msgid "App Center"
+msgstr "アプリセンター"
+
+#: lib/desk.svelte.ts:19
+#, fuzzy
+msgid "Resource Monitor"
+msgstr "リソースモニター"
+
+#: lib/desk.svelte.ts:20 pages/MainMenu.svelte:30
+#, fuzzy
+msgid "Log Center"
+msgstr "ログセンター"
+
+#: lib/desk.svelte.ts:21 lib/search.ts:71
+#, fuzzy
+msgid "Support Center"
+msgstr "サポートセンター"
+
+#: lib/desk.svelte.ts:40 lib/words.ts:276 pages/Setup.svelte:16 pages/Widgets.svelte:87 tools/Resources.svelte:43
+#, fuzzy
+msgid "Network"
+msgstr "ネットワーク"
+
+#: lib/desk.svelte.ts:40 tools/Display.svelte:143
+#, fuzzy
+msgid "Display"
+msgstr "ディスプレイ"
+
+#: lib/desk.svelte.ts:40
+#, fuzzy
+msgid "Appearance"
+msgstr "外観"
+
+#: lib/desk.svelte.ts:41 pages/TopBar.svelte:112 pages/TopBar.svelte:112
+#, fuzzy
+msgid "Sound"
+msgstr "サウンド"
+
+#: lib/desk.svelte.ts:42
+#, fuzzy
+msgid "Keyboard & Mouse"
+msgstr "キーボードとマウス"
+
+#: lib/desk.svelte.ts:42 tools/Language.svelte:70
+#, fuzzy
+msgid "Language & Region"
+msgstr "言語と地域"
+
+#: lib/desk.svelte.ts:43
+#, fuzzy
+msgid "Date and time"
+msgstr "日付と時刻"
+
+#: lib/desk.svelte.ts:43 tools/People.svelte:53
+#, fuzzy
+msgid "People"
+msgstr "ユーザー"
+
+#: lib/desk.svelte.ts:43 lib/desk.svelte.ts:57 pages/TopBar.svelte:86 pages/TopBar.svelte:86 pages/TopBar.svelte:94
+#, fuzzy
+msgid "Notifications"
+msgstr "通知"
+
+#: lib/desk.svelte.ts:44
+#, fuzzy
+msgid "Security"
+msgstr "セキュリティ"
+
+#: lib/desk.svelte.ts:44 pages/Widgets.svelte:21 tools/Access.svelte:72
+#, fuzzy
+msgid "Advanced access"
+msgstr "高度なアクセス"
+
+#: lib/desk.svelte.ts:44 lib/words.ts:274
+#, fuzzy
+msgid "Restarts"
+msgstr "再起動"
+
+#: lib/desk.svelte.ts:45
+#, fuzzy
+msgid "Restore & Reset"
+msgstr "復元とリセット"
+
+#: lib/desk.svelte.ts:45
+#, fuzzy
+msgid "System Info"
+msgstr "システム情報"
+
+#: lib/desk.svelte.ts:48 lib/desk.svelte.ts:52
+#, fuzzy
+msgid "Overview"
+msgstr "概要"
+
+#: lib/desk.svelte.ts:48 pages/Widgets.svelte:17 tools/Drives.svelte:22
+#, fuzzy
+msgid "Drives"
+msgstr "ドライブ"
+
+#: lib/desk.svelte.ts:48 pages/Widgets.svelte:110 tools/Space.svelte:21
+#, fuzzy
+msgid "Space"
+msgstr "容量"
+
+#: lib/desk.svelte.ts:48 tools/Backups.svelte:40 tools/Backups.svelte:55
+#, fuzzy
+msgid "Backups"
+msgstr "バックアップ"
+
+#: lib/desk.svelte.ts:50
+#, fuzzy
+msgid "Installed"
+msgstr "インストール済み"
+
+#: lib/desk.svelte.ts:50 tools/AppsInstalled.svelte:96
+#, fuzzy
+msgid "Add from USB"
+msgstr "USB から追加"
+
+#: lib/desk.svelte.ts:52 tools/ByApp.svelte:17
+#, fuzzy
+msgid "By app"
+msgstr "アプリ別"
+
+#: lib/desk.svelte.ts:52 tools/About.svelte:35 tools/Drives.svelte:15 tools/Temperature.svelte:18
+#, fuzzy
+msgid "Temperature"
+msgstr "温度"
+
+#: lib/desk.svelte.ts:54 lib/desk.svelte.ts:59
+#, fuzzy
+msgid "Diagnostics"
+msgstr "診断"
+
+#: lib/desk.svelte.ts:54
+#, fuzzy
+msgid "Contact us"
+msgstr "お問い合わせ"
+
+#: lib/desk.svelte.ts:54 lib/search.ts:71 pages/Window.svelte:57 pages/Window.svelte:57
+#, fuzzy
+msgid "Help"
+msgstr "ヘルプ"
+
+#: lib/desk.svelte.ts:57
+#, fuzzy
+msgid "Box events"
+msgstr "ボックスのイベント"
+
+#: lib/desk.svelte.ts:57
+#, fuzzy
+msgid "Admin actions"
+msgstr "管理者の操作"
+
+#: lib/desk.svelte.ts:58
+#, fuzzy
+msgid "Sign-ins"
+msgstr "サインイン"
+
+#: lib/desk.svelte.ts:58
+#, fuzzy
+msgid "Family activity"
+msgstr "家族のアクティビティ"
+
+#: lib/desk.svelte.ts:58 pages/MainMenu.svelte:30
+#, fuzzy
+msgid "System log"
+msgstr "システムログ"
+
+#: lib/desk.svelte.ts:708
+#, fuzzy
+msgid "Restart the box?"
+msgstr "ボックスを再起動しますか?"
+
+#: lib/desk.svelte.ts:709
+#, fuzzy
+msgid "Everything stops for a minute or two, then starts again."
+msgstr "すべてが 1〜2 分止まり、その後再び起動します。"
+
+#: lib/desk.svelte.ts:710 pages/Widgets.svelte:20
+#, fuzzy
+msgid "Restart"
+msgstr "再起動"
+
+#: lib/desk.svelte.ts:722
+#, fuzzy
+msgid "Shut the box down?"
+msgstr "ボックスをシャットダウンしますか?"
+
+#: lib/desk.svelte.ts:723
+#, fuzzy
+msgid "All apps stop and backups pause until someone presses the power button."
+msgstr "誰かが電源ボタンを押すまで、すべてのアプリが止まり、バックアップも一時停止します。"
+
+#: lib/desk.svelte.ts:724
+#, fuzzy
+msgid "Shut down"
+msgstr "シャットダウン"
+
+#: lib/format.ts:15
+#, fuzzy
+msgid "KB"
+msgstr "KB"
+
+#: lib/format.ts:15
+#, fuzzy
+msgid "MB"
+msgstr "MB"
+
+#: lib/format.ts:15
+#, fuzzy
+msgid "GB"
+msgstr "GB"
+
+#: lib/format.ts:15
+#, fuzzy
+msgid "TB"
+msgstr "TB"
+
+#: lib/format.ts:44 tools/Display.svelte:31
+#, fuzzy
+msgid "Never"
+msgstr "なし"
+
+#: lib/format.ts:59
+#, fuzzy
+msgid "{date} at {time}"
+msgstr "{date} {time}"
+
+#: lib/format.ts:82
+#, fuzzy
+msgid "1 day"
+msgstr "1 日"
+
+#: lib/format.ts:82 tools/Drives.svelte:16
+#, fuzzy
+msgid "{n} days"
+msgstr "{n} 日"
+
+#: lib/format.ts:85
+#, fuzzy
+msgid "1 hour"
+msgstr "1 時間"
+
+#: lib/format.ts:85
+#, fuzzy
+msgid "{n} hours"
+msgstr "{n} 時間"
+
+#: lib/format.ts:86 tools/Display.svelte:31
+#, fuzzy
+msgid "{n} minutes"
+msgstr "{n} 分"
+
+#: lib/network.ts:29
+#, fuzzy
+msgid "The subnet mask should look like 255.255.255.0."
+msgstr "サブネットマスクは 255.255.255.0 のような形式です。"
+
+#: lib/network.ts:30
+#, fuzzy
+msgid "The box's address should look like 192.168.1.40."
+msgstr "ボックスのアドレスは 192.168.1.40 のような形式です。"
+
+#: lib/people.ts:31
+#, fuzzy
+msgid "Use at least 8 characters."
+msgstr "8文字以上にしてください。"
+
+#: lib/people.ts:32
+#, fuzzy
+msgid "The passwords don't match."
+msgstr "パスワードが一致しません。"
+
+#: lib/people.ts:37
+#, fuzzy
+msgid "Type their name."
+msgstr "名前を入力してください。"
+
+#: lib/people.ts:38
+#, fuzzy
+msgid "Type a username with no spaces."
+msgstr "空白なしのユーザー名にしてください。"
+
+#: lib/people.ts:39 tools/EditPerson.svelte:39
+#, fuzzy
+msgid "Choose a parent or guardian."
+msgstr "保護者を選んでください。"
+
+#: lib/support.ts:12
+#, fuzzy
+msgid "Until {date}"
+msgstr "{date} まで"
+
+#: lib/support.ts:18 tools/ReviewBundle.svelte:46
+#, fuzzy
+msgid "No problems found"
+msgstr "問題は見つかりません"
+
+#: lib/support.ts:20
+#, fuzzy
+msgid "1 problem"
+msgstr "問題 1 件"
+
+#: lib/support.ts:20
+#, fuzzy
+msgid "{n} problems"
+msgstr "問題 {n} 件"
+
+#: lib/support.ts:21
+#, fuzzy
+msgid "1 warning"
+msgstr "警告 1 件"
+
+#: lib/support.ts:21
+#, fuzzy
+msgid "{n} warnings"
+msgstr "警告 {n} 件"
+
+#: lib/words.ts:144
+#, fuzzy
+msgid "ethernet cable ip address dhcp fixed static router gateway dns lan wifi wireless internet"
+msgstr "イーサネット ケーブル IPアドレス 固定 ルーター ゲートウェイ ネットワーク 有線 無線 Wi-Fi インターネット"
+
+#: lib/words.ts:145
+#, fuzzy
+msgid "screen monitor resolution refresh rate rotate orientation scale size text"
+msgstr "画面 モニター 解像度 リフレッシュレート 回転 向き 拡大縮小 サイズ 文字"
+
+#: lib/words.ts:146
+#, fuzzy
+msgid "theme dark light night day midnight daylight accent colour color wallpaper background picture photo desktop look"
+msgstr "テーマ ダーク ライト 夜 昼 アクセント 色 壁紙 背景 画像 写真 デスクトップ 外観"
+
+#: lib/words.ts:147
+#, fuzzy
+msgid "audio speakers headphones volume microphone mic input output mute"
+msgstr "オーディオ スピーカー ヘッドホン 音量 マイク 入力 出力 ミュート"
+
+#: lib/words.ts:148
+#, fuzzy
+msgid "layout keys mouse cursor pointer speed left handed scroll touchpad"
+msgstr "配列 キー マウス カーソル ポインター 速度 左利き スクロール タッチパッド"
+
+#: lib/words.ts:149
+#, fuzzy
+msgid "language translation country region province state locale"
+msgstr "言語 翻訳 国 地域 都道府県 州"
+
+#: lib/words.ts:150
+#, fuzzy
+msgid "clock date time zone timezone ntp sync"
+msgstr "時計 日付 時刻 タイムゾーン 同期"
+
+#: lib/words.ts:151
+#, fuzzy
+msgid "users accounts members family admins add person password forgot children kids parents guardians"
+msgstr "ユーザー アカウント メンバー 家族 管理者 追加 人 パスワード 忘れた 子ども 親 保護者"
+
+#: lib/words.ts:152
+#, fuzzy
+msgid "alerts bell messages"
+msgstr "アラート ベル メッセージ"
+
+#: lib/words.ts:153
+#, fuzzy
+msgid "firewall ports updates patches secure boot apparmor scan integrity privacy outbound"
+msgstr "ファイアウォール ポート アップデート パッチ セキュアブート スキャン 整合性 プライバシー 送信"
+
+#: lib/words.ts:154
+#, fuzzy
+msgid "ssh terminal command line shell remote sudo admin keys"
+msgstr "ターミナル コマンドライン シェル リモート 管理者 鍵"
+
+#: lib/words.ts:155
+#, fuzzy
+msgid "reboot restart power shut down shutdown maintenance hour always on sleep"
+msgstr "再起動 電源 シャットダウン 停止 メンテナンス 時刻 常時オン スリープ"
+
+#: lib/words.ts:156
+#, fuzzy
+msgid "restore rollback undo update snapshot reset factory erase wipe"
+msgstr "復元 ロールバック 元に戻す アップデート スナップショット リセット 初期化 消去"
+
+#: lib/words.ts:157
+#, fuzzy
+msgid "about system info model serial number version processor memory support period"
+msgstr "情報 システム情報 モデル シリアル番号 バージョン プロセッサー メモリ サポート期間"
+
+#: lib/words.ts:158
+#, fuzzy
+msgid "disk space library mirror check scrub damage full"
+msgstr "ディスク 容量 ライブラリ ミラー チェック 破損 いっぱい"
+
+#: lib/words.ts:159
+#, fuzzy
+msgid "drive disk health smart failing replace temperature"
+msgstr "ドライブ ディスク 状態 故障 交換 温度"
+
+#: lib/words.ts:160
+#, fuzzy
+msgid "space usage full photos apps databases"
+msgstr "容量 使用量 いっぱい 写真 アプリ データベース"
+
+#: lib/words.ts:161
+#, fuzzy
+msgid "backup backups restic copy nightly restore safe offsite"
+msgstr "バックアップ 復元 コピー 毎晩 安全 外部"
+
+#: lib/words.ts:162
+#, fuzzy
+msgid "apps applications installed remove uninstall delete restore version update running"
+msgstr "アプリ アプリケーション インストール済み 削除 アンインストール 消去 復元 バージョン アップデート 実行中"
+
+#: lib/words.ts:163
+#, fuzzy
+msgid "install add app usb stick package zapp sideload new update"
+msgstr "インストール 追加 アプリ USB メモリ パッケージ zapp 新規 アップデート"
+
+#: lib/words.ts:164
+#, fuzzy
+msgid "cpu processor memory ram load network activity performance"
+msgstr "プロセッサー メモリ 負荷 ネットワーク 動作 パフォーマンス"
+
+#: lib/words.ts:165
+#, fuzzy
+msgid "app service busy slow usage"
+msgstr "アプリ サービス 忙しい 遅い 使用量"
+
+#: lib/words.ts:166
+#, fuzzy
+msgid "temperature heat hot fan sensors"
+msgstr "温度 熱 熱い ファン センサー"
+
+#: lib/words.ts:167
+#, fuzzy
+msgid "events history updates restarts"
+msgstr "イベント 履歴 アップデート 再起動"
+
+#: lib/words.ts:168
+#, fuzzy
+msgid "past notifications alerts history"
+msgstr "過去の通知 アラート 履歴"
+
+#: lib/words.ts:169
+#, fuzzy
+msgid "audit who changed admin actions history"
+msgstr "監査 誰が変更 管理者の操作 履歴"
+
+#: lib/words.ts:170
+#, fuzzy
+msgid "sign in login logins who"
+msgstr "サインイン ログイン 誰"
+
+#: lib/words.ts:171
+#, fuzzy
+msgid "family activity sign-ins wrong password devices share links guest links settings accounts second step who did what"
+msgstr "家族 アクティビティ サインイン パスワード間違い デバイス 共有リンク ゲストリンク 設定 アカウント 2段階目 誰が何をした"
+
+#: lib/words.ts:172
+#, fuzzy
+msgid "journal system log errors warnings"
+msgstr "ジャーナル システムログ エラー 警告"
+
+#: lib/words.ts:173
+#, fuzzy
+msgid "diagnostics bundle logs support"
+msgstr "診断 パッケージ ログ サポート"
+
+#: lib/words.ts:174
+#, fuzzy
+msgid "diagnostics bundle logs debug report usb send support problem"
+msgstr "診断 パッケージ ログ デバッグ レポート USB 送信 サポート 問題"
+
+#: lib/words.ts:175
+#, fuzzy
+msgid "contact support help ticket serial number phone email"
+msgstr "お問い合わせ サポート ヘルプ チケット シリアル番号 電話 メール"
+
+#: lib/words.ts:176
+#, fuzzy
+msgid "help questions faq how to troubleshoot problem"
+msgstr "ヘルプ 質問 よくある質問 使い方 トラブルシューティング 問題"
+
+#: lib/words.ts:181 tools/Network.svelte:125
+#, fuzzy
+msgid "IP Address Assignment Method"
+msgstr "IP アドレスの割り当て"
+
+#: lib/words.ts:182 tools/Network.svelte:116
+#, fuzzy
+msgid "Wi-Fi (Wireless Network)"
+msgstr "Wi-Fi (無線ネットワーク)"
+
+#: lib/words.ts:183 tools/Display.svelte:164 tools/Display.svelte:166
+#, fuzzy
+msgid "Resolution"
+msgstr "解像度"
+
+#: lib/words.ts:184 tools/Display.svelte:158 tools/Display.svelte:160
+#, fuzzy
+msgid "Orientation"
+msgstr "向き"
+
+#: lib/words.ts:185 tools/Display.svelte:170 tools/Display.svelte:172
+#, fuzzy
+msgid "Screen Update Rate"
+msgstr "リフレッシュレート"
+
+#: lib/words.ts:186 tools/Display.svelte:176 tools/Display.svelte:179
+#, fuzzy
+msgid "Text & UI Scaling"
+msgstr "テキストと UI のサイズ"
+
+#: lib/words.ts:187 tools/Appearance.svelte:25 tools/Appearance.svelte:27
+#, fuzzy
+msgid "Style"
+msgstr "スタイル"
+
+#: lib/words.ts:188 tools/Appearance.svelte:42 tools/Appearance.svelte:44
+#, fuzzy
+msgid "Accent Colour"
+msgstr "アクセントカラー"
+
+#: lib/words.ts:189 tools/Appearance.svelte:56 tools/Appearance.svelte:61
+#, fuzzy
+msgid "Background"
+msgstr "背景"
+
+#: lib/words.ts:190 tools/Appearance.svelte:58
+#, fuzzy
+msgid "Add Picture"
+msgstr "画像を追加"
+
+#: lib/words.ts:191 tools/Sound.svelte:71 tools/Sound.svelte:73
+#, fuzzy
+msgid "Output Device"
+msgstr "出力デバイス"
+
+#: lib/words.ts:192 tools/Sound.svelte:77
+#, fuzzy
+msgid "Output Volume"
+msgstr "出力音量"
+
+#: lib/words.ts:193 tools/Sound.svelte:82 tools/Sound.svelte:83
+#, fuzzy
+msgid "Input Device"
+msgstr "入力デバイス"
+
+#: lib/words.ts:194 tools/Sound.svelte:85
+#, fuzzy
+msgid "Input Volume"
+msgstr "入力音量"
+
+#: lib/words.ts:195 tools/Sound.svelte:88
+#, fuzzy
+msgid "Input Level"
+msgstr "入力レベル"
+
+#: lib/words.ts:196 tools/Keyboard.svelte:49 tools/Keyboard.svelte:50
+#, fuzzy
+msgid "Input Layout"
+msgstr "入力レイアウト"
+
+#: lib/words.ts:197 tools/Keyboard.svelte:54
+#, fuzzy
+msgid "Primary click side"
+msgstr "主ボタン"
+
+#: lib/words.ts:198 tools/Keyboard.svelte:60
+#, fuzzy
+msgid "Cursor Speed"
+msgstr "カーソルの速度"
+
+#: lib/words.ts:199 tools/Keyboard.svelte:66 tools/Keyboard.svelte:67
+#, fuzzy
+msgid "Dynamic Cursor Acceleration"
+msgstr "カーソルの加速"
+
+#: lib/words.ts:200 tools/Keyboard.svelte:70
+#, fuzzy
+msgid "Scroll direction"
+msgstr "スクロールの方向"
+
+#: lib/words.ts:201 pages/Setup.svelte:16 pages/Setup.svelte:354 pages/Setup.svelte:381 tools/Language.svelte:71 tools/Language.svelte:72
+#, fuzzy
+msgid "Language"
+msgstr "言語"
+
+#: lib/words.ts:202 tools/Language.svelte:74 tools/Language.svelte:76
+#, fuzzy
+msgid "Country or Region"
+msgstr "国または地域"
+
+#: lib/words.ts:203 tools/Language.svelte:81 tools/Language.svelte:83
+#, fuzzy
+msgid "State or Province"
+msgstr "州・都道府県"
+
+#: lib/words.ts:204 tools/Time.svelte:48 tools/Time.svelte:49
+#, fuzzy
+msgid "Time Zone"
+msgstr "タイムゾーン"
+
+#: lib/words.ts:205 tools/Time.svelte:45
+#, fuzzy
+msgid "Current Time"
+msgstr "現在時刻"
+
+#: lib/words.ts:206 tools/Time.svelte:51
+#, fuzzy
+msgid "Time Sync"
+msgstr "時刻の同期"
+
+#: lib/words.ts:207 tools/AddPerson.svelte:56 tools/People.svelte:59
+#, fuzzy
+msgid "Add a person"
+msgstr "ユーザーを追加"
+
+#: lib/words.ts:208 pages/SignIn.svelte:192 pages/SignIn.svelte:220 tools/EditPerson.svelte:86
+#, fuzzy
+msgid "New password"
+msgstr "新しいパスワード"
+
+#: lib/words.ts:209 tools/EditPerson.svelte:102 tools/EditPerson.svelte:102
+#, fuzzy
+msgid "Make admin"
+msgstr "管理者にする"
+
+#: lib/words.ts:210 tools/Notifications.svelte:21
+#, fuzzy
+msgid "Show Notifications For"
+msgstr "通知を表示する項目"
+
+#: lib/words.ts:211 tools/Security.svelte:122
+#, fuzzy
+msgid "Firewall"
+msgstr "ファイアウォール"
+
+#: lib/words.ts:212 tools/Security.svelte:142
+#, fuzzy
+msgid "Secure Boot"
+msgstr "セキュアブート"
+
+#: lib/words.ts:213 tools/Security.svelte:123
+#, fuzzy
+msgid "AppArmor"
+msgstr "AppArmor"
+
+#: lib/words.ts:214 tools/Security.svelte:119
+#, fuzzy
+msgid "Security Updates"
+msgstr "セキュリティアップデート"
+
+#: lib/words.ts:215 tools/Security.svelte:151
+#, fuzzy
+msgid "Last System Scan"
+msgstr "最後のシステムスキャン"
+
+#: lib/words.ts:216 tools/Security.svelte:154
+#, fuzzy
+msgid "Allowed Inbound Connections"
+msgstr "許可されている受信接続"
+
+#: lib/words.ts:217 tools/Security.svelte:165
+#, fuzzy
+msgid "Outbound Internet Connections"
+msgstr "インターネットへの送信接続"
+
+#: lib/words.ts:218 tools/Access.svelte:78
+#, fuzzy
+msgid "Keys"
+msgstr "鍵"
+
+#: lib/words.ts:219 tools/Access.svelte:85 tools/AppsUsb.svelte:54
+#, fuzzy
+msgid "Add from a USB stick"
+msgstr "USB メモリから追加"
+
+#: lib/words.ts:220 tools/Access.svelte:88 tools/Access.svelte:89 tools/PasteKey.svelte:18
+#, fuzzy
+msgid "Paste a key"
+msgstr "鍵を貼り付け"
+
+#: lib/words.ts:221 tools/Restarts.svelte:60 tools/Restarts.svelte:62
+#, fuzzy
+msgid "Maintenance Hour"
+msgstr "メンテナンス時間"
+
+#: lib/words.ts:222 tools/Restarts.svelte:69
+#, fuzzy
+msgid "Always On"
+msgstr "常にオン"
+
+#: lib/words.ts:223 tools/Restarts.svelte:72
+#, fuzzy
+msgid "Shutdown"
+msgstr "シャットダウン"
+
+#: lib/words.ts:224 tools/Restore.svelte:73 tools/Space.svelte:14
+#, fuzzy
+msgid "Restore points"
+msgstr "復元ポイント"
+
+#: lib/words.ts:225 tools/Restore.svelte:83
+#, fuzzy
+msgid "Updates on Hold"
+msgstr "保留中のアップデート"
+
+#: lib/words.ts:226 tools/Restore.svelte:93
+#, fuzzy
+msgid "System Reset"
+msgstr "システムのリセット"
+
+#: lib/words.ts:227 tools/Restore.svelte:99
+#, fuzzy
+msgid "Factory Reset"
+msgstr "出荷時リセット"
+
+#: lib/words.ts:228 tools/Restore.svelte:65 tools/Restore.svelte:98 tools/Restore.svelte:100
+#, fuzzy
+msgid "Erase everything"
+msgstr "すべて消去"
+
+#: lib/words.ts:229 pages/MainMenu.svelte:74 tools/About.svelte:53 tools/About.svelte:54
+#, fuzzy
+msgid "Family Hub"
+msgstr "Family Hub"
+
+#: lib/words.ts:230 tools/About.svelte:54
+#, fuzzy
+msgid "Open on a phone"
+msgstr "スマホで開く"
+
+#: lib/words.ts:231 tools/About.svelte:28 tools/Contact.svelte:16
+#, fuzzy
+msgid "Model"
+msgstr "モデル"
+
+#: lib/words.ts:232 tools/About.svelte:29
+#, fuzzy
+msgid "Serial Number"
+msgstr "シリアル番号"
+
+#: lib/words.ts:233 tools/About.svelte:30
+#, fuzzy
+msgid "Operating System"
+msgstr "OS"
+
+#: lib/words.ts:234 tools/About.svelte:31 tools/Contact.svelte:37
+#, fuzzy
+msgid "Security updates"
+msgstr "セキュリティアップデート"
+
+#: lib/words.ts:235 pages/Widgets.svelte:118 tools/StorageOverview.svelte:52
+#, fuzzy
+msgid "Library"
+msgstr "ライブラリ"
+
+#: lib/words.ts:236 tools/LibraryCheck.svelte:19
+#, fuzzy
+msgid "Check the library for damage"
+msgstr "ライブラリの損傷を確認"
+
+#: lib/words.ts:237 tools/Backups.svelte:56 tools/Backups.svelte:59
+#, fuzzy
+msgid "Back up now"
+msgstr "今すぐバックアップ"
+
+#: lib/words.ts:238 tools/Backups.svelte:62 tools/Backups.svelte:64
+#, fuzzy
+msgid "Nightly backup"
+msgstr "毎晩のバックアップ"
+
+#: lib/words.ts:239 tools/Display.svelte:130
+#, fuzzy
+msgid "Lock the screen after"
+msgstr "画面をロックするまで"
+
+#: lib/words.ts:240 tools/Display.svelte:131
+#, fuzzy
+msgid "Turn the screen off after"
+msgstr "画面をオフにするまで"
+
+#: lib/words.ts:241 tools/Contact.svelte:30 tools/Diagnostics.svelte:48
+#, fuzzy
+msgid "Make a bundle"
+msgstr "作成"
+
+#: lib/words.ts:242 tools/SaveBundle.svelte:42
+#, fuzzy
+msgid "Save to a USB stick"
+msgstr "USB メモリに保存"
+
+#: lib/words.ts:243 tools/Contact.svelte:23
+#, fuzzy
+msgid "Contact ZOOMRIYA support"
+msgstr "ZOOMRIYA サポートに連絡"
+
+#: lib/words.ts:244 tools/Contact.svelte:16
+#, fuzzy
+msgid "Serial number"
+msgstr "シリアル番号"
+
+#: lib/words.ts:249 pages/MainMenu.svelte:113
+#, fuzzy
+msgid "Restart the box"
+msgstr "ボックスを再起動"
+
+#: lib/words.ts:249
+#, fuzzy
+msgid "reboot"
+msgstr "再起動"
+
+#: lib/words.ts:250 tools/Restarts.svelte:73
+#, fuzzy
+msgid "Shut down system"
+msgstr "シャットダウン"
+
+#: lib/words.ts:250
+#, fuzzy
+msgid "power off turn off"
+msgstr "電源を切る シャットダウン"
+
+#: lib/words.ts:251 pages/MainMenu.svelte:112
+#, fuzzy
+msgid "Lock screen"
+msgstr "画面をロック"
+
+#: lib/words.ts:251
+#, fuzzy
+msgid "lock away screen saver leave"
+msgstr "ロック 離席 スクリーンセーバー"
+
+#: lib/words.ts:252 pages/MainMenu.svelte:112
+#, fuzzy
+msgid "Open Family Hub on a phone"
+msgstr "Family Hubをスマホで開く"
+
+#: lib/words.ts:252
+#, fuzzy
+msgid "qr code phone mobile address family hub"
+msgstr "QRコード スマホ 携帯 アドレス Family Hub"
+
+#: lib/words.ts:253 pages/MainMenu.svelte:113
+#, fuzzy
+msgid "Sign out"
+msgstr "サインアウト"
+
+#: lib/words.ts:253
+#, fuzzy
+msgid "log out logout switch user"
+msgstr "サインアウト ログアウト ユーザー切り替え"
+
+#: lib/words.ts:254 tools/Appearance.svelte:28
+#, fuzzy
+msgid "Midnight"
+msgstr "ダーク"
+
+#: lib/words.ts:254
+#, fuzzy
+msgid "dark theme night"
+msgstr "ダーク テーマ 夜"
+
+#: lib/words.ts:255 tools/Appearance.svelte:28
+#, fuzzy
+msgid "Daylight"
+msgstr "ライト"
+
+#: lib/words.ts:255
+#, fuzzy
+msgid "light theme day"
+msgstr "ライト テーマ 昼"
+
+#: lib/words.ts:256 pages/TopBar.svelte:132 pages/TopBar.svelte:132 pages/Widgets.svelte:37
+#, fuzzy
+msgid "Widgets"
+msgstr "ウィジェット"
+
+#: lib/words.ts:256
+#, fuzzy
+msgid "side panel health cpu space"
+msgstr "サイドパネル 状態 CPU 容量"
+
+#: lib/words.ts:261
+#, fuzzy
+msgid "Something stopped working after an update"
+msgstr "アップデート後に動かなくなった"
+
+#: lib/words.ts:261
+#, fuzzy
+msgid "Restore the OS to before the update. Family files stay."
+msgstr "アップデート前の OS に戻します。家族のファイルは残ります。"
+
+#: lib/words.ts:262
+#, fuzzy
+msgid "A drive needs checking"
+msgstr "ドライブの確認が必要"
+
+#: lib/words.ts:262
+#, fuzzy
+msgid "See which drive, and why. Replace it with one as big or bigger."
+msgstr "どのドライブか、理由も確認できます。同じ容量以上のものに交換してください。"
+
+#: lib/words.ts:263
+#, fuzzy
+msgid "The box is slow"
+msgstr "ボックスが遅い"
+
+#: lib/words.ts:263
+#, fuzzy
+msgid "See which app is busy. Photos works hard after many new photos."
+msgstr "忙しいアプリを確認できます。写真を多く追加すると、写真アプリがしばらく処理します。"
+
+#: lib/words.ts:264
+#, fuzzy
+msgid "The box restarted by itself"
+msgstr "ボックスが勝手に再起動した"
+
+#: lib/words.ts:264
+#, fuzzy
+msgid "Updates finish at the maintenance hour. You can change the hour."
+msgstr "アップデートはメンテナンス時刻に完了します。時刻は変更できます。"
+
+#: lib/words.ts:265
+#, fuzzy
+msgid "Family Hub doesn't open on the home network"
+msgstr "自宅で Family Hub が開かない"
+
+#: lib/words.ts:265
+#, fuzzy
+msgid "Check the cable to the router, and the box's address."
+msgstr "ルーターへのケーブルとボックスのアドレスを確認してください。"
+
+#: lib/words.ts:266
+#, fuzzy
+msgid "Someone can't sign in"
+msgstr "サインインできない人がいる"
+
+#: lib/words.ts:266
+#, fuzzy
+msgid "Let them type a new password, or turn their account back on."
+msgstr "新しいパスワードを入力してもらうか、アカウントをオンに戻します。"
+
+#: lib/words.ts:267
+#, fuzzy
+msgid "Who changed a setting?"
+msgstr "設定を変えたのは誰？"
+
+#: lib/words.ts:267
+#, fuzzy
+msgid "Every change, with who and when."
+msgstr "すべての変更を、誰がいつしたかと一緒に。"
+
+#: lib/words.ts:272
+#, fuzzy
+msgid "Drive Health"
+msgstr "ドライブの状態"
+
+#: lib/words.ts:272
+#, fuzzy
+msgid "When to check or replace, and when healthy."
+msgstr "確認や交換が必要なとき、正常に戻ったとき。"
+
+#: lib/words.ts:273
+#, fuzzy
+msgid "Updates"
+msgstr "アップデート"
+
+#: lib/words.ts:273
+#, fuzzy
+msgid "When security fixes are installed."
+msgstr "セキュリティ修正がインストールされたとき。"
+
+#: lib/words.ts:274
+#, fuzzy
+msgid "Auto-restart schedule for updates and restores."
+msgstr "アップデートと復元のための自動再起動の予定。"
+
+#: lib/words.ts:275
+#, fuzzy
+msgid "Library Check"
+msgstr "ライブラリの確認"
+
+#: lib/words.ts:275
+#, fuzzy
+msgid "Library scan completion time and results."
+msgstr "ライブラリのスキャン完了時刻と結果。"
+
+#: lib/words.ts:276
+#, fuzzy
+msgid "Network settings weren't kept and were rolled back."
+msgstr "ネットワーク設定は保持されず、元に戻されました。"
+
+#: lib/words.ts:277 tools/Security.svelte:143
+#, fuzzy
+msgid "Secure Connections"
+msgstr "安全な接続"
+
+#: lib/words.ts:277
+#, fuzzy
+msgid "When the box's certificate can't be made or renewed, or is running out."
+msgstr "ボックスの証明書を作成・更新できないときや、期限が近いとき。"
+
+#: lib/words.ts:278
+#, fuzzy
+msgid "Admin Sign-in"
+msgstr "管理者のサインイン"
+
+#: lib/words.ts:278
+#, fuzzy
+msgid "When an admin is let back in at the box with the setup code, or a wrong code is typed."
+msgstr "セットアップコードで管理者のアクセスを戻したとき、または誤ったコードが入力されたとき。"
+
+#: lib/words.ts:279
+#, fuzzy
+msgid "Advanced Access"
+msgstr "高度なアクセス"
+
+#: lib/words.ts:279
+#, fuzzy
+msgid "When SSH access is turned on or off."
+msgstr "SSH アクセスのオン・オフ時。"
+
+#: lib/words.ts:280
+#, fuzzy
+msgid "Apps"
+msgstr "アプリ"
+
+#: lib/words.ts:280
+#, fuzzy
+msgid "When an app is installed, restored or removed."
+msgstr "アプリのインストール、復元、削除時。"
+
+#: lib/words.ts:284
+#, fuzzy
+msgid "Everything offline is on"
+msgstr "すべてオフラインがオンです"
+
+#: lib/words.ts:284
+#, fuzzy
+msgid "Apps offline is on"
+msgstr "アプリをオフラインがオンです"
+
+#: lib/words.ts:284
+#, fuzzy
+msgid "Switched off"
+msgstr "オフ"
+
+#: lib/words.ts:288
+#, fuzzy
+msgid "Blue"
+msgstr "ブルー"
+
+#: lib/words.ts:289
+#, fuzzy
+msgid "Teal"
+msgstr "ティール"
+
+#: lib/words.ts:290
+#, fuzzy
+msgid "Green"
+msgstr "グリーン"
+
+#: lib/words.ts:291
+#, fuzzy
+msgid "Yellow"
+msgstr "イエロー"
+
+#: lib/words.ts:292
+#, fuzzy
+msgid "Orange"
+msgstr "オレンジ"
+
+#: lib/words.ts:293
+#, fuzzy
+msgid "Red"
+msgstr "レッド"
+
+#: lib/words.ts:294
+#, fuzzy
+msgid "Pink"
+msgstr "ピンク"
+
+#: lib/words.ts:295
+#, fuzzy
+msgid "Purple"
+msgstr "パープル"
+
+#: lib/words.ts:296
+#, fuzzy
+msgid "Slate"
+msgstr "スレート"
+
+#: lib/words.ts:302
+#, fuzzy
+msgid "Smoke"
+msgstr "スモーク"
+
+#: lib/words.ts:303
+#, fuzzy
+msgid "Smoke at dusk"
+msgstr "夕暮れのスモーク"
+
+#: lib/words.ts:304
+#, fuzzy
+msgid "Hills"
+msgstr "丘"
+
+#: lib/words.ts:305
+#, fuzzy
+msgid "Lakeside"
+msgstr "湖畔"
+
+#: lib/words.ts:309
+#, fuzzy
+msgid "Night"
+msgstr "ナイト"
+
+#: lib/words.ts:310
+#, fuzzy
+msgid "Ocean"
+msgstr "オーシャン"
+
+#: lib/words.ts:311
+#, fuzzy
+msgid "Forest"
+msgstr "フォレスト"
+
+#: lib/words.ts:312
+#, fuzzy
+msgid "Plum"
+msgstr "プラム"
+
+#: lib/words.ts:313
+#, fuzzy
+msgid "Graphite"
+msgstr "グラファイト"
+
+#: lib/words.ts:321
+#, fuzzy
+msgid "Sign-in"
+msgstr "サインイン"
+
+#: lib/words.ts:322
+#, fuzzy
+msgid "Wrong try"
+msgstr "失敗した試行"
+
+#: lib/words.ts:323
+#, fuzzy
+msgid "Second step"
+msgstr "2段階目"
+
+#: lib/words.ts:324 pages/Lock.svelte:43 pages/SignIn.svelte:188 tools/AddPerson.svelte:71 tools/EditPerson.svelte:85 tools/NewPassword.svelte:45
+#, fuzzy
+msgid "Password"
+msgstr "パスワード"
+
+#: lib/words.ts:325 tools/EditPerson.svelte:109 tools/EditPerson.svelte:117
+#, fuzzy
+msgid "Account"
+msgstr "アカウント"
+
+#: lib/words.ts:326
+#, fuzzy
+msgid "AI key"
+msgstr "AIキー"
+
+#: lib/words.ts:327
+#, fuzzy
+msgid "New device"
+msgstr "新しいデバイス"
+
+#: lib/words.ts:328
+#, fuzzy
+msgid "Share link"
+msgstr "共有リンク"
+
+#: lib/words.ts:329
+#, fuzzy
+msgid "Setting"
+msgstr "設定"
+
+#: lib/words.ts:332
+#, fuzzy
+msgid "Errors"
+msgstr "エラー"
+
+#: lib/words.ts:332
+#, fuzzy
+msgid "Warnings and errors"
+msgstr "警告とエラー"
+
+#: lib/words.ts:332 tools/Logs.svelte:54
+#, fuzzy
+msgid "Everything"
+msgstr "すべて"
+
+#: lib/words.ts:333
+#, fuzzy
+msgid "Healthy"
+msgstr "正常"
+
+#: lib/words.ts:333
+#, fuzzy
+msgid "Needs checking"
+msgstr "要確認"
+
+#: lib/words.ts:333
+#, fuzzy
+msgid "Failing"
+msgstr "異常"
+
+#: lib/words.ts:336 lib/words.ts:337
+#, fuzzy
+msgid "Starting"
+msgstr "開始しています"
+
+#: lib/words.ts:336
+#, fuzzy
+msgid "Copying from the USB stick"
+msgstr "USB メモリからコピーしています"
+
+#: lib/words.ts:336
+#, fuzzy
+msgid "Checking it's a ZOOMRIYA app"
+msgstr "ZOOMRIYA のアプリか確認しています"
+
+#: lib/words.ts:336
+#, fuzzy
+msgid "Adding it to the box"
+msgstr "ボックスに追加しています"
+
+#: lib/words.ts:336
+#, fuzzy
+msgid "Starting it"
+msgstr "起動しています"
+
+#: lib/words.ts:336
+#, fuzzy
+msgid "Not a ZOOMRIYA app."
+msgstr "ZOOMRIYA のアプリではありません。"
+
+#: lib/words.ts:336
+#, fuzzy
+msgid "Can't be read."
+msgstr "読み取れません。"
+
+#: lib/words.ts:337
+#, fuzzy
+msgid "Running"
+msgstr "実行中"
+
+#: lib/words.ts:337
+#, fuzzy
+msgid "Stopped"
+msgstr "停止中"
+
+#: lib/words.ts:337
+#, fuzzy
+msgid "Not working"
+msgstr "動作していません"
+
+#: lib/words.ts:340
+#, fuzzy
+msgid "Landscape"
+msgstr "横向き"
+
+#: lib/words.ts:340
+#, fuzzy
+msgid "Portrait, turned right"
+msgstr "縦向き (右に回転)"
+
+#: lib/words.ts:340
+#, fuzzy
+msgid "Portrait, turned left"
+msgstr "縦向き (左に回転)"
+
+#: lib/words.ts:340
+#, fuzzy
+msgid "Landscape, upside down"
+msgstr "横向き (上下反転)"
+
+#: pages/Dock.svelte:44
+#, fuzzy
+msgid "Launcher"
+msgstr "ランチャー"
+
+#: pages/Dock.svelte:71 pages/Shortcuts.svelte:34
+#, fuzzy
+msgid "Open"
+msgstr "開く"
+
+#: pages/Dock.svelte:72
+#, fuzzy
+msgid "Open on a phone or computer"
+msgstr "スマホやパソコンで開く"
+
+#: pages/Dock.svelte:73
+#, fuzzy
+msgid "Manage in App Center"
+msgstr "App Centerで管理"
+
+#: pages/Dock.svelte:74
+#, fuzzy
+msgid "Remove from dock"
+msgstr "Dockから削除"
+
+#: pages/Elsewhere.svelte:9
+#, fuzzy
+msgid "Open {app} on a phone or computer"
+msgstr "{app}をスマホやパソコンで開く"
+
+#: pages/Elsewhere.svelte:10
+#, fuzzy
+msgid "Scan the code with a phone's camera, or type the address in a browser on the home network."
+msgstr "スマホのカメラでコードを読み取るか、家のネットワークのブラウザでアドレスを入力してください。"
+
+#: pages/Lock.svelte:47
+#, fuzzy
+msgid "Switch account"
+msgstr "アカウントを切り替え"
+
+#: pages/Lock.svelte:50
+#, fuzzy
+msgid "Unlock"
+msgstr "ロック解除"
+
+#: pages/MainMenu.svelte:30
+#, fuzzy
+msgid "Search the system log for “{text}”"
+msgstr "システムログで「{text}」を検索"
+
+#: pages/MainMenu.svelte:82 pages/MainMenu.svelte:82
+#, fuzzy
+msgid "Search tools"
+msgstr "ツールを検索"
+
+#: pages/Setup.svelte:16 pages/Setup.svelte:390 tools/Keyboard.svelte:48
+#, fuzzy
+msgid "Keyboard"
+msgstr "キーボード"
+
+#: pages/Setup.svelte:16 pages/Setup.svelte:355 pages/Setup.svelte:432
+#, fuzzy
+msgid "Region"
+msgstr "地域"
+
+#: pages/Setup.svelte:16 pages/Setup.svelte:356 pages/Setup.svelte:452
+#, fuzzy
+msgid "Time zone"
+msgstr "タイムゾーン"
+
+#: pages/Setup.svelte:16 pages/Setup.svelte:351 tools/EditPerson.svelte:90 tools/EditPerson.svelte:98 tools/People.svelte:28
+#, fuzzy
+msgid "Admin"
+msgstr "管理者"
+
+#: pages/Setup.svelte:16
+#, fuzzy
+msgid "Phone"
+msgstr "スマホ"
+
+#: pages/Setup.svelte:16
+#, fuzzy
+msgid "Done"
+msgstr "完了"
+
+#: pages/Setup.svelte:77
+#, fuzzy
+msgid "Choose a username."
+msgstr "ユーザー名を決めてください。"
+
+#: pages/Setup.svelte:78
+#, fuzzy
+msgid "Choose a password."
+msgstr "パスワードを決めてください。"
+
+#: pages/Setup.svelte:79
+#, fuzzy
+msgid "The username can be at most 128 characters."
+msgstr "ユーザー名は 128 文字以内にしてください。"
+
+#: pages/Setup.svelte:80
+#, fuzzy
+msgid "The password needs at least {count} characters."
+msgstr "パスワードは {count} 文字以上にしてください。"
+
+#: pages/Setup.svelte:81
+#, fuzzy
+msgid "Type the password again."
+msgstr "パスワードをもう一度入力してください。"
+
+#: pages/Setup.svelte:82
+#, fuzzy
+msgid "The two passwords aren't the same."
+msgstr "2 つのパスワードが一致しません。"
+
+#: pages/Setup.svelte:263 pages/Setup.svelte:386 pages/Setup.svelte:437
+#, fuzzy
+msgid "Choose one to go on."
+msgstr "選択すると次へ進めます。"
+
+#: pages/Setup.svelte:266
+#, fuzzy
+msgid "The time there now: {time}"
+msgstr "現地の現在時刻: {time}"
+
+#: pages/Setup.svelte:314 pages/SignIn.svelte:70
+#, fuzzy
+msgid "Can't scan it? Type this key: {key}"
+msgstr "スキャンできない場合はこのキーを入力: {key}"
+
+#: pages/Setup.svelte:352
+#, fuzzy
+msgid "Box's name"
+msgstr "ボックスの名前"
+
+#: pages/Setup.svelte:353 pages/Setup.svelte:407
+#, fuzzy
+msgid "Address"
+msgstr "アドレス"
+
+#: pages/Setup.svelte:353 pages/TopBar.svelte:128 pages/TopBar.svelte:128 tools/Network.svelte:99
+#, fuzzy
+msgid "Not connected"
+msgstr "未接続"
+
+#: pages/Setup.svelte:366
+#, fuzzy
+msgid "Box setup"
+msgstr "ボックスの設定"
+
+#: pages/Setup.svelte:379
+#, fuzzy
+msgid "Welcome to your ZOOMRIYA Box"
+msgstr "ZOOMRIYA Box へようこそ"
+
+#: pages/Setup.svelte:380
+#, fuzzy
+msgid "Setup takes a few minutes. First, choose a language."
+msgstr "設定は数分で終わります。まず言語を選んでください。"
+
+#: pages/Setup.svelte:386 pages/Setup.svelte:437
+#, fuzzy
+msgid "Chosen: {name}"
+msgstr "選択中: {name}"
+
+#: pages/Setup.svelte:388
+#, fuzzy
+msgid "Your keyboard"
+msgstr "キーボード"
+
+#: pages/Setup.svelte:389
+#, fuzzy
+msgid "Used right away, including for the admin's password."
+msgstr "すぐに反映され、管理者のパスワード入力にも使われます。"
+
+#: pages/Setup.svelte:394
+#, fuzzy
+msgid "Connect the box"
+msgstr "ボックスを接続"
+
+#: pages/Setup.svelte:396
+#, fuzzy
+msgid "Checking the box's network port…"
+msgstr "ボックスのネットワークポートを確認中…"
+
+#: pages/Setup.svelte:398
+#, fuzzy
+msgid "No usable Ethernet port found."
+msgstr "使えるイーサネットポートが見つかりません。"
+
+#: pages/Setup.svelte:400
+#, fuzzy
+msgid "Connect the box to your router with a network cable. Setup continues once it's plugged in."
+msgstr "ネットワークケーブルでボックスをルーターに接続してください。接続すると設定が続きます。"
+
+#: pages/Setup.svelte:401
+#, fuzzy
+msgid "Waiting for the cable…"
+msgstr "ケーブルを待っています…"
+
+#: pages/Setup.svelte:403
+#, fuzzy
+msgid "Cable connected. Getting an address…"
+msgstr "ケーブル接続済み。アドレスを取得中…"
+
+#: pages/Setup.svelte:405
+#, fuzzy
+msgid "The box is on your network."
+msgstr "ボックスがネットワークに接続されました。"
+
+#: pages/Setup.svelte:408 pages/Setup.svelte:420 tools/Network.svelte:129
+#, fuzzy
+msgid "Router"
+msgstr "ルーター"
+
+#: pages/Setup.svelte:408 pages/Setup.svelte:409
+#, fuzzy
+msgid "None"
+msgstr "なし"
+
+#: pages/Setup.svelte:409 pages/Setup.svelte:420 tools/Network.svelte:129
+#, fuzzy
+msgid "Name servers"
+msgstr "ネームサーバー"
+
+#: pages/Setup.svelte:410
+#, fuzzy
+msgid "Settings"
+msgstr "設定"
+
+#: pages/Setup.svelte:410
+#, fuzzy
+msgid "Static address"
+msgstr "固定アドレス"
+
+#: pages/Setup.svelte:410
+#, fuzzy
+msgid "From the router (DHCP)"
+msgstr "ルーターから (DHCP)"
+
+#: pages/Setup.svelte:411
+#, fuzzy
+msgid "Speed"
+msgstr "速度"
+
+#: pages/Setup.svelte:413
+#, fuzzy
+msgid "Checking the internet…"
+msgstr "インターネットを確認中…"
+
+#: pages/Setup.svelte:413
+#, fuzzy
+msgid "Internet: connected."
+msgstr "インターネット: 接続済み。"
+
+#: pages/Setup.svelte:414
+#, fuzzy
+msgid "No internet. You can continue; updates and the clock catch up once online."
+msgstr "インターネットに接続できません。続行できます。オンラインになると更新と時計が追いつきます。"
+
+#: pages/Setup.svelte:416
+#, fuzzy
+msgid "Use a static address instead of the router's"
+msgstr "ルーターのアドレスの代わりに固定アドレスを使う"
+
+#: pages/Setup.svelte:419 tools/Network.svelte:128
+#, fuzzy
+msgid "Box's address"
+msgstr "ボックスのアドレス"
+
+#: pages/Setup.svelte:419 tools/Network.svelte:128
+#, fuzzy
+msgid "Subnet mask"
+msgstr "サブネットマスク"
+
+#: pages/Setup.svelte:424 tools/Network.svelte:146
+#, fuzzy
+msgid "Use these settings"
+msgstr "適用"
+
+#: pages/Setup.svelte:428
+#, fuzzy
+msgid "Which country or region?"
+msgstr "国または地域は?"
+
+#: pages/Setup.svelte:429
+#, fuzzy
+msgid "Where the box is. Sets the time zones shown first."
+msgstr "ボックスの場所です。最初に表示するタイムゾーンが決まります。"
+
+#: pages/Setup.svelte:431 pages/Setup.svelte:431
+#, fuzzy
+msgid "Search, for example Canada"
+msgstr "検索 (例: カナダ)"
+
+#: pages/Setup.svelte:439
+#, fuzzy
+msgid "State or province (optional)"
+msgstr "州・都道府県 (任意)"
+
+#: pages/Setup.svelte:441 tools/Language.svelte:83
+#, fuzzy
+msgid "Not chosen"
+msgstr "未選択"
+
+#: pages/Setup.svelte:447
+#, fuzzy
+msgid "Which time zone?"
+msgstr "タイムゾーンは?"
+
+#: pages/Setup.svelte:448
+#, fuzzy
+msgid "Time zones in {region}. Used by the box's clock, maintenance hour and apps."
+msgstr "{region} のタイムゾーンです。ボックスの時計、メンテナンス時間、アプリが使います。"
+
+#: pages/Setup.svelte:449
+#, fuzzy
+msgid "Used by the box's clock, maintenance hour and apps."
+msgstr "ボックスの時計、メンテナンス時間、アプリが使います。"
+
+#: pages/Setup.svelte:450 pages/Setup.svelte:450
+#, fuzzy
+msgid "Search, for example Toronto"
+msgstr "検索 (例: Tokyo)"
+
+#: pages/Setup.svelte:451
+#, fuzzy
+msgid "Show every time zone"
+msgstr "すべてのタイムゾーンを表示"
+
+#: pages/Setup.svelte:459
+#, fuzzy
+msgid "The box's admin"
+msgstr "ボックスの管理者"
+
+#: pages/Setup.svelte:460
+#, fuzzy
+msgid "Your ZOOMRIYA ID signs in to the box and every ZOOMRIYA app. There's no other way in, so keep the password safe."
+msgstr "ZOOMRIYA ID で、ボックスとすべての ZOOMRIYA アプリにサインインします。ほかに入る方法はないので、パスワードは大切に保管してください。"
+
+#: pages/Setup.svelte:461 pages/SignIn.svelte:186 pages/SignIn.svelte:186
+#, fuzzy
+msgid "Username"
+msgstr "ユーザー名"
+
+#: pages/Setup.svelte:463
+#, fuzzy
+msgid "For example, amma"
+msgstr "例: amma"
+
+#: pages/Setup.svelte:464
+#, fuzzy
+msgid "Password (at least {count} characters)"
+msgstr "パスワード ({count} 文字以上)"
+
+#: pages/Setup.svelte:466
+#, fuzzy
+msgid "The password again"
+msgstr "パスワード (確認)"
+
+#: pages/Setup.svelte:470
+#, fuzzy
+msgid "Your phone"
+msgstr "あなたのスマホ"
+
+#: pages/Setup.svelte:471
+#, fuzzy
+msgid "Admins sign in with their password and a code from their phone, so someone who learns the password still can't get in. It takes a minute."
+msgstr "管理者はパスワードとスマホのコードでサインインします。パスワードだけでは入れません。1分で済みます。"
+
+#: pages/Setup.svelte:473
+#, fuzzy
+msgid "1. On your phone, open an authenticator app, any app that makes sign-in codes. If you don't have one, install one from your phone's app store.\n2. Add an account and scan this code.\n3. Enter the 6-digit code it shows."
+msgstr "1. スマホで認証アプリを開きます。なければアプリストアからインストールします。\n2. アカウントを追加して、このコードをスキャンします。\n3. 表示された6桁のコードを入力します。"
+
+#: pages/Setup.svelte:478
+#, fuzzy
+msgid "The code"
+msgstr "コード"
+
+#: pages/Setup.svelte:479 pages/SignIn.svelte:204 pages/SignIn.svelte:205
+#, fuzzy
+msgid "6-digit code"
+msgstr "6桁のコード"
+
+#: pages/Setup.svelte:484 pages/SetupElsewhere.svelte:15 tools/SaveBundle.svelte:50
+#, fuzzy
+msgid "Try again"
+msgstr "再試行"
+
+#: pages/Setup.svelte:485
+#, fuzzy
+msgid "Do it later"
+msgstr "あとで"
+
+#: pages/Setup.svelte:488 pages/SignIn.svelte:208
+#, fuzzy
+msgid "Your backup codes. If you ever don't have your phone, each one signs you in once. Write them down and keep them somewhere safe at home. They won't be shown again."
+msgstr "バックアップコードです。スマホがないとき、各コードで一度だけサインインできます。書き留めて自宅の安全な場所に保管してください。再表示されません。"
+
+#: pages/Setup.svelte:490 pages/SignIn.svelte:212
+#, fuzzy
+msgid "I've written them down"
+msgstr "書き留めました"
+
+#: pages/Setup.svelte:497
+#, fuzzy
+msgid "Your box is ready"
+msgstr "ボックスの準備ができました"
+
+#: pages/Setup.svelte:499
+#, fuzzy
+msgid "Press Finish. From now on, sign in with the admin's username and password; Box Desktop sets up the code from your phone at the first sign-in. To start over, use Erase everything."
+msgstr "「完了」を押してください。今後は管理者のユーザー名とパスワードでサインインします。スマホのコードは Box Desktop の初回サインイン時に設定します。やり直すには「すべて消去」を使います。"
+
+#: pages/Setup.svelte:500
+#, fuzzy
+msgid "Press Finish. From now on, sign in with the admin's username, password and the code from your phone. To start over, use Erase everything."
+msgstr "「完了」を押してください。今後は管理者のユーザー名、パスワード、スマホのコードでサインインします。やり直すには「すべて消去」を使います。"
+
+#: pages/Setup.svelte:504
+#, fuzzy
+msgid "Your box's setup code"
+msgstr "ボックスのセットアップコード"
+
+#: pages/Setup.svelte:506
+#, fuzzy
+msgid "Write it down and keep it with the box's papers, not on the box. You need it if an admin can't sign in, and to erase the box. It's shown only now."
+msgstr "書き留めて、ボックス本体ではなく書類と一緒に保管してください。管理者がサインインできないときや、ボックスを消去するときに必要です。表示されるのは今だけです。"
+
+#: pages/Setup.svelte:507
+#, fuzzy
+msgid "I've written down the setup code"
+msgstr "セットアップコードを書き留めました"
+
+#: pages/Setup.svelte:516 pages/SignIn.svelte:198 pages/SignIn.svelte:206 pages/SignIn.svelte:222 tools/AddPerson.svelte:75 tools/ReviewBundle.svelte:35
+#, fuzzy
+msgid "Back"
+msgstr "戻る"
+
+#: pages/Setup.svelte:517
+#, fuzzy
+msgid "Finish"
+msgstr "完了"
+
+#: pages/Setup.svelte:517 tools/AddPerson.svelte:68
+#, fuzzy
+msgid "Next"
+msgstr "次へ"
+
+#: pages/SetupElsewhere.svelte:13
+#, fuzzy
+msgid "Set up the box at its own screen"
+msgstr "ボックスの画面で設定してください"
+
+#: pages/SetupElsewhere.svelte:14
+#, fuzzy
+msgid "Plug a screen and a keyboard into the box and follow the steps there. Box Desktop opens here once the box is set up."
+msgstr "ボックスに画面とキーボードをつなぎ、表示される手順に従ってください。設定が済むと、ここで Box Desktop が開きます。"
+
+#: pages/Shortcuts.svelte:35
+#, fuzzy
+msgid "Remove from desktop"
+msgstr "デスクトップから削除"
+
+#: pages/SignIn.svelte:42 pages/SignIn.svelte:42 pages/SignIn.svelte:42
+#, fuzzy
+msgid "Sign in"
+msgstr "サインイン"
+
+#: pages/SignIn.svelte:42
+#, fuzzy
+msgid "Turn it on"
+msgstr "オンにする"
+
+#: pages/SignIn.svelte:42
+#, fuzzy
+msgid "Continue"
+msgstr "続ける"
+
+#: pages/SignIn.svelte:43
+#, fuzzy
+msgid "Let them back in"
+msgstr "アクセスを戻す"
+
+#: pages/SignIn.svelte:157
+#, fuzzy
+msgid "Type the setup code and the admin's username."
+msgstr "セットアップコードと管理者のユーザー名を入力してください。"
+
+#: pages/SignIn.svelte:169
+#, fuzzy
+msgid "{name} has a new password. Sign in with it, then set up the code from your phone again."
+msgstr "{name} に新しいパスワードが設定されました。それでサインインし、スマホのコードを設定し直してください。"
+
+#: pages/SignIn.svelte:184
+#, fuzzy
+msgid "Sign in with your ZOOMRIYA ID"
+msgstr "ZOOMRIYA ID でサインイン"
+
+#: pages/SignIn.svelte:191
+#, fuzzy
+msgid "Choose your own password. At least 8 characters."
+msgstr "自分のパスワードを決めてください。8文字以上。"
+
+#: pages/SignIn.svelte:193 pages/SignIn.svelte:221
+#, fuzzy
+msgid "New password again"
+msgstr "新しいパスワード（確認）"
+
+#: pages/SignIn.svelte:194
+#, fuzzy
+msgid "Not now"
+msgstr "あとで"
+
+#: pages/SignIn.svelte:196
+#, fuzzy
+msgid "Open your authenticator app and enter the code it shows for ZOOMRIYA. No phone? Enter one of your backup codes."
+msgstr "認証アプリを開き、ZOOMRIYA のコードを入力してください。スマホがない場合はバックアップコードを入力します。"
+
+#: pages/SignIn.svelte:197 pages/SignIn.svelte:197
+#, fuzzy
+msgid "Code"
+msgstr "コード"
+
+#: pages/SignIn.svelte:200
+#, fuzzy
+msgid "Admins look after the whole family's box, so they sign in with a password and a code from their phone. Set it up once."
+msgstr "管理者は家族全員のボックスを管理するため、パスワードとスマホのコードでサインインします。設定は一度だけです。"
+
+#: pages/SignIn.svelte:201
+#, fuzzy
+msgid "1. On your phone, open an authenticator app, any app that makes sign-in codes.\n2. Add an account and scan this code.\n3. Enter the 6-digit code it shows."
+msgstr "1. スマホで認証アプリを開きます。\n2. アカウントを追加して、このコードをスキャンします。\n3. 表示された6桁のコードを入力します。"
+
+#: pages/SignIn.svelte:214
+#, fuzzy
+msgid "Forgot the password, or lost your phone and backup codes? Type the box's setup code: it's on the sticker, or the one you wrote down at the first setup. The admin gets a new password and sets up their phone again."
+msgstr "パスワードを忘れた、またはスマホとバックアップコードをなくした場合は、ボックスのセットアップコードを入力します。ステッカーに記載されているか、最初のセットアップで書き留めたものです。管理者は新しいパスワードを受け取り、スマホを設定し直します。"
+
+#: pages/SignIn.svelte:218 pages/SignIn.svelte:218
+#, fuzzy
+msgid "Setup code"
+msgstr "セットアップコード"
+
+#: pages/SignIn.svelte:219 pages/SignIn.svelte:219
+#, fuzzy
+msgid "The admin's username"
+msgstr "管理者のユーザー名"
+
+#: pages/SignIn.svelte:227
+#, fuzzy
+msgid "Can't sign in?"
+msgstr "サインインできませんか？"
+
+#: pages/TopBar.svelte:31
+#, fuzzy
+msgid "Checking the library · {percent}%"
+msgstr "ライブラリを確認中 · {percent}%"
+
+#: pages/TopBar.svelte:33
+#, fuzzy
+msgid "Restart needed"
+msgstr "再起動が必要"
+
+#: pages/TopBar.svelte:34 tools/Access.svelte:67
+#, fuzzy
+msgid "Advanced access is on"
+msgstr "高度なアクセスはオンです"
+
+#: pages/TopBar.svelte:66 pages/TopBar.svelte:66
+#, fuzzy
+msgid "Main menu"
+msgstr "メインメニュー"
+
+#: pages/TopBar.svelte:73
+#, fuzzy
+msgid "Open windows"
+msgstr "開いているウィンドウ"
+
+#: pages/TopBar.svelte:95
+#, fuzzy
+msgid "Mark all read"
+msgstr "すべて既読にする"
+
+#: pages/TopBar.svelte:97
+#, fuzzy
+msgid "Nothing new."
+msgstr "新着はありません。"
+
+#: pages/TopBar.svelte:104
+#, fuzzy
+msgid "See all in Log Center"
+msgstr "ログセンターですべて表示"
+
+#: pages/TopBar.svelte:118 pages/TopBar.svelte:119
+#, fuzzy
+msgid "Speakers"
+msgstr "スピーカー"
+
+#: pages/TopBar.svelte:120
+#, fuzzy
+msgid "Sound settings"
+msgstr "サウンドの設定"
+
+#: pages/TopBar.svelte:128 pages/TopBar.svelte:128 pages/Widgets.svelte:103 tools/Network.svelte:99
+#, fuzzy
+msgid "Connected"
+msgstr "接続済み"
+
+#: pages/Widgets.svelte:17
+#, fuzzy
+msgid "{n} need checking"
+msgstr "{n} 台が要確認"
+
+#: pages/Widgets.svelte:17
+#, fuzzy
+msgid "All healthy"
+msgstr "すべて正常"
+
+#: pages/Widgets.svelte:18
+#, fuzzy
+msgid "Security fixes"
+msgstr "セキュリティ修正"
+
+#: pages/Widgets.svelte:20
+#, fuzzy
+msgid "Needed"
+msgstr "必要"
+
+#: pages/Widgets.svelte:21
+#, fuzzy
+msgid "On"
+msgstr "オン"
+
+#: pages/Widgets.svelte:41
+#, fuzzy
+msgid "Box health"
+msgstr "ボックスの状態"
+
+#: pages/Widgets.svelte:47 tools/Security.svelte:106
+#, fuzzy
+msgid "Needs a look"
+msgstr "確認が必要"
+
+#: pages/Widgets.svelte:47
+#, fuzzy
+msgid "Everything's fine"
+msgstr "問題ありません"
+
+#: pages/Widgets.svelte:47
+#, fuzzy
+msgid "Checking the box…"
+msgstr "ボックスを確認中…"
+
+#: pages/Widgets.svelte:49
+#, fuzzy
+msgid "{os} · up {time}"
+msgstr "{os} · 稼働 {time}"
+
+#: pages/Widgets.svelte:66
+#, fuzzy
+msgid "CPU and memory"
+msgstr "CPU とメモリ"
+
+#: pages/Widgets.svelte:71 tools/ByApp.svelte:20
+#, fuzzy
+msgid "CPU"
+msgstr "CPU"
+
+#: pages/Widgets.svelte:76 tools/About.svelte:33 tools/ByApp.svelte:20 tools/Resources.svelte:39
+#, fuzzy
+msgid "Memory"
+msgstr "メモリ"
+
+#: pages/Widgets.svelte:77
+#, fuzzy
+msgid "{used} of {total}"
+msgstr "{used} / {total}"
+
+#: pages/Widgets.svelte:83
+#, fuzzy
+msgid "Open Resource Monitor"
+msgstr "リソースモニターを開く"
+
+#: pages/Widgets.svelte:91 tools/Resources.svelte:44
+#, fuzzy
+msgid "Download"
+msgstr "受信"
+
+#: pages/Widgets.svelte:91 tools/Resources.svelte:44
+#, fuzzy
+msgid "Upload"
+msgstr "送信"
+
+#: pages/Widgets.svelte:103
+#, fuzzy
+msgid "Connected · {speed}"
+msgstr "接続済み · {speed}"
+
+#: pages/Widgets.svelte:103
+#, fuzzy
+msgid "Cable unplugged"
+msgstr "ケーブル未接続"
+
+#: pages/Widgets.svelte:114
+#, fuzzy
+msgid "<b>{used}</b> <small>of {total} used</small>"
+msgstr "<b>{used}</b> <small>/ {total} 使用中</small>"
+
+#: pages/Widgets.svelte:118 tools/StorageOverview.svelte:56
+#, fuzzy
+msgid "The box's own disk"
+msgstr "ボックス本体のディスク"
+
+#: pages/Widgets.svelte:118
+#, fuzzy
+msgid "Library drives mirrored"
+msgstr "ライブラリのドライブはミラー済み"
+
+#: pages/Window.svelte:61
+#, fuzzy
+msgid "Minimise"
+msgstr "最小化"
+
+#: pages/Window.svelte:62
+#, fuzzy
+msgid "Maximise"
+msgstr "最大化"
+
+#: pages/Window.svelte:70
+#, fuzzy
+msgid "{app} isn't running. Start or restore it in App Center."
+msgstr "{app}は動作していません。App Centerで起動するか元に戻してください。"
+
+#: pages/Window.svelte:71
+#, fuzzy
+msgid "Open App Center"
+msgstr "App Centerを開く"
+
+#: pages/Window.svelte:75
+#, fuzzy
+msgid "{app} opens on its own, for its safety."
+msgstr "安全のため、{app} は別に開きます。"
+
+#: pages/Window.svelte:77
+#, fuzzy
+msgid "Open {app}"
+msgstr "{app} を開く"
+
+#: tools/About.svelte:24
+#, fuzzy
+msgid "{size} for the box"
+msgstr "ボックス用 {size}"
+
+#: tools/About.svelte:25
+#, fuzzy
+msgid "{size} library"
+msgstr "ライブラリ {size}"
+
+#: tools/About.svelte:27 tools/EditPerson.svelte:75 tools/EditPerson.svelte:76
+#, fuzzy
+msgid "Name"
+msgstr "名前"
+
+#: tools/About.svelte:27 tools/About.svelte:33
+#, fuzzy
+msgid "Unknown"
+msgstr "不明"
+
+#: tools/About.svelte:32 tools/Resources.svelte:37
+#, fuzzy
+msgid "Processor"
+msgstr "プロセッサー"
+
+#: tools/About.svelte:33
+#, fuzzy
+msgid "{used} of {total} in use"
+msgstr "{used} / {total} 使用中"
+
+#: tools/About.svelte:34
+#, fuzzy
+msgid "Disk Capacity"
+msgstr "ディスク容量"
+
+#: tools/About.svelte:35 tools/Resources.svelte:67
+#, fuzzy
+msgid "No sensor"
+msgstr "センサーなし"
+
+#: tools/About.svelte:36
+#, fuzzy
+msgid "Running For"
+msgstr "稼働時間"
+
+#: tools/About.svelte:39
+#, fuzzy
+msgid "System Release"
+msgstr "システムのリリース"
+
+#: tools/About.svelte:39
+#, fuzzy
+msgid "Base Package"
+msgstr "基本パッケージ"
+
+#: tools/About.svelte:40
+#, fuzzy
+msgid "Factory Image"
+msgstr "出荷時イメージ"
+
+#: tools/About.svelte:40
+#, fuzzy
+msgid "Kernel"
+msgstr "カーネル"
+
+#: tools/About.svelte:63 tools/Security.svelte:170
+#, fuzzy
+msgid "Details"
+msgstr "詳細"
+
+#: tools/Access.svelte:46
+#, fuzzy
+msgid "Turn on advanced access?"
+msgstr "高度なアクセスをオンにしますか？"
+
+#: tools/Access.svelte:46
+#, fuzzy
+msgid "Keys you add get full control of the box, from your home network."
+msgstr "追加した鍵は、自宅のネットワークからボックスを完全に操作できます。"
+
+#: tools/Access.svelte:47 tools/Access.svelte:74 tools/EditPerson.svelte:118
+#, fuzzy
+msgid "Turn on"
+msgstr "オンにする"
+
+#: tools/Access.svelte:67
+#, fuzzy
+msgid "The keys below can sign in over SSH at home."
+msgstr "下の鍵で、自宅から SSH でサインインできます。"
+
+#: tools/Access.svelte:68 tools/EditPerson.svelte:113 tools/EditPerson.svelte:113
+#, fuzzy
+msgid "Turn off"
+msgstr "オフにする"
+
+#: tools/Access.svelte:72
+#, fuzzy
+msgid "SSH, for admins who want a command line."
+msgstr "コマンドラインを使いたい管理者向けの SSH。"
+
+#: tools/Access.svelte:73
+#, fuzzy
+msgid "No one can sign in over SSH."
+msgstr "SSH でサインインできる人はいません。"
+
+#: tools/Access.svelte:73
+#, fuzzy
+msgid "Add a key first."
+msgstr "先に鍵を追加してください。"
+
+#: tools/Access.svelte:78
+#, fuzzy
+msgid "Public keys only (.pub). Never share a private key."
+msgstr "公開鍵（.pub）のみ。秘密鍵は共有しないでください。"
+
+#: tools/Access.svelte:81
+#, fuzzy
+msgid "Added {date}"
+msgstr "{date} に追加"
+
+#: tools/Access.svelte:81
+#, fuzzy
+msgid "Last used {date}"
+msgstr "最終使用 {date}"
+
+#: tools/Access.svelte:81
+#, fuzzy
+msgid "Not used yet"
+msgstr "未使用"
+
+#: tools/Access.svelte:82 tools/AppsInstalled.svelte:84 tools/RemoveApp.svelte:17 tools/RemoveApp.svelte:26
+#, fuzzy
+msgid "Remove"
+msgstr "削除"
+
+#: tools/Access.svelte:85
+#, fuzzy
+msgid "Put the .pub file in zoomriya/ssh on the stick."
+msgstr "USB メモリの zoomriya/ssh に .pub ファイルを入れてください。"
+
+#: tools/Access.svelte:86 tools/AppsUsb.svelte:56
+#, fuzzy
+msgid "Look on USB stick"
+msgstr "USB メモリを探す"
+
+#: tools/Access.svelte:88
+#, fuzzy
+msgid "From the computer you'll use."
+msgstr "使うパソコンからコピーします。"
+
+#: tools/Access.svelte:93
+#, fuzzy
+msgid "Connecting"
+msgstr "接続"
+
+#: tools/Access.svelte:95
+#, fuzzy
+msgid "Command"
+msgstr "コマンド"
+
+#: tools/Access.svelte:99
+#, fuzzy
+msgid "The box's key"
+msgstr "ボックスの鍵"
+
+#: tools/Access.svelte:99
+#, fuzzy
+msgid "Check it the first time you connect."
+msgstr "初回接続時に確認してください。"
+
+#: tools/Access.svelte:102 tools/People.svelte:63
+#, fuzzy
+msgid "Good to know"
+msgstr "知っておくこと"
+
+#: tools/Access.svelte:103
+#, fuzzy
+msgid "Changes by hand are yours"
+msgstr "手動の変更は自己責任です"
+
+#: tools/Access.svelte:103
+#, fuzzy
+msgid "Updates and restores may undo them."
+msgstr "アップデートや復元で元に戻ることがあります。"
+
+#: tools/Access.svelte:104
+#, fuzzy
+msgid "Home network only"
+msgstr "自宅のネットワークのみ"
+
+#: tools/Access.svelte:104
+#, fuzzy
+msgid "Never from the internet or ZOOMRIYA Connect."
+msgstr "インターネットや ZOOMRIYA Connect からは接続できません。"
+
+#: tools/Access.svelte:105
+#, fuzzy
+msgid "Reset removes the keys"
+msgstr "リセットで鍵は削除されます"
+
+#: tools/Access.svelte:105
+#, fuzzy
+msgid "Resetting the box turns this off and removes the keys."
+msgstr "リセットするとオフになり、鍵も削除されます。"
+
+#: tools/Activity.svelte:31
+#, fuzzy
+msgid "Who signed in to Family Hub and the apps, new devices, share links and changes to the family's accounts, for the last 90 days. The box's own sign-ins and admin actions are in their own sections."
+msgstr "過去90日間に Family Hub やアプリにサインインした人、新しいデバイス、共有リンク、家族のアカウントの変更。ボックスでのサインインと管理者の操作はそれぞれ別の項目にあります。"
+
+#: tools/Activity.svelte:35
+#, fuzzy
+msgid "Nothing yet."
+msgstr "まだありません。"
+
+#: tools/Activity.svelte:37
+#, fuzzy
+msgid "by {name}"
+msgstr "{name} が実行"
+
+#: tools/Activity.svelte:37
+#, fuzzy
+msgid "from {address}"
+msgstr "{address} から"
+
+#: tools/Activity.svelte:40
+#, fuzzy
+msgid "Someone"
+msgstr "誰か"
+
+#: tools/Activity.svelte:45 tools/Logs.svelte:68
+#, fuzzy
+msgid "Show older"
+msgstr "以前のものを表示"
+
+#: tools/AddPerson.svelte:59 tools/AddPerson.svelte:59
+#, fuzzy
+msgid "Name, like Priya"
+msgstr "名前（例：Priya）"
+
+#: tools/AddPerson.svelte:60 tools/AddPerson.svelte:60
+#, fuzzy
+msgid "Username, like priya"
+msgstr "ユーザー名（例：priya）"
+
+#: tools/AddPerson.svelte:63
+#, fuzzy
+msgid "Adult or child"
+msgstr "大人か子どもか"
+
+#: tools/AddPerson.svelte:64
+#, fuzzy
+msgid "Adult"
+msgstr "大人"
+
+#: tools/AddPerson.svelte:64
+#, fuzzy
+msgid "Under 18"
+msgstr "18歳未満"
+
+#: tools/AddPerson.svelte:70
+#, fuzzy
+msgid "Now let {name} type their own password. At least 8 characters."
+msgstr "{name} さん本人にパスワードを入力してもらいます。8文字以上。"
+
+#: tools/AddPerson.svelte:72 tools/NewPassword.svelte:46
+#, fuzzy
+msgid "Password again"
+msgstr "パスワード（確認）"
+
+#: tools/AddPerson.svelte:76 tools/KeysFromUsb.svelte:25 tools/PasteKey.svelte:23 tools/People.svelte:60 tools/keys.ts:9
+#, fuzzy
+msgid "Add"
+msgstr "追加"
+
+#: tools/AddPicture.svelte:31
+#, fuzzy
+msgid "Looking on the USB sticks…"
+msgstr "USBメモリを探しています…"
+
+#: tools/AddPicture.svelte:35
+#, fuzzy
+msgid "Choose one for your background."
+msgstr "背景を選んでください。"
+
+#: tools/AddPicture.svelte:35
+#, fuzzy
+msgid "No pictures found. Plug in a USB stick with JPEG or PNG pictures."
+msgstr "画像が見つかりません。JPEGかPNG画像の入ったUSBメモリを差してください。"
+
+#: tools/AddPicture.svelte:42
+#, fuzzy
+msgid "Making it your background…"
+msgstr "背景に設定中…"
+
+#: tools/AddPicture.svelte:57
+#, fuzzy
+msgid "Add a picture"
+msgstr "画像を追加"
+
+#: tools/AddPicture.svelte:58
+#, fuzzy
+msgid "JPEG or PNG pictures on a USB stick, in its top folder or a folder in it. Nothing on the stick is changed."
+msgstr "USBメモリの一番上のフォルダか、その中のフォルダにあるJPEGまたはPNG画像。USBメモリの中身は変更しません。"
+
+#: tools/AddPicture.svelte:62
+#, fuzzy
+msgid "Look again"
+msgstr "もう一度探す"
+
+#: tools/Appearance.svelte:18
+#, fuzzy
+msgid "Your picture"
+msgstr "あなたの画像"
+
+#: tools/Appearance.svelte:42
+#, fuzzy
+msgid "For buttons, switches and what's selected."
+msgstr "ボタン、スイッチ、選択中の項目に使われます。"
+
+#: tools/Appearance.svelte:56
+#, fuzzy
+msgid "The box's, for everyone: the sign-in screen, the desktop and the lock screen."
+msgstr "ボックス全体の設定です。サインイン画面、デスクトップ、ロック画面に使われます。"
+
+#: tools/AppsInstalled.svelte:47
+#, fuzzy
+msgid "Go back to {app} {version}?"
+msgstr "{app} {version} に戻しますか？"
+
+#: tools/AppsInstalled.svelte:48
+#, fuzzy
+msgid "{app} restarts on the version before."
+msgstr "{app} を前のバージョンで再起動します。"
+
+#: tools/AppsInstalled.svelte:49 tools/Restore.svelte:21 tools/Restore.svelte:32 tools/Restore.svelte:77
+#, fuzzy
+msgid "Restore"
+msgstr "復元"
+
+#: tools/AppsInstalled.svelte:63
+#, fuzzy
+msgid "Installing {app}"
+msgstr "{app} をインストール中"
+
+#: tools/AppsInstalled.svelte:67
+#, fuzzy
+msgid "{app} {version} is installed"
+msgstr "{app} {version} をインストールしました"
+
+#: tools/AppsInstalled.svelte:67
+#, fuzzy
+msgid "It's running."
+msgstr "実行中です。"
+
+#: tools/AppsInstalled.svelte:69
+#, fuzzy
+msgid "{app} wasn't installed"
+msgstr "{app} をインストールできませんでした"
+
+#: tools/AppsInstalled.svelte:73
+#, fuzzy
+msgid "Installed apps"
+msgstr "インストール済みのアプリ"
+
+#: tools/AppsInstalled.svelte:76
+#, fuzzy
+msgid "Version {version}"
+msgstr "バージョン {version}"
+
+#: tools/AppsInstalled.svelte:76
+#, fuzzy
+msgid "Installed {date}"
+msgstr "{date} にインストール"
+
+#: tools/AppsInstalled.svelte:78
+#, fuzzy
+msgid "This version has a known problem. Update it from a USB stick."
+msgstr "このバージョンには既知の問題があります。USB メモリからアップデートしてください。"
+
+#: tools/AppsInstalled.svelte:82
+#, fuzzy
+msgid "Restore {version}"
+msgstr "{version} に戻す"
+
+#: tools/AppsInstalled.svelte:87 tools/AppsInstalled.svelte:87
+#, fuzzy
+msgid "In dock"
+msgstr "Dockにあります"
+
+#: tools/AppsInstalled.svelte:87 tools/AppsInstalled.svelte:87
+#, fuzzy
+msgid "Add to dock"
+msgstr "Dockに追加"
+
+#: tools/AppsInstalled.svelte:95
+#, fuzzy
+msgid "No apps yet"
+msgstr "まだアプリはありません"
+
+#: tools/AppsInstalled.svelte:95
+#, fuzzy
+msgid "Add ZOOMRIYA apps from a USB stick."
+msgstr "USB メモリから ZOOMRIYA のアプリを追加してください。"
+
+#: tools/AppsInstalled.svelte:100
+#, fuzzy
+msgid "Apps can't be installed until the box is updated."
+msgstr "ボックスをアップデートするまでアプリはインストールできません。"
+
+#: tools/AppsUsb.svelte:33
+#, fuzzy
+msgid "Install {app}?"
+msgstr "{app} をインストールしますか？"
+
+#: tools/AppsUsb.svelte:33
+#, fuzzy
+msgid "It's checked, then started. This can take a few minutes."
+msgstr "確認してから起動します。数分かかることがあります。"
+
+#: tools/AppsUsb.svelte:34 tools/AppsUsb.svelte:69
+#, fuzzy
+msgid "Install"
+msgstr "インストール"
+
+#: tools/AppsUsb.svelte:42 tools/KeysFromUsb.svelte:24
+#, fuzzy
+msgid "On {stick}"
+msgstr "{stick} 内"
+
+#: tools/AppsUsb.svelte:42 tools/KeysFromUsb.svelte:24 tools/SaveBundle.svelte:31
+#, fuzzy
+msgid "the USB stick"
+msgstr "USB メモリ"
+
+#: tools/AppsUsb.svelte:44
+#, fuzzy
+msgid "Older than {version}, which this box has had."
+msgstr "このボックスにあった {version} より古いバージョンです。"
+
+#: tools/AppsUsb.svelte:45
+#, fuzzy
+msgid "Has a known problem. Use a newer version."
+msgstr "既知の問題があります。新しいバージョンを使ってください。"
+
+#: tools/AppsUsb.svelte:49 tools/Diagnostics.svelte:66
+#, fuzzy
+msgid "new"
+msgstr "新規"
+
+#: tools/AppsUsb.svelte:49
+#, fuzzy
+msgid "update from {version}"
+msgstr "{version} からのアップデート"
+
+#: tools/AppsUsb.svelte:49
+#, fuzzy
+msgid "installed"
+msgstr "インストール済み"
+
+#: tools/AppsUsb.svelte:54
+#, fuzzy
+msgid "Put the .zapp file in zoomriya/apps on the stick. Only ZOOMRIYA apps install."
+msgstr "USB メモリの zoomriya/apps に .zapp ファイルを入れてください。ZOOMRIYA のアプリだけがインストールできます。"
+
+#: tools/AppsUsb.svelte:55
+#, fuzzy
+msgid "Apps on USB sticks"
+msgstr "USB メモリ内のアプリ"
+
+#: tools/AppsUsb.svelte:55
+#, fuzzy
+msgid "Nothing on the stick is changed."
+msgstr "USB メモリの内容は変更しません。"
+
+#: tools/AppsUsb.svelte:61
+#, fuzzy
+msgid "Found"
+msgstr "見つかったアプリ"
+
+#: tools/AppsUsb.svelte:62
+#, fuzzy
+msgid "No apps found"
+msgstr "アプリが見つかりません"
+
+#: tools/AppsUsb.svelte:62
+#, fuzzy
+msgid "Plug in a stick with a zoomriya/apps folder."
+msgstr "zoomriya/apps フォルダーのある USB メモリを挿してください。"
+
+#: tools/AppsUsb.svelte:69 tools/Restore.svelte:20 tools/Restore.svelte:20
+#, fuzzy
+msgid "Update"
+msgstr "アップデート"
+
+#: tools/Backups.svelte:41
+#, fuzzy
+msgid "Backups aren't set up yet"
+msgstr "バックアップはまだ設定されていません"
+
+#: tools/Backups.svelte:41
+#, fuzzy
+msgid "Set them up in Family Hub's settings: where they go, and which apps."
+msgstr "Family Hubの設定で、保存先と対象アプリを設定してください。"
+
+#: tools/Backups.svelte:46
+#, fuzzy
+msgid "Backing up"
+msgstr "バックアップ中"
+
+#: tools/Backups.svelte:46
+#, fuzzy
+msgid "Started {time}"
+msgstr "{time}に開始"
+
+#: tools/Backups.svelte:48
+#, fuzzy
+msgid "No backup yet"
+msgstr "まだバックアップがありません"
+
+#: tools/Backups.svelte:48
+#, fuzzy
+msgid "Back up now to make the first."
+msgstr "今すぐバックアップして最初の1つを作成します。"
+
+#: tools/Backups.svelte:50
+#, fuzzy
+msgid "Backed up"
+msgstr "バックアップ済み"
+
+#: tools/Backups.svelte:52
+#, fuzzy
+msgid "The last backup failed"
+msgstr "前回のバックアップは失敗しました"
+
+#: tools/Backups.svelte:56
+#, fuzzy
+msgid "Every app's data and the accounts, as they are now."
+msgstr "すべてのアプリのデータとアカウントを、今の状態で。"
+
+#: tools/Backups.svelte:63
+#, fuzzy
+msgid "Next: {time}"
+msgstr "次回：{time}"
+
+#: tools/Backups.svelte:63
+#, fuzzy
+msgid "Every night at 4:00, while the family sleeps."
+msgstr "家族が寝ている毎晩4:00に。"
+
+#: tools/Backups.svelte:66
+#, fuzzy
+msgid "Where they go"
+msgstr "保存先"
+
+#: tools/Backups.svelte:66
+#, fuzzy
+msgid "Keep them on another drive or computer than the box's."
+msgstr "ボックスとは別のドライブやパソコンに保存してください。"
+
+#: tools/Backups.svelte:67
+#, fuzzy
+msgid "Not known"
+msgstr "不明"
+
+#: tools/Backups.svelte:71
+#, fuzzy
+msgid "What went wrong last time"
+msgstr "前回うまくいかなかったこと"
+
+#: tools/Backups.svelte:71
+#, fuzzy
+msgid "The other apps were backed up. Older backups are kept."
+msgstr "ほかのアプリはバックアップされました。以前のバックアップは残ります。"
+
+#: tools/ByApp.svelte:18
+#, fuzzy
+msgid "Busiest first. CPU is a share of the whole box."
+msgstr "負荷の高い順。CPU はボックス全体に対する割合です。"
+
+#: tools/ByApp.svelte:22
+#, fuzzy
+msgid "An app"
+msgstr "アプリ"
+
+#: tools/ByApp.svelte:22
+#, fuzzy
+msgid "Part of the box"
+msgstr "ボックスの一部"
+
+#: tools/ChildFields.svelte:20 tools/ChildFields.svelte:21
+#, fuzzy
+msgid "Birth year"
+msgstr "生まれた年"
+
+#: tools/ChildFields.svelte:23
+#, fuzzy
+msgid "Parents or guardians (one or two)"
+msgstr "保護者（1〜2人）"
+
+#: tools/ChildFields.svelte:31
+#, fuzzy
+msgid "Add an adult first."
+msgstr "先に大人を追加してください。"
+
+#: tools/Contact.svelte:17
+#, fuzzy
+msgid "ZOOMRIYA OS"
+msgstr "ZOOMRIYA OS"
+
+#: tools/Contact.svelte:18
+#, fuzzy
+msgid "The box's address"
+msgstr "ボックスのアドレス"
+
+#: tools/Contact.svelte:24
+#, fuzzy
+msgid "Help and support"
+msgstr "ヘルプとサポート"
+
+#: tools/Contact.svelte:24
+#, fuzzy
+msgid "On a phone or computer."
+msgstr "スマートフォンかパソコンで。"
+
+#: tools/Contact.svelte:27
+#, fuzzy
+msgid "Say what's wrong, and since when."
+msgstr "何が起きたか、いつからかを書いてください。"
+
+#: tools/Contact.svelte:27
+#, fuzzy
+msgid "Save a diagnostics bundle to a USB stick."
+msgstr "診断パッケージを USB メモリに保存します。"
+
+#: tools/Contact.svelte:27
+#, fuzzy
+msgid "Upload it, with the serial number below."
+msgstr "下のシリアル番号を添えてアップロードします。"
+
+#: tools/Contact.svelte:32
+#, fuzzy
+msgid "About this box"
+msgstr "このボックスについて"
+
+#: tools/Contact.svelte:32
+#, fuzzy
+msgid "Support asks for these."
+msgstr "サポートから尋ねられる情報です。"
+
+#: tools/Contact.svelte:37
+#, fuzzy
+msgid "The box moves to the next version before then."
+msgstr "それまでに、ボックスは次のバージョンへ移行します。"
+
+#: tools/Diagnostics.svelte:48
+#, fuzzy
+msgid "Settings, versions and logs, for support. No photos, files or messages."
+msgstr "サポート向けの設定・バージョン・ログ。写真、ファイル、メッセージは含みません。"
+
+#: tools/Diagnostics.svelte:50 tools/Diagnostics.svelte:51
+#, fuzzy
+msgid "What's wrong?"
+msgstr "どんな問題ですか？"
+
+#: tools/Diagnostics.svelte:51
+#, fuzzy
+msgid "For example: photos won't upload since Tuesday"
+msgstr "例：火曜日から写真がアップロードできない"
+
+#: tools/Diagnostics.svelte:53 tools/Diagnostics.svelte:54
+#, fuzzy
+msgid "Include the system log"
+msgstr "システムログを含める"
+
+#: tools/Diagnostics.svelte:53
+#, fuzzy
+msgid "The last week. Support needs it for most problems."
+msgstr "直近 1 週間。ほとんどの問題でサポートが必要とします。"
+
+#: tools/Diagnostics.svelte:56 tools/Diagnostics.svelte:57
+#, fuzzy
+msgid "Include network details"
+msgstr "ネットワーク情報を含める"
+
+#: tools/Diagnostics.svelte:56
+#, fuzzy
+msgid "Addresses, router and name servers."
+msgstr "アドレス、ルーター、ネームサーバー。"
+
+#: tools/Diagnostics.svelte:59
+#, fuzzy
+msgid "New bundle"
+msgstr "新しいパッケージ"
+
+#: tools/Diagnostics.svelte:59
+#, fuzzy
+msgid "Takes a minute."
+msgstr "1 分ほどかかります。"
+
+#: tools/Diagnostics.svelte:60
+#, fuzzy
+msgid "Make bundle"
+msgstr "作成"
+
+#: tools/Diagnostics.svelte:63
+#, fuzzy
+msgid "Bundles on the box"
+msgstr "ボックス内のパッケージ"
+
+#: tools/Diagnostics.svelte:63
+#, fuzzy
+msgid "The newest five are kept."
+msgstr "最新の 5 件を保存します。"
+
+#: tools/Diagnostics.svelte:68
+#, fuzzy
+msgid "Review"
+msgstr "確認"
+
+#: tools/Diagnostics.svelte:69
+#, fuzzy
+msgid "Save to USB"
+msgstr "USB に保存"
+
+#: tools/Diagnostics.svelte:70 tools/Diagnostics.svelte:70
+#, fuzzy
+msgid "Delete"
+msgstr "削除"
+
+#: tools/Diagnostics.svelte:74 tools/Security.svelte:149
+#, fuzzy
+msgid "None yet"
+msgstr "まだありません"
+
+#: tools/Diagnostics.svelte:76
+#, fuzzy
+msgid "Send it to support"
+msgstr "サポートに送る"
+
+#: tools/Diagnostics.svelte:77
+#, fuzzy
+msgid "Save the bundle to a USB stick."
+msgstr "パッケージを USB メモリに保存します。"
+
+#: tools/Diagnostics.svelte:77 tools/SaveBundle.svelte:46
+#, fuzzy
+msgid "Upload it at {url}."
+msgstr "{url} でアップロードします。"
+
+#: tools/Diagnostics.svelte:77
+#, fuzzy
+msgid "Give support the code you get."
+msgstr "受け取ったコードをサポートに伝えます。"
+
+#: tools/Display.svelte:31
+#, fuzzy
+msgid "1 minute"
+msgstr "1分"
+
+#: tools/Display.svelte:86 tools/Display.svelte:90
+#, fuzzy
+msgid "Keep these settings? Reverting in {n} s."
+msgstr "この設定を保持しますか? {n} 秒で元に戻ります。"
+
+#: tools/Display.svelte:116
+#, fuzzy
+msgid "Saved. The screen starts this way from now on."
+msgstr "保存しました。今後、画面はこの設定で起動します。"
+
+#: tools/Display.svelte:129
+#, fuzzy
+msgid "When No One's Using It"
+msgstr "使われていないとき"
+
+#: tools/Display.svelte:129
+#, fuzzy
+msgid "For everyone at this screen. The box keeps running."
+msgstr "この画面を使う全員に適用されます。ボックスは動き続けます。"
+
+#: tools/Display.svelte:130
+#, fuzzy
+msgid "An admin's password brings the desktop back."
+msgstr "管理者のパスワードでデスクトップに戻ります。"
+
+#: tools/Display.svelte:131
+#, fuzzy
+msgid "A key, the mouse or a touch turns it on."
+msgstr "キー、マウス、タッチでオンになります。"
+
+#: tools/Display.svelte:144
+#, fuzzy
+msgid "No screen to set here"
+msgstr "設定できる画面がありません"
+
+#: tools/Display.svelte:144
+#, fuzzy
+msgid "For a screen plugged into the box."
+msgstr "ボックスに接続した画面用。"
+
+#: tools/Display.svelte:150
+#, fuzzy
+msgid "Go back"
+msgstr "元に戻す"
+
+#: tools/Display.svelte:151
+#, fuzzy
+msgid "Keep"
+msgstr "保持"
+
+#: tools/Display.svelte:158
+#, fuzzy
+msgid "Landscape or portrait."
+msgstr "横向きまたは縦向き。"
+
+#: tools/Display.svelte:164
+#, fuzzy
+msgid "Higher is sharper, with smaller items."
+msgstr "高いほど鮮明で、表示は小さくなります。"
+
+#: tools/Display.svelte:170
+#, fuzzy
+msgid "How smoothly things move on the screen."
+msgstr "画面上の動きの滑らかさ。"
+
+#: tools/Display.svelte:176
+#, fuzzy
+msgid "Size of text and everything on screen."
+msgstr "文字と画面全体の大きさ。"
+
+#: tools/Drives.svelte:14
+#, fuzzy
+msgid "Size"
+msgstr "サイズ"
+
+#: tools/Drives.svelte:14
+#, fuzzy
+msgid "Place"
+msgstr "位置"
+
+#: tools/Drives.svelte:14
+#, fuzzy
+msgid "The box's own"
+msgstr "ボックス本体"
+
+#: tools/Drives.svelte:16
+#, fuzzy
+msgid "In use for"
+msgstr "使用時間"
+
+#: tools/EditPerson.svelte:81 tools/SaveBundle.svelte:55
+#, fuzzy
+msgid "Save"
+msgstr "保存"
+
+#: tools/EditPerson.svelte:85
+#, fuzzy
+msgid "Change your own password."
+msgstr "自分のパスワードを変更します。"
+
+#: tools/EditPerson.svelte:85
+#, fuzzy
+msgid "Forgotten? {name} types a new one here."
+msgstr "忘れたら {name} さんがここで新しく入力します。"
+
+#: tools/EditPerson.svelte:90
+#, fuzzy
+msgid "Can manage the box and everyone's accounts."
+msgstr "ボックスと全員のアカウントを管理できます。"
+
+#: tools/EditPerson.svelte:92
+#, fuzzy
+msgid "Remove {name} as admin?"
+msgstr "{name} さんの管理者を解除しますか？"
+
+#: tools/EditPerson.svelte:93
+#, fuzzy
+msgid "They keep their account but can no longer manage the box. They're signed out everywhere."
+msgstr "アカウントは残りますが、ボックスは管理できなくなります。すべての端末でサインアウトされます。"
+
+#: tools/EditPerson.svelte:94 tools/EditPerson.svelte:94
+#, fuzzy
+msgid "Remove admin"
+msgstr "管理者を解除"
+
+#: tools/EditPerson.svelte:98
+#, fuzzy
+msgid "Admins manage the box and everyone's accounts."
+msgstr "管理者はボックスと全員のアカウントを管理します。"
+
+#: tools/EditPerson.svelte:100
+#, fuzzy
+msgid "Make {name} an admin?"
+msgstr "{name} さんを管理者にしますか？"
+
+#: tools/EditPerson.svelte:101
+#, fuzzy
+msgid "They can manage the box and everyone's accounts, here and in Family Hub."
+msgstr "ここと Family Hub で、ボックスと全員のアカウントを管理できます。"
+
+#: tools/EditPerson.svelte:109
+#, fuzzy
+msgid "On. They can sign in."
+msgstr "オン。サインインできます。"
+
+#: tools/EditPerson.svelte:111
+#, fuzzy
+msgid "Turn off {name}'s account?"
+msgstr "{name} さんのアカウントをオフにしますか？"
+
+#: tools/EditPerson.svelte:112
+#, fuzzy
+msgid "They're signed out everywhere and can't sign in. Their photos and files stay. You can turn it on again."
+msgstr "すべての端末でサインアウトされ、サインインできなくなります。写真やファイルは残ります。あとでオンに戻せます。"
+
+#: tools/EditPerson.svelte:117
+#, fuzzy
+msgid "Off. They can't sign in."
+msgstr "オフ。サインインできません。"
+
+#: tools/Help.svelte:14
+#, fuzzy
+msgid "Common questions"
+msgstr "よくある質問"
+
+#: tools/Help.svelte:14
+#, fuzzy
+msgid "More at {url}."
+msgstr "詳しくは {url}。"
+
+#: tools/Internet.svelte:38
+#, fuzzy
+msgid "Internet Access"
+msgstr "インターネット接続"
+
+#: tools/Internet.svelte:38
+#, fuzzy
+msgid "What may leave the box. Apps are blocked unless they say what they send and why."
+msgstr "ボックスから外へ出せるもの。送る内容と理由を示さないアプリはブロックされます。"
+
+#: tools/Internet.svelte:39 tools/Internet.svelte:41
+#, fuzzy
+msgid "Apps offline"
+msgstr "アプリをオフライン"
+
+#: tools/Internet.svelte:40
+#, fuzzy
+msgid "Every app is cut off from the internet. The box still gets its security fixes and the time."
+msgstr "すべてのアプリをインターネットから切り離します。セキュリティ修正と時刻は引き続き取得します。"
+
+#: tools/Internet.svelte:43 tools/Internet.svelte:45
+#, fuzzy
+msgid "Everything offline"
+msgstr "すべてオフライン"
+
+#: tools/Internet.svelte:44
+#, fuzzy
+msgid "Nothing leaves your home network, not even security fixes. Turn it off again soon so the box can catch up."
+msgstr "セキュリティ修正も含め、家庭内ネットワークの外へは何も出ません。ボックスが最新に追いつけるよう、早めにオフに戻してください。"
+
+#: tools/Internet.svelte:49
+#, fuzzy
+msgid "For: {feature}"
+msgstr "用途: {feature}"
+
+#: tools/Internet.svelte:49
+#, fuzzy
+msgid "What leaves: {what}"
+msgstr "送る内容: {what}"
+
+#: tools/Internet.svelte:50
+#, fuzzy
+msgid "Why: {why}"
+msgstr "理由: {why}"
+
+#: tools/Internet.svelte:50 tools/Security.svelte:178
+#, fuzzy
+msgid "When: {when}"
+msgstr "タイミング: {when}"
+
+#: tools/Internet.svelte:52 tools/Security.svelte:159 tools/Security.svelte:169
+#, fuzzy
+msgid "Allowed"
+msgstr "許可"
+
+#: tools/Internet.svelte:52
+#, fuzzy
+msgid "Blocked: {why}"
+msgstr "ブロック: {why}"
+
+#: tools/Internet.svelte:60
+#, fuzzy
+msgid "No app reaches the internet"
+msgstr "インターネットに接続するアプリはありません"
+
+#: tools/Internet.svelte:60
+#, fuzzy
+msgid "Every app is blocked: none has said it needs to send anything."
+msgstr "すべてのアプリがブロックされています。何かを送る必要があると示したアプリはありません。"
+
+#: tools/Internet.svelte:63
+#, fuzzy
+msgid "Blocked in the Last {days} Days"
+msgstr "過去{days}日間にブロック"
+
+#: tools/Internet.svelte:63
+#, fuzzy
+msgid "What the box stopped from leaving, by the app that tried."
+msgstr "ボックスが外へ出るのを止めたもの（試みたアプリ別）。"
+
+#: tools/Internet.svelte:67 tools/Security.svelte:96
+#, fuzzy
+msgid "Once"
+msgstr "1回"
+
+#: tools/Internet.svelte:67 tools/Security.svelte:96
+#, fuzzy
+msgid "{count} times"
+msgstr "{count}回"
+
+#: tools/Internet.svelte:69 tools/Security.svelte:98 tools/Security.svelte:162
+#, fuzzy
+msgid "Nothing"
+msgstr "なし"
+
+#: tools/Internet.svelte:69
+#, fuzzy
+msgid "Nothing was stopped."
+msgstr "ブロックされたものはありません。"
+
+#: tools/Keyboard.svelte:53
+#, fuzzy
+msgid "Mouse"
+msgstr "マウス"
+
+#: tools/Keyboard.svelte:54
+#, fuzzy
+msgid "The other button opens menus."
+msgstr "もう一方のボタンはメニューを開きます。"
+
+#: tools/Keyboard.svelte:56
+#, fuzzy
+msgid "Left"
+msgstr "左"
+
+#: tools/Keyboard.svelte:56
+#, fuzzy
+msgid "Right"
+msgstr "右"
+
+#: tools/Keyboard.svelte:62
+#, fuzzy
+msgid "Slow"
+msgstr "遅く"
+
+#: tools/Keyboard.svelte:62
+#, fuzzy
+msgid "Fast"
+msgstr "速く"
+
+#: tools/Keyboard.svelte:66
+#, fuzzy
+msgid "Moves further when the mouse moves fast."
+msgstr "マウスを速く動かすと遠くまで動きます。"
+
+#: tools/Keyboard.svelte:71 tools/Keyboard.svelte:72
+#, fuzzy
+msgid "Screen moves (view)"
+msgstr "画面が動く (ビュー)"
+
+#: tools/Keyboard.svelte:71
+#, fuzzy
+msgid "Scrolling moves the visible part of the page."
+msgstr "スクロールすると、ページの表示部分が動きます。"
+
+#: tools/Keyboard.svelte:74 tools/Keyboard.svelte:75
+#, fuzzy
+msgid "Content moves (finger)"
+msgstr "内容が動く (指)"
+
+#: tools/Keyboard.svelte:74
+#, fuzzy
+msgid "Content follows your finger, like on a phone."
+msgstr "スマートフォンのように、内容が指に合わせて動きます。"
+
+#: tools/KeysFromUsb.svelte:17
+#, fuzzy
+msgid "Keys on USB sticks"
+msgstr "USB メモリ内の鍵"
+
+#: tools/KeysFromUsb.svelte:20
+#, fuzzy
+msgid "No keys found in zoomriya/ssh on the stick."
+msgstr "USB メモリの zoomriya/ssh に鍵がありません。"
+
+#: tools/Language.svelte:59 tools/Time.svelte:34
+#, fuzzy
+msgid "Saved."
+msgstr "保存しました。"
+
+#: tools/Language.svelte:71
+#, fuzzy
+msgid "For the box's screens and messages."
+msgstr "ボックスの画面とメッセージ用。"
+
+#: tools/Language.svelte:74
+#, fuzzy
+msgid "Sets date, time and number formats."
+msgstr "日付、時刻、数値の表示形式を決めます。"
+
+#: tools/Language.svelte:81
+#, fuzzy
+msgid "Optional."
+msgstr "任意。"
+
+#: tools/LibraryCheck.svelte:18
+#, fuzzy
+msgid "Check that both copies match"
+msgstr "2 つのコピーが一致するか確認"
+
+#: tools/LibraryCheck.svelte:18
+#, fuzzy
+msgid "Checking that both copies match"
+msgstr "2 つのコピーが一致するか確認中"
+
+#: tools/LibraryCheck.svelte:19
+#, fuzzy
+msgid "Checking the library for damage"
+msgstr "ライブラリの損傷を確認中"
+
+#: tools/LibraryCheck.svelte:24
+#, fuzzy
+msgid "It hasn't been checked yet."
+msgstr "まだ確認されていません。"
+
+#: tools/LibraryCheck.svelte:25
+#, fuzzy
+msgid "Last check found {n} problems and repaired what it could."
+msgstr "前回の確認: {n} 件の問題が見つかり、可能な範囲で修復しました。"
+
+#: tools/LibraryCheck.svelte:26
+#, fuzzy
+msgid "Last check found {n} damaged files. With one drive they can't be repaired: restore them from a backup."
+msgstr "前回の確認: {n} 個の破損ファイル。ドライブが 1 台のため修復できません。バックアップから復元してください。"
+
+#: tools/LibraryCheck.svelte:27
+#, fuzzy
+msgid "The last check found nothing needing repair."
+msgstr "前回の確認で、修復が必要なものはありませんでした。"
+
+#: tools/LibraryCheck.svelte:58
+#, fuzzy
+msgid "Started {time}."
+msgstr "開始: {time}。"
+
+#: tools/LibraryCheck.svelte:61
+#, fuzzy
+msgid "The check is paused at {percent}%"
+msgstr "確認は {percent}% で一時停止中"
+
+#: tools/LibraryCheck.svelte:62
+#, fuzzy
+msgid "It carries on from there when you resume it."
+msgstr "再開すると、そこから続きます。"
+
+#: tools/LibraryCheck.svelte:65
+#, fuzzy
+msgid "The box also checks once a month by itself."
+msgstr "ボックスは月に 1 回、自動でも確認します。"
+
+#: tools/LibraryCheck.svelte:69
+#, fuzzy
+msgid "Pause"
+msgstr "一時停止"
+
+#: tools/LibraryCheck.svelte:69
+#, fuzzy
+msgid "Resume"
+msgstr "再開"
+
+#: tools/LibraryCheck.svelte:69 tools/Security.svelte:120
+#, fuzzy
+msgid "Check now"
+msgstr "今すぐ確認"
+
+#: tools/LogNotifications.svelte:18
+#, fuzzy
+msgid "What the box reported in the last month. Choose what appears on the bell in Control Panel › Notifications."
+msgstr "過去 1 か月にボックスが知らせたこと。ベルに表示する内容は、コントロールパネル › 通知で選べます。"
+
+#: tools/LogNotifications.svelte:22
+#, fuzzy
+msgid "Nothing in the last month."
+msgstr "過去 1 か月は何もありません。"
+
+#: tools/Logs.svelte:55 tools/Logs.svelte:55
+#, fuzzy
+msgid "Search"
+msgstr "検索"
+
+#: tools/Logs.svelte:60
+#, fuzzy
+msgid "Nothing here."
+msgstr "ここには何もありません。"
+
+#: tools/Network.svelte:86
+#, fuzzy
+msgid "Ethernet Status ({port})"
+msgstr "イーサネットの状態 ({port})"
+
+#: tools/Network.svelte:88
+#, fuzzy
+msgid "Connection: Connected"
+msgstr "接続: 接続済み"
+
+#: tools/Network.svelte:88
+#, fuzzy
+msgid "Connection: Cable unplugged"
+msgstr "接続: ケーブルが抜けています"
+
+#: tools/Network.svelte:90
+#, fuzzy
+msgid "IPv4 Address: {address} ({how})"
+msgstr "IPv4 アドレス: {address} ({how})"
+
+#: tools/Network.svelte:91
+#, fuzzy
+msgid "none yet"
+msgstr "まだありません"
+
+#: tools/Network.svelte:92 tools/Network.svelte:126
+#, fuzzy
+msgid "Static"
+msgstr "固定"
+
+#: tools/Network.svelte:92
+#, fuzzy
+msgid "Assigned by Router"
+msgstr "ルーターが割り当て"
+
+#: tools/Network.svelte:93
+#, fuzzy
+msgid "MAC address: {mac}"
+msgstr "MAC アドレス: {mac}"
+
+#: tools/Network.svelte:102 tools/Network.svelte:123
+#, fuzzy
+msgid "Configuration Details ({port})"
+msgstr "設定の詳細 ({port})"
+
+#: tools/Network.svelte:111
+#, fuzzy
+msgid "Ethernet"
+msgstr "イーサネット"
+
+#: tools/Network.svelte:112
+#, fuzzy
+msgid "No network port found"
+msgstr "ネットワークポートが見つかりません"
+
+#: tools/Network.svelte:112
+#, fuzzy
+msgid "The box needs a cable to the router."
+msgstr "ボックスにはルーターへのケーブルが必要です。"
+
+#: tools/Network.svelte:117
+#, fuzzy
+msgid "Status: Off"
+msgstr "状態: オフ"
+
+#: tools/Network.svelte:117
+#, fuzzy
+msgid "The box connects to the router by a cable."
+msgstr "ボックスはケーブルでルーターに接続します。"
+
+#: tools/Network.svelte:123
+#, fuzzy
+msgid "Configuration Details"
+msgstr "設定の詳細"
+
+#: tools/Network.svelte:124
+#, fuzzy
+msgid "New settings are tried for a few minutes and revert unless kept."
+msgstr "新しい設定は数分間試され、保持しなければ元に戻ります。"
+
+#: tools/Network.svelte:125
+#, fuzzy
+msgid "From the router (DHCP), or a fixed static address."
+msgstr "ルーターから (DHCP)、または固定アドレス。"
+
+#: tools/Network.svelte:126
+#, fuzzy
+msgid "DHCP"
+msgstr "DHCP"
+
+#: tools/Network.svelte:143
+#, fuzzy
+msgid "Current Address: {address}."
+msgstr "現在のアドレス: {address}。"
+
+#: tools/Network.svelte:143
+#, fuzzy
+msgid "Reverts at {time} unless kept."
+msgstr "保持しないと {time} に元に戻ります。"
+
+#: tools/Network.svelte:145
+#, fuzzy
+msgid "Keep them"
+msgstr "保持する"
+
+#: tools/NewPassword.svelte:41
+#, fuzzy
+msgid "New password for {name}"
+msgstr "{name} の新しいパスワード"
+
+#: tools/NewPassword.svelte:42
+#, fuzzy
+msgid "Type a new password. At least 8 characters."
+msgstr "新しいパスワードを入力。8文字以上。"
+
+#: tools/NewPassword.svelte:43
+#, fuzzy
+msgid "Let {name} type a new one. At least 8 characters. They're signed out everywhere."
+msgstr "{name} さんに新しく入力してもらいます。8文字以上。すべての端末でサインアウトされます。"
+
+#: tools/NewPassword.svelte:44
+#, fuzzy
+msgid "Your current password"
+msgstr "現在のパスワード"
+
+#: tools/NewPassword.svelte:48
+#, fuzzy
+msgid "Save password"
+msgstr "パスワードを保存"
+
+#: tools/Notifications.svelte:22
+#, fuzzy
+msgid "See past notifications"
+msgstr "過去の通知を表示"
+
+#: tools/PasteKey.svelte:20 tools/PasteKey.svelte:20
+#, fuzzy
+msgid "A name, like Anna's laptop"
+msgstr "名前（例：アンナのノート PC）"
+
+#: tools/PasteKey.svelte:21 tools/PasteKey.svelte:22
+#, fuzzy
+msgid "Public key (ssh-ed25519 …)"
+msgstr "公開鍵（ssh-ed25519 …）"
+
+#: tools/People.svelte:29
+#, fuzzy
+msgid "Child"
+msgstr "子ども"
+
+#: tools/People.svelte:30
+#, fuzzy
+msgid "Teen"
+msgstr "ティーン"
+
+#: tools/People.svelte:37
+#, fuzzy
+msgid "You"
+msgstr "あなた"
+
+#: tools/People.svelte:40
+#, fuzzy
+msgid "Parents or guardians: {names}"
+msgstr "保護者：{names}"
+
+#: tools/People.svelte:42
+#, fuzzy
+msgid "Needs a parent or guardian."
+msgstr "保護者が必要です。"
+
+#: tools/People.svelte:53
+#, fuzzy
+msgid "Everyone who signs in to this box."
+msgstr "このボックスにサインインする全員。"
+
+#: tools/People.svelte:56
+#, fuzzy
+msgid "Edit"
+msgstr "編集"
+
+#: tools/People.svelte:59
+#, fuzzy
+msgid "They choose their own password, here at the box."
+msgstr "パスワードは本人がボックスで決めます。"
+
+#: tools/People.svelte:64
+#, fuzzy
+msgid "Same in Family Hub"
+msgstr "Family Hub でも同じ"
+
+#: tools/People.svelte:64
+#, fuzzy
+msgid "Family Hub's Family page shows these people too."
+msgstr "Family Hub の家族ページにも表示されます。"
+
+#: tools/People.svelte:65
+#, fuzzy
+msgid "Children's settings"
+msgstr "子どもの設定"
+
+#: tools/People.svelte:65
+#, fuzzy
+msgid "Their parents set apps and quiet hours in Family Hub."
+msgstr "アプリと静かな時間は保護者が Family Hub で設定します。"
+
+#: tools/People.svelte:66
+#, fuzzy
+msgid "Always an admin"
+msgstr "管理者は常に1人以上"
+
+#: tools/People.svelte:66
+#, fuzzy
+msgid "You can't turn off your own account or remove your own admin role."
+msgstr "自分のアカウントのオフや管理者の解除はできません。"
+
+#: tools/RemoveApp.svelte:16 tools/RemoveApp.svelte:22
+#, fuzzy
+msgid "Remove {app}?"
+msgstr "{app} を削除しますか？"
+
+#: tools/RemoveApp.svelte:16
+#, fuzzy
+msgid "Its data is deleted too."
+msgstr "データも削除されます。"
+
+#: tools/RemoveApp.svelte:16
+#, fuzzy
+msgid "Its data is kept."
+msgstr "データは残ります。"
+
+#: tools/RemoveApp.svelte:23
+#, fuzzy
+msgid "{app} stops and is removed."
+msgstr "{app} を停止して削除します。"
+
+#: tools/RemoveApp.svelte:24
+#, fuzzy
+msgid "Keep its data"
+msgstr "データを残す"
+
+#: tools/RemoveApp.svelte:25
+#, fuzzy
+msgid "Delete its data too (can't be undone)"
+msgstr "データも削除する（元に戻せません）"
+
+#: tools/Resources.svelte:37
+#, fuzzy
+msgid "Processor: {percent}%"
+msgstr "プロセッサー: {percent}%"
+
+#: tools/Resources.svelte:39
+#, fuzzy
+msgid "Memory: {used} of {total}"
+msgstr "メモリ: {used} / {total}"
+
+#: tools/Resources.svelte:57
+#, fuzzy
+msgid "in {received}, out {sent}"
+msgstr "受信 {received}、送信 {sent}"
+
+#: tools/Resources.svelte:64
+#, fuzzy
+msgid "Disks"
+msgstr "ディスク"
+
+#: tools/Resources.svelte:65
+#, fuzzy
+msgid "reading {read}, writing {written}"
+msgstr "読み取り {read}、書き込み {written}"
+
+#: tools/Resources.svelte:66
+#, fuzzy
+msgid "Hottest sensor"
+msgstr "最も高温のセンサー"
+
+#: tools/Restarts.svelte:22
+#, fuzzy
+msgid "Awaiting Kernel Update Completion"
+msgstr "カーネルのアップデートを完了待ち"
+
+#: tools/Restarts.svelte:22
+#, fuzzy
+msgid "A new kernel is ready."
+msgstr "新しいカーネルの準備ができました。"
+
+#: tools/Restarts.svelte:23
+#, fuzzy
+msgid "Awaiting Update Completion"
+msgstr "アップデートを完了待ち"
+
+#: tools/Restarts.svelte:23
+#, fuzzy
+msgid "Security fixes are installed."
+msgstr "セキュリティ修正をインストールしました。"
+
+#: tools/Restarts.svelte:24
+#, fuzzy
+msgid "Awaiting Restore Completion"
+msgstr "復元を完了待ち"
+
+#: tools/Restarts.svelte:24
+#, fuzzy
+msgid "The OS is restored."
+msgstr "OS を復元しました。"
+
+#: tools/Restarts.svelte:25
+#, fuzzy
+msgid "Awaiting Reset"
+msgstr "リセットを完了待ち"
+
+#: tools/Restarts.svelte:25
+#, fuzzy
+msgid "The reset is ready."
+msgstr "リセットの準備ができました。"
+
+#: tools/Restarts.svelte:26
+#, fuzzy
+msgid "Restart Needed"
+msgstr "再起動が必要"
+
+#: tools/Restarts.svelte:26
+#, fuzzy
+msgid "Something waits for a restart."
+msgstr "再起動を待っているものがあります。"
+
+#: tools/Restarts.svelte:54
+#, fuzzy
+msgid "The system will restart at {hour}, or you can restart manually now."
+msgstr "システムは {hour} に再起動します。今すぐ手動で再起動することもできます。"
+
+#: tools/Restarts.svelte:55
+#, fuzzy
+msgid "Finish & Restart"
+msgstr "完了して再起動"
+
+#: tools/Restarts.svelte:59
+#, fuzzy
+msgid "Maintenance"
+msgstr "メンテナンス"
+
+#: tools/Restarts.svelte:60
+#, fuzzy
+msgid "If an update needs a restart, the box restarts this hour."
+msgstr "アップデートで再起動が必要な場合、ボックスはこの時間に再起動します。"
+
+#: tools/Restarts.svelte:63
+#, fuzzy
+msgid "Adjust Time"
+msgstr "時刻を変更"
+
+#: tools/Restarts.svelte:67
+#, fuzzy
+msgid "Power"
+msgstr "電源"
+
+#: tools/Restarts.svelte:69
+#, fuzzy
+msgid "The box runs 24/7 with power-saving mode disabled."
+msgstr "ボックスは省電力モードなしで 24 時間 365 日動作します。"
+
+#: tools/Restarts.svelte:72
+#, fuzzy
+msgid "If powered off, it must be turned back on in person."
+msgstr "電源が切れた場合は、その場で入れ直す必要があります。"
+
+#: tools/Restore.svelte:20
+#, fuzzy
+msgid "before update"
+msgstr "アップデート前"
+
+#: tools/Restore.svelte:20
+#, fuzzy
+msgid "after update"
+msgstr "アップデート後"
+
+#: tools/Restore.svelte:21
+#, fuzzy
+msgid "before restore"
+msgstr "復元前"
+
+#: tools/Restore.svelte:21
+#, fuzzy
+msgid "factory"
+msgstr "出荷時"
+
+#: tools/Restore.svelte:21
+#, fuzzy
+msgid "As it left the factory"
+msgstr "出荷時の状態"
+
+#: tools/Restore.svelte:29
+#, fuzzy
+msgid "Restore the OS?"
+msgstr "OS を復元しますか?"
+
+#: tools/Restore.svelte:30
+#, fuzzy
+msgid "The OS returns to {time} ({what}) on the next restart. Family files and app data stay."
+msgstr "次回の再起動で、OS は {time} ({what}) に戻ります。家族のファイルとアプリのデータは残ります。"
+
+#: tools/Restore.svelte:40
+#, fuzzy
+msgid "Update now?"
+msgstr "今すぐアップデートしますか?"
+
+#: tools/Restore.svelte:41
+#, fuzzy
+msgid "{package} installs its latest fix now, even if that's {taken}, the version the restore removed."
+msgstr "{package} は今すぐ最新の修正をインストールします。それが復元で外された {taken} であってもです。"
+
+#: tools/Restore.svelte:43 tools/Restore.svelte:87
+#, fuzzy
+msgid "Update now"
+msgstr "今すぐアップデート"
+
+#: tools/Restore.svelte:56
+#, fuzzy
+msgid "Reset the system?"
+msgstr "システムをリセットしますか?"
+
+#: tools/Restore.svelte:56
+#, fuzzy
+msgid "The system returns to its factory state on restart. Family apps and data stay."
+msgstr "再起動時にシステムは出荷時の状態に戻ります。家族のアプリとデータは残ります。"
+
+#: tools/Restore.svelte:57 tools/Restore.svelte:92
+#, fuzzy
+msgid "Reset"
+msgstr "リセット"
+
+#: tools/Restore.svelte:63
+#, fuzzy
+msgid "Erase everything?"
+msgstr "すべて消去しますか?"
+
+#: tools/Restore.svelte:64
+#, fuzzy
+msgid "Deletes every app, account, photo and message on restart. This can't be undone. Enter the setup code from the sticker and your password."
+msgstr "再起動時に、すべてのアプリ、アカウント、写真、メッセージを削除します。元に戻せません。ステッカーのセットアップコードとパスワードを入力してください。"
+
+#: tools/Restore.svelte:65
+#, fuzzy
+msgid "Setup code, like ABCD-EFGH"
+msgstr "セットアップコード (例: ABCD-EFGH)"
+
+#: tools/Restore.svelte:73
+#, fuzzy
+msgid "Reverts the OS to an earlier state. Family files and app data stay. Try this first."
+msgstr "OS を以前の状態に戻します。家族のファイルとアプリのデータは残ります。まずこれを試してください。"
+
+#: tools/Restore.svelte:83
+#, fuzzy
+msgid "A restore rolled back these updates. They will update automatically when a newer fix is released."
+msgstr "復元によってこれらのアップデートが取り消されました。新しい修正が公開されると自動でアップデートされます。"
+
+#: tools/Restore.svelte:86
+#, fuzzy
+msgid "On {version}. Skipping {taken}."
+msgstr "{version} のまま。{taken} はスキップ。"
+
+#: tools/Restore.svelte:94
+#, fuzzy
+msgid "Returns the OS to factory state, then updates it. Your data stays. Use if restoring fails."
+msgstr "OS を出荷時の状態に戻し、更新します。データは残ります。復元で解決しないときに。"
+
+#: tools/Restore.svelte:95
+#, fuzzy
+msgid "Reset the system"
+msgstr "システムをリセット"
+
+#: tools/Restore.svelte:99
+#, fuzzy
+msgid "Erases everything, leaving the box as new. Needs the setup code from the sticker."
+msgstr "すべて消去し、新品の状態に戻します。ステッカーのセットアップコードが必要です。"
+
+#: tools/ReviewBundle.svelte:31
+#, fuzzy
+msgid "What's in this bundle"
+msgstr "このパッケージの内容"
+
+#: tools/ReviewBundle.svelte:38
+#, fuzzy
+msgid "Only the start is shown."
+msgstr "先頭のみ表示しています。"
+
+#: tools/ReviewBundle.svelte:40
+#, fuzzy
+msgid "Your note: {note}"
+msgstr "メモ：{note}"
+
+#: tools/ReviewBundle.svelte:41
+#, fuzzy
+msgid "What the box found"
+msgstr "ボックスが見つけたこと"
+
+#: tools/ReviewBundle.svelte:48
+#, fuzzy
+msgid "Files"
+msgstr "ファイル"
+
+#: tools/ReviewBundle.svelte:48
+#, fuzzy
+msgid "Passwords and keys are taken out."
+msgstr "パスワードと鍵は除かれます。"
+
+#: tools/ReviewBundle.svelte:50
+#, fuzzy
+msgid "about your home"
+msgstr "自宅に関する情報"
+
+#: tools/ReviewBundle.svelte:51
+#, fuzzy
+msgid "View"
+msgstr "表示"
+
+#: tools/SaveBundle.svelte:31
+#, fuzzy
+msgid "Saved to {stick}. You can unplug it."
+msgstr "{stick} に保存しました。取り外してかまいません。"
+
+#: tools/SaveBundle.svelte:49
+#, fuzzy
+msgid "Plug a USB stick into the box."
+msgstr "ボックスに USB メモリを挿してください。"
+
+#: tools/SaveBundle.svelte:54
+#, fuzzy
+msgid "USB stick"
+msgstr "USB メモリ"
+
+#: tools/Security.svelte:36
+#, fuzzy
+msgid "the box's certificate has a problem"
+msgstr "ボックスの証明書に問題があります"
+
+#: tools/Security.svelte:36
+#, fuzzy
+msgid "security fixes are off"
+msgstr "セキュリティ修正がオフです"
+
+#: tools/Security.svelte:37
+#, fuzzy
+msgid "the firewall is off"
+msgstr "ファイアウォールがオフです"
+
+#: tools/Security.svelte:37
+#, fuzzy
+msgid "the OS's files changed"
+msgstr "OS のファイルが変更されました"
+
+#: tools/Security.svelte:37
+#, fuzzy
+msgid "AppArmor is off"
+msgstr "AppArmor がオフです"
+
+#: tools/Security.svelte:41
+#, fuzzy
+msgid "Not yet: files are checked nightly."
+msgstr "まだです: ファイルは毎晩確認されます。"
+
+#: tools/Security.svelte:42
+#, fuzzy
+msgid "Completed {time}: OS files match the latest update."
+msgstr "{time} に完了: OS のファイルは最新のアップデートと一致しています。"
+
+#: tools/Security.svelte:43
+#, fuzzy
+msgid "Completed {time}: files changed outside an update: {files}"
+msgstr "{time} に完了: アップデート以外で変更されたファイル: {files}"
+
+#: tools/Security.svelte:49
+#, fuzzy
+msgid "Auto updates every night."
+msgstr "毎晩自動でアップデート。"
+
+#: tools/Security.svelte:49
+#, fuzzy
+msgid "Auto updates are off."
+msgstr "自動アップデートはオフです。"
+
+#: tools/Security.svelte:50
+#, fuzzy
+msgid "Last update was {date}."
+msgstr "最後のアップデート: {date}。"
+
+#: tools/Security.svelte:50
+#, fuzzy
+msgid "No update yet."
+msgstr "まだアップデートはありません。"
+
+#: tools/Security.svelte:51
+#, fuzzy
+msgid "Installing security updates now."
+msgstr "セキュリティアップデートをインストール中。"
+
+#: tools/Security.svelte:108
+#, fuzzy
+msgid "Protected"
+msgstr "保護されています"
+
+#: tools/Security.svelte:108
+#, fuzzy
+msgid "Security updates install automatically, and the firewall is always enabled."
+msgstr "セキュリティアップデートは自動でインストールされ、ファイアウォールは常に有効です。"
+
+#: tools/Security.svelte:111
+#, fuzzy
+msgid "Secure Boot is on"
+msgstr "セキュアブートはオン"
+
+#: tools/Security.svelte:111
+#, fuzzy
+msgid "Only authenticated software can boot the system."
+msgstr "認証されたソフトウェアだけがシステムを起動できます。"
+
+#: tools/Security.svelte:113
+#, fuzzy
+msgid "Secure Boot is off"
+msgstr "セキュアブートはオフ"
+
+#: tools/Security.svelte:113
+#, fuzzy
+msgid "Secure Boot is unavailable"
+msgstr "セキュアブートは利用できません"
+
+#: tools/Security.svelte:114
+#, fuzzy
+msgid "Enable it in the firmware settings, if available."
+msgstr "可能なら、ファームウェアの設定で有効にしてください。"
+
+#: tools/Security.svelte:118
+#, fuzzy
+msgid "Protection"
+msgstr "保護"
+
+#: tools/Security.svelte:120
+#, fuzzy
+msgid "Checking…"
+msgstr "確認中…"
+
+#: tools/Security.svelte:123
+#, fuzzy
+msgid "{n} programs confined"
+msgstr "{n} 個のプログラムを制限中"
+
+#: tools/Security.svelte:128
+#, fuzzy
+msgid "The programs ({n})"
+msgstr "プログラム ({n})"
+
+#: tools/Security.svelte:134
+#, fuzzy
+msgid "Confined"
+msgstr "制限"
+
+#: tools/Security.svelte:134
+#, fuzzy
+msgid "Watched only"
+msgstr "監視のみ"
+
+#: tools/Security.svelte:145
+#, fuzzy
+msgid "Not made yet: the box makes its certificate in a few minutes."
+msgstr "まだ作成されていません。ボックスが数分で証明書を作成します。"
+
+#: tools/Security.svelte:146
+#, fuzzy
+msgid "Each phone or computer trusts the box once, from {address}. The fingerprint it shows must be: {fingerprint}"
+msgstr "スマホやパソコンごとに一度、{address} からボックスを信頼します。表示される指紋は次のとおりのはずです: {fingerprint}"
+
+#: tools/Security.svelte:148
+#, fuzzy
+msgid "OS Update"
+msgstr "OS のアップデート"
+
+#: tools/Security.svelte:154
+#, fuzzy
+msgid "What devices on your network can reach on this box."
+msgstr "ネットワーク上の機器がこのボックスで利用できるもの。"
+
+#: tools/Security.svelte:155
+#, fuzzy
+msgid "Everything else is blocked."
+msgstr "それ以外はすべてブロックされます。"
+
+#: tools/Security.svelte:158
+#, fuzzy
+msgid "Port {port} ({how})"
+msgstr "ポート {port} ({how})"
+
+#: tools/Security.svelte:162
+#, fuzzy
+msgid "No other device can reach the box."
+msgstr "ほかの機器はボックスに接続できません。"
+
+#: tools/Security.svelte:165
+#, fuzzy
+msgid "For updates and the time. No identifying data is sent."
+msgstr "アップデートと時刻のため。個人を特定するデータは送信しません。"
+
+#: tools/Security.svelte:177
+#, fuzzy
+msgid "Address: {host}"
+msgstr "アドレス: {host}"
+
+#: tools/Security.svelte:179
+#, fuzzy
+msgid "No identifying data is sent."
+msgstr "個人を特定するデータは送信しません。"
+
+#: tools/Security.svelte:190
+#, fuzzy
+msgid "Sent in the Last {days} Days"
+msgstr "過去{days}日間に送信"
+
+#: tools/Security.svelte:191
+#, fuzzy
+msgid "Every connection from the box to the internet, by the app that made it."
+msgstr "ボックスからインターネットへの接続すべてと、それを行ったアプリ。"
+
+#: tools/Security.svelte:192
+#, fuzzy
+msgid "Nothing left the box for the internet."
+msgstr "ボックスからインターネットへは何も送信されていません。"
+
+#: tools/Sound.svelte:57
+#, fuzzy
+msgid "None found"
+msgstr "見つかりません"
+
+#: tools/Sound.svelte:62 tools/Sound.svelte:62
+#, fuzzy
+msgid "Mute"
+msgstr "ミュート"
+
+#: tools/Sound.svelte:70
+#, fuzzy
+msgid "Output"
+msgstr "出力"
+
+#: tools/Sound.svelte:74
+#, fuzzy
+msgid "Play a test sound"
+msgstr "テスト音を再生"
+
+#: tools/Sound.svelte:74
+#, fuzzy
+msgid "Test"
+msgstr "テスト"
+
+#: tools/Sound.svelte:81
+#, fuzzy
+msgid "Input"
+msgstr "入力"
+
+#: tools/Sound.svelte:88
+#, fuzzy
+msgid "Speak to see it move."
+msgstr "話すと動きます。"
+
+#: tools/Space.svelte:13
+#, fuzzy
+msgid "The apps' databases"
+msgstr "アプリのデータベース"
+
+#: tools/Space.svelte:13
+#, fuzzy
+msgid "The apps themselves"
+msgstr "アプリ本体"
+
+#: tools/Space.svelte:13
+#, fuzzy
+msgid "Myira's models and the maps"
+msgstr "Myira のモデルと地図"
+
+#: tools/Space.svelte:14
+#, fuzzy
+msgid "Photos, files and the apps' data"
+msgstr "写真、ファイル、アプリのデータ"
+
+#: tools/Space.svelte:22
+#, fuzzy
+msgid "What takes the space on the box's own disk."
+msgstr "ボックス本体のディスクで容量を使っているもの。"
+
+#: tools/Space.svelte:26
+#, fuzzy
+msgid "Not counted yet; updated every few hours."
+msgstr "まだ集計されていません。数時間ごとに更新されます。"
+
+#: tools/StorageOverview.svelte:41
+#, fuzzy
+msgid "{size} used"
+msgstr "{size} 使用中"
+
+#: tools/StorageOverview.svelte:42
+#, fuzzy
+msgid "{free} free of {total}"
+msgstr "{total} のうち {free} 空き"
+
+#: tools/StorageOverview.svelte:52
+#, fuzzy
+msgid "{n} drives, each a copy of the other"
+msgstr "{n} 台のドライブ (互いにコピー)"
+
+#: tools/StorageOverview.svelte:56
+#, fuzzy
+msgid "The OS, the apps and their data"
+msgstr "OS、アプリ、そのデータ"
+
+#: tools/Temperature.svelte:21
+#, fuzzy
+msgid "This box reports no sensors."
+msgstr "このボックスにはセンサーがありません。"
+
+#: tools/Temperature.svelte:27
+#, fuzzy
+msgid "Fan"
+msgstr "ファン"
+
+#: tools/Time.svelte:44
+#, fuzzy
+msgid "Date & Time"
+msgstr "日付と時刻"
+
+#: tools/Time.svelte:45
+#, fuzzy
+msgid "On the box's clock."
+msgstr "ボックスの時計の時刻。"
+
+#: tools/Time.svelte:48
+#, fuzzy
+msgid "The box's dates and times follow it."
+msgstr "ボックスの日付と時刻はこれに従います。"
+
+#: tools/Time.svelte:52
+#, fuzzy
+msgid "Set by itself from the internet."
+msgstr "インターネットから自動で設定されています。"
+
+#: tools/Time.svelte:52
+#, fuzzy
+msgid "Syncs once the box is online."
+msgstr "ボックスがオンラインになると同期します。"
+
+#: tools/Time.svelte:53
+#, fuzzy
+msgid "In sync"
+msgstr "同期済み"
+
+#: tools/Time.svelte:53
+#, fuzzy
+msgid "Not yet in sync"
+msgstr "まだ同期されていません"
+
+#: tools/keys.ts:9
+#, fuzzy
+msgid "Add this key?"
+msgstr "この鍵を追加しますか？"
+
+#: tools/keys.ts:9
+#, fuzzy
+msgid "Its owner can sign in as admin while advanced access is on."
+msgstr "高度なアクセスがオンの間、持ち主は admin としてサインインできます。"

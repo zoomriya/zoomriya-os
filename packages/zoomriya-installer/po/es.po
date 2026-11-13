@@ -1,0 +1,491 @@
+# zoomriya-installer: es. Made by scripts/i18n.py extract; translate the empty msgstr.
+# "fuzzy": a draft still to be checked by a native speaker.
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: es\n"
+
+#: Installer.svelte:13 Installer.svelte:167
+#, fuzzy
+msgid "Language"
+msgstr "Idioma"
+
+#: Installer.svelte:13
+#, fuzzy
+msgid "Welcome"
+msgstr "Bienvenida"
+
+#: Installer.svelte:13 Installer.svelte:201 Installer.svelte:223
+#, fuzzy
+msgid "Drive"
+msgstr "Disco"
+
+#: Installer.svelte:13
+#, fuzzy
+msgid "Summary"
+msgstr "Resumen"
+
+#: Installer.svelte:13
+#, fuzzy
+msgid "Install"
+msgstr "Instalación"
+
+#: Installer.svelte:13
+#, fuzzy
+msgid "Done"
+msgstr "Listo"
+
+#: Installer.svelte:20
+#, fuzzy
+msgid "Your files stay at home"
+msgstr "Tus archivos se quedan en casa"
+
+#: Installer.svelte:20
+#, fuzzy
+msgid "Everything stays on the box, at home, not in someone else's cloud."
+msgstr "Todo se queda en la Box, en casa, no en la nube de otros."
+
+#: Installer.svelte:21
+#, fuzzy
+msgid "Security fixes install by themselves"
+msgstr "Las correcciones de seguridad se instalan solas"
+
+#: Installer.svelte:21
+#, fuzzy
+msgid "OS security updates install automatically."
+msgstr "Las actualizaciones de seguridad del sistema se instalan solas."
+
+#: Installer.svelte:22
+#, fuzzy
+msgid "Restore points"
+msgstr "Puntos de restauración"
+
+#: Installer.svelte:22
+#, fuzzy
+msgid "A restore point before every update. One click in Box Desktop goes back; your files stay."
+msgstr "Un punto de restauración antes de cada actualización. Un clic en Box Desktop para volver; tus archivos se quedan."
+
+#: Installer.svelte:23
+#, fuzzy
+msgid "A kernel that won't start falls back"
+msgstr "Si un kernel no arranca, vuelve al anterior"
+
+#: Installer.svelte:23
+#, fuzzy
+msgid "If a new kernel won't start, the box falls back to the previous one."
+msgstr "Si un kernel nuevo no arranca, la Box vuelve al anterior."
+
+#: Installer.svelte:24
+#, fuzzy
+msgid "One account: ZOOMRIYA ID"
+msgstr "Una sola cuenta: ZOOMRIYA ID"
+
+#: Installer.svelte:24
+#, fuzzy
+msgid "One sign-in for the box and every ZOOMRIYA app."
+msgstr "Un solo inicio de sesión para la Box y cada app de ZOOMRIYA."
+
+#: Installer.svelte:25
+#, fuzzy
+msgid "Closed unless you open it"
+msgstr "Cerrado hasta que lo abras"
+
+#: Installer.svelte:25
+#, fuzzy
+msgid "A firewall blocks anything uninvited; remote access stays off until an admin enables it."
+msgstr "Un cortafuegos bloquea todo lo no invitado; el acceso remoto sigue apagado hasta que un administrador lo active."
+
+#: Installer.svelte:65
+#, fuzzy
+msgid "Something went wrong."
+msgstr "Algo salió mal."
+
+#: Installer.svelte:130
+#, fuzzy
+msgid "Erase and install"
+msgstr "Borrar e instalar"
+
+#: Installer.svelte:130
+#, fuzzy
+msgid "Try again"
+msgstr "Reintentar"
+
+#: Installer.svelte:130
+#, fuzzy
+msgid "Restart now"
+msgstr "Reiniciar"
+
+#: Installer.svelte:130
+#, fuzzy
+msgid "Next"
+msgstr "Siguiente"
+
+#: Installer.svelte:153
+#, fuzzy
+msgid "OS Installer"
+msgstr "Instalador"
+
+#: Installer.svelte:165
+#, fuzzy
+msgid "Choose your language"
+msgstr "Elige tu idioma"
+
+#: Installer.svelte:166
+#, fuzzy
+msgid "For the installer. The box's language is chosen at first setup."
+msgstr "Para el instalador. El idioma de la Box se elige en la primera configuración."
+
+#: Installer.svelte:184
+#, fuzzy
+msgid "Install ZOOMRIYA OS"
+msgstr "Instalar ZOOMRIYA OS"
+
+#: Installer.svelte:185
+#, fuzzy
+msgid "Turns this computer into a ZOOMRIYA Box in about five minutes. The drive you choose next is erased."
+msgstr "Convierte este ordenador en una ZOOMRIYA Box en unos cinco minutos. El disco que elijas después se borra."
+
+#: Installer.svelte:190
+#, fuzzy
+msgid "Checking the internet…"
+msgstr "Comprobando internet…"
+
+#: Installer.svelte:191
+#, fuzzy
+msgid "Internet: connected"
+msgstr "Internet: conectado"
+
+#: Installer.svelte:192
+#, fuzzy
+msgid "No internet. Installing anyway; updates arrive once the box is online. Plug in a network cable to connect."
+msgstr "Sin internet. Se instala igualmente; las actualizaciones llegan cuando la Box esté en línea. Conecta un cable de red para conectarte."
+
+#: Installer.svelte:196
+#, fuzzy
+msgid "Where should ZOOMRIYA OS go?"
+msgstr "¿Dónde instalar ZOOMRIYA OS?"
+
+#: Installer.svelte:198
+#, fuzzy
+msgid "Look again"
+msgstr "Actualizar"
+
+#: Installer.svelte:200
+#, fuzzy
+msgid "The chosen drive is erased; others aren't touched. Plugged one in? Press Look again."
+msgstr "El disco elegido se borra; los demás no se tocan. ¿Acabas de conectar uno? Pulsa Actualizar."
+
+#: Installer.svelte:216
+#, fuzzy
+msgid "Now"
+msgstr "Ahora"
+
+#: Installer.svelte:217
+#, fuzzy
+msgid "After installing"
+msgstr "Después de instalar"
+
+#: Installer.svelte:220
+#, fuzzy
+msgid "Ready to install"
+msgstr "Listo para instalar"
+
+#: Installer.svelte:221
+#, fuzzy
+msgid "Check the drive. Nothing has changed yet."
+msgstr "Revisa el disco. Aún no ha cambiado nada."
+
+#: Installer.svelte:224
+#, fuzzy
+msgid "Size"
+msgstr "Tamaño"
+
+#: Installer.svelte:225
+#, fuzzy
+msgid "Erased"
+msgstr "Se borra"
+
+#: Installer.svelte:225
+#, fuzzy
+msgid "Nothing: the drive is empty"
+msgstr "Nada: el disco está vacío"
+
+#: Installer.svelte:226
+#, fuzzy
+msgid "Installed"
+msgstr "Se instala"
+
+#: Installer.svelte:228
+#, fuzzy
+msgid "The drive after installing"
+msgstr "El disco después de instalar"
+
+#: Installer.svelte:232
+#, fuzzy
+msgid "Erase everything on {drive} ({size})"
+msgstr "Borrar todo en {drive} ({size})"
+
+#: Installer.svelte:235
+#, fuzzy
+msgid "Installing ZOOMRIYA OS"
+msgstr "Instalando ZOOMRIYA OS"
+
+#: Installer.svelte:247
+#, fuzzy
+msgid "Keep the computer on and the USB stick in until done."
+msgstr "Deja el ordenador encendido y la memoria USB conectada hasta terminar."
+
+#: Installer.svelte:255
+#, fuzzy
+msgid "The install didn't finish"
+msgstr "La instalación no terminó"
+
+#: Installer.svelte:255
+#, fuzzy
+msgid "ZOOMRIYA OS is installed"
+msgstr "ZOOMRIYA OS está instalado"
+
+#: Installer.svelte:256
+#, fuzzy
+msgid "The drive may not start now; installing again fixes it."
+msgstr "Puede que el disco no arranque ahora; reinstalar lo arregla."
+
+#: Installer.svelte:256
+#, fuzzy
+msgid "Your ZOOMRIYA Box is ready for its first start."
+msgstr "Tu ZOOMRIYA Box está lista para su primer arranque."
+
+#: Installer.svelte:258
+#, fuzzy
+msgid "Check the drive's connection, or try another drive."
+msgstr "Comprueba la conexión del disco o prueba con otro."
+
+#: Installer.svelte:258
+#, fuzzy
+msgid "Press Try again."
+msgstr "Pulsa Reintentar."
+
+#: Installer.svelte:259
+#, fuzzy
+msgid "If it fails again, support notes are in {file}."
+msgstr "Si vuelve a fallar, las notas para el soporte están en {file}."
+
+#: Installer.svelte:260
+#, fuzzy
+msgid "Take out the USB stick."
+msgstr "Retira la memoria USB."
+
+#: Installer.svelte:260
+#, fuzzy
+msgid "Press Restart now to set it up, or Power off to leave it for its owner."
+msgstr "Pulsa Reiniciar para configurarla, o Apagar para dejárselo a su dueño."
+
+#: Installer.svelte:261
+#, fuzzy
+msgid "On its next start, the box opens its first setup on this screen."
+msgstr "En su próximo arranque, la Box abre su primera configuración en esta pantalla."
+
+#: Installer.svelte:271
+#, fuzzy
+msgid "Back"
+msgstr "Atrás"
+
+#: Installer.svelte:273
+#, fuzzy
+msgid "Power off"
+msgstr "Apagar"
+
+#: disks.py:22
+#, fuzzy
+msgid "Recovery"
+msgstr "Recuperación"
+
+#: disks.py:75
+#, fuzzy
+msgid "SD card"
+msgstr "Tarjeta SD"
+
+#: disks.py:76
+#, fuzzy
+msgid "Virtual"
+msgstr "Virtual"
+
+#: disks.py:79
+#, fuzzy
+msgid "Removable"
+msgstr "Extraíble"
+
+#: disks.py:79
+#, fuzzy
+msgid "Internal"
+msgstr "Interno"
+
+#: disks.py:91
+#, fuzzy
+msgid "Swap"
+msgstr "Swap"
+
+#: disks.py:92
+#, fuzzy
+msgid "Encrypted"
+msgstr "Cifrado"
+
+#: disks.py:92
+#, fuzzy
+msgid "RAID member"
+msgstr "Miembro RAID"
+
+#: disks.py:70
+#, fuzzy
+msgid "{size} bytes"
+msgstr "{size} bytes"
+
+#: disks.py:94
+#, fuzzy
+msgid "Unknown"
+msgstr "Desconocido"
+
+#: disks.py:118
+#, fuzzy
+msgid "The installer is running from this drive."
+msgstr "El instalador se está ejecutando desde este disco."
+
+#: disks.py:120
+#, fuzzy
+msgid "This drive is read-only."
+msgstr "Este disco es de solo lectura."
+
+#: disks.py:55
+#, fuzzy
+msgid "Drive {name}"
+msgstr "Disco {name}"
+
+#: disks.py:61
+#, fuzzy
+msgid "Hard disk"
+msgstr "Disco duro"
+
+#: disks.py:61
+#, fuzzy
+msgid "SSD"
+msgstr "SSD"
+
+#: disks.py:124
+#, fuzzy
+msgid "This drive is in use."
+msgstr "Este disco está en uso."
+
+#: disks.py:122
+#, fuzzy
+msgid "Too small: ZOOMRIYA OS needs at least {size}."
+msgstr "Demasiado pequeño: ZOOMRIYA OS necesita al menos {size}."
+
+#: install.py:32
+#, fuzzy
+msgid "Getting the drive ready"
+msgstr "Preparando el disco"
+
+#: install.py:33
+#, fuzzy
+msgid "Copying ZOOMRIYA OS"
+msgstr "Copiando ZOOMRIYA OS"
+
+#: install.py:34
+#, fuzzy
+msgid "Making room for your files"
+msgstr "Haciendo espacio para tus archivos"
+
+#: install.py:35
+#, fuzzy
+msgid "Making the drive start"
+msgstr "Preparando el arranque"
+
+#: install.py:78
+#, fuzzy
+msgid "The new partitions can't be found on the drive."
+msgstr "No se encuentran las nuevas particiones en el disco."
+
+#: install.py:90
+#, fuzzy
+msgid "The drive couldn't be cleared."
+msgstr "No se pudo vaciar el disco."
+
+#: install.py:91 install.py:118
+#, fuzzy
+msgid "The drive didn't settle."
+msgstr "El disco no está listo."
+
+#: install.py:117 install.py:124
+#, fuzzy
+msgid "The system partition couldn't grow to fill the drive."
+msgstr "La partición del sistema no pudo ampliarse a todo el disco."
+
+#: install.py:138
+#, fuzzy
+msgid "The drive couldn't finish writing."
+msgstr "El disco no pudo terminar de escribir."
+
+#: install.py:86
+#, fuzzy
+msgid "The drive went away."
+msgstr "El disco ha desaparecido."
+
+#: install.py:121
+#, fuzzy
+msgid "The new system partition couldn't be opened."
+msgstr "No se pudo abrir la nueva partición del sistema."
+
+#: install.py:89
+#, fuzzy
+msgid "The drive's old partitions couldn't be cleared."
+msgstr "No se pudieron borrar las particiones antiguas del disco."
+
+#: install.py:110
+#, fuzzy
+msgid "ZOOMRIYA OS couldn't be copied to the drive."
+msgstr "No se pudo copiar ZOOMRIYA OS al disco."
+
+#: install.py:126
+#, fuzzy
+msgid "The new system partition couldn't be closed."
+msgstr "No se pudo cerrar la nueva partición del sistema."
+
+#: server.py:148
+#, fuzzy
+msgid "ZOOMRIYA OS is being installed already."
+msgstr "ZOOMRIYA OS ya se está instalando."
+
+#: server.py:69
+#, fuzzy
+msgid "Free space"
+msgstr "Espacio libre"
+
+#: server.py:69
+#, fuzzy
+msgid "Empty"
+msgstr "Vacío"
+
+#: server.py:132
+#, fuzzy
+msgid "Started in UEFI mode"
+msgstr "Iniciado en modo UEFI"
+
+#: server.py:150
+#, fuzzy
+msgid "That drive isn't here any more. Press Look again."
+msgstr "Esa unidad ya no está. Pulsa Actualizar."
+
+#: server.py:133
+#, fuzzy
+msgid "Memory: {have} ({need} needed)"
+msgstr "Memoria: {have} (se necesitan {need})"
+
+#: server.py:135
+#, fuzzy
+msgid "A drive of {size} or more"
+msgstr "Un disco de {size} o más"
+
+#: server.py:164
+#, fuzzy
+msgid "The install stopped: {problem}"
+msgstr "La instalación se detuvo: {problem}"

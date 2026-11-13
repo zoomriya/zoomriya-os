@@ -1,0 +1,19 @@
+# The USB installer's server (design §10): its page for the screen, and what it
+# asks of the computer, on 127.0.0.1 only. It runs as root: it writes the chosen
+# drive. The screen itself is zoomriya-installer-screen.service.
+[Unit]
+Description=ZOOMRIYA OS installer
+Documentation=https://github.com/zoomriya/zoomriya-os/blob/main/docs/design.md#10-building-and-testing
+After=systemd-udev-settle.service
+
+[Service]
+RuntimeDirectory=zoomriya-installer
+RuntimeDirectoryPreserve=yes
+WorkingDirectory=/usr/lib/zoomriya-installer
+Environment=PYTHONPATH=/usr/lib/zoomriya-installer
+ExecStart=/usr/bin/python3 -m zoomriya_installer
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target

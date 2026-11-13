@@ -1,0 +1,18 @@
+# Security fixes now, when an admin presses Check now in Box Desktop (design
+# §6.1): what the nightly job does, started early. The package lists from
+# Debian's sources only (never apt.zoomriya.com, §6.8), the holds a restore
+# left let go where Debian has a newer fix, then unattended-upgrades with the
+# same settings: Debian's security archive only, a restore point before and
+# after, and any restart left for the maintenance hour.
+[Unit]
+Description=Security fixes now, as an admin asked
+Documentation=https://github.com/zoomriya/zoomriya-os/blob/main/docs/design.md#61-debian-security-fixes
+After=network-online.target apt-daily.service apt-daily-upgrade.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/apt-get -q update
+ExecStart=-/usr/lib/zoomriya-agent/zoomriya-agent release-holds
+ExecStart=/usr/bin/unattended-upgrade
+ExecStartPost=-/usr/lib/zoomriya-agent/zoomriya-agent watch

@@ -1,0 +1,4 @@
+# ZOOMRIYA's app keys (design §6.9): App Center installs only packages signed
+# by one of these. One per line: "ed25519 <base64 public key> <name>", as
+# `zapp keygen` prints it. The private key never leaves ZOOMRIYA's release
+# machine. Until a key is here, no app can be installed.

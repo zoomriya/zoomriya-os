@@ -1,0 +1,17 @@
+#!/bin/sh
+# The shared services' subvolumes (design §3): @postgres and @valkey are empty
+# on a new box and after Erase everything, and after Reset the system the OS
+# no longer has PostgreSQL's settings for the cluster @postgres still holds.
+# Makes the cluster, or takes back the one that's there (Valkey's folders are
+# zoomriya-valkey.conf's, in tmpfiles.d). The image carries no cluster, so no
+# two boxes share one.
+set -eu
+
+if [ -x /usr/bin/pg_createcluster ] && [ -z "$(pg_lsclusters -h 2>/dev/null)" ]; then
+    version=$(ls /usr/lib/postgresql | sort -n | tail -1)
+    # An existing data folder (Reset the system) is taken back as it is.
+    pg_createcluster --start-conf=auto "$version" main
+    # PostgreSQL's generator found no cluster when the box started: start it now.
+    systemctl daemon-reload
+    systemctl start --no-block "postgresql@$version-main.service"
+fi

@@ -1,0 +1,19 @@
+#!/bin/sh
+# Install our own packages (scripts/build-packages.sh) after Debian's. Their
+# dependencies are all in mkosi.conf's Packages=, so dpkg needs no network.
+# (mkosi's PackageDirectories= would do this, but mkosi 25 sometimes skips
+# indexing the local repository when the copy lands in the same clock tick.)
+# The installer's package goes on the USB stick only (mkosi/installer).
+set -e
+dpkg -i $(ls "$SRCDIR"/packages/*.deb | grep -v /zoomriya-installer_)
+
+# No PostgreSQL cluster in the image: each box makes its own on @postgres at
+# first start (zoomriya-services-init), where this one would be hidden anyway.
+pg_lsclusters -h | while read -r version name _; do
+    pg_dropcluster "$version" "$name"
+done
+
+# sshd runs only while advanced access is on (the agent starts it), and every
+# box makes its own host key then: none from the image, shared by every box.
+systemctl disable ssh.service ssh.socket 2>/dev/null || true
+rm -f /etc/ssh/ssh_host_*

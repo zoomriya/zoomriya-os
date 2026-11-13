@@ -1,0 +1,5 @@
+#!/bin/sh
+# Install the installer's package (scripts/build-packages.sh) after Debian's;
+# its dependencies are in mkosi.conf's Packages=.
+set -e
+dpkg -i "$SRCDIR"/packages/zoomriya-installer_*.deb

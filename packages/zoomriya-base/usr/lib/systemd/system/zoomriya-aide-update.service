@@ -1,0 +1,12 @@
+# Started by apt after every run (/etc/apt/apt.conf.d/80zoomriya-aide), so the
+# nightly check doesn't report the update itself.
+[Unit]
+Description=Refresh the baseline of the OS's files after an update (AIDE)
+Documentation=https://github.com/zoomriya/zoomriya-os/blob/main/docs/design.md#8-hardening
+ConditionPathExists=/var/lib/zoomriya-aide/aide.db.gz
+
+[Service]
+Type=oneshot
+ExecStart=/usr/lib/zoomriya-base/aide-baseline
+Nice=19
+IOSchedulingClass=idle

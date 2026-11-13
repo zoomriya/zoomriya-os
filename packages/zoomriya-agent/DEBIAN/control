@@ -1,0 +1,15 @@
+Package: zoomriya-agent
+Version: 13.0.0
+Architecture: amd64
+Maintainer: ZOOMRIYA <os@zoomriya.com>
+Depends: zoomriya-base, smartmontools, snapper, systemd, openssh-server, openssh-sftp-server, sudo
+Section: admin
+Priority: optional
+Description: ZOOMRIYA OS root helper
+ The one root helper ZOOMRIYA OS adds. Box Desktop's server asks it for the
+ box's status, its drives' health and its restore points, to restore one,
+ to restart, and to move the maintenance hour, when the box restarts by
+ itself if an update or a restore waits for it. It turns advanced access
+ (SSH for the box's admins, from the home network) on and off, and makes
+ the diagnostics bundle for ZOOMRIYA support. It accepts only a fixed
+ list of requests and logs each one with who asked.

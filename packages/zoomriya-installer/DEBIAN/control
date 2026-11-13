@@ -1,0 +1,15 @@
+Package: zoomriya-installer
+Version: 13.0.0
+Architecture: all
+Maintainer: ZOOMRIYA <os@zoomriya.com>
+Depends: sway, python3, python3-gi, gir1.2-gtk-4.0, gir1.2-webkit-6.0, libpam-systemd, systemd,
+ systemd-repart, btrfs-progs, efibootmgr, util-linux, udev, systemd-resolved
+Section: admin
+Priority: optional
+Description: ZOOMRIYA OS installer, on the USB stick
+ A full-screen page on the computer's own screen (sway, locked to one WebKit
+ window, with its server on 127.0.0.1): checks the
+ computer, lets the person choose the drive, shows the drive before and after,
+ then writes ZOOMRIYA OS to it with the factory's partitions. It looks for the
+ internet, but installs without it. Only on the USB installer (mkosi/installer),
+ never on a box.

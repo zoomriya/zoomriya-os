@@ -1,0 +1,15 @@
+# The agent's socket: only root and zoomriya-box can connect (design §7).
+[Unit]
+Description=ZOOMRIYA agent socket
+Documentation=https://github.com/zoomriya/zoomriya-os/blob/main/docs/design.md#7-zoomriya-agent
+
+[Socket]
+ListenStream=/run/zoomriya/agent.sock
+SocketUser=root
+SocketGroup=zoomriya-box
+SocketMode=0660
+DirectoryMode=0755
+Accept=no
+
+[Install]
+WantedBy=sockets.target

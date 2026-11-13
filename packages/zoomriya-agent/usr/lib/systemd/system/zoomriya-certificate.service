@@ -1,0 +1,18 @@
+# The box's certificates (design §8.1): its own made or renewed for its name
+# and home addresses, and every certificate the gateway serves watched; a
+# problem goes to Box Desktop's bell. At each start, after the box has its
+# name, and every five minutes (the timer), so a new address is covered soon.
+[Unit]
+Description=ZOOMRIYA certificates for secure connections at home
+Documentation=https://github.com/zoomriya/zoomriya-os/blob/main/docs/design.md#81-secure-connections-at-home
+After=zoomriya-hostname.service local-fs.target network-online.target
+Wants=network-online.target
+Before=zoomriya-gateway.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/lib/zoomriya-agent/zoomriya-agent certificate
+Nice=10
+
+[Install]
+WantedBy=multi-user.target

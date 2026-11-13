@@ -1,0 +1,130 @@
+#!/usr/bin/python3
+"""box-desktop-screen: Box Desktop on the box's own screen (box-desktop.md §6).
+
+One window, full screen under sway (screen-session), with no address bar,
+tabs or menus: the web desktop from box-desktopd's screen side,
+https://<name>.local:7444, which listens on 127.0.0.1 only (the box's
+/etc/hosts names itself). It trusts exactly the box's own certificate for its
+own name, nothing more. It goes nowhere but the box's own pages, downloads
+nothing, opens no other windows, and gives no page the camera, microphone or
+location: the box's sound is box-desktopd's, through PipeWire.
+"""
+
+from __future__ import annotations
+
+import os
+import socket
+import sys
+from urllib.parse import urlsplit
+
+import gi
+
+gi.require_version("Gtk", "4.0")
+gi.require_version("WebKit", "6.0")
+from gi.repository import Gio, GLib, Gtk, WebKit  # noqa: E402
+
+#: The box's own certificate (the agent's), which the screen trusts for its own name.
+BUNDLE = os.environ.get("BOX_DESKTOP_BUNDLE", "/etc/zoomriya/tls/certs/box.pem")
+PORT = int(os.environ.get("BOX_DESKTOP_SCREEN_PORT", "7444"))
+#: While box-desktopd or the certificate isn't ready yet: this, then again.
+WAITING = """<!doctype html><meta charset="utf-8"><style>
+html,body{margin:0;height:100%;background:#080a10;color:#a9b1c3;font:15px "Inter Variable",Inter,sans-serif;
+display:grid;place-items:center}</style><p>ZOOMRIYA</p>"""
+
+
+def box_name() -> str:
+    return socket.gethostname().split(".")[0] + ".local"
+
+
+class Screen(Gtk.Application):
+    def __init__(self) -> None:
+        # Not unique: the box's screen has no session bus to register on.
+        super().__init__(application_id="com.zoomriya.BoxDesktopScreen", flags=Gio.ApplicationFlags.NON_UNIQUE)
+        self.name = box_name()
+        # BOX_DESKTOP_SCREEN_URL: the preview's (scripts/preview-desktop.sh), on this computer.
+        self.address = os.environ.get("BOX_DESKTOP_SCREEN_URL") or f"https://{self.name}:{PORT}/"
+        if os.environ.get("BOX_DESKTOP_SCREEN_URL"):
+            self.name = urlsplit(self.address).hostname or self.name
+        self.view: WebKit.WebView | None = None
+        self.monitor: Gio.FileMonitor | None = None
+
+    def do_activate(self) -> None:
+        self.session = WebKit.NetworkSession.new_ephemeral()
+        # The apps in Box Desktop's windows are the box's own pages, the same site.
+        self.session.set_itp_enabled(False)
+        self.trust()
+        view = self.view = WebKit.WebView(network_session=self.session)
+        settings = view.get_settings()
+        settings.set_enable_developer_extras(False)
+        settings.set_javascript_can_open_windows_automatically(False)
+        settings.set_enable_back_forward_navigation_gestures(False)
+        # Drawn in software, as sway is (WLR_RENDERER=pixman): any screen works.
+        settings.set_hardware_acceleration_policy(WebKit.HardwareAccelerationPolicy.NEVER)
+        view.connect("decide-policy", self.decide)
+        view.connect("load-failed", self.failed)
+        view.connect("load-failed-with-tls-errors", self.failed)
+        view.connect("permission-request", lambda _v, request: (request.deny(), True)[1])
+        view.connect("context-menu", lambda *_a: True)
+        view.connect("web-process-terminated", lambda *_a: self.later())
+        window = Gtk.ApplicationWindow(application=self, title="Box Desktop")
+        window.set_child(view)
+        if os.environ.get("BOX_DESKTOP_WINDOWED"):
+            window.set_default_size(1440, 900)
+        else:
+            window.fullscreen()
+        window.present()
+        # A renewed certificate: trusted, and the desktop opened again with it.
+        bundle = Gio.File.new_for_path(BUNDLE)
+        self.monitor = bundle.get_parent().monitor_directory(Gio.FileMonitorFlags.NONE, None)
+        self.monitor.connect("changed", lambda _m, f, _o, _e: f.get_path() == BUNDLE and (self.trust(), self.later()))
+        view.load_uri(self.address)
+
+    def trust(self) -> None:
+        """The box's own certificate, for its own name only."""
+        try:
+            certificate = Gio.TlsCertificate.new_from_file(BUNDLE)
+        except GLib.Error as exc:
+            print(f"box-desktop-screen: no certificate yet: {exc.message}", file=sys.stderr)
+            return
+        self.session.allow_tls_certificate_for_host(certificate, self.name)
+
+    def here(self, uri: str) -> bool:
+        """The box's own pages: its name, any port (the desktop and its apps)."""
+        if uri in ("", "about:blank") or uri.startswith("data:"):
+            return True
+        try:
+            here = urlsplit(self.address)
+            return urlsplit(uri).hostname == self.name and urlsplit(uri).scheme == here.scheme
+        except ValueError:
+            return False
+
+    def decide(self, _view: WebKit.WebView, decision: WebKit.PolicyDecision, kind: WebKit.PolicyDecisionType) -> bool:
+        if kind == WebKit.PolicyDecisionType.RESPONSE:
+            if not decision.is_mime_type_supported():
+                decision.ignore()  # a download: not on the box's screen
+                return True
+            return False
+        uri = decision.get_navigation_action().get_request().get_uri()
+        if kind == WebKit.PolicyDecisionType.NEW_WINDOW_ACTION or not self.here(uri):
+            decision.ignore()  # elsewhere, or another window: not from the box's screen
+            return True
+        return False
+
+    def failed(self, view: WebKit.WebView, *_a: object) -> bool:
+        view.load_html(WAITING, "about:blank")
+        self.later()
+        return True
+
+    def later(self) -> None:
+        """Again in a few seconds: box-desktopd starting, or its certificate being made."""
+        def again() -> bool:
+            if self.view is not None:
+                self.trust()
+                self.view.load_uri(self.address)
+            return False
+
+        GLib.timeout_add_seconds(3, again)
+
+
+if __name__ == "__main__":
+    sys.exit(Screen().run([sys.argv[0]]))

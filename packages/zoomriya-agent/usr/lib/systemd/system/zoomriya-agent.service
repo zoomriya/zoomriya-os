@@ -1,0 +1,27 @@
+# The agent (design §7): root, answering Box Desktop's server only, one fixed
+# request at a time.
+[Unit]
+Description=ZOOMRIYA agent
+Documentation=https://github.com/zoomriya/zoomriya-os/blob/main/docs/design.md#7-zoomriya-agent
+Requires=zoomriya-agent.socket
+After=zoomriya-agent.socket
+
+[Service]
+Type=simple
+ExecStart=/usr/lib/zoomriya-agent/zoomriya-agent
+Restart=on-failure
+
+# No internet sockets: it talks over its socket, to snapper over D-Bus and to
+# the journal, and reads the box's network links over netlink for the network
+# request, so it shares the box's network rather than having its own.
+RestrictAddressFamilies=AF_UNIX AF_NETLINK
+PrivateTmp=yes
+ProtectHome=yes
+NoNewPrivileges=yes
+ProtectKernelModules=yes
+ProtectClock=yes
+ProtectHostname=yes
+RestrictRealtime=yes
+LockPersonality=yes
+MemoryDenyWriteExecute=yes
+SystemCallArchitectures=native

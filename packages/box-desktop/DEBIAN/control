@@ -1,0 +1,21 @@
+Package: box-desktop
+Version: 13.0.0
+Architecture: amd64
+Maintainer: ZOOMRIYA <os@zoomriya.com>
+Depends: zoomriya-agent, zoomriya-id, systemd, libpam-systemd, sway, python3, python3-gi,
+ gir1.2-gtk-4.0, gir1.2-webkit-6.0, pipewire, pipewire-bin, wireplumber, iso-codes, locales,
+ fonts-noto-core, fonts-noto-cjk
+Replaces: box-desktop-app, zoomriya-setup
+Breaks: box-desktop-app, zoomriya-setup
+Provides: box-desktop-app, zoomriya-setup
+Section: admin
+Priority: optional
+Description: Box Desktop, the admins' web desktop, and the box's first setup
+ box-desktopd serves Box Desktop to browsers on the home network over
+ HTTPS (TCP 7443), with ZOOMRIYA Connect's certificate or the box's own,
+ and to the box's own screen, where box-desktop-screen shows it full
+ screen. Admins sign in with the box's ZOOMRIYA ID; it asks
+ zoomriya-agent for everything it shows or changes, from a fixed list, in
+ the signed-in admin's name, and plays and records sound through PipeWire.
+ Until the box is set up, its screen shows the first setup instead: the
+ language, keyboard, network, region, time zone and the box's admin.

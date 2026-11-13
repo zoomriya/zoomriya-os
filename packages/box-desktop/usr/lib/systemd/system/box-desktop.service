@@ -1,0 +1,47 @@
+# Box Desktop's server (box-desktop.md §6): the web desktop for browsers on the
+# home network (HTTPS on 7443) and for the box's own screen (127.0.0.1:7444),
+# where it's also the first setup until the box is set up (design §5).
+[Unit]
+Description=Box Desktop
+Documentation=https://github.com/zoomriya/zoomriya-os/blob/main/docs/box-desktop.md
+After=network.target zoomriya-agent.socket zoomriya-id.service zoomriya-certificate.service zoomriya-hostname.service
+Wants=zoomriya-id.service
+
+[Service]
+User=box-desktop
+Group=box-desktop
+SupplementaryGroups=zoomriya-box zoomriya-tls
+ExecStart=/usr/lib/box-desktop/box-desktopd
+Environment=BOX_DESKTOP_ADMIN_DIR=/data/zoomriya/admin
+# The first setup's progress, so a setup cut short goes on from where it was.
+StateDirectory=box-desktop
+Restart=always
+RestartSec=3
+# 7443 is above 1024: no privilege to listen.
+NoNewPrivileges=yes
+ProtectSystem=strict
+ReadWritePaths=-/data/zoomriya/admin
+ProtectHome=yes
+PrivateTmp=yes
+PrivateDevices=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectKernelLogs=yes
+ProtectControlGroups=yes
+ProtectClock=yes
+ProtectHostname=yes
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+RestrictNamespaces=yes
+RestrictRealtime=yes
+RestrictSUIDSGID=yes
+LockPersonality=yes
+MemoryDenyWriteExecute=yes
+SystemCallArchitectures=native
+SystemCallFilter=@system-service
+SystemCallFilter=~@privileged @resources
+SystemCallErrorNumber=EPERM
+CapabilityBoundingSet=
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target

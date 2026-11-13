@@ -1,0 +1,4306 @@
+# box-desktop: ta. Made by scripts/i18n.py extract; translate the empty msgstr.
+# "fuzzy": a draft still to be checked by a native speaker.
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: ta\n"
+
+#: components/Confirm.svelte:55
+#, fuzzy
+msgid "Your password"
+msgstr "உங்கள் கடவுச்சொல்"
+
+#: components/Confirm.svelte:58
+#, fuzzy
+msgid "Cancel"
+msgstr "ரத்துசெய்"
+
+#: components/Password.svelte:19
+#, fuzzy
+msgid "Hide password"
+msgstr "கடவுச்சொல்லை மறை"
+
+#: components/Password.svelte:19
+#, fuzzy
+msgid "Show password"
+msgstr "கடவுச்சொல்லைக் காட்டு"
+
+#: components/Sheet.svelte:13 pages/Window.svelte:63
+#, fuzzy
+msgid "Close"
+msgstr "மூடு"
+
+#: components/Switch.svelte:8
+#, fuzzy
+msgid "Always on"
+msgstr "எப்போதும் இயங்கும்"
+
+#: components/Switch.svelte:8 tools/Access.svelte:73 tools/People.svelte:31
+#, fuzzy
+msgid "Off"
+msgstr "அணைந்துள்ளது"
+
+#: lib/api.ts:44
+#, fuzzy
+msgid "That username and password don't match."
+msgstr "அந்தப் பயனர்பெயரும் கடவுச்சொல்லும் பொருந்தவில்லை."
+
+#: lib/api.ts:45
+#, fuzzy
+msgid "Choose your own password to finish signing in."
+msgstr "உள்நுழைய உங்கள் சொந்தக் கடவுச்சொல்லைத் தேர்வுசெய்க."
+
+#: lib/api.ts:46
+#, fuzzy
+msgid "Enter the code from your authenticator app."
+msgstr "அங்கீகரிப்புச் செயலியின் குறியீட்டை உள்ளிடுங்கள்."
+
+#: lib/api.ts:47
+#, fuzzy
+msgid "Set up a second sign-in step first."
+msgstr "முதலில் இரண்டாவது உள்நுழைவுப் படியை அமையுங்கள்."
+
+#: lib/api.ts:48
+#, fuzzy
+msgid "That code isn't right. Check the time on your phone, or use a backup code."
+msgstr "குறியீடு சரியில்லை. தொலைபேசியின் நேரத்தைச் சரிபாருங்கள், அல்லது காப்புக் குறியீட்டைப் பயன்படுத்துங்கள்."
+
+#: lib/api.ts:49
+#, fuzzy
+msgid "Signing in took too long. Start again with your password."
+msgstr "உள்நுழைய அதிக நேரம் ஆனது. கடவுச்சொல்லிலிருந்து மீண்டும் தொடங்குங்கள்."
+
+#: lib/api.ts:50
+#, fuzzy
+msgid "Choose a password you aren't using now."
+msgstr "இப்போது பயன்படுத்தாத கடவுச்சொல்லைத் தேர்வுசெய்க."
+
+#: lib/api.ts:51
+#, fuzzy
+msgid "Too many wrong passwords. Try again in 15 minutes, or use Can't sign in?"
+msgstr "தவறான கடவுச்சொற்கள் அதிகம். 15 நிமிடத்தில் மீண்டும் முயலுங்கள், அல்லது «உள்நுழைய முடியவில்லையா?» பயன்படுத்துங்கள்."
+
+#: lib/api.ts:52
+#, fuzzy
+msgid "Too many tries. Try again in a minute."
+msgstr "அதிக முயற்சிகள். ஒரு நிமிடத்தில் மீண்டும் முயலுங்கள்."
+
+#: lib/api.ts:53
+#, fuzzy
+msgid "ZOOMRIYA ID couldn't sign you in just now."
+msgstr "ZOOMRIYA ID இப்போது உங்களை உள்நுழைய வைக்க முடியவில்லை."
+
+#: lib/api.ts:54
+#, fuzzy
+msgid "ZOOMRIYA ID isn't responding. Try again shortly."
+msgstr "ZOOMRIYA ID பதிலளிக்கவில்லை. சற்று நேரத்தில் மீண்டும் முயலுங்கள்."
+
+#: lib/api.ts:55
+#, fuzzy
+msgid "Box Desktop is for the box's admins."
+msgstr "Box Desktop பெட்டியின் நிர்வாகிகளுக்கானது."
+
+#: lib/api.ts:56
+#, fuzzy
+msgid "ZOOMRIYA ID couldn't check your password just now."
+msgstr "ZOOMRIYA ID இப்போது உங்கள் கடவுச்சொல்லைச் சரிபார்க்க முடியவில்லை."
+
+#: lib/api.ts:57
+#, fuzzy
+msgid "That password isn't right."
+msgstr "கடவுச்சொல் தவறு."
+
+#: lib/api.ts:59
+#, fuzzy
+msgid "That isn't your password."
+msgstr "அது உங்கள் கடவுச்சொல் அல்ல."
+
+#: lib/api.ts:60
+#, fuzzy
+msgid "Sign in again to make changes."
+msgstr "மாற்ற மீண்டும் உள்நுழையவும்."
+
+#: lib/api.ts:61
+#, fuzzy
+msgid "Only the box's admins can do that."
+msgstr "பெட்டியின் நிர்வாகிகள் மட்டுமே இதைச் செய்யலாம்."
+
+#: lib/api.ts:62
+#, fuzzy
+msgid "That username is taken. Try another."
+msgstr "அந்தப் பயனர்பெயர் ஏற்கனவே உள்ளது. வேறொன்றை முயலவும்."
+
+#: lib/api.ts:63
+#, fuzzy
+msgid "ZOOMRIYA ID didn't accept that."
+msgstr "ZOOMRIYA ID இதை ஏற்கவில்லை."
+
+#: lib/api.ts:64
+#, fuzzy
+msgid "ZOOMRIYA ID couldn't make that change just now."
+msgstr "ZOOMRIYA ID இப்போது இதை மாற்ற முடியவில்லை."
+
+#: lib/api.ts:65
+#, fuzzy
+msgid "The box isn't responding. Try again shortly."
+msgstr "பெட்டி பதிலளிக்கவில்லை. சற்று நேரத்தில் மீண்டும் முயலுங்கள்."
+
+#: lib/api.ts:66
+#, fuzzy
+msgid "The box gave an answer the setup can't read."
+msgstr "பெட்டி அளித்த பதிலைப் படிக்க முடியவில்லை."
+
+#: lib/api.ts:67 lib/api.ts:75
+#, fuzzy
+msgid "The box couldn't do that."
+msgstr "பெட்டியால் அதைச் செய்ய முடியவில்லை."
+
+#: lib/api.ts:68 pages/SignIn.svelte:216
+#, fuzzy
+msgid "This works at the box's own screen only."
+msgstr "பெட்டியின் திரையில் மட்டுமே."
+
+#: lib/api.ts:69
+#, fuzzy
+msgid "The box couldn't keep that picture."
+msgstr "அந்தப் படத்தைப் பெட்டியால் சேமிக்க முடியவில்லை."
+
+#: lib/api.ts:70
+#, fuzzy
+msgid "ZOOMRIYA ID isn't responding. Try again, or do this later."
+msgstr "ZOOMRIYA ID பதிலளிக்கவில்லை. மீண்டும் முயலுங்கள், அல்லது பிறகு செய்யுங்கள்."
+
+#: lib/api.ts:71
+#, fuzzy
+msgid "ZOOMRIYA ID couldn't start this just now. Try again, or do this later."
+msgstr "ZOOMRIYA ID தொடங்க முடியவில்லை. மீண்டும் முயலுங்கள், அல்லது பிறகு செய்யுங்கள்."
+
+#: lib/api.ts:72
+#, fuzzy
+msgid "ZOOMRIYA ID couldn't finish this just now. Try again, or do this later."
+msgstr "ZOOMRIYA ID முடிக்க முடியவில்லை. மீண்டும் முயலுங்கள், அல்லது பிறகு செய்யுங்கள்."
+
+#: lib/api.ts:73
+#, fuzzy
+msgid "That code isn't right. Enter the code the app shows now."
+msgstr "குறியீடு சரியில்லை. இப்போது காட்டப்படும் குறியீட்டை உள்ளிடுங்கள்."
+
+#: lib/api.ts:74
+#, fuzzy
+msgid "That took too long. Press Try again for a new code."
+msgstr "அதிக நேரம் ஆனது. புதிய குறியீட்டுக்கு மீண்டும் முயல் என்பதை அழுத்துங்கள்."
+
+#: lib/desk.svelte.ts:16
+#, fuzzy
+msgid "Control Panel"
+msgstr "கட்டுப்பாட்டுப் பலகம்"
+
+#: lib/desk.svelte.ts:17
+#, fuzzy
+msgid "Storage Manager"
+msgstr "சேமிப்பக மேலாளர்"
+
+#: lib/desk.svelte.ts:18
+#, fuzzy
+msgid "App Center"
+msgstr "செயலி மையம்"
+
+#: lib/desk.svelte.ts:19
+#, fuzzy
+msgid "Resource Monitor"
+msgstr "வளக் கண்காணிப்பு"
+
+#: lib/desk.svelte.ts:20 pages/MainMenu.svelte:30
+#, fuzzy
+msgid "Log Center"
+msgstr "பதிவு மையம்"
+
+#: lib/desk.svelte.ts:21 lib/search.ts:71
+#, fuzzy
+msgid "Support Center"
+msgstr "உதவி மையம்"
+
+#: lib/desk.svelte.ts:40 lib/words.ts:276 pages/Setup.svelte:16 pages/Widgets.svelte:87 tools/Resources.svelte:43
+#, fuzzy
+msgid "Network"
+msgstr "வலையமைப்பு"
+
+#: lib/desk.svelte.ts:40 tools/Display.svelte:143
+#, fuzzy
+msgid "Display"
+msgstr "திரை"
+
+#: lib/desk.svelte.ts:40
+#, fuzzy
+msgid "Appearance"
+msgstr "தோற்றம்"
+
+#: lib/desk.svelte.ts:41 pages/TopBar.svelte:112 pages/TopBar.svelte:112
+#, fuzzy
+msgid "Sound"
+msgstr "ஒலி"
+
+#: lib/desk.svelte.ts:42
+#, fuzzy
+msgid "Keyboard & Mouse"
+msgstr "விசைப்பலகை & சுட்டி"
+
+#: lib/desk.svelte.ts:42 tools/Language.svelte:70
+#, fuzzy
+msgid "Language & Region"
+msgstr "மொழி & பகுதி"
+
+#: lib/desk.svelte.ts:43
+#, fuzzy
+msgid "Date and time"
+msgstr "தேதி மற்றும் நேரம்"
+
+#: lib/desk.svelte.ts:43 tools/People.svelte:53
+#, fuzzy
+msgid "People"
+msgstr "நபர்கள்"
+
+#: lib/desk.svelte.ts:43 lib/desk.svelte.ts:57 pages/TopBar.svelte:86 pages/TopBar.svelte:86 pages/TopBar.svelte:94
+#, fuzzy
+msgid "Notifications"
+msgstr "அறிவிப்புகள்"
+
+#: lib/desk.svelte.ts:44
+#, fuzzy
+msgid "Security"
+msgstr "பாதுகாப்பு"
+
+#: lib/desk.svelte.ts:44 pages/Widgets.svelte:21 tools/Access.svelte:72
+#, fuzzy
+msgid "Advanced access"
+msgstr "மேம்பட்ட அணுகல்"
+
+#: lib/desk.svelte.ts:44 lib/words.ts:274
+#, fuzzy
+msgid "Restarts"
+msgstr "மறுதொடக்கங்கள்"
+
+#: lib/desk.svelte.ts:45
+#, fuzzy
+msgid "Restore & Reset"
+msgstr "மீட்டமை & மீளமை"
+
+#: lib/desk.svelte.ts:45
+#, fuzzy
+msgid "System Info"
+msgstr "கணினித் தகவல்"
+
+#: lib/desk.svelte.ts:48 lib/desk.svelte.ts:52
+#, fuzzy
+msgid "Overview"
+msgstr "மேலோட்டம்"
+
+#: lib/desk.svelte.ts:48 pages/Widgets.svelte:17 tools/Drives.svelte:22
+#, fuzzy
+msgid "Drives"
+msgstr "இயக்ககங்கள்"
+
+#: lib/desk.svelte.ts:48 pages/Widgets.svelte:110 tools/Space.svelte:21
+#, fuzzy
+msgid "Space"
+msgstr "இடம்"
+
+#: lib/desk.svelte.ts:48 tools/Backups.svelte:40 tools/Backups.svelte:55
+#, fuzzy
+msgid "Backups"
+msgstr "காப்புப்பிரதிகள்"
+
+#: lib/desk.svelte.ts:50
+#, fuzzy
+msgid "Installed"
+msgstr "நிறுவப்பட்டவை"
+
+#: lib/desk.svelte.ts:50 tools/AppsInstalled.svelte:96
+#, fuzzy
+msgid "Add from USB"
+msgstr "USB இலிருந்து சேர்"
+
+#: lib/desk.svelte.ts:52 tools/ByApp.svelte:17
+#, fuzzy
+msgid "By app"
+msgstr "செயலி வாரியாக"
+
+#: lib/desk.svelte.ts:52 tools/About.svelte:35 tools/Drives.svelte:15 tools/Temperature.svelte:18
+#, fuzzy
+msgid "Temperature"
+msgstr "வெப்பநிலை"
+
+#: lib/desk.svelte.ts:54 lib/desk.svelte.ts:59
+#, fuzzy
+msgid "Diagnostics"
+msgstr "கண்டறிதல்"
+
+#: lib/desk.svelte.ts:54
+#, fuzzy
+msgid "Contact us"
+msgstr "எங்களைத் தொடர்புகொள்ள"
+
+#: lib/desk.svelte.ts:54 lib/search.ts:71 pages/Window.svelte:57 pages/Window.svelte:57
+#, fuzzy
+msgid "Help"
+msgstr "உதவி"
+
+#: lib/desk.svelte.ts:57
+#, fuzzy
+msgid "Box events"
+msgstr "பெட்டி நிகழ்வுகள்"
+
+#: lib/desk.svelte.ts:57
+#, fuzzy
+msgid "Admin actions"
+msgstr "நிர்வாகி செயல்கள்"
+
+#: lib/desk.svelte.ts:58
+#, fuzzy
+msgid "Sign-ins"
+msgstr "உள்நுழைவுகள்"
+
+#: lib/desk.svelte.ts:58
+#, fuzzy
+msgid "Family activity"
+msgstr "குடும்பச் செயல்பாடு"
+
+#: lib/desk.svelte.ts:58 pages/MainMenu.svelte:30
+#, fuzzy
+msgid "System log"
+msgstr "கணினிப் பதிவு"
+
+#: lib/desk.svelte.ts:708
+#, fuzzy
+msgid "Restart the box?"
+msgstr "பெட்டியை மறுதொடக்கம் செய்யவா?"
+
+#: lib/desk.svelte.ts:709
+#, fuzzy
+msgid "Everything stops for a minute or two, then starts again."
+msgstr "அனைத்தும் ஓரிரு நிமிடங்கள் நின்று, பின் மீண்டும் தொடங்கும்."
+
+#: lib/desk.svelte.ts:710 pages/Widgets.svelte:20
+#, fuzzy
+msgid "Restart"
+msgstr "மறுதொடக்கம்"
+
+#: lib/desk.svelte.ts:722
+#, fuzzy
+msgid "Shut the box down?"
+msgstr "பெட்டியை அணைக்கவா?"
+
+#: lib/desk.svelte.ts:723
+#, fuzzy
+msgid "All apps stop and backups pause until someone presses the power button."
+msgstr "யாராவது ஆற்றல் பொத்தானை அழுத்தும் வரை அனைத்துச் செயலிகளும் நிற்கும், காப்புப்பிரதிகள் இடைநிறுத்தப்படும்."
+
+#: lib/desk.svelte.ts:724
+#, fuzzy
+msgid "Shut down"
+msgstr "அணை"
+
+#: lib/format.ts:15
+#, fuzzy
+msgid "KB"
+msgstr "KB"
+
+#: lib/format.ts:15
+#, fuzzy
+msgid "MB"
+msgstr "MB"
+
+#: lib/format.ts:15
+#, fuzzy
+msgid "GB"
+msgstr "GB"
+
+#: lib/format.ts:15
+#, fuzzy
+msgid "TB"
+msgstr "TB"
+
+#: lib/format.ts:44 tools/Display.svelte:31
+#, fuzzy
+msgid "Never"
+msgstr "ஒருபோதும் இல்லை"
+
+#: lib/format.ts:59
+#, fuzzy
+msgid "{date} at {time}"
+msgstr "{date} {time} மணிக்கு"
+
+#: lib/format.ts:82
+#, fuzzy
+msgid "1 day"
+msgstr "1 நாள்"
+
+#: lib/format.ts:82 tools/Drives.svelte:16
+#, fuzzy
+msgid "{n} days"
+msgstr "{n} நாட்கள்"
+
+#: lib/format.ts:85
+#, fuzzy
+msgid "1 hour"
+msgstr "1 மணிநேரம்"
+
+#: lib/format.ts:85
+#, fuzzy
+msgid "{n} hours"
+msgstr "{n} மணிநேரம்"
+
+#: lib/format.ts:86 tools/Display.svelte:31
+#, fuzzy
+msgid "{n} minutes"
+msgstr "{n} நிமிடங்கள்"
+
+#: lib/network.ts:29
+#, fuzzy
+msgid "The subnet mask should look like 255.255.255.0."
+msgstr "சப்நெட் மாஸ்க் 255.255.255.0 போல இருக்க வேண்டும்."
+
+#: lib/network.ts:30
+#, fuzzy
+msgid "The box's address should look like 192.168.1.40."
+msgstr "பெட்டியின் முகவரி 192.168.1.40 போல இருக்க வேண்டும்."
+
+#: lib/people.ts:31
+#, fuzzy
+msgid "Use at least 8 characters."
+msgstr "குறைந்தது 8 எழுத்துகள்."
+
+#: lib/people.ts:32
+#, fuzzy
+msgid "The passwords don't match."
+msgstr "கடவுச்சொற்கள் பொருந்தவில்லை."
+
+#: lib/people.ts:37
+#, fuzzy
+msgid "Type their name."
+msgstr "பெயரை உள்ளிடவும்."
+
+#: lib/people.ts:38
+#, fuzzy
+msgid "Type a username with no spaces."
+msgstr "இடைவெளி இல்லாத பயனர்பெயர்."
+
+#: lib/people.ts:39 tools/EditPerson.svelte:39
+#, fuzzy
+msgid "Choose a parent or guardian."
+msgstr "பெற்றோர் அல்லது பாதுகாவலரைத் தேர்வுசெய்க."
+
+#: lib/support.ts:12
+#, fuzzy
+msgid "Until {date}"
+msgstr "{date} வரை"
+
+#: lib/support.ts:18 tools/ReviewBundle.svelte:46
+#, fuzzy
+msgid "No problems found"
+msgstr "சிக்கல் எதுவும் இல்லை"
+
+#: lib/support.ts:20
+#, fuzzy
+msgid "1 problem"
+msgstr "1 சிக்கல்"
+
+#: lib/support.ts:20
+#, fuzzy
+msgid "{n} problems"
+msgstr "{n} சிக்கல்கள்"
+
+#: lib/support.ts:21
+#, fuzzy
+msgid "1 warning"
+msgstr "1 எச்சரிக்கை"
+
+#: lib/support.ts:21
+#, fuzzy
+msgid "{n} warnings"
+msgstr "{n} எச்சரிக்கைகள்"
+
+#: lib/words.ts:144
+#, fuzzy
+msgid "ethernet cable ip address dhcp fixed static router gateway dns lan wifi wireless internet"
+msgstr "ஈதர்நெட் கேபிள் ஐபி முகவரி நிலையான ரூட்டர் நுழைவாயில் வலையமைப்பு வைஃபை கம்பியில்லா இணையம்"
+
+#: lib/words.ts:145
+#, fuzzy
+msgid "screen monitor resolution refresh rate rotate orientation scale size text"
+msgstr "திரை மானிட்டர் தெளிவுத்திறன் புதுப்பிப்பு வீதம் சுழற்று திசை அளவு எழுத்து"
+
+#: lib/words.ts:146
+#, fuzzy
+msgid "theme dark light night day midnight daylight accent colour color wallpaper background picture photo desktop look"
+msgstr "தீம் இருள் ஒளி இரவு பகல் நிறம் வால்பேப்பர் பின்னணி படம் புகைப்படம் டெஸ்க்டாப் தோற்றம்"
+
+#: lib/words.ts:147
+#, fuzzy
+msgid "audio speakers headphones volume microphone mic input output mute"
+msgstr "ஒலி ஸ்பீக்கர் ஹெட்போன் ஒலியளவு மைக்ரோஃபோன் உள்ளீடு வெளியீடு முடக்கு"
+
+#: lib/words.ts:148
+#, fuzzy
+msgid "layout keys mouse cursor pointer speed left handed scroll touchpad"
+msgstr "விசைப்பலகை அமைப்பு விசைகள் மவுஸ் சுட்டி வேகம் இடது கை உருட்டல்"
+
+#: lib/words.ts:149
+#, fuzzy
+msgid "language translation country region province state locale"
+msgstr "மொழி மொழிபெயர்ப்பு நாடு பகுதி மாநிலம்"
+
+#: lib/words.ts:150
+#, fuzzy
+msgid "clock date time zone timezone ntp sync"
+msgstr "கடிகாரம் தேதி நேரம் நேர மண்டலம் ஒத்திசைவு"
+
+#: lib/words.ts:151
+#, fuzzy
+msgid "users accounts members family admins add person password forgot children kids parents guardians"
+msgstr "பயனர்கள் கணக்குகள் உறுப்பினர்கள் குடும்பம் நிர்வாகிகள் சேர் நபர் கடவுச்சொல் மறந்தது குழந்தைகள் பெற்றோர் பாதுகாவலர்"
+
+#: lib/words.ts:152
+#, fuzzy
+msgid "alerts bell messages"
+msgstr "எச்சரிக்கைகள் மணி செய்திகள்"
+
+#: lib/words.ts:153
+#, fuzzy
+msgid "firewall ports updates patches secure boot apparmor scan integrity privacy outbound"
+msgstr "ஃபயர்வால் போர்ட்டுகள் புதுப்பிப்புகள் பாதுகாப்பான துவக்கம் ஸ்கேன் ஒருமைப்பாடு தனியுரிமை வெளிச்செல்லும்"
+
+#: lib/words.ts:154
+#, fuzzy
+msgid "ssh terminal command line shell remote sudo admin keys"
+msgstr "டெர்மினல் கட்டளை வரி ஷெல் தொலைநிலை நிர்வாகி சாவிகள்"
+
+#: lib/words.ts:155
+#, fuzzy
+msgid "reboot restart power shut down shutdown maintenance hour always on sleep"
+msgstr "மறுதொடக்கம் மின்சாரம் அணை நிறுத்து பராமரிப்பு நேரம் எப்போதும் இயக்கத்தில் உறக்கம்"
+
+#: lib/words.ts:156
+#, fuzzy
+msgid "restore rollback undo update snapshot reset factory erase wipe"
+msgstr "மீட்டமை திரும்பு செயல்தவிர் புதுப்பிப்பு மீளமை தொழிற்சாலை அழி"
+
+#: lib/words.ts:157
+#, fuzzy
+msgid "about system info model serial number version processor memory support period"
+msgstr "பற்றி கணினித் தகவல் மாடல் வரிசை எண் பதிப்பு செயலி நினைவகம் ஆதரவுக் காலம்"
+
+#: lib/words.ts:158
+#, fuzzy
+msgid "disk space library mirror check scrub damage full"
+msgstr "வட்டு இடம் நூலகம் நகல் சரிபார் சேதம் நிரம்பியது"
+
+#: lib/words.ts:159
+#, fuzzy
+msgid "drive disk health smart failing replace temperature"
+msgstr "இயக்ககம் வட்டு நிலை பழுது மாற்று வெப்பநிலை"
+
+#: lib/words.ts:160
+#, fuzzy
+msgid "space usage full photos apps databases"
+msgstr "இடம் பயன்பாடு நிரம்பியது படங்கள் செயலிகள் தரவுத்தளங்கள்"
+
+#: lib/words.ts:161
+#, fuzzy
+msgid "backup backups restic copy nightly restore safe offsite"
+msgstr "காப்புப்பிரதி நகல் இரவு மீட்டெடு பாதுகாப்பு"
+
+#: lib/words.ts:162
+#, fuzzy
+msgid "apps applications installed remove uninstall delete restore version update running"
+msgstr "செயலிகள் நிறுவப்பட்டவை நீக்கு அகற்று அழி மீட்டமை பதிப்பு புதுப்பிப்பு இயங்குகிறது"
+
+#: lib/words.ts:163
+#, fuzzy
+msgid "install add app usb stick package zapp sideload new update"
+msgstr "நிறுவு சேர் செயலி யூஎஸ்பி குச்சி தொகுப்பு zapp புதியது புதுப்பிப்பு"
+
+#: lib/words.ts:164
+#, fuzzy
+msgid "cpu processor memory ram load network activity performance"
+msgstr "செயலி நினைவகம் சுமை வலையமைப்பு செயல்பாடு செயல்திறன்"
+
+#: lib/words.ts:165
+#, fuzzy
+msgid "app service busy slow usage"
+msgstr "செயலி சேவை பரபரப்பு மெதுவான பயன்பாடு"
+
+#: lib/words.ts:166
+#, fuzzy
+msgid "temperature heat hot fan sensors"
+msgstr "வெப்பநிலை சூடு விசிறி உணரிகள்"
+
+#: lib/words.ts:167
+#, fuzzy
+msgid "events history updates restarts"
+msgstr "நிகழ்வுகள் வரலாறு புதுப்பிப்புகள் மறுதொடக்கங்கள்"
+
+#: lib/words.ts:168
+#, fuzzy
+msgid "past notifications alerts history"
+msgstr "பழைய அறிவிப்புகள் எச்சரிக்கைகள் வரலாறு"
+
+#: lib/words.ts:169
+#, fuzzy
+msgid "audit who changed admin actions history"
+msgstr "தணிக்கை யார் மாற்றினார் நிர்வாகி செயல்கள் வரலாறு"
+
+#: lib/words.ts:170
+#, fuzzy
+msgid "sign in login logins who"
+msgstr "உள்நுழைவு யார்"
+
+#: lib/words.ts:171
+#, fuzzy
+msgid "family activity sign-ins wrong password devices share links guest links settings accounts second step who did what"
+msgstr "குடும்பம் செயல்பாடு உள்நுழைவுகள் தவறான கடவுச்சொல் சாதனங்கள் பகிர்வு இணைப்புகள் விருந்தினர் இணைப்புகள் அமைப்புகள் கணக்குகள் இரண்டாவது படி யார் என்ன செய்தார்"
+
+#: lib/words.ts:172
+#, fuzzy
+msgid "journal system log errors warnings"
+msgstr "ஜர்னல் கணினிப் பதிவு பிழைகள் எச்சரிக்கைகள்"
+
+#: lib/words.ts:173
+#, fuzzy
+msgid "diagnostics bundle logs support"
+msgstr "கண்டறிதல் தொகுப்பு பதிவுகள் உதவி"
+
+#: lib/words.ts:174
+#, fuzzy
+msgid "diagnostics bundle logs debug report usb send support problem"
+msgstr "கண்டறிதல் தொகுப்பு பதிவுகள் அறிக்கை யூஎஸ்பி அனுப்பு உதவி சிக்கல்"
+
+#: lib/words.ts:175
+#, fuzzy
+msgid "contact support help ticket serial number phone email"
+msgstr "தொடர்பு உதவி டிக்கெட் வரிசை எண் தொலைபேசி மின்னஞ்சல்"
+
+#: lib/words.ts:176
+#, fuzzy
+msgid "help questions faq how to troubleshoot problem"
+msgstr "உதவி கேள்விகள் எப்படி சரிசெய் சிக்கல்"
+
+#: lib/words.ts:181 tools/Network.svelte:125
+#, fuzzy
+msgid "IP Address Assignment Method"
+msgstr "IP முகவரி ஒதுக்கும் முறை"
+
+#: lib/words.ts:182 tools/Network.svelte:116
+#, fuzzy
+msgid "Wi-Fi (Wireless Network)"
+msgstr "Wi-Fi (கம்பியில்லா வலையமைப்பு)"
+
+#: lib/words.ts:183 tools/Display.svelte:164 tools/Display.svelte:166
+#, fuzzy
+msgid "Resolution"
+msgstr "தெளிவுத்திறன்"
+
+#: lib/words.ts:184 tools/Display.svelte:158 tools/Display.svelte:160
+#, fuzzy
+msgid "Orientation"
+msgstr "திசையமைவு"
+
+#: lib/words.ts:185 tools/Display.svelte:170 tools/Display.svelte:172
+#, fuzzy
+msgid "Screen Update Rate"
+msgstr "திரைப் புதுப்பிப்பு வீதம்"
+
+#: lib/words.ts:186 tools/Display.svelte:176 tools/Display.svelte:179
+#, fuzzy
+msgid "Text & UI Scaling"
+msgstr "உரை & இடைமுக அளவு"
+
+#: lib/words.ts:187 tools/Appearance.svelte:25 tools/Appearance.svelte:27
+#, fuzzy
+msgid "Style"
+msgstr "பாணி"
+
+#: lib/words.ts:188 tools/Appearance.svelte:42 tools/Appearance.svelte:44
+#, fuzzy
+msgid "Accent Colour"
+msgstr "முதன்மை நிறம்"
+
+#: lib/words.ts:189 tools/Appearance.svelte:56 tools/Appearance.svelte:61
+#, fuzzy
+msgid "Background"
+msgstr "பின்னணி"
+
+#: lib/words.ts:190 tools/Appearance.svelte:58
+#, fuzzy
+msgid "Add Picture"
+msgstr "படம் சேர்"
+
+#: lib/words.ts:191 tools/Sound.svelte:71 tools/Sound.svelte:73
+#, fuzzy
+msgid "Output Device"
+msgstr "வெளியீட்டுச் சாதனம்"
+
+#: lib/words.ts:192 tools/Sound.svelte:77
+#, fuzzy
+msgid "Output Volume"
+msgstr "வெளியீட்டு ஒலியளவு"
+
+#: lib/words.ts:193 tools/Sound.svelte:82 tools/Sound.svelte:83
+#, fuzzy
+msgid "Input Device"
+msgstr "உள்ளீட்டுச் சாதனம்"
+
+#: lib/words.ts:194 tools/Sound.svelte:85
+#, fuzzy
+msgid "Input Volume"
+msgstr "உள்ளீட்டு ஒலியளவு"
+
+#: lib/words.ts:195 tools/Sound.svelte:88
+#, fuzzy
+msgid "Input Level"
+msgstr "உள்ளீட்டு நிலை"
+
+#: lib/words.ts:196 tools/Keyboard.svelte:49 tools/Keyboard.svelte:50
+#, fuzzy
+msgid "Input Layout"
+msgstr "விசைப்பலகைத் தளவமைப்பு"
+
+#: lib/words.ts:197 tools/Keyboard.svelte:54
+#, fuzzy
+msgid "Primary click side"
+msgstr "முதன்மைப் பொத்தான்"
+
+#: lib/words.ts:198 tools/Keyboard.svelte:60
+#, fuzzy
+msgid "Cursor Speed"
+msgstr "சுட்டியின் வேகம்"
+
+#: lib/words.ts:199 tools/Keyboard.svelte:66 tools/Keyboard.svelte:67
+#, fuzzy
+msgid "Dynamic Cursor Acceleration"
+msgstr "சுட்டியின் முடுக்கம்"
+
+#: lib/words.ts:200 tools/Keyboard.svelte:70
+#, fuzzy
+msgid "Scroll direction"
+msgstr "உருட்டும் திசை"
+
+#: lib/words.ts:201 pages/Setup.svelte:16 pages/Setup.svelte:354 pages/Setup.svelte:381 tools/Language.svelte:71 tools/Language.svelte:72
+#, fuzzy
+msgid "Language"
+msgstr "மொழி"
+
+#: lib/words.ts:202 tools/Language.svelte:74 tools/Language.svelte:76
+#, fuzzy
+msgid "Country or Region"
+msgstr "நாடு அல்லது பகுதி"
+
+#: lib/words.ts:203 tools/Language.svelte:81 tools/Language.svelte:83
+#, fuzzy
+msgid "State or Province"
+msgstr "மாநிலம் அல்லது மாகாணம்"
+
+#: lib/words.ts:204 tools/Time.svelte:48 tools/Time.svelte:49
+#, fuzzy
+msgid "Time Zone"
+msgstr "நேர மண்டலம்"
+
+#: lib/words.ts:205 tools/Time.svelte:45
+#, fuzzy
+msgid "Current Time"
+msgstr "தற்போதைய நேரம்"
+
+#: lib/words.ts:206 tools/Time.svelte:51
+#, fuzzy
+msgid "Time Sync"
+msgstr "நேர ஒத்திசைவு"
+
+#: lib/words.ts:207 tools/AddPerson.svelte:56 tools/People.svelte:59
+#, fuzzy
+msgid "Add a person"
+msgstr "நபரைச் சேர்"
+
+#: lib/words.ts:208 pages/SignIn.svelte:192 pages/SignIn.svelte:220 tools/EditPerson.svelte:86
+#, fuzzy
+msgid "New password"
+msgstr "புதிய கடவுச்சொல்"
+
+#: lib/words.ts:209 tools/EditPerson.svelte:102 tools/EditPerson.svelte:102
+#, fuzzy
+msgid "Make admin"
+msgstr "நிர்வாகியாக்கு"
+
+#: lib/words.ts:210 tools/Notifications.svelte:21
+#, fuzzy
+msgid "Show Notifications For"
+msgstr "அறிவிப்புகளைக் காட்டு"
+
+#: lib/words.ts:211 tools/Security.svelte:122
+#, fuzzy
+msgid "Firewall"
+msgstr "ஃபயர்வால்"
+
+#: lib/words.ts:212 tools/Security.svelte:142
+#, fuzzy
+msgid "Secure Boot"
+msgstr "Secure Boot"
+
+#: lib/words.ts:213 tools/Security.svelte:123
+#, fuzzy
+msgid "AppArmor"
+msgstr "AppArmor"
+
+#: lib/words.ts:214 tools/Security.svelte:119
+#, fuzzy
+msgid "Security Updates"
+msgstr "பாதுகாப்புப் புதுப்பிப்புகள்"
+
+#: lib/words.ts:215 tools/Security.svelte:151
+#, fuzzy
+msgid "Last System Scan"
+msgstr "கடைசி கணினி ஸ்கேன்"
+
+#: lib/words.ts:216 tools/Security.svelte:154
+#, fuzzy
+msgid "Allowed Inbound Connections"
+msgstr "அனுமதிக்கப்பட்ட உள்வரும் இணைப்புகள்"
+
+#: lib/words.ts:217 tools/Security.svelte:165
+#, fuzzy
+msgid "Outbound Internet Connections"
+msgstr "வெளிச்செல்லும் இணைய இணைப்புகள்"
+
+#: lib/words.ts:218 tools/Access.svelte:78
+#, fuzzy
+msgid "Keys"
+msgstr "சாவிகள்"
+
+#: lib/words.ts:219 tools/Access.svelte:85 tools/AppsUsb.svelte:54
+#, fuzzy
+msgid "Add from a USB stick"
+msgstr "USB குச்சியிலிருந்து சேர்"
+
+#: lib/words.ts:220 tools/Access.svelte:88 tools/Access.svelte:89 tools/PasteKey.svelte:18
+#, fuzzy
+msgid "Paste a key"
+msgstr "சாவியை ஒட்டு"
+
+#: lib/words.ts:221 tools/Restarts.svelte:60 tools/Restarts.svelte:62
+#, fuzzy
+msgid "Maintenance Hour"
+msgstr "பராமரிப்பு நேரம்"
+
+#: lib/words.ts:222 tools/Restarts.svelte:69
+#, fuzzy
+msgid "Always On"
+msgstr "எப்போதும் இயக்கத்தில்"
+
+#: lib/words.ts:223 tools/Restarts.svelte:72
+#, fuzzy
+msgid "Shutdown"
+msgstr "அணைத்தல்"
+
+#: lib/words.ts:224 tools/Restore.svelte:73 tools/Space.svelte:14
+#, fuzzy
+msgid "Restore points"
+msgstr "மீட்புப் புள்ளிகள்"
+
+#: lib/words.ts:225 tools/Restore.svelte:83
+#, fuzzy
+msgid "Updates on Hold"
+msgstr "நிறுத்தி வைக்கப்பட்ட புதுப்பிப்புகள்"
+
+#: lib/words.ts:226 tools/Restore.svelte:93
+#, fuzzy
+msgid "System Reset"
+msgstr "கணினி மீளமைப்பு"
+
+#: lib/words.ts:227 tools/Restore.svelte:99
+#, fuzzy
+msgid "Factory Reset"
+msgstr "தொழிற்சாலை மீளமைப்பு"
+
+#: lib/words.ts:228 tools/Restore.svelte:65 tools/Restore.svelte:98 tools/Restore.svelte:100
+#, fuzzy
+msgid "Erase everything"
+msgstr "அனைத்தையும் அழி"
+
+#: lib/words.ts:229 pages/MainMenu.svelte:74 tools/About.svelte:53 tools/About.svelte:54
+#, fuzzy
+msgid "Family Hub"
+msgstr "Family Hub"
+
+#: lib/words.ts:230 tools/About.svelte:54
+#, fuzzy
+msgid "Open on a phone"
+msgstr "கைபேசியில் திற"
+
+#: lib/words.ts:231 tools/About.svelte:28 tools/Contact.svelte:16
+#, fuzzy
+msgid "Model"
+msgstr "மாடல்"
+
+#: lib/words.ts:232 tools/About.svelte:29
+#, fuzzy
+msgid "Serial Number"
+msgstr "வரிசை எண்"
+
+#: lib/words.ts:233 tools/About.svelte:30
+#, fuzzy
+msgid "Operating System"
+msgstr "இயக்க முறைமை"
+
+#: lib/words.ts:234 tools/About.svelte:31 tools/Contact.svelte:37
+#, fuzzy
+msgid "Security updates"
+msgstr "பாதுகாப்புப் புதுப்பிப்புகள்"
+
+#: lib/words.ts:235 pages/Widgets.svelte:118 tools/StorageOverview.svelte:52
+#, fuzzy
+msgid "Library"
+msgstr "நூலகம்"
+
+#: lib/words.ts:236 tools/LibraryCheck.svelte:19
+#, fuzzy
+msgid "Check the library for damage"
+msgstr "நூலகத்தில் சேதம் உள்ளதா எனச் சரிபார்"
+
+#: lib/words.ts:237 tools/Backups.svelte:56 tools/Backups.svelte:59
+#, fuzzy
+msgid "Back up now"
+msgstr "இப்போது காப்புப்பிரதி எடு"
+
+#: lib/words.ts:238 tools/Backups.svelte:62 tools/Backups.svelte:64
+#, fuzzy
+msgid "Nightly backup"
+msgstr "இரவுநேரக் காப்புப்பிரதி"
+
+#: lib/words.ts:239 tools/Display.svelte:130
+#, fuzzy
+msgid "Lock the screen after"
+msgstr "இதற்குப் பின் திரையைப் பூட்டு"
+
+#: lib/words.ts:240 tools/Display.svelte:131
+#, fuzzy
+msgid "Turn the screen off after"
+msgstr "இதற்குப் பின் திரையை அணை"
+
+#: lib/words.ts:241 tools/Contact.svelte:30 tools/Diagnostics.svelte:48
+#, fuzzy
+msgid "Make a bundle"
+msgstr "தொகுப்பை உருவாக்கு"
+
+#: lib/words.ts:242 tools/SaveBundle.svelte:42
+#, fuzzy
+msgid "Save to a USB stick"
+msgstr "USB குச்சியில் சேமி"
+
+#: lib/words.ts:243 tools/Contact.svelte:23
+#, fuzzy
+msgid "Contact ZOOMRIYA support"
+msgstr "ZOOMRIYA உதவியைத் தொடர்புகொள்ள"
+
+#: lib/words.ts:244 tools/Contact.svelte:16
+#, fuzzy
+msgid "Serial number"
+msgstr "வரிசை எண்"
+
+#: lib/words.ts:249 pages/MainMenu.svelte:113
+#, fuzzy
+msgid "Restart the box"
+msgstr "பெட்டியை மறுதொடக்கு"
+
+#: lib/words.ts:249
+#, fuzzy
+msgid "reboot"
+msgstr "மறுதொடக்கம்"
+
+#: lib/words.ts:250 tools/Restarts.svelte:73
+#, fuzzy
+msgid "Shut down system"
+msgstr "அணை"
+
+#: lib/words.ts:250
+#, fuzzy
+msgid "power off turn off"
+msgstr "அணை நிறுத்து"
+
+#: lib/words.ts:251 pages/MainMenu.svelte:112
+#, fuzzy
+msgid "Lock screen"
+msgstr "திரையைப் பூட்டு"
+
+#: lib/words.ts:251
+#, fuzzy
+msgid "lock away screen saver leave"
+msgstr "பூட்டு விலகி திரைக்காப்பு வெளியேறு"
+
+#: lib/words.ts:252 pages/MainMenu.svelte:112
+#, fuzzy
+msgid "Open Family Hub on a phone"
+msgstr "Family Hub-ஐக் கைபேசியில் திற"
+
+#: lib/words.ts:252
+#, fuzzy
+msgid "qr code phone mobile address family hub"
+msgstr "qr குறியீடு கைபேசி முகவரி family hub"
+
+#: lib/words.ts:253 pages/MainMenu.svelte:113
+#, fuzzy
+msgid "Sign out"
+msgstr "வெளியேறு"
+
+#: lib/words.ts:253
+#, fuzzy
+msgid "log out logout switch user"
+msgstr "வெளியேறு பயனரை மாற்று"
+
+#: lib/words.ts:254 tools/Appearance.svelte:28
+#, fuzzy
+msgid "Midnight"
+msgstr "இரவு"
+
+#: lib/words.ts:254
+#, fuzzy
+msgid "dark theme night"
+msgstr "இருண்ட தீம் இரவு"
+
+#: lib/words.ts:255 tools/Appearance.svelte:28
+#, fuzzy
+msgid "Daylight"
+msgstr "பகல்"
+
+#: lib/words.ts:255
+#, fuzzy
+msgid "light theme day"
+msgstr "வெளிர் தீம் பகல்"
+
+#: lib/words.ts:256 pages/TopBar.svelte:132 pages/TopBar.svelte:132 pages/Widgets.svelte:37
+#, fuzzy
+msgid "Widgets"
+msgstr "விட்ஜெட்டுகள்"
+
+#: lib/words.ts:256
+#, fuzzy
+msgid "side panel health cpu space"
+msgstr "பக்கப் பலகம் நிலை செயலி இடம்"
+
+#: lib/words.ts:261
+#, fuzzy
+msgid "Something stopped working after an update"
+msgstr "புதுப்பிப்புக்குப் பிறகு ஏதோ வேலை செய்யவில்லை"
+
+#: lib/words.ts:261
+#, fuzzy
+msgid "Restore the OS to before the update. Family files stay."
+msgstr "புதுப்பிப்புக்கு முந்தைய நிலைக்கு OS-ஐ மீட்டமைக்கவும். குடும்பக் கோப்புகள் அப்படியே இருக்கும்."
+
+#: lib/words.ts:262
+#, fuzzy
+msgid "A drive needs checking"
+msgstr "ஒரு இயக்ககத்தைச் சரிபார்க்க வேண்டும்"
+
+#: lib/words.ts:262
+#, fuzzy
+msgid "See which drive, and why. Replace it with one as big or bigger."
+msgstr "எந்த இயக்ககம், ஏன் எனப் பார்க்கவும். அதே அளவு அல்லது பெரியதால் மாற்றவும்."
+
+#: lib/words.ts:263
+#, fuzzy
+msgid "The box is slow"
+msgstr "பெட்டி மெதுவாக உள்ளது"
+
+#: lib/words.ts:263
+#, fuzzy
+msgid "See which app is busy. Photos works hard after many new photos."
+msgstr "எந்தச் செயலி பரபரப்பாக உள்ளது எனப் பார்க்கவும். பல புதிய படங்களுக்குப் பின் Photos வேலை செய்யும்."
+
+#: lib/words.ts:264
+#, fuzzy
+msgid "The box restarted by itself"
+msgstr "பெட்டி தானாக மறுதொடக்கம் ஆனது"
+
+#: lib/words.ts:264
+#, fuzzy
+msgid "Updates finish at the maintenance hour. You can change the hour."
+msgstr "புதுப்பிப்புகள் பராமரிப்பு நேரத்தில் முடியும். நேரத்தை மாற்றலாம்."
+
+#: lib/words.ts:265
+#, fuzzy
+msgid "Family Hub doesn't open on the home network"
+msgstr "வீட்டில் Family Hub திறக்கவில்லை"
+
+#: lib/words.ts:265
+#, fuzzy
+msgid "Check the cable to the router, and the box's address."
+msgstr "ரூட்டருக்கான கேபிளையும் பெட்டியின் முகவரியையும் பார்க்கவும்."
+
+#: lib/words.ts:266
+#, fuzzy
+msgid "Someone can't sign in"
+msgstr "ஒருவரால் உள்நுழைய முடியவில்லை"
+
+#: lib/words.ts:266
+#, fuzzy
+msgid "Let them type a new password, or turn their account back on."
+msgstr "புதிய கடவுச்சொல்லை உள்ளிடச் சொல்லுங்கள், அல்லது கணக்கை மீண்டும் இயக்குங்கள்."
+
+#: lib/words.ts:267
+#, fuzzy
+msgid "Who changed a setting?"
+msgstr "ஓர் அமைப்பை மாற்றியது யார்?"
+
+#: lib/words.ts:267
+#, fuzzy
+msgid "Every change, with who and when."
+msgstr "ஒவ்வொரு மாற்றமும், யார், எப்போது என்பதுடன்."
+
+#: lib/words.ts:272
+#, fuzzy
+msgid "Drive Health"
+msgstr "இயக்கக நலம்"
+
+#: lib/words.ts:272
+#, fuzzy
+msgid "When to check or replace, and when healthy."
+msgstr "எப்போது சரிபார்க்க அல்லது மாற்ற வேண்டும், எப்போது நலம்."
+
+#: lib/words.ts:273
+#, fuzzy
+msgid "Updates"
+msgstr "புதுப்பிப்புகள்"
+
+#: lib/words.ts:273
+#, fuzzy
+msgid "When security fixes are installed."
+msgstr "பாதுகாப்புத் திருத்தங்கள் நிறுவப்படும்போது."
+
+#: lib/words.ts:274
+#, fuzzy
+msgid "Auto-restart schedule for updates and restores."
+msgstr "புதுப்பிப்புகள், மீட்டமைப்புகளுக்கான தானியங்கி மறுதொடக்க நேரம்."
+
+#: lib/words.ts:275
+#, fuzzy
+msgid "Library Check"
+msgstr "நூலகச் சரிபார்ப்பு"
+
+#: lib/words.ts:275
+#, fuzzy
+msgid "Library scan completion time and results."
+msgstr "நூலக ஸ்கேன் முடிந்த நேரமும் முடிவுகளும்."
+
+#: lib/words.ts:276
+#, fuzzy
+msgid "Network settings weren't kept and were rolled back."
+msgstr "வலையமைப்பு அமைப்புகள் வைக்கப்படாமல் திரும்பப்பெறப்பட்டன."
+
+#: lib/words.ts:277 tools/Security.svelte:143
+#, fuzzy
+msgid "Secure Connections"
+msgstr "பாதுகாப்பான இணைப்புகள்"
+
+#: lib/words.ts:277
+#, fuzzy
+msgid "When the box's certificate can't be made or renewed, or is running out."
+msgstr "பெட்டியின் சான்றிதழை உருவாக்கவோ புதுப்பிக்கவோ முடியாதபோதும், காலாவதியாகும்போதும்."
+
+#: lib/words.ts:278
+#, fuzzy
+msgid "Admin Sign-in"
+msgstr "நிர்வாகி உள்நுழைவு"
+
+#: lib/words.ts:278
+#, fuzzy
+msgid "When an admin is let back in at the box with the setup code, or a wrong code is typed."
+msgstr "அமைப்புக் குறியீடு கொண்டு நிர்வாகி பெட்டியில் மீண்டும் அனுமதிக்கப்படும்போதும், தவறான குறியீடு உள்ளிடப்படும்போதும்."
+
+#: lib/words.ts:279
+#, fuzzy
+msgid "Advanced Access"
+msgstr "மேம்பட்ட அணுகல்"
+
+#: lib/words.ts:279
+#, fuzzy
+msgid "When SSH access is turned on or off."
+msgstr "SSH அணுகல் இயக்கப்படும்போதும் அணைக்கப்படும்போதும்."
+
+#: lib/words.ts:280
+#, fuzzy
+msgid "Apps"
+msgstr "செயலிகள்"
+
+#: lib/words.ts:280
+#, fuzzy
+msgid "When an app is installed, restored or removed."
+msgstr "ஒரு செயலி நிறுவப்படும்போது, மீட்டமைக்கப்படும்போது அல்லது நீக்கப்படும்போது."
+
+#: lib/words.ts:284
+#, fuzzy
+msgid "Everything offline is on"
+msgstr "அனைத்தும் இணையமின்றி இயக்கத்தில் உள்ளது"
+
+#: lib/words.ts:284
+#, fuzzy
+msgid "Apps offline is on"
+msgstr "செயலிகள் இணையமின்றி இயக்கத்தில் உள்ளது"
+
+#: lib/words.ts:284
+#, fuzzy
+msgid "Switched off"
+msgstr "அணைக்கப்பட்டது"
+
+#: lib/words.ts:288
+#, fuzzy
+msgid "Blue"
+msgstr "நீலம்"
+
+#: lib/words.ts:289
+#, fuzzy
+msgid "Teal"
+msgstr "நீலப்பச்சை"
+
+#: lib/words.ts:290
+#, fuzzy
+msgid "Green"
+msgstr "பச்சை"
+
+#: lib/words.ts:291
+#, fuzzy
+msgid "Yellow"
+msgstr "மஞ்சள்"
+
+#: lib/words.ts:292
+#, fuzzy
+msgid "Orange"
+msgstr "ஆரஞ்சு"
+
+#: lib/words.ts:293
+#, fuzzy
+msgid "Red"
+msgstr "சிவப்பு"
+
+#: lib/words.ts:294
+#, fuzzy
+msgid "Pink"
+msgstr "இளஞ்சிவப்பு"
+
+#: lib/words.ts:295
+#, fuzzy
+msgid "Purple"
+msgstr "ஊதா"
+
+#: lib/words.ts:296
+#, fuzzy
+msgid "Slate"
+msgstr "சாம்பல் நீலம்"
+
+#: lib/words.ts:302
+#, fuzzy
+msgid "Smoke"
+msgstr "புகை"
+
+#: lib/words.ts:303
+#, fuzzy
+msgid "Smoke at dusk"
+msgstr "அந்தியில் புகை"
+
+#: lib/words.ts:304
+#, fuzzy
+msgid "Hills"
+msgstr "மலைகள்"
+
+#: lib/words.ts:305
+#, fuzzy
+msgid "Lakeside"
+msgstr "ஏரிக்கரை"
+
+#: lib/words.ts:309
+#, fuzzy
+msgid "Night"
+msgstr "இரவு"
+
+#: lib/words.ts:310
+#, fuzzy
+msgid "Ocean"
+msgstr "கடல்"
+
+#: lib/words.ts:311
+#, fuzzy
+msgid "Forest"
+msgstr "காடு"
+
+#: lib/words.ts:312
+#, fuzzy
+msgid "Plum"
+msgstr "கருஞ்சிவப்பு"
+
+#: lib/words.ts:313
+#, fuzzy
+msgid "Graphite"
+msgstr "கரும்சாம்பல்"
+
+#: lib/words.ts:321
+#, fuzzy
+msgid "Sign-in"
+msgstr "உள்நுழைவு"
+
+#: lib/words.ts:322
+#, fuzzy
+msgid "Wrong try"
+msgstr "தவறான முயற்சி"
+
+#: lib/words.ts:323
+#, fuzzy
+msgid "Second step"
+msgstr "இரண்டாவது படி"
+
+#: lib/words.ts:324 pages/Lock.svelte:43 pages/SignIn.svelte:188 tools/AddPerson.svelte:71 tools/EditPerson.svelte:85 tools/NewPassword.svelte:45
+#, fuzzy
+msgid "Password"
+msgstr "கடவுச்சொல்"
+
+#: lib/words.ts:325 tools/EditPerson.svelte:109 tools/EditPerson.svelte:117
+#, fuzzy
+msgid "Account"
+msgstr "கணக்கு"
+
+#: lib/words.ts:326
+#, fuzzy
+msgid "AI key"
+msgstr "AI சாவி"
+
+#: lib/words.ts:327
+#, fuzzy
+msgid "New device"
+msgstr "புதிய சாதனம்"
+
+#: lib/words.ts:328
+#, fuzzy
+msgid "Share link"
+msgstr "பகிர்வு இணைப்பு"
+
+#: lib/words.ts:329
+#, fuzzy
+msgid "Setting"
+msgstr "அமைப்பு"
+
+#: lib/words.ts:332
+#, fuzzy
+msgid "Errors"
+msgstr "பிழைகள்"
+
+#: lib/words.ts:332
+#, fuzzy
+msgid "Warnings and errors"
+msgstr "எச்சரிக்கைகள் மற்றும் பிழைகள்"
+
+#: lib/words.ts:332 tools/Logs.svelte:54
+#, fuzzy
+msgid "Everything"
+msgstr "அனைத்தும்"
+
+#: lib/words.ts:333
+#, fuzzy
+msgid "Healthy"
+msgstr "நலம்"
+
+#: lib/words.ts:333
+#, fuzzy
+msgid "Needs checking"
+msgstr "சரிபார்க்க வேண்டும்"
+
+#: lib/words.ts:333
+#, fuzzy
+msgid "Failing"
+msgstr "பழுதடைகிறது"
+
+#: lib/words.ts:336 lib/words.ts:337
+#, fuzzy
+msgid "Starting"
+msgstr "தொடங்குகிறது"
+
+#: lib/words.ts:336
+#, fuzzy
+msgid "Copying from the USB stick"
+msgstr "USB குச்சியிலிருந்து நகலெடுக்கிறது"
+
+#: lib/words.ts:336
+#, fuzzy
+msgid "Checking it's a ZOOMRIYA app"
+msgstr "இது ZOOMRIYA செயலியா எனச் சரிபார்க்கிறது"
+
+#: lib/words.ts:336
+#, fuzzy
+msgid "Adding it to the box"
+msgstr "பெட்டியில் சேர்க்கிறது"
+
+#: lib/words.ts:336
+#, fuzzy
+msgid "Starting it"
+msgstr "இயக்குகிறது"
+
+#: lib/words.ts:336
+#, fuzzy
+msgid "Not a ZOOMRIYA app."
+msgstr "ZOOMRIYA செயலி அல்ல."
+
+#: lib/words.ts:336
+#, fuzzy
+msgid "Can't be read."
+msgstr "படிக்க முடியவில்லை."
+
+#: lib/words.ts:337
+#, fuzzy
+msgid "Running"
+msgstr "இயங்குகிறது"
+
+#: lib/words.ts:337
+#, fuzzy
+msgid "Stopped"
+msgstr "நின்றுள்ளது"
+
+#: lib/words.ts:337
+#, fuzzy
+msgid "Not working"
+msgstr "வேலை செய்யவில்லை"
+
+#: lib/words.ts:340
+#, fuzzy
+msgid "Landscape"
+msgstr "கிடைமட்டம்"
+
+#: lib/words.ts:340
+#, fuzzy
+msgid "Portrait, turned right"
+msgstr "செங்குத்து, வலப்புறம் திருப்பியது"
+
+#: lib/words.ts:340
+#, fuzzy
+msgid "Portrait, turned left"
+msgstr "செங்குத்து, இடப்புறம் திருப்பியது"
+
+#: lib/words.ts:340
+#, fuzzy
+msgid "Landscape, upside down"
+msgstr "கிடைமட்டம், தலைகீழாக"
+
+#: pages/Dock.svelte:44
+#, fuzzy
+msgid "Launcher"
+msgstr "தொடக்கப் பட்டை"
+
+#: pages/Dock.svelte:71 pages/Shortcuts.svelte:34
+#, fuzzy
+msgid "Open"
+msgstr "திற"
+
+#: pages/Dock.svelte:72
+#, fuzzy
+msgid "Open on a phone or computer"
+msgstr "கைபேசி அல்லது கணினியில் திற"
+
+#: pages/Dock.svelte:73
+#, fuzzy
+msgid "Manage in App Center"
+msgstr "App Center-இல் நிர்வகி"
+
+#: pages/Dock.svelte:74
+#, fuzzy
+msgid "Remove from dock"
+msgstr "டாக்கிலிருந்து நீக்கு"
+
+#: pages/Elsewhere.svelte:9
+#, fuzzy
+msgid "Open {app} on a phone or computer"
+msgstr "{app}-ஐக் கைபேசி அல்லது கணினியில் திற"
+
+#: pages/Elsewhere.svelte:10
+#, fuzzy
+msgid "Scan the code with a phone's camera, or type the address in a browser on the home network."
+msgstr "கைபேசிக் கேமராவால் குறியீட்டை ஸ்கேன் செய்யுங்கள், அல்லது வீட்டு வலையமைப்பில் உள்ள உலாவியில் முகவரியைத் தட்டச்சு செய்யுங்கள்."
+
+#: pages/Lock.svelte:47
+#, fuzzy
+msgid "Switch account"
+msgstr "கணக்கை மாற்று"
+
+#: pages/Lock.svelte:50
+#, fuzzy
+msgid "Unlock"
+msgstr "திற"
+
+#: pages/MainMenu.svelte:30
+#, fuzzy
+msgid "Search the system log for “{text}”"
+msgstr "கணினிப் பதிவில் “{text}” ஐத் தேடு"
+
+#: pages/MainMenu.svelte:82 pages/MainMenu.svelte:82
+#, fuzzy
+msgid "Search tools"
+msgstr "கருவிகளைத் தேடு"
+
+#: pages/Setup.svelte:16 pages/Setup.svelte:390 tools/Keyboard.svelte:48
+#, fuzzy
+msgid "Keyboard"
+msgstr "விசைப்பலகை"
+
+#: pages/Setup.svelte:16 pages/Setup.svelte:355 pages/Setup.svelte:432
+#, fuzzy
+msgid "Region"
+msgstr "பகுதி"
+
+#: pages/Setup.svelte:16 pages/Setup.svelte:356 pages/Setup.svelte:452
+#, fuzzy
+msgid "Time zone"
+msgstr "நேர மண்டலம்"
+
+#: pages/Setup.svelte:16 pages/Setup.svelte:351 tools/EditPerson.svelte:90 tools/EditPerson.svelte:98 tools/People.svelte:28
+#, fuzzy
+msgid "Admin"
+msgstr "நிர்வாகி"
+
+#: pages/Setup.svelte:16
+#, fuzzy
+msgid "Phone"
+msgstr "தொலைபேசி"
+
+#: pages/Setup.svelte:16
+#, fuzzy
+msgid "Done"
+msgstr "முடிந்தது"
+
+#: pages/Setup.svelte:77
+#, fuzzy
+msgid "Choose a username."
+msgstr "பயனர்பெயரைத் தேர்ந்தெடுங்கள்."
+
+#: pages/Setup.svelte:78
+#, fuzzy
+msgid "Choose a password."
+msgstr "கடவுச்சொல்லைத் தேர்ந்தெடுங்கள்."
+
+#: pages/Setup.svelte:79
+#, fuzzy
+msgid "The username can be at most 128 characters."
+msgstr "பயனர்பெயர் அதிகபட்சம் 128 எழுத்துகள் இருக்கலாம்."
+
+#: pages/Setup.svelte:80
+#, fuzzy
+msgid "The password needs at least {count} characters."
+msgstr "கடவுச்சொல்லுக்குக் குறைந்தது {count} எழுத்துகள் தேவை."
+
+#: pages/Setup.svelte:81
+#, fuzzy
+msgid "Type the password again."
+msgstr "கடவுச்சொல்லை மீண்டும் உள்ளிடுங்கள்."
+
+#: pages/Setup.svelte:82
+#, fuzzy
+msgid "The two passwords aren't the same."
+msgstr "இரண்டு கடவுச்சொற்களும் ஒன்றாக இல்லை."
+
+#: pages/Setup.svelte:263 pages/Setup.svelte:386 pages/Setup.svelte:437
+#, fuzzy
+msgid "Choose one to go on."
+msgstr "தொடர ஒன்றைத் தேர்ந்தெடுங்கள்."
+
+#: pages/Setup.svelte:266
+#, fuzzy
+msgid "The time there now: {time}"
+msgstr "அங்கு இப்போது நேரம்: {time}"
+
+#: pages/Setup.svelte:314 pages/SignIn.svelte:70
+#, fuzzy
+msgid "Can't scan it? Type this key: {key}"
+msgstr "வருட முடியவில்லையா? இந்தச் சாவியை உள்ளிடுங்கள்: {key}"
+
+#: pages/Setup.svelte:352
+#, fuzzy
+msgid "Box's name"
+msgstr "பெட்டியின் பெயர்"
+
+#: pages/Setup.svelte:353 pages/Setup.svelte:407
+#, fuzzy
+msgid "Address"
+msgstr "முகவரி"
+
+#: pages/Setup.svelte:353 pages/TopBar.svelte:128 pages/TopBar.svelte:128 tools/Network.svelte:99
+#, fuzzy
+msgid "Not connected"
+msgstr "இணைக்கப்படவில்லை"
+
+#: pages/Setup.svelte:366
+#, fuzzy
+msgid "Box setup"
+msgstr "பெட்டி அமைப்பு"
+
+#: pages/Setup.svelte:379
+#, fuzzy
+msgid "Welcome to your ZOOMRIYA Box"
+msgstr "உங்கள் ZOOMRIYA Box-க்கு வரவேற்கிறோம்"
+
+#: pages/Setup.svelte:380
+#, fuzzy
+msgid "Setup takes a few minutes. First, choose a language."
+msgstr "அமைப்புக்குச் சில நிமிடங்கள் ஆகும். முதலில், ஒரு மொழியைத் தேர்ந்தெடுங்கள்."
+
+#: pages/Setup.svelte:386 pages/Setup.svelte:437
+#, fuzzy
+msgid "Chosen: {name}"
+msgstr "தேர்ந்தெடுத்தது: {name}"
+
+#: pages/Setup.svelte:388
+#, fuzzy
+msgid "Your keyboard"
+msgstr "உங்கள் விசைப்பலகை"
+
+#: pages/Setup.svelte:389
+#, fuzzy
+msgid "Used right away, including for the admin's password."
+msgstr "நிர்வாகியின் கடவுச்சொல் உட்பட, உடனே பயன்படுத்தப்படும்."
+
+#: pages/Setup.svelte:394
+#, fuzzy
+msgid "Connect the box"
+msgstr "பெட்டியை இணையுங்கள்"
+
+#: pages/Setup.svelte:396
+#, fuzzy
+msgid "Checking the box's network port…"
+msgstr "பெட்டியின் வலையமைப்புத் துறையைச் சரிபார்க்கிறது…"
+
+#: pages/Setup.svelte:398
+#, fuzzy
+msgid "No usable Ethernet port found."
+msgstr "பயன்படுத்தக்கூடிய ஈதர்நெட் துறை இல்லை."
+
+#: pages/Setup.svelte:400
+#, fuzzy
+msgid "Connect the box to your router with a network cable. Setup continues once it's plugged in."
+msgstr "வலையமைப்புக் கம்பி மூலம் பெட்டியைத் திசைவியுடன் இணையுங்கள். இணைத்ததும் அமைப்பு தொடரும்."
+
+#: pages/Setup.svelte:401
+#, fuzzy
+msgid "Waiting for the cable…"
+msgstr "கம்பிக்காகக் காத்திருக்கிறது…"
+
+#: pages/Setup.svelte:403
+#, fuzzy
+msgid "Cable connected. Getting an address…"
+msgstr "கம்பி இணைந்தது. முகவரியைப் பெறுகிறது…"
+
+#: pages/Setup.svelte:405
+#, fuzzy
+msgid "The box is on your network."
+msgstr "பெட்டி உங்கள் வலையமைப்பில் உள்ளது."
+
+#: pages/Setup.svelte:408 pages/Setup.svelte:420 tools/Network.svelte:129
+#, fuzzy
+msgid "Router"
+msgstr "திசைவி"
+
+#: pages/Setup.svelte:408 pages/Setup.svelte:409
+#, fuzzy
+msgid "None"
+msgstr "இல்லை"
+
+#: pages/Setup.svelte:409 pages/Setup.svelte:420 tools/Network.svelte:129
+#, fuzzy
+msgid "Name servers"
+msgstr "பெயர் சேவையகங்கள்"
+
+#: pages/Setup.svelte:410
+#, fuzzy
+msgid "Settings"
+msgstr "அமைப்புகள்"
+
+#: pages/Setup.svelte:410
+#, fuzzy
+msgid "Static address"
+msgstr "நிலையான முகவரி"
+
+#: pages/Setup.svelte:410
+#, fuzzy
+msgid "From the router (DHCP)"
+msgstr "திசைவியிடமிருந்து (DHCP)"
+
+#: pages/Setup.svelte:411
+#, fuzzy
+msgid "Speed"
+msgstr "வேகம்"
+
+#: pages/Setup.svelte:413
+#, fuzzy
+msgid "Checking the internet…"
+msgstr "இணையத்தைச் சரிபார்க்கிறது…"
+
+#: pages/Setup.svelte:413
+#, fuzzy
+msgid "Internet: connected."
+msgstr "இணையம்: இணைக்கப்பட்டது."
+
+#: pages/Setup.svelte:414
+#, fuzzy
+msgid "No internet. You can continue; updates and the clock catch up once online."
+msgstr "இணையம் இல்லை. தொடரலாம்; இணைந்ததும் புதுப்பிப்புகளும் கடிகாரமும் சரியாகும்."
+
+#: pages/Setup.svelte:416
+#, fuzzy
+msgid "Use a static address instead of the router's"
+msgstr "திசைவியின் முகவரிக்குப் பதிலாக நிலையான முகவரியைப் பயன்படுத்து"
+
+#: pages/Setup.svelte:419 tools/Network.svelte:128
+#, fuzzy
+msgid "Box's address"
+msgstr "பெட்டியின் முகவரி"
+
+#: pages/Setup.svelte:419 tools/Network.svelte:128
+#, fuzzy
+msgid "Subnet mask"
+msgstr "சப்நெட் மாஸ்க்"
+
+#: pages/Setup.svelte:424 tools/Network.svelte:146
+#, fuzzy
+msgid "Use these settings"
+msgstr "பயன்படுத்து"
+
+#: pages/Setup.svelte:428
+#, fuzzy
+msgid "Which country or region?"
+msgstr "எந்த நாடு அல்லது பகுதி?"
+
+#: pages/Setup.svelte:429
+#, fuzzy
+msgid "Where the box is. Sets the time zones shown first."
+msgstr "பெட்டி இருக்கும் இடம். முதலில் காட்டும் நேர மண்டலங்களை அமைக்கும்."
+
+#: pages/Setup.svelte:431 pages/Setup.svelte:431
+#, fuzzy
+msgid "Search, for example Canada"
+msgstr "தேடுக, எ.கா. கனடா"
+
+#: pages/Setup.svelte:439
+#, fuzzy
+msgid "State or province (optional)"
+msgstr "மாநிலம் அல்லது மாகாணம் (விருப்பத்தேர்வு)"
+
+#: pages/Setup.svelte:441 tools/Language.svelte:83
+#, fuzzy
+msgid "Not chosen"
+msgstr "தேர்ந்தெடுக்கவில்லை"
+
+#: pages/Setup.svelte:447
+#, fuzzy
+msgid "Which time zone?"
+msgstr "எந்த நேர மண்டலம்?"
+
+#: pages/Setup.svelte:448
+#, fuzzy
+msgid "Time zones in {region}. Used by the box's clock, maintenance hour and apps."
+msgstr "{region} இல் உள்ள நேர மண்டலங்கள். பெட்டியின் கடிகாரம், பராமரிப்பு நேரம், செயலிகள் இதைப் பயன்படுத்தும்."
+
+#: pages/Setup.svelte:449
+#, fuzzy
+msgid "Used by the box's clock, maintenance hour and apps."
+msgstr "பெட்டியின் கடிகாரம், பராமரிப்பு நேரம், செயலிகள் இதைப் பயன்படுத்தும்."
+
+#: pages/Setup.svelte:450 pages/Setup.svelte:450
+#, fuzzy
+msgid "Search, for example Toronto"
+msgstr "தேடுக, எ.கா. Toronto"
+
+#: pages/Setup.svelte:451
+#, fuzzy
+msgid "Show every time zone"
+msgstr "அனைத்து நேர மண்டலங்களையும் காட்டு"
+
+#: pages/Setup.svelte:459
+#, fuzzy
+msgid "The box's admin"
+msgstr "பெட்டியின் நிர்வாகி"
+
+#: pages/Setup.svelte:460
+#, fuzzy
+msgid "Your ZOOMRIYA ID signs in to the box and every ZOOMRIYA app. There's no other way in, so keep the password safe."
+msgstr "உங்கள் ZOOMRIYA ID பெட்டியிலும் ஒவ்வொரு ZOOMRIYA செயலியிலும் உள்நுழைய வைக்கும். வேறு வழி இல்லை; எனவே கடவுச்சொல்லைப் பத்திரமாக வைத்திருங்கள்."
+
+#: pages/Setup.svelte:461 pages/SignIn.svelte:186 pages/SignIn.svelte:186
+#, fuzzy
+msgid "Username"
+msgstr "பயனர்பெயர்"
+
+#: pages/Setup.svelte:463
+#, fuzzy
+msgid "For example, amma"
+msgstr "எ.கா. amma"
+
+#: pages/Setup.svelte:464
+#, fuzzy
+msgid "Password (at least {count} characters)"
+msgstr "கடவுச்சொல் (குறைந்தது {count} எழுத்துகள்)"
+
+#: pages/Setup.svelte:466
+#, fuzzy
+msgid "The password again"
+msgstr "கடவுச்சொல் மீண்டும்"
+
+#: pages/Setup.svelte:470
+#, fuzzy
+msgid "Your phone"
+msgstr "உங்கள் தொலைபேசி"
+
+#: pages/Setup.svelte:471
+#, fuzzy
+msgid "Admins sign in with their password and a code from their phone, so someone who learns the password still can't get in. It takes a minute."
+msgstr "நிர்வாகிகள் கடவுச்சொல்லும் தொலைபேசிக் குறியீடும் கொண்டு உள்நுழைகிறார்கள்; கடவுச்சொல் மட்டும் போதாது. ஒரு நிமிடம் ஆகும்."
+
+#: pages/Setup.svelte:473
+#, fuzzy
+msgid "1. On your phone, open an authenticator app, any app that makes sign-in codes. If you don't have one, install one from your phone's app store.\n2. Add an account and scan this code.\n3. Enter the 6-digit code it shows."
+msgstr "1. தொலைபேசியில் அங்கீகரிப்புச் செயலியைத் திறங்கள். இல்லையென்றால் செயலிக் கடையிலிருந்து நிறுவுங்கள்.\n2. கணக்கைச் சேர்த்து இந்தக் குறியீட்டை வருடுங்கள்.\n3. காட்டப்படும் 6 இலக்கக் குறியீட்டை உள்ளிடுங்கள்."
+
+#: pages/Setup.svelte:478
+#, fuzzy
+msgid "The code"
+msgstr "குறியீடு"
+
+#: pages/Setup.svelte:479 pages/SignIn.svelte:204 pages/SignIn.svelte:205
+#, fuzzy
+msgid "6-digit code"
+msgstr "6 இலக்கக் குறியீடு"
+
+#: pages/Setup.svelte:484 pages/SetupElsewhere.svelte:15 tools/SaveBundle.svelte:50
+#, fuzzy
+msgid "Try again"
+msgstr "மீண்டும் முயல்"
+
+#: pages/Setup.svelte:485
+#, fuzzy
+msgid "Do it later"
+msgstr "பிறகு"
+
+#: pages/Setup.svelte:488 pages/SignIn.svelte:208
+#, fuzzy
+msgid "Your backup codes. If you ever don't have your phone, each one signs you in once. Write them down and keep them somewhere safe at home. They won't be shown again."
+msgstr "உங்கள் காப்புக் குறியீடுகள். தொலைபேசி இல்லாதபோது ஒவ்வொன்றும் ஒருமுறை உள்நுழைய உதவும். எழுதி வீட்டில் பாதுகாப்பான இடத்தில் வையுங்கள். மீண்டும் காட்டப்படாது."
+
+#: pages/Setup.svelte:490 pages/SignIn.svelte:212
+#, fuzzy
+msgid "I've written them down"
+msgstr "எழுதி வைத்துவிட்டேன்"
+
+#: pages/Setup.svelte:497
+#, fuzzy
+msgid "Your box is ready"
+msgstr "உங்கள் பெட்டி தயார்"
+
+#: pages/Setup.svelte:499
+#, fuzzy
+msgid "Press Finish. From now on, sign in with the admin's username and password; Box Desktop sets up the code from your phone at the first sign-in. To start over, use Erase everything."
+msgstr "முடி என்பதை அழுத்துங்கள். இனி நிர்வாகியின் பயனர்பெயர், கடவுச்சொல் கொண்டு உள்நுழையுங்கள்; முதல் உள்நுழைவில் Box Desktop தொலைபேசிக் குறியீட்டை அமைக்கும். மீண்டும் தொடங்க, அனைத்தையும் அழி என்பதைப் பயன்படுத்துங்கள்."
+
+#: pages/Setup.svelte:500
+#, fuzzy
+msgid "Press Finish. From now on, sign in with the admin's username, password and the code from your phone. To start over, use Erase everything."
+msgstr "முடி என்பதை அழுத்துங்கள். இனி நிர்வாகியின் பயனர்பெயர், கடவுச்சொல், தொலைபேசிக் குறியீடு கொண்டு உள்நுழையுங்கள். மீண்டும் தொடங்க, அனைத்தையும் அழி என்பதைப் பயன்படுத்துங்கள்."
+
+#: pages/Setup.svelte:504
+#, fuzzy
+msgid "Your box's setup code"
+msgstr "உங்கள் பெட்டியின் அமைப்புக் குறியீடு"
+
+#: pages/Setup.svelte:506
+#, fuzzy
+msgid "Write it down and keep it with the box's papers, not on the box. You need it if an admin can't sign in, and to erase the box. It's shown only now."
+msgstr "எழுதி, பெட்டியின் ஆவணங்களுடன் வையுங்கள்; பெட்டியின் மேல் அல்ல. நிர்வாகி உள்நுழைய முடியாதபோதும் பெட்டியை அழிக்கவும் இது தேவை. இப்போது மட்டுமே காட்டப்படும்."
+
+#: pages/Setup.svelte:507
+#, fuzzy
+msgid "I've written down the setup code"
+msgstr "அமைப்புக் குறியீட்டை எழுதி வைத்துவிட்டேன்"
+
+#: pages/Setup.svelte:516 pages/SignIn.svelte:198 pages/SignIn.svelte:206 pages/SignIn.svelte:222 tools/AddPerson.svelte:75 tools/ReviewBundle.svelte:35
+#, fuzzy
+msgid "Back"
+msgstr "பின்செல்"
+
+#: pages/Setup.svelte:517
+#, fuzzy
+msgid "Finish"
+msgstr "முடி"
+
+#: pages/Setup.svelte:517 tools/AddPerson.svelte:68
+#, fuzzy
+msgid "Next"
+msgstr "அடுத்து"
+
+#: pages/SetupElsewhere.svelte:13
+#, fuzzy
+msgid "Set up the box at its own screen"
+msgstr "பெட்டியை அதன் திரையிலேயே அமைக்கவும்"
+
+#: pages/SetupElsewhere.svelte:14
+#, fuzzy
+msgid "Plug a screen and a keyboard into the box and follow the steps there. Box Desktop opens here once the box is set up."
+msgstr "பெட்டியில் திரையையும் விசைப்பலகையையும் இணைத்து, அங்குள்ள படிகளைப் பின்பற்றவும். அதன் பிறகு Box Desktop இங்கே திறக்கும்."
+
+#: pages/Shortcuts.svelte:35
+#, fuzzy
+msgid "Remove from desktop"
+msgstr "டெஸ்க்டாப்பிலிருந்து நீக்கு"
+
+#: pages/SignIn.svelte:42 pages/SignIn.svelte:42 pages/SignIn.svelte:42
+#, fuzzy
+msgid "Sign in"
+msgstr "உள்நுழை"
+
+#: pages/SignIn.svelte:42
+#, fuzzy
+msgid "Turn it on"
+msgstr "இயக்கு"
+
+#: pages/SignIn.svelte:42
+#, fuzzy
+msgid "Continue"
+msgstr "தொடர்"
+
+#: pages/SignIn.svelte:43
+#, fuzzy
+msgid "Let them back in"
+msgstr "மீண்டும் அனுமதி"
+
+#: pages/SignIn.svelte:157
+#, fuzzy
+msgid "Type the setup code and the admin's username."
+msgstr "அமைப்புக் குறியீட்டையும் நிர்வாகியின் பயனர்பெயரையும் உள்ளிடுங்கள்."
+
+#: pages/SignIn.svelte:169
+#, fuzzy
+msgid "{name} has a new password. Sign in with it, then set up the code from your phone again."
+msgstr "{name} க்குப் புதிய கடவுச்சொல் உள்ளது. அதைக் கொண்டு உள்நுழைந்து, தொலைபேசிக் குறியீட்டை மீண்டும் அமையுங்கள்."
+
+#: pages/SignIn.svelte:184
+#, fuzzy
+msgid "Sign in with your ZOOMRIYA ID"
+msgstr "உங்கள் ZOOMRIYA ID கொண்டு உள்நுழையுங்கள்"
+
+#: pages/SignIn.svelte:191
+#, fuzzy
+msgid "Choose your own password. At least 8 characters."
+msgstr "உங்கள் சொந்தக் கடவுச்சொல்லைத் தேர்வுசெய்க. குறைந்தது 8 எழுத்துகள்."
+
+#: pages/SignIn.svelte:193 pages/SignIn.svelte:221
+#, fuzzy
+msgid "New password again"
+msgstr "புதிய கடவுச்சொல் மீண்டும்"
+
+#: pages/SignIn.svelte:194
+#, fuzzy
+msgid "Not now"
+msgstr "இப்போது வேண்டாம்"
+
+#: pages/SignIn.svelte:196
+#, fuzzy
+msgid "Open your authenticator app and enter the code it shows for ZOOMRIYA. No phone? Enter one of your backup codes."
+msgstr "அங்கீகரிப்புச் செயலியைத் திறந்து ZOOMRIYA-க்கான குறியீட்டை உள்ளிடுங்கள். தொலைபேசி இல்லையா? காப்புக் குறியீட்டை உள்ளிடுங்கள்."
+
+#: pages/SignIn.svelte:197 pages/SignIn.svelte:197
+#, fuzzy
+msgid "Code"
+msgstr "குறியீடு"
+
+#: pages/SignIn.svelte:200
+#, fuzzy
+msgid "Admins look after the whole family's box, so they sign in with a password and a code from their phone. Set it up once."
+msgstr "நிர்வாகிகள் குடும்பம் முழுவதன் பெட்டியைக் கவனிப்பதால், கடவுச்சொல்லும் தொலைபேசிக் குறியீடும் கொண்டு உள்நுழைகிறார்கள். ஒருமுறை அமைத்தால் போதும்."
+
+#: pages/SignIn.svelte:201
+#, fuzzy
+msgid "1. On your phone, open an authenticator app, any app that makes sign-in codes.\n2. Add an account and scan this code.\n3. Enter the 6-digit code it shows."
+msgstr "1. தொலைபேசியில் அங்கீகரிப்புச் செயலியைத் திறங்கள்.\n2. கணக்கைச் சேர்த்து இந்தக் குறியீட்டை வருடுங்கள்.\n3. காட்டப்படும் 6 இலக்கக் குறியீட்டை உள்ளிடுங்கள்."
+
+#: pages/SignIn.svelte:214
+#, fuzzy
+msgid "Forgot the password, or lost your phone and backup codes? Type the box's setup code: it's on the sticker, or the one you wrote down at the first setup. The admin gets a new password and sets up their phone again."
+msgstr "கடவுச்சொல் மறந்ததா, அல்லது தொலைபேசியும் காப்புக் குறியீடுகளும் தொலைந்தனவா? பெட்டியின் அமைப்புக் குறியீட்டை உள்ளிடுங்கள்: அது ஒட்டுச்சீட்டில் இருக்கும், அல்லது முதல் அமைப்பின்போது எழுதி வைத்தது. நிர்வாகிக்குப் புதிய கடவுச்சொல் கிடைக்கும்; தொலைபேசியை மீண்டும் அமைப்பார்."
+
+#: pages/SignIn.svelte:218 pages/SignIn.svelte:218
+#, fuzzy
+msgid "Setup code"
+msgstr "அமைப்புக் குறியீடு"
+
+#: pages/SignIn.svelte:219 pages/SignIn.svelte:219
+#, fuzzy
+msgid "The admin's username"
+msgstr "நிர்வாகியின் பயனர்பெயர்"
+
+#: pages/SignIn.svelte:227
+#, fuzzy
+msgid "Can't sign in?"
+msgstr "உள்நுழைய முடியவில்லையா?"
+
+#: pages/TopBar.svelte:31
+#, fuzzy
+msgid "Checking the library · {percent}%"
+msgstr "நூலகத்தைச் சரிபார்க்கிறது · {percent}%"
+
+#: pages/TopBar.svelte:33
+#, fuzzy
+msgid "Restart needed"
+msgstr "மறுதொடக்கம் தேவை"
+
+#: pages/TopBar.svelte:34 tools/Access.svelte:67
+#, fuzzy
+msgid "Advanced access is on"
+msgstr "மேம்பட்ட அணுகல் இயக்கத்தில் உள்ளது"
+
+#: pages/TopBar.svelte:66 pages/TopBar.svelte:66
+#, fuzzy
+msgid "Main menu"
+msgstr "முதன்மை மெனு"
+
+#: pages/TopBar.svelte:73
+#, fuzzy
+msgid "Open windows"
+msgstr "திறந்த சாளரங்கள்"
+
+#: pages/TopBar.svelte:95
+#, fuzzy
+msgid "Mark all read"
+msgstr "அனைத்தையும் படித்ததாகக் குறி"
+
+#: pages/TopBar.svelte:97
+#, fuzzy
+msgid "Nothing new."
+msgstr "புதிதாக எதுவும் இல்லை."
+
+#: pages/TopBar.svelte:104
+#, fuzzy
+msgid "See all in Log Center"
+msgstr "அனைத்தையும் பதிவு மையத்தில் பார்"
+
+#: pages/TopBar.svelte:118 pages/TopBar.svelte:119
+#, fuzzy
+msgid "Speakers"
+msgstr "ஒலிபெருக்கிகள்"
+
+#: pages/TopBar.svelte:120
+#, fuzzy
+msgid "Sound settings"
+msgstr "ஒலி அமைப்புகள்"
+
+#: pages/TopBar.svelte:128 pages/TopBar.svelte:128 pages/Widgets.svelte:103 tools/Network.svelte:99
+#, fuzzy
+msgid "Connected"
+msgstr "இணைக்கப்பட்டது"
+
+#: pages/Widgets.svelte:17
+#, fuzzy
+msgid "{n} need checking"
+msgstr "{n} சரிபார்க்க வேண்டும்"
+
+#: pages/Widgets.svelte:17
+#, fuzzy
+msgid "All healthy"
+msgstr "அனைத்தும் நலம்"
+
+#: pages/Widgets.svelte:18
+#, fuzzy
+msgid "Security fixes"
+msgstr "பாதுகாப்புத் திருத்தங்கள்"
+
+#: pages/Widgets.svelte:20
+#, fuzzy
+msgid "Needed"
+msgstr "தேவை"
+
+#: pages/Widgets.svelte:21
+#, fuzzy
+msgid "On"
+msgstr "இயக்கத்தில்"
+
+#: pages/Widgets.svelte:41
+#, fuzzy
+msgid "Box health"
+msgstr "பெட்டியின் நிலை"
+
+#: pages/Widgets.svelte:47 tools/Security.svelte:106
+#, fuzzy
+msgid "Needs a look"
+msgstr "கவனிக்க வேண்டும்"
+
+#: pages/Widgets.svelte:47
+#, fuzzy
+msgid "Everything's fine"
+msgstr "அனைத்தும் சரி"
+
+#: pages/Widgets.svelte:47
+#, fuzzy
+msgid "Checking the box…"
+msgstr "பெட்டியைச் சரிபார்க்கிறது…"
+
+#: pages/Widgets.svelte:49
+#, fuzzy
+msgid "{os} · up {time}"
+msgstr "{os} · {time} ஆக இயங்குகிறது"
+
+#: pages/Widgets.svelte:66
+#, fuzzy
+msgid "CPU and memory"
+msgstr "CPU மற்றும் நினைவகம்"
+
+#: pages/Widgets.svelte:71 tools/ByApp.svelte:20
+#, fuzzy
+msgid "CPU"
+msgstr "CPU"
+
+#: pages/Widgets.svelte:76 tools/About.svelte:33 tools/ByApp.svelte:20 tools/Resources.svelte:39
+#, fuzzy
+msgid "Memory"
+msgstr "நினைவகம்"
+
+#: pages/Widgets.svelte:77
+#, fuzzy
+msgid "{used} of {total}"
+msgstr "{used} / {total}"
+
+#: pages/Widgets.svelte:83
+#, fuzzy
+msgid "Open Resource Monitor"
+msgstr "வள கண்காணிப்பைத் திற"
+
+#: pages/Widgets.svelte:91 tools/Resources.svelte:44
+#, fuzzy
+msgid "Download"
+msgstr "பதிவிறக்கம்"
+
+#: pages/Widgets.svelte:91 tools/Resources.svelte:44
+#, fuzzy
+msgid "Upload"
+msgstr "பதிவேற்றம்"
+
+#: pages/Widgets.svelte:103
+#, fuzzy
+msgid "Connected · {speed}"
+msgstr "இணைக்கப்பட்டது · {speed}"
+
+#: pages/Widgets.svelte:103
+#, fuzzy
+msgid "Cable unplugged"
+msgstr "கேபிள் இணைக்கப்படவில்லை"
+
+#: pages/Widgets.svelte:114
+#, fuzzy
+msgid "<b>{used}</b> <small>of {total} used</small>"
+msgstr "<b>{used}</b> <small>/ {total} பயன்பாட்டில்</small>"
+
+#: pages/Widgets.svelte:118 tools/StorageOverview.svelte:56
+#, fuzzy
+msgid "The box's own disk"
+msgstr "பெட்டியின் சொந்த வட்டு"
+
+#: pages/Widgets.svelte:118
+#, fuzzy
+msgid "Library drives mirrored"
+msgstr "நூலக இயக்ககங்கள் பிரதியாக்கப்பட்டவை"
+
+#: pages/Window.svelte:61
+#, fuzzy
+msgid "Minimise"
+msgstr "சிறிதாக்கு"
+
+#: pages/Window.svelte:62
+#, fuzzy
+msgid "Maximise"
+msgstr "பெரிதாக்கு"
+
+#: pages/Window.svelte:70
+#, fuzzy
+msgid "{app} isn't running. Start or restore it in App Center."
+msgstr "{app} இயங்கவில்லை. App Center-இல் தொடங்குங்கள் அல்லது மீட்டெடுங்கள்."
+
+#: pages/Window.svelte:71
+#, fuzzy
+msgid "Open App Center"
+msgstr "App Center-ஐத் திற"
+
+#: pages/Window.svelte:75
+#, fuzzy
+msgid "{app} opens on its own, for its safety."
+msgstr "பாதுகாப்புக்காக {app} தனியாகத் திறக்கும்."
+
+#: pages/Window.svelte:77
+#, fuzzy
+msgid "Open {app}"
+msgstr "{app} திற"
+
+#: tools/About.svelte:24
+#, fuzzy
+msgid "{size} for the box"
+msgstr "பெட்டிக்கு {size}"
+
+#: tools/About.svelte:25
+#, fuzzy
+msgid "{size} library"
+msgstr "நூலகம் {size}"
+
+#: tools/About.svelte:27 tools/EditPerson.svelte:75 tools/EditPerson.svelte:76
+#, fuzzy
+msgid "Name"
+msgstr "பெயர்"
+
+#: tools/About.svelte:27 tools/About.svelte:33
+#, fuzzy
+msgid "Unknown"
+msgstr "தெரியாதது"
+
+#: tools/About.svelte:32 tools/Resources.svelte:37
+#, fuzzy
+msgid "Processor"
+msgstr "செயலி"
+
+#: tools/About.svelte:33
+#, fuzzy
+msgid "{used} of {total} in use"
+msgstr "{used} / {total} பயன்பாட்டில்"
+
+#: tools/About.svelte:34
+#, fuzzy
+msgid "Disk Capacity"
+msgstr "வட்டுக் கொள்ளளவு"
+
+#: tools/About.svelte:35 tools/Resources.svelte:67
+#, fuzzy
+msgid "No sensor"
+msgstr "உணரி இல்லை"
+
+#: tools/About.svelte:36
+#, fuzzy
+msgid "Running For"
+msgstr "இயங்கும் நேரம்"
+
+#: tools/About.svelte:39
+#, fuzzy
+msgid "System Release"
+msgstr "கணினி வெளியீடு"
+
+#: tools/About.svelte:39
+#, fuzzy
+msgid "Base Package"
+msgstr "அடிப்படைத் தொகுப்பு"
+
+#: tools/About.svelte:40
+#, fuzzy
+msgid "Factory Image"
+msgstr "தொழிற்சாலை இமேஜ்"
+
+#: tools/About.svelte:40
+#, fuzzy
+msgid "Kernel"
+msgstr "கர்னல்"
+
+#: tools/About.svelte:63 tools/Security.svelte:170
+#, fuzzy
+msgid "Details"
+msgstr "விவரங்கள்"
+
+#: tools/Access.svelte:46
+#, fuzzy
+msgid "Turn on advanced access?"
+msgstr "மேம்பட்ட அணுகலை இயக்கவா?"
+
+#: tools/Access.svelte:46
+#, fuzzy
+msgid "Keys you add get full control of the box, from your home network."
+msgstr "நீங்கள் சேர்க்கும் சாவிகளுக்கு, வீட்டு வலையமைப்பிலிருந்து பெட்டியின் முழுக் கட்டுப்பாடு கிடைக்கும்."
+
+#: tools/Access.svelte:47 tools/Access.svelte:74 tools/EditPerson.svelte:118
+#, fuzzy
+msgid "Turn on"
+msgstr "இயக்கு"
+
+#: tools/Access.svelte:67
+#, fuzzy
+msgid "The keys below can sign in over SSH at home."
+msgstr "கீழே உள்ள சாவிகள் வீட்டிலிருந்து SSH வழியாக நுழையலாம்."
+
+#: tools/Access.svelte:68 tools/EditPerson.svelte:113 tools/EditPerson.svelte:113
+#, fuzzy
+msgid "Turn off"
+msgstr "அணை"
+
+#: tools/Access.svelte:72
+#, fuzzy
+msgid "SSH, for admins who want a command line."
+msgstr "கட்டளை வரி வேண்டும் நிர்வாகிகளுக்கான SSH."
+
+#: tools/Access.svelte:73
+#, fuzzy
+msgid "No one can sign in over SSH."
+msgstr "யாரும் SSH வழியாக நுழைய முடியாது."
+
+#: tools/Access.svelte:73
+#, fuzzy
+msgid "Add a key first."
+msgstr "முதலில் ஒரு சாவியைச் சேர்க்கவும்."
+
+#: tools/Access.svelte:78
+#, fuzzy
+msgid "Public keys only (.pub). Never share a private key."
+msgstr "பொதுச் சாவிகள் மட்டும் (.pub). தனிப்பட்ட சாவியை ஒருபோதும் பகிர வேண்டாம்."
+
+#: tools/Access.svelte:81
+#, fuzzy
+msgid "Added {date}"
+msgstr "{date} அன்று சேர்க்கப்பட்டது"
+
+#: tools/Access.svelte:81
+#, fuzzy
+msgid "Last used {date}"
+msgstr "கடைசியாக {date}"
+
+#: tools/Access.svelte:81
+#, fuzzy
+msgid "Not used yet"
+msgstr "இன்னும் பயன்படுத்தவில்லை"
+
+#: tools/Access.svelte:82 tools/AppsInstalled.svelte:84 tools/RemoveApp.svelte:17 tools/RemoveApp.svelte:26
+#, fuzzy
+msgid "Remove"
+msgstr "நீக்கு"
+
+#: tools/Access.svelte:85
+#, fuzzy
+msgid "Put the .pub file in zoomriya/ssh on the stick."
+msgstr "குச்சியில் zoomriya/ssh இல் .pub கோப்பை வைக்கவும்."
+
+#: tools/Access.svelte:86 tools/AppsUsb.svelte:56
+#, fuzzy
+msgid "Look on USB stick"
+msgstr "USB குச்சியில் தேடு"
+
+#: tools/Access.svelte:88
+#, fuzzy
+msgid "From the computer you'll use."
+msgstr "நீங்கள் பயன்படுத்தும் கணினியிலிருந்து."
+
+#: tools/Access.svelte:93
+#, fuzzy
+msgid "Connecting"
+msgstr "இணைப்பது"
+
+#: tools/Access.svelte:95
+#, fuzzy
+msgid "Command"
+msgstr "கட்டளை"
+
+#: tools/Access.svelte:99
+#, fuzzy
+msgid "The box's key"
+msgstr "பெட்டியின் சாவி"
+
+#: tools/Access.svelte:99
+#, fuzzy
+msgid "Check it the first time you connect."
+msgstr "முதல் முறை இணையும்போது சரிபார்க்கவும்."
+
+#: tools/Access.svelte:102 tools/People.svelte:63
+#, fuzzy
+msgid "Good to know"
+msgstr "தெரிந்துகொள்ள"
+
+#: tools/Access.svelte:103
+#, fuzzy
+msgid "Changes by hand are yours"
+msgstr "கையால் செய்யும் மாற்றங்கள் உங்கள் பொறுப்பு"
+
+#: tools/Access.svelte:103
+#, fuzzy
+msgid "Updates and restores may undo them."
+msgstr "புதுப்பிப்புகளும் மீட்டமைப்புகளும் அவற்றை நீக்கலாம்."
+
+#: tools/Access.svelte:104
+#, fuzzy
+msgid "Home network only"
+msgstr "வீட்டு வலையமைப்பில் மட்டும்"
+
+#: tools/Access.svelte:104
+#, fuzzy
+msgid "Never from the internet or ZOOMRIYA Connect."
+msgstr "இணையத்திலிருந்தோ ZOOMRIYA Connect வழியாகவோ ஒருபோதும் இல்லை."
+
+#: tools/Access.svelte:105
+#, fuzzy
+msgid "Reset removes the keys"
+msgstr "மீளமைத்தால் சாவிகள் நீங்கும்"
+
+#: tools/Access.svelte:105
+#, fuzzy
+msgid "Resetting the box turns this off and removes the keys."
+msgstr "பெட்டியை மீளமைத்தால் இது அணைந்து சாவிகள் நீங்கும்."
+
+#: tools/Activity.svelte:31
+#, fuzzy
+msgid "Who signed in to Family Hub and the apps, new devices, share links and changes to the family's accounts, for the last 90 days. The box's own sign-ins and admin actions are in their own sections."
+msgstr "கடந்த 90 நாட்களில் Family Hub-இலும் செயலிகளிலும் உள்நுழைந்தவர்கள், புதிய சாதனங்கள், பகிர்வு இணைப்புகள், குடும்பக் கணக்குகளின் மாற்றங்கள். பெட்டியின் உள்நுழைவுகளும் நிர்வாகி செயல்களும் தனிப் பிரிவுகளில் உள்ளன."
+
+#: tools/Activity.svelte:35
+#, fuzzy
+msgid "Nothing yet."
+msgstr "இன்னும் எதுவும் இல்லை."
+
+#: tools/Activity.svelte:37
+#, fuzzy
+msgid "by {name}"
+msgstr "{name} செய்தது"
+
+#: tools/Activity.svelte:37
+#, fuzzy
+msgid "from {address}"
+msgstr "{address} இலிருந்து"
+
+#: tools/Activity.svelte:40
+#, fuzzy
+msgid "Someone"
+msgstr "யாரோ"
+
+#: tools/Activity.svelte:45 tools/Logs.svelte:68
+#, fuzzy
+msgid "Show older"
+msgstr "பழையவற்றைக் காட்டு"
+
+#: tools/AddPerson.svelte:59 tools/AddPerson.svelte:59
+#, fuzzy
+msgid "Name, like Priya"
+msgstr "பெயர், எ.கா. Priya"
+
+#: tools/AddPerson.svelte:60 tools/AddPerson.svelte:60
+#, fuzzy
+msgid "Username, like priya"
+msgstr "பயனர்பெயர், எ.கா. priya"
+
+#: tools/AddPerson.svelte:63
+#, fuzzy
+msgid "Adult or child"
+msgstr "பெரியவர் அல்லது குழந்தை"
+
+#: tools/AddPerson.svelte:64
+#, fuzzy
+msgid "Adult"
+msgstr "பெரியவர்"
+
+#: tools/AddPerson.svelte:64
+#, fuzzy
+msgid "Under 18"
+msgstr "18-க்குக் கீழ்"
+
+#: tools/AddPerson.svelte:70
+#, fuzzy
+msgid "Now let {name} type their own password. At least 8 characters."
+msgstr "இப்போது {name} தம் கடவுச்சொல்லை உள்ளிடட்டும். குறைந்தது 8 எழுத்துகள்."
+
+#: tools/AddPerson.svelte:72 tools/NewPassword.svelte:46
+#, fuzzy
+msgid "Password again"
+msgstr "கடவுச்சொல் மீண்டும்"
+
+#: tools/AddPerson.svelte:76 tools/KeysFromUsb.svelte:25 tools/PasteKey.svelte:23 tools/People.svelte:60 tools/keys.ts:9
+#, fuzzy
+msgid "Add"
+msgstr "சேர்"
+
+#: tools/AddPicture.svelte:31
+#, fuzzy
+msgid "Looking on the USB sticks…"
+msgstr "USB ஸ்டிக்குகளில் தேடுகிறது…"
+
+#: tools/AddPicture.svelte:35
+#, fuzzy
+msgid "Choose one for your background."
+msgstr "உங்கள் பின்னணியைத் தேர்ந்தெடுங்கள்."
+
+#: tools/AddPicture.svelte:35
+#, fuzzy
+msgid "No pictures found. Plug in a USB stick with JPEG or PNG pictures."
+msgstr "படங்கள் இல்லை. JPEG அல்லது PNG படங்கள் உள்ள USB ஸ்டிக்கைச் செருகுங்கள்."
+
+#: tools/AddPicture.svelte:42
+#, fuzzy
+msgid "Making it your background…"
+msgstr "பின்னணியாக்குகிறது…"
+
+#: tools/AddPicture.svelte:57
+#, fuzzy
+msgid "Add a picture"
+msgstr "படம் சேர்"
+
+#: tools/AddPicture.svelte:58
+#, fuzzy
+msgid "JPEG or PNG pictures on a USB stick, in its top folder or a folder in it. Nothing on the stick is changed."
+msgstr "USB ஸ்டிக்கில் உள்ள JPEG அல்லது PNG படங்கள், மேல் கோப்புறையில் அல்லது அதனுள் உள்ள கோப்புறையில். ஸ்டிக்கில் எதுவும் மாறாது."
+
+#: tools/AddPicture.svelte:62
+#, fuzzy
+msgid "Look again"
+msgstr "மீண்டும் தேடு"
+
+#: tools/Appearance.svelte:18
+#, fuzzy
+msgid "Your picture"
+msgstr "உங்கள் படம்"
+
+#: tools/Appearance.svelte:42
+#, fuzzy
+msgid "For buttons, switches and what's selected."
+msgstr "பொத்தான்கள், சுவிட்சுகள், தேர்ந்தெடுத்தவைக்கு."
+
+#: tools/Appearance.svelte:56
+#, fuzzy
+msgid "The box's, for everyone: the sign-in screen, the desktop and the lock screen."
+msgstr "பெட்டிக்குப் பொதுவானது: உள்நுழைவுத் திரை, டெஸ்க்டாப், பூட்டுத் திரை."
+
+#: tools/AppsInstalled.svelte:47
+#, fuzzy
+msgid "Go back to {app} {version}?"
+msgstr "{app} {version} க்குத் திரும்பவா?"
+
+#: tools/AppsInstalled.svelte:48
+#, fuzzy
+msgid "{app} restarts on the version before."
+msgstr "{app} முந்தைய பதிப்பில் மீண்டும் தொடங்கும்."
+
+#: tools/AppsInstalled.svelte:49 tools/Restore.svelte:21 tools/Restore.svelte:32 tools/Restore.svelte:77
+#, fuzzy
+msgid "Restore"
+msgstr "மீட்டமை"
+
+#: tools/AppsInstalled.svelte:63
+#, fuzzy
+msgid "Installing {app}"
+msgstr "{app} நிறுவப்படுகிறது"
+
+#: tools/AppsInstalled.svelte:67
+#, fuzzy
+msgid "{app} {version} is installed"
+msgstr "{app} {version} நிறுவப்பட்டது"
+
+#: tools/AppsInstalled.svelte:67
+#, fuzzy
+msgid "It's running."
+msgstr "இது இயங்குகிறது."
+
+#: tools/AppsInstalled.svelte:69
+#, fuzzy
+msgid "{app} wasn't installed"
+msgstr "{app} நிறுவப்படவில்லை"
+
+#: tools/AppsInstalled.svelte:73
+#, fuzzy
+msgid "Installed apps"
+msgstr "நிறுவப்பட்ட செயலிகள்"
+
+#: tools/AppsInstalled.svelte:76
+#, fuzzy
+msgid "Version {version}"
+msgstr "பதிப்பு {version}"
+
+#: tools/AppsInstalled.svelte:76
+#, fuzzy
+msgid "Installed {date}"
+msgstr "{date} அன்று நிறுவப்பட்டது"
+
+#: tools/AppsInstalled.svelte:78
+#, fuzzy
+msgid "This version has a known problem. Update it from a USB stick."
+msgstr "இந்தப் பதிப்பில் அறியப்பட்ட சிக்கல் உள்ளது. USB குச்சியிலிருந்து புதுப்பிக்கவும்."
+
+#: tools/AppsInstalled.svelte:82
+#, fuzzy
+msgid "Restore {version}"
+msgstr "{version} ஐ மீட்டமை"
+
+#: tools/AppsInstalled.svelte:87 tools/AppsInstalled.svelte:87
+#, fuzzy
+msgid "In dock"
+msgstr "டாக்கில் உள்ளது"
+
+#: tools/AppsInstalled.svelte:87 tools/AppsInstalled.svelte:87
+#, fuzzy
+msgid "Add to dock"
+msgstr "டாக்கில் சேர்"
+
+#: tools/AppsInstalled.svelte:95
+#, fuzzy
+msgid "No apps yet"
+msgstr "இன்னும் செயலிகள் இல்லை"
+
+#: tools/AppsInstalled.svelte:95
+#, fuzzy
+msgid "Add ZOOMRIYA apps from a USB stick."
+msgstr "USB குச்சியிலிருந்து ZOOMRIYA செயலிகளைச் சேர்க்கவும்."
+
+#: tools/AppsInstalled.svelte:100
+#, fuzzy
+msgid "Apps can't be installed until the box is updated."
+msgstr "பெட்டி புதுப்பிக்கப்படும் வரை செயலிகளை நிறுவ முடியாது."
+
+#: tools/AppsUsb.svelte:33
+#, fuzzy
+msgid "Install {app}?"
+msgstr "{app} ஐ நிறுவவா?"
+
+#: tools/AppsUsb.svelte:33
+#, fuzzy
+msgid "It's checked, then started. This can take a few minutes."
+msgstr "சரிபார்த்து, பிறகு இயக்கப்படும். சில நிமிடங்கள் ஆகலாம்."
+
+#: tools/AppsUsb.svelte:34 tools/AppsUsb.svelte:69
+#, fuzzy
+msgid "Install"
+msgstr "நிறுவு"
+
+#: tools/AppsUsb.svelte:42 tools/KeysFromUsb.svelte:24
+#, fuzzy
+msgid "On {stick}"
+msgstr "{stick} இல்"
+
+#: tools/AppsUsb.svelte:42 tools/KeysFromUsb.svelte:24 tools/SaveBundle.svelte:31
+#, fuzzy
+msgid "the USB stick"
+msgstr "USB குச்சி"
+
+#: tools/AppsUsb.svelte:44
+#, fuzzy
+msgid "Older than {version}, which this box has had."
+msgstr "இந்தப் பெட்டியில் இருந்த {version} ஐ விடப் பழையது."
+
+#: tools/AppsUsb.svelte:45
+#, fuzzy
+msgid "Has a known problem. Use a newer version."
+msgstr "அறியப்பட்ட சிக்கல் உள்ளது. புதிய பதிப்பைப் பயன்படுத்தவும்."
+
+#: tools/AppsUsb.svelte:49 tools/Diagnostics.svelte:66
+#, fuzzy
+msgid "new"
+msgstr "புதியது"
+
+#: tools/AppsUsb.svelte:49
+#, fuzzy
+msgid "update from {version}"
+msgstr "{version} இலிருந்து புதுப்பிப்பு"
+
+#: tools/AppsUsb.svelte:49
+#, fuzzy
+msgid "installed"
+msgstr "நிறுவப்பட்டது"
+
+#: tools/AppsUsb.svelte:54
+#, fuzzy
+msgid "Put the .zapp file in zoomriya/apps on the stick. Only ZOOMRIYA apps install."
+msgstr "குச்சியில் zoomriya/apps இல் .zapp கோப்பை வைக்கவும். ZOOMRIYA செயலிகள் மட்டுமே நிறுவப்படும்."
+
+#: tools/AppsUsb.svelte:55
+#, fuzzy
+msgid "Apps on USB sticks"
+msgstr "USB குச்சிகளில் உள்ள செயலிகள்"
+
+#: tools/AppsUsb.svelte:55
+#, fuzzy
+msgid "Nothing on the stick is changed."
+msgstr "குச்சியில் எதுவும் மாறாது."
+
+#: tools/AppsUsb.svelte:61
+#, fuzzy
+msgid "Found"
+msgstr "கிடைத்தவை"
+
+#: tools/AppsUsb.svelte:62
+#, fuzzy
+msgid "No apps found"
+msgstr "செயலிகள் எதுவும் இல்லை"
+
+#: tools/AppsUsb.svelte:62
+#, fuzzy
+msgid "Plug in a stick with a zoomriya/apps folder."
+msgstr "zoomriya/apps கோப்புறை உள்ள குச்சியைச் செருகவும்."
+
+#: tools/AppsUsb.svelte:69 tools/Restore.svelte:20 tools/Restore.svelte:20
+#, fuzzy
+msgid "Update"
+msgstr "புதுப்பிப்பு"
+
+#: tools/Backups.svelte:41
+#, fuzzy
+msgid "Backups aren't set up yet"
+msgstr "காப்புப்பிரதிகள் இன்னும் அமைக்கப்படவில்லை"
+
+#: tools/Backups.svelte:41
+#, fuzzy
+msgid "Set them up in Family Hub's settings: where they go, and which apps."
+msgstr "Family Hub அமைப்புகளில் அமையுங்கள்: எங்கே, எந்த ஆப்கள்."
+
+#: tools/Backups.svelte:46
+#, fuzzy
+msgid "Backing up"
+msgstr "காப்புப்பிரதி எடுக்கிறது"
+
+#: tools/Backups.svelte:46
+#, fuzzy
+msgid "Started {time}"
+msgstr "{time} தொடங்கியது"
+
+#: tools/Backups.svelte:48
+#, fuzzy
+msgid "No backup yet"
+msgstr "இன்னும் காப்புப்பிரதி இல்லை"
+
+#: tools/Backups.svelte:48
+#, fuzzy
+msgid "Back up now to make the first."
+msgstr "முதலாவதை உருவாக்க இப்போது காப்புப்பிரதி எடுங்கள்."
+
+#: tools/Backups.svelte:50
+#, fuzzy
+msgid "Backed up"
+msgstr "காப்புப்பிரதி எடுக்கப்பட்டது"
+
+#: tools/Backups.svelte:52
+#, fuzzy
+msgid "The last backup failed"
+msgstr "கடைசிக் காப்புப்பிரதி தோல்வியடைந்தது"
+
+#: tools/Backups.svelte:56
+#, fuzzy
+msgid "Every app's data and the accounts, as they are now."
+msgstr "ஒவ்வொரு ஆப்பின் தரவும் கணக்குகளும், இப்போது உள்ளபடி."
+
+#: tools/Backups.svelte:63
+#, fuzzy
+msgid "Next: {time}"
+msgstr "அடுத்தது: {time}"
+
+#: tools/Backups.svelte:63
+#, fuzzy
+msgid "Every night at 4:00, while the family sleeps."
+msgstr "குடும்பம் உறங்கும்போது, ஒவ்வொரு இரவும் 4:00 மணிக்கு."
+
+#: tools/Backups.svelte:66
+#, fuzzy
+msgid "Where they go"
+msgstr "எங்கே சேமிக்கப்படுகின்றன"
+
+#: tools/Backups.svelte:66
+#, fuzzy
+msgid "Keep them on another drive or computer than the box's."
+msgstr "பெட்டி அல்லாத வேறு இயக்ககம் அல்லது கணினியில் வையுங்கள்."
+
+#: tools/Backups.svelte:67
+#, fuzzy
+msgid "Not known"
+msgstr "தெரியவில்லை"
+
+#: tools/Backups.svelte:71
+#, fuzzy
+msgid "What went wrong last time"
+msgstr "கடந்த முறை என்ன தவறானது"
+
+#: tools/Backups.svelte:71
+#, fuzzy
+msgid "The other apps were backed up. Older backups are kept."
+msgstr "மற்ற ஆப்கள் காப்புப்பிரதி எடுக்கப்பட்டன. பழைய காப்புப்பிரதிகள் வைக்கப்படும்."
+
+#: tools/ByApp.svelte:18
+#, fuzzy
+msgid "Busiest first. CPU is a share of the whole box."
+msgstr "அதிகம் இயங்குபவை முதலில். CPU என்பது முழுப் பெட்டியின் பங்கு."
+
+#: tools/ByApp.svelte:22
+#, fuzzy
+msgid "An app"
+msgstr "ஒரு செயலி"
+
+#: tools/ByApp.svelte:22
+#, fuzzy
+msgid "Part of the box"
+msgstr "பெட்டியின் பகுதி"
+
+#: tools/ChildFields.svelte:20 tools/ChildFields.svelte:21
+#, fuzzy
+msgid "Birth year"
+msgstr "பிறந்த ஆண்டு"
+
+#: tools/ChildFields.svelte:23
+#, fuzzy
+msgid "Parents or guardians (one or two)"
+msgstr "பெற்றோர் அல்லது பாதுகாவலர் (ஒருவர் அல்லது இருவர்)"
+
+#: tools/ChildFields.svelte:31
+#, fuzzy
+msgid "Add an adult first."
+msgstr "முதலில் ஒரு பெரியவரைச் சேர்க்கவும்."
+
+#: tools/Contact.svelte:17
+#, fuzzy
+msgid "ZOOMRIYA OS"
+msgstr "ZOOMRIYA OS"
+
+#: tools/Contact.svelte:18
+#, fuzzy
+msgid "The box's address"
+msgstr "பெட்டியின் முகவரி"
+
+#: tools/Contact.svelte:24
+#, fuzzy
+msgid "Help and support"
+msgstr "உதவியும் ஆதரவும்"
+
+#: tools/Contact.svelte:24
+#, fuzzy
+msgid "On a phone or computer."
+msgstr "போனில் அல்லது கணினியில்."
+
+#: tools/Contact.svelte:27
+#, fuzzy
+msgid "Say what's wrong, and since when."
+msgstr "என்ன சிக்கல், எப்போதிலிருந்து எனச் சொல்லவும்."
+
+#: tools/Contact.svelte:27
+#, fuzzy
+msgid "Save a diagnostics bundle to a USB stick."
+msgstr "கண்டறிதல் தொகுப்பை USB குச்சியில் சேமிக்கவும்."
+
+#: tools/Contact.svelte:27
+#, fuzzy
+msgid "Upload it, with the serial number below."
+msgstr "கீழே உள்ள வரிசை எண்ணுடன் பதிவேற்றவும்."
+
+#: tools/Contact.svelte:32
+#, fuzzy
+msgid "About this box"
+msgstr "இந்தப் பெட்டி பற்றி"
+
+#: tools/Contact.svelte:32
+#, fuzzy
+msgid "Support asks for these."
+msgstr "உதவிக் குழு இவற்றைக் கேட்கும்."
+
+#: tools/Contact.svelte:37
+#, fuzzy
+msgid "The box moves to the next version before then."
+msgstr "அதற்கு முன் பெட்டி அடுத்த பதிப்புக்கு மாறும்."
+
+#: tools/Diagnostics.svelte:48
+#, fuzzy
+msgid "Settings, versions and logs, for support. No photos, files or messages."
+msgstr "உதவிக் குழுவுக்கான அமைப்புகள், பதிப்புகள், பதிவுகள். படங்கள், கோப்புகள், செய்திகள் இல்லை."
+
+#: tools/Diagnostics.svelte:50 tools/Diagnostics.svelte:51
+#, fuzzy
+msgid "What's wrong?"
+msgstr "என்ன சிக்கல்?"
+
+#: tools/Diagnostics.svelte:51
+#, fuzzy
+msgid "For example: photos won't upload since Tuesday"
+msgstr "எ.கா.: செவ்வாய் முதல் படங்கள் பதிவேறவில்லை"
+
+#: tools/Diagnostics.svelte:53 tools/Diagnostics.svelte:54
+#, fuzzy
+msgid "Include the system log"
+msgstr "கணினிப் பதிவைச் சேர்"
+
+#: tools/Diagnostics.svelte:53
+#, fuzzy
+msgid "The last week. Support needs it for most problems."
+msgstr "கடந்த வாரம். பெரும்பாலும் உதவிக் குழுவுக்கு இது தேவை."
+
+#: tools/Diagnostics.svelte:56 tools/Diagnostics.svelte:57
+#, fuzzy
+msgid "Include network details"
+msgstr "வலையமைப்பு விவரங்களைச் சேர்"
+
+#: tools/Diagnostics.svelte:56
+#, fuzzy
+msgid "Addresses, router and name servers."
+msgstr "முகவரிகள், ரூட்டர், பெயர் சேவையகங்கள்."
+
+#: tools/Diagnostics.svelte:59
+#, fuzzy
+msgid "New bundle"
+msgstr "புதிய தொகுப்பு"
+
+#: tools/Diagnostics.svelte:59
+#, fuzzy
+msgid "Takes a minute."
+msgstr "ஒரு நிமிடம் ஆகும்."
+
+#: tools/Diagnostics.svelte:60
+#, fuzzy
+msgid "Make bundle"
+msgstr "தொகுப்பை உருவாக்கு"
+
+#: tools/Diagnostics.svelte:63
+#, fuzzy
+msgid "Bundles on the box"
+msgstr "பெட்டியில் உள்ள தொகுப்புகள்"
+
+#: tools/Diagnostics.svelte:63
+#, fuzzy
+msgid "The newest five are kept."
+msgstr "புதிய ஐந்து வைக்கப்படும்."
+
+#: tools/Diagnostics.svelte:68
+#, fuzzy
+msgid "Review"
+msgstr "பார்வையிடு"
+
+#: tools/Diagnostics.svelte:69
+#, fuzzy
+msgid "Save to USB"
+msgstr "USB இல் சேமி"
+
+#: tools/Diagnostics.svelte:70 tools/Diagnostics.svelte:70
+#, fuzzy
+msgid "Delete"
+msgstr "நீக்கு"
+
+#: tools/Diagnostics.svelte:74 tools/Security.svelte:149
+#, fuzzy
+msgid "None yet"
+msgstr "இன்னும் இல்லை"
+
+#: tools/Diagnostics.svelte:76
+#, fuzzy
+msgid "Send it to support"
+msgstr "உதவிக் குழுவுக்கு அனுப்ப"
+
+#: tools/Diagnostics.svelte:77
+#, fuzzy
+msgid "Save the bundle to a USB stick."
+msgstr "தொகுப்பை USB குச்சியில் சேமிக்கவும்."
+
+#: tools/Diagnostics.svelte:77 tools/SaveBundle.svelte:46
+#, fuzzy
+msgid "Upload it at {url}."
+msgstr "{url} இல் பதிவேற்றவும்."
+
+#: tools/Diagnostics.svelte:77
+#, fuzzy
+msgid "Give support the code you get."
+msgstr "கிடைக்கும் குறியீட்டை உதவிக் குழுவிடம் கொடுக்கவும்."
+
+#: tools/Display.svelte:31
+#, fuzzy
+msgid "1 minute"
+msgstr "1 நிமிடம்"
+
+#: tools/Display.svelte:86 tools/Display.svelte:90
+#, fuzzy
+msgid "Keep these settings? Reverting in {n} s."
+msgstr "இந்த அமைப்புகளை வைக்கவா? {n} வி. இல் திரும்பும்."
+
+#: tools/Display.svelte:116
+#, fuzzy
+msgid "Saved. The screen starts this way from now on."
+msgstr "சேமிக்கப்பட்டது. இனி திரை இப்படியே தொடங்கும்."
+
+#: tools/Display.svelte:129
+#, fuzzy
+msgid "When No One's Using It"
+msgstr "யாரும் பயன்படுத்தாதபோது"
+
+#: tools/Display.svelte:129
+#, fuzzy
+msgid "For everyone at this screen. The box keeps running."
+msgstr "இந்தத் திரையில் அனைவருக்கும். பெட்டி இயங்கிக்கொண்டே இருக்கும்."
+
+#: tools/Display.svelte:130
+#, fuzzy
+msgid "An admin's password brings the desktop back."
+msgstr "ஒரு நிர்வாகியின் கடவுச்சொல் டெஸ்க்டாப்பைத் திரும்பக் கொண்டுவரும்."
+
+#: tools/Display.svelte:131
+#, fuzzy
+msgid "A key, the mouse or a touch turns it on."
+msgstr "ஒரு விசை, சுட்டி அல்லது தொடுதல் அதை இயக்கும்."
+
+#: tools/Display.svelte:144
+#, fuzzy
+msgid "No screen to set here"
+msgstr "இங்கு அமைக்கத் திரை இல்லை"
+
+#: tools/Display.svelte:144
+#, fuzzy
+msgid "For a screen plugged into the box."
+msgstr "பெட்டியுடன் இணைக்கப்பட்ட திரைக்கு."
+
+#: tools/Display.svelte:150
+#, fuzzy
+msgid "Go back"
+msgstr "திரும்பு"
+
+#: tools/Display.svelte:151
+#, fuzzy
+msgid "Keep"
+msgstr "வை"
+
+#: tools/Display.svelte:158
+#, fuzzy
+msgid "Landscape or portrait."
+msgstr "கிடைமட்டம் அல்லது செங்குத்து."
+
+#: tools/Display.svelte:164
+#, fuzzy
+msgid "Higher is sharper, with smaller items."
+msgstr "அதிகமானால் கூர்மை, சிறிய உருப்படிகள்."
+
+#: tools/Display.svelte:170
+#, fuzzy
+msgid "How smoothly things move on the screen."
+msgstr "திரையில் இயக்கம் எவ்வளவு சீராகத் தெரிகிறது."
+
+#: tools/Display.svelte:176
+#, fuzzy
+msgid "Size of text and everything on screen."
+msgstr "திரையில் உரை மற்றும் அனைத்தின் அளவு."
+
+#: tools/Drives.svelte:14
+#, fuzzy
+msgid "Size"
+msgstr "அளவு"
+
+#: tools/Drives.svelte:14
+#, fuzzy
+msgid "Place"
+msgstr "இடம்"
+
+#: tools/Drives.svelte:14
+#, fuzzy
+msgid "The box's own"
+msgstr "பெட்டியினுடையது"
+
+#: tools/Drives.svelte:16
+#, fuzzy
+msgid "In use for"
+msgstr "பயன்பாட்டு நேரம்"
+
+#: tools/EditPerson.svelte:81 tools/SaveBundle.svelte:55
+#, fuzzy
+msgid "Save"
+msgstr "சேமி"
+
+#: tools/EditPerson.svelte:85
+#, fuzzy
+msgid "Change your own password."
+msgstr "உங்கள் கடவுச்சொல்லை மாற்றவும்."
+
+#: tools/EditPerson.svelte:85
+#, fuzzy
+msgid "Forgotten? {name} types a new one here."
+msgstr "மறந்துவிட்டதா? {name} இங்கே புதியதை உள்ளிடலாம்."
+
+#: tools/EditPerson.svelte:90
+#, fuzzy
+msgid "Can manage the box and everyone's accounts."
+msgstr "பெட்டியையும் அனைவரின் கணக்குகளையும் நிர்வகிக்கலாம்."
+
+#: tools/EditPerson.svelte:92
+#, fuzzy
+msgid "Remove {name} as admin?"
+msgstr "{name}-ஐ நிர்வாகியிலிருந்து நீக்கவா?"
+
+#: tools/EditPerson.svelte:93
+#, fuzzy
+msgid "They keep their account but can no longer manage the box. They're signed out everywhere."
+msgstr "கணக்கு இருக்கும், ஆனால் பெட்டியை நிர்வகிக்க முடியாது. எல்லா இடங்களிலும் வெளியேற்றப்படுவர்."
+
+#: tools/EditPerson.svelte:94 tools/EditPerson.svelte:94
+#, fuzzy
+msgid "Remove admin"
+msgstr "நிர்வாகியிலிருந்து நீக்கு"
+
+#: tools/EditPerson.svelte:98
+#, fuzzy
+msgid "Admins manage the box and everyone's accounts."
+msgstr "நிர்வாகிகள் பெட்டியையும் அனைவரின் கணக்குகளையும் நிர்வகிப்பர்."
+
+#: tools/EditPerson.svelte:100
+#, fuzzy
+msgid "Make {name} an admin?"
+msgstr "{name}-ஐ நிர்வாகியாக்கவா?"
+
+#: tools/EditPerson.svelte:101
+#, fuzzy
+msgid "They can manage the box and everyone's accounts, here and in Family Hub."
+msgstr "இங்கும் Family Hub-இலும் பெட்டியையும் அனைவரின் கணக்குகளையும் நிர்வகிக்கலாம்."
+
+#: tools/EditPerson.svelte:109
+#, fuzzy
+msgid "On. They can sign in."
+msgstr "இயக்கத்தில். உள்நுழையலாம்."
+
+#: tools/EditPerson.svelte:111
+#, fuzzy
+msgid "Turn off {name}'s account?"
+msgstr "{name}-இன் கணக்கை அணைக்கவா?"
+
+#: tools/EditPerson.svelte:112
+#, fuzzy
+msgid "They're signed out everywhere and can't sign in. Their photos and files stay. You can turn it on again."
+msgstr "எல்லா இடங்களிலும் வெளியேற்றப்படுவர், உள்நுழைய முடியாது. படங்களும் கோப்புகளும் இருக்கும். மீண்டும் இயக்கலாம்."
+
+#: tools/EditPerson.svelte:117
+#, fuzzy
+msgid "Off. They can't sign in."
+msgstr "அணைக்கப்பட்டது. உள்நுழைய முடியாது."
+
+#: tools/Help.svelte:14
+#, fuzzy
+msgid "Common questions"
+msgstr "பொதுவான கேள்விகள்"
+
+#: tools/Help.svelte:14
+#, fuzzy
+msgid "More at {url}."
+msgstr "மேலும் {url} இல்."
+
+#: tools/Internet.svelte:38
+#, fuzzy
+msgid "Internet Access"
+msgstr "இணைய அணுகல்"
+
+#: tools/Internet.svelte:38
+#, fuzzy
+msgid "What may leave the box. Apps are blocked unless they say what they send and why."
+msgstr "பெட்டியை விட்டு எது வெளியேறலாம். எதை, ஏன் அனுப்புகின்றன என்று சொல்லாத செயலிகள் தடுக்கப்படும்."
+
+#: tools/Internet.svelte:39 tools/Internet.svelte:41
+#, fuzzy
+msgid "Apps offline"
+msgstr "செயலிகள் இணையமின்றி"
+
+#: tools/Internet.svelte:40
+#, fuzzy
+msgid "Every app is cut off from the internet. The box still gets its security fixes and the time."
+msgstr "எல்லாச் செயலிகளும் இணையத்திலிருந்து துண்டிக்கப்படும். பெட்டி பாதுகாப்புத் திருத்தங்களையும் நேரத்தையும் தொடர்ந்து பெறும்."
+
+#: tools/Internet.svelte:43 tools/Internet.svelte:45
+#, fuzzy
+msgid "Everything offline"
+msgstr "அனைத்தும் இணையமின்றி"
+
+#: tools/Internet.svelte:44
+#, fuzzy
+msgid "Nothing leaves your home network, not even security fixes. Turn it off again soon so the box can catch up."
+msgstr "பாதுகாப்புத் திருத்தங்கள் உட்பட எதுவும் உங்கள் வீட்டு வலையமைப்பை விட்டு வெளியேறாது. பெட்டி புதுப்பிக்க விரைவில் அணையுங்கள்."
+
+#: tools/Internet.svelte:49
+#, fuzzy
+msgid "For: {feature}"
+msgstr "எதற்கு: {feature}"
+
+#: tools/Internet.svelte:49
+#, fuzzy
+msgid "What leaves: {what}"
+msgstr "வெளியேறுவது: {what}"
+
+#: tools/Internet.svelte:50
+#, fuzzy
+msgid "Why: {why}"
+msgstr "ஏன்: {why}"
+
+#: tools/Internet.svelte:50 tools/Security.svelte:178
+#, fuzzy
+msgid "When: {when}"
+msgstr "எப்போது: {when}"
+
+#: tools/Internet.svelte:52 tools/Security.svelte:159 tools/Security.svelte:169
+#, fuzzy
+msgid "Allowed"
+msgstr "அனுமதிக்கப்பட்டது"
+
+#: tools/Internet.svelte:52
+#, fuzzy
+msgid "Blocked: {why}"
+msgstr "தடுக்கப்பட்டது: {why}"
+
+#: tools/Internet.svelte:60
+#, fuzzy
+msgid "No app reaches the internet"
+msgstr "எந்தச் செயலியும் இணையத்தை அணுகவில்லை"
+
+#: tools/Internet.svelte:60
+#, fuzzy
+msgid "Every app is blocked: none has said it needs to send anything."
+msgstr "எல்லாச் செயலிகளும் தடுக்கப்பட்டுள்ளன: எதையும் அனுப்ப வேண்டும் என்று எந்தச் செயலியும் சொல்லவில்லை."
+
+#: tools/Internet.svelte:63
+#, fuzzy
+msgid "Blocked in the Last {days} Days"
+msgstr "கடந்த {days} நாட்களில் தடுக்கப்பட்டவை"
+
+#: tools/Internet.svelte:63
+#, fuzzy
+msgid "What the box stopped from leaving, by the app that tried."
+msgstr "பெட்டி வெளியேறாமல் தடுத்தவை, முயன்ற செயலி வாரியாக."
+
+#: tools/Internet.svelte:67 tools/Security.svelte:96
+#, fuzzy
+msgid "Once"
+msgstr "ஒரு முறை"
+
+#: tools/Internet.svelte:67 tools/Security.svelte:96
+#, fuzzy
+msgid "{count} times"
+msgstr "{count} முறை"
+
+#: tools/Internet.svelte:69 tools/Security.svelte:98 tools/Security.svelte:162
+#, fuzzy
+msgid "Nothing"
+msgstr "எதுவும் இல்லை"
+
+#: tools/Internet.svelte:69
+#, fuzzy
+msgid "Nothing was stopped."
+msgstr "எதுவும் தடுக்கப்படவில்லை."
+
+#: tools/Keyboard.svelte:53
+#, fuzzy
+msgid "Mouse"
+msgstr "சுட்டி"
+
+#: tools/Keyboard.svelte:54
+#, fuzzy
+msgid "The other button opens menus."
+msgstr "மற்ற பொத்தான் மெனுக்களைத் திறக்கும்."
+
+#: tools/Keyboard.svelte:56
+#, fuzzy
+msgid "Left"
+msgstr "இடது"
+
+#: tools/Keyboard.svelte:56
+#, fuzzy
+msgid "Right"
+msgstr "வலது"
+
+#: tools/Keyboard.svelte:62
+#, fuzzy
+msgid "Slow"
+msgstr "மெதுவாக"
+
+#: tools/Keyboard.svelte:62
+#, fuzzy
+msgid "Fast"
+msgstr "வேகமாக"
+
+#: tools/Keyboard.svelte:66
+#, fuzzy
+msgid "Moves further when the mouse moves fast."
+msgstr "சுட்டியை வேகமாக நகர்த்தினால் அதிக தூரம் செல்லும்."
+
+#: tools/Keyboard.svelte:71 tools/Keyboard.svelte:72
+#, fuzzy
+msgid "Screen moves (view)"
+msgstr "திரை நகரும் (காட்சி)"
+
+#: tools/Keyboard.svelte:71
+#, fuzzy
+msgid "Scrolling moves the visible part of the page."
+msgstr "உருட்டினால் பக்கத்தின் தெரியும் பகுதி நகரும்."
+
+#: tools/Keyboard.svelte:74 tools/Keyboard.svelte:75
+#, fuzzy
+msgid "Content moves (finger)"
+msgstr "உள்ளடக்கம் நகரும் (விரல்)"
+
+#: tools/Keyboard.svelte:74
+#, fuzzy
+msgid "Content follows your finger, like on a phone."
+msgstr "தொலைபேசியில் போல, உள்ளடக்கம் உங்கள் விரலைப் பின்தொடரும்."
+
+#: tools/KeysFromUsb.svelte:17
+#, fuzzy
+msgid "Keys on USB sticks"
+msgstr "USB குச்சிகளில் உள்ள சாவிகள்"
+
+#: tools/KeysFromUsb.svelte:20
+#, fuzzy
+msgid "No keys found in zoomriya/ssh on the stick."
+msgstr "குச்சியின் zoomriya/ssh இல் சாவிகள் இல்லை."
+
+#: tools/Language.svelte:59 tools/Time.svelte:34
+#, fuzzy
+msgid "Saved."
+msgstr "சேமிக்கப்பட்டது."
+
+#: tools/Language.svelte:71
+#, fuzzy
+msgid "For the box's screens and messages."
+msgstr "பெட்டியின் திரைகளுக்கும் செய்திகளுக்கும்."
+
+#: tools/Language.svelte:74
+#, fuzzy
+msgid "Sets date, time and number formats."
+msgstr "தேதி, நேரம், எண் வடிவங்களை அமைக்கும்."
+
+#: tools/Language.svelte:81
+#, fuzzy
+msgid "Optional."
+msgstr "விருப்பத்தேர்வு."
+
+#: tools/LibraryCheck.svelte:18
+#, fuzzy
+msgid "Check that both copies match"
+msgstr "இரண்டு நகல்களும் ஒத்துள்ளனவா எனச் சரிபார்"
+
+#: tools/LibraryCheck.svelte:18
+#, fuzzy
+msgid "Checking that both copies match"
+msgstr "இரண்டு நகல்களும் ஒத்துள்ளனவா எனச் சரிபார்க்கிறது"
+
+#: tools/LibraryCheck.svelte:19
+#, fuzzy
+msgid "Checking the library for damage"
+msgstr "நூலகத்தில் சேதம் உள்ளதா எனச் சரிபார்க்கிறது"
+
+#: tools/LibraryCheck.svelte:24
+#, fuzzy
+msgid "It hasn't been checked yet."
+msgstr "இன்னும் சரிபார்க்கப்படவில்லை."
+
+#: tools/LibraryCheck.svelte:25
+#, fuzzy
+msgid "Last check found {n} problems and repaired what it could."
+msgstr "கடைசிச் சரிபார்ப்பு: {n} சிக்கல்கள் கண்டறிந்து, இயன்றவரை சரிசெய்தது."
+
+#: tools/LibraryCheck.svelte:26
+#, fuzzy
+msgid "Last check found {n} damaged files. With one drive they can't be repaired: restore them from a backup."
+msgstr "கடைசிச் சரிபார்ப்பு: {n} சேதமான கோப்புகள். ஒரே இயக்ககத்தில் சரிசெய்ய முடியாது: காப்புப்பிரதியிலிருந்து மீட்டமையுங்கள்."
+
+#: tools/LibraryCheck.svelte:27
+#, fuzzy
+msgid "The last check found nothing needing repair."
+msgstr "கடைசிச் சரிபார்ப்பில் சரிசெய்ய எதுவும் இல்லை."
+
+#: tools/LibraryCheck.svelte:58
+#, fuzzy
+msgid "Started {time}."
+msgstr "{time} அன்று தொடங்கியது."
+
+#: tools/LibraryCheck.svelte:61
+#, fuzzy
+msgid "The check is paused at {percent}%"
+msgstr "சரிபார்ப்பு {percent}% இல் இடைநிறுத்தப்பட்டுள்ளது"
+
+#: tools/LibraryCheck.svelte:62
+#, fuzzy
+msgid "It carries on from there when you resume it."
+msgstr "தொடர்ந்தால், அங்கிருந்தே தொடரும்."
+
+#: tools/LibraryCheck.svelte:65
+#, fuzzy
+msgid "The box also checks once a month by itself."
+msgstr "பெட்டி மாதம் ஒருமுறை தானாகவும் சரிபார்க்கும்."
+
+#: tools/LibraryCheck.svelte:69
+#, fuzzy
+msgid "Pause"
+msgstr "இடைநிறுத்து"
+
+#: tools/LibraryCheck.svelte:69
+#, fuzzy
+msgid "Resume"
+msgstr "தொடர்"
+
+#: tools/LibraryCheck.svelte:69 tools/Security.svelte:120
+#, fuzzy
+msgid "Check now"
+msgstr "இப்போது சரிபார்"
+
+#: tools/LogNotifications.svelte:18
+#, fuzzy
+msgid "What the box reported in the last month. Choose what appears on the bell in Control Panel › Notifications."
+msgstr "கடந்த மாதம் பெட்டி தெரிவித்தவை. மணியில் தெரிவதைக் கட்டுப்பாட்டுப் பலகம் › அறிவிப்புகளில் தேர்ந்தெடுங்கள்."
+
+#: tools/LogNotifications.svelte:22
+#, fuzzy
+msgid "Nothing in the last month."
+msgstr "கடந்த மாதம் எதுவும் இல்லை."
+
+#: tools/Logs.svelte:55 tools/Logs.svelte:55
+#, fuzzy
+msgid "Search"
+msgstr "தேடு"
+
+#: tools/Logs.svelte:60
+#, fuzzy
+msgid "Nothing here."
+msgstr "இங்கு எதுவும் இல்லை."
+
+#: tools/Network.svelte:86
+#, fuzzy
+msgid "Ethernet Status ({port})"
+msgstr "ஈதர்நெட் நிலை ({port})"
+
+#: tools/Network.svelte:88
+#, fuzzy
+msgid "Connection: Connected"
+msgstr "இணைப்பு: இணைக்கப்பட்டது"
+
+#: tools/Network.svelte:88
+#, fuzzy
+msgid "Connection: Cable unplugged"
+msgstr "இணைப்பு: கம்பி துண்டிக்கப்பட்டது"
+
+#: tools/Network.svelte:90
+#, fuzzy
+msgid "IPv4 Address: {address} ({how})"
+msgstr "IPv4 முகவரி: {address} ({how})"
+
+#: tools/Network.svelte:91
+#, fuzzy
+msgid "none yet"
+msgstr "இன்னும் இல்லை"
+
+#: tools/Network.svelte:92 tools/Network.svelte:126
+#, fuzzy
+msgid "Static"
+msgstr "நிலையானது"
+
+#: tools/Network.svelte:92
+#, fuzzy
+msgid "Assigned by Router"
+msgstr "திசைவி ஒதுக்கியது"
+
+#: tools/Network.svelte:93
+#, fuzzy
+msgid "MAC address: {mac}"
+msgstr "MAC முகவரி: {mac}"
+
+#: tools/Network.svelte:102 tools/Network.svelte:123
+#, fuzzy
+msgid "Configuration Details ({port})"
+msgstr "அமைவு விவரங்கள் ({port})"
+
+#: tools/Network.svelte:111
+#, fuzzy
+msgid "Ethernet"
+msgstr "ஈதர்நெட்"
+
+#: tools/Network.svelte:112
+#, fuzzy
+msgid "No network port found"
+msgstr "வலையமைப்புத் துறை இல்லை"
+
+#: tools/Network.svelte:112
+#, fuzzy
+msgid "The box needs a cable to the router."
+msgstr "பெட்டிக்குத் திசைவிக்கு ஒரு கம்பி தேவை."
+
+#: tools/Network.svelte:117
+#, fuzzy
+msgid "Status: Off"
+msgstr "நிலை: அணைந்துள்ளது"
+
+#: tools/Network.svelte:117
+#, fuzzy
+msgid "The box connects to the router by a cable."
+msgstr "பெட்டி திசைவியுடன் கம்பி மூலம் இணைகிறது."
+
+#: tools/Network.svelte:123
+#, fuzzy
+msgid "Configuration Details"
+msgstr "அமைவு விவரங்கள்"
+
+#: tools/Network.svelte:124
+#, fuzzy
+msgid "New settings are tried for a few minutes and revert unless kept."
+msgstr "புதிய அமைப்புகள் சில நிமிடங்கள் சோதிக்கப்பட்டு, வைக்காவிட்டால் திரும்பும்."
+
+#: tools/Network.svelte:125
+#, fuzzy
+msgid "From the router (DHCP), or a fixed static address."
+msgstr "திசைவியிடமிருந்து (DHCP), அல்லது நிலையான முகவரி."
+
+#: tools/Network.svelte:126
+#, fuzzy
+msgid "DHCP"
+msgstr "DHCP"
+
+#: tools/Network.svelte:143
+#, fuzzy
+msgid "Current Address: {address}."
+msgstr "தற்போதைய முகவரி: {address}."
+
+#: tools/Network.svelte:143
+#, fuzzy
+msgid "Reverts at {time} unless kept."
+msgstr "வைக்காவிட்டால் {time} க்குத் திரும்பும்."
+
+#: tools/Network.svelte:145
+#, fuzzy
+msgid "Keep them"
+msgstr "வைத்துக்கொள்"
+
+#: tools/NewPassword.svelte:41
+#, fuzzy
+msgid "New password for {name}"
+msgstr "{name}-க்குப் புதிய கடவுச்சொல்"
+
+#: tools/NewPassword.svelte:42
+#, fuzzy
+msgid "Type a new password. At least 8 characters."
+msgstr "புதிய கடவுச்சொல்லை உள்ளிடவும். குறைந்தது 8 எழுத்துகள்."
+
+#: tools/NewPassword.svelte:43
+#, fuzzy
+msgid "Let {name} type a new one. At least 8 characters. They're signed out everywhere."
+msgstr "{name} புதியதை உள்ளிடட்டும். குறைந்தது 8 எழுத்துகள். எல்லா இடங்களிலும் வெளியேற்றப்படுவர்."
+
+#: tools/NewPassword.svelte:44
+#, fuzzy
+msgid "Your current password"
+msgstr "தற்போதைய கடவுச்சொல்"
+
+#: tools/NewPassword.svelte:48
+#, fuzzy
+msgid "Save password"
+msgstr "கடவுச்சொல்லைச் சேமி"
+
+#: tools/Notifications.svelte:22
+#, fuzzy
+msgid "See past notifications"
+msgstr "முந்தைய அறிவிப்புகளைப் பார்"
+
+#: tools/PasteKey.svelte:20 tools/PasteKey.svelte:20
+#, fuzzy
+msgid "A name, like Anna's laptop"
+msgstr "ஒரு பெயர், எ.கா. அன்னாவின் லேப்டாப்"
+
+#: tools/PasteKey.svelte:21 tools/PasteKey.svelte:22
+#, fuzzy
+msgid "Public key (ssh-ed25519 …)"
+msgstr "பொதுச் சாவி (ssh-ed25519 …)"
+
+#: tools/People.svelte:29
+#, fuzzy
+msgid "Child"
+msgstr "குழந்தை"
+
+#: tools/People.svelte:30
+#, fuzzy
+msgid "Teen"
+msgstr "பதின்வயது"
+
+#: tools/People.svelte:37
+#, fuzzy
+msgid "You"
+msgstr "நீங்கள்"
+
+#: tools/People.svelte:40
+#, fuzzy
+msgid "Parents or guardians: {names}"
+msgstr "பெற்றோர் அல்லது பாதுகாவலர்: {names}"
+
+#: tools/People.svelte:42
+#, fuzzy
+msgid "Needs a parent or guardian."
+msgstr "பெற்றோர் அல்லது பாதுகாவலர் தேவை."
+
+#: tools/People.svelte:53
+#, fuzzy
+msgid "Everyone who signs in to this box."
+msgstr "இந்தப் பெட்டியில் உள்நுழையும் அனைவரும்."
+
+#: tools/People.svelte:56
+#, fuzzy
+msgid "Edit"
+msgstr "திருத்து"
+
+#: tools/People.svelte:59
+#, fuzzy
+msgid "They choose their own password, here at the box."
+msgstr "ஒவ்வொருவரும் தம் கடவுச்சொல்லை இங்கே பெட்டியில் தேர்வுசெய்வர்."
+
+#: tools/People.svelte:64
+#, fuzzy
+msgid "Same in Family Hub"
+msgstr "Family Hub-இலும் இதே"
+
+#: tools/People.svelte:64
+#, fuzzy
+msgid "Family Hub's Family page shows these people too."
+msgstr "Family Hub-இன் குடும்பப் பக்கத்திலும் இவர்கள் தெரிவர்."
+
+#: tools/People.svelte:65
+#, fuzzy
+msgid "Children's settings"
+msgstr "குழந்தைகளின் அமைப்புகள்"
+
+#: tools/People.svelte:65
+#, fuzzy
+msgid "Their parents set apps and quiet hours in Family Hub."
+msgstr "செயலிகளையும் அமைதி நேரத்தையும் பெற்றோர் Family Hub-இல் அமைப்பர்."
+
+#: tools/People.svelte:66
+#, fuzzy
+msgid "Always an admin"
+msgstr "எப்போதும் ஒரு நிர்வாகி"
+
+#: tools/People.svelte:66
+#, fuzzy
+msgid "You can't turn off your own account or remove your own admin role."
+msgstr "உங்கள் கணக்கை அணைக்கவோ நிர்வாகி பொறுப்பை நீக்கவோ முடியாது."
+
+#: tools/RemoveApp.svelte:16 tools/RemoveApp.svelte:22
+#, fuzzy
+msgid "Remove {app}?"
+msgstr "{app} ஐ நீக்கவா?"
+
+#: tools/RemoveApp.svelte:16
+#, fuzzy
+msgid "Its data is deleted too."
+msgstr "அதன் தரவும் நீக்கப்படும்."
+
+#: tools/RemoveApp.svelte:16
+#, fuzzy
+msgid "Its data is kept."
+msgstr "அதன் தரவு வைக்கப்படும்."
+
+#: tools/RemoveApp.svelte:23
+#, fuzzy
+msgid "{app} stops and is removed."
+msgstr "{app} நின்று நீக்கப்படும்."
+
+#: tools/RemoveApp.svelte:24
+#, fuzzy
+msgid "Keep its data"
+msgstr "தரவை வைத்திரு"
+
+#: tools/RemoveApp.svelte:25
+#, fuzzy
+msgid "Delete its data too (can't be undone)"
+msgstr "தரவையும் நீக்கு (திரும்பப்பெற முடியாது)"
+
+#: tools/Resources.svelte:37
+#, fuzzy
+msgid "Processor: {percent}%"
+msgstr "செயலி: {percent}%"
+
+#: tools/Resources.svelte:39
+#, fuzzy
+msgid "Memory: {used} of {total}"
+msgstr "நினைவகம்: {used} / {total}"
+
+#: tools/Resources.svelte:57
+#, fuzzy
+msgid "in {received}, out {sent}"
+msgstr "உள்ளே {received}, வெளியே {sent}"
+
+#: tools/Resources.svelte:64
+#, fuzzy
+msgid "Disks"
+msgstr "வட்டுகள்"
+
+#: tools/Resources.svelte:65
+#, fuzzy
+msgid "reading {read}, writing {written}"
+msgstr "படித்தல் {read}, எழுதுதல் {written}"
+
+#: tools/Resources.svelte:66
+#, fuzzy
+msgid "Hottest sensor"
+msgstr "அதிக வெப்ப உணரி"
+
+#: tools/Restarts.svelte:22
+#, fuzzy
+msgid "Awaiting Kernel Update Completion"
+msgstr "கர்னல் புதுப்பிப்பு முடிவுக்குக் காத்திருக்கிறது"
+
+#: tools/Restarts.svelte:22
+#, fuzzy
+msgid "A new kernel is ready."
+msgstr "புதிய கர்னல் தயார்."
+
+#: tools/Restarts.svelte:23
+#, fuzzy
+msgid "Awaiting Update Completion"
+msgstr "புதுப்பிப்பு முடிவுக்குக் காத்திருக்கிறது"
+
+#: tools/Restarts.svelte:23
+#, fuzzy
+msgid "Security fixes are installed."
+msgstr "பாதுகாப்புத் திருத்தங்கள் நிறுவப்பட்டன."
+
+#: tools/Restarts.svelte:24
+#, fuzzy
+msgid "Awaiting Restore Completion"
+msgstr "மீட்டமைப்பு முடிவுக்குக் காத்திருக்கிறது"
+
+#: tools/Restarts.svelte:24
+#, fuzzy
+msgid "The OS is restored."
+msgstr "OS மீட்டமைக்கப்பட்டது."
+
+#: tools/Restarts.svelte:25
+#, fuzzy
+msgid "Awaiting Reset"
+msgstr "மீளமைப்பு காத்திருக்கிறது"
+
+#: tools/Restarts.svelte:25
+#, fuzzy
+msgid "The reset is ready."
+msgstr "மீளமைப்பு தயார்."
+
+#: tools/Restarts.svelte:26
+#, fuzzy
+msgid "Restart Needed"
+msgstr "மறுதொடக்கம் தேவை"
+
+#: tools/Restarts.svelte:26
+#, fuzzy
+msgid "Something waits for a restart."
+msgstr "ஏதோ ஒன்று மறுதொடக்கத்திற்குக் காத்திருக்கிறது."
+
+#: tools/Restarts.svelte:54
+#, fuzzy
+msgid "The system will restart at {hour}, or you can restart manually now."
+msgstr "கணினி {hour} மணிக்கு மறுதொடக்கம் செய்யும், அல்லது இப்போதே மறுதொடக்கலாம்."
+
+#: tools/Restarts.svelte:55
+#, fuzzy
+msgid "Finish & Restart"
+msgstr "முடித்து மறுதொடக்கு"
+
+#: tools/Restarts.svelte:59
+#, fuzzy
+msgid "Maintenance"
+msgstr "பராமரிப்பு"
+
+#: tools/Restarts.svelte:60
+#, fuzzy
+msgid "If an update needs a restart, the box restarts this hour."
+msgstr "புதுப்பிப்புக்கு மறுதொடக்கம் தேவைப்பட்டால், பெட்டி இந்த நேரத்தில் மறுதொடக்கம் செய்யும்."
+
+#: tools/Restarts.svelte:63
+#, fuzzy
+msgid "Adjust Time"
+msgstr "நேரத்தை மாற்று"
+
+#: tools/Restarts.svelte:67
+#, fuzzy
+msgid "Power"
+msgstr "ஆற்றல்"
+
+#: tools/Restarts.svelte:69
+#, fuzzy
+msgid "The box runs 24/7 with power-saving mode disabled."
+msgstr "ஆற்றல் சேமிப்பு முறை இல்லாமல் பெட்டி 24/7 இயங்கும்."
+
+#: tools/Restarts.svelte:72
+#, fuzzy
+msgid "If powered off, it must be turned back on in person."
+msgstr "அணைந்தால், நேரில் சென்று மீண்டும் இயக்க வேண்டும்."
+
+#: tools/Restore.svelte:20
+#, fuzzy
+msgid "before update"
+msgstr "புதுப்பிப்புக்கு முன்"
+
+#: tools/Restore.svelte:20
+#, fuzzy
+msgid "after update"
+msgstr "புதுப்பிப்புக்குப் பின்"
+
+#: tools/Restore.svelte:21
+#, fuzzy
+msgid "before restore"
+msgstr "மீட்டமைப்புக்கு முன்"
+
+#: tools/Restore.svelte:21
+#, fuzzy
+msgid "factory"
+msgstr "தொழிற்சாலை"
+
+#: tools/Restore.svelte:21
+#, fuzzy
+msgid "As it left the factory"
+msgstr "தொழிற்சாலையிலிருந்து வந்தபடி"
+
+#: tools/Restore.svelte:29
+#, fuzzy
+msgid "Restore the OS?"
+msgstr "OS-ஐ மீட்டமைக்கவா?"
+
+#: tools/Restore.svelte:30
+#, fuzzy
+msgid "The OS returns to {time} ({what}) on the next restart. Family files and app data stay."
+msgstr "அடுத்த மறுதொடக்கத்தில் OS {time} ({what}) நிலைக்குத் திரும்பும். குடும்பக் கோப்புகளும் செயலித் தரவும் இருக்கும்."
+
+#: tools/Restore.svelte:40
+#, fuzzy
+msgid "Update now?"
+msgstr "இப்போது புதுப்பிக்கவா?"
+
+#: tools/Restore.svelte:41
+#, fuzzy
+msgid "{package} installs its latest fix now, even if that's {taken}, the version the restore removed."
+msgstr "{package} தன் சமீபத்திய திருத்தத்தை இப்போது நிறுவும், அது மீட்டமைப்பு நீக்கிய {taken} பதிப்பாக இருந்தாலும்."
+
+#: tools/Restore.svelte:43 tools/Restore.svelte:87
+#, fuzzy
+msgid "Update now"
+msgstr "இப்போது புதுப்பி"
+
+#: tools/Restore.svelte:56
+#, fuzzy
+msgid "Reset the system?"
+msgstr "கணினியை மீளமைக்கவா?"
+
+#: tools/Restore.svelte:56
+#, fuzzy
+msgid "The system returns to its factory state on restart. Family apps and data stay."
+msgstr "மறுதொடக்கத்தில் கணினி தொழிற்சாலை நிலைக்குத் திரும்பும். குடும்பச் செயலிகளும் தரவும் இருக்கும்."
+
+#: tools/Restore.svelte:57 tools/Restore.svelte:92
+#, fuzzy
+msgid "Reset"
+msgstr "மீளமை"
+
+#: tools/Restore.svelte:63
+#, fuzzy
+msgid "Erase everything?"
+msgstr "அனைத்தையும் அழிக்கவா?"
+
+#: tools/Restore.svelte:64
+#, fuzzy
+msgid "Deletes every app, account, photo and message on restart. This can't be undone. Enter the setup code from the sticker and your password."
+msgstr "மறுதொடக்கத்தில் ஒவ்வொரு செயலி, கணக்கு, படம், செய்தியும் அழிக்கப்படும். திரும்பப் பெற முடியாது. ஸ்டிக்கரில் உள்ள அமைப்புக் குறியீட்டையும் கடவுச்சொல்லையும் உள்ளிடுங்கள்."
+
+#: tools/Restore.svelte:65
+#, fuzzy
+msgid "Setup code, like ABCD-EFGH"
+msgstr "அமைப்புக் குறியீடு, எ.கா. ABCD-EFGH"
+
+#: tools/Restore.svelte:73
+#, fuzzy
+msgid "Reverts the OS to an earlier state. Family files and app data stay. Try this first."
+msgstr "OS-ஐ முந்தைய நிலைக்குத் திருப்பும். குடும்பக் கோப்புகளும் செயலித் தரவும் இருக்கும். முதலில் இதை முயலுங்கள்."
+
+#: tools/Restore.svelte:83
+#, fuzzy
+msgid "A restore rolled back these updates. They will update automatically when a newer fix is released."
+msgstr "ஒரு மீட்டமைப்பு இந்தப் புதுப்பிப்புகளைத் திரும்பப்பெற்றது. புதிய திருத்தம் வெளியானதும் அவை தானாகப் புதுப்பிக்கப்படும்."
+
+#: tools/Restore.svelte:86
+#, fuzzy
+msgid "On {version}. Skipping {taken}."
+msgstr "{version} இல் உள்ளது. {taken} தவிர்க்கப்படுகிறது."
+
+#: tools/Restore.svelte:94
+#, fuzzy
+msgid "Returns the OS to factory state, then updates it. Your data stays. Use if restoring fails."
+msgstr "OS-ஐ தொழிற்சாலை நிலைக்குத் திருப்பிப் புதுப்பிக்கும். உங்கள் தரவு இருக்கும். மீட்டமைத்தல் தோல்வியுற்றால்."
+
+#: tools/Restore.svelte:95
+#, fuzzy
+msgid "Reset the system"
+msgstr "கணினியை மீளமை"
+
+#: tools/Restore.svelte:99
+#, fuzzy
+msgid "Erases everything, leaving the box as new. Needs the setup code from the sticker."
+msgstr "அனைத்தையும் அழித்து, பெட்டியைப் புதியதாக்கும். ஸ்டிக்கரில் உள்ள அமைப்புக் குறியீடு தேவை."
+
+#: tools/ReviewBundle.svelte:31
+#, fuzzy
+msgid "What's in this bundle"
+msgstr "இந்தத் தொகுப்பில் உள்ளவை"
+
+#: tools/ReviewBundle.svelte:38
+#, fuzzy
+msgid "Only the start is shown."
+msgstr "தொடக்கம் மட்டுமே காட்டப்படும்."
+
+#: tools/ReviewBundle.svelte:40
+#, fuzzy
+msgid "Your note: {note}"
+msgstr "உங்கள் குறிப்பு: {note}"
+
+#: tools/ReviewBundle.svelte:41
+#, fuzzy
+msgid "What the box found"
+msgstr "பெட்டி கண்டறிந்தவை"
+
+#: tools/ReviewBundle.svelte:48
+#, fuzzy
+msgid "Files"
+msgstr "கோப்புகள்"
+
+#: tools/ReviewBundle.svelte:48
+#, fuzzy
+msgid "Passwords and keys are taken out."
+msgstr "கடவுச்சொற்களும் சாவிகளும் நீக்கப்படும்."
+
+#: tools/ReviewBundle.svelte:50
+#, fuzzy
+msgid "about your home"
+msgstr "உங்கள் வீடு பற்றியது"
+
+#: tools/ReviewBundle.svelte:51
+#, fuzzy
+msgid "View"
+msgstr "காண்"
+
+#: tools/SaveBundle.svelte:31
+#, fuzzy
+msgid "Saved to {stick}. You can unplug it."
+msgstr "{stick} இல் சேமிக்கப்பட்டது. இப்போது எடுக்கலாம்."
+
+#: tools/SaveBundle.svelte:49
+#, fuzzy
+msgid "Plug a USB stick into the box."
+msgstr "பெட்டியில் USB குச்சியைச் செருகவும்."
+
+#: tools/SaveBundle.svelte:54
+#, fuzzy
+msgid "USB stick"
+msgstr "USB குச்சி"
+
+#: tools/Security.svelte:36
+#, fuzzy
+msgid "the box's certificate has a problem"
+msgstr "பெட்டியின் சான்றிதழில் சிக்கல் உள்ளது"
+
+#: tools/Security.svelte:36
+#, fuzzy
+msgid "security fixes are off"
+msgstr "பாதுகாப்புத் திருத்தங்கள் அணைந்துள்ளன"
+
+#: tools/Security.svelte:37
+#, fuzzy
+msgid "the firewall is off"
+msgstr "ஃபயர்வால் அணைந்துள்ளது"
+
+#: tools/Security.svelte:37
+#, fuzzy
+msgid "the OS's files changed"
+msgstr "OS கோப்புகள் மாறியுள்ளன"
+
+#: tools/Security.svelte:37
+#, fuzzy
+msgid "AppArmor is off"
+msgstr "AppArmor அணைந்துள்ளது"
+
+#: tools/Security.svelte:41
+#, fuzzy
+msgid "Not yet: files are checked nightly."
+msgstr "இன்னும் இல்லை: கோப்புகள் ஒவ்வொரு இரவும் சரிபார்க்கப்படும்."
+
+#: tools/Security.svelte:42
+#, fuzzy
+msgid "Completed {time}: OS files match the latest update."
+msgstr "{time} அன்று முடிந்தது: OS கோப்புகள் கடைசி புதுப்பிப்புடன் பொருந்துகின்றன."
+
+#: tools/Security.svelte:43
+#, fuzzy
+msgid "Completed {time}: files changed outside an update: {files}"
+msgstr "{time} அன்று முடிந்தது: புதுப்பிப்புக்கு வெளியே மாறிய கோப்புகள்: {files}"
+
+#: tools/Security.svelte:49
+#, fuzzy
+msgid "Auto updates every night."
+msgstr "ஒவ்வொரு இரவும் தானியங்கிப் புதுப்பிப்பு."
+
+#: tools/Security.svelte:49
+#, fuzzy
+msgid "Auto updates are off."
+msgstr "தானியங்கிப் புதுப்பிப்புகள் அணைந்துள்ளன."
+
+#: tools/Security.svelte:50
+#, fuzzy
+msgid "Last update was {date}."
+msgstr "கடைசி புதுப்பிப்பு {date}."
+
+#: tools/Security.svelte:50
+#, fuzzy
+msgid "No update yet."
+msgstr "இன்னும் புதுப்பிப்பு இல்லை."
+
+#: tools/Security.svelte:51
+#, fuzzy
+msgid "Installing security updates now."
+msgstr "பாதுகாப்புப் புதுப்பிப்புகள் நிறுவப்படுகின்றன."
+
+#: tools/Security.svelte:108
+#, fuzzy
+msgid "Protected"
+msgstr "பாதுகாக்கப்பட்டது"
+
+#: tools/Security.svelte:108
+#, fuzzy
+msgid "Security updates install automatically, and the firewall is always enabled."
+msgstr "பாதுகாப்புப் புதுப்பிப்புகள் தானாக நிறுவப்படும், ஃபயர்வால் எப்போதும் இயங்கும்."
+
+#: tools/Security.svelte:111
+#, fuzzy
+msgid "Secure Boot is on"
+msgstr "Secure Boot இயங்குகிறது"
+
+#: tools/Security.svelte:111
+#, fuzzy
+msgid "Only authenticated software can boot the system."
+msgstr "அங்கீகரிக்கப்பட்ட மென்பொருள் மட்டுமே கணினியைத் தொடங்க முடியும்."
+
+#: tools/Security.svelte:113
+#, fuzzy
+msgid "Secure Boot is off"
+msgstr "Secure Boot அணைந்துள்ளது"
+
+#: tools/Security.svelte:113
+#, fuzzy
+msgid "Secure Boot is unavailable"
+msgstr "Secure Boot கிடைக்கவில்லை"
+
+#: tools/Security.svelte:114
+#, fuzzy
+msgid "Enable it in the firmware settings, if available."
+msgstr "இருந்தால், ஃபர்ம்வேர் அமைப்புகளில் இயக்குங்கள்."
+
+#: tools/Security.svelte:118
+#, fuzzy
+msgid "Protection"
+msgstr "பாதுகாப்பு"
+
+#: tools/Security.svelte:120
+#, fuzzy
+msgid "Checking…"
+msgstr "சரிபார்க்கிறது…"
+
+#: tools/Security.svelte:123
+#, fuzzy
+msgid "{n} programs confined"
+msgstr "{n} நிரல்கள் கட்டுப்படுத்தப்பட்டுள்ளன"
+
+#: tools/Security.svelte:128
+#, fuzzy
+msgid "The programs ({n})"
+msgstr "நிரல்கள் ({n})"
+
+#: tools/Security.svelte:134
+#, fuzzy
+msgid "Confined"
+msgstr "கட்டுப்படுத்தப்பட்டது"
+
+#: tools/Security.svelte:134
+#, fuzzy
+msgid "Watched only"
+msgstr "கண்காணிப்பில் மட்டும்"
+
+#: tools/Security.svelte:145
+#, fuzzy
+msgid "Not made yet: the box makes its certificate in a few minutes."
+msgstr "இன்னும் உருவாக்கப்படவில்லை: சில நிமிடங்களில் பெட்டி தன் சான்றிதழை உருவாக்கும்."
+
+#: tools/Security.svelte:146
+#, fuzzy
+msgid "Each phone or computer trusts the box once, from {address}. The fingerprint it shows must be: {fingerprint}"
+msgstr "ஒவ்வொரு தொலைபேசியும் கணினியும் {address} இலிருந்து பெட்டியை ஒருமுறை நம்பும். காட்டப்படும் கைரேகை இதுவாக இருக்க வேண்டும்: {fingerprint}"
+
+#: tools/Security.svelte:148
+#, fuzzy
+msgid "OS Update"
+msgstr "OS புதுப்பிப்பு"
+
+#: tools/Security.svelte:154
+#, fuzzy
+msgid "What devices on your network can reach on this box."
+msgstr "உங்கள் வலையமைப்பில் உள்ள சாதனங்கள் இந்தப் பெட்டியில் அணுகக்கூடியவை."
+
+#: tools/Security.svelte:155
+#, fuzzy
+msgid "Everything else is blocked."
+msgstr "மற்ற அனைத்தும் தடுக்கப்படும்."
+
+#: tools/Security.svelte:158
+#, fuzzy
+msgid "Port {port} ({how})"
+msgstr "துறை {port} ({how})"
+
+#: tools/Security.svelte:162
+#, fuzzy
+msgid "No other device can reach the box."
+msgstr "வேறு எந்தச் சாதனமும் பெட்டியை அணுக முடியாது."
+
+#: tools/Security.svelte:165
+#, fuzzy
+msgid "For updates and the time. No identifying data is sent."
+msgstr "புதுப்பிப்புகளுக்கும் நேரத்திற்கும். அடையாளம் காட்டும் தரவு எதுவும் அனுப்பப்படாது."
+
+#: tools/Security.svelte:177
+#, fuzzy
+msgid "Address: {host}"
+msgstr "முகவரி: {host}"
+
+#: tools/Security.svelte:179
+#, fuzzy
+msgid "No identifying data is sent."
+msgstr "அடையாளம் காட்டும் தரவு எதுவும் அனுப்பப்படாது."
+
+#: tools/Security.svelte:190
+#, fuzzy
+msgid "Sent in the Last {days} Days"
+msgstr "கடந்த {days} நாட்களில் அனுப்பியவை"
+
+#: tools/Security.svelte:191
+#, fuzzy
+msgid "Every connection from the box to the internet, by the app that made it."
+msgstr "பெட்டியிலிருந்து இணையத்துக்குச் சென்ற ஒவ்வொரு இணைப்பும், அதைச் செய்த செயலியுடன்."
+
+#: tools/Security.svelte:192
+#, fuzzy
+msgid "Nothing left the box for the internet."
+msgstr "பெட்டியிலிருந்து இணையத்துக்கு எதுவும் செல்லவில்லை."
+
+#: tools/Sound.svelte:57
+#, fuzzy
+msgid "None found"
+msgstr "எதுவும் கிடைக்கவில்லை"
+
+#: tools/Sound.svelte:62 tools/Sound.svelte:62
+#, fuzzy
+msgid "Mute"
+msgstr "ஒலியடக்கு"
+
+#: tools/Sound.svelte:70
+#, fuzzy
+msgid "Output"
+msgstr "வெளியீடு"
+
+#: tools/Sound.svelte:74
+#, fuzzy
+msgid "Play a test sound"
+msgstr "சோதனை ஒலியை இயக்கு"
+
+#: tools/Sound.svelte:74
+#, fuzzy
+msgid "Test"
+msgstr "சோதி"
+
+#: tools/Sound.svelte:81
+#, fuzzy
+msgid "Input"
+msgstr "உள்ளீடு"
+
+#: tools/Sound.svelte:88
+#, fuzzy
+msgid "Speak to see it move."
+msgstr "அசைவதைக் காணப் பேசுங்கள்."
+
+#: tools/Space.svelte:13
+#, fuzzy
+msgid "The apps' databases"
+msgstr "செயலிகளின் தரவுத்தளங்கள்"
+
+#: tools/Space.svelte:13
+#, fuzzy
+msgid "The apps themselves"
+msgstr "செயலிகள்"
+
+#: tools/Space.svelte:13
+#, fuzzy
+msgid "Myira's models and the maps"
+msgstr "Myira-வின் மாதிரிகளும் வரைபடங்களும்"
+
+#: tools/Space.svelte:14
+#, fuzzy
+msgid "Photos, files and the apps' data"
+msgstr "படங்கள், கோப்புகள், செயலிகளின் தரவு"
+
+#: tools/Space.svelte:22
+#, fuzzy
+msgid "What takes the space on the box's own disk."
+msgstr "பெட்டியின் சொந்த வட்டில் இடத்தை எடுப்பவை."
+
+#: tools/Space.svelte:26
+#, fuzzy
+msgid "Not counted yet; updated every few hours."
+msgstr "இன்னும் கணக்கிடப்படவில்லை; சில மணிநேரங்களுக்கு ஒருமுறை புதுப்பிக்கப்படும்."
+
+#: tools/StorageOverview.svelte:41
+#, fuzzy
+msgid "{size} used"
+msgstr "{size} பயன்பாட்டில்"
+
+#: tools/StorageOverview.svelte:42
+#, fuzzy
+msgid "{free} free of {total}"
+msgstr "{total} இல் {free} காலி"
+
+#: tools/StorageOverview.svelte:52
+#, fuzzy
+msgid "{n} drives, each a copy of the other"
+msgstr "{n} இயக்ககங்கள், ஒன்று மற்றதன் நகல்"
+
+#: tools/StorageOverview.svelte:56
+#, fuzzy
+msgid "The OS, the apps and their data"
+msgstr "OS, செயலிகள், அவற்றின் தரவு"
+
+#: tools/Temperature.svelte:21
+#, fuzzy
+msgid "This box reports no sensors."
+msgstr "இந்தப் பெட்டியில் உணரிகள் இல்லை."
+
+#: tools/Temperature.svelte:27
+#, fuzzy
+msgid "Fan"
+msgstr "விசிறி"
+
+#: tools/Time.svelte:44
+#, fuzzy
+msgid "Date & Time"
+msgstr "தேதி & நேரம்"
+
+#: tools/Time.svelte:45
+#, fuzzy
+msgid "On the box's clock."
+msgstr "பெட்டியின் கடிகாரப்படி."
+
+#: tools/Time.svelte:48
+#, fuzzy
+msgid "The box's dates and times follow it."
+msgstr "பெட்டியின் தேதிகளும் நேரங்களும் இதைப் பின்பற்றும்."
+
+#: tools/Time.svelte:52
+#, fuzzy
+msgid "Set by itself from the internet."
+msgstr "இணையத்திலிருந்து தானாக அமைக்கப்பட்டது."
+
+#: tools/Time.svelte:52
+#, fuzzy
+msgid "Syncs once the box is online."
+msgstr "பெட்டி இணையத்தில் இணைந்ததும் ஒத்திசையும்."
+
+#: tools/Time.svelte:53
+#, fuzzy
+msgid "In sync"
+msgstr "ஒத்திசைவில் உள்ளது"
+
+#: tools/Time.svelte:53
+#, fuzzy
+msgid "Not yet in sync"
+msgstr "இன்னும் ஒத்திசைவில் இல்லை"
+
+#: tools/keys.ts:9
+#, fuzzy
+msgid "Add this key?"
+msgstr "இந்தச் சாவியைச் சேர்க்கவா?"
+
+#: tools/keys.ts:9
+#, fuzzy
+msgid "Its owner can sign in as admin while advanced access is on."
+msgstr "மேம்பட்ட அணுகல் இயக்கத்தில் இருக்கும்போது, அதன் உரிமையாளர் admin ஆக நுழையலாம்."

@@ -1,0 +1,4 @@
+# Format: systemd.preset(5).
+enable zoomriya-agent.socket
+enable zoomriya-maintenance.timer
+enable zoomriya-ssh-apply.service

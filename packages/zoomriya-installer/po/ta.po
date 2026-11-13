@@ -1,0 +1,491 @@
+# zoomriya-installer: ta. Made by scripts/i18n.py extract; translate the empty msgstr.
+# "fuzzy": a draft still to be checked by a native speaker.
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: ta\n"
+
+#: Installer.svelte:13 Installer.svelte:167
+#, fuzzy
+msgid "Language"
+msgstr "மொழி"
+
+#: Installer.svelte:13
+#, fuzzy
+msgid "Welcome"
+msgstr "வரவேற்பு"
+
+#: Installer.svelte:13 Installer.svelte:201 Installer.svelte:223
+#, fuzzy
+msgid "Drive"
+msgstr "இயக்ககம்"
+
+#: Installer.svelte:13
+#, fuzzy
+msgid "Summary"
+msgstr "சுருக்கம்"
+
+#: Installer.svelte:13
+#, fuzzy
+msgid "Install"
+msgstr "நிறுவல்"
+
+#: Installer.svelte:13
+#, fuzzy
+msgid "Done"
+msgstr "முடிந்தது"
+
+#: Installer.svelte:20
+#, fuzzy
+msgid "Your files stay at home"
+msgstr "உங்கள் கோப்புகள் வீட்டிலேயே இருக்கும்"
+
+#: Installer.svelte:20
+#, fuzzy
+msgid "Everything stays on the box, at home, not in someone else's cloud."
+msgstr "அனைத்தும் பெட்டியிலேயே, வீட்டிலேயே இருக்கும்; வேறொருவரின் மேகக்கணினியில் அல்ல."
+
+#: Installer.svelte:21
+#, fuzzy
+msgid "Security fixes install by themselves"
+msgstr "பாதுகாப்புத் திருத்தங்கள் தானாக நிறுவப்படும்"
+
+#: Installer.svelte:21
+#, fuzzy
+msgid "OS security updates install automatically."
+msgstr "OS பாதுகாப்புப் புதுப்பிப்புகள் தானாக நிறுவப்படும்."
+
+#: Installer.svelte:22
+#, fuzzy
+msgid "Restore points"
+msgstr "மீட்புப் புள்ளிகள்"
+
+#: Installer.svelte:22
+#, fuzzy
+msgid "A restore point before every update. One click in Box Desktop goes back; your files stay."
+msgstr "ஒவ்வொரு புதுப்பிப்புக்கும் முன் ஒரு மீட்புப் புள்ளி. Box Desktop-இல் ஒரே கிளிக்கில் திரும்பலாம்; உங்கள் கோப்புகள் இருக்கும்."
+
+#: Installer.svelte:23
+#, fuzzy
+msgid "A kernel that won't start falls back"
+msgstr "தொடங்காத கர்னல் பின்வாங்கும்"
+
+#: Installer.svelte:23
+#, fuzzy
+msgid "If a new kernel won't start, the box falls back to the previous one."
+msgstr "புதிய கர்னல் தொடங்காவிட்டால், பெட்டி முந்தையதற்குத் திரும்பும்."
+
+#: Installer.svelte:24
+#, fuzzy
+msgid "One account: ZOOMRIYA ID"
+msgstr "ஒரே கணக்கு: ZOOMRIYA ID"
+
+#: Installer.svelte:24
+#, fuzzy
+msgid "One sign-in for the box and every ZOOMRIYA app."
+msgstr "பெட்டிக்கும் ஒவ்வொரு ZOOMRIYA செயலிக்கும் ஒரே உள்நுழைவு."
+
+#: Installer.svelte:25
+#, fuzzy
+msgid "Closed unless you open it"
+msgstr "நீங்கள் திறக்கும் வரை மூடியே இருக்கும்"
+
+#: Installer.svelte:25
+#, fuzzy
+msgid "A firewall blocks anything uninvited; remote access stays off until an admin enables it."
+msgstr "அழைக்கப்படாத எதையும் ஃபயர்வால் தடுக்கும்; நிர்வாகி இயக்கும் வரை தொலைநிலை அணுகல் அணைந்திருக்கும்."
+
+#: Installer.svelte:65
+#, fuzzy
+msgid "Something went wrong."
+msgstr "ஏதோ தவறு நடந்தது."
+
+#: Installer.svelte:130
+#, fuzzy
+msgid "Erase and install"
+msgstr "அழித்து நிறுவு"
+
+#: Installer.svelte:130
+#, fuzzy
+msgid "Try again"
+msgstr "மீண்டும் முயல்க"
+
+#: Installer.svelte:130
+#, fuzzy
+msgid "Restart now"
+msgstr "மறுதொடக்கம்"
+
+#: Installer.svelte:130
+#, fuzzy
+msgid "Next"
+msgstr "அடுத்து"
+
+#: Installer.svelte:153
+#, fuzzy
+msgid "OS Installer"
+msgstr "OS நிறுவி"
+
+#: Installer.svelte:165
+#, fuzzy
+msgid "Choose your language"
+msgstr "உங்கள் மொழியைத் தேர்ந்தெடுங்கள்"
+
+#: Installer.svelte:166
+#, fuzzy
+msgid "For the installer. The box's language is chosen at first setup."
+msgstr "நிறுவிக்கானது. பெட்டியின் மொழி முதல் அமைப்பில் தேர்ந்தெடுக்கப்படும்."
+
+#: Installer.svelte:184
+#, fuzzy
+msgid "Install ZOOMRIYA OS"
+msgstr "ZOOMRIYA OS-ஐ நிறுவு"
+
+#: Installer.svelte:185
+#, fuzzy
+msgid "Turns this computer into a ZOOMRIYA Box in about five minutes. The drive you choose next is erased."
+msgstr "சுமார் ஐந்து நிமிடங்களில் இந்தக் கணினியை ZOOMRIYA Box ஆக்கும். அடுத்து தேர்ந்தெடுக்கும் இயக்ககம் அழிக்கப்படும்."
+
+#: Installer.svelte:190
+#, fuzzy
+msgid "Checking the internet…"
+msgstr "இணையத்தைச் சரிபார்க்கிறது…"
+
+#: Installer.svelte:191
+#, fuzzy
+msgid "Internet: connected"
+msgstr "இணையம்: இணைக்கப்பட்டது"
+
+#: Installer.svelte:192
+#, fuzzy
+msgid "No internet. Installing anyway; updates arrive once the box is online. Plug in a network cable to connect."
+msgstr "இணையம் இல்லை. இருந்தாலும் நிறுவப்படும்; பெட்டி இணைந்ததும் புதுப்பிப்புகள் வரும். இணைக்க வலையமைப்புக் கம்பியைச் செருகுங்கள்."
+
+#: Installer.svelte:196
+#, fuzzy
+msgid "Where should ZOOMRIYA OS go?"
+msgstr "ZOOMRIYA OS எங்கே நிறுவப்பட வேண்டும்?"
+
+#: Installer.svelte:198
+#, fuzzy
+msgid "Look again"
+msgstr "மீண்டும் தேடு"
+
+#: Installer.svelte:200
+#, fuzzy
+msgid "The chosen drive is erased; others aren't touched. Plugged one in? Press Look again."
+msgstr "தேர்ந்தெடுத்த இயக்ககம் அழிக்கப்படும்; மற்றவை தொடப்படாது. புதிதாக இணைத்தீர்களா? மீண்டும் தேடு என்பதை அழுத்துங்கள்."
+
+#: Installer.svelte:216
+#, fuzzy
+msgid "Now"
+msgstr "இப்போது"
+
+#: Installer.svelte:217
+#, fuzzy
+msgid "After installing"
+msgstr "நிறுவிய பின்"
+
+#: Installer.svelte:220
+#, fuzzy
+msgid "Ready to install"
+msgstr "நிறுவத் தயார்"
+
+#: Installer.svelte:221
+#, fuzzy
+msgid "Check the drive. Nothing has changed yet."
+msgstr "இயக்ககத்தைச் சரிபாருங்கள். இதுவரை எதுவும் மாறவில்லை."
+
+#: Installer.svelte:224
+#, fuzzy
+msgid "Size"
+msgstr "அளவு"
+
+#: Installer.svelte:225
+#, fuzzy
+msgid "Erased"
+msgstr "அழிக்கப்படுவது"
+
+#: Installer.svelte:225
+#, fuzzy
+msgid "Nothing: the drive is empty"
+msgstr "எதுவும் இல்லை: இயக்ககம் காலியாக உள்ளது"
+
+#: Installer.svelte:226
+#, fuzzy
+msgid "Installed"
+msgstr "நிறுவப்படுவது"
+
+#: Installer.svelte:228
+#, fuzzy
+msgid "The drive after installing"
+msgstr "நிறுவிய பின் இயக்ககம்"
+
+#: Installer.svelte:232
+#, fuzzy
+msgid "Erase everything on {drive} ({size})"
+msgstr "{drive} இல் உள்ள அனைத்தையும் அழி ({size})"
+
+#: Installer.svelte:235
+#, fuzzy
+msgid "Installing ZOOMRIYA OS"
+msgstr "ZOOMRIYA OS நிறுவப்படுகிறது"
+
+#: Installer.svelte:247
+#, fuzzy
+msgid "Keep the computer on and the USB stick in until done."
+msgstr "முடியும் வரை கணினியை இயக்கத்திலும் USB குச்சியை இணைப்பிலும் வைத்திருங்கள்."
+
+#: Installer.svelte:255
+#, fuzzy
+msgid "The install didn't finish"
+msgstr "நிறுவல் முடியவில்லை"
+
+#: Installer.svelte:255
+#, fuzzy
+msgid "ZOOMRIYA OS is installed"
+msgstr "ZOOMRIYA OS நிறுவப்பட்டது"
+
+#: Installer.svelte:256
+#, fuzzy
+msgid "The drive may not start now; installing again fixes it."
+msgstr "இயக்ககம் இப்போது தொடங்காமல் போகலாம்; மீண்டும் நிறுவினால் சரியாகும்."
+
+#: Installer.svelte:256
+#, fuzzy
+msgid "Your ZOOMRIYA Box is ready for its first start."
+msgstr "உங்கள் ZOOMRIYA Box முதல் தொடக்கத்திற்குத் தயார்."
+
+#: Installer.svelte:258
+#, fuzzy
+msgid "Check the drive's connection, or try another drive."
+msgstr "இயக்கக இணைப்பைச் சரிபாருங்கள், அல்லது வேறொன்றை முயலுங்கள்."
+
+#: Installer.svelte:258
+#, fuzzy
+msgid "Press Try again."
+msgstr "மீண்டும் முயல்க என்பதை அழுத்துங்கள்."
+
+#: Installer.svelte:259
+#, fuzzy
+msgid "If it fails again, support notes are in {file}."
+msgstr "மீண்டும் தோல்வியடைந்தால், உதவிக் குறிப்புகள் {file} இல் உள்ளன."
+
+#: Installer.svelte:260
+#, fuzzy
+msgid "Take out the USB stick."
+msgstr "USB குச்சியை எடுத்துவிடுங்கள்."
+
+#: Installer.svelte:260
+#, fuzzy
+msgid "Press Restart now to set it up, or Power off to leave it for its owner."
+msgstr "அமைக்க மறுதொடக்கம் என்பதையும், உரிமையாளரிடம் விட அணை என்பதையும் அழுத்துங்கள்."
+
+#: Installer.svelte:261
+#, fuzzy
+msgid "On its next start, the box opens its first setup on this screen."
+msgstr "அடுத்த தொடக்கத்தில், பெட்டி இந்தத் திரையில் தன் முதல் அமைப்பைத் திறக்கும்."
+
+#: Installer.svelte:271
+#, fuzzy
+msgid "Back"
+msgstr "பின்செல்"
+
+#: Installer.svelte:273
+#, fuzzy
+msgid "Power off"
+msgstr "அணை"
+
+#: disks.py:22
+#, fuzzy
+msgid "Recovery"
+msgstr "மீட்பு"
+
+#: disks.py:75
+#, fuzzy
+msgid "SD card"
+msgstr "SD அட்டை"
+
+#: disks.py:76
+#, fuzzy
+msgid "Virtual"
+msgstr "மெய்நிகர்"
+
+#: disks.py:79
+#, fuzzy
+msgid "Removable"
+msgstr "நீக்கக்கூடியது"
+
+#: disks.py:79
+#, fuzzy
+msgid "Internal"
+msgstr "உள்ளகம்"
+
+#: disks.py:91
+#, fuzzy
+msgid "Swap"
+msgstr "Swap"
+
+#: disks.py:92
+#, fuzzy
+msgid "Encrypted"
+msgstr "மறையாக்கப்பட்டது"
+
+#: disks.py:92
+#, fuzzy
+msgid "RAID member"
+msgstr "RAID உறுப்பினர்"
+
+#: disks.py:70
+#, fuzzy
+msgid "{size} bytes"
+msgstr "{size} பைட்டுகள்"
+
+#: disks.py:94
+#, fuzzy
+msgid "Unknown"
+msgstr "தெரியாதது"
+
+#: disks.py:118
+#, fuzzy
+msgid "The installer is running from this drive."
+msgstr "நிறுவி இந்த இயக்ககத்திலிருந்து இயங்குகிறது."
+
+#: disks.py:120
+#, fuzzy
+msgid "This drive is read-only."
+msgstr "இந்த இயக்ககம் படிக்க மட்டுமே."
+
+#: disks.py:55
+#, fuzzy
+msgid "Drive {name}"
+msgstr "இயக்ககம் {name}"
+
+#: disks.py:61
+#, fuzzy
+msgid "Hard disk"
+msgstr "வன்வட்டு"
+
+#: disks.py:61
+#, fuzzy
+msgid "SSD"
+msgstr "SSD"
+
+#: disks.py:124
+#, fuzzy
+msgid "This drive is in use."
+msgstr "இந்த இயக்ககம் பயன்பாட்டில் உள்ளது."
+
+#: disks.py:122
+#, fuzzy
+msgid "Too small: ZOOMRIYA OS needs at least {size}."
+msgstr "மிகச் சிறியது: ZOOMRIYA OS-க்கு குறைந்தது {size} தேவை."
+
+#: install.py:32
+#, fuzzy
+msgid "Getting the drive ready"
+msgstr "இயக்ககத்தைத் தயார்படுத்துகிறது"
+
+#: install.py:33
+#, fuzzy
+msgid "Copying ZOOMRIYA OS"
+msgstr "ZOOMRIYA OS நகலெடுக்கப்படுகிறது"
+
+#: install.py:34
+#, fuzzy
+msgid "Making room for your files"
+msgstr "உங்கள் கோப்புகளுக்கு இடம் ஒதுக்குகிறது"
+
+#: install.py:35
+#, fuzzy
+msgid "Making the drive start"
+msgstr "தொடக்கத்தை அமைக்கிறது"
+
+#: install.py:78
+#, fuzzy
+msgid "The new partitions can't be found on the drive."
+msgstr "புதிய பகிர்வுகளை இயக்ககத்தில் காண முடியவில்லை."
+
+#: install.py:90
+#, fuzzy
+msgid "The drive couldn't be cleared."
+msgstr "இயக்ககத்தைத் துடைக்க முடியவில்லை."
+
+#: install.py:91 install.py:118
+#, fuzzy
+msgid "The drive didn't settle."
+msgstr "இயக்ககம் தயாராகவில்லை."
+
+#: install.py:117 install.py:124
+#, fuzzy
+msgid "The system partition couldn't grow to fill the drive."
+msgstr "கணினிப் பகிர்வை முழு இயக்ககத்திற்கும் விரிவாக்க முடியவில்லை."
+
+#: install.py:138
+#, fuzzy
+msgid "The drive couldn't finish writing."
+msgstr "இயக்ககம் எழுதுவதை முடிக்க முடியவில்லை."
+
+#: install.py:86
+#, fuzzy
+msgid "The drive went away."
+msgstr "இயக்ககம் காணாமல் போனது."
+
+#: install.py:121
+#, fuzzy
+msgid "The new system partition couldn't be opened."
+msgstr "புதிய கணினிப் பகிர்வைத் திறக்க முடியவில்லை."
+
+#: install.py:89
+#, fuzzy
+msgid "The drive's old partitions couldn't be cleared."
+msgstr "இயக்ககத்தின் பழைய பகிர்வுகளை அழிக்க முடியவில்லை."
+
+#: install.py:110
+#, fuzzy
+msgid "ZOOMRIYA OS couldn't be copied to the drive."
+msgstr "ZOOMRIYA OS-ஐ இயக்ககத்திற்கு நகலெடுக்க முடியவில்லை."
+
+#: install.py:126
+#, fuzzy
+msgid "The new system partition couldn't be closed."
+msgstr "புதிய கணினிப் பகிர்வை மூட முடியவில்லை."
+
+#: server.py:148
+#, fuzzy
+msgid "ZOOMRIYA OS is being installed already."
+msgstr "ZOOMRIYA OS ஏற்கனவே நிறுவப்படுகிறது."
+
+#: server.py:69
+#, fuzzy
+msgid "Free space"
+msgstr "காலி இடம்"
+
+#: server.py:69
+#, fuzzy
+msgid "Empty"
+msgstr "காலி"
+
+#: server.py:132
+#, fuzzy
+msgid "Started in UEFI mode"
+msgstr "UEFI முறையில் தொடங்கப்பட்டது"
+
+#: server.py:150
+#, fuzzy
+msgid "That drive isn't here any more. Press Look again."
+msgstr "அந்த இயக்கி இப்போது இல்லை. மீண்டும் தேடு என்பதை அழுத்தவும்."
+
+#: server.py:133
+#, fuzzy
+msgid "Memory: {have} ({need} needed)"
+msgstr "நினைவகம்: {have} ({need} தேவை)"
+
+#: server.py:135
+#, fuzzy
+msgid "A drive of {size} or more"
+msgstr "{size} அல்லது அதற்கு மேற்பட்ட இயக்ககம்"
+
+#: server.py:164
+#, fuzzy
+msgid "The install stopped: {problem}"
+msgstr "நிறுவல் நின்றுவிட்டது: {problem}"

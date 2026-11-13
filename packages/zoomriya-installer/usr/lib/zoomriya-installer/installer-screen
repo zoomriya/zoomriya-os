@@ -1,0 +1,87 @@
+#!/usr/bin/python3
+"""installer-screen: the USB installer on the computer's own screen (design §10).
+
+One window, full screen under sway (screen-session), with no address bar,
+tabs or menus: the installer's page from its server on this computer
+(zoomriya-installer.service, http://127.0.0.1:7445). It goes nowhere else,
+downloads nothing and opens no other windows. It runs as its own account; only
+the server, as root, writes the drive.
+"""
+
+from __future__ import annotations
+
+import os
+import sys
+from urllib.parse import urlsplit
+
+import gi
+
+gi.require_version("Gtk", "4.0")
+gi.require_version("WebKit", "6.0")
+from gi.repository import Gio, GLib, Gtk, WebKit  # noqa: E402
+
+ADDRESS = "http://" + os.environ.get("ZOOMRIYA_INSTALLER_ADDRESS", "127.0.0.1:7445") + "/"
+#: While the server isn't ready yet: this, then again.
+WAITING = """<!doctype html><meta charset="utf-8"><style>
+html,body{margin:0;height:100%;background:#080a10;color:#a9b1c3;font:15px "Inter Variable",Inter,sans-serif;
+display:grid;place-items:center}</style><p>ZOOMRIYA</p>"""
+
+
+class Screen(Gtk.Application):
+    def __init__(self) -> None:
+        super().__init__(application_id="com.zoomriya.InstallerScreen", flags=Gio.ApplicationFlags.NON_UNIQUE)
+        self.view: WebKit.WebView | None = None
+
+    def do_activate(self) -> None:
+        view = self.view = WebKit.WebView(network_session=WebKit.NetworkSession.new_ephemeral())
+        settings = view.get_settings()
+        settings.set_enable_developer_extras(False)
+        settings.set_javascript_can_open_windows_automatically(False)
+        settings.set_enable_back_forward_navigation_gestures(False)
+        # Drawn in software, as sway is (WLR_RENDERER=pixman): any screen works.
+        settings.set_hardware_acceleration_policy(WebKit.HardwareAccelerationPolicy.NEVER)
+        view.connect("decide-policy", self.decide)
+        view.connect("load-failed", self.failed)
+        view.connect("permission-request", lambda _v, request: (request.deny(), True)[1])
+        view.connect("context-menu", lambda *_a: True)
+        view.connect("web-process-terminated", lambda *_a: self.later())
+        window = Gtk.ApplicationWindow(application=self, title="ZOOMRIYA OS")
+        window.set_child(view)
+        if os.environ.get("ZOOMRIYA_INSTALLER_WINDOWED"):
+            window.set_default_size(1280, 800)
+        else:
+            window.fullscreen()
+        window.present()
+        view.load_uri(ADDRESS)
+
+    def decide(self, _view: WebKit.WebView, decision: WebKit.PolicyDecision, kind: WebKit.PolicyDecisionType) -> bool:
+        if kind == WebKit.PolicyDecisionType.RESPONSE:
+            if not decision.is_mime_type_supported():
+                decision.ignore()
+                return True
+            return False
+        uri = decision.get_navigation_action().get_request().get_uri()
+        here = urlsplit(ADDRESS)
+        there = urlsplit(uri) if uri else here
+        if kind == WebKit.PolicyDecisionType.NEW_WINDOW_ACTION or (
+                uri not in ("", "about:blank") and (there.scheme, there.netloc) != (here.scheme, here.netloc)):
+            decision.ignore()
+            return True
+        return False
+
+    def failed(self, view: WebKit.WebView, *_a: object) -> bool:
+        view.load_html(WAITING, "about:blank")
+        self.later()
+        return True
+
+    def later(self) -> None:
+        def again() -> bool:
+            if self.view is not None:
+                self.view.load_uri(ADDRESS)
+            return False
+
+        GLib.timeout_add_seconds(2, again)
+
+
+if __name__ == "__main__":
+    sys.exit(Screen().run([sys.argv[0]]))

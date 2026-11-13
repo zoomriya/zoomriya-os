@@ -1,0 +1,17 @@
+NAME="ZOOMRIYA OS"
+# Every screen's name for the OS (Box Desktop, the installer, the login
+# message, the boot menu). "Alpha" until the first release, then dropped here
+# alone. VERSION_ID is the number only, for software. ZOOMRIYA OS 1 is built
+# on Debian 13, 2 on Debian 14 (design §9).
+PRETTY_NAME="ZOOMRIYA OS 1 Alpha"
+ID=zoomriya
+ID_LIKE=debian
+VERSION="1 Alpha"
+VERSION_ID=1
+VERSION_CODENAME=@CODENAME@
+IMAGE_ID=zoomriya
+HOME_URL="https://zoomriya.com"
+SUPPORT_URL="https://zoomriya.com/support"
+# Security updates for this version until then (Debian 13's LTS); every box
+# moves to the next version before it (design §6.6). Box Desktop shows it.
+SUPPORT_END=2030-06-30
