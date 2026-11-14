@@ -101,6 +101,42 @@ check "ZOOMRIYA ID's settings are root's alone" "600 root" "$(stat -c '%a %U' /e
 check "ZOOMRIYA ID's folder is its own" "700 zoomriya-id" "$(stat -c '%a %U' /data/zoomriya-id 2>&1)"
 }
 
+# The box's model service (box-desktop.md §4, Myira): running with no model
+# yet (none is in the image), on loopback only, asking for a sign-in.
+model_ask() {  # model_ask METHOD PATH [JSON]: the answer's body and HTTP code
+    python3 - "$@" <<'PY'
+import sys, urllib.error, urllib.request
+method, path = sys.argv[1], sys.argv[2]
+data = sys.argv[3].encode() if len(sys.argv) > 3 else None
+url = "http://127.0.0.1:8070/myira/api/v1" + path
+request = urllib.request.Request(url, data=data, method=method, headers={"Content-Type": "application/json"})
+try:
+    with urllib.request.urlopen(request, timeout=10) as answer:
+        print(answer.read().decode().strip(), answer.status)
+except urllib.error.HTTPError as error:
+    print(error.read().decode().strip(), error.code)
+except OSError as error:
+    print(type(error).__name__)
+PY
+}
+model_checks() {
+check "the model service running" active "$(systemctl is-active zoomriya-model.service)"
+for _ in 1 2 3 4 5 6 7 8 9 10; do ss -ltnH 'sport = :8070' | grep -q . && break; sleep 1; done
+check "the model service listens on 127.0.0.1:8070 only" "127.0.0.1:8070" \
+    "$(ss -ltnH '( sport = :8070 or sport = :8071 )' | awk '{print $4}' | sort | tr '\n' ' ' | sed 's/ $//')"
+check "the model service answers" '{"status":"ok"} 200' "$(model_ask GET /health)"
+check "no model on a new box" '{"file":"gemma-4-E2B-it-Q4_K_M.gguf","loaded":null,"sees":false} 200' "$(model_ask GET /model/current)"
+check "the model service asks for a sign-in" '{"detail":"Sign in first"} 401' \
+    "$(model_ask POST /complete '{"messages": [{"role": "user", "content": "hi"}]}')"
+check "the model service's folder is its own" "700 zoomriya-model" "$(stat -c '%a %U' /var/lib/zoomriya-model 2>&1)"
+check "the model's download has its own account" "zoomriya-model-fetch" "$(getent passwd zoomriya-model-fetch | cut -d: -f1)"
+check "the model's folder is the download's" "755 zoomriya-model-fetch" "$(stat -c '%a %U' /data/models/llms 2>&1)"
+check "the model's download is a declared connection" "model" \
+    "$(python3 -c 'import json; print(json.load(open("/etc/zoomriya/outbound.d/model.json"))["id"])' 2>&1)"
+check "the model service can't reach the internet" "IPAddressDeny=::/0 0.0.0.0/0" \
+    "$(systemctl show -p IPAddressDeny zoomriya-model.service)"
+}
+
 # The first setup on the box's screen (design §5), driven here as its page
 # drives it: through the agent, as box-desktopd's account, in zoomriya-box.
 ask() { setpriv --reuid=box-desktop --regid=box-desktop --init-groups "$agent" ask "$1" >/dev/null 2>&1; }
@@ -328,6 +364,7 @@ echo "$status" | grep -q '"kind":"factory"' && pass "agent lists the factory res
 
 apt-get -q install -y curl >/dev/null 2>&1
 id_checks
+model_checks
 setup_checks
 
 # Drives' health (design §7): the two NVMe stand-ins report SMART; the
@@ -654,10 +691,11 @@ fifth_boot() {
 # What comes back by itself: ZOOMRIYA ID, Box Desktop's empty admin folder,
 # and the agent's empty folders for App Center and advanced access's keys
 # (its tmpfiles.d, at every start). Nothing of what was there is kept.
-check "/data erased" "" "$(ls -A /data | grep -vx 'zoomriya-id\|zoomriya\|apps\|zoomriya-os' | tr '\n' ' ')$(ls -A /data/zoomriya | grep -vx admin | tr '\n' ' ')"
+check "/data erased" "" "$(ls -A /data | grep -vx 'zoomriya-id\|zoomriya\|apps\|zoomriya-os\|models' | tr '\n' ' ')$(ls -A /data/zoomriya | grep -vx admin | tr '\n' ' ')"
 check "nothing kept in App Center's and advanced access's folders" "" \
     "$(find /data/apps /data/zoomriya-os /data/zoomriya/admin -mindepth 1 -not -type d 2>&1 | tr '\n' ' ')"
 id_checks
+model_checks
 setup_checks
 check "Box Desktop starts again, with no admin's desktop" "" "$(ls -A /data/zoomriya/admin 2>/dev/null)"
 journalctl -q -b -1 >/dev/null 2>&1 && fail "logs erased" "an earlier boot's journal is still there" || pass "logs erased"

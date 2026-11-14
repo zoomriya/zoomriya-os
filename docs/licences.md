@@ -50,10 +50,10 @@ each package's `copyright` file.
 | Caddy | Apache-2.0 | Yes | Keep the notice |
 | restic (in the backup image) | BSD-2-Clause | Yes | Keep the notice |
 | minisign (checking release signatures) | ISC | Yes | Keep the notice |
-| Go standard library (inside `zoomriya-agent`) | BSD-3-Clause | Yes | Keep the notice |
+| Go standard library (inside `zoomriya-agent`, `box-desktopd` and `zoomriya-modeld`) | BSD-3-Clause | Yes | Keep the notice |
 | Inter, the font (Debian's `fonts-inter`, for the box's screen: the installer, the first setup and Box Desktop, as in the apps) | OFL-1.1 | Yes, bundled with software | Keep the licence; don't sell the font on its own |
 | Qdrant (in Photos' image) | Apache-2.0 | Yes | Keep the notice |
-| llama.cpp (in the Myira model service's image) | MIT | Yes | Keep the notice |
+| llama.cpp (`llama-server` and its libraries, in `zoomriya-model`) | MIT | Yes | Keep the notice (`/usr/share/doc/zoomriya-model/LICENSE-llama.cpp`) |
 | FFmpeg (in Photos' image, Debian's build) | GPL-2.0+ (Debian builds it with `--enable-gpl`, x264 and x265) | Yes, as a separate program | Source |
 
 ## Only in our build and CI (never shipped)
@@ -90,4 +90,4 @@ to the planned read-only A/B system
 
 | Model | Licence | Commercial use | What we need to do |
 | --- | --- | --- | --- |
-| Gemma 4 E2B and E4B (the Myira model service; E2B by default), as GGUF files from `lmstudio-community` | Apache-2.0, Google's and the GGUF repackage's | Yes | Keep the licence and notice with the files |
+| Gemma 4 E2B and E4B (the box's model service, `zoomriya-model`; E2B by default), as GGUF files from `lmstudio-community` | Apache-2.0, Google's and the GGUF repackage's | Yes | Keep the licence and notice with the files |

@@ -7,8 +7,16 @@
 // in a list, translated with _() where they're shown. Words with {name} in
 // them are filled in with fill().
 
-/** Our screens' languages (gettext's codes), and each as Intl names it. */
+/** Every language our screens are translated into (gettext's codes). */
 export const OURS = ['en', 'fr', 'de', 'es', 'ta', 'ja', 'zh_CN'] as const;
+
+/**
+ * The languages shown (box-desktop.md §5, decided 13 November 2026): English
+ * and French, until a native speaker has checked another. The others stay
+ * translated and hidden; switching one on is adding it here (and to
+ * box-desktopd's and the installer's lists).
+ */
+export const RELEASED: readonly string[] = ['en', 'fr'];
 
 let words = $state<Record<string, string>>({});
 let language = $state('en');
@@ -26,7 +34,7 @@ export function fill(text: string, parts: Record<string, string | number>): stri
 	return text.replace(/\{(\w+)\}/g, (all, key: string) => (key in parts ? String(parts[key]) : all));
 }
 
-/** The language in use, one of OURS. */
+/** The language in use, one of RELEASED. */
 export function lang(): string {
 	return language;
 }
@@ -36,9 +44,9 @@ export function locale(): string {
 	return language.replace('_', '-');
 }
 
-/** From now on, words in this language; English where it has none. */
+/** From now on, words in this language; English for a hidden one, or where it has none. */
 export async function use(code: string): Promise<void> {
-	const chosen = (OURS as readonly string[]).includes(code) ? code : 'en';
+	const chosen = RELEASED.includes(code) ? code : 'en';
 	if (chosen === language && (chosen === 'en' || Object.keys(words).length)) return;
 	let loaded: Record<string, string> = {};
 	if (chosen !== 'en') {

@@ -1,0 +1,77 @@
+#!/bin/sh
+# Build the box's model service into the package tree given as $1
+# (scripts/build-packages.sh): llama.cpp's llama-server, from the pinned
+# release below, and zoomriya-modeld, the Go front that answers the apps.
+#
+# llama.cpp is fetched once and built once into build/llama.cpp/<release>
+# (about five minutes on a fast machine); later builds reuse it. CPU only,
+# with every CPU variant ggml has, so one package runs on whatever box it's
+# installed on and uses what that box's processor can do. The C++ runtime is
+# built in, so the package needs nothing from the box beyond the C library.
+#
+# Only with the network for llama.cpp's first fetch: ZOOMRIYA_LLAMA_SRC may
+# name a checkout of the same release instead.
+set -eu
+
+# llama.cpp's release and its commit: the build refuses any other.
+LLAMA_RELEASE=v1.0.0
+LLAMA_COMMIT=b1b770d90d94cad9e9ea5b993bdbc383a522fb28
+
+here=$(cd "$(dirname "$0")" && pwd)
+# The package tree, as an absolute path: the Go build runs from src/.
+mkdir -p "$1"
+set -- "$(cd "$1" && pwd)"
+root=$(cd "$here/../.." && pwd)
+cache="$root/build/llama.cpp/$LLAMA_RELEASE"
+src=${ZOOMRIYA_LLAMA_SRC:-$cache/src}
+out="$cache/out"
+
+if [ ! -x "$out/llama-server" ]; then
+    if [ ! -f "$src/CMakeLists.txt" ]; then
+        rm -rf "$src"
+        mkdir -p "$cache"
+        git -c advice.detachedHead=false clone --quiet --depth 1 \
+            --branch "$LLAMA_RELEASE" https://github.com/ggml-org/llama.cpp "$src"
+    fi
+    commit=$(git -C "$src" rev-parse HEAD)
+    if [ "$commit" != "$LLAMA_COMMIT" ]; then
+        echo "llama.cpp $LLAMA_RELEASE is $commit here, not $LLAMA_COMMIT" >&2
+        exit 1
+    fi
+    rm -rf "$cache/cmake" "$out"
+    cmake -S "$src" -B "$cache/cmake" -G "Unix Makefiles" \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DBUILD_SHARED_LIBS=ON \
+        -DGGML_BACKEND_DL=ON \
+        -DGGML_CPU_ALL_VARIANTS=ON \
+        -DGGML_NATIVE=OFF \
+        -DGGML_OPENMP=OFF \
+        -DLLAMA_CURL=OFF \
+        -DLLAMA_OPENSSL=OFF \
+        -DLLAMA_BUILD_TESTS=OFF \
+        -DLLAMA_BUILD_EXAMPLES=OFF \
+        -DLLAMA_BUILD_TOOLS=ON \
+        -DLLAMA_BUILD_SERVER=ON \
+        -DCMAKE_BUILD_WITH_INSTALL_RPATH=ON \
+        -DCMAKE_INSTALL_RPATH='$ORIGIN' \
+        -DCMAKE_EXE_LINKER_FLAGS='-static-libstdc++ -static-libgcc' \
+        -DCMAKE_SHARED_LINKER_FLAGS='-static-libstdc++ -static-libgcc' \
+        -DCMAKE_MODULE_LINKER_FLAGS='-static-libstdc++ -static-libgcc' >/dev/null
+    cmake --build "$cache/cmake" --target llama-server -j "$(nproc)" >/dev/null
+    mkdir -p "$out"
+    cp "$cache/cmake/bin/llama-server" "$out/"
+    # The libraries beside it: llama, mtmd (pictures), ggml and each CPU variant.
+    find "$cache/cmake/bin" -maxdepth 1 -name '*.so*' -exec cp -P {} "$out/" \;
+    strip --strip-unneeded "$out/llama-server" "$out"/*.so* 2>/dev/null || true
+    cp "$src/LICENSE" "$out/LICENSE-llama.cpp"
+fi
+
+lib="$1/usr/lib/zoomriya-model"
+mkdir -p "$lib" "$1/usr/share/doc/zoomriya-model"
+cp -P "$out/llama-server" "$out"/*.so* "$lib/"
+cp "$out/LICENSE-llama.cpp" "$1/usr/share/doc/zoomriya-model/"
+
+cd "$here/src"
+CGO_ENABLED=0 GOFLAGS=-mod=mod GOPROXY=off go test ./...
+CGO_ENABLED=0 GOFLAGS=-mod=mod GOPROXY=off \
+    go build -trimpath -ldflags='-s -w' -o "$lib/zoomriya-modeld" .

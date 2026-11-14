@@ -8,7 +8,10 @@
 #   --setup: the box not set up yet: the first setup, on the box's screen's side
 #   --lan: also from other devices on this network (a phone, another computer),
 #          at this computer's address; plain HTTP, sample data only
+#   --no-model: Myira's panel with no model yet, to try Download (a sample)
 #   BOX_DESKTOP_LANGUAGE=fr scripts/preview-desktop.sh   the page in French
+# Myira's panel answers with a sample model: picks by a few words, and a
+# fixed sentence said to be the preview's (preview/samplemodel.py).
 set -eu
 
 root=$(cd "$(dirname "$0")/.." && pwd)
@@ -22,6 +25,7 @@ for arg in "$@"; do
         --no-build) build=no ;;
         --setup) setup=yes ;;
         --lan) host=0.0.0.0 ;;
+        --no-model) export FAKEBOX_NO_MODEL=1 ;;
     esac
 done
 [ "$setup" = yes ] || touch "$state/setup-done"
@@ -40,6 +44,8 @@ export BOX_DESKTOP_LISTEN=$host:17443 BOX_DESKTOP_SCREEN=127.0.0.1:17444
 export BOX_DESKTOP_AGENT="$state/agent.sock" BOX_DESKTOP_ID_API=http://127.0.0.1:17050/id/api/v1
 export BOX_DESKTOP_ADMIN_DIR="$state/admin" BOX_DESKTOP_CERTS="$state/certs"
 export BOX_DESKTOP_APP_BASE=http://$here:17050/app/
+# Myira: the OS's own, with the sample model; never this computer's Myira app.
+export BOX_DESKTOP_MODEL_API=http://127.0.0.1:17050/model/myira/api/v1 BOX_DESKTOP_MYIRA_APP=
 # The page as built, from disk: a rebuild shows at the next reload.
 export BOX_DESKTOP_WEB="$pkg/src/dist"
 export BOX_DESKTOP_SETUP_DONE="$state/setup-done" STATE_DIRECTORY="$state/state"

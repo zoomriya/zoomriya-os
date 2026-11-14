@@ -11,6 +11,7 @@ import { fixedSettings, maskOf, prefixLength } from './network';
 import { detailsProblem, guardianChoices, inOrder, passwordProblem } from './people';
 import { fold, search } from './search';
 import { appSvg, crc32 } from './tiles';
+import { lang, OURS, RELEASED, use } from './i18n.svelte';
 import { ACCENTS, HELP, SECTION_WORDS, SETTINGS } from './words';
 
 function everySection(): Map<string, string> {
@@ -161,6 +162,17 @@ describe("the OS's name", () => {
 		});
 		for (const path of walk(join(import.meta.dirname, '..')).filter((p) => /\.(ts|svelte)$/.test(p) && !p.endsWith('.test.ts'))) {
 			expect(readFileSync(path, 'utf8'), path).not.toMatch(/ZOOMRIYA OS \d/);
+		}
+	});
+});
+
+describe('languages', () => {
+	it('shows English and French only for now; a hidden language shows English', async () => {
+		expect(RELEASED).toEqual(['en', 'fr']);
+		expect(OURS).toContain('ta'); // still translated, hidden
+		for (const hidden of ['ta', 'de', 'es', 'ja', 'zh_CN', 'xx']) {
+			await use(hidden);
+			expect(lang()).toBe('en');
 		}
 	});
 });

@@ -47,9 +47,9 @@ ID for sign-in ([§7](#7-signing-in)). It contains no code from
 | Admins only; other members never see it | Decided |
 | `zoomriya-agent` stays the only part that runs as root; Box Desktop runs as its own user and asks the agent ([§6](#6-how-it-works)) | Decided |
 | Plain words first, the technical details one click away ([§5](#5-words)) | Decided |
-| Myira in a panel, admins only: the OS's own Myira for the box, or the Myira app's answering in the same panel when it is installed; never a link from one to the other ([§4](#myira)) | Decided (13 November 2026), not built |
-| The box's one model service is part of ZOOMRIYA OS (`zoomriya-model`), with the API the apps already use ([§4](#myira)) | Decided (13 November 2026), not built |
-| English and French only for now (13 November 2026): German, Spanish, Tamil, Japanese and Simplified Chinese stay translated but hidden until a native speaker has checked each ([§5](#5-words)) | Decided, code not changed yet |
+| Myira in a panel, admins only: the OS's own Myira for the box, or the Myira app's answering in the same panel when it is installed; never a link from one to the other ([§4](#myira)) | Built (14 November 2026): the panel, the OS's own Myira and its tools, the assistant contract ([assistant-contract.md](assistant-contract.md)) |
+| The box's one model service is part of ZOOMRIYA OS (`zoomriya-model`), with the API the apps already use ([§4](#myira)) | Built (14 November 2026); the apps still install their own until it is retired |
+| English and French only for now (13 November 2026): German, Spanish, Tamil, Japanese and Simplified Chinese stay translated but hidden until a native speaker has checked each ([§5](#5-words)) | Done (14 November 2026) |
 | Admins manage the family's accounts on the box as well (Control Panel › People), so a box with no Family Hub can still add someone. ZOOMRIYA ID keeps the accounts and checks every change, whichever screen asks ([§4](#control-panel)) | Decided |
 
 ## 2. Who sees it and where
@@ -397,7 +397,8 @@ more urgent is shown, and Box health shows it.
 
 ### Myira
 
-Planned 13 November 2026, not built. Myira, the box's assistant, in a panel of
+Planned 13 November 2026, built 14 November 2026 (`src/myira.go`, `myira_os.go`,
+`myira_tools.go`, `web/src/pages/MyiraPanel.svelte`). Myira, the box's assistant, in a panel of
 Box Desktop, for admins only. **One panel, whichever Myira is on the box:** the
 OS has its own Myira for the box, and when the Myira app (one of the ZOOMRIYA
 apps) is installed, that Myira answers in the same panel instead. The admin
@@ -414,7 +415,7 @@ Box Desktop: the Myira panel (this repository)
 
 | Piece | Plan |
 | --- | --- |
-| Where | A **Myira** button on the top bar, left of notifications; a panel slides in from the right, in frosted glass, above the windows. Help's **?** in each tool opens it too, with that tool named |
+| Where | A **Myira** button on the top bar (Myira's mark), left of notifications; a panel slides in from the right, in frosted glass, above the windows, titled "Myira for ZOOMRIYA OS": before the first question, Myira's mark, large, her name and "for ZOOMRIYA OS", as the apps' drawers say "Myira for Family Photos". Help's **?** in each tool opens it too, with that tool named |
 | Who answers | The Myira app, when it is installed and on for this admin (the app's own switch: Myira's skills follow the apps). Otherwise the OS's own Myira. `box-desktopd` decides for each question, so installing or removing the app changes the panel straight away |
 | The OS's own Myira | Answers questions about the box: storage, drives, backups, restore points, updates, people, network, ZOOMRIYA Connect, sound and the screen. How-tos come word for word from Support Center's Help, each with a button to the tool and section; the box's state from the OS's tools (below). Written for this repository; it holds no other Myira's code or words |
 | A question that isn't about the box | Without the Myira app, one fixed reply: "For now I can help with the box. With the ZOOMRIYA apps installed, I can answer much more." No link, no other app named. With the app, the question is simply answered |
@@ -422,12 +423,17 @@ Box Desktop: the Myira panel (this repository)
 | Never through Myira | What asks for the password again (§7): Erase everything, Reset the system, Restore to this point, Shut down, advanced access, SSH keys, making or removing an admin, turning an account off. Myira opens that tool's section instead |
 | Tools are called by the panel | Whichever Myira answers, it can only pick one of the OS's tools; the panel calls it through `box-desktopd` as the admin and sends back what came of it. The Myira app never reaches into the OS, and the OS's tools are never offered anywhere but this panel (not on `/myira`, not to AI apps through `/mcp`) |
 | Chats | The OS's own Myira keeps none: the panel's chat is gone when it is closed. With the Myira app, the panel shows the admin's own Myira chats, the same as on `/myira`, kept by the app |
-| The model | The box's one model service, part of ZOOMRIYA OS (`zoomriya-model`): llama.cpp's `llama-server` (MIT) and a small Go front for sign-in and choosing the model, on `127.0.0.1:8070`, loopback only, with the API the apps already use (`/myira/api/v1/complete`, `/complete/stream`, `/describe`, `/model`). It replaces the apps' own model service, so the box still loads one model, shared. The model files (Gemma 4, Apache-2.0, [Licences](licences.md)) are in `/data/models` |
-| No model yet | The panel says "Myira needs her model to answer (3.2 GB)." with **Download**, through the model's declared connection ([Design §8.2](design.md#82-internet-access)), or from a USB stick |
+| The model | The box's one model service, part of ZOOMRIYA OS (`zoomriya-model`, `packages/zoomriya-model`): llama.cpp's `llama-server` (MIT, release v1.0.0, every CPU variant, the right one chosen when it starts) and a small Go front, `zoomriya-modeld`, on `127.0.0.1:8070`, loopback only, with the API the apps already use (`/myira/api/v1/complete`, `/complete/stream`, `/describe`, `/model`, `/model/current`). The front checks each asker's ZOOMRIYA ID token, gives out one answer at a time (a member waiting first, then the apps' own work, then overnight jobs once the box is quiet), lets an admin choose the model and starts `llama-server` again if it stops. `llama-server` listens on `127.0.0.1:8071` behind a key made at each start; no web page, no slots, no prompt cache kept. Nothing asked is stored or logged, and the service can't reach the internet. It replaces the apps' own model service, so the box still loads one model, shared. The model files (Gemma 4, Apache-2.0, [Licences](licences.md)) are in `/data/models/llms` |
+| No model yet | Built (14 November 2026, BD-17): the panel says "Myira needs her model to answer (4.4 GB)." with **Download** and **From a USB stick**, and how far it has got. The agent's `model` request starts either as its own unit: the download runs as `zoomriya-model-fetch`, the account of the model's declared connection (`/etc/zoomriya/outbound.d/model.json`, optional, [Design §8.2](design.md#82-internet-access)), so it's blocked while that connection is off; a copy from a stick needs no internet. Each file is checked against its size and SHA-256 before it's put in `/data/models/llms`, and the model service loads it as soon as it's there |
+| Someone hurt or in danger | Built (14 November 2026, BD-18 (b)): before anything else, even with no model, the OS's own Myira answers "If someone is hurt or in danger, call 911 now.", with the number of where the family lives (the box's region; one number for each country written in `myira_os.go`), or "…your local emergency number" for a country it has none for. Never a guess. The Myira app has its own safety floor |
+| What asks for the password again | The OS's own Myira opens that place (Restore & Reset, Restarts, Advanced access, People) with "That asks for your password again, so it's done in its own place." It never does it |
 | Words | Every reply and button in `po/<lang>.po`, in every language the box has, changed on the fly like the rest of Box Desktop |
 
-**The assistant contract.** Published in this repository so the Myira app can
-answer in the panel without sharing any of its code with the OS:
+**The assistant contract** ([assistant-contract.md](assistant-contract.md)). Published
+in this repository so the Myira app can answer in the panel without sharing any of its
+code with the OS. It is the Myira app's own API (`/ask`, `/ask/tool`, `/conversations`),
+so the app answers the panel as it answers `/myira`; the table below is the plan it came
+from:
 
 | Request | What it does |
 | --- | --- |
@@ -463,14 +469,16 @@ native speaker has checked them, and a clumsy word on a screen that erases
 drives can mislead. They stay in `po/` and keep being updated, hidden, and are
 switched on one at a time after a native speaker's check, together with the
 apps and Myira. French gets a native speaker's check before launch too
-(Canadian French). A box already set to a hidden language shows English.
+(Canadian French). A box already set to a hidden language shows English. The agent refuses to set the box to one, and ZOOMRIYA ID refuses one as a member's own language.
 
-| Code to change (not done yet) | Change |
+| Code changed (14 November 2026) | Change |
 | --- | --- |
-| `packages/box-desktop/src/places.go` | `Languages` offers English and French only; `Ours` gives English for a hidden language. A list of released languages, so switching one on is one line. `places_test.go`'s `Ours` cases follow |
-| `packages/box-desktop/web/src/lib/i18n.svelte.ts` | `use()` accepts the released languages only; `OURS` stays the translated ones |
+| `packages/box-desktop/src/places.go`, `api_box.go` | `released` (English, French) beside `translations`; `Languages` lists the released ones, `Ours` gives English for a hidden one, and `/api/places/locale` gives no locale for one, so the first setup and Control Panel › Language can't set it. Switching one on is one line. Tests: `places_test.go`, `server_test.go` |
+| `packages/box-desktop/web/src/lib/i18n.svelte.ts`, `pages/Setup.svelte` | `RELEASED` (English, French); `use()` accepts those only, `OURS` stays the translated ones. A first setup cut short after choosing a hidden language asks for the language again. Test: `desktop.test.ts` |
 | `packages/box-desktop/web/src/installer/Installer.svelte` | The installer's `LANGUAGES`: English and French |
-| `packages/zoomriya-installer/.../zoomriya_installer/i18n.py` | `LANGUAGES`: English and French (`server.py` refuses the others) |
+| `packages/zoomriya-installer/.../zoomriya_installer/i18n.py` | `LANGUAGES`: English and French, `TRANSLATED` the seven; `use()` gives English for any other (`server.py` refuses them) |
+| `packages/zoomriya-agent/src/language.go` | `language-set` refuses any locale that isn't English or French (`releasedLanguages`), whoever asks: "The box comes in English and French for now." Test: `language_test.go` |
+| `zoomriya-id`, `backend/app/routes/auth.py` | A member's own language: English or French (`LANGUAGES`), the others refused; Myira already answers in French for `fr`. Test: `test_account.py` |
 | `scripts/i18n.py` | Unchanged: all six translations still built |
 
 ## 6. How it works
@@ -641,8 +649,8 @@ needs the setup code from the sticker.
 | BD-13 | Screenshots for support | Save the screen to a USB stick, or add it to a diagnostics bundle | Open |
 | BD-14 | The web window's address bar (§3) | (a) links only: it opens from a link, nothing to type, (b) also an address to type, making the box's screen a browser | Leaning (a): a general browser is a large target on the screen where an admin is signed in |
 | BD-16 | Files from the computer | In a browser on a computer, choose a picture, an app (`.zapp`) or an SSH key from that computer, as well as from a USB stick in the box | Open |
-| BD-17 | Myira's model on a new box ([§4](#myira)) | (a) the first setup offers it, (b) the first time the panel is opened, (c) in the OS image (3.2 GB more to download and flash) | Leaning (b): the OS works without it, and a box that never uses Myira never downloads it |
-| BD-18 | An emergency in the OS's own Myira ([§4](#myira)) | Someone types they're hurt or in danger into the box-only Myira: (a) the fixed reply as for any other question, (b) a fixed line of its own with the emergency number of where the family lives | Open |
+| BD-17 | Myira's model on a new box ([§4](#myira)) | (a) the first setup offers it, (b) the first time the panel is opened, (c) in the OS image (4.4 GB more to download and flash) | Decided and built (14 November 2026): (b), with a USB stick as well |
+| BD-18 | An emergency in the OS's own Myira ([§4](#myira)) | Someone types they're hurt or in danger into the box-only Myira: (a) the fixed reply as for any other question, (b) a fixed line of its own with the emergency number of where the family lives | Decided and built (14 November 2026): (b) |
 | BD-15 | The web window's blocklist (§3) | A tracker and ad list turned into WebKit's content-blocker rules. The well-known lists are GPL-3.0 or CC BY-SA, so their terms are checked first; or a list of our own | Open |
 
 ## 11. Development plan
@@ -674,7 +682,11 @@ the native desktop ([§6.3](#63-the-same-as-the-native-desktop)).
    shows it with the sample box; the page's own tests (`npm test`) and
    `box-desktopd`'s run with every build.
 8. **Away from home** with ZOOMRIYA Connect's apps.
-9. **Myira** ([§4](#myira)): the model service (`zoomriya-model`) in the OS
-   with the apps' API, then the panel and the OS's own Myira with Help's words
-   and the OS's tools, then the assistant contract, which the Myira app
-   answers.
+9. **Myira** ([§4](#myira)): done (14 November 2026). The model service
+   (`zoomriya-model`) in the OS with the apps' API, the same answers as the
+   apps' own service, word for word; the apps' own service retired
+   (`zoomriya-apps`); the panel, the OS's own Myira with Help's words and the
+   OS's tools, and the assistant contract, which the Myira app answers. Then
+   the **Download** button for a box with no model (BD-17), the emergency line
+   (BD-18), the places that ask for the password, and requests that take two
+   tools.

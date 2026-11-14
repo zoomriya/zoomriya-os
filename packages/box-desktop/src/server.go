@@ -126,6 +126,13 @@ func (s *Server) Handler(l Listener) http.Handler {
 	signed("PUT /api/prefs", s.prefsPut)
 	signed("PATCH /api/box", s.boxPatch)
 	signed("GET /api/people", s.people)
+	// Myira's panel (myira.go): admins only, as Box Desktop is.
+	signed("GET /api/myira", s.myiraState)
+	signed("POST /api/myira/ask", s.myiraAsk)
+	signed("POST /api/myira/tool", s.myiraTool)
+	signed("GET /api/myira/chats", s.myiraChats)
+	signed("GET /api/myira/chats/{id}", s.myiraChat)
+	signed("DELETE /api/myira/chats/{id}", s.myiraChat)
 	signed("GET /api/people/activity", s.activity)
 	signed("POST /api/people", s.personAdd)
 	signed("PATCH /api/people/{id}", s.personChange)

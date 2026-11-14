@@ -117,13 +117,15 @@
 		zones = listed?.time_zones ?? [];
 		const [status, saved] = await Promise.all([ask('setup-status').catch(() => ({}) as Answer),
 			get<{ progress: Answer }>('/api/setup').then((a) => a.progress).catch(() => ({}) as Answer)]);
-		if (saved.language) await chooseLanguage(saved.language);
+		// A language chosen before it was hidden is asked again (English and French for now).
+		const kept = saved.language && languages.some((l) => l.code === saved.language);
+		if (kept) await chooseLanguage(saved.language);
 		if (status.region) {
 			region = status.region;
 			await showSubdivisions(status.region, status.subdivision ?? '');
 		}
 		if (saved.zone && status.zone) zone = status.zone;
-		go(status.has_admin ? DONE : saved.keyboard ? NETWORK : saved.language ? KEYBOARD : LANGUAGE);
+		go(status.has_admin ? DONE : !kept ? LANGUAGE : saved.keyboard ? NETWORK : KEYBOARD);
 	}
 
 	function go(next: number): void {

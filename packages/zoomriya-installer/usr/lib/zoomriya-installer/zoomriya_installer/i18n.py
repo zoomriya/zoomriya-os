@@ -13,9 +13,13 @@ import os
 DOMAIN = "zoomriya-installer"
 #: The package's translations, or ZOOMRIYA_LOCALEDIR's (scripts/preview-*.sh build them).
 LOCALEDIR = os.environ.get("ZOOMRIYA_LOCALEDIR", "/usr/share/locale")
-#: The languages our screens come in, by gettext's code, each named in itself.
-LANGUAGES = [("en", "English"), ("fr", "Français"), ("de", "Deutsch"), ("es", "Español"),
-             ("ta", "தமிழ்"), ("ja", "日本語"), ("zh_CN", "简体中文")]
+#: Every language our screens are translated into (po/), by gettext's code.
+TRANSLATED = ["en", "fr", "de", "es", "ta", "ja", "zh_CN"]
+#: The languages offered, each named in itself (box-desktop.md §5, decided
+#: 13 November 2026): English and French, until a native speaker has checked
+#: another. The others stay translated and hidden; switching one on is adding
+#: it here (and to Box Desktop's lists). server.py refuses the rest.
+LANGUAGES = [("en", "English"), ("fr", "Français")]
 
 _now: gettext.NullTranslations = gettext.NullTranslations()
 #: The language in use.
@@ -23,8 +27,10 @@ language = "en"
 
 
 def use(code: str) -> None:
-    """From now on, words in this language; English where it has none."""
+    """From now on, words in this language; English for a hidden one, or where it has none."""
     global _now, language
+    if code not in dict(LANGUAGES):
+        code = "en"
     language = code
     _now = gettext.translation(DOMAIN, LOCALEDIR, languages=[code], fallback=True)
 

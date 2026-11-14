@@ -11,6 +11,7 @@
 	import Icon from '../components/Icon.svelte';
 	import Level from '../components/Level.svelte';
 	import Logo from '../components/Logo.svelte';
+	import MyiraMark from '../components/MyiraMark.svelte';
 	import Tile from '../components/Tile.svelte';
 	import MainMenu from './MainMenu.svelte';
 
@@ -82,6 +83,11 @@
 		<button class="pill" class:busy={pill.busy} onclick={() => desk.openTool(pill.kind, pill.section)}>{pill.words}</button>
 	{/if}
 
+	<!-- Myira (box-desktop.md §4): her panel, from the right. -->
+	<button class="bar-button" class:on={desk.myiraOpen} title={_('Myira')} aria-label={_('Myira')} aria-pressed={desk.myiraOpen}
+		onclick={() => (desk.myiraOpen ? (desk.myiraOpen = false) : desk.openMyira())}>
+		<MyiraMark px={20} />
+	</button>
 	<div class="bell-place" style:position="relative">
 		<button class="bar-button" class:on={bellOpen} title={_('Notifications')} aria-label={_('Notifications')} onclick={() => (bellOpen = !bellOpen)}>
 			<Icon name="bell" px={20} />

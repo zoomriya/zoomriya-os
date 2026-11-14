@@ -541,3 +541,42 @@ input:focus, textarea:focus, select:focus { outline: none; box-shadow: 0 0 0 3px
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+/* --- Myira's panel (box-desktop.md §4): from the right, frosted glass, over the windows --- */
+.myira-panel { position: fixed; top: 52px; right: 10px; bottom: 10px; width: 380px; max-width: calc(100vw - 20px); z-index: 950;
+  display: flex; flex-direction: column; border-radius: 22px; background: var(--widget-glass); color: var(--text);
+  backdrop-filter: blur(34px) saturate(1.6);
+  box-shadow: inset 0 0 0 1px var(--glass-edge), inset 0 1px 0 rgba(255, 255, 255, 0.16), 0 0 0 1px var(--hairline), var(--shadow-window);
+  animation: myira-in 220ms cubic-bezier(0.2, 0.9, 0.3, 1); }
+@keyframes myira-in { from { opacity: 0; translate: 24px 0; } }
+.myira-head { display: flex; align-items: center; gap: 8px; padding: 12px 12px 8px 16px; }
+.myira-title { flex: 1; min-width: 0; font-weight: 600; font-size: 15px; }
+.myira-said { flex: 1; overflow-y: auto; padding: 4px 16px 12px; display: flex; flex-direction: column; gap: 10px; }
+.myira-hello { margin: auto 0; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; }
+/* Myira's mark, large, then her name and where she is ("for ZOOMRIYA OS"), as in the apps' drawer. */
+.myira-mark { display: grid; place-items: center; width: 72px; height: 72px; border-radius: 50%;
+  background: color-mix(in srgb, var(--accent) 14%, transparent); color: var(--accent); }
+.myira-brand { display: flex; flex-direction: column; gap: 2px; margin-bottom: 4px; }
+.myira-name { font-size: 28px; font-weight: 700; letter-spacing: -0.01em; line-height: 1.15; }
+.myira-for { color: var(--text-secondary); }
+.myira-head-mark { display: inline-flex; color: var(--accent); }
+.myira-line { display: flex; flex-direction: column; gap: 6px; align-items: flex-start; max-width: 92%; }
+.myira-line p { margin: 0; padding: 9px 13px; border-radius: 16px; background: var(--panel); line-height: 1.45; white-space: pre-wrap;
+  box-shadow: 0 0 0 1px var(--hairline); }
+.myira-line.you { align-self: flex-end; align-items: flex-end; }
+.myira-line.you p { background: var(--accent); color: #fff; box-shadow: none; }
+.myira-line.failed p { color: var(--text-secondary); }
+.myira-dots { margin-left: 2px; opacity: 0.6; }
+.myira-card { display: flex; flex-direction: column; gap: 8px; padding: 12px 14px; border-radius: 16px; background: var(--panel);
+  box-shadow: 0 0 0 1px var(--hairline); }
+/* The question's field, as the apps' Myira drawer has it: one line, Send inside it on the right. */
+.myira-ask { padding: 8px 14px 14px; }
+.myira-field { position: relative; display: block; }
+.myira-field input { width: 100%; min-height: 42px; padding-right: 46px; box-sizing: border-box; }
+.myira-field input:focus { outline: none; box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--accent) 48%, transparent); }
+.myira-send { position: absolute; top: 50%; right: 5px; transform: translateY(-50%); display: inline-flex; align-items: center;
+  justify-content: center; width: 32px; height: 32px; min-height: 0; min-width: 0; padding: 0; border: 0; border-radius: 999px;
+  background: transparent; color: var(--accent); }
+.myira-send:hover:not(:disabled), .myira-send:focus-visible { background: color-mix(in srgb, var(--accent) 14%, transparent); color: var(--accent-hover); }
+.myira-send:disabled { color: var(--muted); opacity: 0.65; cursor: not-allowed; background: transparent; }
+.myira-send .icon { color: inherit; }

@@ -89,6 +89,8 @@ func fakeID(t *testing.T) *httptest.Server {
 type fakeAgent struct {
 	mu   sync.Mutex
 	seen []map[string]any
+	// answers: what to answer for a request, by op (else ok).
+	answers map[string]string
 }
 
 func (f *fakeAgent) last() map[string]any {
@@ -119,8 +121,12 @@ func startAgent(t *testing.T, socket string) *fakeAgent {
 			json.Unmarshal(line, &req)
 			f.mu.Lock()
 			f.seen = append(f.seen, req)
+			answer, ok := f.answers[req["op"].(string)]
 			f.mu.Unlock()
-			conn.Write([]byte(`{"ok":true,"op":"` + req["op"].(string) + `"}` + "\n"))
+			if !ok {
+				answer = `{"ok":true,"op":"` + req["op"].(string) + `"}`
+			}
+			conn.Write([]byte(answer + "\n"))
 			conn.Close()
 		}
 	}()
@@ -520,5 +526,27 @@ func TestPrefsChecked(t *testing.T) {
 	}
 	if box, _ := s.SaveBox(map[string]any{"background": "ocean", "lock_after": 15.0}); box.Background != "ocean" || box.LockAfter != 15 {
 		t.Errorf("%v", box)
+	}
+}
+
+// English and French only for now (box-desktop.md §5): no list, address or
+// setting offers another language.
+func TestOnlyEnglishAndFrenchAreOffered(t *testing.T) {
+	b := newBox(t)
+	_, places := b.do("GET", "/api/places", nil)
+	var codes []string
+	for _, l := range places["languages"].([]any) {
+		codes = append(codes, l.(map[string]any)["code"].(string))
+	}
+	if strings.Join(codes, " ") != "en fr" {
+		t.Errorf("languages offered: %v", codes)
+	}
+	for _, hidden := range []string{"ta", "de", "es", "ja", "zh", "zh_CN"} {
+		if _, got := b.do("GET", "/api/places/locale?language="+hidden+"&region=CA", nil); got["locale"] != "" {
+			t.Errorf("%s became a locale: %v", hidden, got["locale"])
+		}
+	}
+	if !Released("fr") || Released("ta") {
+		t.Error("released languages")
 	}
 }

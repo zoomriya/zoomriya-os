@@ -70,7 +70,7 @@ rollback path, so changing one layer does not change or roll back another.
 
 Each app image contains everything that app needs to run: its Python
 environment, `ffmpeg`, required libraries and any bundled programs, such as
-Photos' Qdrant or the Myira model service's llama.cpp. From the host, an app
+Photos' Qdrant. From the host, an app
 uses only the kernel, systemd, the network and the shared services' ports.
 Keeping app dependencies out of the host means:
 
@@ -85,9 +85,15 @@ Keeping app dependencies out of the host means:
   carries its own.
 
 The same goes for ZOOMRIYA ID and our platform services in zoomriya-apps (the box
-service, the Myira model service, backups, maps): each is an image. Backups'
+service, backups, maps): each is an image. Backups'
 image carries `restic` and `pg_dump`, the latter matching the host's PostgreSQL
 major version.
+
+The box's language model is the exception: its service is part of ZOOMRIYA OS
+(`zoomriya-model`, [Box Desktop §4](box-desktop.md#myira)), so Box Desktop's
+Myira works on a box with no apps. The package carries its own llama.cpp,
+built with the C++ runtime inside, and needs nothing from the host but the C
+library. The apps ask it on `127.0.0.1:8070`, as before.
 
 **Current state.** Photos' API is the only app component currently running in
 an image. The host still has some packages that will move into app images:
@@ -97,7 +103,7 @@ an image. The host still has some packages that will move into app images:
 | Photos' workers, in a venv on the host's `python3` | Photos' image, beside the API |
 | `ffmpeg`, installed with `apt` for the workers | Photos' image (already there); removed from the host |
 | Qdrant, a binary installed by `run_qdrant.sh` | Photos' image, as its own unit from the same image |
-| ZOOMRIYA ID, the box service, the Myira model service, Vault, Chat, Tracker, Planner, Myira, in venvs under `/opt/zoomriya/<app>/venv` | One image each |
+| ZOOMRIYA ID, the box service, Vault, Chat, Tracker, Planner, Myira, in venvs under `/opt/zoomriya/<app>/venv` | One image each |
 | `restic` and the maps tools | The backup and maps images |
 
 Each app will follow the pattern used for Photos. Completing that migration is
@@ -137,7 +143,7 @@ message or database row.
 | `@machines` | `/var/lib/machines` | No | App images; the agent keeps the current and previous release of each |
 | `@postgres` | `/var/lib/postgresql` | No | Every app's database. Snapshotted with a dump before an app migrates ([§6.2](#62-app-releases)) |
 | `@valkey` | `/var/lib/valkey` | No | |
-| `@data` | `/data` | No | `/data/zoomriya`, `/data/zoomriya-id`, `/data/models`, `/data/maps`, `/data/qdrant`, `/data/zoomriya-myira` |
+| `@data` | `/data` | No | `/data/zoomriya`, `/data/zoomriya-id`, `/data/models`, `/data/maps`, `/data/qdrant` |
 | `@log` | `/var/log` | No | Kept across rollbacks, so the reason for a rollback is still there |
 | `@snapshots` | `/.snapshots` | No | snapper's snapshots of `@` |
 
@@ -711,6 +717,8 @@ arbitrary commands:
 | `shutdown` | Shut the box down |
 | `advanced-access` | Turn advanced access on or off; list, add and remove its keys ([§7.1](#71-advanced-access)) |
 | `backups` | The box's backup as systemd runs it (zoomriya-apps' `zoomriya-backup.service` and its nightly timer): set up or not, running, the last run's start, end and result, its problems from the journal (that run's `ERROR:` lines), the next nightly run, and where the backups go, any password taken out. Back up now (`systemctl start --no-block`), and the nightly timer on or off. Never reads restic's password or the backups |
+| `model` | Myira's model ([Box Desktop §4](box-desktop.md#myira), BD-17): what's there and how far a download or copy has got; download it (as its own unit, `zoomriya-agent model-fetch`, run as `zoomriya-model-fetch`, the account of the model's declared connection, so the firewall decides); find it on the USB sticks; copy it from one (`zoomriya-agent model-copy`). Each file checked against its size and SHA-256 before it's put in `/data/models/llms` |
+| `language-set` | The box's language: English or French only for now ([Box Desktop §5](box-desktop.md#5-words)); any other is refused |
 | `pictures` | The JPEG and PNG pictures on the USB sticks plugged in, each with a small preview; one of them made into a new JPEG for Box Desktop's background, scaled to at most 3840 pixels across and turned the right way up, never the file itself ([Box Desktop §3](box-desktop.md#3-the-desktop)). Read only |
 
 - Its socket is `0660`, group `zoomriya-box`.

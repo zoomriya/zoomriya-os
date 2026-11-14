@@ -48,7 +48,9 @@ func TestPlacesFromTheBoxFiles(t *testing.T) {
 	if got := p.BoxLanguage(); got != "fr" {
 		t.Errorf("box language %q", got)
 	}
-	for in, want := range map[string]string{"zh_TW.UTF-8": "zh_CN", "pt_BR": "en", "ta_LK": "ta", "zh_CN": "zh_CN"} {
+	// English and French only for now: a hidden language shows English.
+	for in, want := range map[string]string{"zh_TW.UTF-8": "en", "pt_BR": "en", "ta_LK": "en", "zh_CN": "en",
+		"de_DE.UTF-8": "en", "fr_CA.UTF-8": "fr", "fr": "fr", "en_GB": "en", "": "en"} {
 		if Ours(in) != want {
 			t.Errorf("Ours(%s) = %s", in, Ours(in))
 		}

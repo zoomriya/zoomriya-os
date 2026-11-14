@@ -88,6 +88,15 @@ func (s *Server) zonesIn(w http.ResponseWriter, r *http.Request, l Listener, _ *
 
 func (s *Server) locale(w http.ResponseWriter, r *http.Request, l Listener, _ *Session) {
 	q := r.URL.Query()
+	// Only an offered language can become the box's.
+	language := q.Get("language")
+	if language == "zh" {
+		language = "zh_CN"
+	}
+	if !Released(language) {
+		writeJSON(w, http.StatusOK, map[string]string{"locale": ""})
+		return
+	}
 	writeJSON(w, http.StatusOK, map[string]string{"locale": s.Places.LocaleFor(q.Get("language"), q.Get("region"))})
 }
 

@@ -34,6 +34,9 @@ are:
 - **Btrfs** — provides system snapshots and rollback.
 - **ZOOMRIYA Agent** — performs privileged system operations.
 - **Box Desktop** — gives administrators a graphical way to manage the box.
+- **zoomriya-model** — the box's one language model (llama.cpp's
+  `llama-server` with Gemma 4), on the box only and never online, for Myira
+  and the ZOOMRIYA applications.
 - **mkosi** — builds the operating system image.
 
 The operating system and applications have separate update and recovery
@@ -66,6 +69,14 @@ tools for tasks such as:
 - Installing updates and viewing restore points.
 - Restoring the system.
 - Viewing logs and managing system settings.
+- Asking **Myira**, the box's assistant, about the box: its storage, drives,
+  backups, updates and network. A change she suggests waits for the
+  administrator's confirmation, and anything that asks for the password again
+  is never done by her. With the ZOOMRIYA applications installed, the same
+  panel answers everything Myira answers.
+
+Box Desktop, the installer and the first setup come in English and French for
+now; more languages follow once a native speaker has checked each one.
 
 Family members do not need to manage the operating system. Their normal
 experience is using the ZOOMRIYA applications that run on the box.
@@ -76,7 +87,8 @@ ZOOMRIYA OS is an early-stage project. The system image can be built and
 booted in a virtual machine. Automatic Debian security updates, restore
 points and system restore, and fallback to a previous kernel are part of the
 current system work. The ZOOMRIYA Agent and Box Desktop have their first
-working features; other parts are still being developed.
+working features, and Myira answers in Box Desktop with the box's own model
+service; other parts are still being developed.
 
 The Box Desktop screenshot below is from its mockup.
 

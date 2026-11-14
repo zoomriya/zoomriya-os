@@ -12,9 +12,8 @@
 
 	const STEPS = [N_('Language'), N_('Welcome'), N_('Drive'), N_('Summary'), N_('Install'), N_('Done')];
 	const [LANGUAGE, WELCOME, DRIVE, SUMMARY, INSTALL, DONE] = [0, 1, 2, 3, 4, 5];
-	/** The installer's languages, each named in itself. */
-	const LANGUAGES: [string, string][] = [['en', 'English'], ['fr', 'Français'], ['de', 'Deutsch'], ['es', 'Español'],
-		['ta', 'தமிழ்'], ['ja', '日本語'], ['zh_CN', '简体中文']];
+	/** The installer's languages, each named in itself: English and French for now (box-desktop.md §5). */
+	const LANGUAGES: [string, string][] = [['en', 'English'], ['fr', 'Français']];
 	const SLIDE_SECONDS = 7;
 	const SLIDES: [string, string, string, [string, string]][] = [
 		['home', N_('Your files stay at home'), N_('Everything stays on the box, at home, not in someone else\'s cloud.'), ['#1765c1', '#3b8ce0']],

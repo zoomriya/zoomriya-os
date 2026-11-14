@@ -43,30 +43,53 @@ type Choice struct {
 	Name string `json:"name"`
 }
 
-// Languages: those our screens are translated into, each in itself
-// (zoomriya_setup.app.languages).
-var Languages = []Choice{{"en", "English"}, {"fr", "Français"}, {"de", "Deutsch"}, {"es", "Español"},
-	{"ta", "தமிழ்"}, {"ja", "日本語"}, {"zh", "简体中文"}}
+// translations: every language our screens are translated into (po/), each
+// in itself, by gettext's code (zoomriya_setup.i18n.OURS).
+var translations = []Choice{{"en", "English"}, {"fr", "Français"}, {"de", "Deutsch"}, {"es", "Español"},
+	{"ta", "தமிழ்"}, {"ja", "日本語"}, {"zh_CN", "简体中文"}}
 
-// ourLanguages are gettext's codes for them (zoomriya_setup.i18n.OURS).
-var ourLanguages = []string{"en", "fr", "de", "es", "ta", "ja", "zh_CN"}
+// released: the languages offered (box-desktop.md §5, decided 13 November
+// 2026): English and French, until a native speaker has checked another.
+// The others stay translated and hidden; switching one on is adding it here
+// (and to the page's and the installer's lists).
+var released = []string{"en", "fr"}
 
-// Ours: a language as Debian names it, as our screens show it; English for
-// the rest (zoomriya_setup.i18n.ours).
-func Ours(code string) string {
-	code, _, _ = strings.Cut(code, ".")
-	for _, l := range ourLanguages {
-		if l == code {
-			return code
+// Languages: those offered, each in itself, as the setup and Control
+// Panel › Language list them ("zh" for Simplified Chinese, as Debian's
+// locales name it).
+var Languages = func() []Choice {
+	offered := []Choice{}
+	for _, t := range translations {
+		if Released(t.Code) {
+			code, _, _ := strings.Cut(t.Code, "_")
+			offered = append(offered, Choice{code, t.Name})
 		}
 	}
+	return offered
+}()
+
+// Released: a language our screens may be shown in, by its gettext code.
+func Released(code string) bool {
+	for _, l := range released {
+		if l == code {
+			return true
+		}
+	}
+	return false
+}
+
+// Ours: a language as Debian names it, as our screens show it: one of the
+// released languages, else English, a hidden one included
+// (zoomriya_setup.i18n.ours).
+func Ours(code string) string {
+	code, _, _ = strings.Cut(code, ".")
 	base, _, _ := strings.Cut(code, "_")
 	if base == "zh" {
-		return "zh_CN"
+		base = "zh_CN"
 	}
-	for _, l := range ourLanguages {
-		if l == base {
-			return base
+	for _, c := range []string{code, base} {
+		if Released(c) {
+			return c
 		}
 	}
 	return "en"

@@ -10,6 +10,7 @@
 	import Confirm from '../components/Confirm.svelte';
 	import Backdrop from './Backdrop.svelte';
 	import Dock from './Dock.svelte';
+	import MyiraPanel from './MyiraPanel.svelte';
 	import Shortcuts from './Shortcuts.svelte';
 	import TopBar from './TopBar.svelte';
 	import Widgets from './Widgets.svelte';
@@ -71,6 +72,7 @@
 </div>
 <Dock />
 <TopBar />
+<MyiraPanel />
 {#each desk.sheets as s (s.id)}
 	<s.component {...s.props} />
 {/each}

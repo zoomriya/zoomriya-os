@@ -325,6 +325,10 @@ main{{padding:28px;display:grid;grid-template-columns:repeat(auto-fill,minmax(18
             return self._pictures(fields)
         if op == "backups":
             return self._backups(fields)
+        if op == "model":
+            import samplemodel  # the preview's sample model (fakebox.py)
+
+            return samplemodel.agent_model(fields)
         if op == "apps":
             action = fields.get("action")
             if action == "usb":

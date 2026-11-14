@@ -1,6 +1,7 @@
 // language-set (design §5): the box's language and its country's ways of
-// writing dates and numbers, as one of Debian's locales, such as ta_LK or
-// en_CA.UTF-8. The box builds only the one chosen.
+// writing dates and numbers, as one of Debian's locales, such as fr_CA.UTF-8
+// or en_GB.UTF-8. The box builds only the one chosen. Only English and
+// French for now (box-desktop.md §5): the others are refused, whoever asks.
 package main
 
 import (
@@ -20,6 +21,23 @@ const (
 )
 
 var localeName = regexp.MustCompile(`^[a-z]{2,3}_[A-Z]{2}(\.UTF-8)?(@[a-z]+)?$`)
+
+// releasedLanguages: the languages the box may be set to (box-desktop.md §5,
+// decided 13 November 2026), in any country's way of writing them (en_CA,
+// fr_BE). The others stay translated and hidden until a native speaker has
+// checked them; switching one on is adding it here, as in Box Desktop's and
+// the installer's lists.
+var releasedLanguages = []string{"en", "fr"}
+
+func releasedLocale(locale string) bool {
+	language, _, _ := strings.Cut(locale, "_")
+	for _, l := range releasedLanguages {
+		if l == language {
+			return true
+		}
+	}
+	return false
+}
 
 // language is the box's locale; empty until the first setup asks.
 func (a *Agent) language() string {
@@ -56,6 +74,9 @@ func (a *Agent) supportedEntry(locale string) string {
 func (a *Agent) languageSet(locale *string) (Response, error) {
 	if locale == nil || !localeName.MatchString(*locale) {
 		return nil, refuse("Which language? Choose one from the list.")
+	}
+	if !releasedLocale(*locale) {
+		return nil, refuse("The box comes in English and French for now.")
 	}
 	entry := a.supportedEntry(*locale)
 	if entry == "" {

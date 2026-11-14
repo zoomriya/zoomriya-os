@@ -108,6 +108,53 @@ async function call<T>(method: string, path: string, body?: unknown): Promise<T>
 }
 
 export const get = <T>(path: string) => call<T>('GET', path);
+
+/**
+ * A POST answered as a stream, one JSON object a line (Myira's answers):
+ * each object to each(), as it comes. A refusal before the stream starts is
+ * a Problem, as for call().
+ */
+export async function stream(path: string, body: unknown, each: (event: Answer) => void, signal?: AbortSignal): Promise<void> {
+	let answer: Response;
+	try {
+		answer = await fetch(path, {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json', 'X-Box-Desktop-Token': token },
+			body: JSON.stringify(body),
+			credentials: 'same-origin',
+			cache: 'no-store',
+			signal
+		});
+	} catch {
+		throw new Problem('box_down', words({ code: 'box_down' }));
+	}
+	if (!answer.ok || !answer.body) {
+		const refusal = ((await answer.json().catch(() => null)) ?? {}) as Refusal;
+		if (refusal.code === 'signed_out') signedOut();
+		if (refusal.code === 'screen_locked') lockedOut();
+		throw new Problem(refusal.code ?? 'unknown', words(refusal), '', answer.status);
+	}
+	const reader = answer.body.getReader();
+	const decoder = new TextDecoder();
+	let kept = '';
+	for (;;) {
+		const { value, done } = await reader.read();
+		kept += decoder.decode(value ?? new Uint8Array(), { stream: !done });
+		let end: number;
+		while ((end = kept.indexOf('\n')) >= 0) {
+			const line = kept.slice(0, end).trim();
+			kept = kept.slice(end + 1);
+			if (line) {
+				try {
+					each(JSON.parse(line) as Answer);
+				} catch {
+					// Not a line of the answer: skipped.
+				}
+			}
+		}
+		if (done) break;
+	}
+}
 export const post = <T>(path: string, body: unknown = {}) => call<T>('POST', path, body);
 export const put = <T>(path: string, body: unknown) => call<T>('PUT', path, body);
 export const patch = <T>(path: string, body: unknown) => call<T>('PATCH', path, body);

@@ -20,9 +20,11 @@ import secrets
 import socketserver
 import sys
 import threading
+import time
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from typing import Any
 
+import samplemodel
 from sample import (AgentError, FakeBoxAgent, FakeID, Member, NewPasswordNeeded, PeopleError,
                     SecondStepNeeded, SecondStepSetupNeeded, SignInError)
 
@@ -105,7 +107,37 @@ class IDHandler(BaseHTTPRequestHandler):
         else:
             self.answer(401, {"detail": str(exc)})
 
+    def model(self) -> bool:
+        """The sample model (samplemodel.py), under /model/myira/api/v1."""
+        if not self.path.startswith("/model/"):
+            return False
+        path = self.path.removeprefix("/model/myira/api/v1")
+        if path == "/model/current":
+            self.answer(200, samplemodel.current())
+            return True
+        b = self.body()
+        if not samplemodel.loaded():
+            self.answer(503, {"detail": "Myira's model is still loading. Try again in a moment."})
+            return True
+        messages = b.get("messages") or [{}, {}]
+        if path == "/complete":
+            self.answer(200, {"reply": samplemodel.pick(messages[-1].get("content", ""))})
+            return True
+        if path == "/complete/stream":
+            self.send_response(200)
+            self.send_header("Content-Type", "application/x-ndjson")
+            self.end_headers()
+            for line in samplemodel.answer_lines(messages[0].get("content", "")):
+                self.wfile.write(line)
+                self.wfile.flush()
+                time.sleep(0.06)
+            return True
+        self.answer(404)
+        return True
+
     def do_POST(self) -> None:  # noqa: N802
+        if self.model():
+            return
         path, b = self.path.removeprefix("/id/api/v1"), self.body()
         try:
             if path == "/auth/login":
@@ -148,6 +180,8 @@ class IDHandler(BaseHTTPRequestHandler):
         self.answer(404)
 
     def do_GET(self) -> None:  # noqa: N802
+        if self.model():
+            return
         if self.path.startswith("/app/"):
             # An app's pages, as the box would serve them.
             app_id = self.path.split("/")[2]

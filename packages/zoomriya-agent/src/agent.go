@@ -48,7 +48,8 @@ type Request struct {
 	DNS     []string `json:"dns,omitempty"`
 	// keyboard-set: one of the layouts keyboard lists.
 	Layout *string `json:"layout,omitempty"`
-	// language-set: one of Debian's locales, such as ta_LK or en_CA.UTF-8.
+	// language-set: one of Debian's English or French locales, such as
+	// fr_CA.UTF-8 or en_GB.UTF-8.
 	Locale *string `json:"locale,omitempty"`
 	// region-set: the box's country or region, a two-letter code such as CA,
 	// and optionally its state or province, such as CA-ON.
@@ -128,7 +129,7 @@ var readOnly = map[string]bool{
 
 // readOnlyAction: these change nothing when they only list, show or read.
 // pictures only reads: it lists and reads pictures on a USB stick.
-var readOnlyAction = map[string]bool{"diagnostics": true, "advanced-access": true, "apps": true, "pictures": true, "backups": true}
+var readOnlyAction = map[string]bool{"diagnostics": true, "advanced-access": true, "apps": true, "pictures": true, "backups": true, "model": true}
 
 func NewAgent() *Agent {
 	return &Agent{Root: "/", Run: run, Now: time.Now, Notes: NewJournal()}
@@ -237,6 +238,8 @@ func (a *Agent) Handle(req Request) (Response, error) {
 		return a.picturesRequest(req)
 	case "backups":
 		return a.backupsRequest(req)
+	case "model":
+		return a.modelRequest(req)
 	case "":
 		return nil, refuse("No request given.")
 	default:

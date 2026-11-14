@@ -204,6 +204,9 @@ class Desk {
 	sheets = $state<SheetEntry[]>([]);
 	widgetsShown = $state(true);
 	menuOpen = $state(false);
+	/** Myira's panel (box-desktop.md §4): open, and the tool its ? was pressed in. */
+	myiraOpen = $state(false);
+	myiraAbout = $state('');
 	hasSound = $state(false);
 	/** Where the apps' pages are, when not the box's own address (the preview). */
 	appBase = $state('');
@@ -521,6 +524,13 @@ class Desk {
 	title(kind: string): string {
 		if (kind.startsWith('app:')) return this.apps[kind.slice(4)]?.name || kind.slice(4);
 		return TOOLS[kind] ? _(TOOLS[kind][0]) : kind;
+	}
+
+	/** Myira's panel, from the top bar, or from a tool's ? with that tool named. */
+	openMyira(about = ''): void {
+		this.menuOpen = false;
+		this.myiraAbout = about;
+		this.myiraOpen = true;
 	}
 
 	openTool(kind: string, section?: string | null, restoring = false): void {

@@ -76,6 +76,13 @@ func main() {
 	if len(os.Args) == 2 && os.Args[1] == "release-holds" {
 		os.Exit(releaseHolds())
 	}
+	// Myira's model, fetched or copied as its own unit (model.go).
+	if len(os.Args) == 3 && os.Args[1] == "model-fetch" {
+		os.Exit(modelFetchJob(os.Args[2]))
+	}
+	if len(os.Args) == 5 && os.Args[1] == "model-copy" {
+		os.Exit(modelCopyJob(os.Args[2], os.Args[3], os.Args[4]))
+	}
 	if len(os.Args) == 3 && os.Args[1] == "network-undo" {
 		os.Exit(networkUndo(os.Args[2]))
 	}
@@ -293,7 +300,7 @@ func detail(req Request) string {
 			on = strconv.FormatBool(*req.On)
 		}
 		return strings.TrimSpace(str(req.Action) + " " + on)
-	case "pictures":
+	case "pictures", "model":
 		return strings.Join(strings.Fields(str(req.Action)+" "+str(req.Device)+" "+str(req.Name)), " ")
 	case "diagnostics":
 		parts := []string{str(req.Action), str(req.Name), str(req.Device)}

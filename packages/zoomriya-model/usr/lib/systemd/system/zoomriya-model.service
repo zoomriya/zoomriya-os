@@ -1,0 +1,56 @@
+# The box's model service (box-desktop.md §4, Myira): one language model in
+# memory, in llama.cpp's llama-server, answering Box Desktop's Myira and the
+# ZOOMRIYA apps on loopback only (127.0.0.1:8070). Its llama-server listens
+# on 127.0.0.1:8071 behind a key only this service knows.
+[Unit]
+Description=ZOOMRIYA model service (the box's language model)
+Documentation=https://github.com/zoomriya/zoomriya-os/blob/main/docs/box-desktop.md
+After=network.target zoomriya-id.service
+Wants=zoomriya-id.service
+# The apps' own model service, from before: the same address.
+Conflicts=zoomriya-myira.service
+
+[Service]
+User=zoomriya-model
+Group=zoomriya-model
+ExecStart=/usr/lib/zoomriya-model/zoomriya-modeld
+# The admin's model choice.
+StateDirectory=zoomriya-model
+StateDirectoryMode=0700
+Restart=always
+RestartSec=3
+TimeoutStopSec=30
+# The model takes about its file size in memory, and its vision file more.
+MemoryMax=8G
+# The box's other work goes first.
+Nice=5
+# Offline, always: it reaches only this box (ZOOMRIYA ID, for its keys).
+IPAddressDeny=any
+IPAddressAllow=localhost
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+NoNewPrivileges=yes
+ProtectSystem=strict
+ReadOnlyPaths=-/data/models
+ProtectHome=yes
+PrivateTmp=yes
+PrivateDevices=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectKernelLogs=yes
+ProtectControlGroups=yes
+ProtectClock=yes
+ProtectHostname=yes
+RestrictNamespaces=yes
+RestrictRealtime=yes
+RestrictSUIDSGID=yes
+LockPersonality=yes
+MemoryDenyWriteExecute=yes
+SystemCallArchitectures=native
+SystemCallFilter=@system-service
+SystemCallFilter=~@privileged @resources
+SystemCallErrorNumber=EPERM
+CapabilityBoundingSet=
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target

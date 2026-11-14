@@ -48,6 +48,10 @@ type Config struct {
 	// AppBase: where the apps' pages are, the preview's sample box's; on the
 	// box, "" (https://<the box's name>/<app>/).
 	AppBase string
+	// MyiraApp: the Myira app's API, when installed (the assistant contract);
+	// ModelAPI: the box's model service (zoomriya-model). Both on loopback.
+	MyiraApp string
+	ModelAPI string
 }
 
 func env(name, fallback string) string {
@@ -72,6 +76,8 @@ func configFromEnv() Config {
 		AppBase:    os.Getenv("BOX_DESKTOP_APP_BASE"),
 		SetupDone:  env("BOX_DESKTOP_SETUP_DONE", "/var/lib/zoomriya-os/setup-done"),
 		StateDir:   env("STATE_DIRECTORY", "/var/lib/box-desktop"),
+		MyiraApp:   env("BOX_DESKTOP_MYIRA_APP", "http://127.0.0.1:8300/myira/api/v1"),
+		ModelAPI:   env("BOX_DESKTOP_MODEL_API", "http://127.0.0.1:8070/myira/api/v1"),
 	}
 }
 

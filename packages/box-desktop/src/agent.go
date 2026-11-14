@@ -61,6 +61,8 @@ var agentRules = map[string]Rule{
 	"apps":                  {PasswordActions: []string{"restore", "remove", "install"}},
 	"pictures":              {},
 	"backups":               {},
+	// Myira's model: fetched or copied from a stick, when an admin asks (BD-17).
+	"model": {},
 	// Can't sign in?: the setup code from the sticker lets an admin back in.
 	// At the box only: over the home network, anyone who has seen the code
 	// could use it.

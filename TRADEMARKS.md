@@ -3,9 +3,10 @@
 The code in this repository is licensed under
 [AGPL-3.0-only](LICENSE-AGPL-3.0). The licence
 covers the code, not the names: **ZOOMRIYA**, **ZOOMRIYA OS** (also written
-Zoomriya OS) and the ZOOMRIYA logo are trademarks of ZOOMRIYA and aren't
-licensed to you. That includes the logo's images in this repository
-(`packages/box-desktop/web/public/logo/` and the installer's copy).
+Zoomriya OS), **Myira**, the ZOOMRIYA logo and Myira's mark are trademarks of
+ZOOMRIYA and aren't licensed to you. That includes the logo's images in this
+repository (`packages/box-desktop/web/public/logo/` and the installer's copy)
+and Myira's mark (`packages/box-desktop/web/src/components/MyiraMark.svelte`).
 
 You may:
 
@@ -15,7 +16,8 @@ You may:
 Please don't:
 
 - call a modified version, a fork or an image you build "ZOOMRIYA" or
-  "ZOOMRIYA OS", or use a name or logo that could be mistaken for them;
+  "ZOOMRIYA OS", call its assistant "Myira", or use a name or logo that could
+  be mistaken for them;
 - suggest ZOOMRIYA made, reviewed or endorses your work when it didn't.
 
 If you build your own image from this repository, give it your own name,

@@ -25,7 +25,7 @@ msgstr "隐藏密码"
 msgid "Show password"
 msgstr "显示密码"
 
-#: components/Sheet.svelte:13 pages/Window.svelte:63
+#: components/Sheet.svelte:13 pages/MyiraPanel.svelte:280 pages/MyiraPanel.svelte:280 pages/Window.svelte:63
 #, fuzzy
 msgid "Close"
 msgstr "关闭"
@@ -220,7 +220,7 @@ msgstr "日志中心"
 msgid "Support Center"
 msgstr "支持中心"
 
-#: lib/desk.svelte.ts:40 lib/words.ts:276 pages/Setup.svelte:16 pages/Widgets.svelte:87 tools/Resources.svelte:43
+#: lib/desk.svelte.ts:40 lib/words.ts:277 pages/Setup.svelte:16 pages/Widgets.svelte:87 tools/Resources.svelte:43
 #, fuzzy
 msgid "Network"
 msgstr "网络"
@@ -235,7 +235,7 @@ msgstr "显示"
 msgid "Appearance"
 msgstr "外观"
 
-#: lib/desk.svelte.ts:41 pages/TopBar.svelte:112 pages/TopBar.svelte:112
+#: lib/desk.svelte.ts:41 pages/TopBar.svelte:118 pages/TopBar.svelte:118
 #, fuzzy
 msgid "Sound"
 msgstr "声音"
@@ -260,7 +260,7 @@ msgstr "日期和时间"
 msgid "People"
 msgstr "用户"
 
-#: lib/desk.svelte.ts:43 lib/desk.svelte.ts:57 pages/TopBar.svelte:86 pages/TopBar.svelte:86 pages/TopBar.svelte:94
+#: lib/desk.svelte.ts:43 lib/desk.svelte.ts:57 pages/TopBar.svelte:92 pages/TopBar.svelte:92 pages/TopBar.svelte:100
 #, fuzzy
 msgid "Notifications"
 msgstr "通知"
@@ -275,7 +275,7 @@ msgstr "安全"
 msgid "Advanced access"
 msgstr "高级访问"
 
-#: lib/desk.svelte.ts:44 lib/words.ts:274
+#: lib/desk.svelte.ts:44 lib/words.ts:275
 #, fuzzy
 msgid "Restarts"
 msgstr "重启"
@@ -370,32 +370,32 @@ msgstr "家庭动态"
 msgid "System log"
 msgstr "系统日志"
 
-#: lib/desk.svelte.ts:708
+#: lib/desk.svelte.ts:718
 #, fuzzy
 msgid "Restart the box?"
 msgstr "重启盒子吗？"
 
-#: lib/desk.svelte.ts:709
+#: lib/desk.svelte.ts:719
 #, fuzzy
 msgid "Everything stops for a minute or two, then starts again."
 msgstr "一切会停止一两分钟，然后重新启动。"
 
-#: lib/desk.svelte.ts:710 pages/Widgets.svelte:20
+#: lib/desk.svelte.ts:720 pages/Widgets.svelte:20
 #, fuzzy
 msgid "Restart"
 msgstr "重启"
 
-#: lib/desk.svelte.ts:722
+#: lib/desk.svelte.ts:732
 #, fuzzy
 msgid "Shut the box down?"
 msgstr "关闭盒子吗？"
 
-#: lib/desk.svelte.ts:723
+#: lib/desk.svelte.ts:733
 #, fuzzy
 msgid "All apps stop and backups pause until someone presses the power button."
 msgstr "所有应用都会停止，备份也会暂停，直到有人按下电源按钮。"
 
-#: lib/desk.svelte.ts:724
+#: lib/desk.svelte.ts:734
 #, fuzzy
 msgid "Shut down"
 msgstr "关机"
@@ -520,967 +520,967 @@ msgstr "1 个警告"
 msgid "{n} warnings"
 msgstr "{n} 个警告"
 
-#: lib/words.ts:144
+#: lib/words.ts:145
 #, fuzzy
 msgid "ethernet cable ip address dhcp fixed static router gateway dns lan wifi wireless internet"
 msgstr "以太网 网线 IP地址 固定 静态 路由器 网关 局域网 无线 Wi-Fi 互联网"
 
-#: lib/words.ts:145
+#: lib/words.ts:146
 #, fuzzy
 msgid "screen monitor resolution refresh rate rotate orientation scale size text"
 msgstr "屏幕 显示器 分辨率 刷新率 旋转 方向 缩放 大小 文字"
 
-#: lib/words.ts:146
+#: lib/words.ts:147
 #, fuzzy
 msgid "theme dark light night day midnight daylight accent colour color wallpaper background picture photo desktop look"
 msgstr "主题 深色 浅色 夜间 日间 强调 颜色 壁纸 背景 图片 照片 桌面 外观"
 
-#: lib/words.ts:147
+#: lib/words.ts:148
 #, fuzzy
 msgid "audio speakers headphones volume microphone mic input output mute"
 msgstr "音频 扬声器 耳机 音量 麦克风 输入 输出 静音"
 
-#: lib/words.ts:148
+#: lib/words.ts:149
 #, fuzzy
 msgid "layout keys mouse cursor pointer speed left handed scroll touchpad"
 msgstr "布局 按键 鼠标 光标 指针 速度 左手 滚动 触控板"
 
-#: lib/words.ts:149
+#: lib/words.ts:150
 #, fuzzy
 msgid "language translation country region province state locale"
 msgstr "语言 翻译 国家 地区 省 州"
 
-#: lib/words.ts:150
+#: lib/words.ts:151
 #, fuzzy
 msgid "clock date time zone timezone ntp sync"
 msgstr "时钟 日期 时间 时区 同步"
 
-#: lib/words.ts:151
+#: lib/words.ts:152
 #, fuzzy
 msgid "users accounts members family admins add person password forgot children kids parents guardians"
 msgstr "用户 账户 成员 家庭 管理员 添加 人 密码 忘记 儿童 孩子 家长 监护人"
 
-#: lib/words.ts:152
+#: lib/words.ts:153
 #, fuzzy
 msgid "alerts bell messages"
 msgstr "提醒 铃铛 消息"
 
-#: lib/words.ts:153
+#: lib/words.ts:154
 #, fuzzy
 msgid "firewall ports updates patches secure boot apparmor scan integrity privacy outbound"
 msgstr "防火墙 端口 更新 补丁 安全启动 扫描 完整性 隐私 出站"
 
-#: lib/words.ts:154
+#: lib/words.ts:155
 #, fuzzy
 msgid "ssh terminal command line shell remote sudo admin keys"
 msgstr "终端 命令行 远程 管理员 密钥"
 
-#: lib/words.ts:155
+#: lib/words.ts:156
 #, fuzzy
 msgid "reboot restart power shut down shutdown maintenance hour always on sleep"
 msgstr "重启 电源 关机 维护 时间 始终开启 睡眠"
 
-#: lib/words.ts:156
+#: lib/words.ts:157
 #, fuzzy
 msgid "restore rollback undo update snapshot reset factory erase wipe"
 msgstr "还原 回滚 撤销 更新 快照 重置 出厂 清除"
 
-#: lib/words.ts:157
+#: lib/words.ts:158
 #, fuzzy
 msgid "about system info model serial number version processor memory support period"
 msgstr "关于 系统信息 型号 序列号 版本 处理器 内存 支持期限"
 
-#: lib/words.ts:158
+#: lib/words.ts:159
 #, fuzzy
 msgid "disk space library mirror check scrub damage full"
 msgstr "磁盘 空间 资料库 镜像 检查 损坏 已满"
 
-#: lib/words.ts:159
+#: lib/words.ts:160
 #, fuzzy
 msgid "drive disk health smart failing replace temperature"
 msgstr "硬盘 磁盘 健康 故障 更换 温度"
 
-#: lib/words.ts:160
+#: lib/words.ts:161
 #, fuzzy
 msgid "space usage full photos apps databases"
 msgstr "空间 使用 已满 照片 应用 数据库"
 
-#: lib/words.ts:161
+#: lib/words.ts:162
 #, fuzzy
 msgid "backup backups restic copy nightly restore safe offsite"
 msgstr "备份 恢复 复制 每晚 安全 异地"
 
-#: lib/words.ts:162
+#: lib/words.ts:163
 #, fuzzy
 msgid "apps applications installed remove uninstall delete restore version update running"
 msgstr "应用 程序 已安装 移除 卸载 删除 还原 版本 更新 运行中"
 
-#: lib/words.ts:163
+#: lib/words.ts:164
 #, fuzzy
 msgid "install add app usb stick package zapp sideload new update"
 msgstr "安装 添加 应用 U盘 安装包 zapp 新 更新"
 
-#: lib/words.ts:164
+#: lib/words.ts:165
 #, fuzzy
 msgid "cpu processor memory ram load network activity performance"
 msgstr "处理器 内存 负载 网络 活动 性能"
 
-#: lib/words.ts:165
+#: lib/words.ts:166
 #, fuzzy
 msgid "app service busy slow usage"
 msgstr "应用 服务 繁忙 慢 使用"
 
-#: lib/words.ts:166
+#: lib/words.ts:167
 #, fuzzy
 msgid "temperature heat hot fan sensors"
 msgstr "温度 发热 过热 风扇 传感器"
 
-#: lib/words.ts:167
+#: lib/words.ts:168
 #, fuzzy
 msgid "events history updates restarts"
 msgstr "事件 历史 更新 重启"
 
-#: lib/words.ts:168
+#: lib/words.ts:169
 #, fuzzy
 msgid "past notifications alerts history"
 msgstr "过去的通知 提醒 历史"
 
-#: lib/words.ts:169
+#: lib/words.ts:170
 #, fuzzy
 msgid "audit who changed admin actions history"
 msgstr "审计 谁改的 管理员操作 历史"
 
-#: lib/words.ts:170
+#: lib/words.ts:171
 #, fuzzy
 msgid "sign in login logins who"
 msgstr "登录 谁"
 
-#: lib/words.ts:171
+#: lib/words.ts:172
 #, fuzzy
 msgid "family activity sign-ins wrong password devices share links guest links settings accounts second step who did what"
 msgstr "家庭 动态 登录 密码错误 设备 共享链接 访客链接 设置 账户 第二步 谁做了什么"
 
-#: lib/words.ts:172
+#: lib/words.ts:173
 #, fuzzy
 msgid "journal system log errors warnings"
 msgstr "日志 系统日志 错误 警告"
 
-#: lib/words.ts:173
+#: lib/words.ts:174
 #, fuzzy
 msgid "diagnostics bundle logs support"
 msgstr "诊断 诊断包 日志 支持"
 
-#: lib/words.ts:174
+#: lib/words.ts:175
 #, fuzzy
 msgid "diagnostics bundle logs debug report usb send support problem"
 msgstr "诊断 诊断包 日志 调试 报告 U盘 发送 支持 问题"
 
-#: lib/words.ts:175
+#: lib/words.ts:176
 #, fuzzy
 msgid "contact support help ticket serial number phone email"
 msgstr "联系 支持 帮助 工单 序列号 电话 邮件"
 
-#: lib/words.ts:176
+#: lib/words.ts:177
 #, fuzzy
 msgid "help questions faq how to troubleshoot problem"
 msgstr "帮助 问题 常见问题 如何 排查 故障"
 
-#: lib/words.ts:181 tools/Network.svelte:125
+#: lib/words.ts:182 tools/Network.svelte:125
 #, fuzzy
 msgid "IP Address Assignment Method"
 msgstr "IP 地址分配方式"
 
-#: lib/words.ts:182 tools/Network.svelte:116
+#: lib/words.ts:183 tools/Network.svelte:116
 #, fuzzy
 msgid "Wi-Fi (Wireless Network)"
 msgstr "Wi-Fi（无线网络）"
 
-#: lib/words.ts:183 tools/Display.svelte:164 tools/Display.svelte:166
+#: lib/words.ts:184 tools/Display.svelte:164 tools/Display.svelte:166
 #, fuzzy
 msgid "Resolution"
 msgstr "分辨率"
 
-#: lib/words.ts:184 tools/Display.svelte:158 tools/Display.svelte:160
+#: lib/words.ts:185 tools/Display.svelte:158 tools/Display.svelte:160
 #, fuzzy
 msgid "Orientation"
 msgstr "方向"
 
-#: lib/words.ts:185 tools/Display.svelte:170 tools/Display.svelte:172
+#: lib/words.ts:186 tools/Display.svelte:170 tools/Display.svelte:172
 #, fuzzy
 msgid "Screen Update Rate"
 msgstr "刷新率"
 
-#: lib/words.ts:186 tools/Display.svelte:176 tools/Display.svelte:179
+#: lib/words.ts:187 tools/Display.svelte:176 tools/Display.svelte:179
 #, fuzzy
 msgid "Text & UI Scaling"
 msgstr "文字和界面缩放"
 
-#: lib/words.ts:187 tools/Appearance.svelte:25 tools/Appearance.svelte:27
+#: lib/words.ts:188 tools/Appearance.svelte:25 tools/Appearance.svelte:27
 #, fuzzy
 msgid "Style"
 msgstr "样式"
 
-#: lib/words.ts:188 tools/Appearance.svelte:42 tools/Appearance.svelte:44
+#: lib/words.ts:189 tools/Appearance.svelte:42 tools/Appearance.svelte:44
 #, fuzzy
 msgid "Accent Colour"
 msgstr "强调色"
 
-#: lib/words.ts:189 tools/Appearance.svelte:56 tools/Appearance.svelte:61
+#: lib/words.ts:190 tools/Appearance.svelte:56 tools/Appearance.svelte:61
 #, fuzzy
 msgid "Background"
 msgstr "背景"
 
-#: lib/words.ts:190 tools/Appearance.svelte:58
+#: lib/words.ts:191 tools/Appearance.svelte:58
 #, fuzzy
 msgid "Add Picture"
 msgstr "添加图片"
 
-#: lib/words.ts:191 tools/Sound.svelte:71 tools/Sound.svelte:73
+#: lib/words.ts:192 tools/Sound.svelte:71 tools/Sound.svelte:73
 #, fuzzy
 msgid "Output Device"
 msgstr "输出设备"
 
-#: lib/words.ts:192 tools/Sound.svelte:77
+#: lib/words.ts:193 tools/Sound.svelte:77
 #, fuzzy
 msgid "Output Volume"
 msgstr "输出音量"
 
-#: lib/words.ts:193 tools/Sound.svelte:82 tools/Sound.svelte:83
+#: lib/words.ts:194 tools/Sound.svelte:82 tools/Sound.svelte:83
 #, fuzzy
 msgid "Input Device"
 msgstr "输入设备"
 
-#: lib/words.ts:194 tools/Sound.svelte:85
+#: lib/words.ts:195 tools/Sound.svelte:85
 #, fuzzy
 msgid "Input Volume"
 msgstr "输入音量"
 
-#: lib/words.ts:195 tools/Sound.svelte:88
+#: lib/words.ts:196 tools/Sound.svelte:88
 #, fuzzy
 msgid "Input Level"
 msgstr "输入电平"
 
-#: lib/words.ts:196 tools/Keyboard.svelte:49 tools/Keyboard.svelte:50
+#: lib/words.ts:197 tools/Keyboard.svelte:49 tools/Keyboard.svelte:50
 #, fuzzy
 msgid "Input Layout"
 msgstr "输入布局"
 
-#: lib/words.ts:197 tools/Keyboard.svelte:54
+#: lib/words.ts:198 tools/Keyboard.svelte:54
 #, fuzzy
 msgid "Primary click side"
 msgstr "主按键"
 
-#: lib/words.ts:198 tools/Keyboard.svelte:60
+#: lib/words.ts:199 tools/Keyboard.svelte:60
 #, fuzzy
 msgid "Cursor Speed"
 msgstr "指针速度"
 
-#: lib/words.ts:199 tools/Keyboard.svelte:66 tools/Keyboard.svelte:67
+#: lib/words.ts:200 tools/Keyboard.svelte:66 tools/Keyboard.svelte:67
 #, fuzzy
 msgid "Dynamic Cursor Acceleration"
 msgstr "指针加速"
 
-#: lib/words.ts:200 tools/Keyboard.svelte:70
+#: lib/words.ts:201 tools/Keyboard.svelte:70
 #, fuzzy
 msgid "Scroll direction"
 msgstr "滚动方向"
 
-#: lib/words.ts:201 pages/Setup.svelte:16 pages/Setup.svelte:354 pages/Setup.svelte:381 tools/Language.svelte:71 tools/Language.svelte:72
+#: lib/words.ts:202 pages/Setup.svelte:16 pages/Setup.svelte:356 pages/Setup.svelte:383 tools/Language.svelte:71 tools/Language.svelte:72
 #, fuzzy
 msgid "Language"
 msgstr "语言"
 
-#: lib/words.ts:202 tools/Language.svelte:74 tools/Language.svelte:76
+#: lib/words.ts:203 tools/Language.svelte:74 tools/Language.svelte:76
 #, fuzzy
 msgid "Country or Region"
 msgstr "国家或地区"
 
-#: lib/words.ts:203 tools/Language.svelte:81 tools/Language.svelte:83
+#: lib/words.ts:204 tools/Language.svelte:81 tools/Language.svelte:83
 #, fuzzy
 msgid "State or Province"
 msgstr "州或省"
 
-#: lib/words.ts:204 tools/Time.svelte:48 tools/Time.svelte:49
+#: lib/words.ts:205 tools/Time.svelte:48 tools/Time.svelte:49
 #, fuzzy
 msgid "Time Zone"
 msgstr "时区"
 
-#: lib/words.ts:205 tools/Time.svelte:45
+#: lib/words.ts:206 tools/Time.svelte:45
 #, fuzzy
 msgid "Current Time"
 msgstr "当前时间"
 
-#: lib/words.ts:206 tools/Time.svelte:51
+#: lib/words.ts:207 tools/Time.svelte:51
 #, fuzzy
 msgid "Time Sync"
 msgstr "时间同步"
 
-#: lib/words.ts:207 tools/AddPerson.svelte:56 tools/People.svelte:59
+#: lib/words.ts:208 tools/AddPerson.svelte:56 tools/People.svelte:59
 #, fuzzy
 msgid "Add a person"
 msgstr "添加用户"
 
-#: lib/words.ts:208 pages/SignIn.svelte:192 pages/SignIn.svelte:220 tools/EditPerson.svelte:86
+#: lib/words.ts:209 pages/SignIn.svelte:192 pages/SignIn.svelte:220 tools/EditPerson.svelte:86
 #, fuzzy
 msgid "New password"
 msgstr "新密码"
 
-#: lib/words.ts:209 tools/EditPerson.svelte:102 tools/EditPerson.svelte:102
+#: lib/words.ts:210 tools/EditPerson.svelte:102 tools/EditPerson.svelte:102
 #, fuzzy
 msgid "Make admin"
 msgstr "设为管理员"
 
-#: lib/words.ts:210 tools/Notifications.svelte:21
+#: lib/words.ts:211 tools/Notifications.svelte:21
 #, fuzzy
 msgid "Show Notifications For"
 msgstr "显示以下通知"
 
-#: lib/words.ts:211 tools/Security.svelte:122
+#: lib/words.ts:212 tools/Security.svelte:122
 #, fuzzy
 msgid "Firewall"
 msgstr "防火墙"
 
-#: lib/words.ts:212 tools/Security.svelte:142
+#: lib/words.ts:213 tools/Security.svelte:142
 #, fuzzy
 msgid "Secure Boot"
 msgstr "安全启动"
 
-#: lib/words.ts:213 tools/Security.svelte:123
+#: lib/words.ts:214 tools/Security.svelte:123
 #, fuzzy
 msgid "AppArmor"
 msgstr "AppArmor"
 
-#: lib/words.ts:214 tools/Security.svelte:119
+#: lib/words.ts:215 tools/Security.svelte:119
 #, fuzzy
 msgid "Security Updates"
 msgstr "安全更新"
 
-#: lib/words.ts:215 tools/Security.svelte:151
+#: lib/words.ts:216 tools/Security.svelte:151
 #, fuzzy
 msgid "Last System Scan"
 msgstr "上次系统扫描"
 
-#: lib/words.ts:216 tools/Security.svelte:154
+#: lib/words.ts:217 tools/Security.svelte:154
 #, fuzzy
 msgid "Allowed Inbound Connections"
 msgstr "允许的传入连接"
 
-#: lib/words.ts:217 tools/Security.svelte:165
+#: lib/words.ts:218 tools/Security.svelte:165
 #, fuzzy
 msgid "Outbound Internet Connections"
 msgstr "传出的互联网连接"
 
-#: lib/words.ts:218 tools/Access.svelte:78
+#: lib/words.ts:219 tools/Access.svelte:78
 #, fuzzy
 msgid "Keys"
 msgstr "密钥"
 
-#: lib/words.ts:219 tools/Access.svelte:85 tools/AppsUsb.svelte:54
+#: lib/words.ts:220 tools/Access.svelte:85 tools/AppsUsb.svelte:54
 #, fuzzy
 msgid "Add from a USB stick"
 msgstr "从 U 盘添加"
 
-#: lib/words.ts:220 tools/Access.svelte:88 tools/Access.svelte:89 tools/PasteKey.svelte:18
+#: lib/words.ts:221 tools/Access.svelte:88 tools/Access.svelte:89 tools/PasteKey.svelte:18
 #, fuzzy
 msgid "Paste a key"
 msgstr "粘贴密钥"
 
-#: lib/words.ts:221 tools/Restarts.svelte:60 tools/Restarts.svelte:62
+#: lib/words.ts:222 tools/Restarts.svelte:60 tools/Restarts.svelte:62
 #, fuzzy
 msgid "Maintenance Hour"
 msgstr "维护时段"
 
-#: lib/words.ts:222 tools/Restarts.svelte:69
+#: lib/words.ts:223 tools/Restarts.svelte:69
 #, fuzzy
 msgid "Always On"
 msgstr "始终开启"
 
-#: lib/words.ts:223 tools/Restarts.svelte:72
+#: lib/words.ts:224 tools/Restarts.svelte:72
 #, fuzzy
 msgid "Shutdown"
 msgstr "关机"
 
-#: lib/words.ts:224 tools/Restore.svelte:73 tools/Space.svelte:14
+#: lib/words.ts:225 tools/Restore.svelte:73 tools/Space.svelte:14
 #, fuzzy
 msgid "Restore points"
 msgstr "还原点"
 
-#: lib/words.ts:225 tools/Restore.svelte:83
+#: lib/words.ts:226 tools/Restore.svelte:83
 #, fuzzy
 msgid "Updates on Hold"
 msgstr "暂缓的更新"
 
-#: lib/words.ts:226 tools/Restore.svelte:93
+#: lib/words.ts:227 tools/Restore.svelte:93
 #, fuzzy
 msgid "System Reset"
 msgstr "系统重置"
 
-#: lib/words.ts:227 tools/Restore.svelte:99
+#: lib/words.ts:228 tools/Restore.svelte:99
 #, fuzzy
 msgid "Factory Reset"
 msgstr "恢复出厂设置"
 
-#: lib/words.ts:228 tools/Restore.svelte:65 tools/Restore.svelte:98 tools/Restore.svelte:100
+#: lib/words.ts:229 tools/Restore.svelte:65 tools/Restore.svelte:98 tools/Restore.svelte:100
 #, fuzzy
 msgid "Erase everything"
 msgstr "清除全部"
 
-#: lib/words.ts:229 pages/MainMenu.svelte:74 tools/About.svelte:53 tools/About.svelte:54
+#: lib/words.ts:230 pages/MainMenu.svelte:74 tools/About.svelte:53 tools/About.svelte:54
 #, fuzzy
 msgid "Family Hub"
 msgstr "Family Hub"
 
-#: lib/words.ts:230 tools/About.svelte:54
+#: lib/words.ts:231 tools/About.svelte:54
 #, fuzzy
 msgid "Open on a phone"
 msgstr "在手机上打开"
 
-#: lib/words.ts:231 tools/About.svelte:28 tools/Contact.svelte:16
+#: lib/words.ts:232 tools/About.svelte:28 tools/Contact.svelte:16
 #, fuzzy
 msgid "Model"
 msgstr "型号"
 
-#: lib/words.ts:232 tools/About.svelte:29
+#: lib/words.ts:233 tools/About.svelte:29
 #, fuzzy
 msgid "Serial Number"
 msgstr "序列号"
 
-#: lib/words.ts:233 tools/About.svelte:30
+#: lib/words.ts:234 tools/About.svelte:30
 #, fuzzy
 msgid "Operating System"
 msgstr "操作系统"
 
-#: lib/words.ts:234 tools/About.svelte:31 tools/Contact.svelte:37
+#: lib/words.ts:235 tools/About.svelte:31 tools/Contact.svelte:37
 #, fuzzy
 msgid "Security updates"
 msgstr "安全更新"
 
-#: lib/words.ts:235 pages/Widgets.svelte:118 tools/StorageOverview.svelte:52
+#: lib/words.ts:236 pages/Widgets.svelte:118 tools/StorageOverview.svelte:52
 #, fuzzy
 msgid "Library"
 msgstr "资料库"
 
-#: lib/words.ts:236 tools/LibraryCheck.svelte:19
+#: lib/words.ts:237 tools/LibraryCheck.svelte:19
 #, fuzzy
 msgid "Check the library for damage"
 msgstr "检查资料库是否损坏"
 
-#: lib/words.ts:237 tools/Backups.svelte:56 tools/Backups.svelte:59
+#: lib/words.ts:238 tools/Backups.svelte:56 tools/Backups.svelte:59
 #, fuzzy
 msgid "Back up now"
 msgstr "立即备份"
 
-#: lib/words.ts:238 tools/Backups.svelte:62 tools/Backups.svelte:64
+#: lib/words.ts:239 tools/Backups.svelte:62 tools/Backups.svelte:64
 #, fuzzy
 msgid "Nightly backup"
 msgstr "每晚备份"
 
-#: lib/words.ts:239 tools/Display.svelte:130
+#: lib/words.ts:240 tools/Display.svelte:130
 #, fuzzy
 msgid "Lock the screen after"
 msgstr "锁定屏幕前等待"
 
-#: lib/words.ts:240 tools/Display.svelte:131
+#: lib/words.ts:241 tools/Display.svelte:131
 #, fuzzy
 msgid "Turn the screen off after"
 msgstr "关闭屏幕前等待"
 
-#: lib/words.ts:241 tools/Contact.svelte:30 tools/Diagnostics.svelte:48
+#: lib/words.ts:242 tools/Contact.svelte:30 tools/Diagnostics.svelte:48
 #, fuzzy
 msgid "Make a bundle"
 msgstr "生成诊断包"
 
-#: lib/words.ts:242 tools/SaveBundle.svelte:42
+#: lib/words.ts:243 tools/SaveBundle.svelte:42
 #, fuzzy
 msgid "Save to a USB stick"
 msgstr "保存到 U 盘"
 
-#: lib/words.ts:243 tools/Contact.svelte:23
+#: lib/words.ts:244 tools/Contact.svelte:23
 #, fuzzy
 msgid "Contact ZOOMRIYA support"
 msgstr "联系 ZOOMRIYA 支持"
 
-#: lib/words.ts:244 tools/Contact.svelte:16
+#: lib/words.ts:245 tools/Contact.svelte:16
 #, fuzzy
 msgid "Serial number"
 msgstr "序列号"
 
-#: lib/words.ts:249 pages/MainMenu.svelte:113
+#: lib/words.ts:250 pages/MainMenu.svelte:113
 #, fuzzy
 msgid "Restart the box"
 msgstr "重启盒子"
 
-#: lib/words.ts:249
+#: lib/words.ts:250
 #, fuzzy
 msgid "reboot"
 msgstr "重启"
 
-#: lib/words.ts:250 tools/Restarts.svelte:73
+#: lib/words.ts:251 tools/Restarts.svelte:73
 #, fuzzy
 msgid "Shut down system"
 msgstr "关机"
 
-#: lib/words.ts:250
+#: lib/words.ts:251
 #, fuzzy
 msgid "power off turn off"
 msgstr "关机 关闭"
 
-#: lib/words.ts:251 pages/MainMenu.svelte:112
+#: lib/words.ts:252 pages/MainMenu.svelte:112
 #, fuzzy
 msgid "Lock screen"
 msgstr "锁定屏幕"
 
-#: lib/words.ts:251
+#: lib/words.ts:252
 #, fuzzy
 msgid "lock away screen saver leave"
 msgstr "锁定 离开 屏保"
 
-#: lib/words.ts:252 pages/MainMenu.svelte:112
+#: lib/words.ts:253 pages/MainMenu.svelte:112
 #, fuzzy
 msgid "Open Family Hub on a phone"
 msgstr "在手机上打开 Family Hub"
 
-#: lib/words.ts:252
+#: lib/words.ts:253
 #, fuzzy
 msgid "qr code phone mobile address family hub"
 msgstr "二维码 手机 移动 地址 Family Hub"
 
-#: lib/words.ts:253 pages/MainMenu.svelte:113
+#: lib/words.ts:254 pages/MainMenu.svelte:113
 #, fuzzy
 msgid "Sign out"
 msgstr "退出登录"
 
-#: lib/words.ts:253
+#: lib/words.ts:254
 #, fuzzy
 msgid "log out logout switch user"
 msgstr "退出 注销 切换用户"
 
-#: lib/words.ts:254 tools/Appearance.svelte:28
+#: lib/words.ts:255 tools/Appearance.svelte:28
 #, fuzzy
 msgid "Midnight"
 msgstr "深色"
 
-#: lib/words.ts:254
+#: lib/words.ts:255
 #, fuzzy
 msgid "dark theme night"
 msgstr "深色 主题 夜间"
 
-#: lib/words.ts:255 tools/Appearance.svelte:28
+#: lib/words.ts:256 tools/Appearance.svelte:28
 #, fuzzy
 msgid "Daylight"
 msgstr "浅色"
 
-#: lib/words.ts:255
+#: lib/words.ts:256
 #, fuzzy
 msgid "light theme day"
 msgstr "浅色 主题 白天"
 
-#: lib/words.ts:256 pages/TopBar.svelte:132 pages/TopBar.svelte:132 pages/Widgets.svelte:37
+#: lib/words.ts:257 pages/TopBar.svelte:138 pages/TopBar.svelte:138 pages/Widgets.svelte:37
 #, fuzzy
 msgid "Widgets"
 msgstr "小组件"
 
-#: lib/words.ts:256
+#: lib/words.ts:257
 #, fuzzy
 msgid "side panel health cpu space"
 msgstr "侧边栏 健康 处理器 空间"
 
-#: lib/words.ts:261
+#: lib/words.ts:262
 #, fuzzy
 msgid "Something stopped working after an update"
 msgstr "更新后某些功能不能用了"
 
-#: lib/words.ts:261
+#: lib/words.ts:262
 #, fuzzy
 msgid "Restore the OS to before the update. Family files stay."
 msgstr "把系统还原到更新之前。家人的文件会保留。"
 
-#: lib/words.ts:262
+#: lib/words.ts:263
 #, fuzzy
 msgid "A drive needs checking"
 msgstr "有磁盘需要检查"
 
-#: lib/words.ts:262
+#: lib/words.ts:263
 #, fuzzy
 msgid "See which drive, and why. Replace it with one as big or bigger."
 msgstr "查看是哪块磁盘及原因。换一块同样大或更大的。"
 
-#: lib/words.ts:263
+#: lib/words.ts:264
 #, fuzzy
 msgid "The box is slow"
 msgstr "盒子变慢了"
 
-#: lib/words.ts:263
+#: lib/words.ts:264
 #, fuzzy
 msgid "See which app is busy. Photos works hard after many new photos."
 msgstr "查看哪个应用正忙。新增大量照片后，照片应用会忙一阵子。"
 
-#: lib/words.ts:264
+#: lib/words.ts:265
 #, fuzzy
 msgid "The box restarted by itself"
 msgstr "盒子自己重启了"
 
-#: lib/words.ts:264
+#: lib/words.ts:265
 #, fuzzy
 msgid "Updates finish at the maintenance hour. You can change the hour."
 msgstr "更新会在维护时间完成。可以更改时间。"
 
-#: lib/words.ts:265
+#: lib/words.ts:266
 #, fuzzy
 msgid "Family Hub doesn't open on the home network"
 msgstr "在家打不开 Family Hub"
 
-#: lib/words.ts:265
+#: lib/words.ts:266
 #, fuzzy
 msgid "Check the cable to the router, and the box's address."
 msgstr "检查连接路由器的网线和盒子的地址。"
 
-#: lib/words.ts:266
+#: lib/words.ts:267
 #, fuzzy
 msgid "Someone can't sign in"
 msgstr "有人无法登录"
 
-#: lib/words.ts:266
+#: lib/words.ts:267
 #, fuzzy
 msgid "Let them type a new password, or turn their account back on."
 msgstr "请对方输入新密码，或重新启用其账户。"
 
-#: lib/words.ts:267
+#: lib/words.ts:268
 #, fuzzy
 msgid "Who changed a setting?"
 msgstr "是谁改了设置？"
 
-#: lib/words.ts:267
+#: lib/words.ts:268
 #, fuzzy
 msgid "Every change, with who and when."
 msgstr "每项更改，以及是谁、何时。"
 
-#: lib/words.ts:272
+#: lib/words.ts:273
 #, fuzzy
 msgid "Drive Health"
 msgstr "磁盘健康"
 
-#: lib/words.ts:272
+#: lib/words.ts:273
 #, fuzzy
 msgid "When to check or replace, and when healthy."
 msgstr "何时需要检查或更换，以及何时恢复正常。"
 
-#: lib/words.ts:273
+#: lib/words.ts:274
 #, fuzzy
 msgid "Updates"
 msgstr "更新"
 
-#: lib/words.ts:273
+#: lib/words.ts:274
 #, fuzzy
 msgid "When security fixes are installed."
 msgstr "安装了安全修复时。"
 
-#: lib/words.ts:274
+#: lib/words.ts:275
 #, fuzzy
 msgid "Auto-restart schedule for updates and restores."
 msgstr "更新和还原的自动重启时间。"
 
-#: lib/words.ts:275
+#: lib/words.ts:276
 #, fuzzy
 msgid "Library Check"
 msgstr "资料库检查"
 
-#: lib/words.ts:275
+#: lib/words.ts:276
 #, fuzzy
 msgid "Library scan completion time and results."
 msgstr "资料库扫描的完成时间和结果。"
 
-#: lib/words.ts:276
+#: lib/words.ts:277
 #, fuzzy
 msgid "Network settings weren't kept and were rolled back."
 msgstr "网络设置未保留，已撤销。"
 
-#: lib/words.ts:277 tools/Security.svelte:143
+#: lib/words.ts:278 tools/Security.svelte:143
 #, fuzzy
 msgid "Secure Connections"
 msgstr "安全连接"
 
-#: lib/words.ts:277
+#: lib/words.ts:278
 #, fuzzy
 msgid "When the box's certificate can't be made or renewed, or is running out."
 msgstr "盒子的证书无法创建或续期，或即将过期时。"
 
-#: lib/words.ts:278
+#: lib/words.ts:279
 #, fuzzy
 msgid "Admin Sign-in"
 msgstr "管理员登录"
 
-#: lib/words.ts:278
+#: lib/words.ts:279
 #, fuzzy
 msgid "When an admin is let back in at the box with the setup code, or a wrong code is typed."
 msgstr "管理员在盒子上用设置码恢复访问，或输入了错误的设置码时。"
 
-#: lib/words.ts:279
+#: lib/words.ts:280
 #, fuzzy
 msgid "Advanced Access"
 msgstr "高级访问"
 
-#: lib/words.ts:279
+#: lib/words.ts:280
 #, fuzzy
 msgid "When SSH access is turned on or off."
 msgstr "SSH 访问开启或关闭时。"
 
-#: lib/words.ts:280
+#: lib/words.ts:281
 #, fuzzy
 msgid "Apps"
 msgstr "应用"
 
-#: lib/words.ts:280
+#: lib/words.ts:281
 #, fuzzy
 msgid "When an app is installed, restored or removed."
 msgstr "应用安装、还原或移除时。"
 
-#: lib/words.ts:284
+#: lib/words.ts:285
 #, fuzzy
 msgid "Everything offline is on"
 msgstr "“全部离线”已开启"
 
-#: lib/words.ts:284
+#: lib/words.ts:285
 #, fuzzy
 msgid "Apps offline is on"
 msgstr "“应用离线”已开启"
 
-#: lib/words.ts:284
+#: lib/words.ts:285
 #, fuzzy
 msgid "Switched off"
 msgstr "已关闭"
 
-#: lib/words.ts:288
+#: lib/words.ts:289
 #, fuzzy
 msgid "Blue"
 msgstr "蓝色"
 
-#: lib/words.ts:289
+#: lib/words.ts:290
 #, fuzzy
 msgid "Teal"
 msgstr "青色"
 
-#: lib/words.ts:290
+#: lib/words.ts:291
 #, fuzzy
 msgid "Green"
 msgstr "绿色"
 
-#: lib/words.ts:291
+#: lib/words.ts:292
 #, fuzzy
 msgid "Yellow"
 msgstr "黄色"
 
-#: lib/words.ts:292
+#: lib/words.ts:293
 #, fuzzy
 msgid "Orange"
 msgstr "橙色"
 
-#: lib/words.ts:293
+#: lib/words.ts:294
 #, fuzzy
 msgid "Red"
 msgstr "红色"
 
-#: lib/words.ts:294
+#: lib/words.ts:295
 #, fuzzy
 msgid "Pink"
 msgstr "粉色"
 
-#: lib/words.ts:295
+#: lib/words.ts:296
 #, fuzzy
 msgid "Purple"
 msgstr "紫色"
 
-#: lib/words.ts:296
+#: lib/words.ts:297
 #, fuzzy
 msgid "Slate"
 msgstr "石板灰"
 
-#: lib/words.ts:302
+#: lib/words.ts:303
 #, fuzzy
 msgid "Smoke"
 msgstr "烟雾"
 
-#: lib/words.ts:303
+#: lib/words.ts:304
 #, fuzzy
 msgid "Smoke at dusk"
 msgstr "黄昏烟雾"
 
-#: lib/words.ts:304
+#: lib/words.ts:305
 #, fuzzy
 msgid "Hills"
 msgstr "山丘"
 
-#: lib/words.ts:305
+#: lib/words.ts:306
 #, fuzzy
 msgid "Lakeside"
 msgstr "湖畔"
 
-#: lib/words.ts:309
+#: lib/words.ts:310
 #, fuzzy
 msgid "Night"
 msgstr "夜色"
 
-#: lib/words.ts:310
+#: lib/words.ts:311
 #, fuzzy
 msgid "Ocean"
 msgstr "海洋"
 
-#: lib/words.ts:311
+#: lib/words.ts:312
 #, fuzzy
 msgid "Forest"
 msgstr "森林"
 
-#: lib/words.ts:312
+#: lib/words.ts:313
 #, fuzzy
 msgid "Plum"
 msgstr "梅紫"
 
-#: lib/words.ts:313
+#: lib/words.ts:314
 #, fuzzy
 msgid "Graphite"
 msgstr "石墨"
 
-#: lib/words.ts:321
+#: lib/words.ts:322
 #, fuzzy
 msgid "Sign-in"
 msgstr "登录"
 
-#: lib/words.ts:322
+#: lib/words.ts:323
 #, fuzzy
 msgid "Wrong try"
 msgstr "尝试失败"
 
-#: lib/words.ts:323
+#: lib/words.ts:324
 #, fuzzy
 msgid "Second step"
 msgstr "第二步"
 
-#: lib/words.ts:324 pages/Lock.svelte:43 pages/SignIn.svelte:188 tools/AddPerson.svelte:71 tools/EditPerson.svelte:85 tools/NewPassword.svelte:45
+#: lib/words.ts:325 pages/Lock.svelte:43 pages/SignIn.svelte:188 tools/AddPerson.svelte:71 tools/EditPerson.svelte:85 tools/NewPassword.svelte:45
 #, fuzzy
 msgid "Password"
 msgstr "密码"
 
-#: lib/words.ts:325 tools/EditPerson.svelte:109 tools/EditPerson.svelte:117
+#: lib/words.ts:326 tools/EditPerson.svelte:109 tools/EditPerson.svelte:117
 #, fuzzy
 msgid "Account"
 msgstr "账户"
 
-#: lib/words.ts:326
+#: lib/words.ts:327
 #, fuzzy
 msgid "AI key"
 msgstr "AI 密钥"
 
-#: lib/words.ts:327
+#: lib/words.ts:328
 #, fuzzy
 msgid "New device"
 msgstr "新设备"
 
-#: lib/words.ts:328
+#: lib/words.ts:329
 #, fuzzy
 msgid "Share link"
 msgstr "共享链接"
 
-#: lib/words.ts:329
+#: lib/words.ts:330
 #, fuzzy
 msgid "Setting"
 msgstr "设置"
 
-#: lib/words.ts:332
+#: lib/words.ts:333
 #, fuzzy
 msgid "Errors"
 msgstr "错误"
 
-#: lib/words.ts:332
+#: lib/words.ts:333
 #, fuzzy
 msgid "Warnings and errors"
 msgstr "警告和错误"
 
-#: lib/words.ts:332 tools/Logs.svelte:54
+#: lib/words.ts:333 tools/Logs.svelte:54
 #, fuzzy
 msgid "Everything"
 msgstr "全部"
 
-#: lib/words.ts:333
+#: lib/words.ts:334
 #, fuzzy
 msgid "Healthy"
 msgstr "正常"
 
-#: lib/words.ts:333
+#: lib/words.ts:334
 #, fuzzy
 msgid "Needs checking"
 msgstr "需要检查"
 
-#: lib/words.ts:333
+#: lib/words.ts:334
 #, fuzzy
 msgid "Failing"
 msgstr "故障"
 
-#: lib/words.ts:336 lib/words.ts:337
+#: lib/words.ts:337 lib/words.ts:338
 #, fuzzy
 msgid "Starting"
 msgstr "正在开始"
 
-#: lib/words.ts:336
+#: lib/words.ts:337
 #, fuzzy
 msgid "Copying from the USB stick"
 msgstr "正在从 U 盘复制"
 
-#: lib/words.ts:336
+#: lib/words.ts:337
 #, fuzzy
 msgid "Checking it's a ZOOMRIYA app"
 msgstr "正在确认是否为 ZOOMRIYA 应用"
 
-#: lib/words.ts:336
+#: lib/words.ts:337
 #, fuzzy
 msgid "Adding it to the box"
 msgstr "正在添加到盒子"
 
-#: lib/words.ts:336
+#: lib/words.ts:337
 #, fuzzy
 msgid "Starting it"
 msgstr "正在启动"
 
-#: lib/words.ts:336
+#: lib/words.ts:337
 #, fuzzy
 msgid "Not a ZOOMRIYA app."
 msgstr "不是 ZOOMRIYA 应用。"
 
-#: lib/words.ts:336
+#: lib/words.ts:337
 #, fuzzy
 msgid "Can't be read."
 msgstr "无法读取。"
 
-#: lib/words.ts:337
+#: lib/words.ts:338
 #, fuzzy
 msgid "Running"
 msgstr "运行中"
 
-#: lib/words.ts:337
+#: lib/words.ts:338
 #, fuzzy
 msgid "Stopped"
 msgstr "已停止"
 
-#: lib/words.ts:337
+#: lib/words.ts:338
 #, fuzzy
 msgid "Not working"
 msgstr "无法运行"
 
-#: lib/words.ts:340
+#: lib/words.ts:341
 #, fuzzy
 msgid "Landscape"
 msgstr "横向"
 
-#: lib/words.ts:340
+#: lib/words.ts:341
 #, fuzzy
 msgid "Portrait, turned right"
 msgstr "纵向（向右旋转）"
 
-#: lib/words.ts:340
+#: lib/words.ts:341
 #, fuzzy
 msgid "Portrait, turned left"
 msgstr "纵向（向左旋转）"
 
-#: lib/words.ts:340
+#: lib/words.ts:341
 #, fuzzy
 msgid "Landscape, upside down"
 msgstr "横向（上下颠倒）"
@@ -1540,22 +1540,144 @@ msgstr "在系统日志中搜索“{text}”"
 msgid "Search tools"
 msgstr "搜索工具"
 
-#: pages/Setup.svelte:16 pages/Setup.svelte:390 tools/Keyboard.svelte:48
+#: pages/MyiraPanel.svelte:18
+msgid "For now I can help with the box. With the ZOOMRIYA apps installed, I can answer much more."
+msgstr ""
+
+#: pages/MyiraPanel.svelte:19
+msgid "Myira needs her model to answer (4.4 GB)."
+msgstr ""
+
+#: pages/MyiraPanel.svelte:20
+msgid "Myira can't answer right now. Try again in a moment."
+msgstr ""
+
+#: pages/MyiraPanel.svelte:21
+msgid "Nothing was changed."
+msgstr ""
+
+#: pages/MyiraPanel.svelte:22
+msgid "That asks for your password again, so it's done in its own place. Here it is."
+msgstr ""
+
+#: pages/MyiraPanel.svelte:23
+msgid "If someone is hurt or in danger, call your local emergency number now."
+msgstr ""
+
+#: pages/MyiraPanel.svelte:26
+msgid "If someone is hurt or in danger, call {number} now."
+msgstr ""
+
+#: pages/MyiraPanel.svelte:216
+msgid "In {tool}: "
+msgstr ""
+
+#: pages/MyiraPanel.svelte:270 pages/MyiraPanel.svelte:294 pages/TopBar.svelte:87 pages/TopBar.svelte:87
+msgid "Myira"
+msgstr ""
+
+#: pages/MyiraPanel.svelte:273
+msgid "Myira for ZOOMRIYA OS"
+msgstr ""
+
+#: pages/MyiraPanel.svelte:275 pages/MyiraPanel.svelte:275
+msgid "History"
+msgstr ""
+
+#: pages/MyiraPanel.svelte:279 pages/MyiraPanel.svelte:279
+msgid "New chat"
+msgstr ""
+
+#: pages/MyiraPanel.svelte:285
+msgid "No chats yet."
+msgstr ""
+
+#: pages/MyiraPanel.svelte:295
+msgid "for ZOOMRIYA OS"
+msgstr ""
+
+#: pages/MyiraPanel.svelte:297
+msgid "Ask me anything, about the box or anything else."
+msgstr ""
+
+#: pages/MyiraPanel.svelte:297
+msgid "Ask me about the box: storage, drives, backups, updates, the network and more."
+msgstr ""
+
+#: pages/MyiraPanel.svelte:299
+msgid "Asking about {tool}"
+msgstr ""
+
+#: pages/MyiraPanel.svelte:307
+msgid "Copying from the USB stick… {percent}%"
+msgstr ""
+
+#: pages/MyiraPanel.svelte:307
+msgid "Downloading… {percent}%"
+msgstr ""
+
+#: pages/MyiraPanel.svelte:313
+msgid "From a USB stick"
+msgstr ""
+
+#: pages/MyiraPanel.svelte:314 pages/Widgets.svelte:91 tools/Resources.svelte:44
+#, fuzzy
+msgid "Download"
+msgstr "下载"
+
+#: pages/MyiraPanel.svelte:317
+msgid "No USB stick with the model was found."
+msgstr ""
+
+#: pages/MyiraPanel.svelte:319
+msgid "Copy from {stick}"
+msgstr ""
+
+#: pages/MyiraPanel.svelte:333 pages/SignIn.svelte:194
+#, fuzzy
+msgid "Not now"
+msgstr "以后再说"
+
+#: pages/MyiraPanel.svelte:334
+msgid "Confirm"
+msgstr ""
+
+#: pages/MyiraPanel.svelte:339
+msgid "Myira is answering"
+msgstr ""
+
+#: pages/MyiraPanel.svelte:340
+msgid "From Help: {name}"
+msgstr ""
+
+#: pages/MyiraPanel.svelte:342
+msgid "Open {tool}"
+msgstr ""
+
+#: pages/MyiraPanel.svelte:353 pages/MyiraPanel.svelte:353
+msgid "Ask Myira…"
+msgstr ""
+
+#: pages/MyiraPanel.svelte:354 pages/MyiraPanel.svelte:354
+msgid "Send"
+msgstr ""
+
+#: pages/Setup.svelte:16 pages/Setup.svelte:392 tools/Keyboard.svelte:48
 #, fuzzy
 msgid "Keyboard"
 msgstr "键盘"
 
-#: pages/Setup.svelte:16 pages/Setup.svelte:355 pages/Setup.svelte:432
+#: pages/Setup.svelte:16 pages/Setup.svelte:357 pages/Setup.svelte:434
 #, fuzzy
 msgid "Region"
 msgstr "地区"
 
-#: pages/Setup.svelte:16 pages/Setup.svelte:356 pages/Setup.svelte:452
+#: pages/Setup.svelte:16 pages/Setup.svelte:358 pages/Setup.svelte:454
 #, fuzzy
 msgid "Time zone"
 msgstr "时区"
 
-#: pages/Setup.svelte:16 pages/Setup.svelte:351 tools/EditPerson.svelte:90 tools/EditPerson.svelte:98 tools/People.svelte:28
+#: pages/Setup.svelte:16 pages/Setup.svelte:353 tools/EditPerson.svelte:90 tools/EditPerson.svelte:98 tools/People.svelte:28
 #, fuzzy
 msgid "Admin"
 msgstr "管理员"
@@ -1600,337 +1722,337 @@ msgstr "请再次输入密码。"
 msgid "The two passwords aren't the same."
 msgstr "两次输入的密码不一致。"
 
-#: pages/Setup.svelte:263 pages/Setup.svelte:386 pages/Setup.svelte:437
+#: pages/Setup.svelte:265 pages/Setup.svelte:388 pages/Setup.svelte:439
 #, fuzzy
 msgid "Choose one to go on."
 msgstr "请选择一项以继续。"
 
-#: pages/Setup.svelte:266
+#: pages/Setup.svelte:268
 #, fuzzy
 msgid "The time there now: {time}"
 msgstr "当地现在时间：{time}"
 
-#: pages/Setup.svelte:314 pages/SignIn.svelte:70
+#: pages/Setup.svelte:316 pages/SignIn.svelte:70
 #, fuzzy
 msgid "Can't scan it? Type this key: {key}"
 msgstr "无法扫描？请输入此密钥：{key}"
 
-#: pages/Setup.svelte:352
+#: pages/Setup.svelte:354
 #, fuzzy
 msgid "Box's name"
 msgstr "盒子的名称"
 
-#: pages/Setup.svelte:353 pages/Setup.svelte:407
+#: pages/Setup.svelte:355 pages/Setup.svelte:409
 #, fuzzy
 msgid "Address"
 msgstr "地址"
 
-#: pages/Setup.svelte:353 pages/TopBar.svelte:128 pages/TopBar.svelte:128 tools/Network.svelte:99
+#: pages/Setup.svelte:355 pages/TopBar.svelte:134 pages/TopBar.svelte:134 tools/Network.svelte:99
 #, fuzzy
 msgid "Not connected"
 msgstr "未连接"
 
-#: pages/Setup.svelte:366
+#: pages/Setup.svelte:368
 #, fuzzy
 msgid "Box setup"
 msgstr "盒子设置"
 
-#: pages/Setup.svelte:379
+#: pages/Setup.svelte:381
 #, fuzzy
 msgid "Welcome to your ZOOMRIYA Box"
 msgstr "欢迎使用您的 ZOOMRIYA Box"
 
-#: pages/Setup.svelte:380
+#: pages/Setup.svelte:382
 #, fuzzy
 msgid "Setup takes a few minutes. First, choose a language."
 msgstr "设置只需几分钟。首先，选择一种语言。"
 
-#: pages/Setup.svelte:386 pages/Setup.svelte:437
+#: pages/Setup.svelte:388 pages/Setup.svelte:439
 #, fuzzy
 msgid "Chosen: {name}"
 msgstr "已选择：{name}"
 
-#: pages/Setup.svelte:388
+#: pages/Setup.svelte:390
 #, fuzzy
 msgid "Your keyboard"
 msgstr "您的键盘"
 
-#: pages/Setup.svelte:389
+#: pages/Setup.svelte:391
 #, fuzzy
 msgid "Used right away, including for the admin's password."
 msgstr "立即生效，也用于输入管理员密码。"
 
-#: pages/Setup.svelte:394
+#: pages/Setup.svelte:396
 #, fuzzy
 msgid "Connect the box"
 msgstr "连接盒子"
 
-#: pages/Setup.svelte:396
+#: pages/Setup.svelte:398
 #, fuzzy
 msgid "Checking the box's network port…"
 msgstr "正在检查盒子的网络端口…"
 
-#: pages/Setup.svelte:398
+#: pages/Setup.svelte:400
 #, fuzzy
 msgid "No usable Ethernet port found."
 msgstr "未找到可用的以太网端口。"
 
-#: pages/Setup.svelte:400
+#: pages/Setup.svelte:402
 #, fuzzy
 msgid "Connect the box to your router with a network cable. Setup continues once it's plugged in."
 msgstr "请用网线将盒子连接到路由器。接好后设置会继续。"
 
-#: pages/Setup.svelte:401
+#: pages/Setup.svelte:403
 #, fuzzy
 msgid "Waiting for the cable…"
 msgstr "正在等待网线…"
 
-#: pages/Setup.svelte:403
+#: pages/Setup.svelte:405
 #, fuzzy
 msgid "Cable connected. Getting an address…"
 msgstr "网线已接好。正在获取地址…"
 
-#: pages/Setup.svelte:405
+#: pages/Setup.svelte:407
 #, fuzzy
 msgid "The box is on your network."
 msgstr "盒子已连接到您的网络。"
 
-#: pages/Setup.svelte:408 pages/Setup.svelte:420 tools/Network.svelte:129
+#: pages/Setup.svelte:410 pages/Setup.svelte:422 tools/Network.svelte:129
 #, fuzzy
 msgid "Router"
 msgstr "路由器"
 
-#: pages/Setup.svelte:408 pages/Setup.svelte:409
+#: pages/Setup.svelte:410 pages/Setup.svelte:411
 #, fuzzy
 msgid "None"
 msgstr "无"
 
-#: pages/Setup.svelte:409 pages/Setup.svelte:420 tools/Network.svelte:129
+#: pages/Setup.svelte:411 pages/Setup.svelte:422 tools/Network.svelte:129
 #, fuzzy
 msgid "Name servers"
 msgstr "域名服务器"
 
-#: pages/Setup.svelte:410
+#: pages/Setup.svelte:412
 #, fuzzy
 msgid "Settings"
 msgstr "设置"
 
-#: pages/Setup.svelte:410
+#: pages/Setup.svelte:412
 #, fuzzy
 msgid "Static address"
 msgstr "静态地址"
 
-#: pages/Setup.svelte:410
+#: pages/Setup.svelte:412
 #, fuzzy
 msgid "From the router (DHCP)"
 msgstr "来自路由器（DHCP）"
 
-#: pages/Setup.svelte:411
+#: pages/Setup.svelte:413
 #, fuzzy
 msgid "Speed"
 msgstr "速度"
 
-#: pages/Setup.svelte:413
+#: pages/Setup.svelte:415
 #, fuzzy
 msgid "Checking the internet…"
 msgstr "正在检查网络连接…"
 
-#: pages/Setup.svelte:413
+#: pages/Setup.svelte:415
 #, fuzzy
 msgid "Internet: connected."
 msgstr "网络：已连接。"
 
-#: pages/Setup.svelte:414
+#: pages/Setup.svelte:416
 #, fuzzy
 msgid "No internet. You can continue; updates and the clock catch up once online."
 msgstr "无法连接网络。您可以继续；联网后会补上更新并校准时钟。"
 
-#: pages/Setup.svelte:416
+#: pages/Setup.svelte:418
 #, fuzzy
 msgid "Use a static address instead of the router's"
 msgstr "使用静态地址，而不是路由器分配的地址"
 
-#: pages/Setup.svelte:419 tools/Network.svelte:128
+#: pages/Setup.svelte:421 tools/Network.svelte:128
 #, fuzzy
 msgid "Box's address"
 msgstr "盒子的地址"
 
-#: pages/Setup.svelte:419 tools/Network.svelte:128
+#: pages/Setup.svelte:421 tools/Network.svelte:128
 #, fuzzy
 msgid "Subnet mask"
 msgstr "子网掩码"
 
-#: pages/Setup.svelte:424 tools/Network.svelte:146
+#: pages/Setup.svelte:426 tools/Network.svelte:146
 #, fuzzy
 msgid "Use these settings"
 msgstr "应用"
 
-#: pages/Setup.svelte:428
+#: pages/Setup.svelte:430
 #, fuzzy
 msgid "Which country or region?"
 msgstr "哪个国家或地区？"
 
-#: pages/Setup.svelte:429
+#: pages/Setup.svelte:431
 #, fuzzy
 msgid "Where the box is. Sets the time zones shown first."
 msgstr "盒子所在的地方。决定先显示哪些时区。"
 
-#: pages/Setup.svelte:431 pages/Setup.svelte:431
+#: pages/Setup.svelte:433 pages/Setup.svelte:433
 #, fuzzy
 msgid "Search, for example Canada"
 msgstr "搜索，例如 加拿大"
 
-#: pages/Setup.svelte:439
+#: pages/Setup.svelte:441
 #, fuzzy
 msgid "State or province (optional)"
 msgstr "州或省（可选）"
 
-#: pages/Setup.svelte:441 tools/Language.svelte:83
+#: pages/Setup.svelte:443 tools/Language.svelte:83
 #, fuzzy
 msgid "Not chosen"
 msgstr "未选择"
 
-#: pages/Setup.svelte:447
+#: pages/Setup.svelte:449
 #, fuzzy
 msgid "Which time zone?"
 msgstr "哪个时区？"
 
-#: pages/Setup.svelte:448
+#: pages/Setup.svelte:450
 #, fuzzy
 msgid "Time zones in {region}. Used by the box's clock, maintenance hour and apps."
 msgstr "{region}的时区。盒子的时钟、维护时段和应用都以它为准。"
 
-#: pages/Setup.svelte:449
+#: pages/Setup.svelte:451
 #, fuzzy
 msgid "Used by the box's clock, maintenance hour and apps."
 msgstr "盒子的时钟、维护时段和应用都以它为准。"
 
-#: pages/Setup.svelte:450 pages/Setup.svelte:450
+#: pages/Setup.svelte:452 pages/Setup.svelte:452
 #, fuzzy
 msgid "Search, for example Toronto"
 msgstr "搜索，例如 Shanghai"
 
-#: pages/Setup.svelte:451
+#: pages/Setup.svelte:453
 #, fuzzy
 msgid "Show every time zone"
 msgstr "显示所有时区"
 
-#: pages/Setup.svelte:459
+#: pages/Setup.svelte:461
 #, fuzzy
 msgid "The box's admin"
 msgstr "盒子的管理员"
 
-#: pages/Setup.svelte:460
+#: pages/Setup.svelte:462
 #, fuzzy
 msgid "Your ZOOMRIYA ID signs in to the box and every ZOOMRIYA app. There's no other way in, so keep the password safe."
 msgstr "您的 ZOOMRIYA ID 可登录盒子和每个 ZOOMRIYA 应用。没有其他进入方式，请妥善保管密码。"
 
-#: pages/Setup.svelte:461 pages/SignIn.svelte:186 pages/SignIn.svelte:186
+#: pages/Setup.svelte:463 pages/SignIn.svelte:186 pages/SignIn.svelte:186
 #, fuzzy
 msgid "Username"
 msgstr "用户名"
 
-#: pages/Setup.svelte:463
+#: pages/Setup.svelte:465
 #, fuzzy
 msgid "For example, amma"
 msgstr "例如 amma"
 
-#: pages/Setup.svelte:464
+#: pages/Setup.svelte:466
 #, fuzzy
 msgid "Password (at least {count} characters)"
 msgstr "密码（至少 {count} 个字符）"
 
-#: pages/Setup.svelte:466
+#: pages/Setup.svelte:468
 #, fuzzy
 msgid "The password again"
 msgstr "再次输入密码"
 
-#: pages/Setup.svelte:470
+#: pages/Setup.svelte:472
 #, fuzzy
 msgid "Your phone"
 msgstr "你的手机"
 
-#: pages/Setup.svelte:471
+#: pages/Setup.svelte:473
 #, fuzzy
 msgid "Admins sign in with their password and a code from their phone, so someone who learns the password still can't get in. It takes a minute."
 msgstr "管理员登录时需要密码和手机上的验证码，仅知道密码无法登录。只需一分钟。"
 
-#: pages/Setup.svelte:473
+#: pages/Setup.svelte:475
 #, fuzzy
 msgid "1. On your phone, open an authenticator app, any app that makes sign-in codes. If you don't have one, install one from your phone's app store.\n2. Add an account and scan this code.\n3. Enter the 6-digit code it shows."
 msgstr "1. 在手机上打开身份验证器应用。没有的话，从应用商店安装一个。\n2. 添加账户并扫描此二维码。\n3. 输入显示的 6 位验证码。"
 
-#: pages/Setup.svelte:478
+#: pages/Setup.svelte:480
 #, fuzzy
 msgid "The code"
 msgstr "验证码"
 
-#: pages/Setup.svelte:479 pages/SignIn.svelte:204 pages/SignIn.svelte:205
+#: pages/Setup.svelte:481 pages/SignIn.svelte:204 pages/SignIn.svelte:205
 #, fuzzy
 msgid "6-digit code"
 msgstr "6 位验证码"
 
-#: pages/Setup.svelte:484 pages/SetupElsewhere.svelte:15 tools/SaveBundle.svelte:50
+#: pages/Setup.svelte:486 pages/SetupElsewhere.svelte:15 tools/SaveBundle.svelte:50
 #, fuzzy
 msgid "Try again"
 msgstr "重试"
 
-#: pages/Setup.svelte:485
+#: pages/Setup.svelte:487
 #, fuzzy
 msgid "Do it later"
 msgstr "稍后"
 
-#: pages/Setup.svelte:488 pages/SignIn.svelte:208
+#: pages/Setup.svelte:490 pages/SignIn.svelte:208
 #, fuzzy
 msgid "Your backup codes. If you ever don't have your phone, each one signs you in once. Write them down and keep them somewhere safe at home. They won't be shown again."
 msgstr "这是你的备用码。手机不在身边时，每个码可登录一次。请抄下来，放在家中安全的地方。之后不会再显示。"
 
-#: pages/Setup.svelte:490 pages/SignIn.svelte:212
+#: pages/Setup.svelte:492 pages/SignIn.svelte:212
 #, fuzzy
 msgid "I've written them down"
 msgstr "我已抄下"
 
-#: pages/Setup.svelte:497
+#: pages/Setup.svelte:499
 #, fuzzy
 msgid "Your box is ready"
 msgstr "您的盒子已准备就绪"
 
-#: pages/Setup.svelte:499
+#: pages/Setup.svelte:501
 #, fuzzy
 msgid "Press Finish. From now on, sign in with the admin's username and password; Box Desktop sets up the code from your phone at the first sign-in. To start over, use Erase everything."
 msgstr "请按“完成”。之后用管理员的用户名和密码登录；Box Desktop 会在首次登录时设置手机验证码。要重新开始，请使用“全部清除”。"
 
-#: pages/Setup.svelte:500
+#: pages/Setup.svelte:502
 #, fuzzy
 msgid "Press Finish. From now on, sign in with the admin's username, password and the code from your phone. To start over, use Erase everything."
 msgstr "请按“完成”。之后用管理员的用户名、密码和手机验证码登录。要重新开始，请使用“全部清除”。"
 
-#: pages/Setup.svelte:504
+#: pages/Setup.svelte:506
 #, fuzzy
 msgid "Your box's setup code"
 msgstr "你的盒子的设置码"
 
-#: pages/Setup.svelte:506
+#: pages/Setup.svelte:508
 #, fuzzy
 msgid "Write it down and keep it with the box's papers, not on the box. You need it if an admin can't sign in, and to erase the box. It's shown only now."
 msgstr "请抄下来，和盒子的资料放在一起，不要贴在盒子上。管理员无法登录或要清除盒子时需要它。只在此时显示。"
 
-#: pages/Setup.svelte:507
+#: pages/Setup.svelte:509
 #, fuzzy
 msgid "I've written down the setup code"
 msgstr "我已抄下设置码"
 
-#: pages/Setup.svelte:516 pages/SignIn.svelte:198 pages/SignIn.svelte:206 pages/SignIn.svelte:222 tools/AddPerson.svelte:75 tools/ReviewBundle.svelte:35
+#: pages/Setup.svelte:518 pages/SignIn.svelte:198 pages/SignIn.svelte:206 pages/SignIn.svelte:222 tools/AddPerson.svelte:75 tools/ReviewBundle.svelte:35
 #, fuzzy
 msgid "Back"
 msgstr "返回"
 
-#: pages/Setup.svelte:517
+#: pages/Setup.svelte:519
 #, fuzzy
 msgid "Finish"
 msgstr "完成"
 
-#: pages/Setup.svelte:517 tools/AddPerson.svelte:68
+#: pages/Setup.svelte:519 tools/AddPerson.svelte:68
 #, fuzzy
 msgid "Next"
 msgstr "下一步"
@@ -1995,11 +2117,6 @@ msgstr "请设置您自己的密码，至少 8 个字符。"
 msgid "New password again"
 msgstr "再次输入新密码"
 
-#: pages/SignIn.svelte:194
-#, fuzzy
-msgid "Not now"
-msgstr "以后再说"
-
 #: pages/SignIn.svelte:196
 #, fuzzy
 msgid "Open your authenticator app and enter the code it shows for ZOOMRIYA. No phone? Enter one of your backup codes."
@@ -2040,57 +2157,57 @@ msgstr "管理员的用户名"
 msgid "Can't sign in?"
 msgstr "无法登录？"
 
-#: pages/TopBar.svelte:31
+#: pages/TopBar.svelte:32
 #, fuzzy
 msgid "Checking the library · {percent}%"
 msgstr "正在检查资料库 · {percent}%"
 
-#: pages/TopBar.svelte:33
+#: pages/TopBar.svelte:34
 #, fuzzy
 msgid "Restart needed"
 msgstr "需要重启"
 
-#: pages/TopBar.svelte:34 tools/Access.svelte:67
+#: pages/TopBar.svelte:35 tools/Access.svelte:67
 #, fuzzy
 msgid "Advanced access is on"
 msgstr "高级访问已开启"
 
-#: pages/TopBar.svelte:66 pages/TopBar.svelte:66
+#: pages/TopBar.svelte:67 pages/TopBar.svelte:67
 #, fuzzy
 msgid "Main menu"
 msgstr "主菜单"
 
-#: pages/TopBar.svelte:73
+#: pages/TopBar.svelte:74
 #, fuzzy
 msgid "Open windows"
 msgstr "已打开的窗口"
 
-#: pages/TopBar.svelte:95
+#: pages/TopBar.svelte:101
 #, fuzzy
 msgid "Mark all read"
 msgstr "全部标为已读"
 
-#: pages/TopBar.svelte:97
+#: pages/TopBar.svelte:103
 #, fuzzy
 msgid "Nothing new."
 msgstr "没有新消息。"
 
-#: pages/TopBar.svelte:104
+#: pages/TopBar.svelte:110
 #, fuzzy
 msgid "See all in Log Center"
 msgstr "在日志中心查看全部"
 
-#: pages/TopBar.svelte:118 pages/TopBar.svelte:119
+#: pages/TopBar.svelte:124 pages/TopBar.svelte:125
 #, fuzzy
 msgid "Speakers"
 msgstr "扬声器"
 
-#: pages/TopBar.svelte:120
+#: pages/TopBar.svelte:126
 #, fuzzy
 msgid "Sound settings"
 msgstr "声音设置"
 
-#: pages/TopBar.svelte:128 pages/TopBar.svelte:128 pages/Widgets.svelte:103 tools/Network.svelte:99
+#: pages/TopBar.svelte:134 pages/TopBar.svelte:134 pages/Widgets.svelte:103 tools/Network.svelte:99
 #, fuzzy
 msgid "Connected"
 msgstr "已连接"
@@ -2169,11 +2286,6 @@ msgstr "{used} / {total}"
 #, fuzzy
 msgid "Open Resource Monitor"
 msgstr "打开资源监视器"
-
-#: pages/Widgets.svelte:91 tools/Resources.svelte:44
-#, fuzzy
-msgid "Download"
-msgstr "下载"
 
 #: pages/Widgets.svelte:91 tools/Resources.svelte:44
 #, fuzzy

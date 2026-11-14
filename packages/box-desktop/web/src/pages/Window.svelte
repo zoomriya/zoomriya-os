@@ -54,7 +54,7 @@
 		{#if isApp}<AppTile id={win.kind.slice(4)} name={desk.title(win.kind)} size={22} />{:else}<Tile kind={win.kind} size={22} />{/if}
 		<span class="window-title">{desk.title(win.kind)}</span>
 		{#if win.kind !== 'support' && !isApp}
-			<button class="window-button" title={_('Help')} aria-label={_('Help')} onclick={() => desk.openTool('support', 'help')}>
+			<button class="window-button" title={_('Help')} aria-label={_('Help')} onclick={() => desk.openMyira(win.kind)}>
 				<Icon name="help" px={14} role="muted" />
 			</button>
 		{/if}
