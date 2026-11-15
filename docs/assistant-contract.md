@@ -59,7 +59,8 @@ as a button.
 
 ## The OS's tools
 
-Offered with every question from the panel, and nowhere else (not on `/myira`, not to AI
+Offered with every question from the panel. An admin's full Myira on `/myira` may also read the
+box (decided 14 November 2026), never change it. Nowhere else (not to AI
 apps through `/mcp`). Each in the apps' tool shape (contract 11): `app` (always `box`),
 `name`, `title`, `description`, `input_schema`, `writes`. `box-desktopd` runs a tool only
 if it is on this list, as the admin; a change only after Confirm on its card.
