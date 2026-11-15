@@ -25,7 +25,7 @@ const (
 	DefaultTheme = "midnight"
 	// DefaultAccent and DefaultBackground: appearance.py's.
 	DefaultAccent     = "blue"
-	DefaultBackground = "smoke"
+	DefaultBackground = "waves"
 )
 
 var (
@@ -36,7 +36,7 @@ var (
 	screenOffAfter = []int{0, 5, 10, 15, 30, 60}
 	// appearance.py's accents, pictures and colours, by key.
 	accents     = []string{"blue", "teal", "green", "yellow", "orange", "red", "pink", "purple", "slate"}
-	backgrounds = []string{"smoke", "slate", "dusk", "lakeside", "night", "ocean", "forest", "plum", "graphite", "own"}
+	backgrounds = []string{"waves", "dusk", "lakeside", "night", "ocean", "forest", "plum", "graphite", "own"}
 )
 
 // Prefs is one admin's settings, as JSON. Unknown keys are dropped.

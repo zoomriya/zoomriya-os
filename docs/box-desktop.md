@@ -234,14 +234,13 @@ Style and accent are each admin's own, kept with their settings
 ([§6](#6-how-it-works)) like their mouse and keyboard.
 
 **The backgrounds** are our pictures, five plain colours, or a picture of the
-family's own. The default is Smoke: soft waves of smoke in teal, violet and
-pink along the bottom of a deep night-blue sky
-([`backgrounds/wallpaper.jpg`](../packages/box-desktop/web/public/backgrounds/wallpaper.jpg)).
+family's own. The default is Waves: ribbons of light in cyan, blue and violet
+along the bottom of a deep night-blue sky
+([`backgrounds/waves.jpg`](../packages/box-desktop/web/public/backgrounds/waves.jpg)).
 The sky stays dark and quiet where the windows and widgets sit, and the left
-side stays dark so the shortcuts' labels read well. The others are Smoke at
-dusk (the same on slate blue), Hills (dusk over the hills, with one house's
-window lit) and Lakeside (a cabin by a lake at sunrise); the plain colours are
-Night, Ocean, Forest, Plum and Graphite.
+side stays dark so the shortcuts' labels read well. The others are Hills (dusk
+over the hills, with one house's window lit) and Lakeside (a cabin by a lake at
+sunrise); the plain colours are Night, Ocean, Forest, Plum and Graphite.
 
 **Add Picture** lists the JPEG and PNG pictures on the USB sticks plugged
 in, in each stick's top folder and the folders in it, with a preview of each.

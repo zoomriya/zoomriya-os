@@ -1297,190 +1297,185 @@ msgstr "Ardoise"
 
 #: lib/words.ts:303
 #, fuzzy
-msgid "Smoke"
-msgstr "Fumée"
+msgid "Waves"
+msgstr "Vagues"
 
 #: lib/words.ts:304
-#, fuzzy
-msgid "Smoke at dusk"
-msgstr "Fumée au crépuscule"
-
-#: lib/words.ts:305
 #, fuzzy
 msgid "Hills"
 msgstr "Collines"
 
-#: lib/words.ts:306
+#: lib/words.ts:305
 #, fuzzy
 msgid "Lakeside"
 msgstr "Bord du lac"
 
-#: lib/words.ts:310
+#: lib/words.ts:309
 #, fuzzy
 msgid "Night"
 msgstr "Nuit"
 
-#: lib/words.ts:311
+#: lib/words.ts:310
 #, fuzzy
 msgid "Ocean"
 msgstr "Océan"
 
-#: lib/words.ts:312
+#: lib/words.ts:311
 #, fuzzy
 msgid "Forest"
 msgstr "Forêt"
 
-#: lib/words.ts:313
+#: lib/words.ts:312
 #, fuzzy
 msgid "Plum"
 msgstr "Prune"
 
-#: lib/words.ts:314
+#: lib/words.ts:313
 #, fuzzy
 msgid "Graphite"
 msgstr "Graphite"
 
-#: lib/words.ts:322
+#: lib/words.ts:321
 #, fuzzy
 msgid "Sign-in"
 msgstr "Connexion"
 
-#: lib/words.ts:323
+#: lib/words.ts:322
 #, fuzzy
 msgid "Wrong try"
 msgstr "Mauvais essai"
 
-#: lib/words.ts:324
+#: lib/words.ts:323
 #, fuzzy
 msgid "Second step"
 msgstr "Deuxième étape"
 
-#: lib/words.ts:325 pages/Lock.svelte:43 pages/SignIn.svelte:188 tools/AddPerson.svelte:71 tools/EditPerson.svelte:85 tools/NewPassword.svelte:45
+#: lib/words.ts:324 pages/Lock.svelte:43 pages/SignIn.svelte:188 tools/AddPerson.svelte:71 tools/EditPerson.svelte:85 tools/NewPassword.svelte:45
 #, fuzzy
 msgid "Password"
 msgstr "Mot de passe"
 
-#: lib/words.ts:326 tools/EditPerson.svelte:109 tools/EditPerson.svelte:117
+#: lib/words.ts:325 tools/EditPerson.svelte:109 tools/EditPerson.svelte:117
 #, fuzzy
 msgid "Account"
 msgstr "Compte"
 
-#: lib/words.ts:327
+#: lib/words.ts:326
 #, fuzzy
 msgid "AI key"
 msgstr "Clé d'IA"
 
-#: lib/words.ts:328
+#: lib/words.ts:327
 #, fuzzy
 msgid "New device"
 msgstr "Nouvel appareil"
 
-#: lib/words.ts:329
+#: lib/words.ts:328
 #, fuzzy
 msgid "Share link"
 msgstr "Lien de partage"
 
-#: lib/words.ts:330
+#: lib/words.ts:329
 #, fuzzy
 msgid "Setting"
 msgstr "Réglage"
 
-#: lib/words.ts:333
+#: lib/words.ts:332
 #, fuzzy
 msgid "Errors"
 msgstr "Erreurs"
 
-#: lib/words.ts:333
+#: lib/words.ts:332
 #, fuzzy
 msgid "Warnings and errors"
 msgstr "Avertissements et erreurs"
 
-#: lib/words.ts:333 tools/Logs.svelte:54
+#: lib/words.ts:332 tools/Logs.svelte:54
 #, fuzzy
 msgid "Everything"
 msgstr "Tout"
 
-#: lib/words.ts:334
+#: lib/words.ts:333
 #, fuzzy
 msgid "Healthy"
 msgstr "En bon état"
 
-#: lib/words.ts:334
+#: lib/words.ts:333
 #, fuzzy
 msgid "Needs checking"
 msgstr "À vérifier"
 
-#: lib/words.ts:334
+#: lib/words.ts:333
 #, fuzzy
 msgid "Failing"
 msgstr "Défaillant"
 
-#: lib/words.ts:337 lib/words.ts:338
+#: lib/words.ts:336 lib/words.ts:337
 #, fuzzy
 msgid "Starting"
 msgstr "Démarrage"
 
-#: lib/words.ts:337
+#: lib/words.ts:336
 #, fuzzy
 msgid "Copying from the USB stick"
 msgstr "Copie depuis la clé USB"
 
-#: lib/words.ts:337
+#: lib/words.ts:336
 #, fuzzy
 msgid "Checking it's a ZOOMRIYA app"
 msgstr "Vérification que c'est une app ZOOMRIYA"
 
-#: lib/words.ts:337
+#: lib/words.ts:336
 #, fuzzy
 msgid "Adding it to the box"
 msgstr "Ajout au boîtier"
 
-#: lib/words.ts:337
+#: lib/words.ts:336
 #, fuzzy
 msgid "Starting it"
 msgstr "Démarrage de l'app"
 
-#: lib/words.ts:337
+#: lib/words.ts:336
 #, fuzzy
 msgid "Not a ZOOMRIYA app."
 msgstr "Pas une app ZOOMRIYA."
 
-#: lib/words.ts:337
+#: lib/words.ts:336
 #, fuzzy
 msgid "Can't be read."
 msgstr "Illisible."
 
-#: lib/words.ts:338
+#: lib/words.ts:337
 #, fuzzy
 msgid "Running"
 msgstr "En marche"
 
-#: lib/words.ts:338
+#: lib/words.ts:337
 #, fuzzy
 msgid "Stopped"
 msgstr "Arrêtée"
 
-#: lib/words.ts:338
+#: lib/words.ts:337
 #, fuzzy
 msgid "Not working"
 msgstr "Ne fonctionne pas"
 
-#: lib/words.ts:341
+#: lib/words.ts:340
 #, fuzzy
 msgid "Landscape"
 msgstr "Paysage"
 
-#: lib/words.ts:341
+#: lib/words.ts:340
 #, fuzzy
 msgid "Portrait, turned right"
 msgstr "Portrait, tourné à droite"
 
-#: lib/words.ts:341
+#: lib/words.ts:340
 #, fuzzy
 msgid "Portrait, turned left"
 msgstr "Portrait, tourné à gauche"
 
-#: lib/words.ts:341
+#: lib/words.ts:340
 #, fuzzy
 msgid "Landscape, upside down"
 msgstr "Paysage, à l'envers"

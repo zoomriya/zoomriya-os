@@ -1297,190 +1297,185 @@ msgstr "石板灰"
 
 #: lib/words.ts:303
 #, fuzzy
-msgid "Smoke"
-msgstr "烟雾"
+msgid "Waves"
+msgstr "波浪"
 
 #: lib/words.ts:304
-#, fuzzy
-msgid "Smoke at dusk"
-msgstr "黄昏烟雾"
-
-#: lib/words.ts:305
 #, fuzzy
 msgid "Hills"
 msgstr "山丘"
 
-#: lib/words.ts:306
+#: lib/words.ts:305
 #, fuzzy
 msgid "Lakeside"
 msgstr "湖畔"
 
-#: lib/words.ts:310
+#: lib/words.ts:309
 #, fuzzy
 msgid "Night"
 msgstr "夜色"
 
-#: lib/words.ts:311
+#: lib/words.ts:310
 #, fuzzy
 msgid "Ocean"
 msgstr "海洋"
 
-#: lib/words.ts:312
+#: lib/words.ts:311
 #, fuzzy
 msgid "Forest"
 msgstr "森林"
 
-#: lib/words.ts:313
+#: lib/words.ts:312
 #, fuzzy
 msgid "Plum"
 msgstr "梅紫"
 
-#: lib/words.ts:314
+#: lib/words.ts:313
 #, fuzzy
 msgid "Graphite"
 msgstr "石墨"
 
-#: lib/words.ts:322
+#: lib/words.ts:321
 #, fuzzy
 msgid "Sign-in"
 msgstr "登录"
 
-#: lib/words.ts:323
+#: lib/words.ts:322
 #, fuzzy
 msgid "Wrong try"
 msgstr "尝试失败"
 
-#: lib/words.ts:324
+#: lib/words.ts:323
 #, fuzzy
 msgid "Second step"
 msgstr "第二步"
 
-#: lib/words.ts:325 pages/Lock.svelte:43 pages/SignIn.svelte:188 tools/AddPerson.svelte:71 tools/EditPerson.svelte:85 tools/NewPassword.svelte:45
+#: lib/words.ts:324 pages/Lock.svelte:43 pages/SignIn.svelte:188 tools/AddPerson.svelte:71 tools/EditPerson.svelte:85 tools/NewPassword.svelte:45
 #, fuzzy
 msgid "Password"
 msgstr "密码"
 
-#: lib/words.ts:326 tools/EditPerson.svelte:109 tools/EditPerson.svelte:117
+#: lib/words.ts:325 tools/EditPerson.svelte:109 tools/EditPerson.svelte:117
 #, fuzzy
 msgid "Account"
 msgstr "账户"
 
-#: lib/words.ts:327
+#: lib/words.ts:326
 #, fuzzy
 msgid "AI key"
 msgstr "AI 密钥"
 
-#: lib/words.ts:328
+#: lib/words.ts:327
 #, fuzzy
 msgid "New device"
 msgstr "新设备"
 
-#: lib/words.ts:329
+#: lib/words.ts:328
 #, fuzzy
 msgid "Share link"
 msgstr "共享链接"
 
-#: lib/words.ts:330
+#: lib/words.ts:329
 #, fuzzy
 msgid "Setting"
 msgstr "设置"
 
-#: lib/words.ts:333
+#: lib/words.ts:332
 #, fuzzy
 msgid "Errors"
 msgstr "错误"
 
-#: lib/words.ts:333
+#: lib/words.ts:332
 #, fuzzy
 msgid "Warnings and errors"
 msgstr "警告和错误"
 
-#: lib/words.ts:333 tools/Logs.svelte:54
+#: lib/words.ts:332 tools/Logs.svelte:54
 #, fuzzy
 msgid "Everything"
 msgstr "全部"
 
-#: lib/words.ts:334
+#: lib/words.ts:333
 #, fuzzy
 msgid "Healthy"
 msgstr "正常"
 
-#: lib/words.ts:334
+#: lib/words.ts:333
 #, fuzzy
 msgid "Needs checking"
 msgstr "需要检查"
 
-#: lib/words.ts:334
+#: lib/words.ts:333
 #, fuzzy
 msgid "Failing"
 msgstr "故障"
 
-#: lib/words.ts:337 lib/words.ts:338
+#: lib/words.ts:336 lib/words.ts:337
 #, fuzzy
 msgid "Starting"
 msgstr "正在开始"
 
-#: lib/words.ts:337
+#: lib/words.ts:336
 #, fuzzy
 msgid "Copying from the USB stick"
 msgstr "正在从 U 盘复制"
 
-#: lib/words.ts:337
+#: lib/words.ts:336
 #, fuzzy
 msgid "Checking it's a ZOOMRIYA app"
 msgstr "正在确认是否为 ZOOMRIYA 应用"
 
-#: lib/words.ts:337
+#: lib/words.ts:336
 #, fuzzy
 msgid "Adding it to the box"
 msgstr "正在添加到盒子"
 
-#: lib/words.ts:337
+#: lib/words.ts:336
 #, fuzzy
 msgid "Starting it"
 msgstr "正在启动"
 
-#: lib/words.ts:337
+#: lib/words.ts:336
 #, fuzzy
 msgid "Not a ZOOMRIYA app."
 msgstr "不是 ZOOMRIYA 应用。"
 
-#: lib/words.ts:337
+#: lib/words.ts:336
 #, fuzzy
 msgid "Can't be read."
 msgstr "无法读取。"
 
-#: lib/words.ts:338
+#: lib/words.ts:337
 #, fuzzy
 msgid "Running"
 msgstr "运行中"
 
-#: lib/words.ts:338
+#: lib/words.ts:337
 #, fuzzy
 msgid "Stopped"
 msgstr "已停止"
 
-#: lib/words.ts:338
+#: lib/words.ts:337
 #, fuzzy
 msgid "Not working"
 msgstr "无法运行"
 
-#: lib/words.ts:341
+#: lib/words.ts:340
 #, fuzzy
 msgid "Landscape"
 msgstr "横向"
 
-#: lib/words.ts:341
+#: lib/words.ts:340
 #, fuzzy
 msgid "Portrait, turned right"
 msgstr "纵向（向右旋转）"
 
-#: lib/words.ts:341
+#: lib/words.ts:340
 #, fuzzy
 msgid "Portrait, turned left"
 msgstr "纵向（向左旋转）"
 
-#: lib/words.ts:341
+#: lib/words.ts:340
 #, fuzzy
 msgid "Landscape, upside down"
 msgstr "横向（上下颠倒）"

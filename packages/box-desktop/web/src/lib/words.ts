@@ -298,10 +298,9 @@ export const ACCENTS: Record<string, [string, string, string, string, string]> =
 };
 export const DEFAULT_ACCENT = "blue";
 
-/** Our pictures: their names and files. Smoke is the box's own, the sign-in's. */
+/** Our pictures: their names and files. Waves is the box's own, the sign-in's. */
 export const PICTURES: Record<string, [string, string]> = {
-	smoke: [N_("Smoke"), "wallpaper.jpg"],
-	slate: [N_("Smoke at dusk"), "slate.jpg"],
+	waves: [N_("Waves"), "waves.jpg"],
 	dusk: [N_("Hills"), "dusk.jpg"],
 	lakeside: [N_("Lakeside"), "lakeside.jpg"],
 };
@@ -313,7 +312,7 @@ export const COLOURS: Record<string, [string, string]> = {
 	plum: [N_("Plum"), "#4a2545"],
 	graphite: [N_("Graphite"), "#2d3340"],
 };
-export const DEFAULT_BACKGROUND = "smoke";
+export const DEFAULT_BACKGROUND = "waves";
 /** An admin's own picture, from a USB stick. */
 export const OWN = "own";
 

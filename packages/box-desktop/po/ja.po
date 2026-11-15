@@ -1297,190 +1297,185 @@ msgstr "スレート"
 
 #: lib/words.ts:303
 #, fuzzy
-msgid "Smoke"
-msgstr "スモーク"
+msgid "Waves"
+msgstr "波"
 
 #: lib/words.ts:304
-#, fuzzy
-msgid "Smoke at dusk"
-msgstr "夕暮れのスモーク"
-
-#: lib/words.ts:305
 #, fuzzy
 msgid "Hills"
 msgstr "丘"
 
-#: lib/words.ts:306
+#: lib/words.ts:305
 #, fuzzy
 msgid "Lakeside"
 msgstr "湖畔"
 
-#: lib/words.ts:310
+#: lib/words.ts:309
 #, fuzzy
 msgid "Night"
 msgstr "ナイト"
 
-#: lib/words.ts:311
+#: lib/words.ts:310
 #, fuzzy
 msgid "Ocean"
 msgstr "オーシャン"
 
-#: lib/words.ts:312
+#: lib/words.ts:311
 #, fuzzy
 msgid "Forest"
 msgstr "フォレスト"
 
-#: lib/words.ts:313
+#: lib/words.ts:312
 #, fuzzy
 msgid "Plum"
 msgstr "プラム"
 
-#: lib/words.ts:314
+#: lib/words.ts:313
 #, fuzzy
 msgid "Graphite"
 msgstr "グラファイト"
 
-#: lib/words.ts:322
+#: lib/words.ts:321
 #, fuzzy
 msgid "Sign-in"
 msgstr "サインイン"
 
-#: lib/words.ts:323
+#: lib/words.ts:322
 #, fuzzy
 msgid "Wrong try"
 msgstr "失敗した試行"
 
-#: lib/words.ts:324
+#: lib/words.ts:323
 #, fuzzy
 msgid "Second step"
 msgstr "2段階目"
 
-#: lib/words.ts:325 pages/Lock.svelte:43 pages/SignIn.svelte:188 tools/AddPerson.svelte:71 tools/EditPerson.svelte:85 tools/NewPassword.svelte:45
+#: lib/words.ts:324 pages/Lock.svelte:43 pages/SignIn.svelte:188 tools/AddPerson.svelte:71 tools/EditPerson.svelte:85 tools/NewPassword.svelte:45
 #, fuzzy
 msgid "Password"
 msgstr "パスワード"
 
-#: lib/words.ts:326 tools/EditPerson.svelte:109 tools/EditPerson.svelte:117
+#: lib/words.ts:325 tools/EditPerson.svelte:109 tools/EditPerson.svelte:117
 #, fuzzy
 msgid "Account"
 msgstr "アカウント"
 
-#: lib/words.ts:327
+#: lib/words.ts:326
 #, fuzzy
 msgid "AI key"
 msgstr "AIキー"
 
-#: lib/words.ts:328
+#: lib/words.ts:327
 #, fuzzy
 msgid "New device"
 msgstr "新しいデバイス"
 
-#: lib/words.ts:329
+#: lib/words.ts:328
 #, fuzzy
 msgid "Share link"
 msgstr "共有リンク"
 
-#: lib/words.ts:330
+#: lib/words.ts:329
 #, fuzzy
 msgid "Setting"
 msgstr "設定"
 
-#: lib/words.ts:333
+#: lib/words.ts:332
 #, fuzzy
 msgid "Errors"
 msgstr "エラー"
 
-#: lib/words.ts:333
+#: lib/words.ts:332
 #, fuzzy
 msgid "Warnings and errors"
 msgstr "警告とエラー"
 
-#: lib/words.ts:333 tools/Logs.svelte:54
+#: lib/words.ts:332 tools/Logs.svelte:54
 #, fuzzy
 msgid "Everything"
 msgstr "すべて"
 
-#: lib/words.ts:334
+#: lib/words.ts:333
 #, fuzzy
 msgid "Healthy"
 msgstr "正常"
 
-#: lib/words.ts:334
+#: lib/words.ts:333
 #, fuzzy
 msgid "Needs checking"
 msgstr "要確認"
 
-#: lib/words.ts:334
+#: lib/words.ts:333
 #, fuzzy
 msgid "Failing"
 msgstr "異常"
 
-#: lib/words.ts:337 lib/words.ts:338
+#: lib/words.ts:336 lib/words.ts:337
 #, fuzzy
 msgid "Starting"
 msgstr "開始しています"
 
-#: lib/words.ts:337
+#: lib/words.ts:336
 #, fuzzy
 msgid "Copying from the USB stick"
 msgstr "USB メモリからコピーしています"
 
-#: lib/words.ts:337
+#: lib/words.ts:336
 #, fuzzy
 msgid "Checking it's a ZOOMRIYA app"
 msgstr "ZOOMRIYA のアプリか確認しています"
 
-#: lib/words.ts:337
+#: lib/words.ts:336
 #, fuzzy
 msgid "Adding it to the box"
 msgstr "ボックスに追加しています"
 
-#: lib/words.ts:337
+#: lib/words.ts:336
 #, fuzzy
 msgid "Starting it"
 msgstr "起動しています"
 
-#: lib/words.ts:337
+#: lib/words.ts:336
 #, fuzzy
 msgid "Not a ZOOMRIYA app."
 msgstr "ZOOMRIYA のアプリではありません。"
 
-#: lib/words.ts:337
+#: lib/words.ts:336
 #, fuzzy
 msgid "Can't be read."
 msgstr "読み取れません。"
 
-#: lib/words.ts:338
+#: lib/words.ts:337
 #, fuzzy
 msgid "Running"
 msgstr "実行中"
 
-#: lib/words.ts:338
+#: lib/words.ts:337
 #, fuzzy
 msgid "Stopped"
 msgstr "停止中"
 
-#: lib/words.ts:338
+#: lib/words.ts:337
 #, fuzzy
 msgid "Not working"
 msgstr "動作していません"
 
-#: lib/words.ts:341
+#: lib/words.ts:340
 #, fuzzy
 msgid "Landscape"
 msgstr "横向き"
 
-#: lib/words.ts:341
+#: lib/words.ts:340
 #, fuzzy
 msgid "Portrait, turned right"
 msgstr "縦向き (右に回転)"
 
-#: lib/words.ts:341
+#: lib/words.ts:340
 #, fuzzy
 msgid "Portrait, turned left"
 msgstr "縦向き (左に回転)"
 
-#: lib/words.ts:341
+#: lib/words.ts:340
 #, fuzzy
 msgid "Landscape, upside down"
 msgstr "横向き (上下反転)"
