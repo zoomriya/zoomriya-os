@@ -189,7 +189,7 @@ class Desk {
 	side = $state<'home' | 'screen'>('home');
 	member = $state<Member | null>(null);
 	prefs = $state<Prefs>(defaultPrefs());
-	box = $state<BoxSettings>({ background: 'waves', lock_after: 5, screen_off_after: 10 });
+	box = $state<BoxSettings>({ background: 'jellyfish', lock_after: 5, screen_off_after: 10 });
 	hasPicture = $state(false);
 	/** Changes when the family's own picture does, so it's drawn again. */
 	pictureStamp = $state(Date.now());

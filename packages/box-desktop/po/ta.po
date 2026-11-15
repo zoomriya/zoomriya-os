@@ -1297,8 +1297,8 @@ msgstr "சாம்பல் நீலம்"
 
 #: lib/words.ts:303
 #, fuzzy
-msgid "Waves"
-msgstr "அலைகள்"
+msgid "Jellyfish"
+msgstr "ஜெல்லிமீன்கள்"
 
 #: lib/words.ts:304
 #, fuzzy

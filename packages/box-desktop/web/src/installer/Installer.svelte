@@ -145,7 +145,7 @@
 	</div>
 {/snippet}
 
-<div class="backdrop" style="background-image: url(/backgrounds/waves.jpg)"></div>
+<div class="backdrop" style="background-image: url(/backgrounds/jellyfish.jpg)"></div>
 <div class="place">
 	<div class="installer">
 		<aside class="side">

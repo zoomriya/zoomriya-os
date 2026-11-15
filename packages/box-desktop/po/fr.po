@@ -1297,8 +1297,8 @@ msgstr "Ardoise"
 
 #: lib/words.ts:303
 #, fuzzy
-msgid "Waves"
-msgstr "Vagues"
+msgid "Jellyfish"
+msgstr "Méduses"
 
 #: lib/words.ts:304
 #, fuzzy

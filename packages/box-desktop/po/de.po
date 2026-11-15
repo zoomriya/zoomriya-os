@@ -1297,8 +1297,8 @@ msgstr "Schiefer"
 
 #: lib/words.ts:303
 #, fuzzy
-msgid "Waves"
-msgstr "Wellen"
+msgid "Jellyfish"
+msgstr "Quallen"
 
 #: lib/words.ts:304
 #, fuzzy

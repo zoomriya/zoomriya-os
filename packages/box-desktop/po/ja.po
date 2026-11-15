@@ -1297,8 +1297,8 @@ msgstr "スレート"
 
 #: lib/words.ts:303
 #, fuzzy
-msgid "Waves"
-msgstr "波"
+msgid "Jellyfish"
+msgstr "クラゲ"
 
 #: lib/words.ts:304
 #, fuzzy

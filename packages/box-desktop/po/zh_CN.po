@@ -1297,8 +1297,8 @@ msgstr "石板灰"
 
 #: lib/words.ts:303
 #, fuzzy
-msgid "Waves"
-msgstr "波浪"
+msgid "Jellyfish"
+msgstr "水母"
 
 #: lib/words.ts:304
 #, fuzzy
