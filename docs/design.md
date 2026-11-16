@@ -1029,9 +1029,9 @@ app account.
   `/etc/zoomriya/outbound.d/<id>.json`: its account, a name, the feature that
   needs it, what leaves (in plain words), why, when, the hosts, and whether it
   is optional. Only the street map's download (`zoomriya-maps`) declares one
-  today; planned: Box Desktop's web window (`zoomriya-web`, any host, optional,
-  [Box Desktop §3](box-desktop.md#3-the-desktop)) and Myira's web search
-  service (its search engines, optional). A broken declaration is ignored, so its account stays blocked.
+  today; planned: Myira's web search service (its search engines,
+  optional). Box Desktop has none: the box's screen never opens a page from
+  outside the box ([Box Desktop §3](box-desktop.md#3-the-desktop)). A broken declaration is ignored, so its account stays blocked.
 - **Switches** (Control Panel › Security › Internet Access, kept in
   `/etc/zoomriya/internet.json`, the agent's `internet` and `internet-set`):
   each optional connection can be switched off; **Apps offline** blocks every

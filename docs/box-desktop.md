@@ -40,6 +40,8 @@ ID for sign-in ([§7](#7-signing-in)). It contains no code from
 | A web desktop: Svelte in the browser, a Go server on the box (`box-desktopd`), on its own port, 7443 (12 November 2026; it replaced the native GTK desktop, `box-desktop-app`, now removed) | Decided |
 | The web desktop does everything the native one did, with the same tools, tabs, words, translations, look and behaviour ([§6.3](#63-the-same-as-the-native-desktop)) | Decided |
 | The box's own screen shows the same web desktop in a full-screen WebKit window with no browser around it | Decided |
+| The box's screen never shows a page from outside the box: a link off the box shows a QR code to open on a phone or computer (16 November 2026; the web window is dropped, BD-14, BD-15) | Decided |
+| Myira at the box helps with the box: no web search (`/wiki`, `/web`) in the panel (16 November 2026) | Decided |
 | HTTPS with a real certificate: ZOOMRIYA Connect's `<name>.zoomriya.app`, pointing at the box's home address. Without ZOOMRIYA Connect: `<name>.local` with the box's own certificate, trusted once | Decided |
 | From the home network now; from away from home through ZOOMRIYA Connect's apps later | Decided |
 | Can't sign in? (the setup code from the sticker lets an admin back in) on the box's own screen only: over the network, anyone who has seen the code could use it | Decided |
@@ -125,27 +127,14 @@ inside the desktop, with no address bar around them, so it reads as an app:
 The app's menu also has **Open on a phone or computer**: the app's address,
 and a QR code a phone's camera opens it from; and **Manage in App Center**.
 
-**A link off the box opens in the web window** (planned 12 November 2026,
-not built). The app windows still follow the box's pages only; a link to
-anywhere else (a result from Myira's `/web`, a site an app links to) opens in
-a web window of its own, so the admin can read it at the box. It opens from a
-link only: there is no address to type (BD-14).
-
-| Piece | Plan |
-| --- | --- |
-| Engine | The same WebKitGTK as the app windows: nothing new to ship, its security fixes come with the OS's, and each page runs in WebKit's own sandbox |
-| Its own program and account | A small program of its own (`box-web`), run as its own account `zoomriya-web`: not in `zoomriya-box`, so it can't reach the agent, and no access to `/data`. Box Desktop starts it with the link and nothing else |
-| Session | Its own, in memory only (`NetworkSession.new_ephemeral()`), never the app windows': a site never sees the admin's ZOOMRIYA ID sign-in. Closing the window forgets everything |
-| Privacy | Third-party cookies off, WebKit's tracking prevention on, trackers and ads blocked by WebKit's content filters (`UserContentFilterStore`) from a blocklist we ship and update with the OS (which list: BD-15) |
-| Limits | HTTPS only (an `http://` link is tried as `https://`, else a plain message); nothing downloaded; camera, microphone, location and notifications refused; no saved passwords, no history, no developer tools, no other windows |
-| Look | A thin bar: back, reload, the site's name with its full address beside it, **Open on a phone or computer** (the link as a QR code, as for an app) and close. Frosted glass like the app's menu |
-| Internet | Declared in `/etc/zoomriya/outbound.d/box-web.json` as an optional connection to any host ([Design §8.2](design.md#82-internet-access)): switched off there, or with **Apps offline**, a link shows "The web window is switched off" and its QR code instead |
-| No way past a problem | A certificate that isn't right, or a page that can't load, shows a plain message, never a "continue anyway" |
-
-Not a headless browser: one with no screen fetches pages for a program to
-read, which Myira's web search leaves out on purpose.
-Not a full browser either: a larger program with its own updates and
-settings, which wouldn't look like Box Desktop.
+**A link off the box never opens on the box's screen** (decided 16 November
+2026; the web window planned on 12 November is dropped). The app windows
+follow the box's pages only. A link to anywhere else (a site an app links to)
+shows its address and a QR code, **Open on a phone or computer**, as for an
+app. In a browser on a computer or phone, it opens in a new tab. The box's
+screen shows only the box's own pages: no outside site runs on the box that
+holds the family's data, and there is no browser program, account, blocklist
+or internet connection of its own to keep.
 
 **Lock screen** keeps the admin signed in and their windows as they were, and
 shows the box's background with the time, their initials and name, and a
@@ -542,7 +531,7 @@ glass, Inter's optical sizes, and smoother motion.
 | QR codes (Open Family Hub on a phone) | Drawn in the page as SVG (`qrcode-generator`); the second step's is ZOOMRIYA ID's own, as before |
 | From a USB stick (apps, SSH keys, a picture, diagnostics) | The same, from a stick in the box (choosing a file on the computer instead: BD-16) |
 | An app's window (`appview.py`) | A window inside the desktop showing the app's page from the box's own address, signed in (§3). Vault opens in a tab of its own |
-| A link off the box (planned) | In a browser, a new tab. On the box's screen, the web window as planned (BD-14, BD-15) |
+| A link off the box | In a browser, a new tab. On the box's screen, its address and QR code (Open on a phone or computer) |
 
 ### 6.4 Settings and packaging
 
@@ -645,11 +634,11 @@ needs the setup code from the sticker.
 | BD-11 | Apps' updates | From a USB stick only today; the catalogue (§11) brings them online, with security fixes first | Open |
 | BD-12 | A touch screen with no keyboard | Nothing pops up by itself: GTK asks for an on-screen keyboard, but the box's screen (sway and Box Desktop) has none. An on-screen keyboard program that sway's input-method support can show, or Box Desktop's own for the sign-in and lock screens | Open |
 | BD-13 | Screenshots for support | Save the screen to a USB stick, or add it to a diagnostics bundle | Open |
-| BD-14 | The web window's address bar (§3) | (a) links only: it opens from a link, nothing to type, (b) also an address to type, making the box's screen a browser | Leaning (a): a general browser is a large target on the screen where an admin is signed in |
+| BD-14 | The web window's address bar (§3) | (a) links only, (b) also an address to type | Dropped (16 November 2026): no web window; a link off the box shows a QR code |
 | BD-16 | Files from the computer | In a browser on a computer, choose a picture, an app (`.zapp`) or an SSH key from that computer, as well as from a USB stick in the box | Open |
 | BD-17 | Myira's model on a new box ([§4](#myira)) | (a) the first setup offers it, (b) the first time the panel is opened, (c) in the OS image (4.4 GB more to download and flash) | Decided and built (14 November 2026): (b), with a USB stick as well |
 | BD-18 | An emergency in the OS's own Myira ([§4](#myira)) | Someone types they're hurt or in danger into the box-only Myira: (a) the fixed reply as for any other question, (b) a fixed line of its own with the emergency number of where the family lives | Decided and built (14 November 2026): (b) |
-| BD-15 | The web window's blocklist (§3) | A tracker and ad list turned into WebKit's content-blocker rules. The well-known lists are GPL-3.0 or CC BY-SA, so their terms are checked first; or a list of our own | Open |
+| BD-15 | The web window's blocklist (§3) | A tracker and ad list turned into WebKit's content-blocker rules | Dropped (16 November 2026) with the web window |
 
 ## 11. Development plan
 
