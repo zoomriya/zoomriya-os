@@ -1,4 +1,4 @@
-// setup-status, region-set, time-zone-set, first-admin and setup-finish
+// setup-status, region-set, town-set (town.go), time-zone-set, first-admin and setup-finish
 // (design §5): the
 // first setup, on the box's own screen. The setup app asks for them; once
 // setup is finished, first-admin and setup-finish are refused.
@@ -131,7 +131,7 @@ func (a *Agent) setupStatus() (Response, error) {
 	status := Response{
 		"finished": a.setupFinished(), "has_admin": a.hasAdmin(),
 		"language": a.language(), "region": a.region(), "subdivision": a.subdivision(),
-		"zone": a.timeZone(), "clock_synced": synced, "setup_code": nil,
+		"zone": a.timeZone(), "clock_synced": synced, "setup_code": nil, "town": a.town(),
 	}
 	// A box that made its own setup code (no sticker): the first setup shows
 	// it to be written down, and only until the setup is finished.
@@ -155,6 +155,9 @@ func (a *Agent) regionSet(code, sub *string) (Response, error) {
 			return nil, refuse("Which state or province? Choose one from the list.")
 		}
 		chosen = *sub
+	}
+	if err := a.forgetTownElsewhere(*code); err != nil {
+		return nil, err
 	}
 	file := a.path(regionFile)
 	if err := os.MkdirAll(filepath.Dir(file), 0o755); err != nil {

@@ -60,7 +60,7 @@ services.
 | `apt.zoomriya.com` serves every box, not locked; forks run their own ([§7.3](#73-who-gets-what)) | Decided |
 | ZOOMRIYA Connect serves boxes registered to a ZOOMRIYA account; forks run their own Connect ([§7.3](#73-who-gets-what)) | Decided |
 | Security updates follow Debian's releases: each ZOOMRIYA OS version gets them as long as its Debian version does, LTS included, and boxes move to the next version before that ends ([§6.6](#66-moving-to-debian-14), [§7.3](#73-who-gets-what)) | Decided |
-| The box's weather is the OS's: `zoomriya-weather` fetches the forecast and alerts for the family's town, needs nothing from the apps, and the apps read what it keeps ([Weather](weather.md), 16 November 2026) | Decided, not built |
+| The box's weather is the OS's: `zoomriya-weather` fetches the forecast and alerts for the family's town, needs nothing from the apps, and the apps read what it keeps ([Weather](weather.md), 16 November 2026) | Decided; built 16 November 2026 |
 
 ## 2. The layers
 
@@ -256,13 +256,13 @@ setup continues until the box is configured:
    the setup carries on: the box catches up with updates and the clock later.
 4. **The country or region**, chosen from tzdata's list with a search
    (`region-set`, kept in `/etc/zoomriya/region` as its two-letter code).
-   Then **the town**, from the places shipped with the OS for that country,
-   with a search (kept in `/etc/zoomriya/town`; the installer asks it when it
-   asks the region, and the first setup then skips it). The image is built
-   with no town, and the box's weather stays not activated until one is
-   chosen. The page says weather is then on, what leaves the box (the town
-   only) and to which weather service, and that Security › Internet Access
-   switches it off ([Weather](weather.md), planned 16 November 2026).
+   Then **the town**, its own step, from GeoNames' towns shipped with the OS
+   for that country, bigger ones first, with a search (`town-set`, kept in
+   `/etc/zoomriya/town`). The image is built with no town, and the box's
+   weather stays not activated until one is chosen. The page says weather is
+   then on, what leaves the box (the town's location only) and to which
+   weather service, and that Security › Internet Access switches it off
+   ([Weather](weather.md), built 16 November 2026).
 5. **The time zone**: the region's zones, or every zone with a tick, with a
    search (`time-zone-set`).
 6. **The box's admin**: a username and a password, twice. The agent's
@@ -1036,11 +1036,11 @@ app account.
 - **Declared connections.** An app that needs the internet installs
   `/etc/zoomriya/outbound.d/<id>.json`: its account, a name, the feature that
   needs it, what leaves (in plain words), why, when, the hosts, and whether it
-  is optional. Only the street map's download (`zoomriya-maps`) declares one
-  today; planned: the box's weather (`zoomriya-weather`, the family's
-  country's weather service only, optional, on by default,
-  [Weather](weather.md)) and Myira's web search service (its search engines,
-  optional). Box Desktop has none: the box's screen never opens a page from
+  is optional. Declared today: the street map's download (`zoomriya-maps`),
+  Myira's model download (`zoomriya-model-fetch`), the box's weather
+  (`zoomriya-weather`: the three weather services' hosts, asking only the
+  family's country's; optional, on by default, [Weather](weather.md)) and
+  Myira's web search service (its search engine, optional). Box Desktop has none: the box's screen never opens a page from
   outside the box ([Box Desktop §3](box-desktop.md#3-the-desktop)). A broken declaration is ignored, so its account stays blocked.
 - **Switches** (Control Panel › Security › Internet Access, kept in
   `/etc/zoomriya/internet.json`, the agent's `internet` and `internet-set`):

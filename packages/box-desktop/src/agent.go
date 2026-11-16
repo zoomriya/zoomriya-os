@@ -51,6 +51,7 @@ var agentRules = map[string]Rule{
 	"language-set":          {},
 	"region-set":            {},
 	"time-zone-set":         {},
+	"town-set":              {},
 	"display-set":           {},
 	"internet":              {},
 	"internet-set":          {},

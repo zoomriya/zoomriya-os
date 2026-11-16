@@ -1,0 +1,16 @@
+Package: zoomriya-weather
+Version: 13.0.0
+Architecture: amd64
+Maintainer: ZOOMRIYA <os@zoomriya.com>
+Depends: systemd, tzdata
+Section: admin
+Priority: optional
+Description: The box's weather: the forecast and alerts for the family's town
+ zoomriya-weatherd fetches the forecast and the weather alerts for the town
+ chosen in the first setup from the country's own weather service
+ (Environment and Climate Change Canada, the US National Weather Service,
+ or MET Norway elsewhere; alerts from MET Norway in Norway and EUMETNET –
+ MeteoAlarm in the rest of Europe) and keeps them in
+ /var/lib/zoomriya-weather/weather.json for Box Desktop and the apps to
+ read. It needs nothing from the apps and fetches nothing until a town is
+ chosen. Also ships the towns people choose from (GeoNames, CC BY 4.0).

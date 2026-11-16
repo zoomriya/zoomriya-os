@@ -55,6 +55,9 @@ type Request struct {
 	// and optionally its state or province, such as CA-ON.
 	Region      *string `json:"region,omitempty"`
 	Subdivision *string `json:"subdivision,omitempty"`
+	// town-set: a GeoNames id from the towns shipped with the OS, in the
+	// box's country (weather.md §1).
+	Town *int64 `json:"town,omitempty"`
 	// time-zone-set: a zone from the time zone database, such as America/Toronto.
 	Zone *string `json:"zone,omitempty"`
 	// display-set: the box's screen (sway's output name), its resolution
@@ -208,6 +211,8 @@ func (a *Agent) Handle(req Request) (Response, error) {
 		return a.languageSet(req.Locale)
 	case "region-set":
 		return a.regionSet(req.Region, req.Subdivision)
+	case "town-set":
+		return a.townSet(req.Town)
 	case "time-zone-set":
 		return a.timeZoneSet(req.Zone)
 	case "display-set":

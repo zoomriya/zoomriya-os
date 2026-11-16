@@ -20,7 +20,7 @@ import (
 // page sends them; "by" is always first-setup.
 var setupRequests = map[string]bool{
 	"setup-status": true, "keyboard": true, "keyboard-set": true, "network": true, "network-set": true,
-	"network-keep": true, "region-set": true, "language-set": true, "time-zone-set": true,
+	"network-keep": true, "region-set": true, "town-set": true, "language-set": true, "time-zone-set": true,
 	"first-admin": true, "setup-finish": true,
 }
 

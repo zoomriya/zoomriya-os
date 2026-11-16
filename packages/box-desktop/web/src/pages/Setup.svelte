@@ -1,6 +1,6 @@
 <script lang="ts">
 	// The first setup (design §5, the native setup's app.py), on the box's own
-	// screen: language, keyboard, network, region, time zone, the box's admin
+	// screen: language, keyboard, network, region, town, time zone, the box's admin
 	// in ZOOMRIYA ID, the code from their phone, and done. A setup cut short (a
 	// power cut) goes on from where it was. The language, the region and the
 	// time zone are chosen by the person, never assumed.
@@ -13,11 +13,12 @@
 	import Spinner from '../components/Spinner.svelte';
 	import Backdrop from './Backdrop.svelte';
 
-	const STEPS = [N_('Language'), N_('Keyboard'), N_('Network'), N_('Region'), N_('Time zone'), N_('Admin'), N_('Phone'), N_('Done')];
-	const [LANGUAGE, KEYBOARD, NETWORK, REGION, ZONE, ADMIN, PHONE, DONE] = [0, 1, 2, 3, 4, 5, 6, 7];
+	const STEPS = [N_('Language'), N_('Keyboard'), N_('Network'), N_('Region'), N_('Town'), N_('Time zone'), N_('Admin'), N_('Phone'), N_('Done')];
+	const [LANGUAGE, KEYBOARD, NETWORK, REGION, TOWN, ZONE, ADMIN, PHONE, DONE] = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 	const MIN_PASSWORD = 8;
 
 	interface Choice { code: string; name: string }
+	interface Town { id: number; name: string; admin1: string }
 	let step = $state(-1);
 	let busy = $state(false);
 	let problem = $state('');
@@ -35,6 +36,11 @@
 	let regionSearch = $state('');
 	let subdivisions = $state<Choice[]>([]);
 	let subdivision = $state('');
+	// The family's town, for the box's weather (weather.md): from GeoNames'
+	// towns shipped with the OS, in the chosen country. Mandatory.
+	let town = $state<Town | null>(null);
+	let townSearch = $state('');
+	let towns = $state<Town[]>([]);
 	let zone = $state('');
 	let zoneSearch = $state('');
 	let regionZones = $state<string[]>([]);
@@ -88,6 +94,7 @@
 		if (step === LANGUAGE) return !!language;
 		if (step === NETWORK) return !!address;
 		if (step === REGION) return !!region;
+		if (step === TOWN) return !!town;
 		if (step === ZONE) return !!zone;
 		if (step === ADMIN) return passwordProblem() === null;
 		if (step === PHONE) return codes.length ? codesKept : !!ticket && !!code.trim();
@@ -124,6 +131,7 @@
 			region = status.region;
 			await showSubdivisions(status.region, status.subdivision ?? '');
 		}
+		if (status.town && status.town.country === status.region) town = { id: status.town.id, name: status.town.name, admin1: status.town.admin1 ?? '' };
 		if (saved.zone && status.zone) zone = status.zone;
 		go(status.has_admin ? DONE : !kept ? LANGUAGE : saved.keyboard ? NETWORK : KEYBOARD);
 	}
@@ -177,7 +185,9 @@
 				if (locale) await ask('language-set', { locale });
 				return true;
 			});
-			if (done) go(ZONE);
+			if (done) go(TOWN);
+		} else if (step === TOWN) {
+			if (town && (await call(() => ask('town-set', { town: town!.id })))) go(ZONE);
 		} else if (step === ZONE) {
 			if (await call(() => ask('time-zone-set', { zone }))) {
 				await saveProgress({ zone: true });
@@ -243,8 +253,10 @@
 
 	async function chooseRegion(code: string): Promise<void> {
 		if (code !== region) {
-			// A new region: its time zone is chosen again.
+			// A new region: its time zone and town are chosen again.
 			zone = '';
+			town = null;
+			townSearch = '';
 			await showSubdivisions(code);
 		}
 		region = code;
@@ -254,6 +266,20 @@
 		regionZones = await get<string[]>(`/api/places/zones?region=${region}`).catch(() => []);
 		everyZone = !regionZones.length;
 	}
+
+	// The towns as typed, the biggest first; asked again a moment after typing stops.
+	let townTimer: ReturnType<typeof setTimeout> | null = null;
+	$effect(() => {
+		const typed = townSearch;
+		if (step !== TOWN || !region) return;
+		if (townTimer) clearTimeout(townTimer);
+		townTimer = setTimeout(async () => {
+			towns = await get<Town[]>(`/api/places/towns?region=${region}&q=${encodeURIComponent(typed)}`).catch(() => []);
+		}, 150);
+	});
+	const townName = (t: Town) => [t.name, t.admin1].filter(Boolean).join(', ');
+	// Who the town's location goes to (weather.md §2, §6).
+	const weatherService = $derived(region === 'CA' ? _('Environment Canada') : region === 'US' ? _('the US National Weather Service') : _('MET Norway'));
 
 	const shownRegions = $derived(regions.filter((r) => r.name.toLowerCase().includes(regionSearch.toLowerCase())));
 	const shownZones = $derived.by(() => {
@@ -355,6 +381,7 @@
 		[_('Address'), address.split('/')[0] || _('Not connected')],
 		[_('Language'), languages.find((l) => l.code === language)?.name ?? ''],
 		[_('Region'), [subdivisions.find((s) => s.code === subdivision)?.name ?? '', regionName].filter(Boolean).join(', ')],
+		[_('Town'), town ? townName(town) : ''],
 		[_('Time zone'), zone.replaceAll('_', ' ')]
 	]);
 
@@ -445,6 +472,19 @@
 							</select>
 						</label>
 					{/if}
+				{:else if step === TOWN}
+					<h1 class="title">{_('Which town?')}</h1>
+					<p class="lead">{_('For the weather on the box: the forecast and weather alerts for your town.')}</p>
+					<!-- svelte-ignore a11y_autofocus -->
+					<input type="search" bind:value={townSearch} placeholder={_('Search, for example Toronto')} aria-label={_('Search, for example Toronto')} autofocus />
+					<div class="choices tall" role="listbox" aria-label={_('Town')}>
+						{#each towns as t (t.id)}
+							<button class:on={town?.id === t.id} role="option" aria-selected={town?.id === t.id} onclick={() => (town = t)}>{townName(t)}</button>
+						{/each}
+					</div>
+					<p class="state">{town ? fill(_('Chosen: {name}'), { name: townName(town) }) : _('Choose one to go on.')}</p>
+					<p class="note">{fill(_("Weather is on: only the town's location goes to {service}, never anyone's name. Switch it off in Control Panel › Security › Internet Access."), { service: weatherService })}</p>
+					<p class="note">{_('Place names from GeoNames (CC BY 4.0), shortened.')}</p>
 				{:else if step === ZONE}
 					<h1 class="title">{_('Which time zone?')}</h1>
 					<p class="lead">{regionZones.length ? fill(_("Time zones in {region}. Used by the box's clock, maintenance hour and apps."), { region: regionName })
@@ -553,6 +593,7 @@
 	.choices button:hover { background: var(--hover); }
 	.choices button.on { background: var(--selected); color: var(--accent); font-weight: 600; }
 	.state { color: var(--text-secondary); margin: 0; }
+	.note { color: var(--text-secondary); font-size: 0.9em; margin: 0; }
 	.field { display: flex; flex-direction: column; gap: 6px; }
 	.field select { width: 100%; }
 	.fixed { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }

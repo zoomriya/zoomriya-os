@@ -221,6 +221,8 @@ class Desk {
 	health = $state<Answer>({});
 	network = $state<Answer>({});
 	resources = $state<Answer>({});
+	/** The town's weather, as zoomriya-weather keeps it (WeatherWidget). */
+	weather = $state<Answer>({});
 	cpuHistory = $state<number[]>([]);
 	netHistory = $state<[number, number][]>([]);
 
@@ -800,6 +802,9 @@ class Desk {
 				// One follow-up at a time while the library's check runs, for its progress.
 				if (check.running && !check.paused) setTimeout(() => this.refreshWidgets(), 10000);
 			})
+			.catch(() => {});
+		get<Answer>('/api/weather')
+			.then((weather) => (this.weather = weather))
 			.catch(() => {});
 	}
 

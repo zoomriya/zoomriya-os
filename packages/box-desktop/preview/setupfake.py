@@ -31,6 +31,7 @@ class FakeAgent:
         self.zone = "Etc/UTC"
         self.region = ""
         self.subdivision = ""
+        self.town: dict[str, Any] | None = None
         self.locale = ""
         self.mode = "dhcp"
         self.fixed: dict[str, Any] | None = None
@@ -59,6 +60,7 @@ class FakeAgent:
                 "language": self.locale,
                 "region": self.region,
                 "subdivision": self.subdivision,
+                "town": self.town,
                 "zone": self.zone,
                 "clock_synced": True,
                 "setup_code": None if self.finished else "K7QM-4XRT",
@@ -67,9 +69,15 @@ class FakeAgent:
             self.locale = fields["locale"]
             return {"language": self.locale}
         if op == "region-set":
+            if self.town and self.town["country"] != fields["region"]:
+                self.town = None
             self.region = fields["region"]
             self.subdivision = fields.get("subdivision") or ""
             return {"region": self.region, "subdivision": self.subdivision}
+        if op == "town-set":
+            # The preview has no town list's coordinates: a name is enough.
+            self.town = {"id": fields["town"], "name": f"Town {fields['town']}", "country": self.region}
+            return {"town": self.town}
         if op == "time-zone-set":
             self.zone = fields["zone"]
             return {"zone": self.zone}

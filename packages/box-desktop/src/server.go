@@ -141,6 +141,10 @@ func (s *Server) Handler(l Listener) http.Handler {
 	open("GET /api/places/subdivisions", s.subdivisions)
 	open("GET /api/places/locale", s.locale)
 	open("GET /api/places/zones", s.zonesIn)
+	// The towns to choose from (the first setup, Control Panel), and the
+	// weather kept for the widget (towns.go).
+	open("GET /api/places/towns", s.townsIn)
+	signed("GET /api/weather", s.weather)
 	signed("GET /api/info", s.info)
 	signed("GET /api/sound", s.soundGet)
 	signed("POST /api/sound", s.soundPost)

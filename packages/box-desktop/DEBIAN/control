@@ -2,7 +2,7 @@ Package: box-desktop
 Version: 13.0.0
 Architecture: amd64
 Maintainer: ZOOMRIYA <os@zoomriya.com>
-Depends: zoomriya-agent, zoomriya-id, systemd, libpam-systemd, sway, python3, python3-gi,
+Depends: zoomriya-agent, zoomriya-id, zoomriya-weather, systemd, libpam-systemd, sway, python3, python3-gi,
  gir1.2-gtk-4.0, gir1.2-webkit-6.0, pipewire, pipewire-bin, wireplumber, iso-codes, locales,
  fonts-noto-core, fonts-noto-cjk
 Replaces: box-desktop-app, zoomriya-setup
@@ -18,4 +18,4 @@ Description: Box Desktop, the admins' web desktop, and the box's first setup
  zoomriya-agent for everything it shows or changes, from a fixed list, in
  the signed-in admin's name, and plays and records sound through PipeWire.
  Until the box is set up, its screen shows the first setup instead: the
- language, keyboard, network, region, time zone and the box's admin.
+ language, keyboard, network, region, town, time zone and the box's admin.

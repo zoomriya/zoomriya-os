@@ -1,6 +1,6 @@
 <script lang="ts">
-	// The widgets down the right (app.py's widgets): Box health, CPU and
-	// memory, Network and Space, each card tinted in its own colour.
+	// The widgets down the right (app.py's widgets): Box health, Weather, CPU
+	// and memory, Network and Space, each card tinted in its own colour.
 	import { desk } from '../lib/desk.svelte';
 	import { duration, rate, size, when } from '../lib/format';
 	import { _, fill } from '../lib/i18n.svelte';
@@ -8,6 +8,7 @@
 	import Meter from '../components/Meter.svelte';
 	import Rates from '../components/Rates.svelte';
 	import Sparkline from '../components/Sparkline.svelte';
+	import WeatherWidget from './WeatherWidget.svelte';
 
 	const drives = $derived((desk.health.drives ?? []) as Record<string, unknown>[]);
 	const sick = $derived(drives.filter((d) => d.health !== 'healthy' && d.health != null));
@@ -59,6 +60,8 @@
 			</div>
 		{/if}
 	</section>
+
+	<WeatherWidget />
 
 	<section class="widget widget-indigo">
 		<div class="widget-head">

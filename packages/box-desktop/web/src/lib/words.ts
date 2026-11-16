@@ -110,6 +110,16 @@ export const GLYPHS: Record<string, string> = {
 	"lock-screen": "<rect x=\"5\" y=\"10.5\" width=\"14\" height=\"10\" rx=\"2\"/><path d=\"M8.5 10.5V7.5a3.5 3.5 0 0 1 7 0v3\"/><path d=\"M12 14.5v2.5\"/>",
 	"moon": "<path d=\"M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z\"/>",
 	"sun": "<circle cx=\"12\" cy=\"12\" r=\"4\"/><path d=\"M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4\"/>",
+	// The weather widget's skies (zoomriya-weather's icons).
+	"weather-clear": "<circle cx=\"12\" cy=\"12\" r=\"4\"/><path d=\"M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4\"/>",
+	"weather-partly": "<circle cx=\"8\" cy=\"8\" r=\"3\"/><path d=\"M8 2v1M2 8h1M3.8 3.8l.7.7M12.2 3.8l-.7.7\"/><path d=\"M9 20h8a3.5 3.5 0 0 0 .4-6.97A5 5 0 0 0 8 14a3 3 0 0 0 1 6z\"/>",
+	"weather-cloudy": "<path d=\"M7 18h10a4 4 0 0 0 .5-7.97A6 6 0 0 0 6.1 11.1 3.5 3.5 0 0 0 7 18z\"/>",
+	"weather-fog": "<path d=\"M8 14h8a3.2 3.2 0 0 0 .4-6.38A4.8 4.8 0 0 0 7.1 8.3 2.8 2.8 0 0 0 8 14z\"/><path d=\"M4 17h16M6 20h12\"/>",
+	"weather-rain": "<path d=\"M8 14h8a3.2 3.2 0 0 0 .4-6.38A4.8 4.8 0 0 0 7.1 8.3 2.8 2.8 0 0 0 8 14z\"/><path d=\"M9 17l-1 3M13 17l-1 3M17 17l-1 3\"/>",
+	"weather-showers": "<path d=\"M8 14h8a3.2 3.2 0 0 0 .4-6.38A4.8 4.8 0 0 0 7.1 8.3 2.8 2.8 0 0 0 8 14z\"/><path d=\"M10 17l-1 2M15 17l-1 2\"/>",
+	"weather-snow": "<path d=\"M8 14h8a3.2 3.2 0 0 0 .4-6.38A4.8 4.8 0 0 0 7.1 8.3 2.8 2.8 0 0 0 8 14z\"/><path d=\"M9 18h.01M13 18h.01M17 18h.01M11 21h.01M15 21h.01\"/>",
+	"weather-sleet": "<path d=\"M8 14h8a3.2 3.2 0 0 0 .4-6.38A4.8 4.8 0 0 0 7.1 8.3 2.8 2.8 0 0 0 8 14z\"/><path d=\"M9 17l-1 3M14 18h.01M17 17l-1 3\"/>",
+	"weather-storm": "<path d=\"M8 14h8a3.2 3.2 0 0 0 .4-6.38A4.8 4.8 0 0 0 7.1 8.3 2.8 2.8 0 0 0 8 14z\"/><path d=\"M13 15l-3 4h4l-3 4\"/>",
 };
 
 /** Each badge shade, top to bottom of its gradient. */
