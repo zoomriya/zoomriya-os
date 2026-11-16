@@ -4,18 +4,20 @@
 # from in the first setup and Control Panel (weather.md W-1).
 #
 # The towns: GeoNames' cities1000 (every place over 1,000 people) and its
-# admin1 codes, fetched once into build/geonames and reused; cut down to the
-# id, name, province or state, country, coordinates, population and time
-# zone, by country and bigger towns first, in /usr/share/zoomriya/towns.tsv.gz.
-# CC BY 4.0: "Place names from GeoNames (CC BY 4.0)." To refresh them, delete
-# build/geonames. ZOOMRIYA_GEONAMES may name a folder holding both files.
+# admin1 codes, cut down to the id, name, province or state, country,
+# coordinates, population and time zone, by country and bigger towns first,
+# in /usr/share/zoomriya/towns.tsv.gz. CC BY 4.0: "Place names from GeoNames
+# (CC BY 4.0)."
 #
 # Each European town also gets the MeteoAlarm areas it lies in (their
-# EMMA_ID codes, worked out here from MeteoAlarm's published geocodes, the
-# newest MeteoAlarm_Geocodes_<date>.json in its documents repository), so the
+# EMMA_ID codes, worked out here from MeteoAlarm's published areas), so the
 # box keeps the warnings for those areas (weather.md W-4). Only the codes are
-# shipped, never the shapes. Fetched once into build/meteoalarm; delete it to
-# refresh. CC BY 4.0, EUMETNET – MeteoAlarm.
+# shipped, never the shapes. CC BY 4.0, EUMETNET – MeteoAlarm.
+#
+# Both are read from build/geonames and build/meteoalarm, which
+# scripts/download-towns.sh fills before a release: this build never
+# downloads anything. ZOOMRIYA_GEONAMES and ZOOMRIYA_METEOALARM may name
+# other folders holding the same files.
 set -eu
 
 here=$(cd "$(dirname "$0")" && pwd)
@@ -24,21 +26,13 @@ set -- "$(cd "$1" && pwd)"
 root=$(cd "$here/../.." && pwd)
 geo=${ZOOMRIYA_GEONAMES:-$root/build/geonames}
 
-if [ ! -f "$geo/cities1000.zip" ] || [ ! -f "$geo/admin1CodesASCII.txt" ]; then
-    mkdir -p "$geo"
-    curl -fsSL -o "$geo/cities1000.zip" https://download.geonames.org/export/dump/cities1000.zip
-    curl -fsSL -o "$geo/admin1CodesASCII.txt" https://download.geonames.org/export/dump/admin1CodesASCII.txt
-    date -u +%F > "$geo/downloaded"
-fi
 alarm=${ZOOMRIYA_METEOALARM:-$root/build/meteoalarm}
-if [ ! -f "$alarm/geocodes.json" ]; then
-    mkdir -p "$alarm"
-    repo=https://gitlab.com/api/v4/projects/meteoalarm-pm-group%2Fdocuments
-    newest=$(curl -fsSL "$repo/repository/tree?per_page=100" |
-        python3 -I -c 'import json,sys; print(max(f["name"] for f in json.load(sys.stdin) if f["name"].startswith("MeteoAlarm_Geocodes_2") and f["name"].endswith(".json")))')
-    curl -fsSL -o "$alarm/geocodes.json" "https://gitlab.com/meteoalarm-pm-group/documents/-/raw/master/$newest"
-    echo "$newest" > "$alarm/source"
-fi
+for needed in "$geo/cities1000.zip" "$geo/admin1CodesASCII.txt" "$alarm/geocodes.json"; do
+    if [ ! -f "$needed" ]; then
+        echo "zoomriya-weather: $needed is missing; run scripts/download-towns.sh first" >&2
+        exit 1
+    fi
+done
 
 share="$1/usr/share/zoomriya"
 doc="$1/usr/share/doc/zoomriya-weather"
