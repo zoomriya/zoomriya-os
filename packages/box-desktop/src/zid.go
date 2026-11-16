@@ -21,6 +21,9 @@ import (
 const (
 	SessionCookie = "zoomriya.auth.session"
 	TokenCookie   = "zoomriya.auth.token"
+	// SessionCookiePath is where a browser sends the session cookie: ZOOMRIYA
+	// ID's sign-in routes only, never an app (its SESSION_COOKIE_PATH).
+	SessionCookiePath = "/id/api/v1/auth"
 )
 
 // Problem is a refusal for the page to word: Code says which, Ticket goes
@@ -239,7 +242,9 @@ func (z *ZoomriyaID) admin(a *idAnswer) (*Login, *Problem) {
 	}
 	login := &Login{Member: Member{ID: int(id), Username: str(me.Body, "username"), Name: name}, Token: token}
 	for _, c := range a.Cookies {
-		if c.Name == SessionCookie {
+		// ZOOMRIYA ID also takes away a session cookie from before it had its
+		// own path (an empty one, already ended): that isn't the session.
+		if c.Name == SessionCookie && c.Value != "" && c.MaxAge >= 0 {
 			login.Session = c.Value
 		}
 		if c.Name == SessionCookie || c.Name == TokenCookie {

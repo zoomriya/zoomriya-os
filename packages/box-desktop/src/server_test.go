@@ -30,7 +30,10 @@ func fakeID(t *testing.T) *httptest.Server {
 		json.NewEncoder(w).Encode(v)
 	}
 	login := func(w http.ResponseWriter, user string) {
-		http.SetCookie(w, &http.Cookie{Name: SessionCookie, Value: "idsession-" + user})
+		// As ZOOMRIYA ID does: the session at its own path, and one from
+		// before (every app was sent it) taken away.
+		http.SetCookie(w, &http.Cookie{Name: SessionCookie, Value: "idsession-" + user, Path: SessionCookiePath})
+		http.SetCookie(w, &http.Cookie{Name: SessionCookie, Value: "", Path: "/", MaxAge: -1})
 		answer(w, 200, map[string]any{"access_token": "token-" + user})
 	}
 	mux.HandleFunc("POST /id/api/v1/auth/login", func(w http.ResponseWriter, r *http.Request) {
@@ -242,11 +245,17 @@ func TestSignInSetsAStrictCookie(t *testing.T) {
 	if strings.Contains(w.Body.String(), "token-ada") || strings.Contains(w.Body.String(), "idsession") {
 		t.Error("ZOOMRIYA ID's token reached the page's script")
 	}
-	// ZOOMRIYA ID's session cookie, for the apps in Box Desktop's windows.
+	// ZOOMRIYA ID's session cookie, for the apps in Box Desktop's windows: at
+	// its own path only, so no app's server (nor this one) is ever sent it.
 	handed := false
 	for _, c := range w.Result().Cookies() {
-		if c.Name == SessionCookie && c.Value == "idsession-ada" && c.HttpOnly && c.Secure {
+		if c.Name != SessionCookie {
+			continue
+		}
+		if c.Value == "idsession-ada" && c.Path == SessionCookiePath && c.HttpOnly && c.Secure {
 			handed = true
+		} else if c.Value != "" || c.MaxAge >= 0 {
+			t.Errorf("ZOOMRIYA ID's session cookie was set outside its path: %v", c)
 		}
 	}
 	if !handed {

@@ -921,8 +921,10 @@ the reason and the alternative measure are recorded in the final table.
 VM test)
 
 - **Outbound, logged:** apps are blocked unless they declare what they send ([§8.2](#82-internet-access)); each new connection that is let out to the internet is written to the kernel log with the account that made it (`log prefix "zoomriya-out: " flags skuid`, capped at 60 a minute; the home network, multicast and loopback aren't logged). The agent's `outbound` reads it for Box Desktop. Checked: the rule is loaded.
-- **Firewall:** nftables, inbound denied except 443 (the gateway, later
-  connectd in front of it); from the home network only, 80 (sent on to HTTPS,
+- **Firewall:** nftables, inbound denied except, from the home network only
+  (private and link-local addresses), 443 (the gateway; away from home the
+  apps are reached through ZOOMRIYA Connect's connectd on the box, never by
+  an open port), 80 (sent on to HTTPS,
   [§8.1](#81-secure-connections-at-home)), and SSH on 22 while advanced
   access is on ([§7.1](#71-advanced-access)); mDNS; and DHCP. The
   first setup is on the box's own screen and listens on no port. Box Desktop

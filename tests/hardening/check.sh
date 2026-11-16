@@ -21,6 +21,11 @@ nft list chain inet zoomriya input 2>/dev/null | grep -q 'policy drop' \
     && pass "inbound denied by default" || fail "inbound denied by default" "no drop policy"
 nft list chain inet zoomriya forward 2>/dev/null | grep -q 'policy drop' \
     && pass "forwarding denied" || fail "forwarding denied" "no drop policy"
+# The apps (443) answer the home network only: every rule for it names who may ask.
+open_443="$(nft list chain inet zoomriya input 2>/dev/null | grep 'tcp dport 443 accept' | grep -vc 'saddr')"
+nft list chain inet zoomriya input 2>/dev/null | grep -q 'saddr .* tcp dport 443 accept' && [ "$open_443" = 0 ] \
+    && pass "the apps are reachable from the home network only" \
+    || fail "the apps are reachable from the home network only" "443 open to any address"
 # Outbound connections are logged, by account, for Control Panel (design §8)
 nft list chain inet zoomriya output 2>/dev/null | grep -q 'log prefix "zoomriya-out: " flags skuid' \
     && pass "outbound connections logged" || fail "outbound connections logged" "no log rule"

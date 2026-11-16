@@ -349,8 +349,14 @@ func (s *Server) signedIn(w http.ResponseWriter, r *http.Request, l Listener, lo
 	})
 	// ZOOMRIYA ID's own, for the box's name: the apps in Box Desktop's
 	// windows open signed in as this admin (cookies aren't kept apart by port).
+	// Each keeps the path ZOOMRIYA ID gave it: the session cookie goes to its
+	// sign-in routes only, never to an app's server or back here.
 	for _, c := range login.Cookies {
-		http.SetCookie(w, &http.Cookie{Name: c.Name, Value: c.Value, Path: "/", MaxAge: c.MaxAge,
+		path := c.Path
+		if path == "" {
+			path = "/"
+		}
+		http.SetCookie(w, &http.Cookie{Name: c.Name, Value: c.Value, Path: path, MaxAge: c.MaxAge,
 			Secure: !s.Cfg.Insecure, HttpOnly: true, SameSite: http.SameSiteLaxMode})
 	}
 	if l == ListenerScreen {
@@ -455,8 +461,10 @@ func (s *Server) signOut(w http.ResponseWriter, r *http.Request, l Listener, se 
 	s.Sessions.End(se)
 	http.SetCookie(w, &http.Cookie{Name: s.cookieName(l), Value: "", Path: "/", MaxAge: -1,
 		Secure: !s.Cfg.Insecure, HttpOnly: true, SameSite: http.SameSiteStrictMode})
-	for _, name := range []string{SessionCookie, TokenCookie} {
-		http.SetCookie(w, &http.Cookie{Name: name, Value: "", Path: "/", MaxAge: -1,
+	// ZOOMRIYA ID's, where each was set (and a session cookie from before it
+	// had its own path).
+	for _, c := range [][2]string{{TokenCookie, "/"}, {SessionCookie, SessionCookiePath}, {SessionCookie, "/"}} {
+		http.SetCookie(w, &http.Cookie{Name: c[0], Value: "", Path: c[1], MaxAge: -1,
 			Secure: !s.Cfg.Insecure, HttpOnly: true, SameSite: http.SameSiteLaxMode})
 	}
 	writeJSON(w, http.StatusOK, map[string]any{"ok": true})
