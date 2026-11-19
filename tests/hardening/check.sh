@@ -31,6 +31,13 @@ nft list chain inet zoomriya input 2>/dev/null | grep -q 'saddr .* tcp dport 443
 nft list chain inet zoomriya input 2>/dev/null | grep -q 'udp dport 443 accept' \
     && pass "ZOOMRIYA Connect's UDP 443 is open" || fail "ZOOMRIYA Connect's UDP 443 is open" "no rule"
 check "only connectd listens on UDP 443" "" "$(ss -Hlunp 'sport = :443' | grep -v '"zoomriya-connec' | awk '{print $5}' | tr '\n' ' ')"
+# Laptops: UDP 7446 from anywhere, TCP 7445 from the home network only, both
+# connectd's alone.
+nft list chain inet zoomriya input 2>/dev/null | grep -q 'udp dport 7446 accept' \
+    && pass "laptops' UDP 7446 is open" || fail "laptops' UDP 7446 is open" "no rule"
+nft list chain inet zoomriya input 2>/dev/null | grep -E 'tcp dport 7445 accept' | grep -qv saddr \
+    && fail "laptops' TCP 7445 is home only" "open to every address" || pass "laptops' TCP 7445 is home only"
+check "only connectd listens on the laptops' ports" "" "$({ ss -Hlunp 'sport = :7446'; ss -Hltnp 'sport = :7445'; } | grep -v '"zoomriya-connec' | awk '{print $4}' | tr '\n' ' ')"
 # Outbound connections are logged, by account, for Control Panel (design §8)
 nft list chain inet zoomriya output 2>/dev/null | grep -q 'log prefix "zoomriya-out: " flags skuid' \
     && pass "outbound connections logged" || fail "outbound connections logged" "no log rule"

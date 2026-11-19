@@ -589,11 +589,12 @@ needs the setup code from the sticker.
 | Guard | How |
 | --- | --- |
 | Admins only | Checked with ZOOMRIYA ID at every sign-in |
-| The home network only | TCP 7443 answers addresses on the home network only, like advanced access. The router never forwards it; ZOOMRIYA Connect's outside check warns if someone does. Away from home is through ZOOMRIYA Connect's apps, later |
+| The home network only | TCP 7443 answers addresses on the home network only, like advanced access. The router never forwards it; ZOOMRIYA Connect's outside check warns if someone does. Away from home, laptops reach it through the ZOOMRIYA browser extension, over ZOOMRIYA Connect's encrypted WebRTC connection (zoomriya-connect's `docs/laptops.md`); phones later, through the app |
 | HTTPS | TLS 1.3 on 7443, with HSTS. Port 7444 listens on 127.0.0.1 only, for the box's screen |
 | Its session cookie | `__Host-box-desktop`: `Secure`, `HttpOnly`, `SameSite=Strict`, random, kept in memory. Signed out after 12 hours, or 30 minutes with the page closed |
 | Requests from elsewhere | Every change needs an exact `Origin` (the box's own names on 7443, or on 7444 at the box) and a token sent with the page. `zoomriya.app` isn't on the Public Suffix List, so a cookie alone isn't trusted |
 | Content Security Policy | Scripts and styles from the box only, no inline scripts. Box Desktop can't be shown inside another site's page (`frame-ancestors 'none'`) |
+| The extension's bridge, in Firefox | Firefox's extension can't answer Box Desktop's requests itself, so Box Desktop serves a service worker for its own address (`zr-sw.js`) and a bridge page (`zr-bridge.html`, `zr-bridge.js`), all in `web/public/`. The bridge is the one page an extension may frame (`frame-ancestors moz-extension:`); websites still can't. The worker passes requests to the extension when it's there, to the network otherwise, and refuses forms posted as page loads. The extension checks the box's certificate key on every page. Details in zoomriya-connect's `docs/laptops.md`, "Firefox" |
 | Wrong passwords | ZOOMRIYA ID's limits, wherever the password was typed (BD-10) |
 | Risky actions | The password again ([§7](#7-signing-in)), checked by `box-desktopd`, not the page |
 | Its own account | `box-desktop` (each admin's settings moved to it from the native desktop's `box-desktop-app` on upgrade). In groups `zoomriya-box` (the agent's socket), `zoomriya-tls` (the certificates) and `audio`, never root. The unit locks it down further (`ProtectSystem=strict`, no capabilities, a system call filter) |

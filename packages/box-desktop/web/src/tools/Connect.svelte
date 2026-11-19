@@ -10,6 +10,7 @@
 	import Row from '../components/Row.svelte';
 	import Switch from '../components/Switch.svelte';
 	import ConnectServer from './ConnectServer.svelte';
+	import PairLaptop from './PairLaptop.svelte';
 	import PairPhone from './PairPhone.svelte';
 	import {
 		connectWords, devices as listDevices, iso, release, removeDevice, setRelay, setup, status, turnOff, turnOn,
@@ -193,7 +194,7 @@
 				<Group title={_('Paired phones and laptops')} icon="phone"
 					note={_('Each one is paired at home, once. Removing one stops it at once, everywhere.')}>
 					{#each list as d (d.id)}
-						<Row icon="phone" title={d.name} tag={d.admin ? _('Admin') : ''}
+						<Row icon={d.laptop ? 'monitor' : 'phone'} title={d.name} tag={d.admin ? _('Admin') : ''}
 							sub={[seen(d), how(d)].filter(Boolean).join(' · ')}>
 							{#snippet ends()}
 								<button onclick={() => withPassword(fill(_('Remove {name}?'), { name: d.name }),
@@ -206,6 +207,9 @@
 					{/each}
 					<Row icon="scan" title={_('Pair a phone')} sub={_('Shows a code to scan with the ZOOMRIYA app.')}>
 						{#snippet ends()}<button class="primary" onclick={() => desk.sheet(PairPhone, { done: () => void load() })}>{_('Pair a phone')}</button>{/snippet}
+					</Row>
+					<Row icon="monitor" title={_('Add a laptop')} sub={_('Shows a code to type into the ZOOMRIYA browser extension.')}>
+						{#snippet ends()}<button onclick={() => desk.sheet(PairLaptop, { done: () => void load() })}>{_('Add a laptop')}</button>{/snippet}
 					</Row>
 				</Group>
 			{/if}

@@ -809,6 +809,13 @@ func (s *Server) static(w http.ResponseWriter, r *http.Request) {
 		}
 		name = "index.html"
 	}
+	if name == "zr-bridge.html" {
+		// The ZOOMRIYA extension's bridge in Firefox (web/public/zr-sw.js):
+		// only an extension's page may frame it, never a website.
+		h := w.Header()
+		h.Set("Content-Security-Policy", strings.Replace(h.Get("Content-Security-Policy"),
+			"frame-ancestors 'none'", "frame-ancestors moz-extension:", 1))
+	}
 	if strings.HasPrefix(name, "assets/") {
 		// Vite names each file by its content.
 		w.Header().Set("Cache-Control", "public, max-age=31536000, immutable")

@@ -40,6 +40,8 @@ export interface Device {
 	pass_until: number;
 	connected: boolean;
 	reports: { ms_to_connect?: number; ms_to_direct?: number | null; secs_on_relay?: number }[];
+	/** A laptop, with the browser extension. */
+	laptop?: boolean;
 }
 
 /** connectd's codes in Box Desktop's words; anything else, the box's own sentence. */
@@ -64,7 +66,7 @@ export function connectWords(e: unknown): string {
 		case 'please_update': return _('Your box needs an update to use ZOOMRIYA Connect. It updates by itself overnight.');
 		case 'unreachable': return _("The box can't reach the ZOOMRIYA Connect server. Check the internet connection, then try again.");
 		case 'clock': return _("Your box can't get the time from the internet yet. Check its internet connection, then try again.");
-		case 'not_on': return _('Switch ZOOMRIYA Connect on before pairing a phone.');
+		case 'not_on': return _('Switch ZOOMRIYA Connect on before pairing a phone or laptop.');
 		case 'not_https': return _("Type your server's address starting with https://");
 		case 'not_a_server': return _("That address doesn't answer like a ZOOMRIYA Connect server.");
 		default: return e instanceof Error ? e.message : _("The box couldn't do that.");
@@ -80,6 +82,8 @@ export const turnOff = (password: string) => post('/api/connect/v1/off', { passw
 export const release = (password: string) => post('/api/connect/v1/release', { password });
 export const pairing = (name: string, admin: boolean) =>
 	post<{ url: string; expires_in: number }>('/api/connect/v1/pairing', { name, admin });
+export const laptopPairing = (name: string) =>
+	post<{ code: string; fqdn: string; expires_in: number }>('/api/connect/v1/pairing', { name, laptop: true });
 export const stopPairing = () => del('/api/connect/v1/pairing');
 export const removeDevice = (id: string, password: string) => del(`/api/connect/v1/devices/${id}`, { password });
 export const useServer = (url: string | null, password: string) => post('/api/connect/v1/server', { url, password });

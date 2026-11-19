@@ -341,6 +341,15 @@ func TestGuards(t *testing.T) {
 	if csp := w.Header().Get("Content-Security-Policy"); !strings.Contains(csp, "frame-ancestors 'none'") {
 		t.Errorf("CSP: %q", csp)
 	}
+	// The Firefox extension's bridge: framed by extensions only.
+	w, _ = b.do("GET", "/zr-bridge.html", nil)
+	if csp := w.Header().Get("Content-Security-Policy"); w.Code != http.StatusOK ||
+		!strings.Contains(csp, "frame-ancestors moz-extension:") || strings.Contains(csp, "frame-ancestors 'none'") {
+		t.Errorf("bridge: %d, CSP %q", w.Code, csp)
+	}
+	if w, _ = b.do("GET", "/zr-sw.js", nil); w.Code != http.StatusOK || w.Header().Get("Cache-Control") != "no-cache" {
+		t.Errorf("worker: %d %q", w.Code, w.Header().Get("Cache-Control"))
+	}
 }
 
 func TestAgentRules(t *testing.T) {

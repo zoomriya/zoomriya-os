@@ -51,6 +51,9 @@ func connectAction(method, path string, body []byte) (op, message string) {
 	case path == "/v1/release":
 		return "connect-release", "Gave up the box's ZOOMRIYA Connect name"
 	case path == "/v1/pairing" && method == "POST":
+		if b["laptop"] == true {
+			return "connect-pair", "Showed a pairing code for a laptop"
+		}
 		if b["admin"] == true {
 			return "connect-pair", "Showed a pairing code for an admin's phone"
 		}

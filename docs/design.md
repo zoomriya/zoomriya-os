@@ -934,7 +934,10 @@ VM test)
   access is on ([§7.1](#71-advanced-access)); mDNS; and DHCP. From every
   address, UDP 443 for ZOOMRIYA Connect's connectd, which turns away every
   device that isn't on the box's own list (checked: only connectd listens
-  there, and only once an admin switches ZOOMRIYA Connect on). The
+  there, and only once an admin switches ZOOMRIYA Connect on). For laptops
+  (the browser extension), UDP 7446 from every address (WebRTC, which
+  connectd answers only for paired laptops) and TCP 7445 from the home
+  network (pairing and connecting at home); checked the same way. The
   first setup is on the box's own screen and listens on no port. Box Desktop
   takes TCP 7443 from the home network ([Box Desktop §8](box-desktop.md#8-security)). connectd's short-block set (ZOOMRIYA
   Connect) lives in the same table. Checked: the rules, and that nothing else

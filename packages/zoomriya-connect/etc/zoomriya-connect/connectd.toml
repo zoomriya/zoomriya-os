@@ -21,6 +21,14 @@ proxy_protocol = true
 name = "box-desktop"
 tcp = "127.0.0.1:7443"
 
+# Laptops, with the ZOOMRIYA browser extension: WebRTC on UDP 7446, pairing
+# and setting up at home on TCP 7445 (home network only, in the firewall).
+# Their pages come from Box Desktop.
+[laptops]
+tcp_port = 7445
+udp_port = 7446
+target = "box-desktop"
+
 [[certificate_authorities]]
 name = "Let's Encrypt"
 directory = "https://acme-v02.api.letsencrypt.org/directory"
