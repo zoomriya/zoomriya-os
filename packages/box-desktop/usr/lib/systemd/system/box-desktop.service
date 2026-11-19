@@ -10,7 +10,7 @@ Wants=zoomriya-id.service
 [Service]
 User=box-desktop
 Group=box-desktop
-SupplementaryGroups=zoomriya-box zoomriya-tls
+SupplementaryGroups=zoomriya-box zoomriya-tls zoomriya-connect-api
 ExecStart=/usr/lib/box-desktop/box-desktopd
 Environment=BOX_DESKTOP_ADMIN_DIR=/data/zoomriya/admin
 # The first setup's progress, so a setup cut short goes on from where it was.

@@ -1,0 +1,12 @@
+#!/bin/sh
+set -e
+
+if [ "$1" = configure ]; then
+    systemd-sysusers zoomriya-connect.conf
+    systemd-tmpfiles --create zoomriya-connect.conf || true
+    deb-systemd-helper enable zoomriya-connectd.service >/dev/null || true
+    if [ -d /run/systemd/system ]; then
+        systemctl daemon-reload
+        deb-systemd-invoke restart zoomriya-connectd.service >/dev/null || true
+    fi
+fi

@@ -82,6 +82,8 @@ export const GLYPHS: Record<string, string> = {
 	"sliders": "<path d=\"M5 4v16M12 4v16M19 4v16\"/><circle cx=\"5\" cy=\"14\" r=\"2\"/><circle cx=\"12\" cy=\"8\" r=\"2\"/><circle cx=\"19\" cy=\"16\" r=\"2\"/>",
 	"wave": "<path d=\"M3 12h2M7 8v8M10 5v14M13 9v6M16 7v10M19 10v4M21 12h.01\"/>",
 	"play": "<path d=\"M7 4.5v15l12-7.5z\"/>",
+	// ZOOMRIYA Connect: the box, and a phone reaching it.
+	"connect": "<rect x=\"2.5\" y=\"11.5\" width=\"10\" height=\"8\" rx=\"1.5\"/><path d=\"M5 15.5h.01M8 15.5h2\"/><rect x=\"15.5\" y=\"3.5\" width=\"6\" height=\"10.5\" rx=\"1.5\"/><path d=\"M12.5 15.5c2 0 3.5-1 3.5-3M18.5 11.5h.01\"/>",
 	"globe": "<circle cx=\"12\" cy=\"12\" r=\"8.5\"/><path d=\"M3.5 12h17M12 3.5a13 13 0 0 1 0 17M12 3.5a13 13 0 0 0 0 17\"/>",
 	"pin": "<path d=\"M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z\"/><circle cx=\"12\" cy=\"10\" r=\"2.3\"/>",
 	"tag": "<path d=\"M3.5 12.5V4.5a1 1 0 0 1 1-1h8l8 8-9 9z\"/><circle cx=\"8\" cy=\"8\" r=\"1.4\"/>",
@@ -139,7 +141,7 @@ export const BADGE_SHADES: Record<string, [string, string]> = {
 /** Each line icon's badge colour, by what it's about; not listed: blue. */
 export const BADGE: Record<string, string> = {};
 for (const [shade, names] of Object.entries({
-	cyan: "phone backup disk usb storage bundle layers package",
+	cyan: "connect phone backup disk usb storage bundle layers package",
 	indigo: "palette picture contrast monitor resolution rotate rate text-size screen-move factory",
 	pink: "speaker sliders wave mic mic-off volume muted play",
 	graphite: "keyboard mouse pointer accel scroll content-move gear box barcode tag cpu memory terminal",
@@ -153,6 +155,7 @@ for (const [shade, names] of Object.entries({
 /** Each section and the other words people use for it, in the menu's order. */
 export const SECTION_WORDS: [string, string, string][] = [
 	["control", "network", N_("ethernet cable ip address dhcp fixed static router gateway dns lan wifi wireless internet")],
+	["control", "connect", N_("zoomriya connect away from home remote phone pair qr code relay name certificate server")],
 	["control", "display", N_("screen monitor resolution refresh rate rotate orientation scale size text")],
 	["control", "appearance", N_("theme dark light night day midnight daylight accent colour color wallpaper background picture photo desktop look")],
 	["control", "sound", N_("audio speakers headphones volume microphone mic input output mute")],
@@ -191,6 +194,11 @@ export const SECTION_WORDS: [string, string, string][] = [
 export const SETTINGS: [string, string, string][] = [
 	["control", "network", N_("IP Address Assignment Method")],
 	["control", "network", N_("Wi-Fi (Wireless Network)")],
+	["control", "connect", N_("Box's name")],
+	["control", "connect", N_("Pair a phone")],
+	["control", "connect", N_("Paired phones and laptops")],
+	["control", "connect", N_("Use the relay")],
+	["control", "connect", N_("Server")],
 	["control", "display", N_("Resolution")],
 	["control", "display", N_("Orientation")],
 	["control", "display", N_("Screen Update Rate")],

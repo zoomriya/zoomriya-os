@@ -171,7 +171,9 @@ func TestCertificateWatchesOthers(t *testing.T) {
 		keyDER, _ := x509.MarshalECPrivateKey(key)
 		data := pem.EncodeToMemory(&pem.Block{Type: "CERTIFICATE", Bytes: der})
 		data = append(data, pem.EncodeToMemory(&pem.Block{Type: "EC PRIVATE KEY", Bytes: keyDER})...)
-		os.WriteFile(agent.path(tlsCerts+"/connect.pem"), data, 0o640)
+		// connectd leaves it in its own folder; the agent puts it in certs/.
+		os.MkdirAll(filepath.Dir(agent.path(connectOut)), 0o700)
+		os.WriteFile(agent.path(connectOut), data, 0o600)
 	}
 
 	writeReal(now.Add(5 * 24 * time.Hour))
@@ -197,11 +199,65 @@ func TestCertificateWatchesOthers(t *testing.T) {
 		t.Fatalf("fixed: %v %+v", err, n.list)
 	}
 
-	// A broken bundle.
+	// A served bundle broken on disk.
+	os.WriteFile(agent.path(connectOut), []byte("not a certificate"), 0o600)
 	os.WriteFile(agent.path(tlsCerts+"/connect.pem"), []byte("not a certificate"), 0o640)
 	n.list = nil
 	if err := agent.certificate(n); err == nil || len(n.list) != 1 || !strings.Contains(n.list[0].message, "connect.pem is broken") {
 		t.Fatalf("broken: %v %+v", err, n.list)
+	}
+}
+
+func connectBundle(t *testing.T, names []string, notAfter time.Time) []byte {
+	t.Helper()
+	key, _ := ecdsa.GenerateKey(elliptic.P256(), rand.Reader)
+	tmpl := &x509.Certificate{SerialNumber: serial(), DNSNames: names,
+		NotBefore: notAfter.Add(-90 * 24 * time.Hour), NotAfter: notAfter}
+	der, _ := x509.CreateCertificate(rand.Reader, tmpl, tmpl, &key.PublicKey, key)
+	keyDER, _ := x509.MarshalPKCS8PrivateKey(key)
+	data := pem.EncodeToMemory(&pem.Block{Type: "CERTIFICATE", Bytes: der})
+	return append(data, pem.EncodeToMemory(&pem.Block{Type: "PRIVATE KEY", Bytes: keyDER})...)
+}
+
+func TestCertificateFromConnect(t *testing.T) {
+	agent, _, now := certAgent(t)
+	n := &notes{}
+	out := agent.path(connectOut)
+	os.MkdirAll(filepath.Dir(out), 0o700)
+
+	// connectd's certificate is checked and served.
+	good := connectBundle(t, []string{"maplehouse.zoomriya.app", "maplehouse-share.zoomriya.app"}, now.Add(90*24*time.Hour))
+	os.WriteFile(out, good, 0o600)
+	if err := agent.certificate(n); err != nil {
+		t.Fatal(err)
+	}
+	served, err := os.ReadFile(agent.path(connectServed))
+	if err != nil || string(served) != string(good) {
+		t.Fatalf("not served: %v", err)
+	}
+
+	// One that names the box's own home name is refused; the old one stays.
+	os.WriteFile(out, connectBundle(t, []string{"zoomriya-7k2q.local"}, now.Add(90*24*time.Hour)), 0o600)
+	agent.certificate(n)
+	if last := n.list[len(n.list)-1]; last.level != "warning" || !strings.Contains(last.message, "own home name") {
+		t.Fatalf("%+v", n.list)
+	}
+	if served, _ := os.ReadFile(agent.path(connectServed)); string(served) != string(good) {
+		t.Fatal("the good one was replaced")
+	}
+
+	// One that ran out, or without its key, is refused too.
+	os.WriteFile(out, connectBundle(t, []string{"maplehouse.zoomriya.app"}, now.Add(-time.Hour)), 0o600)
+	agent.certificate(n)
+	if last := n.list[len(n.list)-1]; !strings.Contains(last.message, "run out") {
+		t.Fatalf("%+v", last)
+	}
+
+	// No certificate from connectd: the served one goes.
+	os.Remove(out)
+	agent.certificate(n)
+	if _, err := os.Stat(agent.path(connectServed)); !os.IsNotExist(err) {
+		t.Fatal("still served after connectd gave it up")
 	}
 }
 

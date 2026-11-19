@@ -10,7 +10,7 @@ msgstr ""
 msgid "Your password"
 msgstr "Votre mot de passe"
 
-#: components/Confirm.svelte:58
+#: components/Confirm.svelte:58 tools/PairPhone.svelte:73
 #, fuzzy
 msgid "Cancel"
 msgstr "Annuler"
@@ -35,7 +35,7 @@ msgstr "Fermer"
 msgid "Always on"
 msgstr "Toujours actif"
 
-#: components/Switch.svelte:8 tools/Access.svelte:73 tools/People.svelte:31
+#: components/Switch.svelte:8 tools/Access.svelte:73 tools/Connect.svelte:115 tools/People.svelte:31
 #, fuzzy
 msgid "Off"
 msgstr "Désactivé"
@@ -150,7 +150,7 @@ msgstr "La box ne répond pas. Réessayez dans un instant."
 msgid "The box gave an answer the setup can't read."
 msgstr "La box a renvoyé une réponse illisible."
 
-#: lib/api.ts:67 lib/api.ts:75
+#: lib/api.ts:67 lib/api.ts:75 tools/connect.ts:59
 #, fuzzy
 msgid "The box couldn't do that."
 msgstr "La box n'a pas pu le faire."
@@ -220,10 +220,15 @@ msgstr "Journaux"
 msgid "Support Center"
 msgstr "Centre d'assistance"
 
-#: lib/desk.svelte.ts:40 lib/words.ts:287 pages/Setup.svelte:16 pages/Widgets.svelte:90 tools/Resources.svelte:43
+#: lib/desk.svelte.ts:40 lib/words.ts:295 pages/Setup.svelte:16 pages/Widgets.svelte:90 tools/Resources.svelte:43
 #, fuzzy
 msgid "Network"
 msgstr "Réseau"
+
+#: lib/desk.svelte.ts:40 tools/Connect.svelte:101 tools/Connect.svelte:114 tools/Connect.svelte:118
+#, fuzzy
+msgid "ZOOMRIYA Connect"
+msgstr "ZOOMRIYA Connect"
 
 #: lib/desk.svelte.ts:40 tools/Display.svelte:143
 #, fuzzy
@@ -275,7 +280,7 @@ msgstr "Sécurité"
 msgid "Advanced access"
 msgstr "Accès avancé"
 
-#: lib/desk.svelte.ts:44 lib/words.ts:285
+#: lib/desk.svelte.ts:44 lib/words.ts:293
 #, fuzzy
 msgid "Restarts"
 msgstr "Redémarrages"
@@ -520,962 +525,992 @@ msgstr "1 avertissement"
 msgid "{n} warnings"
 msgstr "{n} avertissements"
 
-#: lib/words.ts:155
+#: lib/words.ts:157
 #, fuzzy
 msgid "ethernet cable ip address dhcp fixed static router gateway dns lan wifi wireless internet"
 msgstr "câble ethernet adresse ip dhcp fixe statique routeur passerelle dns réseau local wifi sans fil internet"
 
-#: lib/words.ts:156
+#: lib/words.ts:158
+#, fuzzy
+msgid "zoomriya connect away from home remote phone pair qr code relay name certificate server"
+msgstr "zoomriya connect hors de chez soi à distance téléphone associer code qr relais nom certificat serveur"
+
+#: lib/words.ts:159
 #, fuzzy
 msgid "screen monitor resolution refresh rate rotate orientation scale size text"
 msgstr "écran moniteur résolution fréquence rotation orientation échelle taille texte"
 
-#: lib/words.ts:157
+#: lib/words.ts:160
 #, fuzzy
 msgid "theme dark light night day midnight daylight accent colour color wallpaper background picture photo desktop look"
 msgstr "thème sombre clair nuit jour accent couleur fond d'écran arrière-plan image photo bureau apparence"
 
-#: lib/words.ts:158
+#: lib/words.ts:161
 #, fuzzy
 msgid "audio speakers headphones volume microphone mic input output mute"
 msgstr "audio haut-parleurs casque volume microphone micro entrée sortie muet"
 
-#: lib/words.ts:159
+#: lib/words.ts:162
 #, fuzzy
 msgid "layout keys mouse cursor pointer speed left handed scroll touchpad"
 msgstr "disposition touches souris curseur pointeur vitesse gaucher défilement pavé tactile"
 
-#: lib/words.ts:160
+#: lib/words.ts:163
 #, fuzzy
 msgid "language translation country region province state locale"
 msgstr "langue traduction pays région province état"
 
-#: lib/words.ts:161
+#: lib/words.ts:164
 #, fuzzy
 msgid "clock date time zone timezone ntp sync"
 msgstr "horloge date heure fuseau horaire synchronisation"
 
-#: lib/words.ts:162
+#: lib/words.ts:165
 #, fuzzy
 msgid "users accounts members family admins add person password forgot children kids parents guardians"
 msgstr "utilisateurs comptes membres famille admins ajouter personne mot de passe oublié enfants parents tuteurs"
 
-#: lib/words.ts:163
+#: lib/words.ts:166
 #, fuzzy
 msgid "alerts bell messages"
 msgstr "alertes cloche messages"
 
-#: lib/words.ts:164
+#: lib/words.ts:167
 #, fuzzy
 msgid "firewall ports updates patches secure boot apparmor scan integrity privacy outbound"
 msgstr "pare-feu ports mises à jour correctifs démarrage sécurisé analyse intégrité confidentialité sortant"
 
-#: lib/words.ts:165
+#: lib/words.ts:168
 #, fuzzy
 msgid "ssh terminal command line shell remote sudo admin keys"
 msgstr "terminal ligne de commande shell à distance admin clés"
 
-#: lib/words.ts:166
+#: lib/words.ts:169
 #, fuzzy
 msgid "reboot restart power shut down shutdown maintenance hour always on sleep"
 msgstr "redémarrer redémarrage alimentation éteindre arrêt maintenance heure toujours allumé veille"
 
-#: lib/words.ts:167
+#: lib/words.ts:170
 #, fuzzy
 msgid "restore rollback undo update snapshot reset factory erase wipe"
 msgstr "restaurer annuler retour mise à jour instantané réinitialiser usine effacer"
 
-#: lib/words.ts:168
+#: lib/words.ts:171
 #, fuzzy
 msgid "about system info model serial number version processor memory support period"
 msgstr "à propos infos système modèle numéro de série version processeur mémoire période de support"
 
-#: lib/words.ts:169
+#: lib/words.ts:172
 #, fuzzy
 msgid "disk space library mirror check scrub damage full"
 msgstr "disque espace bibliothèque miroir vérification dommages plein"
 
-#: lib/words.ts:170
+#: lib/words.ts:173
 #, fuzzy
 msgid "drive disk health smart failing replace temperature"
 msgstr "disque santé défaillant remplacer température"
 
-#: lib/words.ts:171
+#: lib/words.ts:174
 #, fuzzy
 msgid "space usage full photos apps databases"
 msgstr "espace utilisation plein photos apps bases de données"
 
-#: lib/words.ts:172
+#: lib/words.ts:175
 #, fuzzy
 msgid "backup backups restic copy nightly restore safe offsite"
 msgstr "sauvegarde sauvegardes copie nuit restaurer sûr hors site"
 
-#: lib/words.ts:173
+#: lib/words.ts:176
 #, fuzzy
 msgid "apps applications installed remove uninstall delete restore version update running"
 msgstr "apps applications installées supprimer désinstaller effacer restaurer version mise à jour en marche"
 
-#: lib/words.ts:174
+#: lib/words.ts:177
 #, fuzzy
 msgid "install add app usb stick package zapp sideload new update"
 msgstr "installer ajouter app clé usb paquet zapp nouvelle mise à jour"
 
-#: lib/words.ts:175
+#: lib/words.ts:178
 #, fuzzy
 msgid "cpu processor memory ram load network activity performance"
 msgstr "processeur mémoire charge réseau activité performances"
 
-#: lib/words.ts:176
+#: lib/words.ts:179
 #, fuzzy
 msgid "app service busy slow usage"
 msgstr "app service occupé lent utilisation"
 
-#: lib/words.ts:177
+#: lib/words.ts:180
 #, fuzzy
 msgid "temperature heat hot fan sensors"
 msgstr "température chaleur chaud ventilateur capteurs"
 
-#: lib/words.ts:178
+#: lib/words.ts:181
 #, fuzzy
 msgid "events history updates restarts"
 msgstr "événements historique mises à jour redémarrages"
 
-#: lib/words.ts:179
+#: lib/words.ts:182
 #, fuzzy
 msgid "past notifications alerts history"
 msgstr "anciennes notifications alertes historique"
 
-#: lib/words.ts:180
+#: lib/words.ts:183
 #, fuzzy
 msgid "audit who changed admin actions history"
 msgstr "audit qui a modifié actions admin historique"
 
-#: lib/words.ts:181
+#: lib/words.ts:184
 #, fuzzy
 msgid "sign in login logins who"
 msgstr "connexion identifiants qui"
 
-#: lib/words.ts:182
+#: lib/words.ts:185
 #, fuzzy
 msgid "family activity sign-ins wrong password devices share links guest links settings accounts second step who did what"
 msgstr "activité famille connexions mot de passe erroné appareils liens de partage liens invité réglages comptes deuxième étape qui a fait quoi"
 
-#: lib/words.ts:183
+#: lib/words.ts:186
 #, fuzzy
 msgid "journal system log errors warnings"
 msgstr "journal système erreurs avertissements"
 
-#: lib/words.ts:184
+#: lib/words.ts:187
 #, fuzzy
 msgid "diagnostics bundle logs support"
 msgstr "diagnostic fichier journaux assistance"
 
-#: lib/words.ts:185
+#: lib/words.ts:188
 #, fuzzy
 msgid "diagnostics bundle logs debug report usb send support problem"
 msgstr "diagnostic fichier journaux débogage rapport usb envoyer assistance problème"
 
-#: lib/words.ts:186
+#: lib/words.ts:189
 #, fuzzy
 msgid "contact support help ticket serial number phone email"
 msgstr "contact assistance aide ticket numéro de série téléphone e-mail"
 
-#: lib/words.ts:187
+#: lib/words.ts:190
 #, fuzzy
 msgid "help questions faq how to troubleshoot problem"
 msgstr "aide questions faq comment dépanner problème"
 
-#: lib/words.ts:192 tools/Network.svelte:125
+#: lib/words.ts:195 tools/Network.svelte:125
 #, fuzzy
 msgid "IP Address Assignment Method"
 msgstr "Attribution de l'adresse IP"
 
-#: lib/words.ts:193 tools/Network.svelte:116
+#: lib/words.ts:196 tools/Network.svelte:116
 #, fuzzy
 msgid "Wi-Fi (Wireless Network)"
 msgstr "Wi-Fi (réseau sans fil)"
 
-#: lib/words.ts:194 tools/Display.svelte:164 tools/Display.svelte:166
+#: lib/words.ts:197 pages/Setup.svelte:380 tools/Connect.svelte:125
+#, fuzzy
+msgid "Box's name"
+msgstr "Nom de la box"
+
+#: lib/words.ts:198 tools/Connect.svelte:158 tools/Connect.svelte:159 tools/PairPhone.svelte:65
+#, fuzzy
+msgid "Pair a phone"
+msgstr "Associer un téléphone"
+
+#: lib/words.ts:199 tools/Connect.svelte:144
+#, fuzzy
+msgid "Paired phones and laptops"
+msgstr "Téléphones et ordinateurs associés"
+
+#: lib/words.ts:200 tools/Connect.svelte:176 tools/Connect.svelte:179
+#, fuzzy
+msgid "Use the relay"
+msgstr "Utiliser le relais"
+
+#: lib/words.ts:201 tools/Connect.svelte:165
+#, fuzzy
+msgid "Server"
+msgstr "Serveur"
+
+#: lib/words.ts:202 tools/Display.svelte:164 tools/Display.svelte:166
 #, fuzzy
 msgid "Resolution"
 msgstr "Résolution"
 
-#: lib/words.ts:195 tools/Display.svelte:158 tools/Display.svelte:160
+#: lib/words.ts:203 tools/Display.svelte:158 tools/Display.svelte:160
 #, fuzzy
 msgid "Orientation"
 msgstr "Orientation"
 
-#: lib/words.ts:196 tools/Display.svelte:170 tools/Display.svelte:172
+#: lib/words.ts:204 tools/Display.svelte:170 tools/Display.svelte:172
 #, fuzzy
 msgid "Screen Update Rate"
 msgstr "Fréquence d'affichage"
 
-#: lib/words.ts:197 tools/Display.svelte:176 tools/Display.svelte:179
+#: lib/words.ts:205 tools/Display.svelte:176 tools/Display.svelte:179
 #, fuzzy
 msgid "Text & UI Scaling"
 msgstr "Mise à l'échelle"
 
-#: lib/words.ts:198 tools/Appearance.svelte:25 tools/Appearance.svelte:27
+#: lib/words.ts:206 tools/Appearance.svelte:25 tools/Appearance.svelte:27
 #, fuzzy
 msgid "Style"
 msgstr "Style"
 
-#: lib/words.ts:199 tools/Appearance.svelte:42 tools/Appearance.svelte:44
+#: lib/words.ts:207 tools/Appearance.svelte:42 tools/Appearance.svelte:44
 #, fuzzy
 msgid "Accent Colour"
 msgstr "Couleur d'accent"
 
-#: lib/words.ts:200 tools/Appearance.svelte:56 tools/Appearance.svelte:61
+#: lib/words.ts:208 tools/Appearance.svelte:56 tools/Appearance.svelte:61
 #, fuzzy
 msgid "Background"
 msgstr "Arrière-plan"
 
-#: lib/words.ts:201 tools/Appearance.svelte:58
+#: lib/words.ts:209 tools/Appearance.svelte:58
 #, fuzzy
 msgid "Add Picture"
 msgstr "Ajouter une image"
 
-#: lib/words.ts:202 tools/Sound.svelte:71 tools/Sound.svelte:73
+#: lib/words.ts:210 tools/Sound.svelte:71 tools/Sound.svelte:73
 #, fuzzy
 msgid "Output Device"
 msgstr "Sortie audio"
 
-#: lib/words.ts:203 tools/Sound.svelte:77
+#: lib/words.ts:211 tools/Sound.svelte:77
 #, fuzzy
 msgid "Output Volume"
 msgstr "Volume de sortie"
 
-#: lib/words.ts:204 tools/Sound.svelte:82 tools/Sound.svelte:83
+#: lib/words.ts:212 tools/Sound.svelte:82 tools/Sound.svelte:83
 #, fuzzy
 msgid "Input Device"
 msgstr "Entrée audio"
 
-#: lib/words.ts:205 tools/Sound.svelte:85
+#: lib/words.ts:213 tools/Sound.svelte:85
 #, fuzzy
 msgid "Input Volume"
 msgstr "Volume d'entrée"
 
-#: lib/words.ts:206 tools/Sound.svelte:88
+#: lib/words.ts:214 tools/Sound.svelte:88
 #, fuzzy
 msgid "Input Level"
 msgstr "Niveau d'entrée"
 
-#: lib/words.ts:207 tools/Keyboard.svelte:49 tools/Keyboard.svelte:50
+#: lib/words.ts:215 tools/Keyboard.svelte:49 tools/Keyboard.svelte:50
 #, fuzzy
 msgid "Input Layout"
 msgstr "Disposition du clavier"
 
-#: lib/words.ts:208 tools/Keyboard.svelte:54
+#: lib/words.ts:216 tools/Keyboard.svelte:54
 #, fuzzy
 msgid "Primary click side"
 msgstr "Bouton principal"
 
-#: lib/words.ts:209 tools/Keyboard.svelte:60
+#: lib/words.ts:217 tools/Keyboard.svelte:60
 #, fuzzy
 msgid "Cursor Speed"
 msgstr "Vitesse du curseur"
 
-#: lib/words.ts:210 tools/Keyboard.svelte:66 tools/Keyboard.svelte:67
+#: lib/words.ts:218 tools/Keyboard.svelte:66 tools/Keyboard.svelte:67
 #, fuzzy
 msgid "Dynamic Cursor Acceleration"
 msgstr "Accélération du curseur"
 
-#: lib/words.ts:211 tools/Keyboard.svelte:70
+#: lib/words.ts:219 tools/Keyboard.svelte:70
 #, fuzzy
 msgid "Scroll direction"
 msgstr "Sens du défilement"
 
-#: lib/words.ts:212 pages/Setup.svelte:16 pages/Setup.svelte:382 pages/Setup.svelte:410 tools/Language.svelte:106 tools/Language.svelte:107
+#: lib/words.ts:220 pages/Setup.svelte:16 pages/Setup.svelte:382 pages/Setup.svelte:410 tools/Language.svelte:106 tools/Language.svelte:107
 #, fuzzy
 msgid "Language"
 msgstr "Langue"
 
-#: lib/words.ts:213 tools/Language.svelte:109 tools/Language.svelte:111
+#: lib/words.ts:221 tools/Language.svelte:109 tools/Language.svelte:111
 #, fuzzy
 msgid "Country or Region"
 msgstr "Pays ou région"
 
-#: lib/words.ts:214 tools/Language.svelte:116 tools/Language.svelte:118
+#: lib/words.ts:222 tools/Language.svelte:116 tools/Language.svelte:118
 #, fuzzy
 msgid "State or Province"
 msgstr "État ou province"
 
-#: lib/words.ts:215 tools/Time.svelte:48 tools/Time.svelte:49
+#: lib/words.ts:223 tools/Time.svelte:48 tools/Time.svelte:49
 #, fuzzy
 msgid "Time Zone"
 msgstr "Fuseau horaire"
 
-#: lib/words.ts:216 tools/Time.svelte:45
+#: lib/words.ts:224 tools/Time.svelte:45
 #, fuzzy
 msgid "Current Time"
 msgstr "Heure actuelle"
 
-#: lib/words.ts:217 tools/Time.svelte:51
+#: lib/words.ts:225 tools/Time.svelte:51
 #, fuzzy
 msgid "Time Sync"
 msgstr "Synchronisation de l'heure"
 
-#: lib/words.ts:218 tools/AddPerson.svelte:56 tools/People.svelte:59
+#: lib/words.ts:226 tools/AddPerson.svelte:56 tools/People.svelte:59
 #, fuzzy
 msgid "Add a person"
 msgstr "Ajouter une personne"
 
-#: lib/words.ts:219 pages/SignIn.svelte:192 pages/SignIn.svelte:220 tools/EditPerson.svelte:86
+#: lib/words.ts:227 pages/SignIn.svelte:192 pages/SignIn.svelte:220 tools/EditPerson.svelte:86
 #, fuzzy
 msgid "New password"
 msgstr "Nouveau mot de passe"
 
-#: lib/words.ts:220 tools/EditPerson.svelte:102 tools/EditPerson.svelte:102
+#: lib/words.ts:228 tools/EditPerson.svelte:102 tools/EditPerson.svelte:102
 #, fuzzy
 msgid "Make admin"
 msgstr "Rendre admin"
 
-#: lib/words.ts:221 tools/Notifications.svelte:21
+#: lib/words.ts:229 tools/Notifications.svelte:21
 #, fuzzy
 msgid "Show Notifications For"
 msgstr "Afficher les notifications pour"
 
-#: lib/words.ts:222 tools/Security.svelte:122
+#: lib/words.ts:230 tools/Security.svelte:122
 #, fuzzy
 msgid "Firewall"
 msgstr "Pare-feu"
 
-#: lib/words.ts:223 tools/Security.svelte:142
+#: lib/words.ts:231 tools/Security.svelte:142
 #, fuzzy
 msgid "Secure Boot"
 msgstr "Démarrage sécurisé"
 
-#: lib/words.ts:224 tools/Security.svelte:123
+#: lib/words.ts:232 tools/Security.svelte:123
 #, fuzzy
 msgid "AppArmor"
 msgstr "AppArmor"
 
-#: lib/words.ts:225 tools/Security.svelte:119
+#: lib/words.ts:233 tools/Security.svelte:119
 #, fuzzy
 msgid "Security Updates"
 msgstr "Mises à jour de sécurité"
 
-#: lib/words.ts:226 tools/Security.svelte:151
+#: lib/words.ts:234 tools/Security.svelte:151
 #, fuzzy
 msgid "Last System Scan"
 msgstr "Dernière analyse du système"
 
-#: lib/words.ts:227 tools/Security.svelte:154
+#: lib/words.ts:235 tools/Security.svelte:154
 #, fuzzy
 msgid "Allowed Inbound Connections"
 msgstr "Connexions entrantes autorisées"
 
-#: lib/words.ts:228 tools/Security.svelte:165
+#: lib/words.ts:236 tools/Security.svelte:165
 #, fuzzy
 msgid "Outbound Internet Connections"
 msgstr "Connexions sortantes vers internet"
 
-#: lib/words.ts:229 tools/Access.svelte:78
+#: lib/words.ts:237 tools/Access.svelte:78
 #, fuzzy
 msgid "Keys"
 msgstr "Clés"
 
-#: lib/words.ts:230 tools/Access.svelte:85 tools/AppsUsb.svelte:54
+#: lib/words.ts:238 tools/Access.svelte:85 tools/AppsUsb.svelte:54
 #, fuzzy
 msgid "Add from a USB stick"
 msgstr "Ajouter depuis une clé USB"
 
-#: lib/words.ts:231 tools/Access.svelte:88 tools/Access.svelte:89 tools/PasteKey.svelte:18
+#: lib/words.ts:239 tools/Access.svelte:88 tools/Access.svelte:89 tools/PasteKey.svelte:18
 #, fuzzy
 msgid "Paste a key"
 msgstr "Coller une clé"
 
-#: lib/words.ts:232 tools/Restarts.svelte:60 tools/Restarts.svelte:62
+#: lib/words.ts:240 tools/Restarts.svelte:60 tools/Restarts.svelte:62
 #, fuzzy
 msgid "Maintenance Hour"
 msgstr "Heure de maintenance"
 
-#: lib/words.ts:233 tools/Restarts.svelte:69
+#: lib/words.ts:241 tools/Restarts.svelte:69
 #, fuzzy
 msgid "Always On"
 msgstr "Toujours allumée"
 
-#: lib/words.ts:234 tools/Restarts.svelte:72
+#: lib/words.ts:242 tools/Restarts.svelte:72
 #, fuzzy
 msgid "Shutdown"
 msgstr "Arrêt"
 
-#: lib/words.ts:235 tools/Restore.svelte:73 tools/Space.svelte:14
+#: lib/words.ts:243 tools/Restore.svelte:73 tools/Space.svelte:14
 #, fuzzy
 msgid "Restore points"
 msgstr "Points de restauration"
 
-#: lib/words.ts:236 tools/Restore.svelte:83
+#: lib/words.ts:244 tools/Restore.svelte:83
 #, fuzzy
 msgid "Updates on Hold"
 msgstr "Mises à jour en attente"
 
-#: lib/words.ts:237 tools/Restore.svelte:93
+#: lib/words.ts:245 tools/Restore.svelte:93
 #, fuzzy
 msgid "System Reset"
 msgstr "Réinitialisation du système"
 
-#: lib/words.ts:238 tools/Restore.svelte:99
+#: lib/words.ts:246 tools/Restore.svelte:99
 #, fuzzy
 msgid "Factory Reset"
 msgstr "Retour usine"
 
-#: lib/words.ts:239 tools/Restore.svelte:65 tools/Restore.svelte:98 tools/Restore.svelte:100
+#: lib/words.ts:247 tools/Restore.svelte:65 tools/Restore.svelte:98 tools/Restore.svelte:100
 #, fuzzy
 msgid "Erase everything"
 msgstr "Tout effacer"
 
-#: lib/words.ts:240 pages/MainMenu.svelte:74 tools/About.svelte:53 tools/About.svelte:54
+#: lib/words.ts:248 pages/MainMenu.svelte:74 tools/About.svelte:53 tools/About.svelte:54
 #, fuzzy
 msgid "Family Hub"
 msgstr "Family Hub"
 
-#: lib/words.ts:241 tools/About.svelte:54
+#: lib/words.ts:249 tools/About.svelte:54
 #, fuzzy
 msgid "Open on a phone"
 msgstr "Ouvrir sur un téléphone"
 
-#: lib/words.ts:242 tools/About.svelte:28 tools/Contact.svelte:16
+#: lib/words.ts:250 tools/About.svelte:28 tools/Contact.svelte:16
 #, fuzzy
 msgid "Model"
 msgstr "Modèle"
 
-#: lib/words.ts:243 tools/About.svelte:29
+#: lib/words.ts:251 tools/About.svelte:29
 #, fuzzy
 msgid "Serial Number"
 msgstr "Numéro de série"
 
-#: lib/words.ts:244 tools/About.svelte:30
+#: lib/words.ts:252 tools/About.svelte:30
 #, fuzzy
 msgid "Operating System"
 msgstr "Système d'exploitation"
 
-#: lib/words.ts:245 tools/About.svelte:31 tools/Contact.svelte:37
+#: lib/words.ts:253 tools/About.svelte:31 tools/Contact.svelte:37
 #, fuzzy
 msgid "Security updates"
 msgstr "Mises à jour de sécurité"
 
-#: lib/words.ts:246 pages/Widgets.svelte:121 tools/StorageOverview.svelte:52
+#: lib/words.ts:254 pages/Widgets.svelte:121 tools/StorageOverview.svelte:52
 #, fuzzy
 msgid "Library"
 msgstr "Bibliothèque"
 
-#: lib/words.ts:247 tools/LibraryCheck.svelte:19
+#: lib/words.ts:255 tools/LibraryCheck.svelte:19
 #, fuzzy
 msgid "Check the library for damage"
 msgstr "Vérifier la bibliothèque"
 
-#: lib/words.ts:248 tools/Backups.svelte:56 tools/Backups.svelte:59
+#: lib/words.ts:256 tools/Backups.svelte:56 tools/Backups.svelte:59
 #, fuzzy
 msgid "Back up now"
 msgstr "Sauvegarder"
 
-#: lib/words.ts:249 tools/Backups.svelte:62 tools/Backups.svelte:64
+#: lib/words.ts:257 tools/Backups.svelte:62 tools/Backups.svelte:64
 #, fuzzy
 msgid "Nightly backup"
 msgstr "Sauvegarde chaque nuit"
 
-#: lib/words.ts:250 tools/Display.svelte:130
+#: lib/words.ts:258 tools/Display.svelte:130
 #, fuzzy
 msgid "Lock the screen after"
 msgstr "Verrouiller l'écran après"
 
-#: lib/words.ts:251 tools/Display.svelte:131
+#: lib/words.ts:259 tools/Display.svelte:131
 #, fuzzy
 msgid "Turn the screen off after"
 msgstr "Éteindre l'écran après"
 
-#: lib/words.ts:252 tools/Contact.svelte:30 tools/Diagnostics.svelte:48
+#: lib/words.ts:260 tools/Contact.svelte:30 tools/Diagnostics.svelte:48
 #, fuzzy
 msgid "Make a bundle"
 msgstr "Créer un fichier"
 
-#: lib/words.ts:253 tools/SaveBundle.svelte:42
+#: lib/words.ts:261 tools/SaveBundle.svelte:42
 #, fuzzy
 msgid "Save to a USB stick"
 msgstr "Enregistrer sur une clé USB"
 
-#: lib/words.ts:254 tools/Contact.svelte:23
+#: lib/words.ts:262 tools/Contact.svelte:23
 #, fuzzy
 msgid "Contact ZOOMRIYA support"
 msgstr "Contacter l'assistance ZOOMRIYA"
 
-#: lib/words.ts:255 tools/Contact.svelte:16
+#: lib/words.ts:263 tools/Contact.svelte:16
 #, fuzzy
 msgid "Serial number"
 msgstr "Numéro de série"
 
-#: lib/words.ts:260 pages/MainMenu.svelte:113
+#: lib/words.ts:268 pages/MainMenu.svelte:113
 #, fuzzy
 msgid "Restart the box"
 msgstr "Redémarrer la box"
 
-#: lib/words.ts:260
+#: lib/words.ts:268
 #, fuzzy
 msgid "reboot"
 msgstr "redémarrer"
 
-#: lib/words.ts:261 tools/Restarts.svelte:73
+#: lib/words.ts:269 tools/Restarts.svelte:73
 #, fuzzy
 msgid "Shut down system"
 msgstr "Éteindre"
 
-#: lib/words.ts:261
+#: lib/words.ts:269
 #, fuzzy
 msgid "power off turn off"
 msgstr "éteindre arrêter"
 
-#: lib/words.ts:262 pages/MainMenu.svelte:112
+#: lib/words.ts:270 pages/MainMenu.svelte:112
 #, fuzzy
 msgid "Lock screen"
 msgstr "Verrouiller l'écran"
 
-#: lib/words.ts:262
+#: lib/words.ts:270
 #, fuzzy
 msgid "lock away screen saver leave"
 msgstr "verrouiller absent écran de veille partir"
 
-#: lib/words.ts:263 pages/MainMenu.svelte:112
+#: lib/words.ts:271 pages/MainMenu.svelte:112
 #, fuzzy
 msgid "Open Family Hub on a phone"
 msgstr "Ouvrir Family Hub sur un téléphone"
 
-#: lib/words.ts:263
+#: lib/words.ts:271
 #, fuzzy
 msgid "qr code phone mobile address family hub"
 msgstr "code qr téléphone mobile adresse family hub"
 
-#: lib/words.ts:264 pages/MainMenu.svelte:113
+#: lib/words.ts:272 pages/MainMenu.svelte:113
 #, fuzzy
 msgid "Sign out"
 msgstr "Se déconnecter"
 
-#: lib/words.ts:264
+#: lib/words.ts:272
 #, fuzzy
 msgid "log out logout switch user"
 msgstr "déconnexion se déconnecter changer d'utilisateur"
 
-#: lib/words.ts:265 tools/Appearance.svelte:28
+#: lib/words.ts:273 tools/Appearance.svelte:28
 #, fuzzy
 msgid "Midnight"
 msgstr "Nuit"
 
-#: lib/words.ts:265
+#: lib/words.ts:273
 #, fuzzy
 msgid "dark theme night"
 msgstr "sombre thème nuit"
 
-#: lib/words.ts:266 tools/Appearance.svelte:28
+#: lib/words.ts:274 tools/Appearance.svelte:28
 #, fuzzy
 msgid "Daylight"
 msgstr "Jour"
 
-#: lib/words.ts:266
+#: lib/words.ts:274
 #, fuzzy
 msgid "light theme day"
 msgstr "clair thème jour"
 
-#: lib/words.ts:267 pages/TopBar.svelte:138 pages/TopBar.svelte:138 pages/Widgets.svelte:38
+#: lib/words.ts:275 pages/TopBar.svelte:138 pages/TopBar.svelte:138 pages/Widgets.svelte:38
 #, fuzzy
 msgid "Widgets"
 msgstr "Widgets"
 
-#: lib/words.ts:267
+#: lib/words.ts:275
 #, fuzzy
 msgid "side panel health cpu space"
 msgstr "panneau latéral santé processeur espace"
 
-#: lib/words.ts:272
+#: lib/words.ts:280
 #, fuzzy
 msgid "Something stopped working after an update"
 msgstr "Un problème après une mise à jour"
 
-#: lib/words.ts:272
+#: lib/words.ts:280
 #, fuzzy
 msgid "Restore the OS to before the update. Family files stay."
 msgstr "Restaurez l'OS d'avant la mise à jour. Les fichiers de la famille restent."
 
-#: lib/words.ts:273
+#: lib/words.ts:281
 #, fuzzy
 msgid "A drive needs checking"
 msgstr "Un disque est à vérifier"
 
-#: lib/words.ts:273
+#: lib/words.ts:281
 #, fuzzy
 msgid "See which drive, and why. Replace it with one as big or bigger."
 msgstr "Voyez quel disque, et pourquoi. Remplacez-le par un de même taille ou plus."
 
-#: lib/words.ts:274
+#: lib/words.ts:282
 #, fuzzy
 msgid "The box is slow"
 msgstr "Le boîtier est lent"
 
-#: lib/words.ts:274
+#: lib/words.ts:282
 #, fuzzy
 msgid "See which app is busy. Photos works hard after many new photos."
 msgstr "Voyez quelle app travaille. Photos est occupée après beaucoup de nouvelles photos."
 
-#: lib/words.ts:275
+#: lib/words.ts:283
 #, fuzzy
 msgid "The box restarted by itself"
 msgstr "Le boîtier a redémarré seul"
 
-#: lib/words.ts:275
+#: lib/words.ts:283
 #, fuzzy
 msgid "Updates finish at the maintenance hour. You can change the hour."
 msgstr "Les mises à jour se terminent à l'heure de maintenance. Vous pouvez la changer."
 
-#: lib/words.ts:276
+#: lib/words.ts:284
 #, fuzzy
 msgid "Family Hub doesn't open on the home network"
 msgstr "Family Hub ne s'ouvre pas à la maison"
 
-#: lib/words.ts:276
+#: lib/words.ts:284
 #, fuzzy
 msgid "Check the cable to the router, and the box's address."
 msgstr "Vérifiez le câble vers le routeur et l'adresse du boîtier."
 
-#: lib/words.ts:277
+#: lib/words.ts:285
 #, fuzzy
 msgid "Someone can't sign in"
 msgstr "Quelqu'un ne peut pas se connecter"
 
-#: lib/words.ts:277
+#: lib/words.ts:285
 #, fuzzy
 msgid "Let them type a new password, or turn their account back on."
 msgstr "Laissez-le saisir un nouveau mot de passe, ou réactivez son compte."
 
-#: lib/words.ts:278
+#: lib/words.ts:286
 #, fuzzy
 msgid "Who changed a setting?"
 msgstr "Qui a modifié un réglage ?"
 
-#: lib/words.ts:278
+#: lib/words.ts:286
 #, fuzzy
 msgid "Every change, with who and when."
 msgstr "Chaque modification, avec qui et quand."
 
-#: lib/words.ts:283
+#: lib/words.ts:291
 #, fuzzy
 msgid "Drive Health"
 msgstr "État des disques"
 
-#: lib/words.ts:283
+#: lib/words.ts:291
 #, fuzzy
 msgid "When to check or replace, and when healthy."
 msgstr "Quand vérifier ou remplacer, et quand tout va bien."
 
-#: lib/words.ts:284
+#: lib/words.ts:292
 #, fuzzy
 msgid "Updates"
 msgstr "Mises à jour"
 
-#: lib/words.ts:284
+#: lib/words.ts:292
 #, fuzzy
 msgid "When security fixes are installed."
 msgstr "Quand des correctifs de sécurité sont installés."
 
-#: lib/words.ts:285
+#: lib/words.ts:293
 #, fuzzy
 msgid "Auto-restart schedule for updates and restores."
 msgstr "Redémarrages automatiques prévus pour les mises à jour et restaurations."
 
-#: lib/words.ts:286
+#: lib/words.ts:294
 #, fuzzy
 msgid "Library Check"
 msgstr "Vérification de la bibliothèque"
 
-#: lib/words.ts:286
+#: lib/words.ts:294
 #, fuzzy
 msgid "Library scan completion time and results."
 msgstr "Fin de l'analyse de la bibliothèque et résultats."
 
-#: lib/words.ts:287
+#: lib/words.ts:295
 #, fuzzy
 msgid "Network settings weren't kept and were rolled back."
 msgstr "Réglages réseau non gardés et annulés."
 
-#: lib/words.ts:288 tools/Security.svelte:143
+#: lib/words.ts:296 tools/Security.svelte:143
 #, fuzzy
 msgid "Secure Connections"
 msgstr "Connexions sécurisées"
 
-#: lib/words.ts:288
+#: lib/words.ts:296
 #, fuzzy
 msgid "When the box's certificate can't be made or renewed, or is running out."
 msgstr "Quand le certificat de la box ne peut être créé ou renouvelé, ou expire bientôt."
 
-#: lib/words.ts:289
+#: lib/words.ts:297
 #, fuzzy
 msgid "Admin Sign-in"
 msgstr "Connexion admin"
 
-#: lib/words.ts:289
+#: lib/words.ts:297
 #, fuzzy
 msgid "When an admin is let back in at the box with the setup code, or a wrong code is typed."
 msgstr "Quand un admin retrouve l'accès à la box avec le code d'installation, ou qu'un mauvais code est saisi."
 
-#: lib/words.ts:290
+#: lib/words.ts:298
 #, fuzzy
 msgid "Advanced Access"
 msgstr "Accès avancé"
 
-#: lib/words.ts:290
+#: lib/words.ts:298
 #, fuzzy
 msgid "When SSH access is turned on or off."
 msgstr "Quand l'accès SSH est activé ou désactivé."
 
-#: lib/words.ts:291
+#: lib/words.ts:299
 #, fuzzy
 msgid "Apps"
 msgstr "Apps"
 
-#: lib/words.ts:291
+#: lib/words.ts:299
 #, fuzzy
 msgid "When an app is installed, restored or removed."
 msgstr "Quand une app est installée, restaurée ou supprimée."
 
-#: lib/words.ts:295
+#: lib/words.ts:303
 #, fuzzy
 msgid "Everything offline is on"
 msgstr "Tout hors ligne est activé"
 
-#: lib/words.ts:295
+#: lib/words.ts:303
 #, fuzzy
 msgid "Apps offline is on"
 msgstr "Applis hors ligne est activé"
 
-#: lib/words.ts:295
+#: lib/words.ts:303
 #, fuzzy
 msgid "Switched off"
 msgstr "Désactivé"
 
-#: lib/words.ts:299
+#: lib/words.ts:307
 #, fuzzy
 msgid "Blue"
 msgstr "Bleu"
 
-#: lib/words.ts:300
+#: lib/words.ts:308
 #, fuzzy
 msgid "Teal"
 msgstr "Bleu canard"
 
-#: lib/words.ts:301
+#: lib/words.ts:309
 #, fuzzy
 msgid "Green"
 msgstr "Vert"
 
-#: lib/words.ts:302
+#: lib/words.ts:310
 #, fuzzy
 msgid "Yellow"
 msgstr "Jaune"
 
-#: lib/words.ts:303
+#: lib/words.ts:311
 #, fuzzy
 msgid "Orange"
 msgstr "Orange"
 
-#: lib/words.ts:304
+#: lib/words.ts:312
 #, fuzzy
 msgid "Red"
 msgstr "Rouge"
 
-#: lib/words.ts:305
+#: lib/words.ts:313
 #, fuzzy
 msgid "Pink"
 msgstr "Rose"
 
-#: lib/words.ts:306
+#: lib/words.ts:314
 #, fuzzy
 msgid "Purple"
 msgstr "Violet"
 
-#: lib/words.ts:307
+#: lib/words.ts:315
 #, fuzzy
 msgid "Slate"
 msgstr "Ardoise"
 
-#: lib/words.ts:313
+#: lib/words.ts:321
 #, fuzzy
 msgid "Jellyfish"
 msgstr "Méduses"
 
-#: lib/words.ts:314
+#: lib/words.ts:322
 #, fuzzy
 msgid "Hills"
 msgstr "Collines"
 
-#: lib/words.ts:315
+#: lib/words.ts:323
 #, fuzzy
 msgid "Lakeside"
 msgstr "Bord du lac"
 
-#: lib/words.ts:319
+#: lib/words.ts:327
 #, fuzzy
 msgid "Night"
 msgstr "Nuit"
 
-#: lib/words.ts:320
+#: lib/words.ts:328
 #, fuzzy
 msgid "Ocean"
 msgstr "Océan"
 
-#: lib/words.ts:321
+#: lib/words.ts:329
 #, fuzzy
 msgid "Forest"
 msgstr "Forêt"
 
-#: lib/words.ts:322
+#: lib/words.ts:330
 #, fuzzy
 msgid "Plum"
 msgstr "Prune"
 
-#: lib/words.ts:323
+#: lib/words.ts:331
 #, fuzzy
 msgid "Graphite"
 msgstr "Graphite"
 
-#: lib/words.ts:331
+#: lib/words.ts:339
 #, fuzzy
 msgid "Sign-in"
 msgstr "Connexion"
 
-#: lib/words.ts:332
+#: lib/words.ts:340
 #, fuzzy
 msgid "Wrong try"
 msgstr "Mauvais essai"
 
-#: lib/words.ts:333
+#: lib/words.ts:341
 #, fuzzy
 msgid "Second step"
 msgstr "Deuxième étape"
 
-#: lib/words.ts:334 pages/Lock.svelte:43 pages/SignIn.svelte:188 tools/AddPerson.svelte:71 tools/EditPerson.svelte:85 tools/NewPassword.svelte:45
+#: lib/words.ts:342 pages/Lock.svelte:43 pages/SignIn.svelte:188 tools/AddPerson.svelte:71 tools/EditPerson.svelte:85 tools/NewPassword.svelte:45
 #, fuzzy
 msgid "Password"
 msgstr "Mot de passe"
 
-#: lib/words.ts:335 tools/EditPerson.svelte:109 tools/EditPerson.svelte:117
+#: lib/words.ts:343 tools/EditPerson.svelte:109 tools/EditPerson.svelte:117
 #, fuzzy
 msgid "Account"
 msgstr "Compte"
 
-#: lib/words.ts:336
+#: lib/words.ts:344
 #, fuzzy
 msgid "AI key"
 msgstr "Clé d'IA"
 
-#: lib/words.ts:337
+#: lib/words.ts:345
 #, fuzzy
 msgid "New device"
 msgstr "Nouvel appareil"
 
-#: lib/words.ts:338
+#: lib/words.ts:346
 #, fuzzy
 msgid "Share link"
 msgstr "Lien de partage"
 
-#: lib/words.ts:339
+#: lib/words.ts:347
 #, fuzzy
 msgid "Setting"
 msgstr "Réglage"
 
-#: lib/words.ts:342
+#: lib/words.ts:350
 #, fuzzy
 msgid "Errors"
 msgstr "Erreurs"
 
-#: lib/words.ts:342
+#: lib/words.ts:350
 #, fuzzy
 msgid "Warnings and errors"
 msgstr "Avertissements et erreurs"
 
-#: lib/words.ts:342 tools/Logs.svelte:54
+#: lib/words.ts:350 tools/Logs.svelte:54
 #, fuzzy
 msgid "Everything"
 msgstr "Tout"
 
-#: lib/words.ts:343
+#: lib/words.ts:351
 #, fuzzy
 msgid "Healthy"
 msgstr "En bon état"
 
-#: lib/words.ts:343
+#: lib/words.ts:351
 #, fuzzy
 msgid "Needs checking"
 msgstr "À vérifier"
 
-#: lib/words.ts:343
+#: lib/words.ts:351
 #, fuzzy
 msgid "Failing"
 msgstr "Défaillant"
 
-#: lib/words.ts:346 lib/words.ts:347
+#: lib/words.ts:354 lib/words.ts:355
 #, fuzzy
 msgid "Starting"
 msgstr "Démarrage"
 
-#: lib/words.ts:346
+#: lib/words.ts:354
 #, fuzzy
 msgid "Copying from the USB stick"
 msgstr "Copie depuis la clé USB"
 
-#: lib/words.ts:346
+#: lib/words.ts:354
 #, fuzzy
 msgid "Checking it's a ZOOMRIYA app"
 msgstr "Vérification que c'est une app ZOOMRIYA"
 
-#: lib/words.ts:346
+#: lib/words.ts:354
 #, fuzzy
 msgid "Adding it to the box"
 msgstr "Ajout au boîtier"
 
-#: lib/words.ts:346
+#: lib/words.ts:354
 #, fuzzy
 msgid "Starting it"
 msgstr "Démarrage de l'app"
 
-#: lib/words.ts:346
+#: lib/words.ts:354
 #, fuzzy
 msgid "Not a ZOOMRIYA app."
 msgstr "Pas une app ZOOMRIYA."
 
-#: lib/words.ts:346
+#: lib/words.ts:354
 #, fuzzy
 msgid "Can't be read."
 msgstr "Illisible."
 
-#: lib/words.ts:347
+#: lib/words.ts:355
 #, fuzzy
 msgid "Running"
 msgstr "En marche"
 
-#: lib/words.ts:347
+#: lib/words.ts:355
 #, fuzzy
 msgid "Stopped"
 msgstr "Arrêtée"
 
-#: lib/words.ts:347
+#: lib/words.ts:355
 #, fuzzy
 msgid "Not working"
 msgstr "Ne fonctionne pas"
 
-#: lib/words.ts:350
+#: lib/words.ts:358
 #, fuzzy
 msgid "Landscape"
 msgstr "Paysage"
 
-#: lib/words.ts:350
+#: lib/words.ts:358
 #, fuzzy
 msgid "Portrait, turned right"
 msgstr "Portrait, tourné à droite"
 
-#: lib/words.ts:350
+#: lib/words.ts:358
 #, fuzzy
 msgid "Portrait, turned left"
 msgstr "Portrait, tourné à gauche"
 
-#: lib/words.ts:350
+#: lib/words.ts:358
 #, fuzzy
 msgid "Landscape, upside down"
 msgstr "Paysage, à l'envers"
@@ -1705,7 +1740,7 @@ msgstr "Ville"
 msgid "Time zone"
 msgstr "Fuseau horaire"
 
-#: pages/Setup.svelte:16 pages/Setup.svelte:379 tools/EditPerson.svelte:90 tools/EditPerson.svelte:98 tools/People.svelte:28
+#: pages/Setup.svelte:16 pages/Setup.svelte:379 tools/Connect.svelte:147 tools/EditPerson.svelte:90 tools/EditPerson.svelte:98 tools/People.svelte:28
 #, fuzzy
 msgid "Admin"
 msgstr "Admin"
@@ -1715,7 +1750,7 @@ msgstr "Admin"
 msgid "Phone"
 msgstr "Téléphone"
 
-#: pages/Setup.svelte:16
+#: pages/Setup.svelte:16 tools/PairPhone.svelte:68
 #, fuzzy
 msgid "Done"
 msgstr "Terminé"
@@ -1779,11 +1814,6 @@ msgstr "L'heure là-bas : {time}"
 #, fuzzy
 msgid "Can't scan it? Type this key: {key}"
 msgstr "Impossible de scanner ? Saisissez cette clé : {key}"
-
-#: pages/Setup.svelte:380
-#, fuzzy
-msgid "Box's name"
-msgstr "Nom de la box"
 
 #: pages/Setup.svelte:381 pages/Setup.svelte:436
 #, fuzzy
@@ -2145,7 +2175,7 @@ msgstr "Se connecter"
 msgid "Turn it on"
 msgstr "Activer"
 
-#: pages/SignIn.svelte:42
+#: pages/SignIn.svelte:42 tools/ConnectServer.svelte:39
 #, fuzzy
 msgid "Continue"
 msgstr "Continuer"
@@ -2340,7 +2370,7 @@ msgstr "Correctifs de sécurité"
 msgid "Needed"
 msgstr "Nécessaire"
 
-#: pages/Widgets.svelte:22
+#: pages/Widgets.svelte:22 tools/Connect.svelte:115
 #, fuzzy
 msgid "On"
 msgstr "Activé"
@@ -2545,7 +2575,7 @@ msgstr "Activer"
 msgid "The keys below can sign in over SSH at home."
 msgstr "Les clés ci-dessous peuvent se connecter en SSH à la maison."
 
-#: tools/Access.svelte:68 tools/EditPerson.svelte:113 tools/EditPerson.svelte:113
+#: tools/Access.svelte:68 tools/Connect.svelte:121 tools/EditPerson.svelte:113 tools/EditPerson.svelte:113
 #, fuzzy
 msgid "Turn off"
 msgstr "Désactiver"
@@ -2585,7 +2615,7 @@ msgstr "Dernière utilisation : {date}"
 msgid "Not used yet"
 msgstr "Jamais utilisée"
 
-#: tools/Access.svelte:82 tools/AppsInstalled.svelte:84 tools/RemoveApp.svelte:17 tools/RemoveApp.svelte:26
+#: tools/Access.svelte:82 tools/AppsInstalled.svelte:84 tools/Connect.svelte:152 tools/Connect.svelte:152 tools/RemoveApp.svelte:17 tools/RemoveApp.svelte:26
 #, fuzzy
 msgid "Remove"
 msgstr "Supprimer"
@@ -3059,6 +3089,271 @@ msgstr "Parents ou tuteurs (un ou deux)"
 #, fuzzy
 msgid "Add an adult first."
 msgstr "Ajoutez d'abord un adulte."
+
+#: tools/Connect.svelte:71
+#, fuzzy
+msgid "Valid for {n} more days"
+msgstr "Valide encore {n} jours"
+
+#: tools/Connect.svelte:73
+#, fuzzy
+msgid "Not yet"
+msgstr "Pas encore"
+
+#: tools/Connect.svelte:74
+#, fuzzy
+msgid "Getting it…"
+msgstr "En cours…"
+
+#: tools/Connect.svelte:80
+#, fuzzy
+msgid "The box can't reach the ZOOMRIYA Connect server. It keeps trying."
+msgstr "Le boîtier ne joint pas le serveur ZOOMRIYA Connect. Il réessaie."
+
+#: tools/Connect.svelte:81
+#, fuzzy
+msgid "The box couldn't point its name at your home network yet. It keeps trying."
+msgstr "Le boîtier n’a pas encore pu diriger son nom vers votre réseau. Il réessaie."
+
+#: tools/Connect.svelte:82
+#, fuzzy
+msgid "The box couldn't get its certificate yet. It tries again in an hour."
+msgstr "Le boîtier n’a pas encore obtenu son certificat. Il réessaie dans une heure."
+
+#: tools/Connect.svelte:83
+#, fuzzy
+msgid "ZOOMRIYA Connect has a problem. Open Support Center if it stays."
+msgstr "ZOOMRIYA Connect a un problème. Ouvrez le Centre d’assistance s’il persiste."
+
+#: tools/Connect.svelte:88
+#, fuzzy
+msgid "Connected now"
+msgstr "Connecté"
+
+#: tools/Connect.svelte:89
+#, fuzzy
+msgid "Last connected {date}"
+msgstr "Dernière connexion le {date}"
+
+#: tools/Connect.svelte:89
+#, fuzzy
+msgid "Not connected yet"
+msgstr "Jamais connecté"
+
+#: tools/Connect.svelte:94
+#, fuzzy
+msgid "Direct"
+msgstr "Direct"
+
+#: tools/Connect.svelte:94
+#, fuzzy
+msgid "Through the relay"
+msgstr "Par le relais"
+
+#: tools/Connect.svelte:102
+#, fuzzy
+msgid "Use the ZOOMRIYA app on your phones from anywhere: on the bus, at work, on holiday. Nothing to set up on your router."
+msgstr "Utilisez l’app ZOOMRIYA partout : dans le bus, au travail, en vacances. Rien à régler sur votre box internet."
+
+#: tools/Connect.svelte:103 tools/Connect.svelte:106
+#, fuzzy
+msgid "Your box's name"
+msgstr "Le nom du boîtier"
+
+#: tools/Connect.svelte:103
+#, fuzzy
+msgid "Pick a name that doesn't say who you are: a street or a word, not your surname. Anyone can see box names."
+msgstr "Choisissez un nom qui ne dit pas qui vous êtes : une rue ou un mot, pas votre nom de famille. Les noms des boîtiers sont publics."
+
+#: tools/Connect.svelte:108
+#, fuzzy
+msgid "Use this name"
+msgstr "Utiliser ce nom"
+
+#: tools/Connect.svelte:116
+#, fuzzy
+msgid "Paired phones reach the box from anywhere."
+msgstr "Les téléphones associés joignent le boîtier de partout."
+
+#: tools/Connect.svelte:116
+#, fuzzy
+msgid "Paired phones reach the box at home only."
+msgstr "Les téléphones associés ne joignent le boîtier qu’à la maison."
+
+#: tools/Connect.svelte:121
+#, fuzzy
+msgid "Turn ZOOMRIYA Connect off?"
+msgstr "Désactiver ZOOMRIYA Connect ?"
+
+#: tools/Connect.svelte:121
+#, fuzzy
+msgid "Phones reach the box only at home until you turn it on again."
+msgstr "Les téléphones ne joindront le boîtier qu’à la maison jusqu’à la réactivation."
+
+#: tools/Connect.svelte:129
+#, fuzzy
+msgid "Relay"
+msgstr "Relais"
+
+#: tools/Connect.svelte:130
+#, fuzzy
+msgid "Off: phones away from home need IPv6 or a forwarded port."
+msgstr "Désactivé : hors de chez vous, les téléphones ont besoin d’IPv6 ou d’un port redirigé."
+
+#: tools/Connect.svelte:131
+#, fuzzy
+msgid "Connected. Phones go direct whenever they can."
+msgstr "Connecté. Les téléphones passent en direct dès qu’ils le peuvent."
+
+#: tools/Connect.svelte:132
+#, fuzzy
+msgid "The relay turned the box away. Open Support Center."
+msgstr "Le relais a refusé le boîtier. Ouvrez le Centre d’assistance."
+
+#: tools/Connect.svelte:133
+#, fuzzy
+msgid "Connecting…"
+msgstr "Connexion…"
+
+#: tools/Connect.svelte:134
+#, fuzzy
+msgid "Certificate"
+msgstr "Certificat"
+
+#: tools/Connect.svelte:136
+#, fuzzy
+msgid "The box can't get the time"
+msgstr "Le boîtier n’obtient pas l’heure"
+
+#: tools/Connect.svelte:137
+#, fuzzy
+msgid "Phones will stop working away from home in a few weeks. Check your internet connection."
+msgstr "Hors de chez vous, les téléphones cesseront de fonctionner dans quelques semaines. Vérifiez votre connexion internet."
+
+#: tools/Connect.svelte:145
+#, fuzzy
+msgid "Each one is paired at home, once. Removing one stops it at once, everywhere."
+msgstr "Chacun s’associe une fois, à la maison. En retirer un le coupe aussitôt, partout."
+
+#: tools/Connect.svelte:150
+#, fuzzy
+msgid "Remove {name}?"
+msgstr "Retirer {name} ?"
+
+#: tools/Connect.svelte:151
+#, fuzzy
+msgid "It can't reach the box any more, at home or away. Pair it again to bring it back."
+msgstr "Il ne pourra plus joindre le boîtier, ni à la maison ni ailleurs. Associez-le à nouveau pour le récupérer."
+
+#: tools/Connect.svelte:156
+#, fuzzy
+msgid "No phones yet"
+msgstr "Aucun téléphone"
+
+#: tools/Connect.svelte:156
+#, fuzzy
+msgid "Pair a phone to use the box away from home."
+msgstr "Associez un téléphone pour utiliser le boîtier hors de chez vous."
+
+#: tools/Connect.svelte:158
+#, fuzzy
+msgid "Shows a code to scan with the ZOOMRIYA app."
+msgstr "Affiche un code à scanner avec l’app ZOOMRIYA."
+
+#: tools/Connect.svelte:166
+#, fuzzy
+msgid "ZOOMRIYA's"
+msgstr "Celui de ZOOMRIYA"
+
+#: tools/Connect.svelte:166
+#, fuzzy
+msgid "Your own"
+msgstr "Le vôtre"
+
+#: tools/Connect.svelte:169
+#, fuzzy
+msgid "Use my own server"
+msgstr "Utiliser mon serveur"
+
+#: tools/Connect.svelte:171
+#, fuzzy
+msgid "Use ZOOMRIYA's"
+msgstr "Utiliser celui de ZOOMRIYA"
+
+#: tools/Connect.svelte:177
+#, fuzzy
+msgid "When phones can't reach the box directly, the relay passes their encrypted connection along. It never sees what's in it."
+msgstr "Quand les téléphones ne joignent pas le boîtier en direct, le relais transmet leur connexion chiffrée. Il n’en voit jamais le contenu."
+
+#: tools/Connect.svelte:182
+#, fuzzy
+msgid "Give up the box's name"
+msgstr "Abandonner le nom du boîtier"
+
+#: tools/Connect.svelte:182
+#, fuzzy
+msgid "Someone else can take it after 90 days. Phones pair again with a new name."
+msgstr "Quelqu’un d’autre pourra le prendre après 90 jours. Les téléphones s’associent à nouveau avec un nouveau nom."
+
+#: tools/Connect.svelte:184
+#, fuzzy
+msgid "Give up the box's name?"
+msgstr "Abandonner le nom du boîtier ?"
+
+#: tools/Connect.svelte:185
+#, fuzzy
+msgid "Phones stop reaching the box from away until you pick a new name and pair them again."
+msgstr "Hors de chez vous, les téléphones ne joindront plus le boîtier jusqu’à ce que vous choisissiez un nouveau nom et les associiez à nouveau."
+
+#: tools/Connect.svelte:186 tools/Connect.svelte:186
+#, fuzzy
+msgid "Give it up"
+msgstr "Abandonner"
+
+#: tools/ConnectServer.svelte:16
+#, fuzzy
+msgid "Use ZOOMRIYA's server again?"
+msgstr "Revenir au serveur de ZOOMRIYA ?"
+
+#: tools/ConnectServer.svelte:16
+#, fuzzy
+msgid "Use your own server?"
+msgstr "Utiliser votre serveur ?"
+
+#: tools/ConnectServer.svelte:17
+#, fuzzy
+msgid "The box gets a new name on that server, and every phone and laptop pairs again at home."
+msgstr "Le boîtier aura un nouveau nom sur ce serveur, et chaque téléphone et ordinateur s’associera à nouveau à la maison."
+
+#: tools/ConnectServer.svelte:18
+#, fuzzy
+msgid "Switch"
+msgstr "Changer"
+
+#: tools/ConnectServer.svelte:31
+#, fuzzy
+msgid "ZOOMRIYA's server"
+msgstr "Serveur de ZOOMRIYA"
+
+#: tools/ConnectServer.svelte:31
+#, fuzzy
+msgid "Your own server"
+msgstr "Votre serveur"
+
+#: tools/ConnectServer.svelte:33
+#, fuzzy
+msgid "Go back to ZOOMRIYA's server, relay and names."
+msgstr "Revenir au serveur, au relais et aux noms de ZOOMRIYA."
+
+#: tools/ConnectServer.svelte:35
+#, fuzzy
+msgid "Type your ZOOMRIYA Connect server's address. The box reads everything else from it."
+msgstr "Saisissez l’adresse de votre serveur ZOOMRIYA Connect. Le boîtier y lit tout le reste."
+
+#: tools/ConnectServer.svelte:37
+#, fuzzy
+msgid "Your server's address"
+msgstr "Adresse de votre serveur"
 
 #: tools/Contact.svelte:17
 #, fuzzy
@@ -3805,6 +4100,41 @@ msgstr "Enregistrer le mot de passe"
 msgid "See past notifications"
 msgstr "Voir les anciennes notifications"
 
+#: tools/PairPhone.svelte:67
+#, fuzzy
+msgid "{name} is paired. It can reach the box from anywhere now."
+msgstr "{name} est associé. Il peut joindre le boîtier de partout."
+
+#: tools/PairPhone.svelte:70
+#, fuzzy
+msgid "Open the ZOOMRIYA app on the phone, choose Pair with a box, and scan this code. The phone must be on your home network."
+msgstr "Ouvrez l’app ZOOMRIYA sur le téléphone, choisissez Associer un boîtier et scannez ce code. Le téléphone doit être sur votre réseau."
+
+#: tools/PairPhone.svelte:72
+#, fuzzy
+msgid "This code works once, for {n} more minutes."
+msgstr "Ce code fonctionne une fois, encore {n} minutes."
+
+#: tools/PairPhone.svelte:75
+#, fuzzy
+msgid "Pair each phone once, here at home. After that, the ZOOMRIYA app reaches the box from anywhere."
+msgstr "Associez chaque téléphone une fois, ici, à la maison. Ensuite, l’app ZOOMRIYA joint le boîtier de partout."
+
+#: tools/PairPhone.svelte:77 tools/PairPhone.svelte:77
+#, fuzzy
+msgid "Whose phone, like Anna's phone"
+msgstr "Le téléphone de qui, comme Téléphone d’Anna"
+
+#: tools/PairPhone.svelte:80
+#, fuzzy
+msgid "An admin's phone: it can move the box's name to a new box, or mark it stolen"
+msgstr "Téléphone d’un admin : il peut déplacer le nom vers un nouveau boîtier ou le déclarer volé"
+
+#: tools/PairPhone.svelte:83
+#, fuzzy
+msgid "Show the code"
+msgstr "Afficher le code"
+
 #: tools/PasteKey.svelte:20 tools/PasteKey.svelte:20
 #, fuzzy
 msgid "A name, like Anna's laptop"
@@ -4524,6 +4854,86 @@ msgstr "Synchronisée"
 #, fuzzy
 msgid "Not yet in sync"
 msgstr "Pas encore synchronisée"
+
+#: tools/connect.ts:43
+#, fuzzy
+msgid "ZOOMRIYA Connect isn't running on this box. Restart the box; if this stays, open Support Center."
+msgstr "ZOOMRIYA Connect ne tourne pas sur ce boîtier. Redémarrez-le ; si cela persiste, ouvrez le Centre d’assistance."
+
+#: tools/connect.ts:44
+#, fuzzy
+msgid "Pick a name of 3 to 32 letters or numbers."
+msgstr "Choisissez un nom de 3 à 32 lettres ou chiffres."
+
+#: tools/connect.ts:45
+#, fuzzy
+msgid "Use only small letters, numbers and hyphens, with a letter or number at each end."
+msgstr "Uniquement des minuscules, des chiffres et des tirets, avec une lettre ou un chiffre à chaque bout."
+
+#: tools/connect.ts:46
+#, fuzzy
+msgid "Names can't end in \"-share\". That ending is kept for share links."
+msgstr "Un nom ne peut pas finir par \"-share\" : c’est réservé aux liens de partage."
+
+#: tools/connect.ts:47
+#, fuzzy
+msgid "That name is kept for ZOOMRIYA. Pick another."
+msgstr "Ce nom est réservé à ZOOMRIYA. Choisissez-en un autre."
+
+#: tools/connect.ts:48
+#, fuzzy
+msgid "That name isn't allowed. Pick another."
+msgstr "Ce nom n’est pas autorisé. Choisissez-en un autre."
+
+#: tools/connect.ts:49
+#, fuzzy
+msgid "That name is taken. Pick another."
+msgstr "Ce nom est pris. Choisissez-en un autre."
+
+#: tools/connect.ts:50
+#, fuzzy
+msgid "This box already has a name. Give it up first to pick another."
+msgstr "Ce boîtier a déjà un nom. Abandonnez-le d’abord pour en choisir un autre."
+
+#: tools/connect.ts:51
+#, fuzzy
+msgid "Too many new boxes from your internet connection today. Try again tomorrow."
+msgstr "Trop de nouveaux boîtiers depuis votre connexion aujourd’hui. Réessayez demain."
+
+#: tools/connect.ts:52
+#, fuzzy
+msgid "This box's factory token isn't valid, or was already used. Contact ZOOMRIYA support."
+msgstr "Le jeton d’usine de ce boîtier n’est pas valide, ou a déjà servi. Contactez l’assistance ZOOMRIYA."
+
+#: tools/connect.ts:53
+#, fuzzy
+msgid "Your box needs an update to use ZOOMRIYA Connect. It updates by itself overnight."
+msgstr "Le boîtier doit se mettre à jour pour utiliser ZOOMRIYA Connect. Il le fait seul pendant la nuit."
+
+#: tools/connect.ts:54
+#, fuzzy
+msgid "The box can't reach the ZOOMRIYA Connect server. Check the internet connection, then try again."
+msgstr "Le boîtier ne joint pas le serveur ZOOMRIYA Connect. Vérifiez la connexion internet, puis réessayez."
+
+#: tools/connect.ts:55
+#, fuzzy
+msgid "Your box can't get the time from the internet yet. Check its internet connection, then try again."
+msgstr "Le boîtier n’obtient pas encore l’heure d’internet. Vérifiez sa connexion, puis réessayez."
+
+#: tools/connect.ts:56
+#, fuzzy
+msgid "Switch ZOOMRIYA Connect on before pairing a phone."
+msgstr "Activez ZOOMRIYA Connect avant d’associer un téléphone."
+
+#: tools/connect.ts:57
+#, fuzzy
+msgid "Type your server's address starting with https://"
+msgstr "Saisissez l’adresse de votre serveur, en commençant par https://"
+
+#: tools/connect.ts:58
+#, fuzzy
+msgid "That address doesn't answer like a ZOOMRIYA Connect server."
+msgstr "Cette adresse ne répond pas comme un serveur ZOOMRIYA Connect."
 
 #: tools/keys.ts:9
 #, fuzzy

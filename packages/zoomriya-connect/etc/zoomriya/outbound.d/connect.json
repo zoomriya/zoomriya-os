@@ -1,0 +1,11 @@
+{
+  "id": "connect",
+  "account": "zoomriya-connect",
+  "name": "ZOOMRIYA Connect",
+  "feature": "Using the box away from home with the ZOOMRIYA app",
+  "what": "The box's name and key, its addresses on the home network, and the encrypted connections with the family's paired phones and laptops. Never what's in them.",
+  "why": "Paired phones and laptops reach the box through ZOOMRIYA's relay, or directly. The box's certificate comes from Let's Encrypt.",
+  "when": "All the time, once an admin switches ZOOMRIYA Connect on.",
+  "hosts": ["connect.zoomriya.net", "relay1.zoomriya.net", "relay2.zoomriya.net", "acme-v02.api.letsencrypt.org", "The family's phones and laptops, wherever they are"],
+  "optional": true
+}

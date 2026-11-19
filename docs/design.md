@@ -926,7 +926,10 @@ VM test)
   apps are reached through ZOOMRIYA Connect's connectd on the box, never by
   an open port), 80 (sent on to HTTPS,
   [§8.1](#81-secure-connections-at-home)), and SSH on 22 while advanced
-  access is on ([§7.1](#71-advanced-access)); mDNS; and DHCP. The
+  access is on ([§7.1](#71-advanced-access)); mDNS; and DHCP. From every
+  address, UDP 443 for ZOOMRIYA Connect's connectd, which turns away every
+  device that isn't on the box's own list (checked: only connectd listens
+  there, and only once an admin switches ZOOMRIYA Connect on). The
   first setup is on the box's own screen and listens on no port. Box Desktop
   takes TCP 7443 from the home network ([Box Desktop §8](box-desktop.md#8-security)). connectd's short-block set (ZOOMRIYA
   Connect) lives in the same table. Checked: the rules, and that nothing else
@@ -1006,11 +1009,14 @@ the box has its name, before the gateway) and every five minutes
   before it runs out. Group `zoomriya-tls` may read `certs/`; the gateway
   joins it, and restarts when a bundle in it changes (the apps'
   `zoomriya-gateway-certificate.path`).
-- **The real certificate**, later: ZOOMRIYA Connect's connectd requests and
-  renews the certificate for `<name>.zoomriya.app` and writes it to
-  `certs/connect.pem`, written beside `certs/` first and moved in whole, as the
-  agent does. The gateway loads every bundle in `certs/` and picks one
-  by the name asked for, so both work side by side.
+- **The real certificate:** ZOOMRIYA Connect's connectd requests and renews
+  the certificate for `<name>.zoomriya.app` and leaves it in its own folder
+  (`/data/zoomriya-connect/certificate/connect.pem`); connectd can't write in
+  `certs/`. Each run, the agent checks it (it reads, holds its own key, hasn't
+  run out, names no address and not the box's `.local` name) and puts it in
+  `certs/connect.pem`, written beside `certs/` first and moved in whole. When
+  connectd has none, the served one goes too. The gateway loads every bundle
+  in `certs/` and picks one by the name asked for, so both work side by side.
 - **Watched, and reported.** Every bundle in `certs/` is checked each time: a
   certificate with less than 14 days left is a warning, one that ran out or is
   broken (no certificate, or not its key) is an error, and so is the box's own

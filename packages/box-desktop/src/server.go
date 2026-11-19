@@ -145,6 +145,10 @@ func (s *Server) Handler(l Listener) http.Handler {
 	// weather kept for the widget (towns.go).
 	open("GET /api/places/towns", s.townsIn)
 	signed("GET /api/weather", s.weather)
+	// ZOOMRIYA Connect's tool: on to connectd (connect.go).
+	signed("GET /api/connect/{path...}", s.connect)
+	signed("POST /api/connect/{path...}", s.connect)
+	signed("DELETE /api/connect/{path...}", s.connect)
 	signed("GET /api/info", s.info)
 	signed("GET /api/sound", s.soundGet)
 	signed("POST /api/sound", s.soundPost)

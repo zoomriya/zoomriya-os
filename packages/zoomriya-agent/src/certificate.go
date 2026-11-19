@@ -50,6 +50,12 @@ const (
 	tlsCerts  = tlsDir + "/certs"
 	tlsOwn    = tlsCerts + "/box.pem"
 	tlsGroup  = "zoomriya-tls"
+	// Where ZOOMRIYA Connect's connectd leaves the certificate it gets for
+	// <name>.zoomriya.app. connectd can't write in certs/: the agent checks
+	// the bundle and puts it there, so connectd could never replace the
+	// box's own certificate.
+	connectOut    = "data/zoomriya-connect/certificate/connect.pem"
+	connectServed = tlsCerts + "/connect.pem"
 	// Where the gateway serves the authority for a device to trust.
 	trustPath   = "/zoomriya-box.crt"
 	tlsState    = "var/lib/zoomriya-agent/certificate.json"
@@ -94,6 +100,9 @@ func certificateJob() int {
 func (a *Agent) certificate(n Notifier) error {
 	var problems []tlsProblem
 	if p := a.ownCertificate(); p != nil {
+		problems = append(problems, *p)
+	}
+	if p := a.importConnect(); p != nil {
 		problems = append(problems, *p)
 	}
 	problems = append(problems, a.watchCertificates()...)
@@ -320,6 +329,57 @@ func (a *Agent) makeOwn(ca *x509.Certificate, caKey *ecdsa.PrivateKey, name stri
 		return err
 	}
 	return writeShared(a.path(tlsOwn), bundle.Bytes(), gid)
+}
+
+// importConnect puts connectd's certificate where the gateway and Box
+// Desktop serve it, after checking it: it reads, holds its own key, hasn't
+// run out, and names neither the box's .local name nor an address. When
+// connectd has none (no name, or the name given up), the served one goes too.
+func (a *Agent) importConnect() *tlsProblem {
+	data, err := os.ReadFile(a.path(connectOut))
+	if errors.Is(err, os.ErrNotExist) {
+		if err := os.Remove(a.path(connectServed)); err != nil && !errors.Is(err, os.ErrNotExist) {
+			return &tlsProblem{"warning", fmt.Sprintf("The box couldn't take away ZOOMRIYA Connect's old certificate (%v).", err)}
+		}
+		return nil
+	}
+	refuse := func(why string) *tlsProblem {
+		return &tlsProblem{"warning", fmt.Sprintf("ZOOMRIYA Connect's new certificate can't be used (%s). The box keeps the one it has.", why)}
+	}
+	if err != nil {
+		return refuse(err.Error())
+	}
+	if served, err := os.ReadFile(a.path(connectServed)); err == nil && bytes.Equal(served, data) {
+		return nil
+	}
+	cert, err := firstCertificate(data)
+	switch {
+	case err != nil:
+		return refuse(err.Error())
+	case !hasKey(data, cert):
+		return refuse("its key is missing or doesn't match")
+	case !cert.NotAfter.After(a.Now()):
+		return refuse("it has run out")
+	case len(cert.IPAddresses) > 0:
+		return refuse("it names an address")
+	}
+	own := a.boxAddress()
+	for _, name := range cert.DNSNames {
+		if strings.EqualFold(name, own) || strings.HasSuffix(strings.ToLower(name), ".local") {
+			return refuse("it names the box's own home name")
+		}
+	}
+	gid, err := a.tlsGID()
+	if err != nil {
+		return refuse(err.Error())
+	}
+	if err := a.tlsFolders(gid); err != nil {
+		return refuse(err.Error())
+	}
+	if err := writeShared(a.path(connectServed), data, gid); err != nil {
+		return refuse(err.Error())
+	}
+	return nil
 }
 
 // tlsFolders: the folder only root and zoomriya-tls may enter.

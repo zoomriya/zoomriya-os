@@ -37,7 +37,7 @@ export function sections(kind: string, withSound: boolean): [string, string][] {
 	switch (kind) {
 		case 'control':
 			return [
-				['network', N_('Network')], ['display', N_('Display')], ['appearance', N_('Appearance')],
+				['network', N_('Network')], ['connect', N_('ZOOMRIYA Connect')], ['display', N_('Display')], ['appearance', N_('Appearance')],
 				...(withSound ? [['sound', N_('Sound')] as [string, string]] : []),
 				['keyboard', N_('Keyboard & Mouse')], ['language', N_('Language & Region')],
 				['time', N_('Date and time')], ['people', N_('People')], ['notifications', N_('Notifications')],
@@ -65,7 +65,7 @@ export function sections(kind: string, withSound: boolean): [string, string][] {
 /** Each tool's sections' badges in its sidebar, by section id. */
 export const SECTION_ICONS: Record<string, Record<string, string>> = {
 	control: {
-		network: 'ethernet', display: 'monitor', appearance: 'palette', sound: 'speaker', keyboard: 'keyboard',
+		network: 'ethernet', connect: 'connect', display: 'monitor', appearance: 'palette', sound: 'speaker', keyboard: 'keyboard',
 		language: 'globe', time: 'clock', people: 'user', notifications: 'bell', security: 'shield',
 		access: 'terminal', restarts: 'power', restore: 'restore-point', about: 'info'
 	},

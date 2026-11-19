@@ -8,6 +8,7 @@ import Appearance from './Appearance.svelte';
 import AppsInstalled from './AppsInstalled.svelte';
 import AppsUsb from './AppsUsb.svelte';
 import Backups from './Backups.svelte';
+import Connect from './Connect.svelte';
 import ByApp from './ByApp.svelte';
 import Contact from './Contact.svelte';
 import Diagnostics from './Diagnostics.svelte';
@@ -40,7 +41,7 @@ function log(kind: string): Section {
 }
 
 export const SECTIONS: Record<string, Section> = {
-	'control network': Network, 'control display': Display, 'control appearance': Appearance, 'control sound': Sound,
+	'control network': Network, 'control connect': Connect, 'control display': Display, 'control appearance': Appearance, 'control sound': Sound,
 	'control keyboard': Keyboard, 'control language': Language, 'control time': Time, 'control people': People,
 	'control notifications': Notifications, 'control security': Security, 'control access': Access,
 	'control restarts': Restarts, 'control restore': Restore, 'control about': About,

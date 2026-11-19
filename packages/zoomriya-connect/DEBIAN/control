@@ -1,0 +1,13 @@
+Package: zoomriya-connect
+Version: 13.0.0
+Architecture: amd64
+Maintainer: ZOOMRIYA <os@zoomriya.com>
+Depends: systemd
+Section: admin
+Priority: optional
+Description: ZOOMRIYA Connect on the box: reaching it from away from home
+ zoomriya-connectd is the box's side of ZOOMRIYA Connect: it gives the box
+ its name (<name>.zoomriya.app) and certificate, keeps the list of paired
+ phones and laptops, hands out their passes, and lets in nobody else, on
+ every path. It stays idle until an admin switches ZOOMRIYA Connect on in Box
+ Desktop; the box needs it for nothing else.

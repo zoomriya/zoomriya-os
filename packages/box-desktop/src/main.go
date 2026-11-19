@@ -52,6 +52,8 @@ type Config struct {
 	// ModelAPI: the box's model service (zoomriya-model). Both on loopback.
 	MyiraApp string
 	ModelAPI string
+	// Connect: ZOOMRIYA Connect's connectd, its API socket (connect.go).
+	Connect string
 }
 
 func env(name, fallback string) string {
@@ -78,6 +80,7 @@ func configFromEnv() Config {
 		StateDir:   env("STATE_DIRECTORY", "/var/lib/box-desktop"),
 		MyiraApp:   env("BOX_DESKTOP_MYIRA_APP", "http://127.0.0.1:8300/myira/api/v1"),
 		ModelAPI:   env("BOX_DESKTOP_MODEL_API", "http://127.0.0.1:8070/myira/api/v1"),
+		Connect:    env("BOX_DESKTOP_CONNECT", "/run/zoomriya-connect/api.sock"),
 	}
 }
 

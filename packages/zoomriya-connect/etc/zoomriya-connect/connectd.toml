@@ -1,0 +1,26 @@
+# ZOOMRIYA Connect on the box (zoomriya-connectd). Box Desktop changes the
+# server, the name and the switches; they're kept in /data/zoomriya-connect.
+
+data_dir = "/data/zoomriya-connect"
+# The agent checks the certificate here and serves it from
+# /etc/zoomriya/tls/certs/connect.pem, beside the box's own.
+certs_dir = "/data/zoomriya-connect/certificate"
+server = "https://connect.zoomriya.net"
+port = 443
+api_socket = "/run/zoomriya-connect/api.sock"
+factory_token_file = "/etc/zoomriya/factory-token"
+
+# Paired devices reach the apps' gateway (with their device's label, on a
+# socket only connectd can use, never TCP 443) and Box Desktop.
+[[targets]]
+name = "gateway"
+unix = "/run/zoomriya/gateway-link.sock"
+proxy_protocol = true
+
+[[targets]]
+name = "box-desktop"
+tcp = "127.0.0.1:7443"
+
+[[certificate_authorities]]
+name = "Let's Encrypt"
+directory = "https://acme-v02.api.letsencrypt.org/directory"

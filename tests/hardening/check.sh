@@ -26,6 +26,11 @@ open_443="$(nft list chain inet zoomriya input 2>/dev/null | grep 'tcp dport 443
 nft list chain inet zoomriya input 2>/dev/null | grep -q 'saddr .* tcp dport 443 accept' && [ "$open_443" = 0 ] \
     && pass "the apps are reachable from the home network only" \
     || fail "the apps are reachable from the home network only" "443 open to any address"
+# ZOOMRIYA Connect: UDP 443 is open to every address, for connectd only; it
+# turns away every device that isn't on the box's own list.
+nft list chain inet zoomriya input 2>/dev/null | grep -q 'udp dport 443 accept' \
+    && pass "ZOOMRIYA Connect's UDP 443 is open" || fail "ZOOMRIYA Connect's UDP 443 is open" "no rule"
+check "only connectd listens on UDP 443" "" "$(ss -Hlunp 'sport = :443' | grep -v '"zoomriya-connec' | awk '{print $5}' | tr '\n' ' ')"
 # Outbound connections are logged, by account, for Control Panel (design §8)
 nft list chain inet zoomriya output 2>/dev/null | grep -q 'log prefix "zoomriya-out: " flags skuid' \
     && pass "outbound connections logged" || fail "outbound connections logged" "no log rule"
