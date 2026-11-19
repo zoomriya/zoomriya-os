@@ -5,7 +5,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: de\n"
 
-#: Installer.svelte:13 Installer.svelte:167
+#: Installer.svelte:13 Installer.svelte:166
 #, fuzzy
 msgid "Language"
 msgstr "Sprache"
@@ -15,7 +15,7 @@ msgstr "Sprache"
 msgid "Welcome"
 msgstr "Willkommen"
 
-#: Installer.svelte:13 Installer.svelte:201 Installer.svelte:223
+#: Installer.svelte:13 Installer.svelte:200 Installer.svelte:222
 #, fuzzy
 msgid "Drive"
 msgstr "Laufwerk"
@@ -35,262 +35,262 @@ msgstr "Installation"
 msgid "Done"
 msgstr "Fertig"
 
-#: Installer.svelte:20
+#: Installer.svelte:19
 #, fuzzy
 msgid "Your files stay at home"
 msgstr "Ihre Dateien bleiben zu Hause"
 
-#: Installer.svelte:20
+#: Installer.svelte:19
 #, fuzzy
 msgid "Everything stays on the box, at home, not in someone else's cloud."
 msgstr "Alles bleibt auf der Box, zu Hause, nicht in der Cloud eines anderen."
 
-#: Installer.svelte:21
+#: Installer.svelte:20
 #, fuzzy
 msgid "Security fixes install by themselves"
 msgstr "Sicherheitsupdates kommen von selbst"
 
-#: Installer.svelte:21
+#: Installer.svelte:20
 #, fuzzy
 msgid "OS security updates install automatically."
 msgstr "OS-Sicherheitsupdates werden automatisch installiert."
 
-#: Installer.svelte:22
+#: Installer.svelte:21
 #, fuzzy
 msgid "Restore points"
 msgstr "Wiederherstellungspunkte"
 
-#: Installer.svelte:22
+#: Installer.svelte:21
 #, fuzzy
 msgid "A restore point before every update. One click in Box Desktop goes back; your files stay."
 msgstr "Ein Wiederherstellungspunkt vor jedem Update. Ein Klick in Box Desktop geht zurück; Ihre Dateien bleiben."
 
-#: Installer.svelte:23
+#: Installer.svelte:22
 #, fuzzy
 msgid "A kernel that won't start falls back"
 msgstr "Startet ein Kernel nicht, geht es zurück"
 
-#: Installer.svelte:23
+#: Installer.svelte:22
 #, fuzzy
 msgid "If a new kernel won't start, the box falls back to the previous one."
 msgstr "Startet ein neuer Kernel nicht, nimmt die Box den vorherigen."
 
-#: Installer.svelte:24
+#: Installer.svelte:23
 #, fuzzy
 msgid "One account: ZOOMRIYA ID"
 msgstr "Ein Konto: ZOOMRIYA ID"
 
-#: Installer.svelte:24
+#: Installer.svelte:23
 #, fuzzy
 msgid "One sign-in for the box and every ZOOMRIYA app."
 msgstr "Eine Anmeldung für die Box und jede ZOOMRIYA-App."
 
-#: Installer.svelte:25
+#: Installer.svelte:24
 #, fuzzy
 msgid "Closed unless you open it"
 msgstr "Zu, bis Sie öffnen"
 
-#: Installer.svelte:25
+#: Installer.svelte:24
 #, fuzzy
 msgid "A firewall blocks anything uninvited; remote access stays off until an admin enables it."
 msgstr "Eine Firewall blockt alles Ungebetene; Fernzugriff bleibt aus, bis ein Admin ihn einschaltet."
 
-#: Installer.svelte:65
+#: Installer.svelte:64
 #, fuzzy
 msgid "Something went wrong."
 msgstr "Etwas ist schiefgelaufen."
 
-#: Installer.svelte:130
+#: Installer.svelte:129
 #, fuzzy
 msgid "Erase and install"
 msgstr "Löschen und installieren"
 
-#: Installer.svelte:130
+#: Installer.svelte:129
 #, fuzzy
 msgid "Try again"
 msgstr "Erneut versuchen"
 
-#: Installer.svelte:130
+#: Installer.svelte:129
 #, fuzzy
 msgid "Restart now"
 msgstr "Neu starten"
 
-#: Installer.svelte:130
+#: Installer.svelte:129
 #, fuzzy
 msgid "Next"
 msgstr "Weiter"
 
-#: Installer.svelte:153
+#: Installer.svelte:152
 #, fuzzy
 msgid "OS Installer"
 msgstr "OS-Installer"
 
-#: Installer.svelte:165
+#: Installer.svelte:164
 #, fuzzy
 msgid "Choose your language"
 msgstr "Sprache wählen"
 
-#: Installer.svelte:166
+#: Installer.svelte:165
 #, fuzzy
 msgid "For the installer. The box's language is chosen at first setup."
 msgstr "Für den Installer. Die Sprache der Box wird bei der Ersteinrichtung gewählt."
 
-#: Installer.svelte:184
+#: Installer.svelte:183
 #, fuzzy
 msgid "Install ZOOMRIYA OS"
 msgstr "ZOOMRIYA OS installieren"
 
-#: Installer.svelte:185
+#: Installer.svelte:184
 #, fuzzy
 msgid "Turns this computer into a ZOOMRIYA Box in about five minutes. The drive you choose next is erased."
 msgstr "Macht diesen Computer in etwa fünf Minuten zur ZOOMRIYA Box. Das als Nächstes gewählte Laufwerk wird gelöscht."
 
-#: Installer.svelte:190
+#: Installer.svelte:189
 #, fuzzy
 msgid "Checking the internet…"
 msgstr "Internet wird geprüft…"
 
-#: Installer.svelte:191
+#: Installer.svelte:190
 #, fuzzy
 msgid "Internet: connected"
 msgstr "Internet: verbunden"
 
-#: Installer.svelte:192
+#: Installer.svelte:191
 #, fuzzy
 msgid "No internet. Installing anyway; updates arrive once the box is online. Plug in a network cable to connect."
 msgstr "Kein Internet. Die Installation läuft trotzdem; Updates kommen, sobald die Box online ist. Zum Verbinden ein Netzwerkkabel anschließen."
 
-#: Installer.svelte:196
+#: Installer.svelte:195
 #, fuzzy
 msgid "Where should ZOOMRIYA OS go?"
 msgstr "Wohin soll ZOOMRIYA OS?"
 
-#: Installer.svelte:198
+#: Installer.svelte:197
 #, fuzzy
 msgid "Look again"
 msgstr "Aktualisieren"
 
-#: Installer.svelte:200
+#: Installer.svelte:199
 #, fuzzy
 msgid "The chosen drive is erased; others aren't touched. Plugged one in? Press Look again."
 msgstr "Das gewählte Laufwerk wird gelöscht; andere bleiben unberührt. Gerade eins angeschlossen? Klicken Sie auf Aktualisieren."
 
-#: Installer.svelte:216
+#: Installer.svelte:215
 #, fuzzy
 msgid "Now"
 msgstr "Jetzt"
 
-#: Installer.svelte:217
+#: Installer.svelte:216
 #, fuzzy
 msgid "After installing"
 msgstr "Nach der Installation"
 
-#: Installer.svelte:220
+#: Installer.svelte:219
 #, fuzzy
 msgid "Ready to install"
 msgstr "Bereit zur Installation"
 
-#: Installer.svelte:221
+#: Installer.svelte:220
 #, fuzzy
 msgid "Check the drive. Nothing has changed yet."
 msgstr "Prüfen Sie das Laufwerk. Noch wurde nichts geändert."
 
-#: Installer.svelte:224
+#: Installer.svelte:223
 #, fuzzy
 msgid "Size"
 msgstr "Größe"
 
-#: Installer.svelte:225
+#: Installer.svelte:224
 #, fuzzy
 msgid "Erased"
 msgstr "Gelöscht"
 
-#: Installer.svelte:225
+#: Installer.svelte:224
 #, fuzzy
 msgid "Nothing: the drive is empty"
 msgstr "Nichts: Das Laufwerk ist leer"
 
-#: Installer.svelte:226
+#: Installer.svelte:225
 #, fuzzy
 msgid "Installed"
 msgstr "Installiert"
 
-#: Installer.svelte:228
+#: Installer.svelte:227
 #, fuzzy
 msgid "The drive after installing"
 msgstr "Das Laufwerk nach der Installation"
 
-#: Installer.svelte:232
+#: Installer.svelte:231
 #, fuzzy
 msgid "Erase everything on {drive} ({size})"
 msgstr "Alles auf {drive} löschen ({size})"
 
-#: Installer.svelte:235
+#: Installer.svelte:234
 #, fuzzy
 msgid "Installing ZOOMRIYA OS"
 msgstr "ZOOMRIYA OS wird installiert"
 
-#: Installer.svelte:247
+#: Installer.svelte:246
 #, fuzzy
 msgid "Keep the computer on and the USB stick in until done."
 msgstr "Computer an und USB-Stick eingesteckt lassen, bis es fertig ist."
 
-#: Installer.svelte:255
+#: Installer.svelte:254
 #, fuzzy
 msgid "The install didn't finish"
 msgstr "Die Installation wurde nicht abgeschlossen"
 
-#: Installer.svelte:255
+#: Installer.svelte:254
 #, fuzzy
 msgid "ZOOMRIYA OS is installed"
 msgstr "ZOOMRIYA OS ist installiert"
 
-#: Installer.svelte:256
+#: Installer.svelte:255
 #, fuzzy
 msgid "The drive may not start now; installing again fixes it."
 msgstr "Das Laufwerk startet jetzt eventuell nicht; eine neue Installation behebt das."
 
-#: Installer.svelte:256
+#: Installer.svelte:255
 #, fuzzy
 msgid "Your ZOOMRIYA Box is ready for its first start."
 msgstr "Ihre ZOOMRIYA Box ist bereit für den ersten Start."
 
-#: Installer.svelte:258
+#: Installer.svelte:257
 #, fuzzy
 msgid "Check the drive's connection, or try another drive."
 msgstr "Prüfen Sie den Anschluss des Laufwerks oder nehmen Sie ein anderes."
 
-#: Installer.svelte:258
+#: Installer.svelte:257
 #, fuzzy
 msgid "Press Try again."
 msgstr "Klicken Sie auf Erneut versuchen."
 
-#: Installer.svelte:259
+#: Installer.svelte:258
 #, fuzzy
 msgid "If it fails again, support notes are in {file}."
 msgstr "Schlägt es wieder fehl, liegen Notizen für den Support in {file}."
 
-#: Installer.svelte:260
+#: Installer.svelte:259
 #, fuzzy
 msgid "Take out the USB stick."
 msgstr "Ziehen Sie den USB-Stick ab."
 
-#: Installer.svelte:260
+#: Installer.svelte:259
 #, fuzzy
 msgid "Press Restart now to set it up, or Power off to leave it for its owner."
 msgstr "Klicken Sie auf Neu starten zum Einrichten, oder auf Ausschalten, um es dem Besitzer zu überlassen."
 
-#: Installer.svelte:261
+#: Installer.svelte:260
 #, fuzzy
 msgid "On its next start, the box opens its first setup on this screen."
 msgstr "Beim nächsten Start öffnet die Box ihre Ersteinrichtung auf diesem Bildschirm."
 
-#: Installer.svelte:271
+#: Installer.svelte:270
 #, fuzzy
 msgid "Back"
 msgstr "Zurück"
 
-#: Installer.svelte:273
+#: Installer.svelte:272
 #, fuzzy
 msgid "Power off"
 msgstr "Ausschalten"

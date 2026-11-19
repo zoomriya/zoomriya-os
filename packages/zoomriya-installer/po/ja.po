@@ -5,7 +5,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: ja\n"
 
-#: Installer.svelte:13 Installer.svelte:167
+#: Installer.svelte:13 Installer.svelte:166
 #, fuzzy
 msgid "Language"
 msgstr "言語"
@@ -15,7 +15,7 @@ msgstr "言語"
 msgid "Welcome"
 msgstr "ようこそ"
 
-#: Installer.svelte:13 Installer.svelte:201 Installer.svelte:223
+#: Installer.svelte:13 Installer.svelte:200 Installer.svelte:222
 #, fuzzy
 msgid "Drive"
 msgstr "ドライブ"
@@ -35,262 +35,262 @@ msgstr "インストール"
 msgid "Done"
 msgstr "完了"
 
-#: Installer.svelte:20
+#: Installer.svelte:19
 #, fuzzy
 msgid "Your files stay at home"
 msgstr "ファイルは家に"
 
-#: Installer.svelte:20
+#: Installer.svelte:19
 #, fuzzy
 msgid "Everything stays on the box, at home, not in someone else's cloud."
 msgstr "すべてはボックスの中、家の中にあり、他人のクラウドにはありません。"
 
-#: Installer.svelte:21
+#: Installer.svelte:20
 #, fuzzy
 msgid "Security fixes install by themselves"
 msgstr "セキュリティ修正は自動でインストール"
 
-#: Installer.svelte:21
+#: Installer.svelte:20
 #, fuzzy
 msgid "OS security updates install automatically."
 msgstr "OS のセキュリティアップデートは自動でインストールされます。"
 
-#: Installer.svelte:22
+#: Installer.svelte:21
 #, fuzzy
 msgid "Restore points"
 msgstr "復元ポイント"
 
-#: Installer.svelte:22
+#: Installer.svelte:21
 #, fuzzy
 msgid "A restore point before every update. One click in Box Desktop goes back; your files stay."
 msgstr "アップデートのたびに復元ポイントを作成。Box Desktop でワンクリックで戻せ、ファイルは残ります。"
 
-#: Installer.svelte:23
+#: Installer.svelte:22
 #, fuzzy
 msgid "A kernel that won't start falls back"
 msgstr "起動しないカーネルは元に戻る"
 
-#: Installer.svelte:23
+#: Installer.svelte:22
 #, fuzzy
 msgid "If a new kernel won't start, the box falls back to the previous one."
 msgstr "新しいカーネルが起動しない場合、ボックスは前のカーネルに戻ります。"
 
-#: Installer.svelte:24
+#: Installer.svelte:23
 #, fuzzy
 msgid "One account: ZOOMRIYA ID"
 msgstr "アカウントはひとつ: ZOOMRIYA ID"
 
-#: Installer.svelte:24
+#: Installer.svelte:23
 #, fuzzy
 msgid "One sign-in for the box and every ZOOMRIYA app."
 msgstr "ボックスとすべての ZOOMRIYA アプリに 1 つのサインインで。"
 
-#: Installer.svelte:25
+#: Installer.svelte:24
 #, fuzzy
 msgid "Closed unless you open it"
 msgstr "開けるまで閉じたまま"
 
-#: Installer.svelte:25
+#: Installer.svelte:24
 #, fuzzy
 msgid "A firewall blocks anything uninvited; remote access stays off until an admin enables it."
 msgstr "招かれないものはファイアウォールが遮断。リモートアクセスは管理者が有効にするまでオフです。"
 
-#: Installer.svelte:65
+#: Installer.svelte:64
 #, fuzzy
 msgid "Something went wrong."
 msgstr "問題が発生しました。"
 
-#: Installer.svelte:130
+#: Installer.svelte:129
 #, fuzzy
 msgid "Erase and install"
 msgstr "消去してインストール"
 
-#: Installer.svelte:130
+#: Installer.svelte:129
 #, fuzzy
 msgid "Try again"
 msgstr "再試行"
 
-#: Installer.svelte:130
+#: Installer.svelte:129
 #, fuzzy
 msgid "Restart now"
 msgstr "再起動"
 
-#: Installer.svelte:130
+#: Installer.svelte:129
 #, fuzzy
 msgid "Next"
 msgstr "次へ"
 
-#: Installer.svelte:153
+#: Installer.svelte:152
 #, fuzzy
 msgid "OS Installer"
 msgstr "OS インストーラー"
 
-#: Installer.svelte:165
+#: Installer.svelte:164
 #, fuzzy
 msgid "Choose your language"
 msgstr "言語を選択"
 
-#: Installer.svelte:166
+#: Installer.svelte:165
 #, fuzzy
 msgid "For the installer. The box's language is chosen at first setup."
 msgstr "インストーラー用です。ボックスの言語は初回設定で選びます。"
 
-#: Installer.svelte:184
+#: Installer.svelte:183
 #, fuzzy
 msgid "Install ZOOMRIYA OS"
 msgstr "ZOOMRIYA OS をインストール"
 
-#: Installer.svelte:185
+#: Installer.svelte:184
 #, fuzzy
 msgid "Turns this computer into a ZOOMRIYA Box in about five minutes. The drive you choose next is erased."
 msgstr "約 5 分でこのコンピューターを ZOOMRIYA Box にします。次に選ぶドライブは消去されます。"
 
-#: Installer.svelte:190
+#: Installer.svelte:189
 #, fuzzy
 msgid "Checking the internet…"
 msgstr "インターネットを確認中…"
 
-#: Installer.svelte:191
+#: Installer.svelte:190
 #, fuzzy
 msgid "Internet: connected"
 msgstr "インターネット: 接続済み"
 
-#: Installer.svelte:192
+#: Installer.svelte:191
 #, fuzzy
 msgid "No internet. Installing anyway; updates arrive once the box is online. Plug in a network cable to connect."
 msgstr "インターネットに接続されていません。このままインストールします。アップデートはボックスがオンラインになると届きます。接続するにはネットワークケーブルを挿してください。"
 
-#: Installer.svelte:196
+#: Installer.svelte:195
 #, fuzzy
 msgid "Where should ZOOMRIYA OS go?"
 msgstr "ZOOMRIYA OS をどこにインストールしますか?"
 
-#: Installer.svelte:198
+#: Installer.svelte:197
 #, fuzzy
 msgid "Look again"
 msgstr "再検索"
 
-#: Installer.svelte:200
+#: Installer.svelte:199
 #, fuzzy
 msgid "The chosen drive is erased; others aren't touched. Plugged one in? Press Look again."
 msgstr "選んだドライブは消去され、他のドライブには触れません。接続したばかりなら「再検索」を押してください。"
 
-#: Installer.svelte:216
+#: Installer.svelte:215
 #, fuzzy
 msgid "Now"
 msgstr "現在"
 
-#: Installer.svelte:217
+#: Installer.svelte:216
 #, fuzzy
 msgid "After installing"
 msgstr "インストール後"
 
-#: Installer.svelte:220
+#: Installer.svelte:219
 #, fuzzy
 msgid "Ready to install"
 msgstr "インストールの準備完了"
 
-#: Installer.svelte:221
+#: Installer.svelte:220
 #, fuzzy
 msgid "Check the drive. Nothing has changed yet."
 msgstr "ドライブを確認してください。まだ何も変更されていません。"
 
-#: Installer.svelte:224
+#: Installer.svelte:223
 #, fuzzy
 msgid "Size"
 msgstr "サイズ"
 
-#: Installer.svelte:225
+#: Installer.svelte:224
 #, fuzzy
 msgid "Erased"
 msgstr "消去"
 
-#: Installer.svelte:225
+#: Installer.svelte:224
 #, fuzzy
 msgid "Nothing: the drive is empty"
 msgstr "なし: ドライブは空です"
 
-#: Installer.svelte:226
+#: Installer.svelte:225
 #, fuzzy
 msgid "Installed"
 msgstr "インストール"
 
-#: Installer.svelte:228
+#: Installer.svelte:227
 #, fuzzy
 msgid "The drive after installing"
 msgstr "インストール後のドライブ"
 
-#: Installer.svelte:232
+#: Installer.svelte:231
 #, fuzzy
 msgid "Erase everything on {drive} ({size})"
 msgstr "{drive} のすべてを消去 ({size})"
 
-#: Installer.svelte:235
+#: Installer.svelte:234
 #, fuzzy
 msgid "Installing ZOOMRIYA OS"
 msgstr "ZOOMRIYA OS をインストール中"
 
-#: Installer.svelte:247
+#: Installer.svelte:246
 #, fuzzy
 msgid "Keep the computer on and the USB stick in until done."
 msgstr "完了するまで、電源を入れたまま USB メモリを挿しておいてください。"
 
-#: Installer.svelte:255
+#: Installer.svelte:254
 #, fuzzy
 msgid "The install didn't finish"
 msgstr "インストールが完了しませんでした"
 
-#: Installer.svelte:255
+#: Installer.svelte:254
 #, fuzzy
 msgid "ZOOMRIYA OS is installed"
 msgstr "ZOOMRIYA OS をインストールしました"
 
-#: Installer.svelte:256
+#: Installer.svelte:255
 #, fuzzy
 msgid "The drive may not start now; installing again fixes it."
 msgstr "このままではドライブが起動しない可能性があります。再インストールで直ります。"
 
-#: Installer.svelte:256
+#: Installer.svelte:255
 #, fuzzy
 msgid "Your ZOOMRIYA Box is ready for its first start."
 msgstr "ZOOMRIYA Box の初回起動の準備ができました。"
 
-#: Installer.svelte:258
+#: Installer.svelte:257
 #, fuzzy
 msgid "Check the drive's connection, or try another drive."
 msgstr "ドライブの接続を確認するか、別のドライブを試してください。"
 
-#: Installer.svelte:258
+#: Installer.svelte:257
 #, fuzzy
 msgid "Press Try again."
 msgstr "「再試行」を押してください。"
 
-#: Installer.svelte:259
+#: Installer.svelte:258
 #, fuzzy
 msgid "If it fails again, support notes are in {file}."
 msgstr "再び失敗した場合、サポート用の記録は {file} にあります。"
 
-#: Installer.svelte:260
+#: Installer.svelte:259
 #, fuzzy
 msgid "Take out the USB stick."
 msgstr "USB メモリを取り外してください。"
 
-#: Installer.svelte:260
+#: Installer.svelte:259
 #, fuzzy
 msgid "Press Restart now to set it up, or Power off to leave it for its owner."
 msgstr "設定するには「再起動」、持ち主に任せるには「電源を切る」を押してください。"
 
-#: Installer.svelte:261
+#: Installer.svelte:260
 #, fuzzy
 msgid "On its next start, the box opens its first setup on this screen."
 msgstr "次回の起動時、ボックスはこの画面で初回設定を開きます。"
 
-#: Installer.svelte:271
+#: Installer.svelte:270
 #, fuzzy
 msgid "Back"
 msgstr "戻る"
 
-#: Installer.svelte:273
+#: Installer.svelte:272
 #, fuzzy
 msgid "Power off"
 msgstr "電源を切る"
