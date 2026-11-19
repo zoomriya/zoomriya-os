@@ -4,7 +4,7 @@
 	// Everything goes through box-desktopd to connectd (connect.go).
 	import { onDestroy } from 'svelte';
 	import { desk } from '../lib/desk.svelte';
-	import { day } from '../lib/format';
+	import { day, size } from '../lib/format';
 	import { _, fill } from '../lib/i18n.svelte';
 	import Group from '../components/Group.svelte';
 	import Row from '../components/Row.svelte';
@@ -21,6 +21,8 @@
 	let list = $state<Device[]>([]);
 	let problem = $state('');
 	let name = $state('');
+	let username = $state('');
+	let accountPassword = $state('');
 	let busy = $state(false);
 
 	async function load(): Promise<void> {
@@ -75,7 +77,7 @@
 	);
 	/** The problems connectd names, in Box Desktop's words. */
 	const problems = $derived(
-		Object.keys(st?.problems ?? {}).map((kind) => {
+		Object.keys(st?.problems ?? {}).filter((kind) => kind !== 'account').map((kind) => {
 			switch (kind) {
 				case 'server': return _("The box can't reach the ZOOMRIYA Connect server. It keeps trying.");
 				case 'home': return _("The box couldn't point its name at your home network yet. It keeps trying.");
@@ -84,6 +86,14 @@
 			}
 		})
 	);
+	/** This month's relay use: "1.2 GB used this month.", or "of 20.0 GB" with an allowance. */
+	const relayUse = $derived.by(() => {
+		const u = st?.relay_use;
+		if (!u) return '';
+		return u.allowance > 0
+			? fill(_('{used} of {allowance} used this month.'), { used: size(u.used), allowance: size(u.allowance) })
+			: fill(_('{used} used this month.'), { used: size(u.used) });
+	});
 	function seen(d: Device): string {
 		if (d.connected) return _('Connected now');
 		return d.last_seen ? fill(_('Last connected {date}'), { date: day(iso(d.last_seen), true) }) : _('Not connected yet');
@@ -99,16 +109,30 @@
 	{#if st}
 		{#if !st.name}
 			<Group title={_('ZOOMRIYA Connect')} icon="connect"
-				lead={_('Use the ZOOMRIYA app on your phones from anywhere: on the bus, at work, on holiday. Nothing to set up on your router.')}>
-				<Row icon="globe" title={_("Your box's name")} sub={_("Pick a name that doesn't say who you are: a street or a word, not your surname. Anyone can see box names.")}>
-					{#snippet below()}
-						<form class="name" onsubmit={(e) => { e.preventDefault(); void run(() => setup(name.trim().toLowerCase())); }}>
-							<input type="text" bind:value={name} placeholder="maplehouse" aria-label={_("Your box's name")} spellcheck="false" autocomplete="off" />
-							{#if suffix}<span class="row-sub">{suffix}</span>{/if}
-							<button class="primary" type="submit" disabled={busy || name.trim().length < 3}>{_('Use this name')}</button>
-						</form>
-					{/snippet}
-				</Row>
+				lead={_('Use the ZOOMRIYA app on your phones from anywhere: on the bus, at work, on holiday. Nothing to set up on your router.')}
+				note={st.our_server
+					? _('ZOOMRIYA Connect needs an account from ZOOMRIYA. Without one, everything on the box still works at home.')
+					: _('ZOOMRIYA Connect needs an account from whoever runs your server. Without one, everything on the box still works at home.')}>
+				<form class="setup" onsubmit={(e) => { e.preventDefault(); void run(() => setup(name.trim().toLowerCase(), username.trim(), accountPassword)).then(() => { accountPassword = ''; }); }}>
+					<Row icon="user" title={_('Your ZOOMRIYA Connect account')} sub={_('The username and password you were given. The box never keeps the password.')}>
+						{#snippet below()}
+							<div class="fields">
+								<input type="text" bind:value={username} placeholder={_('Username')} aria-label={_('Username')} spellcheck="false" autocomplete="off" />
+								<input type="password" bind:value={accountPassword} placeholder={_('Password')} aria-label={_('Password')} autocomplete="off" />
+							</div>
+						{/snippet}
+					</Row>
+					<Row icon="globe" title={_("Your box's name")} sub={_("Pick a name that doesn't say who you are: a street or a word, not your surname. Anyone can see box names.")}>
+						{#snippet below()}
+							<div class="name">
+								<input type="text" bind:value={name} placeholder="maplehouse" aria-label={_("Your box's name")} spellcheck="false" autocomplete="off" />
+								{#if suffix}<span class="row-sub">{suffix}</span>{/if}
+								<button class="primary" type="submit"
+									disabled={busy || name.trim().length < 3 || username.trim().length < 3 || !accountPassword}>{_('Use this name')}</button>
+							</div>
+						{/snippet}
+					</Row>
+				</form>
 			</Group>
 		{:else}
 			<Group title={_('ZOOMRIYA Connect')} icon="connect" attention={!st.on || problems.length > 0}>
@@ -125,12 +149,37 @@
 				<Row icon="globe" title={_("Box's name")}>
 					{#snippet ends()}<span class="row-value selectable">{st?.fqdn}</span>{/snippet}
 				</Row>
+				{#if st.problems?.account && st.account}
+					<Row icon="user" role="warn" title={_('Account')} sub={st.problems.account}>
+						{#snippet ends()}<span class="row-value selectable">{st?.account}</span>{/snippet}
+					</Row>
+				{:else if st.problems?.account}
+					<Row icon="user" role="warn" title={_('Your ZOOMRIYA Connect account')} sub={st.problems.account}>
+						{#snippet below()}
+							<form class="fields" onsubmit={(e) => { e.preventDefault(); void run(() => setup(st?.name ?? '', username.trim(), accountPassword)).then(() => { accountPassword = ''; }); }}>
+								<input type="text" bind:value={username} placeholder={_('Username')} aria-label={_('Username')} spellcheck="false" autocomplete="off" />
+								<input type="password" bind:value={accountPassword} placeholder={_('Password')} aria-label={_('Password')} autocomplete="off" />
+								<button class="primary" type="submit" disabled={busy || username.trim().length < 3 || !accountPassword}>{_('Link')}</button>
+							</form>
+						{/snippet}
+					</Row>
+				{:else if st.account}
+					<Row icon="user" title={_('Account')}
+						sub={st.account_page ? fill(_('Change its password at {address}'), { address: st.account_page.replace('https://', '') }) : ''}>
+						{#snippet ends()}<span class="row-value selectable">{st?.account}</span>{/snippet}
+					</Row>
+				{/if}
 				{#if st.on}
-					<Row icon="router" title={_('Relay')}
+					<Row icon="router" title={_('Relay')} role={!st.relay_off && st.relay_use?.slowed ? 'warn' : undefined}
 						sub={st.relay_off ? _('Off: phones away from home need IPv6 or a forwarded port.')
-							: st.relay_connected ? _('Connected. Phones go direct whenever they can.')
-							: st.relay_refused ? _('The relay turned the box away. Open Support Center.')
-							: _('Connecting…')} />
+							: [
+								st.relay_connected ? _('Connected. Phones go direct whenever they can.')
+									: st.relay_refused && st.problems?.account ? _('Not connected until the account works again.')
+									: st.relay_refused ? _('The relay turned the box away. Open Support Center.')
+									: _('Connecting…'),
+								relayUse,
+								st.relay_use?.slowed ? _('Past the monthly allowance: slower through the relay until the month ends. Direct connections stay full speed.') : ''
+							].filter(Boolean).join(' ')} />
 					<Row icon="lock" title={_('Certificate')} sub={certificate} />
 					{#if !st.clock_synced}
 						<Row icon="clock" role="warn" title={_("The box can't get the time")}
@@ -193,6 +242,7 @@
 </div>
 
 <style>
-	.name { display: flex; gap: 8px; align-items: center; width: 100%; margin-top: 8px; }
-	.name input { flex: 1; min-width: 0; }
+	.name, .fields { display: flex; gap: 8px; align-items: center; width: 100%; margin-top: 8px; }
+	.name input, .fields input { flex: 1; min-width: 0; }
+	.setup { display: contents; }
 </style>

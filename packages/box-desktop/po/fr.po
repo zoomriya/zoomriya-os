@@ -35,7 +35,7 @@ msgstr "Fermer"
 msgid "Always on"
 msgstr "Toujours actif"
 
-#: components/Switch.svelte:8 tools/Access.svelte:73 tools/Connect.svelte:115 tools/People.svelte:31
+#: components/Switch.svelte:8 tools/Access.svelte:73 tools/Connect.svelte:139 tools/People.svelte:31
 #, fuzzy
 msgid "Off"
 msgstr "Désactivé"
@@ -150,7 +150,7 @@ msgstr "La box ne répond pas. Réessayez dans un instant."
 msgid "The box gave an answer the setup can't read."
 msgstr "La box a renvoyé une réponse illisible."
 
-#: lib/api.ts:67 lib/api.ts:75 tools/connect.ts:59
+#: lib/api.ts:67 lib/api.ts:75 tools/connect.ts:70
 #, fuzzy
 msgid "The box couldn't do that."
 msgstr "La box n'a pas pu le faire."
@@ -225,7 +225,7 @@ msgstr "Centre d'assistance"
 msgid "Network"
 msgstr "Réseau"
 
-#: lib/desk.svelte.ts:40 tools/Connect.svelte:101 tools/Connect.svelte:114 tools/Connect.svelte:118
+#: lib/desk.svelte.ts:40 tools/Connect.svelte:111 tools/Connect.svelte:138 tools/Connect.svelte:142
 #, fuzzy
 msgid "ZOOMRIYA Connect"
 msgstr "ZOOMRIYA Connect"
@@ -705,27 +705,27 @@ msgstr "Attribution de l'adresse IP"
 msgid "Wi-Fi (Wireless Network)"
 msgstr "Wi-Fi (réseau sans fil)"
 
-#: lib/words.ts:197 pages/Setup.svelte:380 tools/Connect.svelte:125
+#: lib/words.ts:197 pages/Setup.svelte:380 tools/Connect.svelte:149
 #, fuzzy
 msgid "Box's name"
 msgstr "Nom de la box"
 
-#: lib/words.ts:198 tools/Connect.svelte:158 tools/Connect.svelte:159 tools/PairPhone.svelte:65
+#: lib/words.ts:198 tools/Connect.svelte:207 tools/Connect.svelte:208 tools/PairPhone.svelte:65
 #, fuzzy
 msgid "Pair a phone"
 msgstr "Associer un téléphone"
 
-#: lib/words.ts:199 tools/Connect.svelte:144
+#: lib/words.ts:199 tools/Connect.svelte:193
 #, fuzzy
 msgid "Paired phones and laptops"
 msgstr "Téléphones et ordinateurs associés"
 
-#: lib/words.ts:200 tools/Connect.svelte:176 tools/Connect.svelte:179
+#: lib/words.ts:200 tools/Connect.svelte:225 tools/Connect.svelte:228
 #, fuzzy
 msgid "Use the relay"
 msgstr "Utiliser le relais"
 
-#: lib/words.ts:201 tools/Connect.svelte:165
+#: lib/words.ts:201 tools/Connect.svelte:214
 #, fuzzy
 msgid "Server"
 msgstr "Serveur"
@@ -1385,12 +1385,12 @@ msgstr "Mauvais essai"
 msgid "Second step"
 msgstr "Deuxième étape"
 
-#: lib/words.ts:342 pages/Lock.svelte:43 pages/SignIn.svelte:188 tools/AddPerson.svelte:71 tools/EditPerson.svelte:85 tools/NewPassword.svelte:45
+#: lib/words.ts:342 pages/Lock.svelte:43 pages/SignIn.svelte:188 tools/AddPerson.svelte:71 tools/Connect.svelte:121 tools/Connect.svelte:121 tools/Connect.svelte:161 tools/Connect.svelte:161 tools/EditPerson.svelte:85 tools/NewPassword.svelte:45
 #, fuzzy
 msgid "Password"
 msgstr "Mot de passe"
 
-#: lib/words.ts:343 tools/EditPerson.svelte:109 tools/EditPerson.svelte:117
+#: lib/words.ts:343 tools/Connect.svelte:153 tools/Connect.svelte:167 tools/EditPerson.svelte:109 tools/EditPerson.svelte:117
 #, fuzzy
 msgid "Account"
 msgstr "Compte"
@@ -1740,7 +1740,7 @@ msgstr "Ville"
 msgid "Time zone"
 msgstr "Fuseau horaire"
 
-#: pages/Setup.svelte:16 pages/Setup.svelte:379 tools/Connect.svelte:147 tools/EditPerson.svelte:90 tools/EditPerson.svelte:98 tools/People.svelte:28
+#: pages/Setup.svelte:16 pages/Setup.svelte:379 tools/Connect.svelte:196 tools/EditPerson.svelte:90 tools/EditPerson.svelte:98 tools/People.svelte:28
 #, fuzzy
 msgid "Admin"
 msgstr "Admin"
@@ -2040,7 +2040,7 @@ msgstr "L'administrateur de la box"
 msgid "Your ZOOMRIYA ID signs in to the box and every ZOOMRIYA app. There's no other way in, so keep the password safe."
 msgstr "Votre ZOOMRIYA ID vous connecte à la box et à chaque app ZOOMRIYA. Il n'y a pas d'autre accès : gardez le mot de passe en lieu sûr."
 
-#: pages/Setup.svelte:503 pages/SignIn.svelte:186 pages/SignIn.svelte:186
+#: pages/Setup.svelte:503 pages/SignIn.svelte:186 pages/SignIn.svelte:186 tools/Connect.svelte:120 tools/Connect.svelte:120 tools/Connect.svelte:160 tools/Connect.svelte:160
 #, fuzzy
 msgid "Username"
 msgstr "Nom d'utilisateur"
@@ -2370,7 +2370,7 @@ msgstr "Correctifs de sécurité"
 msgid "Needed"
 msgstr "Nécessaire"
 
-#: pages/Widgets.svelte:22 tools/Connect.svelte:115
+#: pages/Widgets.svelte:22 tools/Connect.svelte:139
 #, fuzzy
 msgid "On"
 msgstr "Activé"
@@ -2575,7 +2575,7 @@ msgstr "Activer"
 msgid "The keys below can sign in over SSH at home."
 msgstr "Les clés ci-dessous peuvent se connecter en SSH à la maison."
 
-#: tools/Access.svelte:68 tools/Connect.svelte:121 tools/EditPerson.svelte:113 tools/EditPerson.svelte:113
+#: tools/Access.svelte:68 tools/Connect.svelte:145 tools/EditPerson.svelte:113 tools/EditPerson.svelte:113
 #, fuzzy
 msgid "Turn off"
 msgstr "Désactiver"
@@ -2615,7 +2615,7 @@ msgstr "Dernière utilisation : {date}"
 msgid "Not used yet"
 msgstr "Jamais utilisée"
 
-#: tools/Access.svelte:82 tools/AppsInstalled.svelte:84 tools/Connect.svelte:152 tools/Connect.svelte:152 tools/RemoveApp.svelte:17 tools/RemoveApp.svelte:26
+#: tools/Access.svelte:82 tools/AppsInstalled.svelte:84 tools/Connect.svelte:201 tools/Connect.svelte:201 tools/RemoveApp.svelte:17 tools/RemoveApp.svelte:26
 #, fuzzy
 msgid "Remove"
 msgstr "Supprimer"
@@ -3090,222 +3090,272 @@ msgstr "Parents ou tuteurs (un ou deux)"
 msgid "Add an adult first."
 msgstr "Ajoutez d'abord un adulte."
 
-#: tools/Connect.svelte:71
+#: tools/Connect.svelte:73
 #, fuzzy
 msgid "Valid for {n} more days"
 msgstr "Valide encore {n} jours"
 
-#: tools/Connect.svelte:73
+#: tools/Connect.svelte:75
 #, fuzzy
 msgid "Not yet"
 msgstr "Pas encore"
 
-#: tools/Connect.svelte:74
+#: tools/Connect.svelte:76
 #, fuzzy
 msgid "Getting it…"
 msgstr "En cours…"
 
-#: tools/Connect.svelte:80
+#: tools/Connect.svelte:82
 #, fuzzy
 msgid "The box can't reach the ZOOMRIYA Connect server. It keeps trying."
 msgstr "Le boîtier ne joint pas le serveur ZOOMRIYA Connect. Il réessaie."
 
-#: tools/Connect.svelte:81
+#: tools/Connect.svelte:83
 #, fuzzy
 msgid "The box couldn't point its name at your home network yet. It keeps trying."
 msgstr "Le boîtier n’a pas encore pu diriger son nom vers votre réseau. Il réessaie."
 
-#: tools/Connect.svelte:82
+#: tools/Connect.svelte:84
 #, fuzzy
 msgid "The box couldn't get its certificate yet. It tries again in an hour."
 msgstr "Le boîtier n’a pas encore obtenu son certificat. Il réessaie dans une heure."
 
-#: tools/Connect.svelte:83
+#: tools/Connect.svelte:85
 #, fuzzy
 msgid "ZOOMRIYA Connect has a problem. Open Support Center if it stays."
 msgstr "ZOOMRIYA Connect a un problème. Ouvrez le Centre d’assistance s’il persiste."
 
-#: tools/Connect.svelte:88
+#: tools/Connect.svelte:94
+#, fuzzy
+msgid "{used} of {allowance} used this month."
+msgstr "{used} utilisés sur {allowance} ce mois-ci."
+
+#: tools/Connect.svelte:95
+#, fuzzy
+msgid "{used} used this month."
+msgstr "{used} utilisés ce mois-ci."
+
+#: tools/Connect.svelte:98
 #, fuzzy
 msgid "Connected now"
 msgstr "Connecté"
 
-#: tools/Connect.svelte:89
+#: tools/Connect.svelte:99
 #, fuzzy
 msgid "Last connected {date}"
 msgstr "Dernière connexion le {date}"
 
-#: tools/Connect.svelte:89
+#: tools/Connect.svelte:99
 #, fuzzy
 msgid "Not connected yet"
 msgstr "Jamais connecté"
 
-#: tools/Connect.svelte:94
+#: tools/Connect.svelte:104
 #, fuzzy
 msgid "Direct"
 msgstr "Direct"
 
-#: tools/Connect.svelte:94
+#: tools/Connect.svelte:104
 #, fuzzy
 msgid "Through the relay"
 msgstr "Par le relais"
 
-#: tools/Connect.svelte:102
+#: tools/Connect.svelte:112
 #, fuzzy
 msgid "Use the ZOOMRIYA app on your phones from anywhere: on the bus, at work, on holiday. Nothing to set up on your router."
 msgstr "Utilisez l’app ZOOMRIYA partout : dans le bus, au travail, en vacances. Rien à régler sur votre box internet."
 
-#: tools/Connect.svelte:103 tools/Connect.svelte:106
+#: tools/Connect.svelte:114
+#, fuzzy
+msgid "ZOOMRIYA Connect needs an account from ZOOMRIYA. Without one, everything on the box still works at home."
+msgstr "ZOOMRIYA Connect demande un compte fourni par ZOOMRIYA. Sans compte, tout le boîtier fonctionne quand même à la maison."
+
+#: tools/Connect.svelte:115
+#, fuzzy
+msgid "ZOOMRIYA Connect needs an account from whoever runs your server. Without one, everything on the box still works at home."
+msgstr "ZOOMRIYA Connect demande un compte fourni par la personne qui gère votre serveur. Sans compte, tout le boîtier fonctionne quand même à la maison."
+
+#: tools/Connect.svelte:117 tools/Connect.svelte:157
+#, fuzzy
+msgid "Your ZOOMRIYA Connect account"
+msgstr "Votre compte ZOOMRIYA Connect"
+
+#: tools/Connect.svelte:117
+#, fuzzy
+msgid "The username and password you were given. The box never keeps the password."
+msgstr "L’identifiant et le mot de passe qu’on vous a donnés. Le boîtier ne garde jamais le mot de passe."
+
+#: tools/Connect.svelte:125 tools/Connect.svelte:128
 #, fuzzy
 msgid "Your box's name"
 msgstr "Le nom du boîtier"
 
-#: tools/Connect.svelte:103
+#: tools/Connect.svelte:125
 #, fuzzy
 msgid "Pick a name that doesn't say who you are: a street or a word, not your surname. Anyone can see box names."
 msgstr "Choisissez un nom qui ne dit pas qui vous êtes : une rue ou un mot, pas votre nom de famille. Les noms des boîtiers sont publics."
 
-#: tools/Connect.svelte:108
+#: tools/Connect.svelte:131
 #, fuzzy
 msgid "Use this name"
 msgstr "Utiliser ce nom"
 
-#: tools/Connect.svelte:116
+#: tools/Connect.svelte:140
 #, fuzzy
 msgid "Paired phones reach the box from anywhere."
 msgstr "Les téléphones associés joignent le boîtier de partout."
 
-#: tools/Connect.svelte:116
+#: tools/Connect.svelte:140
 #, fuzzy
 msgid "Paired phones reach the box at home only."
 msgstr "Les téléphones associés ne joignent le boîtier qu’à la maison."
 
-#: tools/Connect.svelte:121
+#: tools/Connect.svelte:145
 #, fuzzy
 msgid "Turn ZOOMRIYA Connect off?"
 msgstr "Désactiver ZOOMRIYA Connect ?"
 
-#: tools/Connect.svelte:121
+#: tools/Connect.svelte:145
 #, fuzzy
 msgid "Phones reach the box only at home until you turn it on again."
 msgstr "Les téléphones ne joindront le boîtier qu’à la maison jusqu’à la réactivation."
 
-#: tools/Connect.svelte:129
+#: tools/Connect.svelte:162
+#, fuzzy
+msgid "Link"
+msgstr "Relier"
+
+#: tools/Connect.svelte:168
+#, fuzzy
+msgid "Change its password at {address}"
+msgstr "Changez son mot de passe sur {address}"
+
+#: tools/Connect.svelte:173
 #, fuzzy
 msgid "Relay"
 msgstr "Relais"
 
-#: tools/Connect.svelte:130
+#: tools/Connect.svelte:174
 #, fuzzy
 msgid "Off: phones away from home need IPv6 or a forwarded port."
 msgstr "Désactivé : hors de chez vous, les téléphones ont besoin d’IPv6 ou d’un port redirigé."
 
-#: tools/Connect.svelte:131
+#: tools/Connect.svelte:176
 #, fuzzy
 msgid "Connected. Phones go direct whenever they can."
 msgstr "Connecté. Les téléphones passent en direct dès qu’ils le peuvent."
 
-#: tools/Connect.svelte:132
+#: tools/Connect.svelte:177
+#, fuzzy
+msgid "Not connected until the account works again."
+msgstr "Pas connecté tant que le compte ne fonctionne pas."
+
+#: tools/Connect.svelte:178
 #, fuzzy
 msgid "The relay turned the box away. Open Support Center."
 msgstr "Le relais a refusé le boîtier. Ouvrez le Centre d’assistance."
 
-#: tools/Connect.svelte:133
+#: tools/Connect.svelte:179
 #, fuzzy
 msgid "Connecting…"
 msgstr "Connexion…"
 
-#: tools/Connect.svelte:134
+#: tools/Connect.svelte:181
+#, fuzzy
+msgid "Past the monthly allowance: slower through the relay until the month ends. Direct connections stay full speed."
+msgstr "Forfait du mois dépassé : plus lent par le relais jusqu’à la fin du mois. Les connexions directes restent à pleine vitesse."
+
+#: tools/Connect.svelte:183
 #, fuzzy
 msgid "Certificate"
 msgstr "Certificat"
 
-#: tools/Connect.svelte:136
+#: tools/Connect.svelte:185
 #, fuzzy
 msgid "The box can't get the time"
 msgstr "Le boîtier n’obtient pas l’heure"
 
-#: tools/Connect.svelte:137
+#: tools/Connect.svelte:186
 #, fuzzy
 msgid "Phones will stop working away from home in a few weeks. Check your internet connection."
 msgstr "Hors de chez vous, les téléphones cesseront de fonctionner dans quelques semaines. Vérifiez votre connexion internet."
 
-#: tools/Connect.svelte:145
+#: tools/Connect.svelte:194
 #, fuzzy
 msgid "Each one is paired at home, once. Removing one stops it at once, everywhere."
 msgstr "Chacun s’associe une fois, à la maison. En retirer un le coupe aussitôt, partout."
 
-#: tools/Connect.svelte:150
+#: tools/Connect.svelte:199
 #, fuzzy
 msgid "Remove {name}?"
 msgstr "Retirer {name} ?"
 
-#: tools/Connect.svelte:151
+#: tools/Connect.svelte:200
 #, fuzzy
 msgid "It can't reach the box any more, at home or away. Pair it again to bring it back."
 msgstr "Il ne pourra plus joindre le boîtier, ni à la maison ni ailleurs. Associez-le à nouveau pour le récupérer."
 
-#: tools/Connect.svelte:156
+#: tools/Connect.svelte:205
 #, fuzzy
 msgid "No phones yet"
 msgstr "Aucun téléphone"
 
-#: tools/Connect.svelte:156
+#: tools/Connect.svelte:205
 #, fuzzy
 msgid "Pair a phone to use the box away from home."
 msgstr "Associez un téléphone pour utiliser le boîtier hors de chez vous."
 
-#: tools/Connect.svelte:158
+#: tools/Connect.svelte:207
 #, fuzzy
 msgid "Shows a code to scan with the ZOOMRIYA app."
 msgstr "Affiche un code à scanner avec l’app ZOOMRIYA."
 
-#: tools/Connect.svelte:166
+#: tools/Connect.svelte:215
 #, fuzzy
 msgid "ZOOMRIYA's"
 msgstr "Celui de ZOOMRIYA"
 
-#: tools/Connect.svelte:166
+#: tools/Connect.svelte:215
 #, fuzzy
 msgid "Your own"
 msgstr "Le vôtre"
 
-#: tools/Connect.svelte:169
+#: tools/Connect.svelte:218
 #, fuzzy
 msgid "Use my own server"
 msgstr "Utiliser mon serveur"
 
-#: tools/Connect.svelte:171
+#: tools/Connect.svelte:220
 #, fuzzy
 msgid "Use ZOOMRIYA's"
 msgstr "Utiliser celui de ZOOMRIYA"
 
-#: tools/Connect.svelte:177
+#: tools/Connect.svelte:226
 #, fuzzy
 msgid "When phones can't reach the box directly, the relay passes their encrypted connection along. It never sees what's in it."
 msgstr "Quand les téléphones ne joignent pas le boîtier en direct, le relais transmet leur connexion chiffrée. Il n’en voit jamais le contenu."
 
-#: tools/Connect.svelte:182
+#: tools/Connect.svelte:231
 #, fuzzy
 msgid "Give up the box's name"
 msgstr "Abandonner le nom du boîtier"
 
-#: tools/Connect.svelte:182
+#: tools/Connect.svelte:231
 #, fuzzy
 msgid "Someone else can take it after 90 days. Phones pair again with a new name."
 msgstr "Quelqu’un d’autre pourra le prendre après 90 jours. Les téléphones s’associent à nouveau avec un nouveau nom."
 
-#: tools/Connect.svelte:184
+#: tools/Connect.svelte:233
 #, fuzzy
 msgid "Give up the box's name?"
 msgstr "Abandonner le nom du boîtier ?"
 
-#: tools/Connect.svelte:185
+#: tools/Connect.svelte:234
 #, fuzzy
 msgid "Phones stop reaching the box from away until you pick a new name and pair them again."
 msgstr "Hors de chez vous, les téléphones ne joindront plus le boîtier jusqu’à ce que vous choisissiez un nouveau nom et les associiez à nouveau."
 
-#: tools/Connect.svelte:186 tools/Connect.svelte:186
+#: tools/Connect.svelte:235 tools/Connect.svelte:235
 #, fuzzy
 msgid "Give it up"
 msgstr "Abandonner"
@@ -4855,82 +4905,107 @@ msgstr "Synchronisée"
 msgid "Not yet in sync"
 msgstr "Pas encore synchronisée"
 
-#: tools/connect.ts:43
+#: tools/connect.ts:49
 #, fuzzy
 msgid "ZOOMRIYA Connect isn't running on this box. Restart the box; if this stays, open Support Center."
 msgstr "ZOOMRIYA Connect ne tourne pas sur ce boîtier. Redémarrez-le ; si cela persiste, ouvrez le Centre d’assistance."
 
-#: tools/connect.ts:44
+#: tools/connect.ts:50
 #, fuzzy
 msgid "Pick a name of 3 to 32 letters or numbers."
 msgstr "Choisissez un nom de 3 à 32 lettres ou chiffres."
 
-#: tools/connect.ts:45
+#: tools/connect.ts:51
 #, fuzzy
 msgid "Use only small letters, numbers and hyphens, with a letter or number at each end."
 msgstr "Uniquement des minuscules, des chiffres et des tirets, avec une lettre ou un chiffre à chaque bout."
 
-#: tools/connect.ts:46
+#: tools/connect.ts:52
 #, fuzzy
 msgid "Names can't end in \"-share\". That ending is kept for share links."
 msgstr "Un nom ne peut pas finir par \"-share\" : c’est réservé aux liens de partage."
 
-#: tools/connect.ts:47
+#: tools/connect.ts:53
 #, fuzzy
 msgid "That name is kept for ZOOMRIYA. Pick another."
 msgstr "Ce nom est réservé à ZOOMRIYA. Choisissez-en un autre."
 
-#: tools/connect.ts:48
+#: tools/connect.ts:54
 #, fuzzy
 msgid "That name isn't allowed. Pick another."
 msgstr "Ce nom n’est pas autorisé. Choisissez-en un autre."
 
-#: tools/connect.ts:49
+#: tools/connect.ts:55
 #, fuzzy
 msgid "That name is taken. Pick another."
 msgstr "Ce nom est pris. Choisissez-en un autre."
 
-#: tools/connect.ts:50
+#: tools/connect.ts:56
 #, fuzzy
 msgid "This box already has a name. Give it up first to pick another."
 msgstr "Ce boîtier a déjà un nom. Abandonnez-le d’abord pour en choisir un autre."
 
-#: tools/connect.ts:51
+#: tools/connect.ts:57
 #, fuzzy
 msgid "Too many new boxes from your internet connection today. Try again tomorrow."
 msgstr "Trop de nouveaux boîtiers depuis votre connexion aujourd’hui. Réessayez demain."
 
-#: tools/connect.ts:52
+#: tools/connect.ts:58
 #, fuzzy
 msgid "This box's factory token isn't valid, or was already used. Contact ZOOMRIYA support."
 msgstr "Le jeton d’usine de ce boîtier n’est pas valide, ou a déjà servi. Contactez l’assistance ZOOMRIYA."
 
-#: tools/connect.ts:53
+#: tools/connect.ts:59
+#, fuzzy
+msgid "Type the ZOOMRIYA Connect username and password you were given."
+msgstr "Saisissez l’identifiant et le mot de passe ZOOMRIYA Connect qu’on vous a donnés."
+
+#: tools/connect.ts:60
+#, fuzzy
+msgid "That username or password isn't right."
+msgstr "Cet identifiant ou ce mot de passe n’est pas bon."
+
+#: tools/connect.ts:61
+#, fuzzy
+msgid "Too many wrong passwords. Try again in 15 minutes."
+msgstr "Trop de mots de passe erronés. Réessayez dans 15 minutes."
+
+#: tools/connect.ts:62
+#, fuzzy
+msgid "This ZOOMRIYA Connect account is blocked. Ask whoever gave you the account."
+msgstr "Ce compte ZOOMRIYA Connect est bloqué. Adressez-vous à qui vous l’a fourni."
+
+#: tools/connect.ts:63
+#, fuzzy
+msgid "This account already has all the boxes it can. Ask whoever gave you the account for room for another."
+msgstr "Ce compte a déjà tous les boîtiers qu’il peut avoir. Demandez de la place pour un autre à qui vous l’a fourni."
+
+#: tools/connect.ts:64
 #, fuzzy
 msgid "Your box needs an update to use ZOOMRIYA Connect. It updates by itself overnight."
 msgstr "Le boîtier doit se mettre à jour pour utiliser ZOOMRIYA Connect. Il le fait seul pendant la nuit."
 
-#: tools/connect.ts:54
+#: tools/connect.ts:65
 #, fuzzy
 msgid "The box can't reach the ZOOMRIYA Connect server. Check the internet connection, then try again."
 msgstr "Le boîtier ne joint pas le serveur ZOOMRIYA Connect. Vérifiez la connexion internet, puis réessayez."
 
-#: tools/connect.ts:55
+#: tools/connect.ts:66
 #, fuzzy
 msgid "Your box can't get the time from the internet yet. Check its internet connection, then try again."
 msgstr "Le boîtier n’obtient pas encore l’heure d’internet. Vérifiez sa connexion, puis réessayez."
 
-#: tools/connect.ts:56
+#: tools/connect.ts:67
 #, fuzzy
 msgid "Switch ZOOMRIYA Connect on before pairing a phone."
 msgstr "Activez ZOOMRIYA Connect avant d’associer un téléphone."
 
-#: tools/connect.ts:57
+#: tools/connect.ts:68
 #, fuzzy
 msgid "Type your server's address starting with https://"
 msgstr "Saisissez l’adresse de votre serveur, en commençant par https://"
 
-#: tools/connect.ts:58
+#: tools/connect.ts:69
 #, fuzzy
 msgid "That address doesn't answer like a ZOOMRIYA Connect server."
 msgstr "Cette adresse ne répond pas comme un serveur ZOOMRIYA Connect."

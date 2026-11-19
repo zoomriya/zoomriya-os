@@ -58,7 +58,7 @@ services.
 | Hardening is our own list in `zoomriya-base`, checked in CI, with every difference from common advice written down ([§8](#8-hardening)) | Decided |
 | Support by how the OS was got: a ZOOMRIYA Box has full support, and its hardware 1 year; the official image on one's own PC, support on tested hardware and best effort elsewhere; self-built or changed, community only ([§7.3](#73-who-gets-what)) | Decided |
 | `apt.zoomriya.com` serves every box, not locked; forks run their own ([§7.3](#73-who-gets-what)) | Decided |
-| ZOOMRIYA Connect serves boxes registered to a ZOOMRIYA account; forks run their own Connect ([§7.3](#73-who-gets-what)) | Decided |
+| ZOOMRIYA Connect serves boxes linked to a ZOOMRIYA Connect account, which our operators issue, separate from ZOOMRIYA ID; without one the box works at home only, and setup never needs it; forks run their own ZOOMRIYA Connect ([§7.3](#73-who-gets-what)) | Decided |
 | Security updates follow Debian's releases: each ZOOMRIYA OS version gets them as long as its Debian version does, LTS included, and boxes move to the next version before that ends ([§6.6](#66-moving-to-debian-14), [§7.3](#73-who-gets-what)) | Decided |
 | The box's weather is the OS's: `zoomriya-weather` fetches the forecast and alerts for the family's town, needs nothing from the apps, and the apps read what it keeps ([Weather](weather.md), 16 November 2026) | Decided; built 16 November 2026 |
 
@@ -873,14 +873,19 @@ build their own image; only the name and logo are ours
 | **Support** | Full support. The hardware: 1 year | ZOOMRIYA OS on a published list of tested hardware; best effort on other hardware | Community only, through the repository's issues; diagnostics bundles welcome as bug reports |
 | **OS security fixes** (Debian, [§6.1](#61-debian-security-fixes)) | Yes | Yes | Yes, from Debian directly |
 | **Our packages** (`apt.zoomriya.com`, [§6.8](#68-our-apt-repository)) | Yes | Yes | Not locked: the packages are open and signed anyway. A fork is expected to rename itself and run its own |
-| **ZOOMRIYA Connect** | Yes, registered to the family's ZOOMRIYA account at setup | Registered to a ZOOMRIYA account, with the plan that carries the apps or a small free allowance | No: Connect is open source, so a fork runs its own |
+| **ZOOMRIYA Connect** | Yes, with a ZOOMRIYA Connect account we issue, typed once in Box Desktop | With a ZOOMRIYA Connect account we issue, with the plan | No: ZOOMRIYA Connect is open source, so a fork runs its own |
 | **Family Hub and the apps** | With the box | With a plan | No: they aren't open source |
 
 - **Telling them apart:** support reads the bundle's manifest (model, serial,
   image version) and `dpkg --verify`'s hand changes
   ([§7.2](#72-getting-help-the-diagnostics-bundle)); the upload page asks
   "ZOOMRIYA Box or your own PC?" and says what support covers.
-- **Connect checks the account and the box's key,** with rate limits. It
+- **ZOOMRIYA Connect's account is its own** (decided 2026-11-19): not ZOOMRIYA
+  ID, which never leaves the box. Our operators issue it; the family can change
+  its password on the account page; operators can reset it or block it, and a
+  blocked account's boxes work at home only. Without an account, installing,
+  first setup and Box Desktop all work: only ZOOMRIYA Connect waits for one.
+- **ZOOMRIYA Connect checks the account and the box's key,** with rate limits. It
   doesn't try to prove a box runs unchanged software: without hardware
   attestation that can be faked.
 - **Security updates are a separate promise from the hardware's year,** and

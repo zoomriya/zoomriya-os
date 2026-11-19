@@ -8,6 +8,10 @@ export interface ConnectStatus {
 	on: boolean;
 	name: string | null;
 	fqdn: string | null;
+	/** The ZOOMRIYA Connect account the box is linked to. */
+	account: string | null;
+	/** Where the family changes the account's password. */
+	account_page?: string;
 	server: string;
 	our_server: boolean;
 	relay_off: boolean;
@@ -20,6 +24,8 @@ export interface ConnectStatus {
 	relay_connected: boolean;
 	relay_refused?: string;
 	certificate_days?: number;
+	/** This month's use of the server's relays, once the server has said. */
+	relay_use?: { month: string; used: number; allowance: number; slowed: boolean };
 	certificate_authority?: string;
 	home: { ipv4: string[]; ipv6: string[] };
 	problems: Record<string, string>;
@@ -50,6 +56,11 @@ export function connectWords(e: unknown): string {
 		case 'box_has_name': return _('This box already has a name. Give it up first to pick another.');
 		case 'too_many_boxes': return _('Too many new boxes from your internet connection today. Try again tomorrow.');
 		case 'factory_token': return _("This box's factory token isn't valid, or was already used. Contact ZOOMRIYA support.");
+		case 'account_needed': return _('Type the ZOOMRIYA Connect username and password you were given.');
+		case 'wrong_login': return _("That username or password isn't right.");
+		case 'account_locked': return _('Too many wrong passwords. Try again in 15 minutes.');
+		case 'account_blocked': return _('This ZOOMRIYA Connect account is blocked. Ask whoever gave you the account.');
+		case 'account_full': return _('This account already has all the boxes it can. Ask whoever gave you the account for room for another.');
 		case 'please_update': return _('Your box needs an update to use ZOOMRIYA Connect. It updates by itself overnight.');
 		case 'unreachable': return _("The box can't reach the ZOOMRIYA Connect server. Check the internet connection, then try again.");
 		case 'clock': return _("Your box can't get the time from the internet yet. Check its internet connection, then try again.");
@@ -62,7 +73,8 @@ export function connectWords(e: unknown): string {
 
 export const status = () => get<ConnectStatus>('/api/connect/v1/status');
 export const devices = () => get<Device[]>('/api/connect/v1/devices');
-export const setup = (name: string) => post('/api/connect/v1/setup', { name });
+export const setup = (name: string, username: string, password: string) =>
+	post('/api/connect/v1/setup', { name, username, password });
 export const turnOn = () => post('/api/connect/v1/on');
 export const turnOff = (password: string) => post('/api/connect/v1/off', { password });
 export const release = (password: string) => post('/api/connect/v1/release', { password });
