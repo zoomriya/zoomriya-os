@@ -496,6 +496,8 @@ echo "$sec" | grep -q '"firewall":{"on":true,"open":\[' && echo "$sec" | grep -q
 echo "$sec" | grep -qE '"apparmor":\{"enforced":[1-9][0-9]*,"on":true[,}]' && pass "AppArmor on, with profiles enforced" || fail "AppArmor on, with profiles enforced" "$sec"
 echo "$sec" | grep -qE '"secure_boot":"(on|off)"' && pass "Secure Boot's state" || fail "Secure Boot's state" "$sec"
 echo "$sec" | grep -q '"host":"deb.debian.org"' && pass "where the box connects to" || fail "where the box connects to" "$sec"
+grep -rhs 'http://' /etc/apt/sources.list.d/*.sources /etc/apt/sources.list | grep -q debian.org \
+    && fail "OS updates over HTTPS" "$(grep -rhs 'http://' /etc/apt/sources.list.d/ /etc/apt/sources.list)" || pass "OS updates over HTTPS"
 echo "$sec" | grep -q '"automatic":true' && pass "security updates automatic" || fail "security updates automatic" "$sec"
 dpkg -s popularity-contest >/dev/null 2>&1 && fail "nothing reports usage" "popularity-contest is installed" || pass "nothing reports usage"
 

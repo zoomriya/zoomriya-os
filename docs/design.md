@@ -407,6 +407,7 @@ sticker or the code written down, is the proof, as it is for Erase everything.
 
   ```
   # /etc/apt/sources.list.d/debian.sources   (<codename>: Debian 13's)
+  URIs: https://deb.debian.org/debian (and https://security.debian.org/debian-security)
   Suites: <codename> <codename>-updates <codename>-security
   ```
 
