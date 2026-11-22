@@ -172,7 +172,7 @@ export const SECTION_WORDS: [string, string, string][] = [
 	["storage", "overview", N_("disk space library mirror check scrub damage full")],
 	["storage", "drives", N_("drive disk health smart failing replace temperature")],
 	["storage", "space", N_("space usage full photos apps databases")],
-	["storage", "backups", N_("backup backups restic copy nightly restore safe offsite")],
+	["storage", "backups", N_("backup backups drive usb key copy nightly restore bring back safe")],
 	["apps", "installed", N_("apps applications installed remove uninstall delete restore version update running")],
 	["apps", "usb", N_("install add app usb stick package zapp sideload new update")],
 	["resources", "overview", N_("cpu processor memory ram load network activity performance")],
@@ -255,6 +255,8 @@ export const SETTINGS: [string, string, string][] = [
 	["storage", "overview", N_("Check the library for damage")],
 	["storage", "backups", N_("Back up now")],
 	["storage", "backups", N_("Nightly backup")],
+	["storage", "backups", N_("Backup key")],
+	["storage", "backups", N_("Bring a backup back")],
 	["control", "display", N_("Lock the screen after")],
 	["control", "display", N_("Turn the screen off after")],
 	["support", "diagnostics", N_("Make a bundle")],
@@ -297,6 +299,7 @@ export const KINDS: Record<string, [string, string, string]> = {
 	signin: [N_("Admin Sign-in"), N_("When an admin is let back in at the box with the setup code, or a wrong code is typed."), "key"],
 	access: [N_("Advanced Access"), N_("When SSH access is turned on or off."), "terminal"],
 	apps: [N_("Apps"), N_("When an app is installed, restored or removed."), "app"],
+	backup: [N_("Backups"), N_("When a backup fails or misses something, and when one is brought back."), "backup"],
 };
 
 /** Why a connection an app declares is blocked: the agent's words (internet.go). */

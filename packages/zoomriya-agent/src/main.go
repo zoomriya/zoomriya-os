@@ -19,7 +19,8 @@
 // release-holds` lets go of the holds a restore left once Debian has a newer
 // fix (holds.go); `zoomriya-agent ssh-apply` opens or closes SSH as advanced
 // access says (access.go); `zoomriya-agent app-job install DEVICE FILE BY`
-// installs an app from a USB stick (apps.go).
+// installs an app from a USB stick (apps.go); `zoomriya-agent backup-job
+// run|restore` makes a backup or brings one back (backuprun.go).
 package main
 
 import (
@@ -75,6 +76,10 @@ func main() {
 	}
 	if len(os.Args) == 2 && os.Args[1] == "release-holds" {
 		os.Exit(releaseHolds())
+	}
+	// A backup, or bringing one back, as its own unit (backuprun.go).
+	if len(os.Args) == 3 && os.Args[1] == "backup-job" {
+		os.Exit(backupJobMain(os.Args[2:]))
 	}
 	// Myira's model, fetched or copied as its own unit (model.go).
 	if len(os.Args) == 3 && os.Args[1] == "model-fetch" {
@@ -299,7 +304,7 @@ func detail(req Request) string {
 		if req.On != nil {
 			on = strconv.FormatBool(*req.On)
 		}
-		return strings.TrimSpace(str(req.Action) + " " + on)
+		return strings.Join(strings.Fields(str(req.Action)+" "+str(req.Name)+" "+on), " ")
 	case "pictures", "model":
 		return strings.Join(strings.Fields(str(req.Action)+" "+str(req.Device)+" "+str(req.Name)), " ")
 	case "diagnostics":

@@ -184,7 +184,7 @@ every 15 minutes, after security updates and after each library check, then
 records events in the journal. These include changes in drive health,
 installed security fixes, planned restarts, library check results and network
 settings that were not kept and were undone, and advanced access turned on or
-off. Backups may be added later. The bell in the top bar lists the latest notifications, newest
+off, and backups that fail or miss something, and backups brought back. The bell in the top bar lists the latest notifications, newest
 first, with a count of the ones since the admin last read them, and links to
 Log Center › Notifications, which keeps the last month's. Each
 admin turns kinds on or off in Control Panel › Notifications; their choices
@@ -323,7 +323,7 @@ deleted, so a person's photos and files stay theirs.
 | Overview | The library's space used and free, the mirror's state when there are two drives, each drive's health in one line | `storage` *new*, `disk-health` |
 | Drives | Each drive: its place, model, size, hours on, temperature, health ("Healthy", "Check soon", "Replace now" with the reason), and its SMART details under Details | `disk-health` |
 | Space | What takes the space: photos and videos, each app's data, the databases, models and maps, restore points | `storage` *new* |
-| Backups | The box's backup (zoomriya-apps' backup service: restic, every app's data and the accounts): the last one and how it went ("Backed up", "The last backup failed", with each app that failed and why, in the backup's own words), Back up now, Nightly backup on or off (with the next one's time), and where they go (a folder, or a kind and a host, never a password). Not set up: says to set it up in Family Hub's settings, which also choose the apps left out. Bringing a backup back is for later (below) | `backups` |
+| Backups | The box's own backup ([design §6.10](design.md#610-backups)) to a USB drive the admin plugs in. Not set up: Choose a drive, then the backup key to print or write down. Set up: the last backup and how it went ("Backed up", "The last backup failed", each app that failed and why), Back up now, Nightly backup on or off (with the next one's time), the drive and whether it's plugged in (Change), Show key (password again), and What's backed up: each app's switch, ZOOMRIYA ID always on. Bring a backup back: the drive, the backup, the key; each app ready, not installed (Open App Center) or to update first; "I forgot my old password" with the account and a new one; the password again; its progress, then Sign in again when the accounts came back | `backups` |
 | Checks | The library's last and next check (a Btrfs scrub, OS-4), Check now, what it found, and what it repaired when there are two drives | `storage` *new*, `storage-check` *new* |
 | Replace a drive | With two drives (later): step by step, with pictures of the box: which drive, when it's safe to pull it, and the rebuild's progress | `storage` *new* |
 
@@ -626,7 +626,7 @@ needs the setup code from the sticker.
 | BD-2 | Family Hub's own Update button | (a) keep a short Update / Restore on Family Hub's box card, (b) only the box's health there, with updates on the box's screen | Open |
 | BD-3 | Notifications reaching an admin's phone | (a) Family Hub's notifications show the important ones, (b) Box Desktop only | Leaning (a) |
 | BD-4 | Where each admin's settings live | (a) Box Desktop's state folder on `@`, which an OS restore takes back to the restore point's, (b) under `/data`, which a restore doesn't touch ([Design §3](design.md#3-the-disk), OS-10) | Decided (b): `/data/zoomriya/admin` |
-| BD-5 | Bringing a backup back | (a) Storage Manager › Backups lists the backups by date and app, and restores one app or all through the agent (zoomriya-apps' `restore.sh`: stops the app, restores, starts it), the password again; (b) Support Center only, by hand | Open |
+| BD-5 | Bringing a backup back | Storage Manager › Backups › Bring a backup back, after the apps are installed, through the agent ([design §6.10](design.md#610-backups)): everything or chosen apps, the backup key and the password again; the accounts come back as they were | Built 2026-11-22 |
 | BD-6 | A UPS | Plug a USB UPS into the box; its battery and time left in Box health; shut down cleanly when it runs low (Debian's NUT); a notification on mains power lost and back | Open |
 | BD-7 | Problems reaching an admin away from the screen | A failing drive or a failed backup today shows on the box's screen and in Family Hub's box card: (a) a push to each admin's phone through Family Hub (with BD-3), (b) email as well | Open |
 | BD-8 | Shared folders for the family's computers (SMB) | Laptops' own backups (Time Machine, File History) and a shared folder; against "Photos and Vault keep the files" (§9), so a product decision first | Open |

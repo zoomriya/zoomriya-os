@@ -1,0 +1,18 @@
+# The box's backup (design §6.10): every app's data and the accounts onto the
+# drive an admin chose in Box Desktop › Storage Manager › Backups. Started by
+# Back up now, or each night by zoomriya-backup.timer once an admin turns that
+# on. The drive is mounted only while it runs.
+[Unit]
+Description=ZOOMRIYA backup to the backup drive
+Documentation=https://github.com/zoomriya/zoomriya-os/blob/main/docs/design.md#610-backups
+After=postgresql.service local-fs.target
+ConditionPathExists=/var/lib/zoomriya-agent/backup.json
+
+[Service]
+Type=oneshot
+ExecStart=/usr/lib/zoomriya-agent/zoomriya-agent backup-job run
+# A backup must not slow the family's apps down.
+Nice=10
+IOSchedulingClass=idle
+TimeoutStartSec=12h
+UMask=0077

@@ -1,0 +1,15 @@
+# The nightly backup, OFF until an admin turns it on in Box Desktop (which
+# enables this timer; turning it off disables it). Installing the box never
+# enables it. At 04:00, after the maintenance hour. Persistent: a night the
+# box was off is caught up at the next start.
+[Unit]
+Description=ZOOMRIYA nightly backup
+Documentation=https://github.com/zoomriya/zoomriya-os/blob/main/docs/design.md#610-backups
+
+[Timer]
+OnCalendar=*-*-* 04:00:00
+RandomizedDelaySec=15min
+Persistent=true
+
+[Install]
+WantedBy=timers.target

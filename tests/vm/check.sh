@@ -240,6 +240,8 @@ pgrep -u box-desktop -f box-desktop-screen >/dev/null && pass "the box's screen 
 setpriv --reuid=box-desktop --regid=box-desktop --init-groups "$agent" ask \
     '{"op": "backups", "by": "test"}' 2>&1 | grep -q '"set_up"' && pass "the agent answers backups" \
     || fail "the agent answers backups" "no answer"
+# Nightly backups stay off until an admin chooses a drive and turns them on.
+check "the nightly backup is off" disabled "$(systemctl is-enabled zoomriya-backup.timer 2>&1)"
 setpriv --reuid=box-desktop --regid=box-desktop --init-groups "$agent" ask \
     '{"op": "pictures", "by": "test", "action": "usb"}' 2>&1 | grep -q '"found"' && pass "the agent lists pictures on USB sticks" \
     || fail "the agent lists pictures on USB sticks" "no answer"

@@ -220,7 +220,7 @@ msgstr "ログセンター"
 msgid "Support Center"
 msgstr "サポートセンター"
 
-#: lib/desk.svelte.ts:40 lib/words.ts:295 pages/Setup.svelte:16 pages/Widgets.svelte:90 tools/Resources.svelte:43
+#: lib/desk.svelte.ts:40 lib/words.ts:297 pages/Setup.svelte:16 pages/Widgets.svelte:90 tools/Resources.svelte:43
 #, fuzzy
 msgid "Network"
 msgstr "ネットワーク"
@@ -279,7 +279,7 @@ msgstr "セキュリティ"
 msgid "Advanced access"
 msgstr "高度なアクセス"
 
-#: lib/desk.svelte.ts:44 lib/words.ts:293
+#: lib/desk.svelte.ts:44 lib/words.ts:295
 #, fuzzy
 msgid "Restarts"
 msgstr "再起動"
@@ -309,7 +309,7 @@ msgstr "ドライブ"
 msgid "Space"
 msgstr "容量"
 
-#: lib/desk.svelte.ts:48 tools/Backups.svelte:40 tools/Backups.svelte:55
+#: lib/desk.svelte.ts:48 lib/words.ts:302 tools/Backups.svelte:124 tools/Backups.svelte:131
 #, fuzzy
 msgid "Backups"
 msgstr "バックアップ"
@@ -614,9 +614,8 @@ msgid "space usage full photos apps databases"
 msgstr "容量 使用量 いっぱい 写真 アプリ データベース"
 
 #: lib/words.ts:175
-#, fuzzy
-msgid "backup backups restic copy nightly restore safe offsite"
-msgstr "バックアップ 復元 コピー 毎晩 安全 外部"
+msgid "backup backups drive usb key copy nightly restore bring back safe"
+msgstr ""
 
 #: lib/words.ts:176
 #, fuzzy
@@ -849,7 +848,7 @@ msgstr "時刻の同期"
 msgid "Add a person"
 msgstr "ユーザーを追加"
 
-#: lib/words.ts:227 pages/SignIn.svelte:192 pages/SignIn.svelte:220 tools/EditPerson.svelte:86
+#: lib/words.ts:227 pages/SignIn.svelte:192 pages/SignIn.svelte:220 tools/EditPerson.svelte:86 tools/RestoreBackup.svelte:153
 #, fuzzy
 msgid "New password"
 msgstr "新しいパスワード"
@@ -994,517 +993,529 @@ msgstr "ライブラリ"
 msgid "Check the library for damage"
 msgstr "ライブラリの損傷を確認"
 
-#: lib/words.ts:256 tools/Backups.svelte:56 tools/Backups.svelte:59
+#: lib/words.ts:256 tools/Backups.svelte:132 tools/Backups.svelte:135
 #, fuzzy
 msgid "Back up now"
 msgstr "今すぐバックアップ"
 
-#: lib/words.ts:257 tools/Backups.svelte:62 tools/Backups.svelte:64
+#: lib/words.ts:257 tools/Backups.svelte:138 tools/Backups.svelte:140
 #, fuzzy
 msgid "Nightly backup"
 msgstr "毎晩のバックアップ"
 
-#: lib/words.ts:258 tools/Display.svelte:130
+#: lib/words.ts:258 tools/Backups.svelte:146 tools/RestoreBackup.svelte:123
+msgid "Backup key"
+msgstr ""
+
+#: lib/words.ts:259 tools/Backups.svelte:166 tools/Backups.svelte:168 tools/RestoreBackup.svelte:104
+msgid "Bring a backup back"
+msgstr ""
+
+#: lib/words.ts:260 tools/Display.svelte:130
 #, fuzzy
 msgid "Lock the screen after"
 msgstr "画面をロックするまで"
 
-#: lib/words.ts:259 tools/Display.svelte:131
+#: lib/words.ts:261 tools/Display.svelte:131
 #, fuzzy
 msgid "Turn the screen off after"
 msgstr "画面をオフにするまで"
 
-#: lib/words.ts:260 tools/Contact.svelte:30 tools/Diagnostics.svelte:48
+#: lib/words.ts:262 tools/Contact.svelte:30 tools/Diagnostics.svelte:48
 #, fuzzy
 msgid "Make a bundle"
 msgstr "作成"
 
-#: lib/words.ts:261 tools/SaveBundle.svelte:42
+#: lib/words.ts:263 tools/SaveBundle.svelte:42
 #, fuzzy
 msgid "Save to a USB stick"
 msgstr "USB メモリに保存"
 
-#: lib/words.ts:262 tools/Contact.svelte:23
+#: lib/words.ts:264 tools/Contact.svelte:23
 #, fuzzy
 msgid "Contact ZOOMRIYA support"
 msgstr "ZOOMRIYA サポートに連絡"
 
-#: lib/words.ts:263 tools/Contact.svelte:16
+#: lib/words.ts:265 tools/Contact.svelte:16
 #, fuzzy
 msgid "Serial number"
 msgstr "シリアル番号"
 
-#: lib/words.ts:268 pages/MainMenu.svelte:113
+#: lib/words.ts:270 pages/MainMenu.svelte:113
 #, fuzzy
 msgid "Restart the box"
 msgstr "ボックスを再起動"
 
-#: lib/words.ts:268
+#: lib/words.ts:270
 #, fuzzy
 msgid "reboot"
 msgstr "再起動"
 
-#: lib/words.ts:269 tools/Restarts.svelte:73
+#: lib/words.ts:271 tools/Restarts.svelte:73
 #, fuzzy
 msgid "Shut down system"
 msgstr "シャットダウン"
 
-#: lib/words.ts:269
+#: lib/words.ts:271
 #, fuzzy
 msgid "power off turn off"
 msgstr "電源を切る シャットダウン"
 
-#: lib/words.ts:270 pages/MainMenu.svelte:112
+#: lib/words.ts:272 pages/MainMenu.svelte:112
 #, fuzzy
 msgid "Lock screen"
 msgstr "画面をロック"
 
-#: lib/words.ts:270
+#: lib/words.ts:272
 #, fuzzy
 msgid "lock away screen saver leave"
 msgstr "ロック 離席 スクリーンセーバー"
 
-#: lib/words.ts:271 pages/MainMenu.svelte:112
+#: lib/words.ts:273 pages/MainMenu.svelte:112
 #, fuzzy
 msgid "Open Family Hub on a phone"
 msgstr "Family Hubをスマホで開く"
 
-#: lib/words.ts:271
+#: lib/words.ts:273
 #, fuzzy
 msgid "qr code phone mobile address family hub"
 msgstr "QRコード スマホ 携帯 アドレス Family Hub"
 
-#: lib/words.ts:272 pages/MainMenu.svelte:113
+#: lib/words.ts:274 pages/MainMenu.svelte:113
 #, fuzzy
 msgid "Sign out"
 msgstr "サインアウト"
 
-#: lib/words.ts:272
+#: lib/words.ts:274
 #, fuzzy
 msgid "log out logout switch user"
 msgstr "サインアウト ログアウト ユーザー切り替え"
 
-#: lib/words.ts:273 tools/Appearance.svelte:28
+#: lib/words.ts:275 tools/Appearance.svelte:28
 #, fuzzy
 msgid "Midnight"
 msgstr "ダーク"
 
-#: lib/words.ts:273
+#: lib/words.ts:275
 #, fuzzy
 msgid "dark theme night"
 msgstr "ダーク テーマ 夜"
 
-#: lib/words.ts:274 tools/Appearance.svelte:28
+#: lib/words.ts:276 tools/Appearance.svelte:28
 #, fuzzy
 msgid "Daylight"
 msgstr "ライト"
 
-#: lib/words.ts:274
+#: lib/words.ts:276
 #, fuzzy
 msgid "light theme day"
 msgstr "ライト テーマ 昼"
 
-#: lib/words.ts:275 pages/TopBar.svelte:138 pages/TopBar.svelte:138 pages/Widgets.svelte:38
+#: lib/words.ts:277 pages/TopBar.svelte:138 pages/TopBar.svelte:138 pages/Widgets.svelte:38
 #, fuzzy
 msgid "Widgets"
 msgstr "ウィジェット"
 
-#: lib/words.ts:275
+#: lib/words.ts:277
 #, fuzzy
 msgid "side panel health cpu space"
 msgstr "サイドパネル 状態 CPU 容量"
 
-#: lib/words.ts:280
+#: lib/words.ts:282
 #, fuzzy
 msgid "Something stopped working after an update"
 msgstr "アップデート後に動かなくなった"
 
-#: lib/words.ts:280
+#: lib/words.ts:282
 #, fuzzy
 msgid "Restore the OS to before the update. Family files stay."
 msgstr "アップデート前の OS に戻します。家族のファイルは残ります。"
 
-#: lib/words.ts:281
+#: lib/words.ts:283
 #, fuzzy
 msgid "A drive needs checking"
 msgstr "ドライブの確認が必要"
 
-#: lib/words.ts:281
+#: lib/words.ts:283
 #, fuzzy
 msgid "See which drive, and why. Replace it with one as big or bigger."
 msgstr "どのドライブか、理由も確認できます。同じ容量以上のものに交換してください。"
 
-#: lib/words.ts:282
+#: lib/words.ts:284
 #, fuzzy
 msgid "The box is slow"
 msgstr "ボックスが遅い"
 
-#: lib/words.ts:282
+#: lib/words.ts:284
 #, fuzzy
 msgid "See which app is busy. Photos works hard after many new photos."
 msgstr "忙しいアプリを確認できます。写真を多く追加すると、写真アプリがしばらく処理します。"
 
-#: lib/words.ts:283
+#: lib/words.ts:285
 #, fuzzy
 msgid "The box restarted by itself"
 msgstr "ボックスが勝手に再起動した"
 
-#: lib/words.ts:283
+#: lib/words.ts:285
 #, fuzzy
 msgid "Updates finish at the maintenance hour. You can change the hour."
 msgstr "アップデートはメンテナンス時刻に完了します。時刻は変更できます。"
 
-#: lib/words.ts:284
+#: lib/words.ts:286
 #, fuzzy
 msgid "Family Hub doesn't open on the home network"
 msgstr "自宅で Family Hub が開かない"
 
-#: lib/words.ts:284
+#: lib/words.ts:286
 #, fuzzy
 msgid "Check the cable to the router, and the box's address."
 msgstr "ルーターへのケーブルとボックスのアドレスを確認してください。"
 
-#: lib/words.ts:285
+#: lib/words.ts:287
 #, fuzzy
 msgid "Someone can't sign in"
 msgstr "サインインできない人がいる"
 
-#: lib/words.ts:285
+#: lib/words.ts:287
 #, fuzzy
 msgid "Let them type a new password, or turn their account back on."
 msgstr "新しいパスワードを入力してもらうか、アカウントをオンに戻します。"
 
-#: lib/words.ts:286
+#: lib/words.ts:288
 #, fuzzy
 msgid "Who changed a setting?"
 msgstr "設定を変えたのは誰？"
 
-#: lib/words.ts:286
+#: lib/words.ts:288
 #, fuzzy
 msgid "Every change, with who and when."
 msgstr "すべての変更を、誰がいつしたかと一緒に。"
 
-#: lib/words.ts:291
+#: lib/words.ts:293
 #, fuzzy
 msgid "Drive Health"
 msgstr "ドライブの状態"
 
-#: lib/words.ts:291
+#: lib/words.ts:293
 #, fuzzy
 msgid "When to check or replace, and when healthy."
 msgstr "確認や交換が必要なとき、正常に戻ったとき。"
 
-#: lib/words.ts:292
+#: lib/words.ts:294
 #, fuzzy
 msgid "Updates"
 msgstr "アップデート"
 
-#: lib/words.ts:292
+#: lib/words.ts:294
 #, fuzzy
 msgid "When security fixes are installed."
 msgstr "セキュリティ修正がインストールされたとき。"
 
-#: lib/words.ts:293
+#: lib/words.ts:295
 #, fuzzy
 msgid "Auto-restart schedule for updates and restores."
 msgstr "アップデートと復元のための自動再起動の予定。"
 
-#: lib/words.ts:294
+#: lib/words.ts:296
 #, fuzzy
 msgid "Library Check"
 msgstr "ライブラリの確認"
 
-#: lib/words.ts:294
+#: lib/words.ts:296
 #, fuzzy
 msgid "Library scan completion time and results."
 msgstr "ライブラリのスキャン完了時刻と結果。"
 
-#: lib/words.ts:295
+#: lib/words.ts:297
 #, fuzzy
 msgid "Network settings weren't kept and were rolled back."
 msgstr "ネットワーク設定は保持されず、元に戻されました。"
 
-#: lib/words.ts:296 tools/Security.svelte:143
+#: lib/words.ts:298 tools/Security.svelte:143
 #, fuzzy
 msgid "Secure Connections"
 msgstr "安全な接続"
 
-#: lib/words.ts:296
+#: lib/words.ts:298
 #, fuzzy
 msgid "When the box's certificate can't be made or renewed, or is running out."
 msgstr "ボックスの証明書を作成・更新できないときや、期限が近いとき。"
 
-#: lib/words.ts:297
+#: lib/words.ts:299
 #, fuzzy
 msgid "Admin Sign-in"
 msgstr "管理者のサインイン"
 
-#: lib/words.ts:297
+#: lib/words.ts:299
 #, fuzzy
 msgid "When an admin is let back in at the box with the setup code, or a wrong code is typed."
 msgstr "セットアップコードで管理者のアクセスを戻したとき、または誤ったコードが入力されたとき。"
 
-#: lib/words.ts:298
+#: lib/words.ts:300
 #, fuzzy
 msgid "Advanced Access"
 msgstr "高度なアクセス"
 
-#: lib/words.ts:298
+#: lib/words.ts:300
 #, fuzzy
 msgid "When SSH access is turned on or off."
 msgstr "SSH アクセスのオン・オフ時。"
 
-#: lib/words.ts:299
+#: lib/words.ts:301
 #, fuzzy
 msgid "Apps"
 msgstr "アプリ"
 
-#: lib/words.ts:299
+#: lib/words.ts:301
 #, fuzzy
 msgid "When an app is installed, restored or removed."
 msgstr "アプリのインストール、復元、削除時。"
 
-#: lib/words.ts:303
+#: lib/words.ts:302
+msgid "When a backup fails or misses something, and when one is brought back."
+msgstr ""
+
+#: lib/words.ts:306
 #, fuzzy
 msgid "Everything offline is on"
 msgstr "すべてオフラインがオンです"
 
-#: lib/words.ts:303
+#: lib/words.ts:306
 #, fuzzy
 msgid "Apps offline is on"
 msgstr "アプリをオフラインがオンです"
 
-#: lib/words.ts:303
+#: lib/words.ts:306
 #, fuzzy
 msgid "Switched off"
 msgstr "オフ"
 
-#: lib/words.ts:307
+#: lib/words.ts:310
 #, fuzzy
 msgid "Blue"
 msgstr "ブルー"
 
-#: lib/words.ts:308
+#: lib/words.ts:311
 #, fuzzy
 msgid "Teal"
 msgstr "ティール"
 
-#: lib/words.ts:309
+#: lib/words.ts:312
 #, fuzzy
 msgid "Green"
 msgstr "グリーン"
 
-#: lib/words.ts:310
+#: lib/words.ts:313
 #, fuzzy
 msgid "Yellow"
 msgstr "イエロー"
 
-#: lib/words.ts:311
+#: lib/words.ts:314
 #, fuzzy
 msgid "Orange"
 msgstr "オレンジ"
 
-#: lib/words.ts:312
+#: lib/words.ts:315
 #, fuzzy
 msgid "Red"
 msgstr "レッド"
 
-#: lib/words.ts:313
+#: lib/words.ts:316
 #, fuzzy
 msgid "Pink"
 msgstr "ピンク"
 
-#: lib/words.ts:314
+#: lib/words.ts:317
 #, fuzzy
 msgid "Purple"
 msgstr "パープル"
 
-#: lib/words.ts:315
+#: lib/words.ts:318
 #, fuzzy
 msgid "Slate"
 msgstr "スレート"
 
-#: lib/words.ts:321
+#: lib/words.ts:324
 #, fuzzy
 msgid "Jellyfish"
 msgstr "クラゲ"
 
-#: lib/words.ts:322
+#: lib/words.ts:325
 #, fuzzy
 msgid "Hills"
 msgstr "丘"
 
-#: lib/words.ts:323
+#: lib/words.ts:326
 #, fuzzy
 msgid "Lakeside"
 msgstr "湖畔"
 
-#: lib/words.ts:327
+#: lib/words.ts:330
 #, fuzzy
 msgid "Night"
 msgstr "ナイト"
 
-#: lib/words.ts:328
+#: lib/words.ts:331
 #, fuzzy
 msgid "Ocean"
 msgstr "オーシャン"
 
-#: lib/words.ts:329
+#: lib/words.ts:332
 #, fuzzy
 msgid "Forest"
 msgstr "フォレスト"
 
-#: lib/words.ts:330
+#: lib/words.ts:333
 #, fuzzy
 msgid "Plum"
 msgstr "プラム"
 
-#: lib/words.ts:331
+#: lib/words.ts:334
 #, fuzzy
 msgid "Graphite"
 msgstr "グラファイト"
 
-#: lib/words.ts:339
+#: lib/words.ts:342
 #, fuzzy
 msgid "Sign-in"
 msgstr "サインイン"
 
-#: lib/words.ts:340
+#: lib/words.ts:343
 #, fuzzy
 msgid "Wrong try"
 msgstr "失敗した試行"
 
-#: lib/words.ts:341
+#: lib/words.ts:344
 #, fuzzy
 msgid "Second step"
 msgstr "2段階目"
 
-#: lib/words.ts:342 pages/Lock.svelte:43 pages/SignIn.svelte:188 tools/AddPerson.svelte:71 tools/Connect.svelte:122 tools/Connect.svelte:122 tools/Connect.svelte:162 tools/Connect.svelte:162 tools/EditPerson.svelte:85 tools/NewPassword.svelte:45
+#: lib/words.ts:345 pages/Lock.svelte:43 pages/SignIn.svelte:188 tools/AddPerson.svelte:71 tools/Connect.svelte:122 tools/Connect.svelte:122 tools/Connect.svelte:162 tools/Connect.svelte:162 tools/EditPerson.svelte:85 tools/NewPassword.svelte:45
 #, fuzzy
 msgid "Password"
 msgstr "パスワード"
 
-#: lib/words.ts:343 tools/Connect.svelte:154 tools/Connect.svelte:168 tools/EditPerson.svelte:109 tools/EditPerson.svelte:117
+#: lib/words.ts:346 tools/Connect.svelte:154 tools/Connect.svelte:168 tools/EditPerson.svelte:109 tools/EditPerson.svelte:117
 #, fuzzy
 msgid "Account"
 msgstr "アカウント"
 
-#: lib/words.ts:344
+#: lib/words.ts:347
 #, fuzzy
 msgid "AI key"
 msgstr "AIキー"
 
-#: lib/words.ts:345
+#: lib/words.ts:348
 #, fuzzy
 msgid "New device"
 msgstr "新しいデバイス"
 
-#: lib/words.ts:346
+#: lib/words.ts:349
 #, fuzzy
 msgid "Share link"
 msgstr "共有リンク"
 
-#: lib/words.ts:347
+#: lib/words.ts:350
 #, fuzzy
 msgid "Setting"
 msgstr "設定"
 
-#: lib/words.ts:350
+#: lib/words.ts:353
 #, fuzzy
 msgid "Errors"
 msgstr "エラー"
 
-#: lib/words.ts:350
+#: lib/words.ts:353
 #, fuzzy
 msgid "Warnings and errors"
 msgstr "警告とエラー"
 
-#: lib/words.ts:350 tools/Logs.svelte:54
+#: lib/words.ts:353 tools/Logs.svelte:54
 #, fuzzy
 msgid "Everything"
 msgstr "すべて"
 
-#: lib/words.ts:351
+#: lib/words.ts:354
 #, fuzzy
 msgid "Healthy"
 msgstr "正常"
 
-#: lib/words.ts:351
+#: lib/words.ts:354
 #, fuzzy
 msgid "Needs checking"
 msgstr "要確認"
 
-#: lib/words.ts:351
+#: lib/words.ts:354
 #, fuzzy
 msgid "Failing"
 msgstr "異常"
 
-#: lib/words.ts:354 lib/words.ts:355
+#: lib/words.ts:357 lib/words.ts:358
 #, fuzzy
 msgid "Starting"
 msgstr "開始しています"
 
-#: lib/words.ts:354
+#: lib/words.ts:357
 #, fuzzy
 msgid "Copying from the USB stick"
 msgstr "USB メモリからコピーしています"
 
-#: lib/words.ts:354
+#: lib/words.ts:357
 #, fuzzy
 msgid "Checking it's a ZOOMRIYA app"
 msgstr "ZOOMRIYA のアプリか確認しています"
 
-#: lib/words.ts:354
+#: lib/words.ts:357
 #, fuzzy
 msgid "Adding it to the box"
 msgstr "ボックスに追加しています"
 
-#: lib/words.ts:354
+#: lib/words.ts:357
 #, fuzzy
 msgid "Starting it"
 msgstr "起動しています"
 
-#: lib/words.ts:354
+#: lib/words.ts:357
 #, fuzzy
 msgid "Not a ZOOMRIYA app."
 msgstr "ZOOMRIYA のアプリではありません。"
 
-#: lib/words.ts:354
+#: lib/words.ts:357
 #, fuzzy
 msgid "Can't be read."
 msgstr "読み取れません。"
 
-#: lib/words.ts:355
+#: lib/words.ts:358
 #, fuzzy
 msgid "Running"
 msgstr "実行中"
 
-#: lib/words.ts:355
+#: lib/words.ts:358
 #, fuzzy
 msgid "Stopped"
 msgstr "停止中"
 
-#: lib/words.ts:355
+#: lib/words.ts:358
 #, fuzzy
 msgid "Not working"
 msgstr "動作していません"
 
-#: lib/words.ts:358
+#: lib/words.ts:361
 #, fuzzy
 msgid "Landscape"
 msgstr "横向き"
 
-#: lib/words.ts:358
+#: lib/words.ts:361
 #, fuzzy
 msgid "Portrait, turned right"
 msgstr "縦向き (右に回転)"
 
-#: lib/words.ts:358
+#: lib/words.ts:361
 #, fuzzy
 msgid "Portrait, turned left"
 msgstr "縦向き (左に回転)"
 
-#: lib/words.ts:358
+#: lib/words.ts:361
 #, fuzzy
 msgid "Landscape, upside down"
 msgstr "横向き (上下反転)"
@@ -1514,7 +1525,7 @@ msgstr "横向き (上下反転)"
 msgid "Launcher"
 msgstr "ランチャー"
 
-#: pages/Dock.svelte:71 pages/Shortcuts.svelte:34
+#: pages/Dock.svelte:71 pages/Shortcuts.svelte:34 tools/RestoreBackup.svelte:110
 #, fuzzy
 msgid "Open"
 msgstr "開く"
@@ -2093,7 +2104,7 @@ msgstr "書き留めて、ボックス本体ではなく書類と一緒に保管
 msgid "I've written down the setup code"
 msgstr "セットアップコードを書き留めました"
 
-#: pages/Setup.svelte:558 pages/SignIn.svelte:198 pages/SignIn.svelte:206 pages/SignIn.svelte:222 tools/AddPerson.svelte:75 tools/ReviewBundle.svelte:35
+#: pages/Setup.svelte:558 pages/SignIn.svelte:198 pages/SignIn.svelte:206 pages/SignIn.svelte:222 tools/AddPerson.svelte:75 tools/RestoreBackup.svelte:127 tools/RestoreBackup.svelte:158 tools/ReviewBundle.svelte:35
 #, fuzzy
 msgid "Back"
 msgstr "戻る"
@@ -2419,7 +2430,7 @@ msgstr "最大化"
 msgid "{app} isn't running. Start or restore it in App Center."
 msgstr "{app}は動作していません。App Centerで起動するか元に戻してください。"
 
-#: pages/Window.svelte:71
+#: pages/Window.svelte:71 tools/RestoreBackup.svelte:141
 #, fuzzy
 msgid "Open App Center"
 msgstr "App Centerを開く"
@@ -2699,7 +2710,7 @@ msgstr "18歳未満"
 msgid "Now let {name} type their own password. At least 8 characters."
 msgstr "{name} さん本人にパスワードを入力してもらいます。8文字以上。"
 
-#: tools/AddPerson.svelte:72 tools/NewPassword.svelte:46
+#: tools/AddPerson.svelte:72 tools/NewPassword.svelte:46 tools/RestoreBackup.svelte:154
 #, fuzzy
 msgid "Password again"
 msgstr "パスワード（確認）"
@@ -2739,7 +2750,7 @@ msgstr "画像を追加"
 msgid "JPEG or PNG pictures on a USB stick, in its top folder or a folder in it. Nothing on the stick is changed."
 msgstr "USBメモリの一番上のフォルダか、その中のフォルダにあるJPEGまたはPNG画像。USBメモリの中身は変更しません。"
 
-#: tools/AddPicture.svelte:62
+#: tools/AddPicture.svelte:62 tools/Backups.svelte:186 tools/RestoreBackup.svelte:113
 #, fuzzy
 msgid "Look again"
 msgstr "もう一度探す"
@@ -2929,85 +2940,227 @@ msgstr "zoomriya/apps フォルダーのある USB メモリを挿してくだ�
 msgid "Update"
 msgstr "アップデート"
 
-#: tools/Backups.svelte:41
-#, fuzzy
-msgid "Backups aren't set up yet"
-msgstr "バックアップはまだ設定されていません"
+#: tools/BackupKey.svelte:12
+msgid "ZOOMRIYA backup key"
+msgstr ""
 
-#: tools/Backups.svelte:41
-#, fuzzy
-msgid "Set them up in Family Hub's settings: where they go, and which apps."
-msgstr "Family Hubの設定で、保存先と対象アプリを設定してください。"
+#: tools/BackupKey.svelte:13
+msgid "Keep this with your important papers, away from the backup drive. It opens the backups: with it, a new box brings everything back."
+msgstr ""
 
-#: tools/Backups.svelte:46
+#: tools/BackupKey.svelte:34
+msgid "Your backup key"
+msgstr ""
+
+#: tools/BackupKey.svelte:35
+msgid "Print it or write it down, and keep it away from the drive. Bringing a backup back always needs it. The box keeps it too, so you can show it again here."
+msgstr ""
+
+#: tools/BackupKey.svelte:38
+msgid "Print"
+msgstr ""
+
+#: tools/BackupKey.svelte:39
+msgid "I've kept it"
+msgstr ""
+
+#: tools/Backups.svelte:67 tools/Backups.svelte:143 tools/RestoreBackup.svelte:109
+msgid "USB drive"
+msgstr ""
+
+#: tools/Backups.svelte:72
+msgid "Back up to {drive}?"
+msgstr ""
+
+#: tools/Backups.svelte:74
+msgid "Its backups stay. The box makes its backup key next: print it or write it down."
+msgstr ""
+
+#: tools/Backups.svelte:75
+msgid "Nothing on the drive is erased. The box makes its backup key next: print it or write it down."
+msgstr ""
+
+#: tools/Backups.svelte:76
+msgid "Use this drive"
+msgstr ""
+
+#: tools/Backups.svelte:88
+msgid "Show the backup key?"
+msgstr ""
+
+#: tools/Backups.svelte:88
+msgid "Anyone with the key and the drive can open the backups. Show it only where no one else is looking."
+msgstr ""
+
+#: tools/Backups.svelte:89 tools/Backups.svelte:147
+msgid "Show key"
+msgstr ""
+
+#: tools/Backups.svelte:96 tools/Backups.svelte:109
+msgid "Bringing a backup back"
+msgstr ""
+
+#: tools/Backups.svelte:96
 #, fuzzy
 msgid "Backing up"
 msgstr "バックアップ中"
 
-#: tools/Backups.svelte:46
+#: tools/Backups.svelte:97
 #, fuzzy
 msgid "Started {time}"
 msgstr "{time}に開始"
 
-#: tools/Backups.svelte:48
+#: tools/Backups.svelte:99
 #, fuzzy
 msgid "No backup yet"
 msgstr "まだバックアップがありません"
 
-#: tools/Backups.svelte:48
+#: tools/Backups.svelte:99
 #, fuzzy
 msgid "Back up now to make the first."
 msgstr "今すぐバックアップして最初の1つを作成します。"
 
-#: tools/Backups.svelte:50
+#: tools/Backups.svelte:100
 #, fuzzy
 msgid "Backed up"
 msgstr "バックアップ済み"
 
-#: tools/Backups.svelte:52
+#: tools/Backups.svelte:101
 #, fuzzy
 msgid "The last backup failed"
 msgstr "前回のバックアップは失敗しました"
 
-#: tools/Backups.svelte:56
+#: tools/Backups.svelte:111
+msgid "The backup of {date} is back"
+msgstr ""
+
+#: tools/Backups.svelte:112
+msgid "Everyone signs in as before, with their old password. Sign in again to go on."
+msgstr ""
+
+#: tools/Backups.svelte:112
+msgid "Its apps are running again."
+msgstr ""
+
+#: tools/Backups.svelte:114
+msgid "Not everything came back"
+msgstr ""
+
+#: tools/Backups.svelte:114
+msgid "Each app that didn't is below."
+msgstr ""
+
+#: tools/Backups.svelte:118
+msgid "Sign in again"
+msgstr ""
+
+#: tools/Backups.svelte:124
+msgid "Back up to a USB drive of your own, plugged into the box. Photos are copied as they are; everything else is locked with a backup key you print."
+msgstr ""
+
+#: tools/Backups.svelte:125 tools/Backups.svelte:177
+msgid "Choose a backup drive"
+msgstr ""
+
+#: tools/Backups.svelte:125
+msgid "A drive used only for backups is best. Nothing on it is erased."
+msgstr ""
+
+#: tools/Backups.svelte:126
+msgid "Choose a drive"
+msgstr ""
+
+#: tools/Backups.svelte:132
 #, fuzzy
 msgid "Every app's data and the accounts, as they are now."
 msgstr "すべてのアプリのデータとアカウントを、今の状態で。"
 
-#: tools/Backups.svelte:63
+#: tools/Backups.svelte:139
 #, fuzzy
 msgid "Next: {time}"
 msgstr "次回：{time}"
 
-#: tools/Backups.svelte:63
-#, fuzzy
-msgid "Every night at 4:00, while the family sleeps."
-msgstr "家族が寝ている毎晩4:00に。"
+#: tools/Backups.svelte:139
+msgid "Every night at 4:00, while the family sleeps. Leave the drive plugged in."
+msgstr ""
 
-#: tools/Backups.svelte:66
-#, fuzzy
-msgid "Where they go"
-msgstr "保存先"
+#: tools/Backups.svelte:142
+msgid "Backup drive"
+msgstr ""
 
-#: tools/Backups.svelte:66
-#, fuzzy
-msgid "Keep them on another drive or computer than the box's."
-msgstr "ボックスとは別のドライブやパソコンに保存してください。"
+#: tools/Backups.svelte:143
+msgid "Plugged in"
+msgstr ""
 
-#: tools/Backups.svelte:67
-#, fuzzy
-msgid "Not known"
-msgstr "不明"
+#: tools/Backups.svelte:143
+msgid "Not plugged in"
+msgstr ""
 
-#: tools/Backups.svelte:71
+#: tools/Backups.svelte:144
+msgid "Change"
+msgstr ""
+
+#: tools/Backups.svelte:146
+msgid "Needed to bring a backup back, on this box or a new one. Keep the printed key away from the drive."
+msgstr ""
+
+#: tools/Backups.svelte:151
 #, fuzzy
 msgid "What went wrong last time"
 msgstr "前回うまくいかなかったこと"
 
-#: tools/Backups.svelte:71
+#: tools/Backups.svelte:151
 #, fuzzy
 msgid "The other apps were backed up. Older backups are kept."
 msgstr "ほかのアプリはバックアップされました。以前のバックアップは残ります。"
+
+#: tools/Backups.svelte:155
+msgid "What's backed up"
+msgstr ""
+
+#: tools/Backups.svelte:155
+msgid "Photos and documents are copied as they are, in folders by person, year and month. Older copies and deleted files are kept 30 days."
+msgstr ""
+
+#: tools/Backups.svelte:157
+msgid "Always backed up: no app opens without the accounts."
+msgstr ""
+
+#: tools/Backups.svelte:167
+msgid "On a new box: finish the setup, install the apps from App Center, then bring their data back here."
+msgstr ""
+
+#: tools/Backups.svelte:168
+msgid "Choose the drive and the backup, then type the backup key."
+msgstr ""
+
+#: tools/Backups.svelte:169 tools/RestoreBackup.svelte:97 tools/RestoreBackup.svelte:159
+msgid "Bring back"
+msgstr ""
+
+#: tools/Backups.svelte:178
+msgid "Plug a USB drive into the box. It may be formatted for Windows, Mac or Linux."
+msgstr ""
+
+#: tools/Backups.svelte:180
+msgid "No drive found"
+msgstr ""
+
+#: tools/Backups.svelte:180
+msgid "Plug one in, then look again."
+msgstr ""
+
+#: tools/Backups.svelte:182
+msgid "in use"
+msgstr ""
+
+#: tools/Backups.svelte:182
+msgid "has backups"
+msgstr ""
+
+#: tools/Backups.svelte:183
+msgid "Use"
+msgstr ""
 
 #: tools/ByApp.svelte:18
 #, fuzzy
@@ -4421,6 +4574,82 @@ msgstr "システムをリセット"
 #, fuzzy
 msgid "Erases everything, leaving the box as new. Needs the setup code from the sticker."
 msgstr "すべて消去し、新品の状態に戻します。ステッカーのセットアップコードが必要です。"
+
+#: tools/RestoreBackup.svelte:74
+msgid "Not installed on this box. Install it from App Center first."
+msgstr ""
+
+#: tools/RestoreBackup.svelte:75
+msgid "The backup is from version {version}. Update it first."
+msgstr ""
+
+#: tools/RestoreBackup.svelte:76
+msgid "Everyone's accounts, passwords and two-step sign-in, as they were. The admin made at the first setup goes."
+msgstr ""
+
+#: tools/RestoreBackup.svelte:77
+msgid "Replaces what {app} has now"
+msgstr ""
+
+#: tools/RestoreBackup.svelte:78
+msgid "{n} files from the drive"
+msgstr ""
+
+#: tools/RestoreBackup.svelte:84
+msgid "Choose what to bring back."
+msgstr ""
+
+#: tools/RestoreBackup.svelte:94
+msgid "Bring this backup back?"
+msgstr ""
+
+#: tools/RestoreBackup.svelte:95
+msgid "What is on the box now for the apps you chose is replaced by the backup of {date}. The apps stop while it comes back."
+msgstr ""
+
+#: tools/RestoreBackup.svelte:106
+msgid "Plug the backup drive into the box."
+msgstr ""
+
+#: tools/RestoreBackup.svelte:107
+msgid "No backup drive found"
+msgstr ""
+
+#: tools/RestoreBackup.svelte:107
+msgid "Plug in the drive with the ZOOMRIYA Backup folder, then look again."
+msgstr ""
+
+#: tools/RestoreBackup.svelte:115
+msgid "Choose a backup, then type the backup key printed when the drive was chosen."
+msgstr ""
+
+#: tools/RestoreBackup.svelte:116
+msgid "No backups on this drive yet"
+msgstr ""
+
+#: tools/RestoreBackup.svelte:120
+msgid "{n} apps"
+msgstr ""
+
+#: tools/RestoreBackup.svelte:128
+msgid "Open backup"
+msgstr ""
+
+#: tools/RestoreBackup.svelte:131
+msgid "The backup of {date}. Choose what comes back."
+msgstr ""
+
+#: tools/RestoreBackup.svelte:146
+msgid "I forgot my old password"
+msgstr ""
+
+#: tools/RestoreBackup.svelte:149
+msgid "Your account comes back with a new password, and you set up two-step sign-in again. The backup key proves the backup is yours."
+msgstr ""
+
+#: tools/RestoreBackup.svelte:150
+msgid "Your account"
+msgstr ""
 
 #: tools/ReviewBundle.svelte:31
 #, fuzzy

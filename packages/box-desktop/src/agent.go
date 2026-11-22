@@ -61,7 +61,9 @@ var agentRules = map[string]Rule{
 	"advanced-access":       {PasswordActions: []string{"on", "key-add"}},
 	"apps":                  {PasswordActions: []string{"restore", "remove", "install"}},
 	"pictures":              {},
-	"backups":               {},
+	// Choosing the drive and showing the backup key, and bringing a backup
+	// back, ask for the password again.
+	"backups": {PasswordActions: []string{"setup", "key", "restore"}},
 	// Myira's model: fetched or copied from a stick, when an admin asks (BD-17).
 	"model": {},
 	// Can't sign in?: the setup code from the sticker lets an admin back in.

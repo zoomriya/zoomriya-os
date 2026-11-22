@@ -86,9 +86,8 @@ Keeping app dependencies out of the host means:
   carries its own.
 
 The same goes for ZOOMRIYA ID and our platform services in zoomriya-apps (the box
-service, backups, maps): each is an image. Backups'
-image carries `restic` and `pg_dump`, the latter matching the host's PostgreSQL
-major version.
+service, maps): each is an image. Backups are the OS's own
+([§6.10](#610-backups)), using the host's `pg_dump`.
 
 The box's language model is the exception: its service is part of ZOOMRIYA OS
 (`zoomriya-model`, [Box Desktop §4](box-desktop.md#myira)), so Box Desktop's
@@ -105,7 +104,7 @@ an image. The host still has some packages that will move into app images:
 | `ffmpeg`, installed with `apt` for the workers | Photos' image (already there); removed from the host |
 | Qdrant, a binary installed by `run_qdrant.sh` | Photos' image, as its own unit from the same image |
 | ZOOMRIYA ID, the box service, Vault, Chat, Tracker, Planner, Myira, in venvs under `/opt/zoomriya/<app>/venv` | One image each |
-| `restic` and the maps tools | The backup and maps images |
+| The maps tools | The maps image |
 
 Each app will follow the pattern used for Photos. Completing that migration is
 necessary for this design.
@@ -691,6 +690,88 @@ data too" (then `dropdb`). Each is audited and sends an `apps` notification.
 who may install what (a plan, [§7.3](#73-who-gets-what)); an app's own
 diagnostics in the bundle; installing from a stick in the VM test.
 
+### 6.10 Backups
+
+The box backs up to a drive the admin plugs into it, chosen in Box Desktop's
+Storage Manager › Backups (decided 2026-11-22, replacing restic). It is the
+OS's own, in `zoomriya-agent` (`backups.go`, `backuprun.go`,
+`backuprestore.go`), so it works on a box with no apps: ZOOMRIYA ID is
+always in it.
+
+**On the drive,** in a `ZOOMRIYA Backup` folder:
+
+| Folder | What | Sealed |
+| --- | --- | --- |
+| `Photos/<person>/<year>/<year-month>/`, `Vault/<member>/`… | Files an app lists, under the names it gives | No: Photos open on any computer; Vault's documents stay sealed by each member's PIN |
+| `Older versions/<date>/` | A listed file's copy before it changed | As above |
+| `Deleted/<date>/` | A listed file gone from the box | As above |
+| `App data/<date time>/` | One backup: `backup.json` (its date, the box, each part and version), each part's archive (`<id>.zbak.001`…), and the admins' usernames (`accounts.zbak`) | Yes, with the backup key |
+| `.zoomriya/` | The key check, and the list of copies (where each came from, its size, time and SHA-256) | The key check |
+
+**What an app gives.** Its manifest may name a `backup_list` template unit
+([§6.9](#69-app-center-apps-from-a-usb-stick)). The backup starts it first; it
+writes `/data/apps/<id>/backup/files.jsonl`, one `{"path": …, "as": …}` per
+file to copy as it is: a path in its folder, or an absolute one on the
+library drives (`/data/zoomriya/volumes/…`, where Photos keeps originals).
+Everything else of the app, its databases, the rest of `/data/apps/<id>` and
+its box key (`/etc/zoomriya/<id>.key`, the one that seals Health's records or
+Tracker's places at rest), goes into its sealed archive, with that list. A
+restore puts the box key back, replacing the one a new install made.
+
+**A backup** (`zoomriya-backup.service`: Back up now, or nightly at 04:00 once
+an admin turns `zoomriya-backup.timer` on):
+
+1. The drive, found by its filesystem's UUID, is mounted
+   `nosuid,nodev,noexec` only while the backup runs.
+2. Each part in turn, ZOOMRIYA ID first, then each app an admin didn't leave
+   out. A listed file is copied only when it changed; the copy before goes to
+   Older versions, and a file gone from the box goes to Deleted. Each copy is
+   synced, read back and its SHA-256 checked. Nothing is overwritten or
+   deleted at once.
+3. Databases are dumped (`pg_dump -Fc`) as `zoomriya-backup`, a role that
+   reads every database and isn't a superuser, with row security on and
+   `zoomriya.backup=on`: Family Chat's private chats are never in a backup.
+4. A part that fails is named, in the bell and in Backups; the others are
+   still backed up, and its earlier copies stay.
+5. Kept: every backup of the last 14 days and the first of each month for a
+   year; Older versions and Deleted 30 days.
+
+**The backup key** is made when the drive is chosen: 15 random bytes, shown as
+24 letters and digits in six groups (Crockford's base32, so O/0 and I/L/1
+read the same), to print or write down. The box keeps it in
+`/etc/zoomriya/backup.key` (root, `0600`) and shows it again with the
+password. A sealed file is `ZOOMRIYA-BACKUP-1`, a salt, then 1 MiB chunks of
+AES-256-GCM under HKDF-SHA256(key, salt); the last chunk is marked, so a file
+cut short fails. Archives are split in 1 GiB parts, as FAT32 takes no file
+over 4 GiB. A drive with another key's backups is refused.
+
+**Bringing a backup back** is never part of the first setup: set the box up,
+install the apps from App Center, then Storage Manager › Backups › Bring a
+backup back. Choose the drive and a backup, type the backup key; Box Desktop
+shows each part: ready, not installed (App Center first) or from a newer
+version (update first). With the password again it runs as
+`zoomriya-restore`, ZOOMRIYA ID first: stop the part, open its archive, put
+its folder and its listed files back (each found by its SHA-256 in the copy,
+Older versions or Deleted), recreate its databases from the dumps, and start
+it (migrating, as an install does). A part's new folder is put together
+beside the old one and swapped in only once it all read back right.
+
+**The accounts come back as they were:** every password, second step and
+signed-in device; the admin made at the first setup goes. An admin who
+forgot their old password names their account and a new one: the backup key
+proves the backup is theirs, as the setup code does at the box, and the agent
+runs ZOOMRIYA ID's `app.recover_admin`. Every restore writes "This box was
+restored from the backup of … by …" in the family's activity
+(`app.restored`) and on the bell. Restoring apps without the accounts is
+refused unless the backup is from this box. ZOOMRIYA Connect's box key is
+never in a backup, so on a new box phones pair with ZOOMRIYA Connect again.
+
+**Still open:** OS-15 to OS-20 in [§12](#12-open-decisions).
+
+**Not in a backup:** the OS itself (restore points cover it), the box's own
+settings (the first setup asks them again), ZOOMRIYA Connect's box key,
+private chats, and the backup key itself.
+
 ## 7. zoomriya-agent
 
 `zoomriya-agent` is the only helper the OS adds that runs as root. It is a
@@ -725,7 +806,7 @@ arbitrary commands:
 | `logs` | Box events, the audit log and admins' sign-ins, filtered, with no family content, a hundred entries at a time, newest first |
 | `shutdown` | Shut the box down |
 | `advanced-access` | Turn advanced access on or off; list, add and remove its keys ([§7.1](#71-advanced-access)) |
-| `backups` | The box's backup as systemd runs it (zoomriya-apps' `zoomriya-backup.service` and its nightly timer): set up or not, running, the last run's start, end and result, its problems from the journal (that run's `ERROR:` lines), the next nightly run, and where the backups go, any password taken out. Back up now (`systemctl start --no-block`), and the nightly timer on or off. Never reads restic's password or the backups |
+| `backups` | The box's backup ([§6.10](#610-backups)): its state (the drive and whether it's plugged in, the last backup and its problems, a backup or restore running and its step, the nightly backup and the next one, the apps in it); `drives` (USB drives it could use, and whether each has backups); `setup` (the drive; makes the key); `key`; `now`; `nightly`; `app` (in or left out); `list` (the backups on a drive); `check` (with the backup key: what would come back); `restore`. Setup, key and restore need the password again |
 | `model` | Myira's model ([Box Desktop §4](box-desktop.md#myira), BD-17): what's there and how far a download or copy has got; download it (as its own unit, `zoomriya-agent model-fetch`, run as `zoomriya-model-fetch`, the account of the model's declared connection, so the firewall decides); find it on the USB sticks; copy it from one (`zoomriya-agent model-copy`). Each file checked against its size and SHA-256 before it's put in `/data/models/llms` |
 | `language-set` | The box's language: English or French only for now ([Box Desktop §5](box-desktop.md#5-words)); any other is refused |
 | `pictures` | The JPEG and PNG pictures on the USB sticks plugged in, each with a small preview; one of them made into a new JPEG for Box Desktop's background, scaled to at most 3840 pixels across and turned the right way up, never the file itself ([Box Desktop §3](box-desktop.md#3-the-desktop)). Read only |
@@ -1231,6 +1312,12 @@ tests/             VM tests: first boot, updates, rollback, fallback
 | OS-12 | Scheduling app updates ([§6.2](#62-app-releases)) | (a) only when an admin presses Update, (b) also on a schedule the admin chooses | Open |
 | OS-13 | Box Desktop's own decisions: Family Hub's Update button, notifications, where each admin's settings live | [Box Desktop §10](box-desktop.md#10-open-decisions) | Open |
 | OS-14 | Wi-Fi ([§5.1](#51-wi-fi)) | (a) the cable only: Wi-Fi stays off, (b) joined in Box Desktop after setup, (c) also a setup hotspot | Decided (a): Wi-Fi shown turned off on a box that has it, not shown on one that doesn't |
+| OS-15 | The apps' own backup switches ([§6.10](#610-backups)): Family Hub's, Photos', Chat's, Planner's, Vault's and Myira's Settings still drive zoomriya-apps' old restic backup; on the box the switches are in Box Desktop › Backups | (a) remove them from the apps, (b) the apps read and change the box's setting through the agent, (c) the apps show it read-only with a link to Box Desktop | Open |
+| OS-16 | Each app's `backup_list` unit ([§6.10](#610-backups)): Photos (`app.backup_list`) and Vault (`app.backup_list`) write their lists, but no `.zapp` names the unit yet, since zoomriya-apps isn't packaged for App Center | Add `zoomriya-<id>-backup-list@.service` to each package when packaging is built; until then they go only into the sealed archive | Open |
+| OS-17 | zoomriya-apps' restic backup (`platform/backup`), still used where the apps run without the box (our servers, development) | (a) keep it there, (b) the same drive format there too, (c) drop it | Open |
+| OS-18 | The restore notice ([§6.10](#610-backups)): today a line in the family's activity and on the admins' bell | (a) as it is, (b) also a notice for every member at their next sign-in (ZOOMRIYA ID and each app's sign-in) | Open |
+| OS-19 | Backup and restore on a real box ([§6.10](#610-backups)): the unit tests use a folder for the drive and stand-ins for `mount`, `pg_dump` and `pg_restore` | A VM test with a USB drive (exFAT, NTFS, ext4, FAT32 over 4 GiB), a real restore onto a fresh box, and printing the key from the box's own screen | Open |
+| OS-20 | Opening a member's Vault from the backup drive without a box ("Open Vault" reader) | A small reader on the drive or on zoomriya.com that opens `Vault/<member>/` with their PIN or recovery key | Later |
 
 ## 13. Plan
 

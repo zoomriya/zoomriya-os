@@ -70,6 +70,11 @@ type Manifest struct {
 	Units   []string `json:"units"`
 	Start   []string `json:"start"`
 	Migrate string   `json:"migrate,omitempty"`
+	// BackupList: a template unit the backup starts first, which writes the
+	// files to copy to the backup drive as they are, under readable names, to
+	// /data/apps/<id>/backup/files.jsonl (design §6.10). None: everything goes
+	// into the app's sealed archive.
+	BackupList string `json:"backup_list,omitempty"`
 	// Data: it keeps the family's data in /data/apps/<id>; Databases: its
 	// PostgreSQL databases. Both may be deleted when the app is removed.
 	Data      bool            `json:"data"`
@@ -107,8 +112,10 @@ func (m *Manifest) Validate() error {
 		wanted[u] = true
 	}
 	templates := append([]string{}, m.Start...)
-	if m.Migrate != "" {
-		templates = append(templates, m.Migrate)
+	for _, t := range []string{m.Migrate, m.BackupList} {
+		if t != "" {
+			templates = append(templates, t)
+		}
 	}
 	if len(m.Start) == 0 {
 		return errors.New("the app starts nothing")

@@ -75,7 +75,7 @@ var boxTools = []boxTool{
 		agentTool("storage", nil)},
 	{ToolOffer{toolApp, "drive_health", "Drive health", "Each drive's health, temperature and age, and whether one should be replaced.", noArgs, false},
 		agentTool("disk-health", nil)},
-	{ToolOffer{toolApp, "backups", "Backups", "Whether backups are set up, where to, when the last one ran, and the nightly backup.", noArgs, false},
+	{ToolOffer{toolApp, "backups", "Backups", "Whether backups are set up, the backup drive and whether it is plugged in, when the last one ran and how it went, and the nightly backup.", noArgs, false},
 		agentTool("backups", nil)},
 	{ToolOffer{toolApp, "security", "Security and updates", "Security fixes (automatic, last check, last installed, waiting), the firewall, the certificate and the box's other protections.", noArgs, false},
 		agentTool("security", nil)},

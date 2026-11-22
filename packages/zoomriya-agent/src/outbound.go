@@ -45,7 +45,6 @@ var whoFor = map[string]string{
 	"zoomriya-id":      "ZOOMRIYA ID",
 	"zoomriya-connect": "ZOOMRIYA Connect",
 	"zoomriya-maps":    "Street map",
-	"zoomriya-backup":  "Backups",
 }
 
 // accounts maps uid to name, from the box's /etc/passwd.

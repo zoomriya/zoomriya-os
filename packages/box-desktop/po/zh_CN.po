@@ -220,7 +220,7 @@ msgstr "日志中心"
 msgid "Support Center"
 msgstr "支持中心"
 
-#: lib/desk.svelte.ts:40 lib/words.ts:295 pages/Setup.svelte:16 pages/Widgets.svelte:90 tools/Resources.svelte:43
+#: lib/desk.svelte.ts:40 lib/words.ts:297 pages/Setup.svelte:16 pages/Widgets.svelte:90 tools/Resources.svelte:43
 #, fuzzy
 msgid "Network"
 msgstr "网络"
@@ -279,7 +279,7 @@ msgstr "安全"
 msgid "Advanced access"
 msgstr "高级访问"
 
-#: lib/desk.svelte.ts:44 lib/words.ts:293
+#: lib/desk.svelte.ts:44 lib/words.ts:295
 #, fuzzy
 msgid "Restarts"
 msgstr "重启"
@@ -309,7 +309,7 @@ msgstr "磁盘"
 msgid "Space"
 msgstr "空间"
 
-#: lib/desk.svelte.ts:48 tools/Backups.svelte:40 tools/Backups.svelte:55
+#: lib/desk.svelte.ts:48 lib/words.ts:302 tools/Backups.svelte:124 tools/Backups.svelte:131
 #, fuzzy
 msgid "Backups"
 msgstr "备份"
@@ -614,9 +614,8 @@ msgid "space usage full photos apps databases"
 msgstr "空间 使用 已满 照片 应用 数据库"
 
 #: lib/words.ts:175
-#, fuzzy
-msgid "backup backups restic copy nightly restore safe offsite"
-msgstr "备份 恢复 复制 每晚 安全 异地"
+msgid "backup backups drive usb key copy nightly restore bring back safe"
+msgstr ""
 
 #: lib/words.ts:176
 #, fuzzy
@@ -849,7 +848,7 @@ msgstr "时间同步"
 msgid "Add a person"
 msgstr "添加用户"
 
-#: lib/words.ts:227 pages/SignIn.svelte:192 pages/SignIn.svelte:220 tools/EditPerson.svelte:86
+#: lib/words.ts:227 pages/SignIn.svelte:192 pages/SignIn.svelte:220 tools/EditPerson.svelte:86 tools/RestoreBackup.svelte:153
 #, fuzzy
 msgid "New password"
 msgstr "新密码"
@@ -994,517 +993,529 @@ msgstr "资料库"
 msgid "Check the library for damage"
 msgstr "检查资料库是否损坏"
 
-#: lib/words.ts:256 tools/Backups.svelte:56 tools/Backups.svelte:59
+#: lib/words.ts:256 tools/Backups.svelte:132 tools/Backups.svelte:135
 #, fuzzy
 msgid "Back up now"
 msgstr "立即备份"
 
-#: lib/words.ts:257 tools/Backups.svelte:62 tools/Backups.svelte:64
+#: lib/words.ts:257 tools/Backups.svelte:138 tools/Backups.svelte:140
 #, fuzzy
 msgid "Nightly backup"
 msgstr "每晚备份"
 
-#: lib/words.ts:258 tools/Display.svelte:130
+#: lib/words.ts:258 tools/Backups.svelte:146 tools/RestoreBackup.svelte:123
+msgid "Backup key"
+msgstr ""
+
+#: lib/words.ts:259 tools/Backups.svelte:166 tools/Backups.svelte:168 tools/RestoreBackup.svelte:104
+msgid "Bring a backup back"
+msgstr ""
+
+#: lib/words.ts:260 tools/Display.svelte:130
 #, fuzzy
 msgid "Lock the screen after"
 msgstr "锁定屏幕前等待"
 
-#: lib/words.ts:259 tools/Display.svelte:131
+#: lib/words.ts:261 tools/Display.svelte:131
 #, fuzzy
 msgid "Turn the screen off after"
 msgstr "关闭屏幕前等待"
 
-#: lib/words.ts:260 tools/Contact.svelte:30 tools/Diagnostics.svelte:48
+#: lib/words.ts:262 tools/Contact.svelte:30 tools/Diagnostics.svelte:48
 #, fuzzy
 msgid "Make a bundle"
 msgstr "生成诊断包"
 
-#: lib/words.ts:261 tools/SaveBundle.svelte:42
+#: lib/words.ts:263 tools/SaveBundle.svelte:42
 #, fuzzy
 msgid "Save to a USB stick"
 msgstr "保存到 U 盘"
 
-#: lib/words.ts:262 tools/Contact.svelte:23
+#: lib/words.ts:264 tools/Contact.svelte:23
 #, fuzzy
 msgid "Contact ZOOMRIYA support"
 msgstr "联系 ZOOMRIYA 支持"
 
-#: lib/words.ts:263 tools/Contact.svelte:16
+#: lib/words.ts:265 tools/Contact.svelte:16
 #, fuzzy
 msgid "Serial number"
 msgstr "序列号"
 
-#: lib/words.ts:268 pages/MainMenu.svelte:113
+#: lib/words.ts:270 pages/MainMenu.svelte:113
 #, fuzzy
 msgid "Restart the box"
 msgstr "重启盒子"
 
-#: lib/words.ts:268
+#: lib/words.ts:270
 #, fuzzy
 msgid "reboot"
 msgstr "重启"
 
-#: lib/words.ts:269 tools/Restarts.svelte:73
+#: lib/words.ts:271 tools/Restarts.svelte:73
 #, fuzzy
 msgid "Shut down system"
 msgstr "关机"
 
-#: lib/words.ts:269
+#: lib/words.ts:271
 #, fuzzy
 msgid "power off turn off"
 msgstr "关机 关闭"
 
-#: lib/words.ts:270 pages/MainMenu.svelte:112
+#: lib/words.ts:272 pages/MainMenu.svelte:112
 #, fuzzy
 msgid "Lock screen"
 msgstr "锁定屏幕"
 
-#: lib/words.ts:270
+#: lib/words.ts:272
 #, fuzzy
 msgid "lock away screen saver leave"
 msgstr "锁定 离开 屏保"
 
-#: lib/words.ts:271 pages/MainMenu.svelte:112
+#: lib/words.ts:273 pages/MainMenu.svelte:112
 #, fuzzy
 msgid "Open Family Hub on a phone"
 msgstr "在手机上打开 Family Hub"
 
-#: lib/words.ts:271
+#: lib/words.ts:273
 #, fuzzy
 msgid "qr code phone mobile address family hub"
 msgstr "二维码 手机 移动 地址 Family Hub"
 
-#: lib/words.ts:272 pages/MainMenu.svelte:113
+#: lib/words.ts:274 pages/MainMenu.svelte:113
 #, fuzzy
 msgid "Sign out"
 msgstr "退出登录"
 
-#: lib/words.ts:272
+#: lib/words.ts:274
 #, fuzzy
 msgid "log out logout switch user"
 msgstr "退出 注销 切换用户"
 
-#: lib/words.ts:273 tools/Appearance.svelte:28
+#: lib/words.ts:275 tools/Appearance.svelte:28
 #, fuzzy
 msgid "Midnight"
 msgstr "深色"
 
-#: lib/words.ts:273
+#: lib/words.ts:275
 #, fuzzy
 msgid "dark theme night"
 msgstr "深色 主题 夜间"
 
-#: lib/words.ts:274 tools/Appearance.svelte:28
+#: lib/words.ts:276 tools/Appearance.svelte:28
 #, fuzzy
 msgid "Daylight"
 msgstr "浅色"
 
-#: lib/words.ts:274
+#: lib/words.ts:276
 #, fuzzy
 msgid "light theme day"
 msgstr "浅色 主题 白天"
 
-#: lib/words.ts:275 pages/TopBar.svelte:138 pages/TopBar.svelte:138 pages/Widgets.svelte:38
+#: lib/words.ts:277 pages/TopBar.svelte:138 pages/TopBar.svelte:138 pages/Widgets.svelte:38
 #, fuzzy
 msgid "Widgets"
 msgstr "小组件"
 
-#: lib/words.ts:275
+#: lib/words.ts:277
 #, fuzzy
 msgid "side panel health cpu space"
 msgstr "侧边栏 健康 处理器 空间"
 
-#: lib/words.ts:280
+#: lib/words.ts:282
 #, fuzzy
 msgid "Something stopped working after an update"
 msgstr "更新后某些功能不能用了"
 
-#: lib/words.ts:280
+#: lib/words.ts:282
 #, fuzzy
 msgid "Restore the OS to before the update. Family files stay."
 msgstr "把系统还原到更新之前。家人的文件会保留。"
 
-#: lib/words.ts:281
+#: lib/words.ts:283
 #, fuzzy
 msgid "A drive needs checking"
 msgstr "有磁盘需要检查"
 
-#: lib/words.ts:281
+#: lib/words.ts:283
 #, fuzzy
 msgid "See which drive, and why. Replace it with one as big or bigger."
 msgstr "查看是哪块磁盘及原因。换一块同样大或更大的。"
 
-#: lib/words.ts:282
+#: lib/words.ts:284
 #, fuzzy
 msgid "The box is slow"
 msgstr "盒子变慢了"
 
-#: lib/words.ts:282
+#: lib/words.ts:284
 #, fuzzy
 msgid "See which app is busy. Photos works hard after many new photos."
 msgstr "查看哪个应用正忙。新增大量照片后，照片应用会忙一阵子。"
 
-#: lib/words.ts:283
+#: lib/words.ts:285
 #, fuzzy
 msgid "The box restarted by itself"
 msgstr "盒子自己重启了"
 
-#: lib/words.ts:283
+#: lib/words.ts:285
 #, fuzzy
 msgid "Updates finish at the maintenance hour. You can change the hour."
 msgstr "更新会在维护时间完成。可以更改时间。"
 
-#: lib/words.ts:284
+#: lib/words.ts:286
 #, fuzzy
 msgid "Family Hub doesn't open on the home network"
 msgstr "在家打不开 Family Hub"
 
-#: lib/words.ts:284
+#: lib/words.ts:286
 #, fuzzy
 msgid "Check the cable to the router, and the box's address."
 msgstr "检查连接路由器的网线和盒子的地址。"
 
-#: lib/words.ts:285
+#: lib/words.ts:287
 #, fuzzy
 msgid "Someone can't sign in"
 msgstr "有人无法登录"
 
-#: lib/words.ts:285
+#: lib/words.ts:287
 #, fuzzy
 msgid "Let them type a new password, or turn their account back on."
 msgstr "请对方输入新密码，或重新启用其账户。"
 
-#: lib/words.ts:286
+#: lib/words.ts:288
 #, fuzzy
 msgid "Who changed a setting?"
 msgstr "是谁改了设置？"
 
-#: lib/words.ts:286
+#: lib/words.ts:288
 #, fuzzy
 msgid "Every change, with who and when."
 msgstr "每项更改，以及是谁、何时。"
 
-#: lib/words.ts:291
+#: lib/words.ts:293
 #, fuzzy
 msgid "Drive Health"
 msgstr "磁盘健康"
 
-#: lib/words.ts:291
+#: lib/words.ts:293
 #, fuzzy
 msgid "When to check or replace, and when healthy."
 msgstr "何时需要检查或更换，以及何时恢复正常。"
 
-#: lib/words.ts:292
+#: lib/words.ts:294
 #, fuzzy
 msgid "Updates"
 msgstr "更新"
 
-#: lib/words.ts:292
+#: lib/words.ts:294
 #, fuzzy
 msgid "When security fixes are installed."
 msgstr "安装了安全修复时。"
 
-#: lib/words.ts:293
+#: lib/words.ts:295
 #, fuzzy
 msgid "Auto-restart schedule for updates and restores."
 msgstr "更新和还原的自动重启时间。"
 
-#: lib/words.ts:294
+#: lib/words.ts:296
 #, fuzzy
 msgid "Library Check"
 msgstr "资料库检查"
 
-#: lib/words.ts:294
+#: lib/words.ts:296
 #, fuzzy
 msgid "Library scan completion time and results."
 msgstr "资料库扫描的完成时间和结果。"
 
-#: lib/words.ts:295
+#: lib/words.ts:297
 #, fuzzy
 msgid "Network settings weren't kept and were rolled back."
 msgstr "网络设置未保留，已撤销。"
 
-#: lib/words.ts:296 tools/Security.svelte:143
+#: lib/words.ts:298 tools/Security.svelte:143
 #, fuzzy
 msgid "Secure Connections"
 msgstr "安全连接"
 
-#: lib/words.ts:296
+#: lib/words.ts:298
 #, fuzzy
 msgid "When the box's certificate can't be made or renewed, or is running out."
 msgstr "盒子的证书无法创建或续期，或即将过期时。"
 
-#: lib/words.ts:297
+#: lib/words.ts:299
 #, fuzzy
 msgid "Admin Sign-in"
 msgstr "管理员登录"
 
-#: lib/words.ts:297
+#: lib/words.ts:299
 #, fuzzy
 msgid "When an admin is let back in at the box with the setup code, or a wrong code is typed."
 msgstr "管理员在盒子上用设置码恢复访问，或输入了错误的设置码时。"
 
-#: lib/words.ts:298
+#: lib/words.ts:300
 #, fuzzy
 msgid "Advanced Access"
 msgstr "高级访问"
 
-#: lib/words.ts:298
+#: lib/words.ts:300
 #, fuzzy
 msgid "When SSH access is turned on or off."
 msgstr "SSH 访问开启或关闭时。"
 
-#: lib/words.ts:299
+#: lib/words.ts:301
 #, fuzzy
 msgid "Apps"
 msgstr "应用"
 
-#: lib/words.ts:299
+#: lib/words.ts:301
 #, fuzzy
 msgid "When an app is installed, restored or removed."
 msgstr "应用安装、还原或移除时。"
 
-#: lib/words.ts:303
+#: lib/words.ts:302
+msgid "When a backup fails or misses something, and when one is brought back."
+msgstr ""
+
+#: lib/words.ts:306
 #, fuzzy
 msgid "Everything offline is on"
 msgstr "“全部离线”已开启"
 
-#: lib/words.ts:303
+#: lib/words.ts:306
 #, fuzzy
 msgid "Apps offline is on"
 msgstr "“应用离线”已开启"
 
-#: lib/words.ts:303
+#: lib/words.ts:306
 #, fuzzy
 msgid "Switched off"
 msgstr "已关闭"
 
-#: lib/words.ts:307
+#: lib/words.ts:310
 #, fuzzy
 msgid "Blue"
 msgstr "蓝色"
 
-#: lib/words.ts:308
+#: lib/words.ts:311
 #, fuzzy
 msgid "Teal"
 msgstr "青色"
 
-#: lib/words.ts:309
+#: lib/words.ts:312
 #, fuzzy
 msgid "Green"
 msgstr "绿色"
 
-#: lib/words.ts:310
+#: lib/words.ts:313
 #, fuzzy
 msgid "Yellow"
 msgstr "黄色"
 
-#: lib/words.ts:311
+#: lib/words.ts:314
 #, fuzzy
 msgid "Orange"
 msgstr "橙色"
 
-#: lib/words.ts:312
+#: lib/words.ts:315
 #, fuzzy
 msgid "Red"
 msgstr "红色"
 
-#: lib/words.ts:313
+#: lib/words.ts:316
 #, fuzzy
 msgid "Pink"
 msgstr "粉色"
 
-#: lib/words.ts:314
+#: lib/words.ts:317
 #, fuzzy
 msgid "Purple"
 msgstr "紫色"
 
-#: lib/words.ts:315
+#: lib/words.ts:318
 #, fuzzy
 msgid "Slate"
 msgstr "石板灰"
 
-#: lib/words.ts:321
+#: lib/words.ts:324
 #, fuzzy
 msgid "Jellyfish"
 msgstr "水母"
 
-#: lib/words.ts:322
+#: lib/words.ts:325
 #, fuzzy
 msgid "Hills"
 msgstr "山丘"
 
-#: lib/words.ts:323
+#: lib/words.ts:326
 #, fuzzy
 msgid "Lakeside"
 msgstr "湖畔"
 
-#: lib/words.ts:327
+#: lib/words.ts:330
 #, fuzzy
 msgid "Night"
 msgstr "夜色"
 
-#: lib/words.ts:328
+#: lib/words.ts:331
 #, fuzzy
 msgid "Ocean"
 msgstr "海洋"
 
-#: lib/words.ts:329
+#: lib/words.ts:332
 #, fuzzy
 msgid "Forest"
 msgstr "森林"
 
-#: lib/words.ts:330
+#: lib/words.ts:333
 #, fuzzy
 msgid "Plum"
 msgstr "梅紫"
 
-#: lib/words.ts:331
+#: lib/words.ts:334
 #, fuzzy
 msgid "Graphite"
 msgstr "石墨"
 
-#: lib/words.ts:339
+#: lib/words.ts:342
 #, fuzzy
 msgid "Sign-in"
 msgstr "登录"
 
-#: lib/words.ts:340
+#: lib/words.ts:343
 #, fuzzy
 msgid "Wrong try"
 msgstr "尝试失败"
 
-#: lib/words.ts:341
+#: lib/words.ts:344
 #, fuzzy
 msgid "Second step"
 msgstr "第二步"
 
-#: lib/words.ts:342 pages/Lock.svelte:43 pages/SignIn.svelte:188 tools/AddPerson.svelte:71 tools/Connect.svelte:122 tools/Connect.svelte:122 tools/Connect.svelte:162 tools/Connect.svelte:162 tools/EditPerson.svelte:85 tools/NewPassword.svelte:45
+#: lib/words.ts:345 pages/Lock.svelte:43 pages/SignIn.svelte:188 tools/AddPerson.svelte:71 tools/Connect.svelte:122 tools/Connect.svelte:122 tools/Connect.svelte:162 tools/Connect.svelte:162 tools/EditPerson.svelte:85 tools/NewPassword.svelte:45
 #, fuzzy
 msgid "Password"
 msgstr "密码"
 
-#: lib/words.ts:343 tools/Connect.svelte:154 tools/Connect.svelte:168 tools/EditPerson.svelte:109 tools/EditPerson.svelte:117
+#: lib/words.ts:346 tools/Connect.svelte:154 tools/Connect.svelte:168 tools/EditPerson.svelte:109 tools/EditPerson.svelte:117
 #, fuzzy
 msgid "Account"
 msgstr "账户"
 
-#: lib/words.ts:344
+#: lib/words.ts:347
 #, fuzzy
 msgid "AI key"
 msgstr "AI 密钥"
 
-#: lib/words.ts:345
+#: lib/words.ts:348
 #, fuzzy
 msgid "New device"
 msgstr "新设备"
 
-#: lib/words.ts:346
+#: lib/words.ts:349
 #, fuzzy
 msgid "Share link"
 msgstr "共享链接"
 
-#: lib/words.ts:347
+#: lib/words.ts:350
 #, fuzzy
 msgid "Setting"
 msgstr "设置"
 
-#: lib/words.ts:350
+#: lib/words.ts:353
 #, fuzzy
 msgid "Errors"
 msgstr "错误"
 
-#: lib/words.ts:350
+#: lib/words.ts:353
 #, fuzzy
 msgid "Warnings and errors"
 msgstr "警告和错误"
 
-#: lib/words.ts:350 tools/Logs.svelte:54
+#: lib/words.ts:353 tools/Logs.svelte:54
 #, fuzzy
 msgid "Everything"
 msgstr "全部"
 
-#: lib/words.ts:351
+#: lib/words.ts:354
 #, fuzzy
 msgid "Healthy"
 msgstr "正常"
 
-#: lib/words.ts:351
+#: lib/words.ts:354
 #, fuzzy
 msgid "Needs checking"
 msgstr "需要检查"
 
-#: lib/words.ts:351
+#: lib/words.ts:354
 #, fuzzy
 msgid "Failing"
 msgstr "故障"
 
-#: lib/words.ts:354 lib/words.ts:355
+#: lib/words.ts:357 lib/words.ts:358
 #, fuzzy
 msgid "Starting"
 msgstr "正在开始"
 
-#: lib/words.ts:354
+#: lib/words.ts:357
 #, fuzzy
 msgid "Copying from the USB stick"
 msgstr "正在从 U 盘复制"
 
-#: lib/words.ts:354
+#: lib/words.ts:357
 #, fuzzy
 msgid "Checking it's a ZOOMRIYA app"
 msgstr "正在确认是否为 ZOOMRIYA 应用"
 
-#: lib/words.ts:354
+#: lib/words.ts:357
 #, fuzzy
 msgid "Adding it to the box"
 msgstr "正在添加到盒子"
 
-#: lib/words.ts:354
+#: lib/words.ts:357
 #, fuzzy
 msgid "Starting it"
 msgstr "正在启动"
 
-#: lib/words.ts:354
+#: lib/words.ts:357
 #, fuzzy
 msgid "Not a ZOOMRIYA app."
 msgstr "不是 ZOOMRIYA 应用。"
 
-#: lib/words.ts:354
+#: lib/words.ts:357
 #, fuzzy
 msgid "Can't be read."
 msgstr "无法读取。"
 
-#: lib/words.ts:355
+#: lib/words.ts:358
 #, fuzzy
 msgid "Running"
 msgstr "运行中"
 
-#: lib/words.ts:355
+#: lib/words.ts:358
 #, fuzzy
 msgid "Stopped"
 msgstr "已停止"
 
-#: lib/words.ts:355
+#: lib/words.ts:358
 #, fuzzy
 msgid "Not working"
 msgstr "无法运行"
 
-#: lib/words.ts:358
+#: lib/words.ts:361
 #, fuzzy
 msgid "Landscape"
 msgstr "横向"
 
-#: lib/words.ts:358
+#: lib/words.ts:361
 #, fuzzy
 msgid "Portrait, turned right"
 msgstr "纵向（向右旋转）"
 
-#: lib/words.ts:358
+#: lib/words.ts:361
 #, fuzzy
 msgid "Portrait, turned left"
 msgstr "纵向（向左旋转）"
 
-#: lib/words.ts:358
+#: lib/words.ts:361
 #, fuzzy
 msgid "Landscape, upside down"
 msgstr "横向（上下颠倒）"
@@ -1514,7 +1525,7 @@ msgstr "横向（上下颠倒）"
 msgid "Launcher"
 msgstr "启动栏"
 
-#: pages/Dock.svelte:71 pages/Shortcuts.svelte:34
+#: pages/Dock.svelte:71 pages/Shortcuts.svelte:34 tools/RestoreBackup.svelte:110
 #, fuzzy
 msgid "Open"
 msgstr "打开"
@@ -2093,7 +2104,7 @@ msgstr "请抄下来，和盒子的资料放在一起，不要贴在盒子上。
 msgid "I've written down the setup code"
 msgstr "我已抄下设置码"
 
-#: pages/Setup.svelte:558 pages/SignIn.svelte:198 pages/SignIn.svelte:206 pages/SignIn.svelte:222 tools/AddPerson.svelte:75 tools/ReviewBundle.svelte:35
+#: pages/Setup.svelte:558 pages/SignIn.svelte:198 pages/SignIn.svelte:206 pages/SignIn.svelte:222 tools/AddPerson.svelte:75 tools/RestoreBackup.svelte:127 tools/RestoreBackup.svelte:158 tools/ReviewBundle.svelte:35
 #, fuzzy
 msgid "Back"
 msgstr "返回"
@@ -2419,7 +2430,7 @@ msgstr "最大化"
 msgid "{app} isn't running. Start or restore it in App Center."
 msgstr "{app} 未在运行。请在 App Center 中启动或恢复它。"
 
-#: pages/Window.svelte:71
+#: pages/Window.svelte:71 tools/RestoreBackup.svelte:141
 #, fuzzy
 msgid "Open App Center"
 msgstr "打开 App Center"
@@ -2699,7 +2710,7 @@ msgstr "未满 18 岁"
 msgid "Now let {name} type their own password. At least 8 characters."
 msgstr "现在请 {name} 输入自己的密码，至少 8 个字符。"
 
-#: tools/AddPerson.svelte:72 tools/NewPassword.svelte:46
+#: tools/AddPerson.svelte:72 tools/NewPassword.svelte:46 tools/RestoreBackup.svelte:154
 #, fuzzy
 msgid "Password again"
 msgstr "再次输入密码"
@@ -2739,7 +2750,7 @@ msgstr "添加图片"
 msgid "JPEG or PNG pictures on a USB stick, in its top folder or a folder in it. Nothing on the stick is changed."
 msgstr "U 盘顶层文件夹或其中文件夹里的 JPEG 或 PNG 图片。不会更改 U 盘上的任何内容。"
 
-#: tools/AddPicture.svelte:62
+#: tools/AddPicture.svelte:62 tools/Backups.svelte:186 tools/RestoreBackup.svelte:113
 #, fuzzy
 msgid "Look again"
 msgstr "重新查找"
@@ -2929,85 +2940,227 @@ msgstr "插入带有 zoomriya/apps 文件夹的 U 盘。"
 msgid "Update"
 msgstr "更新"
 
-#: tools/Backups.svelte:41
-#, fuzzy
-msgid "Backups aren't set up yet"
-msgstr "尚未设置备份"
+#: tools/BackupKey.svelte:12
+msgid "ZOOMRIYA backup key"
+msgstr ""
 
-#: tools/Backups.svelte:41
-#, fuzzy
-msgid "Set them up in Family Hub's settings: where they go, and which apps."
-msgstr "请在 Family Hub 的设置中设置：保存位置和包含哪些应用。"
+#: tools/BackupKey.svelte:13
+msgid "Keep this with your important papers, away from the backup drive. It opens the backups: with it, a new box brings everything back."
+msgstr ""
 
-#: tools/Backups.svelte:46
+#: tools/BackupKey.svelte:34
+msgid "Your backup key"
+msgstr ""
+
+#: tools/BackupKey.svelte:35
+msgid "Print it or write it down, and keep it away from the drive. Bringing a backup back always needs it. The box keeps it too, so you can show it again here."
+msgstr ""
+
+#: tools/BackupKey.svelte:38
+msgid "Print"
+msgstr ""
+
+#: tools/BackupKey.svelte:39
+msgid "I've kept it"
+msgstr ""
+
+#: tools/Backups.svelte:67 tools/Backups.svelte:143 tools/RestoreBackup.svelte:109
+msgid "USB drive"
+msgstr ""
+
+#: tools/Backups.svelte:72
+msgid "Back up to {drive}?"
+msgstr ""
+
+#: tools/Backups.svelte:74
+msgid "Its backups stay. The box makes its backup key next: print it or write it down."
+msgstr ""
+
+#: tools/Backups.svelte:75
+msgid "Nothing on the drive is erased. The box makes its backup key next: print it or write it down."
+msgstr ""
+
+#: tools/Backups.svelte:76
+msgid "Use this drive"
+msgstr ""
+
+#: tools/Backups.svelte:88
+msgid "Show the backup key?"
+msgstr ""
+
+#: tools/Backups.svelte:88
+msgid "Anyone with the key and the drive can open the backups. Show it only where no one else is looking."
+msgstr ""
+
+#: tools/Backups.svelte:89 tools/Backups.svelte:147
+msgid "Show key"
+msgstr ""
+
+#: tools/Backups.svelte:96 tools/Backups.svelte:109
+msgid "Bringing a backup back"
+msgstr ""
+
+#: tools/Backups.svelte:96
 #, fuzzy
 msgid "Backing up"
 msgstr "正在备份"
 
-#: tools/Backups.svelte:46
+#: tools/Backups.svelte:97
 #, fuzzy
 msgid "Started {time}"
 msgstr "开始于 {time}"
 
-#: tools/Backups.svelte:48
+#: tools/Backups.svelte:99
 #, fuzzy
 msgid "No backup yet"
 msgstr "还没有备份"
 
-#: tools/Backups.svelte:48
+#: tools/Backups.svelte:99
 #, fuzzy
 msgid "Back up now to make the first."
 msgstr "立即备份以创建第一个。"
 
-#: tools/Backups.svelte:50
+#: tools/Backups.svelte:100
 #, fuzzy
 msgid "Backed up"
 msgstr "已备份"
 
-#: tools/Backups.svelte:52
+#: tools/Backups.svelte:101
 #, fuzzy
 msgid "The last backup failed"
 msgstr "上次备份失败"
 
-#: tools/Backups.svelte:56
+#: tools/Backups.svelte:111
+msgid "The backup of {date} is back"
+msgstr ""
+
+#: tools/Backups.svelte:112
+msgid "Everyone signs in as before, with their old password. Sign in again to go on."
+msgstr ""
+
+#: tools/Backups.svelte:112
+msgid "Its apps are running again."
+msgstr ""
+
+#: tools/Backups.svelte:114
+msgid "Not everything came back"
+msgstr ""
+
+#: tools/Backups.svelte:114
+msgid "Each app that didn't is below."
+msgstr ""
+
+#: tools/Backups.svelte:118
+msgid "Sign in again"
+msgstr ""
+
+#: tools/Backups.svelte:124
+msgid "Back up to a USB drive of your own, plugged into the box. Photos are copied as they are; everything else is locked with a backup key you print."
+msgstr ""
+
+#: tools/Backups.svelte:125 tools/Backups.svelte:177
+msgid "Choose a backup drive"
+msgstr ""
+
+#: tools/Backups.svelte:125
+msgid "A drive used only for backups is best. Nothing on it is erased."
+msgstr ""
+
+#: tools/Backups.svelte:126
+msgid "Choose a drive"
+msgstr ""
+
+#: tools/Backups.svelte:132
 #, fuzzy
 msgid "Every app's data and the accounts, as they are now."
 msgstr "每个应用的数据和账户，保持当前状态。"
 
-#: tools/Backups.svelte:63
+#: tools/Backups.svelte:139
 #, fuzzy
 msgid "Next: {time}"
 msgstr "下次：{time}"
 
-#: tools/Backups.svelte:63
-#, fuzzy
-msgid "Every night at 4:00, while the family sleeps."
-msgstr "每晚 4:00，家人熟睡时。"
+#: tools/Backups.svelte:139
+msgid "Every night at 4:00, while the family sleeps. Leave the drive plugged in."
+msgstr ""
 
-#: tools/Backups.svelte:66
-#, fuzzy
-msgid "Where they go"
-msgstr "保存位置"
+#: tools/Backups.svelte:142
+msgid "Backup drive"
+msgstr ""
 
-#: tools/Backups.svelte:66
-#, fuzzy
-msgid "Keep them on another drive or computer than the box's."
-msgstr "请保存在盒子以外的其他硬盘或电脑上。"
+#: tools/Backups.svelte:143
+msgid "Plugged in"
+msgstr ""
 
-#: tools/Backups.svelte:67
-#, fuzzy
-msgid "Not known"
-msgstr "未知"
+#: tools/Backups.svelte:143
+msgid "Not plugged in"
+msgstr ""
 
-#: tools/Backups.svelte:71
+#: tools/Backups.svelte:144
+msgid "Change"
+msgstr ""
+
+#: tools/Backups.svelte:146
+msgid "Needed to bring a backup back, on this box or a new one. Keep the printed key away from the drive."
+msgstr ""
+
+#: tools/Backups.svelte:151
 #, fuzzy
 msgid "What went wrong last time"
 msgstr "上次出了什么问题"
 
-#: tools/Backups.svelte:71
+#: tools/Backups.svelte:151
 #, fuzzy
 msgid "The other apps were backed up. Older backups are kept."
 msgstr "其他应用已备份。旧的备份会保留。"
+
+#: tools/Backups.svelte:155
+msgid "What's backed up"
+msgstr ""
+
+#: tools/Backups.svelte:155
+msgid "Photos and documents are copied as they are, in folders by person, year and month. Older copies and deleted files are kept 30 days."
+msgstr ""
+
+#: tools/Backups.svelte:157
+msgid "Always backed up: no app opens without the accounts."
+msgstr ""
+
+#: tools/Backups.svelte:167
+msgid "On a new box: finish the setup, install the apps from App Center, then bring their data back here."
+msgstr ""
+
+#: tools/Backups.svelte:168
+msgid "Choose the drive and the backup, then type the backup key."
+msgstr ""
+
+#: tools/Backups.svelte:169 tools/RestoreBackup.svelte:97 tools/RestoreBackup.svelte:159
+msgid "Bring back"
+msgstr ""
+
+#: tools/Backups.svelte:178
+msgid "Plug a USB drive into the box. It may be formatted for Windows, Mac or Linux."
+msgstr ""
+
+#: tools/Backups.svelte:180
+msgid "No drive found"
+msgstr ""
+
+#: tools/Backups.svelte:180
+msgid "Plug one in, then look again."
+msgstr ""
+
+#: tools/Backups.svelte:182
+msgid "in use"
+msgstr ""
+
+#: tools/Backups.svelte:182
+msgid "has backups"
+msgstr ""
+
+#: tools/Backups.svelte:183
+msgid "Use"
+msgstr ""
 
 #: tools/ByApp.svelte:18
 #, fuzzy
@@ -4421,6 +4574,82 @@ msgstr "重置系统"
 #, fuzzy
 msgid "Erases everything, leaving the box as new. Needs the setup code from the sticker."
 msgstr "清除一切，让盒子恢复如新。需要贴纸上的设置码。"
+
+#: tools/RestoreBackup.svelte:74
+msgid "Not installed on this box. Install it from App Center first."
+msgstr ""
+
+#: tools/RestoreBackup.svelte:75
+msgid "The backup is from version {version}. Update it first."
+msgstr ""
+
+#: tools/RestoreBackup.svelte:76
+msgid "Everyone's accounts, passwords and two-step sign-in, as they were. The admin made at the first setup goes."
+msgstr ""
+
+#: tools/RestoreBackup.svelte:77
+msgid "Replaces what {app} has now"
+msgstr ""
+
+#: tools/RestoreBackup.svelte:78
+msgid "{n} files from the drive"
+msgstr ""
+
+#: tools/RestoreBackup.svelte:84
+msgid "Choose what to bring back."
+msgstr ""
+
+#: tools/RestoreBackup.svelte:94
+msgid "Bring this backup back?"
+msgstr ""
+
+#: tools/RestoreBackup.svelte:95
+msgid "What is on the box now for the apps you chose is replaced by the backup of {date}. The apps stop while it comes back."
+msgstr ""
+
+#: tools/RestoreBackup.svelte:106
+msgid "Plug the backup drive into the box."
+msgstr ""
+
+#: tools/RestoreBackup.svelte:107
+msgid "No backup drive found"
+msgstr ""
+
+#: tools/RestoreBackup.svelte:107
+msgid "Plug in the drive with the ZOOMRIYA Backup folder, then look again."
+msgstr ""
+
+#: tools/RestoreBackup.svelte:115
+msgid "Choose a backup, then type the backup key printed when the drive was chosen."
+msgstr ""
+
+#: tools/RestoreBackup.svelte:116
+msgid "No backups on this drive yet"
+msgstr ""
+
+#: tools/RestoreBackup.svelte:120
+msgid "{n} apps"
+msgstr ""
+
+#: tools/RestoreBackup.svelte:128
+msgid "Open backup"
+msgstr ""
+
+#: tools/RestoreBackup.svelte:131
+msgid "The backup of {date}. Choose what comes back."
+msgstr ""
+
+#: tools/RestoreBackup.svelte:146
+msgid "I forgot my old password"
+msgstr ""
+
+#: tools/RestoreBackup.svelte:149
+msgid "Your account comes back with a new password, and you set up two-step sign-in again. The backup key proves the backup is yours."
+msgstr ""
+
+#: tools/RestoreBackup.svelte:150
+msgid "Your account"
+msgstr ""
 
 #: tools/ReviewBundle.svelte:31
 #, fuzzy

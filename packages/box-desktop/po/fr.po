@@ -220,7 +220,7 @@ msgstr "Journaux"
 msgid "Support Center"
 msgstr "Centre d'assistance"
 
-#: lib/desk.svelte.ts:40 lib/words.ts:295 pages/Setup.svelte:16 pages/Widgets.svelte:90 tools/Resources.svelte:43
+#: lib/desk.svelte.ts:40 lib/words.ts:297 pages/Setup.svelte:16 pages/Widgets.svelte:90 tools/Resources.svelte:43
 #, fuzzy
 msgid "Network"
 msgstr "Réseau"
@@ -280,7 +280,7 @@ msgstr "Sécurité"
 msgid "Advanced access"
 msgstr "Accès avancé"
 
-#: lib/desk.svelte.ts:44 lib/words.ts:293
+#: lib/desk.svelte.ts:44 lib/words.ts:295
 #, fuzzy
 msgid "Restarts"
 msgstr "Redémarrages"
@@ -310,7 +310,7 @@ msgstr "Disques"
 msgid "Space"
 msgstr "Espace"
 
-#: lib/desk.svelte.ts:48 tools/Backups.svelte:40 tools/Backups.svelte:55
+#: lib/desk.svelte.ts:48 lib/words.ts:302 tools/Backups.svelte:124 tools/Backups.svelte:131
 #, fuzzy
 msgid "Backups"
 msgstr "Sauvegardes"
@@ -617,8 +617,8 @@ msgstr "espace utilisation plein photos apps bases de données"
 
 #: lib/words.ts:175
 #, fuzzy
-msgid "backup backups restic copy nightly restore safe offsite"
-msgstr "sauvegarde sauvegardes copie nuit restaurer sûr hors site"
+msgid "backup backups drive usb key copy nightly restore bring back safe"
+msgstr "sauvegarde sauvegardes disque usb clé copie nuit restaurer récupérer sécurité"
 
 #: lib/words.ts:176
 #, fuzzy
@@ -855,7 +855,7 @@ msgstr "Synchronisation de l'heure"
 msgid "Add a person"
 msgstr "Ajouter une personne"
 
-#: lib/words.ts:227 pages/SignIn.svelte:192 pages/SignIn.svelte:220 tools/EditPerson.svelte:86
+#: lib/words.ts:227 pages/SignIn.svelte:192 pages/SignIn.svelte:220 tools/EditPerson.svelte:86 tools/RestoreBackup.svelte:153
 #, fuzzy
 msgid "New password"
 msgstr "Nouveau mot de passe"
@@ -1000,517 +1000,532 @@ msgstr "Bibliothèque"
 msgid "Check the library for damage"
 msgstr "Vérifier la bibliothèque"
 
-#: lib/words.ts:256 tools/Backups.svelte:56 tools/Backups.svelte:59
+#: lib/words.ts:256 tools/Backups.svelte:132 tools/Backups.svelte:135
 #, fuzzy
 msgid "Back up now"
 msgstr "Sauvegarder"
 
-#: lib/words.ts:257 tools/Backups.svelte:62 tools/Backups.svelte:64
+#: lib/words.ts:257 tools/Backups.svelte:138 tools/Backups.svelte:140
 #, fuzzy
 msgid "Nightly backup"
 msgstr "Sauvegarde chaque nuit"
 
-#: lib/words.ts:258 tools/Display.svelte:130
+#: lib/words.ts:258 tools/Backups.svelte:146 tools/RestoreBackup.svelte:123
+#, fuzzy
+msgid "Backup key"
+msgstr "Clé de sauvegarde"
+
+#: lib/words.ts:259 tools/Backups.svelte:166 tools/Backups.svelte:168 tools/RestoreBackup.svelte:104
+#, fuzzy
+msgid "Bring a backup back"
+msgstr "Récupérer une sauvegarde"
+
+#: lib/words.ts:260 tools/Display.svelte:130
 #, fuzzy
 msgid "Lock the screen after"
 msgstr "Verrouiller l'écran après"
 
-#: lib/words.ts:259 tools/Display.svelte:131
+#: lib/words.ts:261 tools/Display.svelte:131
 #, fuzzy
 msgid "Turn the screen off after"
 msgstr "Éteindre l'écran après"
 
-#: lib/words.ts:260 tools/Contact.svelte:30 tools/Diagnostics.svelte:48
+#: lib/words.ts:262 tools/Contact.svelte:30 tools/Diagnostics.svelte:48
 #, fuzzy
 msgid "Make a bundle"
 msgstr "Créer un fichier"
 
-#: lib/words.ts:261 tools/SaveBundle.svelte:42
+#: lib/words.ts:263 tools/SaveBundle.svelte:42
 #, fuzzy
 msgid "Save to a USB stick"
 msgstr "Enregistrer sur une clé USB"
 
-#: lib/words.ts:262 tools/Contact.svelte:23
+#: lib/words.ts:264 tools/Contact.svelte:23
 #, fuzzy
 msgid "Contact ZOOMRIYA support"
 msgstr "Contacter l'assistance ZOOMRIYA"
 
-#: lib/words.ts:263 tools/Contact.svelte:16
+#: lib/words.ts:265 tools/Contact.svelte:16
 #, fuzzy
 msgid "Serial number"
 msgstr "Numéro de série"
 
-#: lib/words.ts:268 pages/MainMenu.svelte:113
+#: lib/words.ts:270 pages/MainMenu.svelte:113
 #, fuzzy
 msgid "Restart the box"
 msgstr "Redémarrer la box"
 
-#: lib/words.ts:268
+#: lib/words.ts:270
 #, fuzzy
 msgid "reboot"
 msgstr "redémarrer"
 
-#: lib/words.ts:269 tools/Restarts.svelte:73
+#: lib/words.ts:271 tools/Restarts.svelte:73
 #, fuzzy
 msgid "Shut down system"
 msgstr "Éteindre"
 
-#: lib/words.ts:269
+#: lib/words.ts:271
 #, fuzzy
 msgid "power off turn off"
 msgstr "éteindre arrêter"
 
-#: lib/words.ts:270 pages/MainMenu.svelte:112
+#: lib/words.ts:272 pages/MainMenu.svelte:112
 #, fuzzy
 msgid "Lock screen"
 msgstr "Verrouiller l'écran"
 
-#: lib/words.ts:270
+#: lib/words.ts:272
 #, fuzzy
 msgid "lock away screen saver leave"
 msgstr "verrouiller absent écran de veille partir"
 
-#: lib/words.ts:271 pages/MainMenu.svelte:112
+#: lib/words.ts:273 pages/MainMenu.svelte:112
 #, fuzzy
 msgid "Open Family Hub on a phone"
 msgstr "Ouvrir Family Hub sur un téléphone"
 
-#: lib/words.ts:271
+#: lib/words.ts:273
 #, fuzzy
 msgid "qr code phone mobile address family hub"
 msgstr "code qr téléphone mobile adresse family hub"
 
-#: lib/words.ts:272 pages/MainMenu.svelte:113
+#: lib/words.ts:274 pages/MainMenu.svelte:113
 #, fuzzy
 msgid "Sign out"
 msgstr "Se déconnecter"
 
-#: lib/words.ts:272
+#: lib/words.ts:274
 #, fuzzy
 msgid "log out logout switch user"
 msgstr "déconnexion se déconnecter changer d'utilisateur"
 
-#: lib/words.ts:273 tools/Appearance.svelte:28
+#: lib/words.ts:275 tools/Appearance.svelte:28
 #, fuzzy
 msgid "Midnight"
 msgstr "Nuit"
 
-#: lib/words.ts:273
+#: lib/words.ts:275
 #, fuzzy
 msgid "dark theme night"
 msgstr "sombre thème nuit"
 
-#: lib/words.ts:274 tools/Appearance.svelte:28
+#: lib/words.ts:276 tools/Appearance.svelte:28
 #, fuzzy
 msgid "Daylight"
 msgstr "Jour"
 
-#: lib/words.ts:274
+#: lib/words.ts:276
 #, fuzzy
 msgid "light theme day"
 msgstr "clair thème jour"
 
-#: lib/words.ts:275 pages/TopBar.svelte:138 pages/TopBar.svelte:138 pages/Widgets.svelte:38
+#: lib/words.ts:277 pages/TopBar.svelte:138 pages/TopBar.svelte:138 pages/Widgets.svelte:38
 #, fuzzy
 msgid "Widgets"
 msgstr "Widgets"
 
-#: lib/words.ts:275
+#: lib/words.ts:277
 #, fuzzy
 msgid "side panel health cpu space"
 msgstr "panneau latéral santé processeur espace"
 
-#: lib/words.ts:280
+#: lib/words.ts:282
 #, fuzzy
 msgid "Something stopped working after an update"
 msgstr "Un problème après une mise à jour"
 
-#: lib/words.ts:280
+#: lib/words.ts:282
 #, fuzzy
 msgid "Restore the OS to before the update. Family files stay."
 msgstr "Restaurez l'OS d'avant la mise à jour. Les fichiers de la famille restent."
 
-#: lib/words.ts:281
+#: lib/words.ts:283
 #, fuzzy
 msgid "A drive needs checking"
 msgstr "Un disque est à vérifier"
 
-#: lib/words.ts:281
+#: lib/words.ts:283
 #, fuzzy
 msgid "See which drive, and why. Replace it with one as big or bigger."
 msgstr "Voyez quel disque, et pourquoi. Remplacez-le par un de même taille ou plus."
 
-#: lib/words.ts:282
+#: lib/words.ts:284
 #, fuzzy
 msgid "The box is slow"
 msgstr "Le boîtier est lent"
 
-#: lib/words.ts:282
+#: lib/words.ts:284
 #, fuzzy
 msgid "See which app is busy. Photos works hard after many new photos."
 msgstr "Voyez quelle app travaille. Photos est occupée après beaucoup de nouvelles photos."
 
-#: lib/words.ts:283
+#: lib/words.ts:285
 #, fuzzy
 msgid "The box restarted by itself"
 msgstr "Le boîtier a redémarré seul"
 
-#: lib/words.ts:283
+#: lib/words.ts:285
 #, fuzzy
 msgid "Updates finish at the maintenance hour. You can change the hour."
 msgstr "Les mises à jour se terminent à l'heure de maintenance. Vous pouvez la changer."
 
-#: lib/words.ts:284
+#: lib/words.ts:286
 #, fuzzy
 msgid "Family Hub doesn't open on the home network"
 msgstr "Family Hub ne s'ouvre pas à la maison"
 
-#: lib/words.ts:284
+#: lib/words.ts:286
 #, fuzzy
 msgid "Check the cable to the router, and the box's address."
 msgstr "Vérifiez le câble vers le routeur et l'adresse du boîtier."
 
-#: lib/words.ts:285
+#: lib/words.ts:287
 #, fuzzy
 msgid "Someone can't sign in"
 msgstr "Quelqu'un ne peut pas se connecter"
 
-#: lib/words.ts:285
+#: lib/words.ts:287
 #, fuzzy
 msgid "Let them type a new password, or turn their account back on."
 msgstr "Laissez-le saisir un nouveau mot de passe, ou réactivez son compte."
 
-#: lib/words.ts:286
+#: lib/words.ts:288
 #, fuzzy
 msgid "Who changed a setting?"
 msgstr "Qui a modifié un réglage ?"
 
-#: lib/words.ts:286
+#: lib/words.ts:288
 #, fuzzy
 msgid "Every change, with who and when."
 msgstr "Chaque modification, avec qui et quand."
 
-#: lib/words.ts:291
+#: lib/words.ts:293
 #, fuzzy
 msgid "Drive Health"
 msgstr "État des disques"
 
-#: lib/words.ts:291
+#: lib/words.ts:293
 #, fuzzy
 msgid "When to check or replace, and when healthy."
 msgstr "Quand vérifier ou remplacer, et quand tout va bien."
 
-#: lib/words.ts:292
+#: lib/words.ts:294
 #, fuzzy
 msgid "Updates"
 msgstr "Mises à jour"
 
-#: lib/words.ts:292
+#: lib/words.ts:294
 #, fuzzy
 msgid "When security fixes are installed."
 msgstr "Quand des correctifs de sécurité sont installés."
 
-#: lib/words.ts:293
+#: lib/words.ts:295
 #, fuzzy
 msgid "Auto-restart schedule for updates and restores."
 msgstr "Redémarrages automatiques prévus pour les mises à jour et restaurations."
 
-#: lib/words.ts:294
+#: lib/words.ts:296
 #, fuzzy
 msgid "Library Check"
 msgstr "Vérification de la bibliothèque"
 
-#: lib/words.ts:294
+#: lib/words.ts:296
 #, fuzzy
 msgid "Library scan completion time and results."
 msgstr "Fin de l'analyse de la bibliothèque et résultats."
 
-#: lib/words.ts:295
+#: lib/words.ts:297
 #, fuzzy
 msgid "Network settings weren't kept and were rolled back."
 msgstr "Réglages réseau non gardés et annulés."
 
-#: lib/words.ts:296 tools/Security.svelte:143
+#: lib/words.ts:298 tools/Security.svelte:143
 #, fuzzy
 msgid "Secure Connections"
 msgstr "Connexions sécurisées"
 
-#: lib/words.ts:296
+#: lib/words.ts:298
 #, fuzzy
 msgid "When the box's certificate can't be made or renewed, or is running out."
 msgstr "Quand le certificat de la box ne peut être créé ou renouvelé, ou expire bientôt."
 
-#: lib/words.ts:297
+#: lib/words.ts:299
 #, fuzzy
 msgid "Admin Sign-in"
 msgstr "Connexion admin"
 
-#: lib/words.ts:297
+#: lib/words.ts:299
 #, fuzzy
 msgid "When an admin is let back in at the box with the setup code, or a wrong code is typed."
 msgstr "Quand un admin retrouve l'accès à la box avec le code d'installation, ou qu'un mauvais code est saisi."
 
-#: lib/words.ts:298
+#: lib/words.ts:300
 #, fuzzy
 msgid "Advanced Access"
 msgstr "Accès avancé"
 
-#: lib/words.ts:298
+#: lib/words.ts:300
 #, fuzzy
 msgid "When SSH access is turned on or off."
 msgstr "Quand l'accès SSH est activé ou désactivé."
 
-#: lib/words.ts:299
+#: lib/words.ts:301
 #, fuzzy
 msgid "Apps"
 msgstr "Apps"
 
-#: lib/words.ts:299
+#: lib/words.ts:301
 #, fuzzy
 msgid "When an app is installed, restored or removed."
 msgstr "Quand une app est installée, restaurée ou supprimée."
 
-#: lib/words.ts:303
+#: lib/words.ts:302
+#, fuzzy
+msgid "When a backup fails or misses something, and when one is brought back."
+msgstr "Quand une sauvegarde échoue ou oublie quelque chose, et quand une sauvegarde est récupérée."
+
+#: lib/words.ts:306
 #, fuzzy
 msgid "Everything offline is on"
 msgstr "Tout hors ligne est activé"
 
-#: lib/words.ts:303
+#: lib/words.ts:306
 #, fuzzy
 msgid "Apps offline is on"
 msgstr "Applis hors ligne est activé"
 
-#: lib/words.ts:303
+#: lib/words.ts:306
 #, fuzzy
 msgid "Switched off"
 msgstr "Désactivé"
 
-#: lib/words.ts:307
+#: lib/words.ts:310
 #, fuzzy
 msgid "Blue"
 msgstr "Bleu"
 
-#: lib/words.ts:308
+#: lib/words.ts:311
 #, fuzzy
 msgid "Teal"
 msgstr "Bleu canard"
 
-#: lib/words.ts:309
+#: lib/words.ts:312
 #, fuzzy
 msgid "Green"
 msgstr "Vert"
 
-#: lib/words.ts:310
+#: lib/words.ts:313
 #, fuzzy
 msgid "Yellow"
 msgstr "Jaune"
 
-#: lib/words.ts:311
+#: lib/words.ts:314
 #, fuzzy
 msgid "Orange"
 msgstr "Orange"
 
-#: lib/words.ts:312
+#: lib/words.ts:315
 #, fuzzy
 msgid "Red"
 msgstr "Rouge"
 
-#: lib/words.ts:313
+#: lib/words.ts:316
 #, fuzzy
 msgid "Pink"
 msgstr "Rose"
 
-#: lib/words.ts:314
+#: lib/words.ts:317
 #, fuzzy
 msgid "Purple"
 msgstr "Violet"
 
-#: lib/words.ts:315
+#: lib/words.ts:318
 #, fuzzy
 msgid "Slate"
 msgstr "Ardoise"
 
-#: lib/words.ts:321
+#: lib/words.ts:324
 #, fuzzy
 msgid "Jellyfish"
 msgstr "Méduses"
 
-#: lib/words.ts:322
+#: lib/words.ts:325
 #, fuzzy
 msgid "Hills"
 msgstr "Collines"
 
-#: lib/words.ts:323
+#: lib/words.ts:326
 #, fuzzy
 msgid "Lakeside"
 msgstr "Bord du lac"
 
-#: lib/words.ts:327
+#: lib/words.ts:330
 #, fuzzy
 msgid "Night"
 msgstr "Nuit"
 
-#: lib/words.ts:328
+#: lib/words.ts:331
 #, fuzzy
 msgid "Ocean"
 msgstr "Océan"
 
-#: lib/words.ts:329
+#: lib/words.ts:332
 #, fuzzy
 msgid "Forest"
 msgstr "Forêt"
 
-#: lib/words.ts:330
+#: lib/words.ts:333
 #, fuzzy
 msgid "Plum"
 msgstr "Prune"
 
-#: lib/words.ts:331
+#: lib/words.ts:334
 #, fuzzy
 msgid "Graphite"
 msgstr "Graphite"
 
-#: lib/words.ts:339
+#: lib/words.ts:342
 #, fuzzy
 msgid "Sign-in"
 msgstr "Connexion"
 
-#: lib/words.ts:340
+#: lib/words.ts:343
 #, fuzzy
 msgid "Wrong try"
 msgstr "Mauvais essai"
 
-#: lib/words.ts:341
+#: lib/words.ts:344
 #, fuzzy
 msgid "Second step"
 msgstr "Deuxième étape"
 
-#: lib/words.ts:342 pages/Lock.svelte:43 pages/SignIn.svelte:188 tools/AddPerson.svelte:71 tools/Connect.svelte:122 tools/Connect.svelte:122 tools/Connect.svelte:162 tools/Connect.svelte:162 tools/EditPerson.svelte:85 tools/NewPassword.svelte:45
+#: lib/words.ts:345 pages/Lock.svelte:43 pages/SignIn.svelte:188 tools/AddPerson.svelte:71 tools/Connect.svelte:122 tools/Connect.svelte:122 tools/Connect.svelte:162 tools/Connect.svelte:162 tools/EditPerson.svelte:85 tools/NewPassword.svelte:45
 #, fuzzy
 msgid "Password"
 msgstr "Mot de passe"
 
-#: lib/words.ts:343 tools/Connect.svelte:154 tools/Connect.svelte:168 tools/EditPerson.svelte:109 tools/EditPerson.svelte:117
+#: lib/words.ts:346 tools/Connect.svelte:154 tools/Connect.svelte:168 tools/EditPerson.svelte:109 tools/EditPerson.svelte:117
 #, fuzzy
 msgid "Account"
 msgstr "Compte"
 
-#: lib/words.ts:344
+#: lib/words.ts:347
 #, fuzzy
 msgid "AI key"
 msgstr "Clé d'IA"
 
-#: lib/words.ts:345
+#: lib/words.ts:348
 #, fuzzy
 msgid "New device"
 msgstr "Nouvel appareil"
 
-#: lib/words.ts:346
+#: lib/words.ts:349
 #, fuzzy
 msgid "Share link"
 msgstr "Lien de partage"
 
-#: lib/words.ts:347
+#: lib/words.ts:350
 #, fuzzy
 msgid "Setting"
 msgstr "Réglage"
 
-#: lib/words.ts:350
+#: lib/words.ts:353
 #, fuzzy
 msgid "Errors"
 msgstr "Erreurs"
 
-#: lib/words.ts:350
+#: lib/words.ts:353
 #, fuzzy
 msgid "Warnings and errors"
 msgstr "Avertissements et erreurs"
 
-#: lib/words.ts:350 tools/Logs.svelte:54
+#: lib/words.ts:353 tools/Logs.svelte:54
 #, fuzzy
 msgid "Everything"
 msgstr "Tout"
 
-#: lib/words.ts:351
+#: lib/words.ts:354
 #, fuzzy
 msgid "Healthy"
 msgstr "En bon état"
 
-#: lib/words.ts:351
+#: lib/words.ts:354
 #, fuzzy
 msgid "Needs checking"
 msgstr "À vérifier"
 
-#: lib/words.ts:351
+#: lib/words.ts:354
 #, fuzzy
 msgid "Failing"
 msgstr "Défaillant"
 
-#: lib/words.ts:354 lib/words.ts:355
+#: lib/words.ts:357 lib/words.ts:358
 #, fuzzy
 msgid "Starting"
 msgstr "Démarrage"
 
-#: lib/words.ts:354
+#: lib/words.ts:357
 #, fuzzy
 msgid "Copying from the USB stick"
 msgstr "Copie depuis la clé USB"
 
-#: lib/words.ts:354
+#: lib/words.ts:357
 #, fuzzy
 msgid "Checking it's a ZOOMRIYA app"
 msgstr "Vérification que c'est une app ZOOMRIYA"
 
-#: lib/words.ts:354
+#: lib/words.ts:357
 #, fuzzy
 msgid "Adding it to the box"
 msgstr "Ajout au boîtier"
 
-#: lib/words.ts:354
+#: lib/words.ts:357
 #, fuzzy
 msgid "Starting it"
 msgstr "Démarrage de l'app"
 
-#: lib/words.ts:354
+#: lib/words.ts:357
 #, fuzzy
 msgid "Not a ZOOMRIYA app."
 msgstr "Pas une app ZOOMRIYA."
 
-#: lib/words.ts:354
+#: lib/words.ts:357
 #, fuzzy
 msgid "Can't be read."
 msgstr "Illisible."
 
-#: lib/words.ts:355
+#: lib/words.ts:358
 #, fuzzy
 msgid "Running"
 msgstr "En marche"
 
-#: lib/words.ts:355
+#: lib/words.ts:358
 #, fuzzy
 msgid "Stopped"
 msgstr "Arrêtée"
 
-#: lib/words.ts:355
+#: lib/words.ts:358
 #, fuzzy
 msgid "Not working"
 msgstr "Ne fonctionne pas"
 
-#: lib/words.ts:358
+#: lib/words.ts:361
 #, fuzzy
 msgid "Landscape"
 msgstr "Paysage"
 
-#: lib/words.ts:358
+#: lib/words.ts:361
 #, fuzzy
 msgid "Portrait, turned right"
 msgstr "Portrait, tourné à droite"
 
-#: lib/words.ts:358
+#: lib/words.ts:361
 #, fuzzy
 msgid "Portrait, turned left"
 msgstr "Portrait, tourné à gauche"
 
-#: lib/words.ts:358
+#: lib/words.ts:361
 #, fuzzy
 msgid "Landscape, upside down"
 msgstr "Paysage, à l'envers"
@@ -1520,7 +1535,7 @@ msgstr "Paysage, à l'envers"
 msgid "Launcher"
 msgstr "Lanceur"
 
-#: pages/Dock.svelte:71 pages/Shortcuts.svelte:34
+#: pages/Dock.svelte:71 pages/Shortcuts.svelte:34 tools/RestoreBackup.svelte:110
 #, fuzzy
 msgid "Open"
 msgstr "Ouvrir"
@@ -2135,7 +2150,7 @@ msgstr "Notez-le et gardez-le avec les papiers de la box, pas sur la box. Il ser
 msgid "I've written down the setup code"
 msgstr "J'ai noté le code d'installation"
 
-#: pages/Setup.svelte:558 pages/SignIn.svelte:198 pages/SignIn.svelte:206 pages/SignIn.svelte:222 tools/AddPerson.svelte:75 tools/ReviewBundle.svelte:35
+#: pages/Setup.svelte:558 pages/SignIn.svelte:198 pages/SignIn.svelte:206 pages/SignIn.svelte:222 tools/AddPerson.svelte:75 tools/RestoreBackup.svelte:127 tools/RestoreBackup.svelte:158 tools/ReviewBundle.svelte:35
 #, fuzzy
 msgid "Back"
 msgstr "Retour"
@@ -2470,7 +2485,7 @@ msgstr "Agrandir"
 msgid "{app} isn't running. Start or restore it in App Center."
 msgstr "{app} ne fonctionne pas. Démarrez-la ou restaurez-la dans App Center."
 
-#: pages/Window.svelte:71
+#: pages/Window.svelte:71 tools/RestoreBackup.svelte:141
 #, fuzzy
 msgid "Open App Center"
 msgstr "Ouvrir App Center"
@@ -2750,7 +2765,7 @@ msgstr "Moins de 18 ans"
 msgid "Now let {name} type their own password. At least 8 characters."
 msgstr "Laissez {name} saisir son mot de passe. Au moins 8 caractères."
 
-#: tools/AddPerson.svelte:72 tools/NewPassword.svelte:46
+#: tools/AddPerson.svelte:72 tools/NewPassword.svelte:46 tools/RestoreBackup.svelte:154
 #, fuzzy
 msgid "Password again"
 msgstr "Confirmer le mot de passe"
@@ -2790,7 +2805,7 @@ msgstr "Ajouter une image"
 msgid "JPEG or PNG pictures on a USB stick, in its top folder or a folder in it. Nothing on the stick is changed."
 msgstr "Images JPEG ou PNG sur une clé USB, à la racine ou dans un dossier. Rien n'est modifié sur la clé."
 
-#: tools/AddPicture.svelte:62
+#: tools/AddPicture.svelte:62 tools/Backups.svelte:186 tools/RestoreBackup.svelte:113
 #, fuzzy
 msgid "Look again"
 msgstr "Chercher à nouveau"
@@ -2980,85 +2995,270 @@ msgstr "Branchez une clé avec un dossier zoomriya/apps."
 msgid "Update"
 msgstr "Mise à jour"
 
-#: tools/Backups.svelte:41
+#: tools/BackupKey.svelte:12
 #, fuzzy
-msgid "Backups aren't set up yet"
-msgstr "Les sauvegardes ne sont pas encore configurées"
+msgid "ZOOMRIYA backup key"
+msgstr "Clé de sauvegarde ZOOMRIYA"
 
-#: tools/Backups.svelte:41
+#: tools/BackupKey.svelte:13
 #, fuzzy
-msgid "Set them up in Family Hub's settings: where they go, and which apps."
-msgstr "Configurez-les dans les réglages de Family Hub : où elles vont, et quelles apps."
+msgid "Keep this with your important papers, away from the backup drive. It opens the backups: with it, a new box brings everything back."
+msgstr "Rangez-la avec vos papiers importants, loin du disque de sauvegarde. Elle ouvre les sauvegardes : avec elle, un nouveau boîtier récupère tout."
 
-#: tools/Backups.svelte:46
+#: tools/BackupKey.svelte:34
+#, fuzzy
+msgid "Your backup key"
+msgstr "Votre clé de sauvegarde"
+
+#: tools/BackupKey.svelte:35
+#, fuzzy
+msgid "Print it or write it down, and keep it away from the drive. Bringing a backup back always needs it. The box keeps it too, so you can show it again here."
+msgstr "Imprimez-la ou notez-la, et rangez-la loin du disque. Elle est toujours nécessaire pour récupérer une sauvegarde. Le boîtier la garde aussi : vous pouvez l'afficher à nouveau ici."
+
+#: tools/BackupKey.svelte:38
+#, fuzzy
+msgid "Print"
+msgstr "Imprimer"
+
+#: tools/BackupKey.svelte:39
+#, fuzzy
+msgid "I've kept it"
+msgstr "Je l'ai gardée"
+
+#: tools/Backups.svelte:67 tools/Backups.svelte:143 tools/RestoreBackup.svelte:109
+#, fuzzy
+msgid "USB drive"
+msgstr "Disque USB"
+
+#: tools/Backups.svelte:72
+#, fuzzy
+msgid "Back up to {drive}?"
+msgstr "Sauvegarder sur {drive} ?"
+
+#: tools/Backups.svelte:74
+#, fuzzy
+msgid "Its backups stay. The box makes its backup key next: print it or write it down."
+msgstr "Ses sauvegardes restent. Le boîtier crée ensuite sa clé de sauvegarde : imprimez-la ou notez-la."
+
+#: tools/Backups.svelte:75
+#, fuzzy
+msgid "Nothing on the drive is erased. The box makes its backup key next: print it or write it down."
+msgstr "Rien n'est effacé sur le disque. Le boîtier crée ensuite sa clé de sauvegarde : imprimez-la ou notez-la."
+
+#: tools/Backups.svelte:76
+#, fuzzy
+msgid "Use this drive"
+msgstr "Utiliser ce disque"
+
+#: tools/Backups.svelte:88
+#, fuzzy
+msgid "Show the backup key?"
+msgstr "Afficher la clé de sauvegarde ?"
+
+#: tools/Backups.svelte:88
+#, fuzzy
+msgid "Anyone with the key and the drive can open the backups. Show it only where no one else is looking."
+msgstr "Avec la clé et le disque, on peut ouvrir les sauvegardes. Affichez-la seulement à l'abri des regards."
+
+#: tools/Backups.svelte:89 tools/Backups.svelte:147
+#, fuzzy
+msgid "Show key"
+msgstr "Afficher la clé"
+
+#: tools/Backups.svelte:96 tools/Backups.svelte:109
+#, fuzzy
+msgid "Bringing a backup back"
+msgstr "Récupération d'une sauvegarde"
+
+#: tools/Backups.svelte:96
 #, fuzzy
 msgid "Backing up"
 msgstr "Sauvegarde en cours"
 
-#: tools/Backups.svelte:46
+#: tools/Backups.svelte:97
 #, fuzzy
 msgid "Started {time}"
 msgstr "Commencée {time}"
 
-#: tools/Backups.svelte:48
+#: tools/Backups.svelte:99
 #, fuzzy
 msgid "No backup yet"
 msgstr "Pas encore de sauvegarde"
 
-#: tools/Backups.svelte:48
+#: tools/Backups.svelte:99
 #, fuzzy
 msgid "Back up now to make the first."
 msgstr "Sauvegardez maintenant pour faire la première."
 
-#: tools/Backups.svelte:50
+#: tools/Backups.svelte:100
 #, fuzzy
 msgid "Backed up"
 msgstr "Sauvegardé"
 
-#: tools/Backups.svelte:52
+#: tools/Backups.svelte:101
 #, fuzzy
 msgid "The last backup failed"
 msgstr "La dernière sauvegarde a échoué"
 
-#: tools/Backups.svelte:56
+#: tools/Backups.svelte:111
+#, fuzzy
+msgid "The backup of {date} is back"
+msgstr "La sauvegarde du {date} est récupérée"
+
+#: tools/Backups.svelte:112
+#, fuzzy
+msgid "Everyone signs in as before, with their old password. Sign in again to go on."
+msgstr "Chacun se connecte comme avant, avec son ancien mot de passe. Reconnectez-vous pour continuer."
+
+#: tools/Backups.svelte:112
+#, fuzzy
+msgid "Its apps are running again."
+msgstr "Ses apps fonctionnent à nouveau."
+
+#: tools/Backups.svelte:114
+#, fuzzy
+msgid "Not everything came back"
+msgstr "Tout n'a pas été récupéré"
+
+#: tools/Backups.svelte:114
+#, fuzzy
+msgid "Each app that didn't is below."
+msgstr "Les apps concernées sont ci-dessous."
+
+#: tools/Backups.svelte:118
+#, fuzzy
+msgid "Sign in again"
+msgstr "Se reconnecter"
+
+#: tools/Backups.svelte:124
+#, fuzzy
+msgid "Back up to a USB drive of your own, plugged into the box. Photos are copied as they are; everything else is locked with a backup key you print."
+msgstr "Sauvegardez sur votre propre disque USB, branché au boîtier. Les photos sont copiées telles quelles ; le reste est verrouillé par une clé de sauvegarde que vous imprimez."
+
+#: tools/Backups.svelte:125 tools/Backups.svelte:177
+#, fuzzy
+msgid "Choose a backup drive"
+msgstr "Choisir un disque de sauvegarde"
+
+#: tools/Backups.svelte:125
+#, fuzzy
+msgid "A drive used only for backups is best. Nothing on it is erased."
+msgstr "Idéalement, un disque réservé aux sauvegardes. Rien n'y est effacé."
+
+#: tools/Backups.svelte:126
+#, fuzzy
+msgid "Choose a drive"
+msgstr "Choisir un disque"
+
+#: tools/Backups.svelte:132
 #, fuzzy
 msgid "Every app's data and the accounts, as they are now."
 msgstr "Les données de chaque app et les comptes, tels qu'ils sont maintenant."
 
-#: tools/Backups.svelte:63
+#: tools/Backups.svelte:139
 #, fuzzy
 msgid "Next: {time}"
 msgstr "Prochaine : {time}"
 
-#: tools/Backups.svelte:63
+#: tools/Backups.svelte:139
 #, fuzzy
-msgid "Every night at 4:00, while the family sleeps."
-msgstr "Chaque nuit à 4 h, pendant que la famille dort."
+msgid "Every night at 4:00, while the family sleeps. Leave the drive plugged in."
+msgstr "Chaque nuit à 4 h, pendant que la famille dort. Laissez le disque branché."
 
-#: tools/Backups.svelte:66
+#: tools/Backups.svelte:142
 #, fuzzy
-msgid "Where they go"
-msgstr "Où elles vont"
+msgid "Backup drive"
+msgstr "Disque de sauvegarde"
 
-#: tools/Backups.svelte:66
+#: tools/Backups.svelte:143
 #, fuzzy
-msgid "Keep them on another drive or computer than the box's."
-msgstr "Gardez-les sur un autre disque ou ordinateur que le boîtier."
+msgid "Plugged in"
+msgstr "Branché"
 
-#: tools/Backups.svelte:67
+#: tools/Backups.svelte:143
 #, fuzzy
-msgid "Not known"
-msgstr "Inconnu"
+msgid "Not plugged in"
+msgstr "Non branché"
 
-#: tools/Backups.svelte:71
+#: tools/Backups.svelte:144
+#, fuzzy
+msgid "Change"
+msgstr "Changer"
+
+#: tools/Backups.svelte:146
+#, fuzzy
+msgid "Needed to bring a backup back, on this box or a new one. Keep the printed key away from the drive."
+msgstr "Nécessaire pour récupérer une sauvegarde, sur ce boîtier ou un nouveau. Rangez la clé imprimée loin du disque."
+
+#: tools/Backups.svelte:151
 #, fuzzy
 msgid "What went wrong last time"
 msgstr "Ce qui n'a pas marché la dernière fois"
 
-#: tools/Backups.svelte:71
+#: tools/Backups.svelte:151
 #, fuzzy
 msgid "The other apps were backed up. Older backups are kept."
 msgstr "Les autres apps ont été sauvegardées. Les anciennes sauvegardes sont gardées."
+
+#: tools/Backups.svelte:155
+#, fuzzy
+msgid "What's backed up"
+msgstr "Ce qui est sauvegardé"
+
+#: tools/Backups.svelte:155
+#, fuzzy
+msgid "Photos and documents are copied as they are, in folders by person, year and month. Older copies and deleted files are kept 30 days."
+msgstr "Les photos et documents sont copiés tels quels, dans des dossiers par personne, année et mois. Les anciennes copies et les fichiers supprimés sont gardés 30 jours."
+
+#: tools/Backups.svelte:157
+#, fuzzy
+msgid "Always backed up: no app opens without the accounts."
+msgstr "Toujours sauvegardé : aucune app ne s'ouvre sans les comptes."
+
+#: tools/Backups.svelte:167
+#, fuzzy
+msgid "On a new box: finish the setup, install the apps from App Center, then bring their data back here."
+msgstr "Sur un nouveau boîtier : terminez la configuration, installez les apps depuis le Centre d'apps, puis récupérez leurs données ici."
+
+#: tools/Backups.svelte:168
+#, fuzzy
+msgid "Choose the drive and the backup, then type the backup key."
+msgstr "Choisissez le disque et la sauvegarde, puis saisissez la clé de sauvegarde."
+
+#: tools/Backups.svelte:169 tools/RestoreBackup.svelte:97 tools/RestoreBackup.svelte:159
+#, fuzzy
+msgid "Bring back"
+msgstr "Récupérer"
+
+#: tools/Backups.svelte:178
+#, fuzzy
+msgid "Plug a USB drive into the box. It may be formatted for Windows, Mac or Linux."
+msgstr "Branchez un disque USB au boîtier. Il peut être formaté pour Windows, Mac ou Linux."
+
+#: tools/Backups.svelte:180
+#, fuzzy
+msgid "No drive found"
+msgstr "Aucun disque trouvé"
+
+#: tools/Backups.svelte:180
+#, fuzzy
+msgid "Plug one in, then look again."
+msgstr "Branchez-en un, puis cherchez à nouveau."
+
+#: tools/Backups.svelte:182
+#, fuzzy
+msgid "in use"
+msgstr "utilisé"
+
+#: tools/Backups.svelte:182
+#, fuzzy
+msgid "has backups"
+msgstr "contient des sauvegardes"
+
+#: tools/Backups.svelte:183
+#, fuzzy
+msgid "Use"
+msgstr "Utiliser"
 
 #: tools/ByApp.svelte:18
 #, fuzzy
@@ -4549,6 +4749,101 @@ msgstr "Réinitialiser le système"
 #, fuzzy
 msgid "Erases everything, leaving the box as new. Needs the setup code from the sticker."
 msgstr "Efface tout : la box redevient comme neuve. Il faut le code de configuration de l'étiquette."
+
+#: tools/RestoreBackup.svelte:74
+#, fuzzy
+msgid "Not installed on this box. Install it from App Center first."
+msgstr "Pas installée sur ce boîtier. Installez-la d'abord depuis le Centre d'apps."
+
+#: tools/RestoreBackup.svelte:75
+#, fuzzy
+msgid "The backup is from version {version}. Update it first."
+msgstr "La sauvegarde vient de la version {version}. Mettez l'app à jour d'abord."
+
+#: tools/RestoreBackup.svelte:76
+#, fuzzy
+msgid "Everyone's accounts, passwords and two-step sign-in, as they were. The admin made at the first setup goes."
+msgstr "Les comptes, mots de passe et deuxièmes étapes de connexion de chacun, comme avant. L'admin créé à la première configuration disparaît."
+
+#: tools/RestoreBackup.svelte:77
+#, fuzzy
+msgid "Replaces what {app} has now"
+msgstr "Remplace ce que {app} contient maintenant"
+
+#: tools/RestoreBackup.svelte:78
+#, fuzzy
+msgid "{n} files from the drive"
+msgstr "{n} fichiers depuis le disque"
+
+#: tools/RestoreBackup.svelte:84
+#, fuzzy
+msgid "Choose what to bring back."
+msgstr "Choisissez ce qu'il faut récupérer."
+
+#: tools/RestoreBackup.svelte:94
+#, fuzzy
+msgid "Bring this backup back?"
+msgstr "Récupérer cette sauvegarde ?"
+
+#: tools/RestoreBackup.svelte:95
+#, fuzzy
+msgid "What is on the box now for the apps you chose is replaced by the backup of {date}. The apps stop while it comes back."
+msgstr "Ce que le boîtier contient pour les apps choisies est remplacé par la sauvegarde du {date}. Les apps s'arrêtent pendant la récupération."
+
+#: tools/RestoreBackup.svelte:106
+#, fuzzy
+msgid "Plug the backup drive into the box."
+msgstr "Branchez le disque de sauvegarde au boîtier."
+
+#: tools/RestoreBackup.svelte:107
+#, fuzzy
+msgid "No backup drive found"
+msgstr "Aucun disque de sauvegarde trouvé"
+
+#: tools/RestoreBackup.svelte:107
+#, fuzzy
+msgid "Plug in the drive with the ZOOMRIYA Backup folder, then look again."
+msgstr "Branchez le disque qui contient le dossier ZOOMRIYA Backup, puis cherchez à nouveau."
+
+#: tools/RestoreBackup.svelte:115
+#, fuzzy
+msgid "Choose a backup, then type the backup key printed when the drive was chosen."
+msgstr "Choisissez une sauvegarde, puis saisissez la clé imprimée quand le disque a été choisi."
+
+#: tools/RestoreBackup.svelte:116
+#, fuzzy
+msgid "No backups on this drive yet"
+msgstr "Pas encore de sauvegarde sur ce disque"
+
+#: tools/RestoreBackup.svelte:120
+#, fuzzy
+msgid "{n} apps"
+msgstr "{n} apps"
+
+#: tools/RestoreBackup.svelte:128
+#, fuzzy
+msgid "Open backup"
+msgstr "Ouvrir la sauvegarde"
+
+#: tools/RestoreBackup.svelte:131
+#, fuzzy
+msgid "The backup of {date}. Choose what comes back."
+msgstr "La sauvegarde du {date}. Choisissez ce qui est récupéré."
+
+#: tools/RestoreBackup.svelte:146
+#, fuzzy
+msgid "I forgot my old password"
+msgstr "J'ai oublié mon ancien mot de passe"
+
+#: tools/RestoreBackup.svelte:149
+#, fuzzy
+msgid "Your account comes back with a new password, and you set up two-step sign-in again. The backup key proves the backup is yours."
+msgstr "Votre compte revient avec un nouveau mot de passe, et vous configurez à nouveau la deuxième étape de connexion. La clé de sauvegarde prouve que la sauvegarde est à vous."
+
+#: tools/RestoreBackup.svelte:150
+#, fuzzy
+msgid "Your account"
+msgstr "Votre compte"
 
 #: tools/ReviewBundle.svelte:31
 #, fuzzy

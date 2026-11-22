@@ -86,7 +86,11 @@ type Request struct {
 	// Name), "key-remove" (Fingerprint) or "usb-keys".
 	// pictures: Action "usb", or "read" (Device and Name, the picture's place
 	// on that stick).
-	// backups: no Action for the backup's state; "now"; "nightly" (On).
+	// backups: no Action for the backup's state; "drives"; "setup" (Device);
+	// "key"; "now"; "nightly" (On); "app" (Name, On); "list" (Device);
+	// "check" (Device, Name: a backup, Key: the backup key); "restore" (those,
+	// Include: the parts, and Username and Password for an admin who forgot
+	// theirs). See backups.go.
 	Key         *string `json:"key,omitempty"`
 	Fingerprint *string `json:"fingerprint,omitempty"`
 }

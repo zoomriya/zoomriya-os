@@ -49,6 +49,8 @@ type Release struct {
 	Units     []string `json:"units"`
 	Start     []string `json:"start"`
 	Migrate   string   `json:"migrate,omitempty"`
+	// BackupList: the unit that lists the files the backup copies as they are.
+	BackupList string `json:"backup_list,omitempty"`
 }
 
 type InstalledApp struct {
@@ -340,7 +342,7 @@ func (a *Agent) installApp(device, file, by string) (string, error) {
 		return "", finish(err)
 	}
 	release := Release{Version: m.Version, Installed: a.now().UTC().Format(time.RFC3339), By: by,
-		Start: m.Start, Migrate: m.Migrate}
+		Start: m.Start, Migrate: m.Migrate, BackupList: m.BackupList}
 	keep := a.path(filepath.Join(appsDir, m.ID, m.Version, "units"))
 	_ = os.RemoveAll(keep)
 	for _, u := range m.Units {

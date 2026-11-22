@@ -23,7 +23,7 @@ const (
 )
 
 // The kinds of notification, which each admin can turn off.
-var notificationKinds = []string{"drive", "update", "restart", "check", "network", "secure", "signin", "access", "apps"}
+var notificationKinds = []string{"drive", "update", "restart", "check", "network", "secure", "signin", "access", "apps", "backup"}
 
 // Notifier writes a notification; the journal on the box, a list in tests.
 type Notifier interface {
