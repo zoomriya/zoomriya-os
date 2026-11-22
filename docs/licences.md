@@ -18,7 +18,7 @@ each package's `copyright` file.
 | Component | Licence | Commercial use | What we need to do |
 | --- | --- | --- | --- |
 | Debian 13, `main` | Many free licences, all meeting the Debian Free Software Guidelines | Yes | GPL and LGPL: offer the source of what we ship (below). Don't call the product Debian or use its logo |
-| Debian `non-free-firmware` (CPU microcode, Ethernet firmware) | Each vendor's own; redistribution allowed | Yes | Ship only what the box's hardware needs, with each licence file; no Wi-Fi firmware ([Design §5.1](design.md#51-wi-fi)) |
+| Debian `non-free-firmware` (CPU microcode, Ethernet firmware, AMD graphics firmware) | Each vendor's own; redistribution allowed | Yes | Ship only what the box's hardware needs, with each licence file; no Wi-Fi firmware ([Design §5.1](design.md#51-wi-fi)) |
 | Linux kernel, Btrfs | GPL-2.0 | Yes | Source |
 | systemd, systemd-nspawn, machinectl, systemd-boot | LGPL-2.1+, some GPL-2.0 | Yes | Source |
 | apt, unattended-upgrades, needrestart, snapper | GPL-2.0 | Yes | Source |

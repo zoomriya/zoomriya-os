@@ -5,6 +5,10 @@
 set -eu
 
 root=$(cd "$(dirname "$0")/.." && pwd)
+
+# The tools the builds need (Go, llama.cpp's compilers and Vulkan headers):
+# whatever is missing is downloaded and installed first, asking for sudo.
+"$root/scripts/setup.sh" --packages
 out="$root/build/packages"
 work="$root/build/package-trees"
 

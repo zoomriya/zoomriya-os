@@ -101,7 +101,9 @@ Build on Debian 13. You also need the
 beside this repository, or set `ZOOMRIYA_ID_SRC` to its location.
 
 Run the setup script once. It checks the build environment, installs missing
-dependencies (asking for `sudo` if needed), and checks KVM support:
+dependencies (asking for `sudo` if needed), and checks KVM support. The build
+also installs any missing build tools itself before it starts, including
+llama.cpp's compilers and Vulkan headers:
 
 ```sh
 scripts/setup.sh

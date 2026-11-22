@@ -12,8 +12,9 @@
 # reading a prompt there is several times faster than on the CPU. Without
 # one, llama-server runs on the CPU as before. The C++ runtime is built in.
 #
-# Building needs Debian's libvulkan-dev, glslc and spirv-headers (all open
-# source). No web page is built or downloaded: the box never serves one.
+# Building needs Debian's cmake, g++, libvulkan-dev, glslc and spirv-headers
+# (all open source); scripts/build-packages.sh installs any that are missing
+# before it builds (scripts/setup.sh). No web page is built or downloaded: the box never serves one.
 #
 # Only with the network for llama.cpp's first fetch: ZOOMRIYA_LLAMA_SRC may
 # name a checkout of the same release instead.

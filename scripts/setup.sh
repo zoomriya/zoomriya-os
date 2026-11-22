@@ -2,7 +2,10 @@
 # Install what building and testing ZOOMRIYA OS needs, on a Debian 13 machine.
 # Installs only the missing packages (asks for sudo), then checks KVM and the
 # subordinate IDs mkosi uses to build without root.
-# Usage: scripts/setup.sh
+# Usage: scripts/setup.sh [--packages]
+#   --packages  only install missing packages; the build runs this first
+#               (scripts/build-packages.sh), so a new machine needs no setup
+#               step before building.
 set -eu
 
 packages="
@@ -28,6 +31,13 @@ packages="
     qemu-utils
     ovmf
     erofs-utils
+    git
+    cmake
+    make
+    g++
+    libvulkan-dev
+    glslc
+    spirv-headers
 "
 
 missing=""
@@ -42,9 +52,11 @@ if [ -n "$missing" ]; then
     sudo apt-get update
     # shellcheck disable=SC2086
     sudo apt-get install -y --no-install-recommends $missing
-else
+elif [ "${1:-}" != --packages ]; then
     echo "All packages are installed."
 fi
+
+[ "${1:-}" != --packages ] || exit 0
 
 version=$(mkosi --version | awk '{print $2}')
 if [ "${version%%.*}" -lt 25 ]; then
