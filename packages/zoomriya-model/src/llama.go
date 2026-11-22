@@ -35,10 +35,24 @@ func startLlamaServer(cfg Config) Starter {
 			"--model", model,
 			"--host", host, "--port", port,
 			"--ctx-size", strconv.Itoa(cfg.Context),
+			// On the graphics chip when the box has one (build: Vulkan).
+			"--n-gpu-layers", strconv.Itoa(cfg.GPULayers),
 			"--threads", threads, "--threads-batch", threads,
 			"--batch-size", "1024",
-			// One answer at a time; the front decides whose.
-			"--parallel", "1",
+			// Still one answer at a time (the front decides whose), but two
+			// caches sharing the one context (--kv-unified): Myira's tool
+			// choice and her answer each keep their own prompt's beginning,
+			// so a family question reuses both (about 1.4 s of reading
+			// instead of 5 s) and one never wipes the other's. A long prompt
+			// still gets the whole context; the other cache refills after.
+			"--parallel", "2",
+			"--kv-unified",
+			// Gemma's sliding-window layers kept whole (about 0.25 GB more),
+			// so a new question can reuse the model's reading of the rules
+			// every prompt begins with (Myira puts them first): about 0.7 s
+			// to read instead of 6 s on the box's CPU. Without it llama.cpp
+			// can't rewind those layers and reads every prompt from the top.
+			"--swa-full",
 			// The model's own chat template (Gemma 4's), as the apps had.
 			"--jinja",
 			// An answer, never the model's thinking.

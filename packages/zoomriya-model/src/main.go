@@ -40,6 +40,10 @@ type Config struct {
 	Server     string
 	ServerAddr string
 	Context    int
+	// GPULayers: how many of the model's layers go to the graphics chip
+	// (Vulkan): all of them by default; 0 keeps the model on the CPU. With
+	// no graphics chip llama.cpp uses the CPU whatever this says.
+	GPULayers int
 	// Preload: load the chosen model at start, so the first answer is quick.
 	Preload bool
 }
@@ -56,6 +60,10 @@ func configFromEnv() Config {
 	if err != nil || context < 512 {
 		context = 8192
 	}
+	gpu, err := strconv.Atoi(env("ZOOMRIYA_MODEL_GPU_LAYERS", "99"))
+	if err != nil || gpu < 0 {
+		gpu = 99
+	}
 	return Config{
 		Addr:         env("ZOOMRIYA_MODEL_ADDR", "127.0.0.1:8070"),
 		IDAPI:        env("ZOOMRIYA_ID_URL", "http://127.0.0.1:8050/id/api/v1"),
@@ -65,6 +73,7 @@ func configFromEnv() Config {
 		Server:       env("ZOOMRIYA_MODEL_SERVER", "/usr/lib/zoomriya-model/llama-server"),
 		ServerAddr:   env("ZOOMRIYA_MODEL_SERVER_ADDR", "127.0.0.1:8071"),
 		Context:      context,
+		GPULayers:    gpu,
 		Preload:      env("ZOOMRIYA_MODEL_PRELOAD", "true") != "false",
 	}
 }

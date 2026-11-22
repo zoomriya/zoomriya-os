@@ -2,7 +2,7 @@ Package: zoomriya-model
 Version: 13.0.0
 Architecture: amd64
 Maintainer: ZOOMRIYA <os@zoomriya.com>
-Depends: systemd
+Depends: systemd, libvulkan1, mesa-vulkan-drivers
 Section: admin
 Priority: optional
 Description: The box's one language model, for Myira and the ZOOMRIYA apps

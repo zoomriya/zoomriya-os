@@ -766,7 +766,7 @@ restored from the backup of … by …" in the family's activity
 refused unless the backup is from this box. ZOOMRIYA Connect's box key is
 never in a backup, so on a new box phones pair with ZOOMRIYA Connect again.
 
-**Still open:** OS-15 to OS-20 in [§12](#12-open-decisions).
+**Still open:** OS-15 to OS-21 in [§12](#12-open-decisions).
 
 **Not in a backup:** the OS itself (restore points cover it), the box's own
 settings (the first setup asks them again), ZOOMRIYA Connect's box key,
@@ -1318,6 +1318,7 @@ tests/             VM tests: first boot, updates, rollback, fallback
 | OS-18 | The restore notice ([§6.10](#610-backups)): today a line in the family's activity and on the admins' bell | (a) as it is, (b) also a notice for every member at their next sign-in (ZOOMRIYA ID and each app's sign-in) | Open |
 | OS-19 | Backup and restore on a real box ([§6.10](#610-backups)): the unit tests use a folder for the drive and stand-ins for `mount`, `pg_dump` and `pg_restore` | A VM test with a USB drive (exFAT, NTFS, ext4, FAT32 over 4 GiB), a real restore onto a fresh box, and printing the key from the box's own screen | Open |
 | OS-20 | Opening a member's Vault from the backup drive without a box ("Open Vault" reader) | A small reader on the drive or on zoomriya.com that opens `Vault/<member>/` with their PIN or recovery key | Later |
+| OS-21 | Myira's model on the box's graphics chip (Radeon 780M, Vulkan, built 22 November 2026; `ZOOMRIYA_MODEL_GPU_LAYERS`, 0 for the CPU), `--swa-full`, and two caches in one context (`--parallel 2 --kv-unified`, one answer at a time still) | Measured on a development PC's Intel graphics only: prompts read about twice as fast as on its CPU, the same answers' quality (8 of 10 rule checks either way); a reused prompt beginning cuts reading from about 6 s to 0.7 s, and a family question (tool choice, then answer) from about 5 s to 1.4 s with two caches; a 6,900-token prompt still fits. On a real box: the reading and writing speed with 1, 5 and 10 people asking, the first answer after loading (shaders are prepared once, about 3 s), and whether the model's graphics memory counts towards the service's `MemoryMax=8G` (on the Intel PC the process showed 0.7 GB; the rest was graphics memory) | Open |
 
 ## 13. Plan
 
