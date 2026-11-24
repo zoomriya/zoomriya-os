@@ -1,0 +1,15 @@
+# Checks the box came up before a new kernel is marked good (design §4). Only
+# counted boots pull in boot-complete.target, so it runs only for a new kernel.
+[Unit]
+Description=Check the box came up before marking this kernel good
+Documentation=https://github.com/zoomriya/zoomriya-os/blob/main/docs/design.md#4-boot-recovery-and-factory-reset
+After=local-fs.target nftables.service systemd-networkd.service zoomriya-agent.socket
+Before=boot-complete.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/lib/zoomriya-base/boot-check
+
+[Install]
+RequiredBy=boot-complete.target

@@ -1,0 +1,12 @@
+Package: zoomriya-connect
+Version: 13.0.0
+Architecture: amd64
+Maintainer: ZOOMRIYA <os@zoomriya.com>
+Depends: systemd
+Section: admin
+Priority: optional
+Description: Remote access on the box, with no ZOOMRIYA server
+ zoomriya-connectd lets the family's paired phones and laptops reach the box
+ from home and from away. It pairs devices at home, keeps the box's own list
+ of them, and lets in nobody else, on every path. No ZOOMRIYA server, relay
+ or account is involved.

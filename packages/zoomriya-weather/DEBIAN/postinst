@@ -1,0 +1,11 @@
+#!/bin/sh
+set -e
+
+if [ "$1" = configure ]; then
+    systemd-sysusers zoomriya-weather.conf
+    deb-systemd-helper enable zoomriya-weather.service >/dev/null || true
+    if [ -d /run/systemd/system ]; then
+        systemctl daemon-reload
+        deb-systemd-invoke restart zoomriya-weather.service >/dev/null || true
+    fi
+fi

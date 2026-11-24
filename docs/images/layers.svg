@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="t d">
+<title id="t">ZOOMRIYA OS: the four layers</title>
+<desc id="d">Apps, shared services, OS and data, each with its own owner, update and rollback.</desc>
+<style>
+text { font-family: Inter, "Segoe UI", system-ui, -apple-system, sans-serif; fill: #1B2733; }
+.title { font-size: 22px; font-weight: 700; }
+.head { font-size: 12px; font-weight: 600; fill: #56636F; letter-spacing: 0.08em; }
+.name { font-size: 18px; font-weight: 700; letter-spacing: 0.04em; }
+.desc { font-size: 14px; fill: #3A4754; }
+.cell { font-size: 14px; }
+.mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 13px; }
+.foot { font-size: 14px; fill: #56636F; }
+</style>
+<rect width="1200" height="720" rx="16" fill="#FFFFFF"></rect>
+<text class="title" x="40" y="50">The four layers</text>
+
+<text class="head" x="460" y="84">OWNER</text>
+<text class="head" x="710" y="84">UPDATE</text>
+<text class="head" x="960" y="84">ROLLBACK</text>
+
+<g transform="translate(24 98)">
+<rect width="1152" height="128" rx="12" fill="#EAF1FE" stroke="#BFD3FB"></rect>
+<rect x="0" y="0" width="8" height="128" rx="4" fill="#2563EB"></rect>
+<path d="M412 20 V108 M662 20 V108 M912 20 V108" stroke="#BFD3FB"></path>
+<text class="name" x="32" y="36" style="fill: #1D4ED8">APPS</text>
+<text class="desc" x="32" y="62">One versioned nspawn image per app release</text>
+<text class="desc" x="32" y="82">(mkosi), imported with machinectl; units</text>
+<text class="desc" x="32" y="102"><tspan class="mono">zoomriya-&lt;app&gt;-api@&lt;release&gt;</tspan>, migrate, workers</text>
+<text class="mono" x="436" y="40">zoomriya-agent,</text>
+<text class="cell" x="436" y="62">when an admin asks</text>
+<text class="cell" x="686" y="40">Import the new image,</text>
+<text class="cell" x="686" y="62">migrate, switch</text>
+<text class="cell" x="936" y="40">The previous image</text>
+</g>
+
+<g transform="translate(24 238)">
+<rect width="1152" height="128" rx="12" fill="#F1ECFD" stroke="#D6C8F8"></rect>
+<rect x="0" y="0" width="8" height="128" rx="4" fill="#7C3AED"></rect>
+<path d="M412 20 V108 M662 20 V108 M912 20 V108" stroke="#D6C8F8"></path>
+<text class="name" x="32" y="36" style="fill: #6D28D9">SHARED SERVICES</text>
+<text class="desc" x="32" y="62">PostgreSQL, Valkey, Caddy: servers every app</text>
+<text class="desc" x="32" y="82">talks to, never a library an app links against</text>
+<text class="cell" x="436" y="40">apt (Debian),</text>
+<text class="cell" x="436" y="62">with the OS</text>
+<text class="cell" x="686" y="40">Debian's security fixes,</text>
+<text class="cell" x="686" y="62">with the OS</text>
+<text class="cell" x="936" y="40">Btrfs snapshot,</text>
+<text class="cell" x="936" y="62">with the OS</text>
+</g>
+
+<g transform="translate(24 378)">
+<rect width="1152" height="128" rx="12" fill="#E6F4F2" stroke="#B5DDD7"></rect>
+<rect x="0" y="0" width="8" height="128" rx="4" fill="#0F766E"></rect>
+<path d="M412 20 V108 M662 20 V108 M912 20 V108" stroke="#B5DDD7"></path>
+<text class="name" x="32" y="36" style="fill: #0F766E">OS</text>
+<text class="desc" x="32" y="62">Debian 13 + <tspan class="mono">zoomriya-base</tspan> (our settings)</text>
+<text class="desc" x="32" y="82">+ <tspan class="mono">zoomriya-agent</tspan></text>
+<text class="cell" x="436" y="40">apt +</text>
+<text class="mono" x="436" y="62">unattended-upgrades</text>
+<text class="cell" x="686" y="40">Security fixes,</text>
+<text class="cell" x="686" y="62">by themselves</text>
+<text class="cell" x="936" y="40">Btrfs snapshot</text>
+</g>
+
+<g transform="translate(24 518)">
+<rect width="1152" height="128" rx="12" fill="#FDF1E4" stroke="#F2D3AE"></rect>
+<rect x="0" y="0" width="8" height="128" rx="4" fill="#B45309"></rect>
+<path d="M412 20 V108 M662 20 V108 M912 20 V108" stroke="#F2D3AE"></path>
+<text class="name" x="32" y="36" style="fill: #92400E">DATA</text>
+<text class="desc" x="32" y="62"><tspan class="mono">/data</tspan>, PostgreSQL's cluster, Valkey</text>
+<text class="cell" x="436" y="40">The apps</text>
+<text class="cell" x="686" y="40">Never touched</text>
+<text class="cell" x="686" y="62">by any update</text>
+<text class="cell" x="936" y="40">Backups</text>
+<text class="mono" x="936" y="62">(platform/backup)</text>
+</g>
+
+<text class="foot" x="40" y="690">Each layer has its own owner, its own update and its own rollback. None of them updates or rolls back another.</text>
+</svg>

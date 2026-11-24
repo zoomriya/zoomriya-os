@@ -1,0 +1,20 @@
+#!/bin/sh
+set -e
+
+if [ "$1" = configure ]; then
+    systemd-sysusers zoomriya-model.conf
+    systemd-tmpfiles --create zoomriya-model.conf || true
+    # The admin's model choice, kept by the apps' model service before it
+    # moved here.
+    old=/data/zoomriya-myira/model.json
+    new=/var/lib/zoomriya-model/model.json
+    if [ -f "$old" ] && [ ! -e "$new" ]; then
+        install -d -m 0700 -o zoomriya-model -g zoomriya-model /var/lib/zoomriya-model
+        install -m 0600 -o zoomriya-model -g zoomriya-model "$old" "$new"
+    fi
+    deb-systemd-helper enable zoomriya-model.service >/dev/null || true
+    if [ -d /run/systemd/system ]; then
+        systemctl daemon-reload
+        deb-systemd-invoke restart zoomriya-model.service >/dev/null || true
+    fi
+fi

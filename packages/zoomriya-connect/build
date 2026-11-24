@@ -1,0 +1,24 @@
+#!/bin/sh
+# Build ZOOMRIYA Connect's box side into the package tree given as $1
+# (scripts/build-packages.sh): zoomriya-connectd, from the zoomriya-connect
+# repository beside this one, or where ZOOMRIYA_CONNECT points. Its Rust
+# dependencies must already be in Cargo's cache (cargo fetch, in that
+# repository, before a release): this build never downloads anything.
+set -eu
+
+here=$(cd "$(dirname "$0")" && pwd)
+mkdir -p "$1"
+set -- "$(cd "$1" && pwd)"
+root=$(cd "$here/../.." && pwd)
+src=${ZOOMRIYA_CONNECT:-$(cd "$root/.." && pwd)/zoomriya-connect}
+if [ ! -f "$src/connectd/Cargo.toml" ]; then
+    echo "zoomriya-connect: $src isn't the zoomriya-connect repository; set ZOOMRIYA_CONNECT" >&2
+    exit 1
+fi
+
+lib="$1/usr/lib/zoomriya-connect"
+mkdir -p "$lib"
+cd "$src"
+cargo test --offline --locked -p zoomriya-connectd
+cargo build --offline --locked --release -p zoomriya-connectd
+install -m 0755 target/release/zoomriya-connectd "$lib/zoomriya-connectd"

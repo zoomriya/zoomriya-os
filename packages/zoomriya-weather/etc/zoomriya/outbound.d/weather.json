@@ -1,0 +1,11 @@
+{
+  "id": "weather",
+  "account": "zoomriya-weather",
+  "name": "Weather",
+  "feature": "Weather in Box Desktop and the apps",
+  "what": "The family's town (its coordinates, to about 1 km), or in Europe only its country's warnings list. Never anyone's name, account or device.",
+  "why": "The forecast and the weather alerts for the town come from the country's own weather service.",
+  "when": "Every hour for the forecast and every 10 minutes for alerts, once a town is chosen.",
+  "hosts": ["api.weather.gc.ca", "api.weather.gov", "api.met.no", "feeds.meteoalarm.org"],
+  "optional": true
+}

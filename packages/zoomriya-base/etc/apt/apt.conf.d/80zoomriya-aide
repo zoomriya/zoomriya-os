@@ -1,0 +1,3 @@
+// After every apt run, refresh AIDE's baseline of the OS's files (design §8),
+// in the background, so the nightly check reports only what an update didn't do.
+DPkg::Post-Invoke { "if [ -d /run/systemd/system ]; then systemctl start --no-block zoomriya-aide-update.service 2>/dev/null || true; fi"; };

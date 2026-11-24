@@ -1,0 +1,26 @@
+# Services ZOOMRIYA OS turns on. Format: systemd.preset(5).
+enable zoomriya-hostname.service
+enable zoomriya-dpkg-recover.service
+enable zoomriya-factory-snapshot.service
+enable zoomriya-restore-cleanup.service
+enable zoomriya-boot-check.service
+enable zoomriya-erase.service
+enable zoomriya-aide-init.service
+enable zoomriya-aide-check.timer
+enable zoomriya-setup-code.service
+enable zoomriya-services-init.service
+enable avahi-daemon.service
+enable auditd.service
+enable nftables.service
+enable systemd-networkd.service
+enable systemd-resolved.service
+enable systemd-timesyncd.service
+# sshd only while advanced access is on: the agent starts and stops it.
+disable ssh.service
+disable ssh.socket
+# The agent reads drives' health when Box Desktop asks (disk-health).
+disable smartd.service
+# Restore points come before and after apt runs (snapper's apt hook), not at
+# every start or every hour.
+disable snapper-boot.timer
+disable snapper-timeline.timer

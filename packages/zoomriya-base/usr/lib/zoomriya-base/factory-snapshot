@@ -1,0 +1,9 @@
+#!/bin/sh
+# Keep the OS as it left the factory, for "Reset the system" (design §4).
+# Runs at the first start; snapper never cleans it up.
+set -eu
+
+if snapper -c root list --columns description | grep -qx ' *factory *'; then
+    exit 0
+fi
+snapper -c root create --description factory --userdata important=yes

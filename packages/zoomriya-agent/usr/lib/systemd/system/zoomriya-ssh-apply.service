@@ -1,0 +1,18 @@
+# SSH as advanced access says (design §7.1): at each start, and each time the
+# firewall is loaded again, which empties its remote_access chain. Open while
+# an admin has it on, shut otherwise.
+[Unit]
+Description=ZOOMRIYA advanced access, as set
+Documentation=https://github.com/zoomriya/zoomriya-os/blob/main/docs/design.md#71-advanced-access
+After=nftables.service local-fs.target
+PartOf=nftables.service
+ReloadPropagatedFrom=nftables.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/lib/zoomriya-agent/zoomriya-agent ssh-apply
+ExecReload=/usr/lib/zoomriya-agent/zoomriya-agent ssh-apply
+
+[Install]
+WantedBy=multi-user.target nftables.service

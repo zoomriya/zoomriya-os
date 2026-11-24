@@ -1,0 +1,10 @@
+# The maintenance hour's job: restart if something waits for it, otherwise
+# nothing.
+[Unit]
+Description=ZOOMRIYA maintenance: restart if an update or a restore waits for it
+Documentation=https://github.com/zoomriya/zoomriya-os/blob/main/docs/design.md#61-debian-security-fixes
+After=apt-daily-upgrade.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/lib/zoomriya-agent/zoomriya-agent maintenance

@@ -1,0 +1,24 @@
+# What auditd records (design §8): changes to accounts, sudo and the time,
+# kernel modules loaded, and the agent's actions. auditd's own defaults cap its
+# log (5 files of 8 MB). Format: audit.rules(7).
+
+# Accounts and sudo
+-w /etc/passwd -p wa -k accounts
+-w /etc/shadow -p wa -k accounts
+-w /etc/group -p wa -k accounts
+-w /etc/gshadow -p wa -k accounts
+-w /etc/sudoers -p wa -k sudo
+-w /etc/sudoers.d/ -p wa -k sudo
+
+# The time: certificates and update signatures depend on it
+-a always,exit -F arch=b64 -S adjtimex,settimeofday,clock_settime -k time
+-a always,exit -F arch=b32 -S adjtimex,settimeofday,clock_settime -k time
+-w /etc/localtime -p wa -k time
+
+# Kernel modules
+-a always,exit -F arch=b64 -S init_module,finit_module,delete_module -k modules
+
+# The agent's actions: the agent itself, restores, the maintenance hour
+-w /usr/lib/zoomriya-agent/zoomriya-agent -p x -k zoomriya-agent
+-w /usr/lib/zoomriya-base/restore-snapshot -p x -k zoomriya-agent
+-w /etc/systemd/system/zoomriya-maintenance.timer.d/ -p wa -k zoomriya-agent

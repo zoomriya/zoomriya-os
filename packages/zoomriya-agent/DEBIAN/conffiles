@@ -1,0 +1,2 @@
+/etc/ssh/sshd_config.d/60-zoomriya.conf
+/etc/sudoers.d/zoomriya-admin

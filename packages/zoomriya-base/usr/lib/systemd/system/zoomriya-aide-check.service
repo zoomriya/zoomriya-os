@@ -1,0 +1,12 @@
+[Unit]
+Description=Check the OS's files against their baseline (AIDE)
+Documentation=https://github.com/zoomriya/zoomriya-os/blob/main/docs/design.md#8-hardening
+ConditionPathExists=/var/lib/zoomriya-aide/aide.db.gz
+After=zoomriya-aide-update.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/lib/zoomriya-base/aide-check
+SyslogIdentifier=zoomriya-aide
+Nice=19
+IOSchedulingClass=idle

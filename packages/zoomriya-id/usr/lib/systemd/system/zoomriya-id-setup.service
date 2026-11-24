@@ -1,0 +1,17 @@
+# Sets ZOOMRIYA ID up the first time the box starts, and again after Erase
+# everything or Reset the system: its database role and database, its
+# settings and its folder, only what's missing (its deploy/setup.sh).
+[Unit]
+Description=Set up ZOOMRIYA ID
+After=postgresql.service zoomriya-services-init.service
+Requires=postgresql.service
+Before=zoomriya-id.service
+ConditionPathExists=!/var/lib/zoomriya-id/set-up
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/opt/zoomriya/id/deploy/setup.sh
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,11 @@
+[Unit]
+Description=Remove the OS a restore replaced
+Documentation=https://github.com/zoomriya/zoomriya-os/blob/main/docs/design.md#61-debian-security-fixes
+After=local-fs.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/lib/zoomriya-base/restore-cleanup
+
+[Install]
+WantedBy=multi-user.target

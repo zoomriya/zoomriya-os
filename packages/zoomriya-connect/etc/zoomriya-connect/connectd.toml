@@ -1,0 +1,22 @@
+# connectd on the box: /etc/zoomriya-connect/connectd.toml.
+# Everything has a default; this file says them out loud.
+
+# The box key and the device list. Never in backups.
+data_dir = "/data/zoomriya-connect"
+# UDP 443: iroh. Open from anywhere in the box's firewall; only paired
+# devices get past connectd.
+port = 443
+# Box Desktop's way in.
+api_socket = "/run/zoomriya-connect/api.sock"
+
+# The box's web servers paired devices reach, by the names the apps ask for:
+# plain HTTP on sockets only connectd and those servers may open (group
+# zoomriya-link). The laptop app shows them at zoomriya.localhost:7480 and
+# zoomriyabox.localhost:7480 (docs/direct-plus.md §10).
+[[targets]]
+name = "apps"
+unix = "/run/zoomriya-link/apps.sock"
+
+[[targets]]
+name = "desktop"
+unix = "/run/zoomriya-link/desktop.sock"

@@ -1,0 +1,32 @@
+#!/bin/sh
+# Erase everything (design §4), at the first start of the restored factory OS,
+# before anything mounts the subvolumes it empties: the family's data, the
+# databases, the app images and the logs are made new and empty, and every
+# restore point but the factory one is deleted. The setup code stays on the
+# EFI partition, so the box can be set up again. Runs once: it removes its flag.
+set -eu
+
+flag=/var/lib/zoomriya-base/erase-pending
+top=/run/zoomriya-base/top
+mkdir -p "$top"
+mount -o subvolid=5 /dev/disk/by-partlabel/system "$top"
+trap 'umount "$top"' EXIT
+
+for subvolume in @data @postgres @valkey @machines @log; do
+    if [ -d "$top/$subvolume" ]; then
+        btrfs -q subvolume delete --recursive "$top/$subvolume"
+    fi
+    btrfs -q subvolume create "$top/$subvolume"
+done
+
+# snapper keeps each restore point as <number>/info.xml and <number>/snapshot.
+for point in "$top"/@snapshots/*/; do
+    [ -f "$point/info.xml" ] || continue
+    grep -q '<description>factory</description>' "$point/info.xml" && continue
+    [ -d "$point/snapshot" ] && btrfs -q subvolume delete "$point/snapshot"
+    rm -rf "$point"
+done
+
+rm -f "$flag"
+sync
+echo "Erased everything; the box is as it left the factory."

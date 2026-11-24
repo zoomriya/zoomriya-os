@@ -1,0 +1,4 @@
+// Fetch the package lists and install security fixes every day (design §6.1).
+APT::Periodic::Update-Package-Lists "1";
+APT::Periodic::Unattended-Upgrade "1";
+APT::Periodic::AutocleanInterval "7";

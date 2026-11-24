@@ -1,0 +1,12 @@
+[Unit]
+Description=Make the setup code, when the factory didn't
+Documentation=https://github.com/zoomriya/zoomriya-os/blob/main/docs/design.md#5-first-boot
+After=local-fs.target efi.automount
+ConditionPathExists=!/efi/zoomriya/setup-code
+
+[Service]
+Type=oneshot
+ExecStart=/usr/lib/zoomriya-base/setup-code
+
+[Install]
+WantedBy=multi-user.target

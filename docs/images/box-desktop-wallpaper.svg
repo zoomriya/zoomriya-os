@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+<defs>
+<linearGradient id="bd-sky" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#0A1C2E"></stop>
+<stop offset="0.45" stop-color="#123650"></stop>
+<stop offset="0.68" stop-color="#245A6E"></stop>
+<stop offset="0.78" stop-color="#3E7480"></stop>
+</linearGradient>
+<radialGradient id="bd-glow" cx="1000" cy="600" r="560" gradientUnits="userSpaceOnUse">
+<stop offset="0" stop-color="#FFC38F" stop-opacity="0.85"></stop>
+<stop offset="0.22" stop-color="#F49A7C" stop-opacity="0.45"></stop>
+<stop offset="0.55" stop-color="#B9668C" stop-opacity="0.16"></stop>
+<stop offset="1" stop-color="#7A4C8C" stop-opacity="0"></stop>
+</radialGradient>
+<radialGradient id="bd-sun" cx="0.5" cy="0.5" r="0.5">
+<stop offset="0" stop-color="#FFE7C2"></stop>
+<stop offset="1" stop-color="#FFC98F"></stop>
+</radialGradient>
+<radialGradient id="bd-lamp" cx="0.5" cy="0.5" r="0.5">
+<stop offset="0" stop-color="#FFD58A" stop-opacity="0.6"></stop>
+<stop offset="1" stop-color="#FFD58A" stop-opacity="0"></stop>
+</radialGradient>
+</defs>
+<rect width="1440" height="900" fill="url(#bd-sky)"></rect>
+<rect width="1440" height="900" fill="url(#bd-glow)"></rect>
+<g fill="#FFFFFF">
+<circle cx="62" cy="48" r="1.2" fill-opacity="0.7"></circle>
+<circle cx="148" cy="122" r="0.8" fill-opacity="0.5"></circle>
+<circle cx="233" cy="36" r="1" fill-opacity="0.6"></circle>
+<circle cx="310" cy="170" r="1.4" fill-opacity="0.55"></circle>
+<circle cx="402" cy="84" r="0.7" fill-opacity="0.45"></circle>
+<circle cx="478" cy="212" r="1" fill-opacity="0.5"></circle>
+<circle cx="560" cy="58" r="1.3" fill-opacity="0.7"></circle>
+<circle cx="634" cy="140" r="0.8" fill-opacity="0.4"></circle>
+<circle cx="712" cy="32" r="1" fill-opacity="0.55"></circle>
+<circle cx="790" cy="190" r="0.7" fill-opacity="0.35"></circle>
+<circle cx="866" cy="96" r="1.2" fill-opacity="0.5"></circle>
+<circle cx="948" cy="44" r="0.8" fill-opacity="0.45"></circle>
+<circle cx="1030" cy="150" r="1" fill-opacity="0.35"></circle>
+<circle cx="1112" cy="70" r="1.3" fill-opacity="0.5"></circle>
+<circle cx="1190" cy="28" r="0.8" fill-opacity="0.45"></circle>
+<circle cx="1268" cy="118" r="1" fill-opacity="0.4"></circle>
+<circle cx="1350" cy="56" r="1.4" fill-opacity="0.55"></circle>
+<circle cx="1410" cy="180" r="0.8" fill-opacity="0.35"></circle>
+<circle cx="96" cy="260" r="0.9" fill-opacity="0.45"></circle>
+<circle cx="188" cy="330" r="1.2" fill-opacity="0.4"></circle>
+<circle cx="276" cy="262" r="0.7" fill-opacity="0.35"></circle>
+<circle cx="372" cy="380" r="1" fill-opacity="0.3"></circle>
+<circle cx="520" cy="300" r="0.8" fill-opacity="0.35"></circle>
+<circle cx="660" cy="268" r="1.1" fill-opacity="0.3"></circle>
+<circle cx="30" cy="400" r="0.8" fill-opacity="0.3"></circle>
+<circle cx="1300" cy="250" r="1" fill-opacity="0.3"></circle>
+<circle cx="1220" cy="330" r="0.7" fill-opacity="0.25"></circle>
+<circle cx="140" cy="470" r="0.9" fill-opacity="0.25"></circle>
+<circle cx="420" cy="460" r="0.7" fill-opacity="0.2"></circle>
+<circle cx="590" cy="420" r="0.9" fill-opacity="0.2"></circle>
+</g>
+<circle cx="1000" cy="588" r="42" fill="url(#bd-sun)"></circle>
+<path d="M0 610 C 180 560, 360 575, 520 600 S 820 640, 980 590 S 1280 540, 1440 575 V 900 H 0 Z" fill="#2E6577"></path>
+<g fill="none" stroke="#FFFFFF" stroke-opacity="0.07" stroke-width="1">
+<path d="M0 632 C 180 582, 360 597, 520 622 S 820 662, 980 612 S 1280 562, 1440 597"></path>
+<path d="M0 654 C 180 604, 360 619, 520 644 S 820 684, 980 634 S 1280 584, 1440 619"></path>
+</g>
+<path d="M0 680 C 200 630, 420 650, 600 690 S 900 720, 1080 672 S 1320 640, 1440 668 V 900 H 0 Z" fill="#22526A"></path>
+<g fill="none" stroke="#FFFFFF" stroke-opacity="0.06" stroke-width="1">
+<path d="M0 702 C 200 652, 420 672, 600 712 S 900 742, 1080 694 S 1320 662, 1440 690"></path>
+<path d="M0 724 C 200 674, 420 694, 600 734 S 900 764, 1080 716 S 1320 684, 1440 712"></path>
+</g>
+<g transform="matrix(1.4 0 0 1.4 -425.6 -264.4)">
+<circle cx="1064" cy="666" r="30" fill="url(#bd-lamp)"></circle>
+<g fill="#163C52">
+<path d="M1046 658 L1064 642 L1082 658 Z"></path>
+<rect x="1072" y="645" width="4" height="8"></rect>
+<rect x="1050" y="656" width="28" height="22"></rect>
+</g>
+<rect x="1060" y="663" width="8" height="7" fill="#FFD27F"></rect>
+</g>
+<path d="M0 760 C 240 715, 480 740, 700 775 S 1060 800, 1260 760 S 1400 742, 1440 748 V 900 H 0 Z" fill="#183F57"></path>
+<g fill="none" stroke="#FFFFFF" stroke-opacity="0.05" stroke-width="1">
+<path d="M0 782 C 240 737, 480 762, 700 797 S 1060 822, 1260 782 S 1400 764, 1440 770"></path>
+<path d="M0 804 C 240 759, 480 784, 700 819 S 1060 844, 1260 804 S 1400 786, 1440 792"></path>
+</g>
+<path d="M0 840 C 300 800, 620 830, 900 858 S 1280 860, 1440 835 V 900 H 0 Z" fill="#102F45"></path>
+</svg>

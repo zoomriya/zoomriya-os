@@ -1,0 +1,25 @@
+#!/bin/sh
+# The box's own screen (box-desktop-screen.service): sway showing one app
+# full screen (/usr/share/box-desktop/sway.conf), with the
+# keyboard laid out as the box's (/etc/default/keyboard, the agent's
+# keyboard-set), and the screen as an admin kept it in Control Panel
+# (/etc/zoomriya/display.conf, the agent's display-set; without it, the
+# monitor's own best). The app can change the layout, the mouse and the screen
+# while it runs (swaymsg).
+# Usage: screen-session <the app and its arguments>
+set -eu
+
+[ ! -r /etc/default/keyboard ] || . /etc/default/keyboard
+export XKB_DEFAULT_MODEL="${XKBMODEL:-}"
+export XKB_DEFAULT_LAYOUT="${XKBLAYOUT:-us}"
+export XKB_DEFAULT_VARIANT="${XKBVARIANT:-}"
+export XKB_DEFAULT_OPTIONS="${XKBOPTIONS:-}"
+export ZOOMRIYA_SCREEN_APP="$*"
+
+config=/usr/share/box-desktop/sway.conf
+if [ -r /etc/zoomriya/display.conf ] && [ -n "${XDG_RUNTIME_DIR:-}" ]; then
+    # sway has one settings file: ours, then the screen's lines after it.
+    cat "$config" /etc/zoomriya/display.conf > "$XDG_RUNTIME_DIR/sway.conf"
+    config="$XDG_RUNTIME_DIR/sway.conf"
+fi
+exec /usr/bin/sway --config "$config"

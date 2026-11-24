@@ -1,0 +1,13 @@
+#!/bin/sh
+set -e
+
+if [ "$1" = configure ]; then
+    systemd-sysusers zoomriya-id.conf
+    deb-systemd-helper enable zoomriya-id-setup.service >/dev/null || true
+    deb-systemd-helper enable zoomriya-id.service >/dev/null || true
+    if [ -d /run/systemd/system ]; then
+        systemctl daemon-reload
+        systemctl start zoomriya-id-setup.service || true
+        systemctl try-restart zoomriya-id.service || true
+    fi
+fi

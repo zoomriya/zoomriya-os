@@ -1,0 +1,4 @@
+# Vite builds the page here (build); only the folder is kept.
+src/dist/*
+!src/dist/.keep
+web/node_modules/

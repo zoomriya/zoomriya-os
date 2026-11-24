@@ -1,0 +1,19 @@
+# Internet access as the admins set it (design §8.2): apps blocked unless they
+# declare what they send, and Apps offline or Everything offline. At each
+# start, and each time the firewall is loaded again, which empties its
+# outbound_policy chain.
+[Unit]
+Description=ZOOMRIYA internet access, as set
+Documentation=https://github.com/zoomriya/zoomriya-os/blob/main/docs/design.md#82-internet-access
+After=nftables.service local-fs.target
+PartOf=nftables.service
+ReloadPropagatedFrom=nftables.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/lib/zoomriya-agent/zoomriya-agent internet-apply
+ExecReload=/usr/lib/zoomriya-agent/zoomriya-agent internet-apply
+
+[Install]
+WantedBy=multi-user.target nftables.service

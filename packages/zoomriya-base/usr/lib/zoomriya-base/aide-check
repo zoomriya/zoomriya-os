@@ -1,0 +1,22 @@
+#!/bin/sh
+# The nightly look at the OS's files (design §8): anything changed outside an
+# update goes into the journal as a warning, for Log Center. AIDE's exit
+# status is a mask: 1-7 for added, removed or changed files, 14 and up for
+# its own errors.
+set -u
+
+conf=/usr/share/zoomriya-base/aide.conf
+report=$(aide --config="$conf" --check 2>&1)
+status=$?
+
+if [ "$status" -eq 0 ]; then
+    echo "The OS's files are as the last update left them."
+elif [ "$status" -lt 14 ]; then
+    echo "<4>Files in the OS changed outside an update:"
+    echo "$report" | sed -n '/^\(Added\|Removed\|Changed\) entries:/,/^Detailed information/p' \
+        | grep -v '^Detailed information' | sed 's/^/<4>/'
+else
+    echo "<3>AIDE couldn't check the OS's files ($status):"
+    echo "$report" | sed 's/^/<3>/'
+    exit "$status"
+fi

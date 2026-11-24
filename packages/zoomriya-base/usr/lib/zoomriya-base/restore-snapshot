@@ -1,0 +1,99 @@
+#!/bin/sh
+# Make the OS what it was at restore point NUMBER (design §6.1). Takes a
+# restore point of the OS as it is now first, so this can be undone too. The
+# current @ is kept as @.replaced-<time> until the next start removes it
+# (zoomriya-restore-cleanup.service); the restored OS runs from the next start.
+# Boot entries for kernels the restored OS doesn't have are removed, so the box
+# can't start a kernel without its modules. Never touches /data, the databases
+# or the app images: they aren't in @.
+#
+# Each package the restore took back is held at its restored version, so the
+# next night's security fixes don't install the same versions again (design
+# §6.1); the list goes in held-after-restore for zoomriya-agent.
+#
+# With --reset (Reset the system and Erase everything, design §4), nothing is
+# held: the box installs the latest fixes after. With --erase-everything, the
+# restored OS also carries a flag: at its first start, before anything mounts
+# them, erase empties the family's data, the databases, the app images and the
+# logs.
+# Usage: restore-snapshot [--reset] [--erase-everything] NUMBER
+set -eu
+
+reset=no
+erase=no
+while :; do
+    case "${1:-}" in
+        --reset) reset=yes ;;
+        --erase-everything) reset=yes; erase=yes ;;
+        *) break ;;
+    esac
+    shift
+done
+number=${1:?usage: restore-snapshot [--reset] [--erase-everything] NUMBER}
+case "$number" in *[!0-9]*) echo "Not a restore point number: $number" >&2; exit 2 ;; esac
+source=/.snapshots/$number/snapshot
+[ -d "$source" ] || { echo "No restore point $number." >&2; exit 1; }
+
+snapper -c root create --cleanup-algorithm number --description "Before restoring $number"
+
+top=/run/zoomriya-base/top
+mkdir -p "$top"
+mountpoint -q "$top" || mount -o subvolid=5 /dev/disk/by-partlabel/system "$top"
+trap 'umount "$top"' EXIT
+
+# hold_taken_back REPLACED RESTORED: hold, in RESTORED's package database,
+# each package REPLACED had at a newer version, and list it with the version
+# kept and the one taken back. A package held by an earlier restore keeps its
+# newer line.
+hold_taken_back() {
+    work=$(mktemp -d)
+    for side in replaced restored; do
+        [ "$side" = replaced ] && dir=$1 || dir=$2
+        dpkg-query --admindir="$dir/var/lib/dpkg" -W -f '${binary:Package} ${Version}\n' \
+            | LC_ALL=C sort > "$work/$side"
+    done
+    held=$2/var/lib/zoomriya-base/held-after-restore
+    mkdir -p "${held%/*}"
+    LC_ALL=C join "$work/restored" "$work/replaced" | while read -r package kept taken; do
+        dpkg --compare-versions "$kept" lt "$taken" || continue
+        echo "$package hold" | dpkg --admindir="$2/var/lib/dpkg" --set-selections
+        echo "$package $kept $taken"
+    done > "$work/new"
+    cat "$held" "$work/new" 2>/dev/null | awk '{ last[$1] = $0 } END { for (p in last) print last[p] }' \
+        | LC_ALL=C sort > "$work/held"
+    if [ -s "$work/held" ]; then
+        cp "$work/held" "$held"
+    fi
+    rm -rf "$work"
+}
+
+replaced="@.replaced-$(date -u +%Y%m%dT%H%M%SZ)"
+mv "$top/@" "$top/$replaced"
+if ! btrfs -q subvolume snapshot "$source" "$top/@"; then
+    mv "$top/$replaced" "$top/@"
+    echo "Couldn't restore $number; nothing was changed." >&2
+    exit 1
+fi
+if [ "$reset" = no ]; then
+    hold_taken_back "$top/$replaced" "$top/@" \
+        || echo "Restored, but couldn't hold back what it took back." >&2
+fi
+if [ "$erase" = yes ]; then
+    mkdir -p "$top/@/var/lib/zoomriya-base"
+    date -u +%Y-%m-%dT%H:%M:%SZ > "$top/@/var/lib/zoomriya-base/erase-pending"
+fi
+
+# Boot entries for kernels the restored OS doesn't have.
+esp=$(bootctl --print-esp-path)
+for entry in "$esp"/loader/entries/*.conf; do
+    [ -f "$entry" ] || continue
+    version=$(sed -n 's/^version *//p' "$entry")
+    [ -n "$version" ] && [ ! -d "$top/@/usr/lib/modules/$version" ] || continue
+    for file in $(sed -n 's/^\(linux\|initrd\) *//p' "$entry"); do
+        rm -f "$esp/${file#/}"
+    done
+    rm -f "$entry"
+    rmdir "$esp"/*/"$version" 2>/dev/null || true
+done
+
+echo "Restored $number. Restart the box to finish."

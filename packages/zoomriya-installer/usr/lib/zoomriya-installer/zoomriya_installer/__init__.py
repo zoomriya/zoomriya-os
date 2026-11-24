@@ -1,0 +1,1 @@
+"""ZOOMRIYA OS USB installer."""

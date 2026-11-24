@@ -1,0 +1,25 @@
+#!/bin/sh
+set -e
+
+if [ "$1" = configure ]; then
+    systemd-sysusers zoomriya-agent.conf
+    if [ -d /run/systemd/system ]; then
+        systemd-tmpfiles --create zoomriya-agent.conf
+    else
+        # Building the image (mkosi): /home there isn't the image's own, so
+        # admin's home is left to the first boot, where systemd-tmpfiles-setup
+        # makes it from the same line.
+        systemd-tmpfiles --create --exclude-prefix=/home zoomriya-agent.conf
+    fi
+    chmod 0440 /etc/sudoers.d/zoomriya-admin
+    deb-systemd-helper enable zoomriya-agent.socket zoomriya-maintenance.timer zoomriya-watch.timer \
+        zoomriya-certificate.service zoomriya-certificate.timer \
+        zoomriya-ssh-apply.service zoomriya-internet-apply.service >/dev/null || true
+    if [ -d /run/systemd/system ]; then
+        systemctl daemon-reload
+        systemctl restart zoomriya-agent.socket || true
+        systemctl start zoomriya-maintenance.timer zoomriya-watch.timer zoomriya-certificate.timer || true
+        systemctl start zoomriya-certificate.service || true
+        systemctl restart zoomriya-internet-apply.service || true
+    fi
+fi

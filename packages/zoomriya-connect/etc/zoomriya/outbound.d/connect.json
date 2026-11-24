@@ -1,0 +1,18 @@
+{
+  "id": "connect",
+  "account": "zoomriya-connect",
+  "name": "Remote access",
+  "feature": "Using the box away from home with the ZOOMRIYA phone and laptop apps",
+  "what": "Encrypted connections with the family's paired phones and laptops, never what is in them. The box's address, sealed so only paired devices can read it. Nothing goes to ZOOMRIYA.",
+  "why": "Paired phones and laptops reach the box directly. They find it through its sealed address in a public network that many computers share. When no direct path works, they reach it through a volunteer network that hides where the box is. No ZOOMRIYA server is involved.",
+  "when": "All the time.",
+  "hosts": [
+    "The family's phones and laptops, wherever they are",
+    "A public network that many computers share, for the box's sealed address",
+    "A volunteer network that hides where the box is",
+    "Only with your own name: your DNS provider's server, to keep the name pointing at the box",
+    "Only with your own name: Let's Encrypt (acme-v02.api.letsencrypt.org), for its certificate",
+    "Only with your own name: the public certificate logs (crt.sh), once a day, to spot certificates the box did not ask for"
+  ],
+  "optional": true
+}

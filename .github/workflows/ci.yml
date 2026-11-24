@@ -1,0 +1,97 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# GitHub's own machines only: this repository is public, so a pull request
+# from anyone must never run on a developer's machine. Image builds and the
+# hardening checks in a VM (tests/vm, tests/hardening) need a VM and run
+# apart from this.
+jobs:
+  go:
+    name: Go (${{ matrix.package }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        package: [zoomriya-agent, zoomriya-model, zoomriya-weather]
+    defaults:
+      run:
+        working-directory: packages/${{ matrix.package }}/src
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: packages/${{ matrix.package }}/src/go.mod
+          # Standard library only: nothing to cache.
+          cache: false
+      - name: Format
+        run: test -z "$(gofmt -l .)" || { gofmt -l .; exit 1; }
+      - name: Vet
+        run: go vet ./...
+      - name: Test
+        run: go test ./...
+
+  box-desktop:
+    name: Box Desktop
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: packages/box-desktop/src/go.mod
+          # Standard library only: nothing to cache.
+          cache: false
+      - name: Web page
+        working-directory: packages/box-desktop/web
+        run: |
+          npm ci
+          npm run check
+          npm test
+          npm run build
+      # The server embeds the page built above.
+      - name: Server
+        working-directory: packages/box-desktop/src
+        run: |
+          test -z "$(gofmt -l .)" || { gofmt -l .; exit 1; }
+          go vet ./...
+          go test ./...
+
+  checks:
+    name: Translations, Python, shell, firewall
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Translations are current
+        # Extract again: any new or dropped text shows as a change. Only the
+        # line references (#:) may differ.
+        run: |
+          for p in box-desktop zoomriya-installer; do python3 scripts/i18n.py extract "$p"; done
+          git diff --exit-code -I '^#:' -- 'packages/*/po/*.po'
+      - name: French is complete
+        # English and French are the languages offered (the others are drafts).
+        run: |
+          for p in box-desktop zoomriya-installer; do
+            python3 scripts/i18n.py check "$p" | tee /dev/stderr | awk -F'[ /]' '/^fr:/ { ok = ($2 == $3) } END { exit !ok }'
+          done
+      - name: Python
+        run: |
+          python3 -m unittest discover -s tests/packages
+          python3 -m compileall -q -x node_modules packages scripts tests
+      - name: Shell syntax
+        run: |
+          find packages scripts tests -name '*.sh' -not -path '*/node_modules/*' -print0 \
+            | xargs -0 -n1 bash -n
+      - name: Firewall rules
+        run: |
+          sudo apt-get update -q && sudo apt-get install -yq nftables
+          sudo nft -c -f packages/zoomriya-base/usr/share/zoomriya-base/nftables.conf

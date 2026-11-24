@@ -1,0 +1,48 @@
+# The box's weather (docs/weather.md): the forecast and alerts for the
+# family's town, from the country's weather service, kept in
+# /var/lib/zoomriya-weather/weather.json (0644) for Box Desktop and the apps.
+# It reads /etc/zoomriya/town and /etc/zoomriya/internet.json; nothing else.
+[Unit]
+Description=ZOOMRIYA weather (the forecast and alerts for the family's town)
+Documentation=https://github.com/zoomriya/zoomriya-os/blob/main/docs/weather.md
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=zoomriya-weather
+Group=zoomriya-weather
+ExecStart=/usr/lib/zoomriya-weather/zoomriya-weatherd
+StateDirectory=zoomriya-weather
+StateDirectoryMode=0755
+Restart=always
+RestartSec=30
+MemoryMax=128M
+Nice=10
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+PrivateDevices=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectKernelLogs=yes
+ProtectControlGroups=yes
+ProtectClock=yes
+ProtectHostname=yes
+ProtectProc=invisible
+ProcSubset=pid
+RestrictNamespaces=yes
+RestrictRealtime=yes
+RestrictSUIDSGID=yes
+LockPersonality=yes
+MemoryDenyWriteExecute=yes
+SystemCallArchitectures=native
+SystemCallFilter=@system-service
+SystemCallFilter=~@privileged @resources
+SystemCallErrorNumber=EPERM
+CapabilityBoundingSet=
+UMask=0022
+
+[Install]
+WantedBy=multi-user.target

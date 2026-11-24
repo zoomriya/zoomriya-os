@@ -1,0 +1,11 @@
+#!/bin/sh
+# The installer's screen (zoomriya-installer-screen.service): sway showing one
+# window full screen (/usr/share/zoomriya-installer/sway.conf). As the box's
+# own (box-desktop's screen-session), with the US keyboard: the installer asks
+# for no typing.
+# Usage: screen-session <the app and its arguments>
+set -eu
+
+export XKB_DEFAULT_LAYOUT=us
+export ZOOMRIYA_SCREEN_APP="$*"
+exec /usr/bin/sway --config /usr/share/zoomriya-installer/sway.conf

@@ -1,0 +1,6 @@
+# App Center's revocation list (design §6.9), brought by OS updates. Checked
+# when reading a USB stick, installing and restoring:
+#   key <base64 public key>     no longer trusted (as in app-keys)
+#   release <app> <version>     never install or go back to it
+#   below <app> <version>       nothing older than this
+# An installed release on the list shows a warning in App Center.

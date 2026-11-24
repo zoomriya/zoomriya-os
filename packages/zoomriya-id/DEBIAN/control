@@ -1,0 +1,11 @@
+Package: zoomriya-id
+Version: 13.0.0
+Architecture: amd64
+Maintainer: ZOOMRIYA <os@zoomriya.com>
+Depends: python3 (>= 3.13), python3 (<< 3.14), postgresql, postgresql-client, valkey-server, systemd, util-linux
+Section: admin
+Priority: optional
+Description: ZOOMRIYA ID, the sign-in every ZOOMRIYA app shares
+ Its own service on the box, set up at first boot with its own database, so
+ the apps find it already there. It starts with no accounts: whoever sets the
+ box up makes the first admin.

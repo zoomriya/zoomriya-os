@@ -1,0 +1,11 @@
+{
+  "id": "model",
+  "account": "zoomriya-model-fetch",
+  "name": "Myira's model",
+  "feature": "Myira in Box Desktop",
+  "what": "A request for the model's files (Gemma 4, about 4.4 GB). Nothing about the family or the box.",
+  "why": "Myira needs her model to answer, and the box doesn't come with it.",
+  "when": "Only when an admin presses Download in Myira's panel.",
+  "hosts": ["huggingface.co", "cas-bridge.xethub.hf.co", "cdn-lfs.hf.co", "cdn-lfs-us-1.hf.co"],
+  "optional": true
+}

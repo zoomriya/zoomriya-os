@@ -1,0 +1,4 @@
+# Advanced access (design §7.1): admin signs in by key only and has no
+# password, so sudo doesn't ask for one. Each use is in the system log, and
+# auditd watches this file. Format: sudoers(5).
+admin ALL=(ALL:ALL) NOPASSWD: ALL

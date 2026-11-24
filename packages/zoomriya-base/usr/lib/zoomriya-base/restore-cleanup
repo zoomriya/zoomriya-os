@@ -1,0 +1,14 @@
+#!/bin/sh
+# Remove what restore-snapshot replaced, now that the box runs on the
+# restored @.
+set -eu
+
+top=/run/zoomriya-base/top
+mkdir -p "$top"
+mount -o subvolid=5 /dev/disk/by-partlabel/system "$top"
+trap 'umount "$top"' EXIT
+
+for old in "$top"/@.replaced-*; do
+    [ -d "$old" ] || continue
+    btrfs -q subvolume delete "$old"
+done
