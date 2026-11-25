@@ -343,3 +343,34 @@ func TestAModelThatArrivesLaterIsLoaded(t *testing.T) {
 		t.Errorf("the new model wasn't loaded")
 	}
 }
+
+func TestResidentBytesReadsVmRSS(t *testing.T) {
+	got, ok := residentBytes("/proc/self/status").(int64)
+	if !ok || got <= 0 {
+		t.Fatalf("this test's own memory: %v", got)
+	}
+	if residentBytes("/proc/0/no-such-file") != nil {
+		t.Fatal("an unreadable file gives nil")
+	}
+}
+
+func TestGPUSystemBytesCountsSharedMemoryOnce(t *testing.T) {
+	dir := t.TempDir()
+	write := func(name, body string) {
+		if err := os.WriteFile(filepath.Join(dir, name), []byte(body), 0o600); err != nil {
+			t.Fatal(err)
+		}
+	}
+	// Two files of the same Intel client, one of another, VRAM and a non-DRM file.
+	write("10", "drm-driver:\ti915\ndrm-client-id:\t7\ndrm-resident-system0:\t4096 KiB\ndrm-resident-stolen-system0:\t0\n")
+	write("11", "drm-driver:\ti915\ndrm-client-id:\t7\ndrm-resident-system0:\t4096 KiB\n")
+	write("12", "drm-driver:\tamdgpu\ndrm-client-id:\t9\ndrm-memory-gtt:\t2 MiB\ndrm-memory-vram:\t8 GiB\n")
+	write("3", "pos:\t0\nflags:\t02\n")
+	want := int64(4096<<10 + 2<<20)
+	if got := gpuSystemBytes(dir); got != want {
+		t.Fatalf("got %d, want %d", got, want)
+	}
+	if gpuSystemBytes(filepath.Join(dir, "none")) != 0 {
+		t.Fatal("no fdinfo: nothing")
+	}
+}

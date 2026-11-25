@@ -78,6 +78,8 @@ type Running struct {
 	Base, Key string
 	File      string
 	Sees      bool
+	// PID: llama-server's process, for the memory it takes (0: not known).
+	PID int
 	// Done is closed when it has stopped, for whatever reason.
 	Done <-chan struct{}
 	Stop func()
@@ -383,7 +385,106 @@ func (e *Engine) StatusPayload() map[string]any {
 		"status":                 status,
 		"error":                  failureAny,
 		"memory_available_bytes": availableMemory(),
+		// What Myira's model takes now: llama-server's resident memory and
+		// what the graphics driver holds for it in the box's memory (the
+		// model's weights and its caches); null when none is loaded.
+		"memory_used_bytes": e.usedMemory(),
 	}
+}
+
+func (e *Engine) usedMemory() any {
+	e.mu.Lock()
+	pid := 0
+	if e.current != nil {
+		pid = e.current.PID
+	}
+	e.mu.Unlock()
+	if pid <= 0 {
+		return nil
+	}
+	resident, ok := residentBytes(fmt.Sprintf("/proc/%d/status", pid)).(int64)
+	if !ok {
+		return nil
+	}
+	return resident + gpuSystemBytes(fmt.Sprintf("/proc/%d/fdinfo", pid))
+}
+
+// gpuSystemBytes: what the graphics driver holds in the box's own memory for
+// the process (its fdinfo, per DRM client, once each). With the model on the
+// box's built-in graphics chip, its weights are there and not in VmRSS.
+// A graphics card's own memory (VRAM) isn't the box's, so it isn't counted.
+func gpuSystemBytes(fdinfo string) int64 {
+	entries, err := os.ReadDir(fdinfo)
+	if err != nil {
+		return 0
+	}
+	seen := map[string]bool{}
+	var total int64
+	for _, entry := range entries {
+		raw, err := os.ReadFile(filepath.Join(fdinfo, entry.Name()))
+		if err != nil || !strings.Contains(string(raw), "drm-driver:") {
+			continue
+		}
+		var client string
+		var bytes int64
+		for _, line := range strings.Split(string(raw), "\n") {
+			fields := strings.Fields(line)
+			if len(fields) < 2 {
+				continue
+			}
+			key := strings.TrimSuffix(fields[0], ":")
+			switch {
+			case key == "drm-client-id":
+				client = fields[1]
+			// Intel (i915, xe): drm-resident-system0; AMD: drm-memory-gtt
+			// and drm-memory-cpu. Never vram or stolen memory.
+			case strings.HasPrefix(key, "drm-resident-system"),
+				key == "drm-memory-gtt", key == "drm-memory-cpu":
+				bytes += sizeBytes(fields[1:])
+			}
+		}
+		if client == "" || seen[client] {
+			continue
+		}
+		seen[client] = true
+		total += bytes
+	}
+	return total
+}
+
+// sizeBytes: "4072660 KiB" (or MiB, GiB, or plain bytes) in bytes.
+func sizeBytes(fields []string) int64 {
+	n, err := strconv.ParseInt(fields[0], 10, 64)
+	if err != nil {
+		return 0
+	}
+	if len(fields) > 1 {
+		switch fields[1] {
+		case "KiB", "kB":
+			n *= 1 << 10
+		case "MiB":
+			n *= 1 << 20
+		case "GiB":
+			n *= 1 << 30
+		}
+	}
+	return n
+}
+
+// residentBytes: VmRSS from a /proc status file, in bytes; nil when unreadable.
+func residentBytes(path string) any {
+	raw, err := os.ReadFile(path)
+	if err != nil {
+		return nil
+	}
+	for _, line := range strings.Split(string(raw), "\n") {
+		if fields := strings.Fields(line); len(fields) >= 2 && fields[0] == "VmRSS:" {
+			if kb, err := strconv.ParseInt(fields[1], 10, 64); err == nil {
+				return kb * 1024
+			}
+		}
+	}
+	return nil
 }
 
 func availableMemory() any {

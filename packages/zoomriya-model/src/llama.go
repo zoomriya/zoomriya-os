@@ -95,6 +95,7 @@ func startLlamaServer(cfg Config) Starter {
 			Base: "http://" + cfg.ServerAddr,
 			Key:  hex.EncodeToString(key),
 			Sees: vision != "",
+			PID:  cmd.Process.Pid,
 			Done: done,
 			Stop: stop,
 		}
