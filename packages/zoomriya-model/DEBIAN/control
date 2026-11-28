@@ -7,7 +7,7 @@ Section: admin
 Priority: optional
 Description: The box's one language model, for Myira and the ZOOMRIYA apps
  Keeps one model in memory (Gemma 4, from /data/models/llms) in llama.cpp's
- llama-server and answers on loopback only (127.0.0.1:8070): Box Desktop's
- Myira and, when installed, every ZOOMRIYA app that asks, one answer at a
+ llama-server and answers on its socket only (/run/zoomriya/model.sock, no
+ TCP port): Box Desktop's Myira and, when installed, every ZOOMRIYA app that asks, one answer at a
  time. It checks each asker's ZOOMRIYA ID token, lets an admin choose the
  model, and keeps nothing it is asked. It can't reach the internet.

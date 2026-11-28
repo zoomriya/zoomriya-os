@@ -52,10 +52,20 @@ act() {  # act REQUEST: "ok" or "refused"
 # first start, and again after an erase, with no account and no default password.
 id_status() {  # id_status METHOD PATH [JSON]: the HTTP code (python3: curl comes and goes)
     python3 - "$@" <<'PY'
-import sys, urllib.error, urllib.request
+import http.client, socket, sys, urllib.error, urllib.request
 method, path = sys.argv[1], sys.argv[2]
 data = sys.argv[3].encode() if len(sys.argv) > 3 else None
-url = "http://127.0.0.1:8050/id/api/v1" + path
+SOCKET = "/run/zoomriya/id.sock"
+class Unix(http.client.HTTPConnection):
+    def connect(self):
+        self.sock = socket.socket(socket.AF_UNIX)
+        self.sock.settimeout(10)
+        self.sock.connect(SOCKET)
+class Handler(urllib.request.HTTPHandler):
+    def http_open(self, req):
+        return self.do_open(Unix, req)
+urllib.request.urlopen = urllib.request.build_opener(urllib.request.ProxyHandler({}), Handler()).open
+url = "http://localhost/id/api/v1" + path
 request = urllib.request.Request(url, data=data, method=method, headers={"Content-Type": "application/json"})
 try:
     print(urllib.request.urlopen(request, timeout=10).status)
@@ -67,10 +77,20 @@ PY
 }
 id_answer() {  # id_answer METHOD PATH [JSON]: the HTTP code and ZOOMRIYA ID's code, if it gives one
     python3 - "$@" <<'PY'
-import json, sys, urllib.error, urllib.request
+import http.client, json, socket, sys, urllib.error, urllib.request
 method, path = sys.argv[1], sys.argv[2]
 data = sys.argv[3].encode() if len(sys.argv) > 3 else None
-url = "http://127.0.0.1:8050/id/api/v1" + path
+SOCKET = "/run/zoomriya/id.sock"
+class Unix(http.client.HTTPConnection):
+    def connect(self):
+        self.sock = socket.socket(socket.AF_UNIX)
+        self.sock.settimeout(10)
+        self.sock.connect(SOCKET)
+class Handler(urllib.request.HTTPHandler):
+    def http_open(self, req):
+        return self.do_open(Unix, req)
+urllib.request.urlopen = urllib.request.build_opener(urllib.request.ProxyHandler({}), Handler()).open
+url = "http://localhost/id/api/v1" + path
 request = urllib.request.Request(url, data=data, method=method, headers={"Content-Type": "application/json"})
 try:
     print(urllib.request.urlopen(request, timeout=10).status)
@@ -89,6 +109,8 @@ check "PostgreSQL's cluster is online" online "$(pg_lsclusters -h | awk '{ print
 check "Valkey running" active "$(systemctl is-active valkey-server.service)"
 check "ZOOMRIYA ID set up" yes "$([ -f /var/lib/zoomriya-id/set-up ] && echo yes)"
 check "ZOOMRIYA ID running" active "$(systemctl is-active zoomriya-id.service)"
+check "ZOOMRIYA ID on its socket" "666 zoomriya-id" \
+    "$(stat -c '%a %U' /run/zoomriya/id.sock 2>&1)"
 for _ in 1 2 3 4 5 6 7 8 9 10; do
     [ "$(id_status GET /health)" = 200 ] && break
     sleep 2
@@ -105,10 +127,20 @@ check "ZOOMRIYA ID's folder is its own" "700 zoomriya-id" "$(stat -c '%a %U' /da
 # yet (none is in the image), on loopback only, asking for a sign-in.
 model_ask() {  # model_ask METHOD PATH [JSON]: the answer's body and HTTP code
     python3 - "$@" <<'PY'
-import sys, urllib.error, urllib.request
+import http.client, socket, sys, urllib.error, urllib.request
 method, path = sys.argv[1], sys.argv[2]
 data = sys.argv[3].encode() if len(sys.argv) > 3 else None
-url = "http://127.0.0.1:8070/myira/api/v1" + path
+SOCKET = "/run/zoomriya/model.sock"
+class Unix(http.client.HTTPConnection):
+    def connect(self):
+        self.sock = socket.socket(socket.AF_UNIX)
+        self.sock.settimeout(10)
+        self.sock.connect(SOCKET)
+class Handler(urllib.request.HTTPHandler):
+    def http_open(self, req):
+        return self.do_open(Unix, req)
+urllib.request.urlopen = urllib.request.build_opener(urllib.request.ProxyHandler({}), Handler()).open
+url = "http://localhost/myira/api/v1" + path
 request = urllib.request.Request(url, data=data, method=method, headers={"Content-Type": "application/json"})
 try:
     with urllib.request.urlopen(request, timeout=10) as answer:
@@ -116,25 +148,40 @@ try:
 except urllib.error.HTTPError as error:
     print(error.read().decode().strip(), error.code)
 except OSError as error:
+    # The reason too, for the log (a timeout, nothing listening).
+    print(type(error).__name__, getattr(error, "reason", "") or "", file=sys.stderr)
     print(type(error).__name__)
 PY
 }
+# No service of the box has a TCP port of its own (design §8.3): PostgreSQL,
+# Valkey, ZOOMRIYA ID and the model service are on their sockets only.
+socket_checks() {
+check "no TCP port for PostgreSQL, Valkey, ZOOMRIYA ID or the model service" "" \
+    "$(ss -ltnH '( sport = :5432 or sport = :6379 or sport = :8050 or sport = :8070 or sport = :8071 )' | awk '{print $4}' | tr '\n' ' ' | sed 's/ $//')"
+check "PostgreSQL on its socket" yes "$([ -S /run/postgresql/.s.PGSQL.5432 ] && echo yes)"
+check "Valkey on its socket" PONG "$(valkey-cli -s /run/valkey/valkey-server.sock ping 2>&1)"
+}
 model_checks() {
 check "the model service running" active "$(systemctl is-active zoomriya-model.service)"
-for _ in 1 2 3 4 5 6 7 8 9 10; do ss -ltnH 'sport = :8070' | grep -q . && break; sleep 1; done
-check "the model service listens on 127.0.0.1:8070 only" "127.0.0.1:8070" \
-    "$(ss -ltnH '( sport = :8070 or sport = :8071 )' | awk '{print $4}' | sort | tr '\n' ' ' | sed 's/ $//')"
+check "the model service on its socket" "666 zoomriya-model" \
+    "$(stat -c '%a %U' /run/zoomriya/model.sock 2>&1)"
 check "the model service answers" '{"status":"ok"} 200' "$(model_ask GET /health)"
 check "no model on a new box" '{"file":"gemma-4-E2B-it-Q4_K_M.gguf","loaded":null,"sees":false} 200' "$(model_ask GET /model/current)"
-check "the model service asks for a sign-in" '{"detail":"Sign in first"} 401' \
-    "$(model_ask POST /complete '{"messages": [{"role": "user", "content": "hi"}]}')"
+answer=$(model_ask POST /complete '{"messages": [{"role": "user", "content": "hi"}]}' 2>/tmp/model-ask.err)
+check "the model service asks for a sign-in" '{"detail":"Sign in first"} 401' "$answer"
+if [ "$answer" != '{"detail":"Sign in first"} 401' ]; then
+    # Why, for the log: the error, then the service's and its socket's last lines.
+    sed 's/^/INFO model: /' /tmp/model-ask.err
+    journalctl -b -u zoomriya-model.service -u zoomriya-model.socket -n 30 --no-pager 2>&1 | sed 's/^/INFO model: /'
+fi
 check "the model service's folder is its own" "700 zoomriya-model" "$(stat -c '%a %U' /var/lib/zoomriya-model 2>&1)"
 check "the model's download has its own account" "zoomriya-model-fetch" "$(getent passwd zoomriya-model-fetch | cut -d: -f1)"
 check "the model's folder is the download's" "755 zoomriya-model-fetch" "$(stat -c '%a %U' /data/models/llms 2>&1)"
 check "the model's download is a declared connection" "model" \
     "$(python3 -c 'import json; print(json.load(open("/etc/zoomriya/outbound.d/model.json"))["id"])' 2>&1)"
-check "the model service can't reach the internet" "IPAddressDeny=::/0 0.0.0.0/0" \
-    "$(systemctl show -p IPAddressDeny zoomriya-model.service)"
+# In any order (systemd prints the list as it keeps it).
+check "the model service can't reach the internet" "0.0.0.0/0 ::/0" \
+    "$(systemctl show -p IPAddressDeny --value zoomriya-model.service | tr ' ' '\n' | LC_ALL=C sort | tr '\n' ' ' | sed 's/ $//')"
 }
 
 # The first setup on the box's screen (design §5), driven here as its page
@@ -167,7 +214,7 @@ screen_side POST /api/setup/agent '{"request": {"op": "setup-status"}}' | grep -
 screen_side POST /api/setup/agent '{"request": {"op": "factory-reset", "level": "system"}}' | grep -q not_allowed \
     && pass "the first setup asks nothing else" || fail "the first setup asks nothing else" "not refused"
 ask '{"op": "setup-status", "by": "test"}' && pass "setup app may ask the agent" || fail "setup app may ask the agent" "refused"
-ask '{"op": "first-admin", "by": "test", "username": "amma", "password": "short"}' \
+ask '{"op": "first-admin", "by": "test", "username": "emma", "password": "short"}' \
     && fail "first admin with a short password refused" "made" || pass "first admin with a short password refused"
 ask '{"op": "setup-finish", "by": "test"}' && fail "setup can't finish without an admin" "finished" \
     || pass "setup can't finish without an admin"
@@ -186,20 +233,20 @@ check "hibernate is masked" masked "$(systemctl is-enabled hibernate.target 2>&1
 check "every script has a font" yes "$(fc-list :lang=ta | grep -q . && fc-list :lang=zh | grep -q . && echo yes)"
 ask '{"op": "time-zone-set", "by": "test", "zone": "America/Toronto"}'
 check "time zone set" America/Toronto "$(timedatectl show --property=Timezone --value)"
-ask '{"op": "first-admin", "by": "test", "username": "amma", "password": "a long passphrase"}' \
+ask '{"op": "first-admin", "by": "test", "username": "emma", "password": "a long passphrase"}' \
     && pass "first admin made in ZOOMRIYA ID" || fail "first admin made in ZOOMRIYA ID" "refused"
-# The password is right, and an admin sets up a second step before their
-# first sign-in (ZOOMRIYA ID's auth.py): asked for, not signed in yet.
-check "the admin's password is right, and a second step is asked for" "403 second_step_setup_needed" \
-    "$(id_answer POST /auth/login '{"username": "amma", "password": "a long passphrase"}')"
-ask '{"op": "first-admin", "by": "test", "username": "appa", "password": "another passphrase"}' \
+# The password is right: signed in. The second step (an email code) is the
+# member's choice, so a new admin has none yet (ZOOMRIYA ID's auth.py).
+check "the admin's password is right" "200" \
+    "$(id_answer POST /auth/login '{"username": "emma", "password": "a long passphrase"}')"
+ask '{"op": "first-admin", "by": "test", "username": "sam", "password": "another passphrase"}' \
     && fail "a second first admin refused" "made" || pass "a second first admin refused"
 check "the password is in no log" 0 "$(journalctl -q -b | grep -c 'a long passphrase')"
 screen_side POST /api/setup/agent '{"request": {"op": "setup-finish"}}' | grep -q '"ok":true' \
     && pass "setup finished" || fail "setup finished" "refused"
 screen_side POST /api/setup/agent '{"request": {"op": "setup-status"}}' | grep -q set_up \
     && pass "the first setup closes once the box is set up" || fail "the first setup closes once the box is set up" "still open"
-ask '{"op": "first-admin", "by": "test", "username": "appa", "password": "another passphrase"}' \
+ask '{"op": "first-admin", "by": "test", "username": "sam", "password": "another passphrase"}' \
     && fail "no first admin after setup" "made" || pass "no first admin after setup"
 box_desktop_checks
 }
@@ -223,8 +270,13 @@ setpriv --reuid=box-desktop --regid=box-desktop --init-groups "$agent" ask \
     '{"op": "display-set", "by": "test", "output": "Virtual-1", "size": "1280x800", "refresh": 60000, "scale": 1, "transform": "normal"}' >/dev/null 2>&1
 check "display kept for the box" "output Virtual-1 mode 1280x800@60.000Hz scale 1 transform normal" \
     "$(grep '^output' /etc/zoomriya/display.conf 2>&1)"
+# The screen's window: up once sway has started it (a restart while the screen
+# is still starting makes sway give up for a few seconds, then systemd starts
+# it again: so wait for the window, and give it time for that).
+screen_up() { for _ in $(seq 1 60); do pgrep -u box-desktop -f box-desktop-screen >/dev/null && return 0; sleep 1; done; return 1; }
+screen_up || true
 systemctl restart box-desktop-screen.service
-for _ in 1 2 3 4 5 6 7 8 9 10; do pgrep -u box-desktop -x sway >/dev/null && break; sleep 1; done
+screen_up || true
 check "the screen starts as kept" "output Virtual-1 mode 1280x800@60.000Hz scale 1 transform normal" \
     "$(grep '^output' "/run/user/$(id -u box-desktop)/sway.conf" 2>&1)"
 setpriv --reuid=box-desktop --regid=box-desktop --init-groups "$agent" ask \
@@ -234,8 +286,13 @@ check "display forgotten" "" "$(grep '^output' /etc/zoomriya/display.conf 2>&1)"
 check "Box Desktop's screen has WebKit" ok "$(setpriv --reuid=box-desktop --regid=box-desktop \
     --init-groups python3 -c 'import gi; gi.require_version("WebKit", "6.0")
 from gi.repository import WebKit; print("ok")' 2>&1 | tail -1)"
-pgrep -u box-desktop -f box-desktop-screen >/dev/null && pass "the box's screen shows Box Desktop" \
-    || fail "the box's screen shows Box Desktop" "box-desktop-screen isn't running"
+if screen_up; then
+    pass "the box's screen shows Box Desktop"
+else
+    fail "the box's screen shows Box Desktop" "box-desktop-screen isn't running"
+    # Why, for the log: the screen's last lines.
+    journalctl -b -u box-desktop-screen.service -n 25 --no-pager 2>&1 | sed 's/^/INFO screen: /'
+fi
 # Storage Manager › Backups and Appearance's Add Picture ask the agent.
 setpriv --reuid=box-desktop --regid=box-desktop --init-groups "$agent" ask \
     '{"op": "backups", "by": "test"}' 2>&1 | grep -q '"set_up"' && pass "the agent answers backups" \
@@ -255,7 +312,7 @@ web_desktop_checks() {
 check "Box Desktop's server" active "$(systemctl is-active box-desktop.service)"
 for _ in 1 2 3 4 5 6 7 8 9 10; do ss -ltnH 'sport = :7443' | grep -q . && break; sleep 1; done
 check "Box Desktop listens on 7443, and on 127.0.0.1:7444 only for the box's screen" "*:7443 127.0.0.1:7444" \
-    "$(ss -ltnH '( sport = :7443 or sport = :7444 )' | awk '{print $4}' | sed 's/^\[::\]/*/; s/^0\.0\.0\.0/*/' | sort | tr '\n' ' ' | sed 's/ $//')"
+    "$(ss -ltnH '( sport = :7443 or sport = :7444 )' | awk '{print $4}' | sed 's/^\[::\]/*/; s/^0\.0\.0\.0/*/' | LC_ALL=C sort | tr '\n' ' ' | sed 's/ $//')"
 nft list chain inet zoomriya input | grep -q 'tcp dport 7443 accept' \
     && pass "the firewall lets the home network reach Box Desktop" \
     || fail "the firewall lets the home network reach Box Desktop" "no 7443 rule"
@@ -367,6 +424,7 @@ echo "$status" | grep -q '"kind":"factory"' && pass "agent lists the factory res
 apt-get -q install -y curl >/dev/null 2>&1
 id_checks
 model_checks
+socket_checks
 setup_checks
 
 # Drives' health (design §7): the two NVMe stand-ins report SMART; the
@@ -693,13 +751,15 @@ check "erase everything in Box Desktop" ok \
 
 fifth_boot() {
 # What comes back by itself: ZOOMRIYA ID, Box Desktop's empty admin folder,
-# and the agent's empty folders for App Center and advanced access's keys
-# (its tmpfiles.d, at every start). Nothing of what was there is kept.
-check "/data erased" "" "$(ls -A /data | grep -vx 'zoomriya-id\|zoomriya\|apps\|zoomriya-os\|models' | tr '\n' ' ')$(ls -A /data/zoomriya | grep -vx admin | tr '\n' ' ')"
+# the agent's empty folders for App Center and advanced access's keys, and
+# ZOOMRIYA Connect's (a new box key, made at its start); their tmpfiles.d, at
+# every start. The erase made @data new, so nothing of what was there is kept.
+check "/data erased" "" "$(ls -A /data | grep -vx 'zoomriya-id\|zoomriya\|apps\|zoomriya-os\|models\|zoomriya-connect' | tr '\n' ' ')$(ls -A /data/zoomriya | grep -vx admin | tr '\n' ' ')"
 check "nothing kept in App Center's and advanced access's folders" "" \
     "$(find /data/apps /data/zoomriya-os /data/zoomriya/admin -mindepth 1 -not -type d 2>&1 | tr '\n' ' ')"
 id_checks
 model_checks
+socket_checks
 setup_checks
 check "Box Desktop starts again, with no admin's desktop" "" "$(ls -A /data/zoomriya/admin 2>/dev/null)"
 journalctl -q -b -1 >/dev/null 2>&1 && fail "logs erased" "an earlier boot's journal is still there" || pass "logs erased"

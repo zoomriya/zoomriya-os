@@ -12,9 +12,10 @@ if [ "$1" = configure ]; then
         install -d -m 0700 -o zoomriya-model -g zoomriya-model /var/lib/zoomriya-model
         install -m 0600 -o zoomriya-model -g zoomriya-model "$old" "$new"
     fi
-    deb-systemd-helper enable zoomriya-model.service >/dev/null || true
+    deb-systemd-helper enable zoomriya-model.socket zoomriya-model.service >/dev/null || true
     if [ -d /run/systemd/system ]; then
         systemctl daemon-reload
+        systemctl start zoomriya-model.socket || true
         deb-systemd-invoke restart zoomriya-model.service >/dev/null || true
     fi
 fi

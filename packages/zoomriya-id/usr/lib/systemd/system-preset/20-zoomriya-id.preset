@@ -1,3 +1,4 @@
 # Format: systemd.preset(5).
 enable zoomriya-id-setup.service
+enable zoomriya-id.socket
 enable zoomriya-id.service

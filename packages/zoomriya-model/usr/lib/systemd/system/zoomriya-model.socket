@@ -1,0 +1,21 @@
+# The box's model service's socket: it has no TCP port. Box Desktop's Myira
+# and the ZOOMRIYA apps open /run/zoomriya/model.sock; it is never behind the
+# gateway. Every account on the box may open it, as with its old port: it
+# answers only a member's ZOOMRIYA ID token, and Photos' API, in its own
+# container, can't carry the box's groups.
+# systemd keeps the socket while the service restarts, so a question then
+# waits instead of failing.
+[Unit]
+Description=ZOOMRIYA model service socket
+Documentation=https://github.com/zoomriya/zoomriya-os/blob/main/docs/box-desktop.md
+
+[Socket]
+ListenStream=/run/zoomriya/model.sock
+SocketUser=zoomriya-model
+SocketGroup=zoomriya-model
+SocketMode=0666
+DirectoryMode=0755
+Accept=no
+
+[Install]
+WantedBy=sockets.target

@@ -76,8 +76,10 @@ func VisionFor(modelPath string) string {
 type Running struct {
 	// Base: its address; Key: the key it asks for, known only to this service.
 	Base, Key string
-	File      string
-	Sees      bool
+	// Client reaches Base (over llama-server's socket); nil: the engine's own.
+	Client *http.Client
+	File   string
+	Sees   bool
 	// PID: llama-server's process, for the memory it takes (0: not known).
 	PID int
 	// Done is closed when it has stopped, for whatever reason.
@@ -93,7 +95,8 @@ type Engine struct {
 	cfg   Config
 	start Starter
 	Turns *Turns
-	// client: to llama-server, on loopback; answers take as long as they take.
+	// client: to llama-server when its Running has none; answers take as
+	// long as they take.
 	client *http.Client
 
 	swap    sync.Mutex // held while a model is started or replaced
@@ -551,7 +554,11 @@ func (e *Engine) ask(ctx context.Context, running *Running, body map[string]any)
 	}
 	request.Header.Set("Content-Type", "application/json")
 	request.Header.Set("Authorization", "Bearer "+running.Key)
-	response, err := e.client.Do(request)
+	client := e.client
+	if running.Client != nil {
+		client = running.Client
+	}
+	response, err := client.Do(request)
 	if err != nil {
 		if ctx.Err() != nil {
 			return nil, ctx.Err()

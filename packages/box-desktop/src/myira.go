@@ -26,7 +26,10 @@ import (
 	"net/http"
 	"strconv"
 	"strings"
+	"sync"
 	"time"
+
+	"zoomriya.com/os/localhttp"
 )
 
 // Who answers in the panel.
@@ -35,9 +38,38 @@ const (
 	byOS  = "os"  // the OS's own Myira
 )
 
-// myiraClient: to the Myira app and the model service, on loopback. No
+// localServices: a client for each service on the box Box Desktop asks (the
+// Myira app, the model service), over its socket, made on first use. No
 // timeout: an answer takes as long as the model takes.
-var myiraClient = &http.Client{}
+var localServices sync.Map // address → *localService
+
+type localService struct {
+	base   string
+	client *http.Client
+	err    error
+}
+
+// service: the base URL and client for a service's address (unix:… on the
+// box, http:// in tests).
+func service(address string) *localService {
+	if known, ok := localServices.Load(address); ok {
+		return known.(*localService)
+	}
+	base, client, err := localhttp.Client(address, 0)
+	known, _ := localServices.LoadOrStore(address, &localService{base: base, client: client, err: err})
+	return known.(*localService)
+}
+
+// localRequest: a request to path at a service's address, and the client
+// that reaches it.
+func localRequest(ctx context.Context, method, address, path string, body io.Reader) (*http.Request, *http.Client, error) {
+	svc := service(address)
+	if svc.err != nil {
+		return nil, nil, svc.err
+	}
+	request, err := http.NewRequestWithContext(ctx, method, svc.base+path, body)
+	return request, svc.client, err
+}
 
 // appRequest asks the Myira app as the admin, with their ZOOMRIYA ID token,
 // renewing it once if it ran out.
@@ -47,7 +79,7 @@ func (s *Server) appRequest(ctx context.Context, login *Login, method, path stri
 		raw, _ = json.Marshal(body)
 	}
 	for attempt := 0; ; attempt++ {
-		request, err := http.NewRequestWithContext(ctx, method, s.Cfg.MyiraApp+path, bytes.NewReader(raw))
+		request, client, err := localRequest(ctx, method, s.Cfg.MyiraApp, path, bytes.NewReader(raw))
 		if err != nil {
 			return nil, err
 		}
@@ -55,7 +87,7 @@ func (s *Server) appRequest(ctx context.Context, login *Login, method, path stri
 		if body != nil {
 			request.Header.Set("Content-Type", "application/json")
 		}
-		response, err := myiraClient.Do(request)
+		response, err := client.Do(request)
 		if err != nil {
 			return nil, err
 		}
@@ -90,8 +122,11 @@ func (s *Server) whoAnswers(ctx context.Context, login *Login) string {
 func (s *Server) modelLoaded(ctx context.Context) bool {
 	ctx, cancel := context.WithTimeout(ctx, 3*time.Second)
 	defer cancel()
-	request, _ := http.NewRequestWithContext(ctx, http.MethodGet, s.Cfg.ModelAPI+"/model/current", nil)
-	response, err := myiraClient.Do(request)
+	request, client, err := localRequest(ctx, http.MethodGet, s.Cfg.ModelAPI, "/model/current", nil)
+	if err != nil {
+		return false
+	}
+	response, err := client.Do(request)
 	if err != nil {
 		return false
 	}

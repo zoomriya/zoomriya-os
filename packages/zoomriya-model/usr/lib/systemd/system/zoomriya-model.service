@@ -1,12 +1,15 @@
 # The box's model service (box-desktop.md §4, Myira): one language model in
 # memory, in llama.cpp's llama-server, answering Box Desktop's Myira and the
-# ZOOMRIYA apps on loopback only (127.0.0.1:8070). Its llama-server listens
-# on 127.0.0.1:8071 behind a key only this service knows.
+# ZOOMRIYA apps on its socket (/run/zoomriya/model.sock, zoomriya-model.socket).
+# Its llama-server listens on a socket in this service's own runtime folder
+# (/run/zoomriya-model, 0700) behind a key only this service knows. No TCP
+# port at all.
 [Unit]
 Description=ZOOMRIYA model service (the box's language model)
 Documentation=https://github.com/zoomriya/zoomriya-os/blob/main/docs/box-desktop.md
-After=network.target zoomriya-id.service
-Wants=zoomriya-id.service
+Requires=zoomriya-model.socket
+After=zoomriya-model.socket zoomriya-id.socket
+Wants=zoomriya-id.socket
 # The apps' own model service, from before: the same address.
 Conflicts=zoomriya-myira.service
 
@@ -17,6 +20,9 @@ ExecStart=/usr/lib/zoomriya-model/zoomriya-modeld
 # The admin's model choice.
 StateDirectory=zoomriya-model
 StateDirectoryMode=0700
+# llama-server's socket: this account's alone.
+RuntimeDirectory=zoomriya-model
+RuntimeDirectoryMode=0700
 Restart=always
 RestartSec=3
 TimeoutStopSec=30
@@ -24,10 +30,10 @@ TimeoutStopSec=30
 MemoryMax=8G
 # The box's other work goes first.
 Nice=5
-# Offline, always: it reaches only this box (ZOOMRIYA ID, for its keys).
+# Offline, always: no network at all. It reaches only ZOOMRIYA ID's socket,
+# for its keys, and llama-server's.
 IPAddressDeny=any
-IPAddressAllow=localhost
-RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+RestrictAddressFamilies=AF_UNIX
 NoNewPrivileges=yes
 ProtectSystem=strict
 ReadOnlyPaths=-/data/models

@@ -5,6 +5,11 @@
 # Makes the cluster, or takes back the one that's there (Valkey's folders are
 # zoomriya-valkey.conf's, in tmpfiles.d). The image carries no cluster, so no
 # two boxes share one.
+#
+# Then, at every start, before either runs: PostgreSQL and Valkey on their
+# sockets only, with no TCP port (design §8.3). ZOOMRIYA ID's settings, from
+# before, are moved to the sockets too; the apps' installer does the same for
+# theirs (zoomriya-apps' platform/sockets/setup.sh).
 set -eu
 
 if [ -x /usr/bin/pg_createcluster ] && [ -z "$(pg_lsclusters -h 2>/dev/null)" ]; then
@@ -14,4 +19,66 @@ if [ -x /usr/bin/pg_createcluster ] && [ -z "$(pg_lsclusters -h 2>/dev/null)" ];
     # PostgreSQL's generator found no cluster when the box started: start it now.
     systemctl daemon-reload
     systemctl start --no-block "postgresql@$version-main.service"
+fi
+
+# Writes $2 to the file $1 (owner $3, mode $4) only when it differs; says if it did.
+put() {
+    if [ -f "$1" ] && [ "$(cat "$1")" = "$2" ]; then
+        return 1
+    fi
+    tmp=$(mktemp "$1.XXXXXX")
+    printf '%s\n' "$2" >"$tmp"
+    chown "$3" "$tmp"
+    chmod "$4" "$tmp"
+    mv "$tmp" "$1"
+}
+
+# PostgreSQL: its socket in /run/postgresql only. The postgres account and the
+# backup's account (zoomriya-backup) sign in as themselves (peer); every
+# app's and ZOOMRIYA ID's role signs in with its own password, as before.
+changed=no
+for conf in /etc/postgresql/*/main; do
+    [ -f "$conf/postgresql.conf" ] || continue
+    install -d -m 0755 -o postgres -g postgres "$conf/conf.d"
+    put "$conf/conf.d/50-zoomriya.conf" "# ZOOMRIYA OS (zoomriya-services-init): no TCP port, the socket only.
+listen_addresses = ''" postgres:postgres 0644 && changed=yes
+    put "$conf/pg_hba.conf" "# ZOOMRIYA OS (zoomriya-services-init): written at every start.
+# PostgreSQL has no TCP port; everyone signs in on its socket.
+# TYPE  DATABASE  USER             METHOD
+local   all       postgres         peer
+local   all       zoomriya-backup  peer
+local   all       all              scram-sha-256" postgres:postgres 0640 && changed=yes
+done
+# Running already (a package update rather than a start): it must start again
+# to close its port.
+if [ "$changed" = yes ] && systemctl -q is-active postgresql.service; then
+    systemctl restart --no-block postgresql.service
+fi
+
+# Valkey: its socket only (/run/valkey/valkey-server.sock), open to every
+# account on the box as port 6379 was; its accounts and passwords (the apps'
+# platform/valkey/setup.sh) say who may do what.
+valkey=/etc/valkey/valkey.conf
+if [ -f "$valkey" ]; then
+    block="# ZOOMRIYA OS (zoomriya-services-init): no TCP port, the socket only.
+port 0
+unixsocket /run/valkey/valkey-server.sock
+unixsocketperm 777"
+    if ! grep -qx 'unixsocketperm 777' "$valkey" || ! grep -qx 'port 0' "$valkey"; then
+        sed -i -E 's/^\s*(port|unixsocket|unixsocketperm)\s+/# &/' "$valkey"
+        printf '\n%s\n' "$block" >>"$valkey"
+        if systemctl -q is-active valkey-server.service; then
+            systemctl restart --no-block valkey-server.service
+        fi
+    fi
+fi
+
+# ZOOMRIYA ID's settings from before the sockets: the same database and
+# account, on the sockets.
+id_env=/etc/zoomriya/id.env
+if [ -f "$id_env" ]; then
+    sed -i -E \
+        -e 's#^(DATABASE_URL=[^@]*@)(127\.0\.0\.1|localhost):5432/([^?]*)$#\1/\3?host=/run/postgresql#' \
+        -e 's#^REDIS_URL=redis://([^@]*@)?(127\.0\.0\.1|localhost):6379/([0-9]+)$#REDIS_URL=unix://\1/run/valkey/valkey-server.sock?db=\3#' \
+        "$id_env"
 fi

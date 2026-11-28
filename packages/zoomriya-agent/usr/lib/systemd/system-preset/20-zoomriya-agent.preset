@@ -2,3 +2,6 @@
 enable zoomriya-agent.socket
 enable zoomriya-maintenance.timer
 enable zoomriya-ssh-apply.service
+# Off until an admin turns nightly backups on in Box Desktop (the agent then
+# enables it). Debian's presets enable every unit they do not name.
+disable zoomriya-backup.timer

@@ -95,13 +95,13 @@ var languageNames = map[string]string{"en": "English", "fr": "French"}
 func (m osMyira) modelRequest(ctx context.Context, login *Login, path string, body any) (*http.Response, error) {
 	raw, _ := json.Marshal(body)
 	for attempt := 0; ; attempt++ {
-		request, err := http.NewRequestWithContext(ctx, http.MethodPost, m.s.Cfg.ModelAPI+path, bytes.NewReader(raw))
+		request, client, err := localRequest(ctx, http.MethodPost, m.s.Cfg.ModelAPI, path, bytes.NewReader(raw))
 		if err != nil {
 			return nil, err
 		}
 		request.Header.Set("Authorization", "Bearer "+login.Token)
 		request.Header.Set("Content-Type", "application/json")
-		response, err := myiraClient.Do(request)
+		response, err := client.Do(request)
 		if err != nil {
 			return nil, err
 		}

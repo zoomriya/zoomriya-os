@@ -27,25 +27,21 @@ nft list chain inet zoomriya input 2>/dev/null | grep -q 'saddr .* tcp dport 443
     && pass "the apps are reachable from the home network only" \
     || fail "the apps are reachable from the home network only" "443 open to any address"
 # ZOOMRIYA Connect: UDP 443 is open to every address, for connectd only; it
-# turns away every device that isn't on the box's own list.
+# turns away every phone and laptop that isn't on the box's own list.
 nft list chain inet zoomriya input 2>/dev/null | grep -q 'udp dport 443 accept' \
     && pass "ZOOMRIYA Connect's UDP 443 is open" || fail "ZOOMRIYA Connect's UDP 443 is open" "no rule"
 check "only connectd listens on UDP 443" "" "$(ss -Hlunp 'sport = :443' | grep -v '"zoomriya-connec' | awk '{print $5}' | tr '\n' ' ')"
-# Laptops: UDP 7446 from anywhere, TCP 7445 from the home network only, both
-# connectd's alone.
-nft list chain inet zoomriya input 2>/dev/null | grep -q 'udp dport 7446 accept' \
-    && pass "laptops' UDP 7446 is open" || fail "laptops' UDP 7446 is open" "no rule"
-nft list chain inet zoomriya input 2>/dev/null | grep -E 'tcp dport 7445 accept' | grep -qv saddr \
-    && fail "laptops' TCP 7445 is home only" "open to every address" || pass "laptops' TCP 7445 is home only"
-check "only connectd listens on the laptops' ports" "" "$({ ss -Hlunp 'sport = :7446'; ss -Hltnp 'sport = :7445'; } | grep -v '"zoomriya-connec' | awk '{print $4}' | tr '\n' ' ')"
 # Outbound connections are logged, by account, for Control Panel (design §8)
 nft list chain inet zoomriya output 2>/dev/null | grep -q 'log prefix "zoomriya-out: " flags skuid' \
     && pass "outbound connections logged" || fail "outbound connections logged" "no log rule"
 
-# Nothing listening beyond the loopback; no SSH (design §7.1). Avahi's own UDP
-# sockets (mDNS, and random ports for one-off queries) are fine: the firewall
-# lets only 5353 in.
-open=$(ss -Hltnup | grep -v '"avahi-daemon"' | awk '{print $5}' | grep -v -E '^(127\.|\[::1\]|\[::ffff:127\.)' | grep -v -E ':(5353|68|546)$' | tr '\n' ' ')
+# Nothing listening beyond the loopback but what the box is meant to have; no
+# SSH (design §7.1). Avahi's own UDP sockets (mDNS, and random ports for
+# one-off queries) are fine: the firewall lets only 5353 in. connectd's UDP 443
+# (phones and laptops) and 6881 (its DHT node), and Box Desktop's 7443 (the
+# home network's side, box-desktop.md §6).
+open=$(ss -Hltnup | grep -v '"avahi-daemon"' \
+    | grep -v -E '^udp .*:(443|6881) .*"zoomriya-connec' | grep -v -E '^tcp .*:7443 .*"box-desktop' | awk '{print $5}' | grep -v -E '^(127\.|\[::1\]|\[::ffff:127\.)' | grep -v -E ':(5353|68|546)$' | tr '\n' ' ')
 check "no open ports" "" "$open"
 
 # SSH (design §7.1): installed for advanced access, but off and shut out until

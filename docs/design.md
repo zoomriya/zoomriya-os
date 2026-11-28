@@ -73,7 +73,8 @@ rollback path, so changing one layer does not change or roll back another.
 Each app image contains everything that app needs to run: its Python
 environment, `ffmpeg`, required libraries and any bundled programs, such as
 Photos' Qdrant. From the host, an app
-uses only the kernel, systemd, the network and the shared services' ports.
+uses only the kernel, systemd, the network and the shared services' sockets
+([§8.3](#83-sockets-not-ports)).
 Keeping app dependencies out of the host means:
 
 - **An OS update or upgrade can't change an app.** When the host takes a
@@ -86,15 +87,19 @@ Keeping app dependencies out of the host means:
   image and nowhere else. If another app ever needs it, that app's image
   carries its own.
 
-The same goes for ZOOMRIYA ID and our platform services in zoomriya-apps (the box
-service, maps): each is an image. Backups are the OS's own
-([§6.10](#610-backups)), using the host's `pg_dump`.
+The same goes for our platform services in zoomriya-apps (the box service,
+maps): each is an image. ZOOMRIYA ID is not: it is the OS's own package
+(`zoomriya-id`, built from its repository with its pinned dependencies in a
+venv), because the box makes the first admin in it at the first setup, with
+no apps. Backups are the OS's own ([§6.10](#610-backups)), using the host's
+`pg_dump`.
 
 The box's language model is the exception: its service is part of ZOOMRIYA OS
 (`zoomriya-model`, [Box Desktop §4](box-desktop.md#myira)), so Box Desktop's
 Myira works on a box with no apps. The package carries its own llama.cpp,
 built with the C++ runtime inside, and needs nothing from the host but the C
-library. The apps ask it on `127.0.0.1:8070`, as before.
+library. The apps ask it on its socket, `/run/zoomriya/model.sock`
+([§8.3](#83-sockets-not-ports)).
 
 **Current state.** Photos' API is the only app component currently running in
 an image. The host still has some packages that will move into app images:
@@ -104,15 +109,17 @@ an image. The host still has some packages that will move into app images:
 | Photos' workers, in a venv on the host's `python3` | Photos' image, beside the API |
 | `ffmpeg`, installed with `apt` for the workers | Photos' image (already there); removed from the host |
 | Qdrant, a binary installed by `run_qdrant.sh` | Photos' image, as its own unit from the same image |
-| ZOOMRIYA ID, the box service, Vault, Chat, Tracker, Planner, Myira, in venvs under `/opt/zoomriya/<app>/venv` | One image each |
+| The box service, Vault, Chat, Tracker, Planner, Health, Myira, in venvs under `/opt/zoomriya/<app>/venv` | One image each |
 | The maps tools | The maps image |
 
 Each app will follow the pattern used for Photos. Completing that migration is
 necessary for this design.
 
-**Shared services.** PostgreSQL, Valkey and Caddy remain on the host as Debian
-packages. Apps connect to them over the network rather than linking against
-them, so an update to a shared service does not change an app image. Debian's
+**Shared services.** PostgreSQL and Valkey remain on the host as Debian
+packages. Apps connect to them on their sockets rather than linking against
+them, so an update to a shared service does not change an app image. Caddy,
+the apps' gateway, is not part of ZOOMRIYA OS: it is installed with the apps,
+also as Debian's package. Debian's
 security updates cover these services along with the OS. Their major versions
 change only when the box moves to a new Debian release
 ([§6.6](#66-moving-to-debian-14)); PostgreSQL's database cluster is upgraded
@@ -1137,6 +1144,45 @@ app account.
   OS's own servers, what went out in the last week, and what was blocked.
 - `zoomriya-internet-apply.service` fills the chain at each start and each
   firewall reload, as `zoomriya-ssh-apply` does for SSH.
+
+### 8.3 Sockets, not ports
+
+No service on the box has a TCP port of its own. Each one answers on a Unix
+socket, and the box's services reach each other there. Only what a browser
+or a phone opens listens on TCP.
+
+| Listens on TCP | Port | Who opens it |
+| --- | --- | --- |
+| The apps' gateway (when the apps are installed) | 443, and 80 for the home network | Browsers and phones at home |
+| The apps' gateway, guests' door | 8443 | Guests' album links |
+| Box Desktop | 7443, and 7444 on 127.0.0.1 | Browsers at home; the box's own screen |
+| The installer | 7445 on 127.0.0.1 | The installer's own screen |
+
+| Service | Socket | Who may open it |
+| --- | --- | --- |
+| ZOOMRIYA ID | `/run/zoomriya/id.sock` (`zoomriya-id.socket`) | Every account on the box: it shows nothing the gateway doesn't, and Photos' API, in its own container, can't carry the box's groups |
+| The model service | `/run/zoomriya/model.sock` (`zoomriya-model.socket`) | Every account on the box, as ZOOMRIYA ID's; it answers only a member's ZOOMRIYA ID token, and is never behind the gateway |
+| The model's `llama-server` | `/run/zoomriya-model/llama.sock` | The model service alone (its runtime folder, 0700), behind a key made at each start |
+| Each app's API | `/run/zoomriya/<app>.sock` (zoomriya-apps) | The gateway, the MCP service and Box Desktop (group `zoomriya-app-client`) |
+| The agent | `/run/zoomriya/agent.sock` | root and `zoomriya-box` ([§7](#7-zoomriya-agent)) |
+| PostgreSQL | `/run/postgresql/.s.PGSQL.5432` | Each role with its own password (`scram-sha-256`); `postgres` and `zoomriya-backup` as themselves (peer) |
+| Valkey | `/run/valkey/valkey-server.sock` | Every account on the box, as port 6379 was; the apps' Valkey accounts say who may do what |
+
+- **Addresses.** A service's address names its socket and the path under
+  it: `unix:id.sock:/id/api/v1`. A bare name is in `/run/zoomriya`
+  (`$ZOOMRIYA_SOCKETS` changes it, for development). Go: `lib/localhttp`;
+  Python: zoomriya-id's `zoomriya_identity.local_http`.
+- **Socket units.** systemd makes each socket with its owner and mode before
+  the service starts, and keeps it while the service restarts, so a request
+  waits instead of failing. The services have no network at all where they
+  need none (`IPAddressDeny=any`, the model service `AF_UNIX` only).
+- **At every start** (`zoomriya-services-init`): PostgreSQL gets
+  `listen_addresses = ''` and the table's sign-in rules, Valkey `port 0` and
+  its socket, and ZOOMRIYA ID's settings from before are moved to the
+  sockets. The apps' installer moves theirs (zoomriya-apps'
+  `platform/sockets/setup.sh`).
+- **Checked:** `tests/vm/check.sh` finds nothing listening on 5432, 6379,
+  8050, 8070 or 8071, and each socket where it belongs.
 
 ## 9. Names and versions
 

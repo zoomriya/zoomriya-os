@@ -1,6 +1,7 @@
-// Starting llama.cpp's llama-server with one model, on loopback, behind a
-// key made at each start and known only to this service (passed in its
-// environment, which other accounts can't read, not on its command line).
+// Starting llama.cpp's llama-server with one model, on a socket only this
+// service can open (its own runtime folder, mode 0700), behind a key made at
+// each start and known only to this service (passed in its environment,
+// which other accounts can't read, not on its command line). No TCP port.
 package main
 
 import (
@@ -16,6 +17,8 @@ import (
 	"strconv"
 	"syscall"
 	"time"
+
+	"zoomriya.com/os/localhttp"
 )
 
 // LoadTimeout: how long a model may take to load (E4B on a slow disk).
@@ -27,13 +30,19 @@ func startLlamaServer(cfg Config) Starter {
 		if _, err := rand.Read(key); err != nil {
 			return nil, err
 		}
-		host, port := splitHostPort(cfg.ServerAddr)
+		// A socket left by a llama-server that was killed would stop it binding.
+		_ = os.Remove(cfg.ServerSocket)
+		base, client, err := localhttp.Client("unix:"+cfg.ServerSocket, 0)
+		if err != nil {
+			return nil, err
+		}
 		// Half the cores: the box has other work, and llama.cpp gains little
 		// from hyper-threads.
 		threads := strconv.Itoa(max(1, runtime.NumCPU()/2))
 		args := []string{
 			"--model", model,
-			"--host", host, "--port", port,
+			// A host ending in .sock: llama-server listens on that socket.
+			"--host", cfg.ServerSocket,
 			"--ctx-size", strconv.Itoa(cfg.Context),
 			// On the graphics chip when the box has one (build: Vulkan).
 			"--n-gpu-layers", strconv.Itoa(cfg.GPULayers),
@@ -92,14 +101,15 @@ func startLlamaServer(cfg Config) Starter {
 			}
 		}
 		running := &Running{
-			Base: "http://" + cfg.ServerAddr,
-			Key:  hex.EncodeToString(key),
-			Sees: vision != "",
-			PID:  cmd.Process.Pid,
-			Done: done,
-			Stop: stop,
+			Base:   base,
+			Client: client,
+			Key:    hex.EncodeToString(key),
+			Sees:   vision != "",
+			PID:    cmd.Process.Pid,
+			Done:   done,
+			Stop:   stop,
 		}
-		if err := waitHealthy(running.Base, done, LoadTimeout); err != nil {
+		if err := waitHealthy(running.Base, localhttp.Transport(cfg.ServerSocket), done, LoadTimeout); err != nil {
 			stop()
 			if exit != nil {
 				return nil, fmt.Errorf("%w (%v)", err, exit)
@@ -111,10 +121,10 @@ func startLlamaServer(cfg Config) Starter {
 }
 
 // waitHealthy waits until llama-server says the model is loaded.
-func waitHealthy(base string, done <-chan struct{}, timeout time.Duration) error {
+func waitHealthy(base string, transport http.RoundTripper, done <-chan struct{}, timeout time.Duration) error {
 	ctx, cancel := context.WithTimeout(context.Background(), timeout)
 	defer cancel()
-	client := &http.Client{Timeout: 2 * time.Second}
+	client := &http.Client{Timeout: 2 * time.Second, Transport: transport}
 	tick := time.NewTicker(300 * time.Millisecond)
 	defer tick.Stop()
 	for {
@@ -133,13 +143,4 @@ func waitHealthy(base string, done <-chan struct{}, timeout time.Duration) error
 			}
 		}
 	}
-}
-
-func splitHostPort(addr string) (string, string) {
-	for i := len(addr) - 1; i >= 0; i-- {
-		if addr[i] == ':' {
-			return addr[:i], addr[i+1:]
-		}
-	}
-	return addr, "8071"
 }

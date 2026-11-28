@@ -3,7 +3,7 @@
 How an assistant answers in Box Desktop's Myira panel ([Box Desktop §4](box-desktop.md#myira)).
 The OS's own Myira answers it inside `box-desktopd`; the Myira app, when it is installed
 and on for the admin, answers it with its own API. The panel shows either the same way.
-Nothing of the app's code is shared with the OS: they meet only here, on loopback.
+Nothing of the app's code is shared with the OS: they meet only here, on the model service's socket (`/run/zoomriya/model.sock`).
 
 ## Who answers
 
@@ -13,8 +13,8 @@ Nothing of the app's code is shared with the OS: they meet only here, on loopbac
 | Anything else: not installed, off for this admin, not answering | The OS's own Myira (the box only) |
 
 `box-desktopd` asks before each question, so installing, removing or switching off the
-app changes the panel at once. `{app}` is `http://127.0.0.1:8300/myira/api/v1`
-(`BOX_DESKTOP_MYIRA_APP`).
+app changes the panel at once. `{app}` is `unix:myira.sock:/myira/api/v1`, the
+Myira app's socket (`BOX_DESKTOP_MYIRA_APP`, [design §8.3](design.md#83-sockets-not-ports)).
 
 ## Requests
 

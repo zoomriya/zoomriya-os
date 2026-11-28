@@ -4,15 +4,16 @@
 [Unit]
 Description=Box Desktop
 Documentation=https://github.com/zoomriya/zoomriya-os/blob/main/docs/box-desktop.md
-After=network.target zoomriya-agent.socket zoomriya-id.service zoomriya-certificate.service zoomriya-hostname.service
-Wants=zoomriya-id.service
+After=network.target zoomriya-agent.socket zoomriya-id.socket zoomriya-model.socket zoomriya-certificate.service zoomriya-hostname.service
+Wants=zoomriya-id.socket
 
 [Service]
 User=box-desktop
 Group=box-desktop
 # zoomriya-link: its socket for paired laptops, which connectd opens
 # (/run/zoomriya-link/desktop.sock).
-SupplementaryGroups=zoomriya-box zoomriya-tls zoomriya-connect-api zoomriya-link
+SupplementaryGroups=zoomriya-box zoomriya-tls zoomriya-connect-api zoomriya-link \
+    zoomriya-app-client
 ExecStart=/usr/lib/box-desktop/box-desktopd
 Environment=BOX_DESKTOP_ADMIN_DIR=/data/zoomriya/admin
 # The first setup's progress, so a setup cut short goes on from where it was.

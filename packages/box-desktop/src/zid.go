@@ -10,10 +10,13 @@ import (
 	"encoding/json"
 	"errors"
 	"io"
+	"log"
 	"net/http"
 	"strconv"
 	"strings"
 	"time"
+
+	"zoomriya.com/os/localhttp"
 )
 
 // SessionCookie and TokenCookie are ZOOMRIYA ID's cookies
@@ -66,8 +69,15 @@ type ZoomriyaID struct {
 	Client *http.Client
 }
 
+// NewZoomriyaID: ZOOMRIYA ID at its address (unix:id.sock:/id/api/v1 on the
+// box, over its socket). A broken address is a ZOOMRIYA ID that never answers.
 func NewZoomriyaID(api string) *ZoomriyaID {
-	return &ZoomriyaID{API: strings.TrimRight(api, "/"), Client: &http.Client{Timeout: 15 * time.Second}}
+	base, client, err := localhttp.Client(api, 15*time.Second)
+	if err != nil {
+		log.Printf("ZOOMRIYA ID's address: %v", err)
+		base, client = "http://invalid", &http.Client{Timeout: 15 * time.Second}
+	}
+	return &ZoomriyaID{API: base, Client: client}
 }
 
 type idAnswer struct {

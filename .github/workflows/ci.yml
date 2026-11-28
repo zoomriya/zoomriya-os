@@ -15,20 +15,21 @@ permissions:
 # apart from this.
 jobs:
   go:
-    name: Go (${{ matrix.package }})
+    name: Go (${{ matrix.module }})
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        package: [zoomriya-agent, zoomriya-model, zoomriya-weather]
+        # lib/localhttp: the sockets the model service and Box Desktop use.
+        module: [packages/zoomriya-agent/src, packages/zoomriya-model/src, packages/zoomriya-weather/src, lib/localhttp]
     defaults:
       run:
-        working-directory: packages/${{ matrix.package }}/src
+        working-directory: ${{ matrix.module }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
         with:
-          go-version-file: packages/${{ matrix.package }}/src/go.mod
+          go-version-file: ${{ matrix.module }}/go.mod
           # Standard library only: nothing to cache.
           cache: false
       - name: Format

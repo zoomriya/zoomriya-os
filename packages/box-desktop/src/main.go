@@ -50,7 +50,8 @@ type Config struct {
 	// box, "" (https://<the box's name>/<app>/).
 	AppBase string
 	// MyiraApp: the Myira app's API, when installed (the assistant contract);
-	// ModelAPI: the box's model service (zoomriya-model). Both on loopback.
+	// ModelAPI: the box's model service (zoomriya-model). Both on their
+	// sockets, as ZOOMRIYA ID is (localhttp's unix: addresses).
 	MyiraApp string
 	ModelAPI string
 	// Connect: connectd's API socket (connect.go): paired devices.
@@ -73,7 +74,7 @@ func configFromEnv() Config {
 		ScreenAddr:   env("BOX_DESKTOP_SCREEN", "127.0.0.1:7444"),
 		CertsDir:     env("BOX_DESKTOP_CERTS", "/etc/zoomriya/tls/certs"),
 		AdminDir:     env("BOX_DESKTOP_ADMIN_DIR", "/data/zoomriya/admin"),
-		IDAPI:        env("BOX_DESKTOP_ID_API", "http://127.0.0.1:8050/id/api/v1"),
+		IDAPI:        env("BOX_DESKTOP_ID_API", "unix:id.sock:/id/api/v1"),
 		Agent:        env("BOX_DESKTOP_AGENT", "/run/zoomriya/agent.sock"),
 		Web:          os.Getenv("BOX_DESKTOP_WEB"),
 		Insecure:     os.Getenv("BOX_DESKTOP_INSECURE") == "1",
@@ -82,8 +83,8 @@ func configFromEnv() Config {
 		AppBase:      os.Getenv("BOX_DESKTOP_APP_BASE"),
 		SetupDone:    env("BOX_DESKTOP_SETUP_DONE", "/var/lib/zoomriya-os/setup-done"),
 		StateDir:     env("STATE_DIRECTORY", "/var/lib/box-desktop"),
-		MyiraApp:     env("BOX_DESKTOP_MYIRA_APP", "http://127.0.0.1:8300/myira/api/v1"),
-		ModelAPI:     env("BOX_DESKTOP_MODEL_API", "http://127.0.0.1:8070/myira/api/v1"),
+		MyiraApp:     env("BOX_DESKTOP_MYIRA_APP", "unix:myira.sock:/myira/api/v1"),
+		ModelAPI:     env("BOX_DESKTOP_MODEL_API", "unix:model.sock:/myira/api/v1"),
 		Connect:      env("BOX_DESKTOP_CONNECT", "/run/zoomriya-connect/api.sock"),
 		LaptopSocket: env("BOX_DESKTOP_LAPTOP", "/run/zoomriya-link/desktop.sock"),
 	}
