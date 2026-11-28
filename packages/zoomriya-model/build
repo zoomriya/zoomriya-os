@@ -8,7 +8,7 @@
 # variant ggml has, so one package runs on whatever box it's installed on
 # and uses what that box's processor can do, and the Vulkan backend
 # (libggml-vulkan.so), loaded only when the box has a graphics chip that
-# works with it (the Ryzen box's Radeon 780M, through Debian's Mesa drivers):
+# works with it (the Ryzen box's Radeon 760M, through Debian's Mesa drivers):
 # reading a prompt there is several times faster than on the CPU. Without
 # one, llama-server runs on the CPU as before. The C++ runtime is built in.
 #
