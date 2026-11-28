@@ -274,11 +274,18 @@ check "display kept for the box" "output Virtual-1 mode 1280x800@60.000Hz scale 
 # is still starting makes sway give up for a few seconds, then systemd starts
 # it again: so wait for the window, and give it time for that).
 screen_up() { for _ in $(seq 1 60); do pgrep -u box-desktop -f box-desktop-screen >/dev/null && return 0; sleep 1; done; return 1; }
-screen_up || true
-systemctl restart box-desktop-screen.service
-screen_up || true
-check "the screen starts as kept" "output Virtual-1 mode 1280x800@60.000Hz scale 1 transform normal" \
-    "$(grep '^output' "/run/user/$(id -u box-desktop)/sway.conf" 2>&1)"
+# The second boot runs Debian's cloud kernel, the stand-in for a kernel update
+# (installed at the end of the first boot): it has no graphics drivers, so no screen to
+# draw on. A box only ever gets the standard kernel.
+standin_kernel=no
+case "$(uname -r)" in *-cloud-*) standin_kernel=yes ;; esac
+if [ "$standin_kernel" = no ]; then
+    screen_up || true
+    systemctl restart box-desktop-screen.service
+    screen_up || true
+    check "the screen starts as kept" "output Virtual-1 mode 1280x800@60.000Hz scale 1 transform normal" \
+        "$(grep '^output' "/run/user/$(id -u box-desktop)/sway.conf" 2>&1)"
+fi
 setpriv --reuid=box-desktop --regid=box-desktop --init-groups "$agent" ask \
     '{"op": "display-set", "by": "test", "output": "Virtual-1", "action": "forget"}' >/dev/null 2>&1
 check "display forgotten" "" "$(grep '^output' /etc/zoomriya/display.conf 2>&1)"
@@ -286,12 +293,28 @@ check "display forgotten" "" "$(grep '^output' /etc/zoomriya/display.conf 2>&1)"
 check "Box Desktop's screen has WebKit" ok "$(setpriv --reuid=box-desktop --regid=box-desktop \
     --init-groups python3 -c 'import gi; gi.require_version("WebKit", "6.0")
 from gi.repository import WebKit; print("ok")' 2>&1 | tail -1)"
-if screen_up; then
+if [ "$standin_kernel" = yes ]; then
+    echo "INFO the box's screen isn't checked on the stand-in kernel ($(uname -r)): it has no graphics drivers"
+elif screen_up; then
     pass "the box's screen shows Box Desktop"
 else
     fail "the box's screen shows Box Desktop" "box-desktop-screen isn't running"
-    # Why, for the log: the screen's last lines.
-    journalctl -b -u box-desktop-screen.service -n 25 --no-pager 2>&1 | sed 's/^/INFO screen: /'
+    # Why, for the log: the screen's last lines, logind's sessions and seat,
+    # and everything the system said in the last minute (sway, logind, the
+    # kernel's DRM).
+    {
+        journalctl -b -u box-desktop-screen.service -n 12 --no-pager
+        loginctl list-sessions --no-legend
+        loginctl show-seat seat0 -p ActiveSession -p CanGraphical
+        # The graphics side: the DRM devices, the seat's devices, the kernel.
+        ls -l /dev/dri
+        loginctl seat-status seat0 --no-pager | head -40
+        for card in /dev/dri/card*; do udevadm info -q property "$card" | grep -E '^(TAGS|CURRENT_TAGS|ID_SEAT|ID_PATH)='; done
+        cat /proc/cmdline
+        lsmod | grep -iE 'drm|bochs|virtio_gpu|simpledrm'
+        journalctl -b -k --no-pager | grep -iE 'drm|bochs|simpledrm|fb0|vga' | head -20
+        journalctl -b --since "-60s" --no-pager -o short-monotonic | grep -v -e pam_unix -e 'check.sh' | tail -n 60
+    } 2>&1 | sed 's/^/INFO screen: /'
 fi
 # Storage Manager › Backups and Appearance's Add Picture ask the agent.
 setpriv --reuid=box-desktop --regid=box-desktop --init-groups "$agent" ask \
